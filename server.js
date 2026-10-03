@@ -129,9 +129,19 @@ function newCode() {
   return code;
 }
 
-function createRoom() {
+// パスワードはそのまま持たず、部屋ごとの塩を混ぜたハッシュだけを持つ
+const hashPassword = (salt, pw) => crypto.createHash('sha256').update(salt + '\u0000' + pw).digest('hex');
+const cleanRoomName = n => String(n || '').replace(/[\u0000-\u001f]/g, '').trim().slice(0, 20);
+const cleanPassword = p => String(p || '').slice(0, 32);
+
+function createRoom({ roomName, password } = {}) {
+  const pw = cleanPassword(password);
+  const salt = crypto.randomBytes(8).toString('hex');
   const room = {
     code: newCode(),
+    name: cleanRoomName(roomName),
+    salt,
+    passwordHash: pw ? hashPassword(salt, pw) : null,
     hostId: null,
     settings: { ...DEFAULTS },
     players: new Map(), // token -> player
@@ -144,11 +154,39 @@ function createRoom() {
   return room;
 }
 
+// ── 部屋一覧（ホーム画面用）。誰もいない部屋は出さない ──
+function roomList() {
+  return [...rooms.values()]
+    .filter(r => connectedPlayers(r).length > 0)
+    .map(r => {
+      const host = [...r.players.values()].find(p => p.id === r.hostId);
+      return {
+        code: r.code,
+        name: r.name || `${host?.name || 'ゲスト'}の部屋`,
+        host: host?.name || '',
+        players: connectedPlayers(r).length,
+        max: r.settings.maxPlayers,
+        state: r.state === 'playing' ? 'playing' : 'lobby',
+        locked: !!r.passwordHash,
+        yearFrom: r.settings.yearFrom, yearTo: r.settings.yearTo,
+        answerMode: r.settings.answerMode, mode: r.settings.mode, questions: r.settings.questions,
+      };
+    })
+    .sort((a, b) => (a.state === 'lobby' ? 0 : 1) - (b.state === 'lobby' ? 0 : 1) || b.players - a.players);
+}
+let roomListTimer = null;
+function pushRoomList() {
+  if (roomListTimer) return;
+  roomListTimer = setTimeout(() => { roomListTimer = null; io.to('home').emit('rooms', roomList()); }, 300);
+}
+
 // 外に出す情報（token は席の鍵なので出さない）
 function publicRoom(room) {
   const q = room.game?.q;
   return {
     code: room.code,
+    name: room.name,
+    locked: !!room.passwordHash,
     hostId: room.hostId,
     settings: room.settings,
     poolSize: poolFor(room.settings).length,
@@ -164,7 +202,7 @@ function publicRoom(room) {
     })),
   };
 }
-const broadcastRoom = room => io.to(room.code).emit('room', publicRoom(room));
+const broadcastRoom = room => { io.to(room.code).emit('room', publicRoom(room)); pushRoomList(); };
 
 function connectedPlayers(room) { return [...room.players.values()].filter(p => p.connected); }
 
@@ -460,17 +498,29 @@ io.on('connection', socket => {
     return { ok: true, code: r.code, you: p.id, room: publicRoom(r) };
   }
 
-  socket.on('create', ({ token, name } = {}, ack) => {
+  socket.on('create', ({ token, name, roomName, password } = {}, ack) => {
     if (typeof ack !== 'function' || typeof token !== 'string' || token.length < 8) return;
-    ack(enter(createRoom(), token, cleanName(name)));
+    socket.leave('home');
+    ack(enter(createRoom({ roomName, password }), token, cleanName(name)));
   });
 
-  socket.on('join', ({ code, token, name } = {}, ack) => {
+  socket.on('join', ({ code, token, name, password } = {}, ack) => {
     if (typeof ack !== 'function' || typeof token !== 'string' || token.length < 8) return;
     const r = rooms.get(String(code || '').toUpperCase().trim());
     if (!r) return ack({ ok: false, error: '部屋が見つかりません' });
+    // パスワード付きの部屋：一度入った人（同じ席）の再接続は聞き直さない
+    if (r.passwordHash && !r.players.has(token)) {
+      const pw = cleanPassword(password);
+      if (!pw) return ack({ ok: false, needPassword: true, error: 'パスワードを入力してください' });
+      if (hashPassword(r.salt, pw) !== r.passwordHash) return ack({ ok: false, needPassword: true, wrongPassword: true, error: 'パスワードが違います' });
+    }
+    socket.leave('home');
     ack(enter(r, token, cleanName(name)));
   });
+
+  // ホーム画面の部屋一覧
+  socket.on('watchRooms', () => { socket.join('home'); socket.emit('rooms', roomList()); });
+  socket.on('unwatchRooms', () => socket.leave('home'));
 
   const isHost = () => room && player && room.hostId === player.id;
 
@@ -555,7 +605,7 @@ io.on('connection', socket => {
 // 空き部屋の掃除
 setInterval(() => {
   const now = Date.now();
-  for (const [code, r] of rooms) if (r.emptySince && now - r.emptySince > ROOM_TTL) rooms.delete(code);
+  for (const [code, r] of rooms) if (r.emptySince && now - r.emptySince > ROOM_TTL) { rooms.delete(code); pushRoomList(); }
 }, 60 * 1000);
 
 server.listen(PORT, () => console.log(`イントロクイズ対戦サーバー起動: http://localhost:${PORT} （曲 ${SONGS.length} 件）`));

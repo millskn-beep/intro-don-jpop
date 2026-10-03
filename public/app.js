@@ -41,39 +41,126 @@ $('volume').value = store.get('aq-vol') || 80;
 player.setVolume(+$('volume').value);
 $('volume').oninput = e => { player.setVolume(+e.target.value); store.set('aq-vol', e.target.value); };
 
+// ── パスワードの保存（このブラウザだけ）──
+// 入れたパスワードを部屋の合言葉ごとと部屋名ごとに覚えておき、次からは自動で使う
+const passKey = { code: c => 'aq-pass:' + c, name: n => 'aq-pass-name:' + n };
+function savedPassword(r) { return store.get(passKey.code(r.code)) || (r.name ? store.get(passKey.name(r.name)) : null) || ''; }
+function savePassword(r, pw) {
+  if (!pw) return;
+  store.set(passKey.code(r.code), pw);
+  if (r.name) store.set(passKey.name(r.name), pw);
+}
+function forgetPassword(r) {
+  try { localStorage.removeItem(passKey.code(r.code)); if (r.name) localStorage.removeItem(passKey.name(r.name)); } catch (e) {}
+}
+$('roomPassInput').value = store.get('aq-host-pass') || '';
+$('roomNameInput').value = store.get('aq-room-name') || '';
+
 // ── ホーム ──
-function enter(event, payload) {
+function myName(errEl) {
   const name = $('nameInput').value.trim();
-  if (!name) { $('homeError').textContent = '名前を入れてください'; return; }
+  if (!name) { (errEl || $('homeError')).textContent = '名前を入れてください'; $('nameInput').focus(); return null; }
   store.set('aq-name', name);
+  return name;
+}
+function createRoom() {
+  const name = myName(); if (!name) return;
+  const roomName = $('roomNameInput').value.trim(), password = $('roomPassInput').value;
+  store.set('aq-room-name', roomName); store.set('aq-host-pass', password);
   player.prime(WARMUP_VIDEO); // タップの中で一度再生して、スマホの音声制限を解除する
-  socket.emit(event, { ...payload, token, name }, res => {
+  socket.emit('create', { token, name, roomName, password }, res => {
     if (!res.ok) { $('homeError').textContent = res.error; return; }
+    savePassword({ code: res.code, name: res.room.name }, password);
     joined(res);
   });
 }
-$('createBtn').onclick = () => enter('create', {});
-$('joinBtn').onclick = () => enter('join', { code: $('codeInput').value });
+// info: 一覧の部屋情報（code, name, locked）。onNeedPassword: パスワード入力を出す関数
+function joinRoom(info, password, errEl, onNeedPassword) {
+  const name = myName(errEl); if (!name) return;
+  player.prime(WARMUP_VIDEO);
+  const pw = password ?? savedPassword(info);
+  socket.emit('join', { code: info.code, token, name, password: pw }, res => {
+    if (res.ok) { savePassword({ code: res.code, name: res.room.name }, pw); joined(res); return; }
+    if (res.needPassword) {
+      if (res.wrongPassword && password == null) forgetPassword(info); // 保存していたものが古かった
+      if (onNeedPassword) { onNeedPassword(res.wrongPassword && password != null ? res.error : ''); return; }
+    }
+    (errEl || $('homeError')).textContent = res.error;
+  });
+}
+$('createBtn').onclick = createRoom;
+$('joinBtn').onclick = () => {
+  const code = $('codeInput').value.trim().toUpperCase();
+  joinRoom({ code }, undefined, null, msg => {
+    const pw = window.prompt((msg ? msg + '\n' : '') + 'この部屋のパスワードを入力してください');
+    if (pw != null) joinRoom({ code }, pw);
+  });
+};
 $('codeInput').onkeydown = e => { if (e.key === 'Enter') $('joinBtn').click(); };
+
+// ── 部屋一覧 ──
+let roomsCache = [], listFilter = 'all';
+socket.on('rooms', list => { roomsCache = list; renderRoomList(); });
+$('listFilter').querySelectorAll('button').forEach(b => b.onclick = () => {
+  listFilter = b.dataset.f;
+  $('listFilter').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+  renderRoomList();
+});
+const ANSWER_LABEL = { choice: '選択肢', input: '入力' }, MODE_LABEL = { score: 'スコア制', buzz: '早押し' };
+function renderRoomList() {
+  const list = roomsCache.filter(r => listFilter === 'all' || r.state === listFilter);
+  $('roomCount').textContent = roomsCache.length ? `（${roomsCache.length}）` : '';
+  if (!list.length) { $('roomList').innerHTML = `<li class="empty">${roomsCache.length ? '該当する部屋はありません' : 'いま開いている部屋はありません。部屋を立ててみましょう'}</li>`; return; }
+  $('roomList').innerHTML = list.map(r => {
+    const full = r.players >= r.max;
+    const state = full ? ['full', '満員'] : r.state === 'playing' ? ['playing', '対戦中'] : ['lobby', '募集中'];
+    const years = r.yearFrom <= 1980 && r.yearTo >= 2029 ? '全年代' : `${r.yearFrom}〜${Math.min(r.yearTo, new Date().getFullYear())}年`;
+    return `<li class="room-card" data-code="${esc(r.code)}">
+      <div class="rc-top"><span class="rc-state ${state[0]}">${state[1]}</span><span class="rc-name">${r.locked ? '🔒 ' : ''}${esc(r.name)}</span></div>
+      <div class="rc-meta"><span>👤 ${r.players}/${r.max}</span><span>HOST ${esc(r.host)}</span><span>${r.questions}問</span><span>${ANSWER_LABEL[r.answerMode] || ''}・${MODE_LABEL[r.mode] || ''}</span><span>${years}</span></div>
+      <div class="rc-join"><button class="btn-main" ${full ? 'disabled' : ''}>${r.state === 'playing' ? '途中から参加' : '入る'}</button></div>
+      <p class="rc-err"></p>
+    </li>`;
+  }).join('');
+  $('roomList').querySelectorAll('.room-card').forEach(card => {
+    const info = roomsCache.find(r => r.code === card.dataset.code);
+    const err = card.querySelector('.rc-err');
+    card.querySelector('.rc-join .btn-main').onclick = () => joinRoom(info, undefined, err, msg => askPassword(card, info, msg));
+  });
+}
+// パスワード付きの部屋：カードの中に入力欄を出す
+function askPassword(card, info, msg) {
+  const box = card.querySelector('.rc-join'), err = card.querySelector('.rc-err');
+  box.innerHTML = `<input type="password" maxlength="32" placeholder="パスワード" autocomplete="off"><button class="btn-main">入る</button>`;
+  err.textContent = msg || '';
+  const input = box.querySelector('input'); input.focus();
+  const go = () => { if (input.value) joinRoom(info, input.value, err, m => { err.textContent = m || 'パスワードが違います'; input.select(); }); };
+  box.querySelector('button').onclick = go;
+  input.onkeydown = e => { if (e.key === 'Enter' && !e.isComposing) go(); };
+}
 
 function joined(res) {
   me = res.you;
   store.set('aq-room', res.code);
   history.replaceState(null, '', '?room=' + res.code);
-  $('home').hidden = true; $('room').hidden = false;
+  socket.emit('unwatchRooms');
+  $('home').hidden = true; $('roomListPanel').hidden = true; $('room').hidden = false;
   $('roomCode').hidden = false; $('roomCode').textContent = res.code;
   $('inviteUrl').value = location.origin + location.pathname + '?room=' + res.code;
   renderRoom(res.room);
 }
 
-// 再接続：同じ部屋・同じ席に戻る
+// 接続したら：部屋にいれば同じ席に戻る。ホームなら部屋一覧を受け取る
 socket.on('connect', () => {
   const code = me ? store.get('aq-room') : null;
-  if (code) socket.emit('join', { code, token, name: store.get('aq-name') }, res => res.ok ? joined(res) : leaveToHome(res.error));
+  if (code) socket.emit('join', { code, token, name: store.get('aq-name'), password: store.get(passKey.code(code)) || '' },
+    res => res.ok ? joined(res) : leaveToHome(res.error));
+  else socket.emit('watchRooms');
 });
 function leaveToHome(msg) {
-  me = null; $('room').hidden = true; $('home').hidden = false; $('roomCode').hidden = true;
+  me = null; $('room').hidden = true; $('home').hidden = false; $('roomListPanel').hidden = false; $('roomCode').hidden = true;
   $('homeError').textContent = msg || '';
+  socket.emit('watchRooms');
 }
 
 $('copyBtn').onclick = async () => {

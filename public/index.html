@@ -24,12 +24,29 @@
   <section id="home" class="panel hero">
     <p class="tagline">イントロが流れたら、誰よりも早く答えよう。</p>
     <label>名前<input id="nameInput" maxlength="12" placeholder="ニックネーム"></label>
+    <div class="create-row">
+      <label>部屋名（任意）<input id="roomNameInput" maxlength="20" placeholder="〇〇の部屋"></label>
+      <label>パスワード（任意）<input id="roomPassInput" maxlength="32" placeholder="なしなら誰でも入れます" autocomplete="off"></label>
+    </div>
     <button class="btn-main" id="createBtn">部屋を立てる</button>
     <div class="join-row">
       <input id="codeInput" maxlength="6" placeholder="合言葉（6文字）" autocapitalize="characters">
       <button class="btn-sub" id="joinBtn">入る</button>
     </div>
     <p class="error" id="homeError"></p>
+  </section>
+
+  <!-- 部屋一覧 -->
+  <section id="roomListPanel" class="panel">
+    <div class="list-head">
+      <h3>公開中の部屋 <span id="roomCount"></span></h3>
+      <div class="list-filter" id="listFilter">
+        <button class="btn-sub on" data-f="all">すべて</button>
+        <button class="btn-sub" data-f="lobby">募集中</button>
+        <button class="btn-sub" data-f="playing">対戦中</button>
+      </div>
+    </div>
+    <ul class="room-list" id="roomList"></ul>
   </section>
 
   <!-- 部屋 -->

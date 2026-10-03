@@ -31,6 +31,9 @@ app.use(express.json({ limit: '2mb' }));
 // 書き込みは、このPCから開いたとき（localhost）か、環境変数 ADMIN_KEY と同じキーを付けたときだけ許可
 function canEdit(req) {
   if (process.env.ADMIN_KEY) return req.get('x-admin-key') === process.env.ADMIN_KEY;
+  // Render などの公開サーバーでは、外からのアクセスも中継（プロキシ）経由で 127.0.0.1 に見える。
+  // そのため、公開サーバー上や、中継を通ってきたアクセスは常に保存不可にする。
+  if (process.env.RENDER || req.get('x-forwarded-for') || req.get('forwarded')) return false;
   const ip = req.socket.remoteAddress || '';
   return ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
 }

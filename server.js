@@ -48,7 +48,7 @@ app.post('/api/songs', (req, res) => {
   if (!valid) return res.status(400).json({ error: '曲データの形式が正しくありません' });
 
   // 画面で編集する項目だけを曲IDごとに上書きする（画面を開いた後にCSVから取り込んだ曲を消さないため）
-  const EDITABLE = ['intro', 'chorus', 'aliases', 'embeddable', 'error', 'checkedAt', 'checkedOrigin'];
+  const EDITABLE = ['intro', 'chorus', 'aliases', 'embeddable', 'error', 'checkedAt', 'checkedOrigin', 'introMeasured'];
   loadSongs();
   const byId = new Map(ALL_SONGS.map(s => [s.id, s]));
   let changed = 0;
@@ -74,6 +74,7 @@ const OPTIONS = {
   introLen: [3, 5, 10, 15],
   hintAt: [5, 10, 15, 20],
   chorusLen: [10, 15, 20],
+  typingExtra: [5, 10, 15, 20, 30],
   questions: [5, 10, 20, 30],
   mode: ['score', 'buzz'],
   answerMode: ['choice', 'input'],
@@ -86,7 +87,7 @@ const randomTheme = () => THEMES[crypto.randomInt(THEMES.length)];
 // 設定が「ランダム」ならゲームごとに選び直す。固定テーマならそれを使う
 function pickTheme(room) { room.theme = room.settings.theme === 'random' ? randomTheme() : room.settings.theme; }
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
-                   yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, theme: 'random' }; // ライフラインは使わない（画面からも外した）
+                   yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, theme: 'random', typingExtra: 10 }; // ライフラインは使わない（画面からも外した）
 const LIFELINES = ['fifty', 'audience', 'phone', 'replay']; // 50:50 / オーディエンス / テレフォン / もう一度聴く
 const NEAR_YEARS = 5; // 選択肢は、まず出題曲の前後この年数以内の曲から選ぶ
 const READY_TIMEOUT = 4000;      // 全員の読み込みを待つ上限
@@ -277,7 +278,7 @@ function resendQuestion(room, socket, token) {
   socket.emit('question', questionPayload(room));
   if (q.phase === 'intro' || q.phase === 'chorus') {
     const offset = (Date.now() - q.t0) / 1000;
-    socket.emit('go', { intro: q.song.intro || 0, hintAt: S.hintAt, total: S.hintAt + S.chorusLen, offset,
+    socket.emit('go', { intro: q.song.intro || 0, hintAt: S.hintAt, total: questionTotal(S), offset,
                         introLen: S.introLen });
     if (q.phase === 'chorus') socket.emit('hint', { chorus: chorusOf(q.song) });
   }
@@ -285,6 +286,14 @@ function resendQuestion(room, socket, token) {
   (q.lifelineResults.get(token) || []).forEach(r => socket.emit('lifelineResult', r));
   const a = q.answers.get(token);
   if (a) socket.emit('answered', { index: a.index, given: a.given, pass: a.pass });
+}
+
+// 1問の制限時間（秒）。入力で答えるときは、ヒント3が出てから最低 typingExtra 秒は答えられるよう延ばす
+function questionTotal(S) {
+  const base = S.hintAt + S.chorusLen;
+  if (S.answerMode !== 'input' || !S.clues) return base;
+  const clue3At = S.hintAt + S.chorusLen * 2 / 3;
+  return Math.max(base, clue3At + S.typingExtra);
 }
 
 function chorusOf(song) { return song.chorus > 0 ? song.chorus : (song.intro || 0) + 50; }
@@ -296,7 +305,7 @@ function go(room) {
   const S = room.settings;
   q.phase = 'intro';
   q.t0 = Date.now();
-  io.to(room.code).emit('go', { intro: q.song.intro || 0, hintAt: S.hintAt, total: S.hintAt + S.chorusLen });
+  io.to(room.code).emit('go', { intro: q.song.intro || 0, hintAt: S.hintAt, total: questionTotal(S) });
   if (S.introLen < S.hintAt) later(room, () => { if (q.phase === 'intro') io.to(room.code).emit('stopIntro'); }, S.introLen * 1000);
   later(room, () => {
     if (q.phase !== 'intro') return;
@@ -311,7 +320,7 @@ function go(room) {
       io.to(room.code).emit('clue', c);
     }, (S.hintAt + S.chorusLen * i / 3) * 1000));
   }
-  later(room, () => reveal(room), (S.hintAt + S.chorusLen) * 1000);
+  later(room, () => reveal(room), questionTotal(S) * 1000);
   broadcastRoom(room);
 }
 
@@ -341,7 +350,7 @@ function onAnswer(room, player, payload) {
   let points = 0;
   if (correct) {
     if (S.mode === 'score') {
-      const base = Math.round(100 + 900 * Math.max(0, 1 - elapsed / (S.hintAt + S.chorusLen)));
+      const base = Math.round(100 + 900 * Math.max(0, 1 - elapsed / questionTotal(S)));
       points = hint ? Math.round(base / 2) : base;
     } else if (!q.winner) {
       points = hint ? 1 : 2;

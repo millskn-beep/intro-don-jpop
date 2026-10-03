@@ -88,6 +88,7 @@ const SETTING_OPTIONS = {
   introLen: [3, 5, 10, 15].map(n => [n, n + '秒']),
   hintAt: [5, 10, 15, 20].map(n => [n, n + '秒後']),
   chorusLen: [10, 15, 20].map(n => [n, n + '秒']),
+  typingExtra: [5, 10, 15, 20, 30].map(n => [n, '最低 ' + n + '秒']),
   maxPlayers: Array.from({ length: 11 }, (_, i) => [i + 2, (i + 2) + '人']),
   yearFrom: Array.from({ length: 50 }, (_, i) => [1980 + i, (1980 + i) + '年']),
   yearTo: Array.from({ length: 50 }, (_, i) => [1980 + i, (1980 + i) + '年']),
@@ -218,6 +219,7 @@ socket.on('go', ({ intro, hintAt, total, offset = 0, introLen }) => {
     if (isInput() && !offset) $('answerInput').focus();
   }
   updateLifelineButtons();
+  $('barMark').style.left = (hintAt / total * 100) + '%';
   stopTick();
   timerStart = performance.now() - offset * 1000;
   tick = setInterval(() => {

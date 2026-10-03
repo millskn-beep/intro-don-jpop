@@ -57,6 +57,8 @@
       </div>
       <div class="toolbar" style="margin-top:8px">
         <button class="btn-sub" id="checkAll">未チェックの曲を自動で再生チェック</button>
+        <button class="btn-sub" id="measureAll" title="タブの音声を共有して、各曲の音が鳴り始める秒数を測り、イントロ開始秒にします">無音カット（音の始まりを計測）</button>
+        <button class="btn-sub" id="measureStop" hidden>計測を止める</button>
         <span class="summary" id="progress"></span>
       </div>
       <div class="summary" id="summary"></div>
@@ -270,6 +272,92 @@ function probe(id) {
       if (loadedAt && now - loadedAt > GRACE_MS) { clearInterval(timer); resolve({ ok: true }); return; }
       if (now - t0 > CHECK_TIMEOUT) { clearInterval(timer); resolve({ ok: false, error: null }); } // 判定できず＝未チェックのまま
     }, 100);
+  });
+}
+
+// ── 無音カット：音が鳴り始める秒数を測ってイントロ開始秒にする ──
+// YouTube の埋め込みからは音量を読めないので、このタブの音声を共有してもらい、その音の大きさを測る。
+// 音声はその場で大きさを測るだけで、保存も送信もしない。
+const ONSET_DB = -45;          // これより大きければ「鳴っている」とみなす
+const ONSET_HOLD_MS = 150;     // この時間続いたら鳴り始めと判定（ノイズ対策）
+const ONSET_MARGIN = 0.3;      // 最初の音が欠けないよう、少し手前から流す
+const MEASURE_MAX_SEC = 25;    // 動画のこの秒数までに鳴らなければあきらめる
+const MEASURE_RATE = 2;        // 2倍速で再生して時間を短縮
+let measuring = false, stopMeasure = false;
+
+$('measureStop').onclick = () => { stopMeasure = true; };
+$('measureAll').onclick = async () => {
+  if (!ready || measuring || checking) return;
+  const targets = songs.filter(s => s.embeddable !== false && !s.introMeasured && !(s.intro > 0));
+  if (!targets.length) { toast('計測が必要な曲はありません'); return; }
+  let stream;
+  try {
+    stream = await navigator.mediaDevices.getDisplayMedia({
+      video: true, audio: true, preferCurrentTab: true, selfBrowserSurface: 'include', systemAudio: 'include',
+    });
+  } catch (e) { toast('共有が取り消されました'); return; }
+  if (!stream.getAudioTracks().length) {
+    stream.getTracks().forEach(t => t.stop());
+    toast('音声が共有されていません。「このタブ」を選び、「タブの音声も共有する」をオンにしてください');
+    return;
+  }
+  stream.getVideoTracks().forEach(t => t.stop()); // 映像は使わない
+  const ctx = new AudioContext();
+  const analyser = ctx.createAnalyser();
+  analyser.fftSize = 1024;
+  ctx.createMediaStreamSource(stream).connect(analyser);
+  const buf = new Float32Array(analyser.fftSize);
+  const levelDb = () => {
+    analyser.getFloatTimeDomainData(buf);
+    let sum = 0; for (const v of buf) sum += v * v;
+    return 10 * Math.log10(sum / buf.length + 1e-12);
+  };
+
+  measuring = true; stopMeasure = false;
+  $('measureAll').disabled = true; $('checkAll').disabled = true; $('measureStop').hidden = false;
+  let done = 0, changed = 0, silent = [];
+  player.unMute(); player.setVolume(100);
+  for (const s of targets) {
+    if (stopMeasure) break;
+    $('progress').textContent = `計測中 ${done + 1} / ${targets.length}：${s.title}`;
+    const onset = await measureOnset(s.id, levelDb);
+    if (onset == null) silent.push(s.title);
+    else {
+      const intro = Math.max(0, Math.round((onset - ONSET_MARGIN) * 10) / 10);
+      if (intro !== (s.intro || 0)) changed++;
+      s.intro = intro;
+      s.introMeasured = true;
+      markDirty();
+    }
+    done++;
+  }
+  player.setPlaybackRate(1); player.stopVideo();
+  stream.getTracks().forEach(t => t.stop()); ctx.close();
+  measuring = false;
+  $('measureAll').disabled = false; $('checkAll').disabled = false; $('measureStop').hidden = true;
+  $('progress').textContent = `計測 ${done} 曲（イントロ秒が変わった曲 ${changed}）` +
+    (silent.length ? `／音を検出できなかった曲：${silent.join('、')}` : '') + '。保存ボタンで書き込みます';
+};
+
+function measureOnset(id, levelDb) {
+  return new Promise(resolve => {
+    player.loadVideoById({ videoId: id, startSeconds: 0 });
+    player.setPlaybackRate(MEASURE_RATE);
+    const t0 = Date.now();
+    let loudSince = 0, firstLoudAt = null;
+    const timer = setInterval(() => {
+      if (stopMeasure) { clearInterval(timer); resolve(null); return; }
+      if (player.getPlayerState() !== YT.PlayerState.PLAYING) {
+        if (Date.now() - t0 > 15000) { clearInterval(timer); resolve(null); } // 再生が始まらない
+        return;
+      }
+      const now = player.getCurrentTime();
+      if (levelDb() > ONSET_DB) {
+        if (!loudSince) { loudSince = Date.now(); firstLoudAt = now; }
+        if (Date.now() - loudSince >= ONSET_HOLD_MS / MEASURE_RATE) { clearInterval(timer); resolve(firstLoudAt); }
+      } else { loudSince = 0; }
+      if (now > MEASURE_MAX_SEC) { clearInterval(timer); resolve(null); }
+    }, 25);
   });
 }
 

@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+.claude/
+# 生成した元画像（15MB）は公開しない。tools/gen-assets.js で作り直せる
+data/assets-src/
+data/songs.backup.json
+data/songs.json.tmp

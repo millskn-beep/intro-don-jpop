@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja" data-theme="neon">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アニソンイントロ対戦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=M+PLUS+Rounded+1c:wght@500;800&family=Shippori+Mincho+B1:wght@800&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="backdrop" aria-hidden="true"></div>
+<main>
+  <header class="top">
+    <div class="brand">
+      <img class="emblem" id="emblem" alt="">
+      <h1 class="logo"><small>ANISONG INTRO</small>アニソン<em>イントロ</em>対戦</h1>
+    </div>
+    <span class="code" id="roomCode" hidden></span>
+  </header>
+
+  <!-- ホーム -->
+  <section id="home" class="panel hero">
+    <p class="tagline">イントロが流れたら、誰よりも早く答えよう。</p>
+    <label>名前<input id="nameInput" maxlength="12" placeholder="ニックネーム"></label>
+    <button class="btn-main" id="createBtn">部屋を立てる</button>
+    <div class="join-row">
+      <input id="codeInput" maxlength="6" placeholder="合言葉（6文字）" autocapitalize="characters">
+      <button class="btn-sub" id="joinBtn">入る</button>
+    </div>
+    <p class="error" id="homeError"></p>
+  </section>
+
+  <!-- 部屋 -->
+  <section id="room" hidden>
+    <div class="panel stage">
+      <div class="screen"><div id="player"></div><div class="cover" id="cover"><span>?</span></div></div>
+      <div class="status">
+        <div class="status-top">
+          <span class="phase" id="phase">待機中</span>
+          <span class="qno" id="qno"></span>
+        </div>
+        <div class="timer" id="timer">0.0</div>
+        <div class="bar"><i id="barFill"></i><b id="barMark"></b></div>
+      </div>
+    </div>
+
+    <!-- 待機中 -->
+    <div id="lobby" class="panel">
+      <div class="invite">
+        <span>招待リンク</span>
+        <input id="inviteUrl" readonly>
+        <button class="btn-sub" id="copyBtn">コピー</button>
+      </div>
+      <div class="settings" id="settings">
+        <label>テーマ<select data-key="theme"><option value="random">ランダム（ゲームごと）</option><option value="neon">ネオン・ライブ会場</option><option value="studio">クイズ番組スタジオ</option><option value="pop">ポップ</option><option value="retro">レトロゲーム</option></select></label>
+        <label>回答方法<select data-key="answerMode"><option value="choice">選択肢から選ぶ</option><option value="input">曲名・作品名を入力</option></select></label>
+        <label>時間で出るヒント<select data-key="clues"><option value="true">あり</option><option value="false">なし</option></select></label>
+        <label>ライフライン<select data-key="lifelines"><option value="true">あり（各1回）</option><option value="false">なし</option></select></label>
+        <label>採点<select data-key="mode"><option value="score">スコア制（速いほど高得点）</option><option value="buzz">早押し制（最速の正解者のみ）</option></select></label>
+        <label>問題数<select data-key="questions"></select></label>
+        <label>選択肢<select data-key="choices"></select></label>
+        <label>イントロの長さ<select data-key="introLen"></select></label>
+        <label>サビに移るまで<select data-key="hintAt"></select></label>
+        <label>サビの長さ<select data-key="chorusLen"></select></label>
+        <label>定員<select data-key="maxPlayers"></select></label>
+        <label>年代（から）<select data-key="yearFrom"></select></label>
+        <label>年代（まで）<select data-key="yearTo"></select></label>
+      </div>
+      <div class="presets" id="presets"></div>
+      <p class="note" id="poolInfo"></p>
+      <button class="btn-main" id="startBtn">ゲーム開始</button>
+      <p class="note" id="waitHost" hidden>ホストがゲームを開始するのを待っています…</p>
+    </div>
+
+    <!-- 出題中 -->
+    <div id="quiz" class="panel" hidden>
+      <ul class="clues" id="clues"></ul>
+      <div class="choices" id="choices"></div>
+      <form class="answer-input" id="inputForm" hidden autocomplete="off">
+        <input id="answerInput" maxlength="50" placeholder="曲名か作品名を入力" enterkeyhint="send">
+        <button class="btn-main" id="sendBtn" type="submit">回答</button>
+      </form>
+      <div class="lifelines" id="lifelines">
+        <button class="life" data-life="fifty"><img data-icon="fifty" alt=""><span>50:50</span></button>
+        <button class="life" data-life="audience"><img data-icon="audience" alt=""><span>オーディエンス</span></button>
+        <button class="life" data-life="phone"><img data-icon="phone" alt=""><span>テレフォン</span></button>
+        <button class="life" data-life="replay"><img data-icon="replay" alt=""><span>もう一度聴く</span></button>
+        <button class="life pass" id="passBtn"><img data-icon="pass" alt=""><span>わからない</span></button>
+      </div>
+      <ul class="life-results" id="lifeResults"></ul>
+      <p class="note" id="quizNote"></p>
+    </div>
+
+    <!-- 答え合わせ -->
+    <div id="result" class="panel" hidden>
+      <div class="answer" id="answer"></div>
+      <table class="results" id="results"></table>
+      <button class="btn-main" id="nextBtn" hidden>次の問題へ</button>
+      <p class="note" id="waitNext" hidden>ホストが次へ進むのを待っています…</p>
+    </div>
+
+    <!-- 終了 -->
+    <div id="over" class="panel" hidden>
+      <h2 class="over-title">最終結果</h2>
+      <div class="podium" id="podium">
+        <img id="podiumImg" alt="">
+        <div class="places" id="places"></div>
+      </div>
+      <ol class="ranking" id="ranking"></ol>
+      <button class="btn-main" id="lobbyBtn" hidden>部屋に戻る</button>
+    </div>
+
+    <div class="panel">
+      <h3>プレイヤー</h3>
+      <ul class="players" id="players"></ul>
+      <label class="vol">音量<input type="range" id="volume" min="0" max="100" value="80"></label>
+    </div>
+  </section>
+
+  <div class="flash" id="flash" hidden></div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+  <div class="toast" id="toast" hidden></div>
+</main>
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

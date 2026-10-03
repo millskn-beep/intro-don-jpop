@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>曲チェック</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  main { max-width: 1000px; }
+  .layout { display: grid; grid-template-columns: 1fr 360px; gap: 12px; align-items: start; }
+  .side { position: sticky; top: 12px; }
+  .side .screen { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .toolbar input, .toolbar select { width: auto; margin: 0; padding: 8px; font-size: 14px; }
+  .toolbar .grow { flex: 1; min-width: 160px; }
+  .summary { font-size: 13px; color: var(--sub); margin-top: 8px; }
+  table.songs { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.songs th { text-align: left; color: var(--sub); font-weight: normal; padding: 6px 4px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--panel); }
+  table.songs td { padding: 6px 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.songs tr { cursor: pointer; }
+  table.songs tr:hover td { background: #22253a; }
+  table.songs tr.sel td { background: #15283a; }
+  table.songs td small { display: block; color: var(--sub); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .badge { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .b-ok { background: #173a29; color: var(--ok); } .b-ng { background: #3d1a1d; color: var(--ng); } .b-un { background: var(--line); color: var(--sub); }
+  .b-edit { background: #3a3315; color: var(--warn); }
+  .detail h2 { font-size: 17px; margin: 10px 0 2px; }
+  .detail .meta { font-size: 12px; color: var(--sub); margin-bottom: 8px; }
+  .adj { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 8px 0; }
+  .adj .label { width: 100%; font-size: 13px; color: var(--sub); }
+  .adj .label b { color: var(--text); font-size: 18px; font-variant-numeric: tabular-nums; }
+  .adj .btn-sub { padding: 8px 10px; font-size: 14px; }
+  .now { font-size: 12px; color: var(--sub); font-variant-numeric: tabular-nums; }
+  .savebar { display: flex; gap: 8px; align-items: center; }
+  .savebar .btn-main { margin: 0; }
+  .dirty { color: var(--warn); font-size: 13px; }
+  @media (max-width: 800px) { .layout { grid-template-columns: 1fr; } .side { position: static; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <h1>曲チェック</h1>
+    <a href="/" style="color:var(--accent2);font-size:14px">対戦へ戻る</a>
+  </header>
+
+  <div class="layout">
+    <section class="panel">
+      <div class="toolbar">
+        <input class="grow" id="q" placeholder="曲名・作品名・歌手で絞り込み">
+        <select id="decade"><option value="">全年代</option></select>
+        <select id="status">
+          <option value="">すべて</option><option value="un">未チェック</option>
+          <option value="ok">再生OK</option><option value="ng">再生NG</option><option value="nochorus">サビ未設定</option>
+        </select>
+      </div>
+      <div class="toolbar" style="margin-top:8px">
+        <button class="btn-sub" id="checkAll">未チェックの曲を自動で再生チェック</button>
+        <span class="summary" id="progress"></span>
+      </div>
+      <div class="summary" id="summary"></div>
+      <div style="max-height:70vh;overflow:auto;margin-top:8px">
+        <table class="songs">
+          <thead><tr><th>年</th><th>曲 / 作品</th><th>種別</th><th class="num">イントロ</th><th class="num">サビ</th><th>再生</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <aside class="side">
+      <section class="panel">
+        <div class="screen"><div id="player"></div></div>
+        <div class="detail" id="detail">
+          <p class="note">左の一覧から曲を選んでください。</p>
+        </div>
+      </section>
+      <section class="panel savebar">
+        <button class="btn-main" id="saveBtn" disabled>songs.json に保存</button>
+      </section>
+      <p class="dirty" id="dirty"></p>
+      <p class="note" id="perm"></p>
+    </aside>
+  </div>
+  <div class="toast" id="toast" hidden></div>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const CHECK_TIMEOUT = 8000;
+
+let songs = [], canEdit = false, selected = null, dirty = false, checking = false;
+const chorusOf = s => s.chorus > 0 ? s.chorus : (s.intro || 0) + 50;
+
+// ── 読み込み ──
+fetch('/api/songs').then(r => r.json()).then(d => {
+  songs = d.songs; canEdit = d.canEdit;
+  $('perm').textContent = canEdit ? '' : 'このPC以外から開いているため、保存はできません（確認だけできます）。';
+  const decades = [...new Set(songs.map(s => Math.floor(s.year / 10) * 10))].sort();
+  decades.forEach(d => $('decade').add(new Option(d + '年代', d)));
+  render();
+});
+
+['q', 'decade', 'status'].forEach(id => $(id).oninput = render);
+
+function statusOf(s) { return s.embeddable === true ? 'ok' : s.embeddable === false ? 'ng' : 'un'; }
+
+function filtered() {
+  const q = $('q').value.trim().toLowerCase(), dec = $('decade').value, st = $('status').value;
+  return songs.filter(s => {
+    if (q && ![s.title, s.work, s.artist].join(' ').toLowerCase().includes(q)) return false;
+    if (dec && Math.floor(s.year / 10) * 10 !== +dec) return false;
+    if (st === 'nochorus') return !(s.chorus > 0);
+    if (st && statusOf(s) !== st) return false;
+    return true;
+  });
+}
+
+function render() {
+  const list = filtered();
+  $('rows').innerHTML = list.map(s => {
+    const st = statusOf(s);
+    const badge = st === 'ok' ? '<span class="badge b-ok">OK</span>' : st === 'ng' ? `<span class="badge b-ng">NG${s.error ? ' ' + s.error : ''}</span>` : '<span class="badge b-un">未</span>';
+    return `<tr data-id="${esc(s.id)}" class="${selected === s ? 'sel' : ''}">
+      <td class="num">${s.year}</td>
+      <td>${esc(s.title)}<small>${esc(s.work)} ／ ${esc(s.artist)}</small></td>
+      <td>${esc(s.type || '')}</td>
+      <td class="num">${s.intro || 0}</td>
+      <td class="num">${s.chorus > 0 ? s.chorus : `<span class="badge b-edit">仮 ${chorusOf(s)}</span>`}</td>
+      <td>${badge}</td></tr>`;
+  }).join('');
+  $('rows').querySelectorAll('tr').forEach(tr => tr.onclick = () => select(songs.find(s => s.id === tr.dataset.id)));
+  const ok = songs.filter(s => s.embeddable === true).length, ng = songs.filter(s => s.embeddable === false).length;
+  const noChorus = songs.filter(s => !(s.chorus > 0)).length;
+  $('summary').textContent = `全 ${songs.length} 曲（表示 ${list.length}）／ 再生OK ${ok} ・ NG ${ng} ・ 未チェック ${songs.length - ok - ng} ／ サビ未設定 ${noChorus}`;
+  $('saveBtn').disabled = !dirty || !canEdit;
+  $('dirty').textContent = dirty ? '保存していない変更があります' : '';
+}
+
+function markDirty() { dirty = true; render(); }
+
+// ── YouTube ──
+let player, ready = false, lastError = null;
+const tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+document.head.appendChild(tag);
+window.onYouTubeIframeAPIReady = () => {
+  player = new YT.Player('player', {
+    width: 320, height: 180,
+    playerVars: { rel: 0, playsinline: 1, origin: location.origin },
+    events: {
+      onReady: () => { ready = true; },
+      onError: e => {
+        lastError = e.data;
+        if (selected && !checking) { setResult(selected, false, e.data); toast(`再生できません（エラー ${e.data}）`); }
+      },
+      onStateChange: e => { if (e.data === YT.PlayerState.PLAYING && selected && !checking && selected.embeddable !== true) setResult(selected, true); },
+    },
+  });
+};
+setInterval(() => { if (ready && selected && $('now')) $('now').textContent = '現在 ' + player.getCurrentTime().toFixed(1) + ' 秒'; }, 200);
+
+function setResult(s, ok, error) {
+  s.embeddable = ok;
+  if (ok) delete s.error; else s.error = error;
+  s.checkedAt = new Date().toISOString().slice(0, 10);
+  s.checkedOrigin = location.host;
+  markDirty();
+}
+
+// ── 1曲の詳細 ──
+function select(s) {
+  if (!s || checking) return;
+  selected = s;
+  renderDetail();
+  render();
+  if (ready) { player.loadVideoById({ videoId: s.id, startSeconds: s.intro || 0 }); player.unMute(); }
+}
+
+function renderDetail() {
+  const s = selected;
+  $('detail').innerHTML = `
+    <h2>${esc(s.title)}</h2>
+    <div class="meta">${esc(s.work)} ${esc(s.type || '')} ／ ${esc(s.artist)}（${s.year}）<br>
+      出どころ：${esc(s.source || '—')} ／ 確からしさ：${esc(s.confidence || '—')}
+      ／ <a href="https://www.youtube.com/watch?v=${esc(s.id)}" target="_blank" rel="noopener" style="color:var(--accent2)">YouTubeで開く</a></div>
+    <div class="now" id="now"></div>
+    <div class="adj">
+      <span class="label">イントロ開始 <b>${s.intro || 0}</b> 秒</span>
+      <button class="btn-sub" data-k="intro" data-d="-1">−1</button>
+      <button class="btn-sub" data-k="intro" data-d="1">＋1</button>
+      <button class="btn-sub" data-mark="intro">今の位置</button>
+      <button class="btn-sub" data-play="intro">▶ 再生</button>
+    </div>
+    <div class="adj">
+      <span class="label">サビ開始 <b>${chorusOf(s)}</b> 秒 ${s.chorus > 0 ? '' : '<span class="badge b-edit">仮の値</span>'}</span>
+      <button class="btn-sub" data-k="chorus" data-d="-5">−5</button>
+      <button class="btn-sub" data-k="chorus" data-d="-1">−1</button>
+      <button class="btn-sub" data-k="chorus" data-d="1">＋1</button>
+      <button class="btn-sub" data-k="chorus" data-d="5">＋5</button>
+      <button class="btn-sub" data-mark="chorus">今の位置</button>
+      <button class="btn-sub" data-play="chorus">▶ 再生</button>
+    </div>
+    <div class="adj">
+      <span class="label">別名（読みがな・略称。「/」区切り。入力で答えるときに正解になる）</span>
+      <input id="aliasInput" style="flex:1;margin:0;font-size:14px" value="${esc((s.aliases || []).join(' / '))}">
+      <button class="btn-sub" id="aliasSave">反映</button>
+    </div>
+    <div class="adj">
+      <span class="label">再生チェック ${statusOf(s) === 'ok' ? '<span class="badge b-ok">OK</span>' : statusOf(s) === 'ng' ? '<span class="badge b-ng">NG</span>' : '<span class="badge b-un">未</span>'}</span>
+      <button class="btn-sub" data-ok="1">OKにする</button>
+      <button class="btn-sub" data-ok="0">NG（出題しない）</button>
+    </div>`;
+  $('detail').querySelectorAll('[data-k]').forEach(b => b.onclick = () => {
+    const k = b.dataset.k, base = k === 'chorus' ? chorusOf(s) : (s.intro || 0);
+    s[k] = Math.max(0, base + +b.dataset.d);
+    afterEdit(k);
+  });
+  $('detail').querySelectorAll('[data-mark]').forEach(b => b.onclick = () => {
+    s[b.dataset.mark] = Math.max(0, Math.round(player.getCurrentTime()));
+    afterEdit(null);
+  });
+  $('detail').querySelectorAll('[data-play]').forEach(b => b.onclick = () => playAt(b.dataset.play));
+  $('aliasSave').onclick = () => {
+    s.aliases = $('aliasInput').value.split(/[\/／]/).map(a => a.trim()).filter(Boolean);
+    markDirty(); renderDetail(); toast('別名を反映しました（保存ボタンで書き込み）');
+  };
+  $('detail').querySelectorAll('[data-ok]').forEach(b => b.onclick = () => { setResult(s, b.dataset.ok === '1', b.dataset.ok === '1' ? undefined : 'manual'); renderDetail(); });
+}
+function afterEdit(k) { markDirty(); renderDetail(); if (k) playAt(k); }
+function playAt(k) {
+  const s = selected; if (!ready || !s) return;
+  player.seekTo(k === 'chorus' ? chorusOf(s) : (s.intro || 0), true); player.unMute(); player.playVideo();
+}
+
+// ── 自動の再生チェック（無音で読み込み、再生が始まればOK、エラーならNG）──
+$('checkAll').onclick = async () => {
+  if (!ready || checking) return;
+  const targets = songs.filter(s => s.embeddable == null);
+  if (!targets.length) { toast('未チェックの曲はありません'); return; }
+  checking = true; $('checkAll').disabled = true;
+  player.mute();
+  for (let i = 0; i < targets.length; i++) {
+    const s = targets[i];
+    $('progress').textContent = `チェック中 ${i + 1} / ${targets.length}：${s.title}`;
+    const r = await probe(s.id);
+    if (r.ok) setResult(s, true); else if (r.error != null) setResult(s, false, r.error);
+  }
+  player.stopVideo(); player.unMute();
+  checking = false; $('checkAll').disabled = false;
+  $('progress').textContent = 'チェック完了（保存ボタンで songs.json に書き込みます）';
+};
+
+// タブが裏にあると YouTube は自動再生しないので、「再生が始まった」か
+// 「動画の長さが読めてから少し待ってもエラーが出ない」をOKとみなす（埋め込み禁止のエラーは読み込み直後に出る）
+const GRACE_MS = 2000;
+function probe(id) {
+  return new Promise(resolve => {
+    lastError = null;
+    player.loadVideoById({ videoId: id, startSeconds: 0 });
+    const t0 = Date.now();
+    let loadedAt = 0;
+    const timer = setInterval(() => {
+      const now = Date.now();
+      if (lastError != null) { clearInterval(timer); resolve({ ok: false, error: lastError }); return; }
+      if (player.getPlayerState() === YT.PlayerState.PLAYING) { clearInterval(timer); resolve({ ok: true }); return; }
+      const vd = player.getVideoData();
+      if (!loadedAt && vd && vd.video_id === id && player.getDuration() > 0) loadedAt = now;
+      if (loadedAt && now - loadedAt > GRACE_MS) { clearInterval(timer); resolve({ ok: true }); return; }
+      if (now - t0 > CHECK_TIMEOUT) { clearInterval(timer); resolve({ ok: false, error: null }); } // 判定できず＝未チェックのまま
+    }, 100);
+  });
+}
+
+// ── 保存 ──
+$('saveBtn').onclick = async () => {
+  const res = await fetch('/api/songs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ songs }) });
+  const d = await res.json();
+  if (!res.ok) { toast(d.error || '保存に失敗しました'); return; }
+  dirty = false; render();
+  toast(`保存しました（全 ${d.total} 曲、出題対象 ${d.playable} 曲）`);
+};
+window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+let toastTimer = null;
+function toast(msg) {
+  $('toast').textContent = msg; $('toast').hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').hidden = true, 3500);
+}
+</script>
+</body>
+</html>

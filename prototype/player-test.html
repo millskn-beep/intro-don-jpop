@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>イントロ→サビ 試作</title>
+<style>
+  :root {
+    --bg: #12131a; --panel: #1c1e29; --line: #2c2f3f; --text: #eef0f7; --sub: #9aa0b8;
+    --accent: #ff4d7d; --accent2: #3ec7ff; --ok: #3ddc84; --ng: #ff5a5a; --warn: #ffc542;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 20px; margin: 4px 0 12px; letter-spacing: .05em; }
+  h1 small { color: var(--sub); font-size: 12px; font-weight: normal; margin-left: 8px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+  .settings { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  label { font-size: 12px; color: var(--sub); display: block; }
+  select { width: 100%; margin-top: 4px; padding: 8px; background: var(--bg); color: var(--text);
+           border: 1px solid var(--line); border-radius: 8px; font-size: 15px; }
+  button { font: inherit; cursor: pointer; border: none; border-radius: 10px; }
+  .btn-main { width: 100%; padding: 14px; font-size: 18px; font-weight: bold; background: var(--accent); color: #fff; }
+  .btn-main:disabled { opacity: .4; cursor: default; }
+  .btn-sub { padding: 8px 12px; background: var(--line); color: var(--text); font-size: 14px; }
+
+  .stage { display: flex; gap: 14px; align-items: center; }
+  .screen { position: relative; width: 240px; height: 135px; flex: none; border-radius: 10px; overflow: hidden; background: #000; }
+  #player, .screen iframe { width: 100%; height: 100%; }
+  .cover { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+           background: radial-gradient(circle at 50% 40%, #2a2d44, #0d0e14); font-size: 56px; font-weight: bold; color: var(--accent2); }
+  .cover[hidden] { display: none; }
+  .status { flex: 1; min-width: 0; }
+  .phase { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 13px; font-weight: bold; background: var(--line); }
+  .phase.intro { background: var(--accent2); color: #000; }
+  .phase.chorus { background: var(--warn); color: #000; }
+  .phase.reveal { background: var(--ok); color: #000; }
+  .timer { font-size: 44px; font-weight: bold; font-variant-numeric: tabular-nums; margin: 4px 0; }
+  .bar { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; position: relative; }
+  .bar > i { position: absolute; inset: 0 auto 0 0; background: var(--accent2); width: 0; }
+  .bar > b { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--warn); }
+  .score { font-size: 13px; color: var(--sub); margin-top: 6px; }
+
+  .choices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .choice { padding: 12px 10px; background: var(--bg); color: var(--text); border: 1px solid var(--line);
+            text-align: left; line-height: 1.35; min-height: 58px; }
+  .choice:hover:not(:disabled) { border-color: var(--accent2); }
+  .choice small { display: block; color: var(--sub); font-size: 11px; }
+  .choice.correct { background: #173a29; border-color: var(--ok); }
+  .choice.wrong { background: #3d1a1d; border-color: var(--ng); }
+  .choice:disabled { cursor: default; }
+
+  .result { text-align: center; }
+  .result .big { font-size: 28px; font-weight: bold; margin: 4px 0; }
+  .result .big.ok { color: var(--ok); } .result .big.ng { color: var(--ng); }
+  .answer { font-size: 15px; margin: 6px 0 10px; }
+  .answer small { color: var(--sub); }
+  .adjust { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; justify-content: center; margin: 8px 0; }
+  .adjust span { font-size: 13px; color: var(--sub); min-width: 120px; }
+  .row { display: flex; gap: 8px; }
+  .row > * { flex: 1; }
+  textarea { width: 100%; height: 120px; background: var(--bg); color: var(--text); border: 1px solid var(--line);
+             border-radius: 8px; font-family: Consolas, monospace; font-size: 12px; }
+  .note { font-size: 12px; color: var(--sub); line-height: 1.6; }
+  @media (max-width: 560px) {
+    .stage { flex-direction: column; align-items: stretch; }
+    .screen { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+    .choices { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>イントロ → サビ 試作<small>1人用・動作確認ページ</small></h1>
+
+  <section class="panel settings">
+    <div><label>イントロの長さ
+      <select id="introLen"><option>3</option><option selected>5</option><option>10</option><option>15</option></select></label></div>
+    <div><label>サビに移るまで（秒）
+      <select id="hintAt"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></label></div>
+    <div><label>サビを流す長さ
+      <select id="chorusLen"><option>10</option><option selected>15</option><option>20</option></select></label></div>
+    <div><label>選択肢の数
+      <select id="choiceCount"></select></label></div>
+  </section>
+
+  <section class="panel">
+    <div class="stage">
+      <div class="screen"><div id="player"></div><div class="cover" id="cover">？</div></div>
+      <div class="status">
+        <span class="phase" id="phase">待機中</span>
+        <div class="timer" id="timer">0.0</div>
+        <div class="bar"><i id="barFill"></i><b id="barMark"></b></div>
+        <div class="score" id="score">第 0 問 ／ 合計 0 点</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="quizArea">
+    <button class="btn-main" id="startBtn" disabled>読み込み中…</button>
+    <div class="choices" id="choices" hidden></div>
+  </section>
+
+  <section class="panel result" id="resultArea" hidden>
+    <div class="big" id="resultBig"></div>
+    <div class="answer" id="answerText"></div>
+    <div class="adjust">
+      <span>イントロ <b id="introVal">0</b> 秒</span>
+      <button class="btn-sub" data-adj="intro" data-d="-1">−1</button>
+      <button class="btn-sub" data-adj="intro" data-d="1">＋1</button>
+      <button class="btn-sub" id="playIntro">▶ イントロ確認</button>
+    </div>
+    <div class="adjust">
+      <span>サビ <b id="chorusVal">0</b> 秒</span>
+      <button class="btn-sub" data-adj="chorus" data-d="-5">−5</button>
+      <button class="btn-sub" data-adj="chorus" data-d="-1">−1</button>
+      <button class="btn-sub" data-adj="chorus" data-d="1">＋1</button>
+      <button class="btn-sub" data-adj="chorus" data-d="5">＋5</button>
+      <button class="btn-sub" id="markChorus">今の位置をサビにする</button>
+      <button class="btn-sub" id="playChorus">▶ サビ確認</button>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <button class="btn-main" id="nextBtn">次の問題へ</button>
+    </div>
+  </section>
+
+  <details class="panel">
+    <summary>曲データ（調整した秒数を書き出す）</summary>
+    <p class="note">サビ・イントロの秒数を直すと、このブラウザに保存されます。下の内容をコピーすれば本番の曲リストに反映できます。</p>
+    <textarea id="dump" readonly></textarea>
+    <div class="row" style="margin-top:8px">
+      <button class="btn-sub" id="resetAdj">秒数の調整をリセット</button>
+    </div>
+  </details>
+
+  <p class="note">
+    流れ：イントロを指定秒だけ再生 → 回答がないまま「サビに移るまで」の秒数がたつと、サビをヒントとして再生（得点は半分）→ 時間切れか回答で答え合わせ。<br>
+    サビ秒が未設定の曲は「イントロ秒＋50秒」を仮の値として使います。
+  </p>
+</main>
+
+<script>
+// ── サンプル曲（公式チャンネルの動画。サビ秒は仮の値なので答え合わせ画面で直してください）──
+const SONGS = [
+  { id: 'x1FV6IrjZCY', title: '紅蓮華', work: '鬼滅の刃', artist: 'LiSA', year: 2019, intro: 0, chorus: 0 },
+  { id: 'ZRtdQ81jPUQ', title: 'アイドル', work: '【推しの子】', artist: 'YOASOBI', year: 2023, intro: 0, chorus: 0 },
+  { id: 'o6wtDPVkKqI', title: '残酷な天使のテーゼ', work: '新世紀エヴァンゲリオン', artist: '高橋洋子', year: 1995, intro: 0, chorus: 0 },
+  { id: 'PgBvV9ofjmA', title: 'アイドル（TVサイズ）', work: '【推しの子】OP', artist: 'YOASOBI', year: 2023, intro: 0, chorus: 0 },
+];
+
+// ── ダミー選択肢用（曲名／作品名のみ）──
+const DECOYS = [
+  ['炎', '劇場版 鬼滅の刃 無限列車編'], ['残響散歌', '鬼滅の刃 遊郭編'], ['創聖のアクエリオン', '創聖のアクエリオン'],
+  ['ハレ晴レユカイ', '涼宮ハルヒの憂鬱'], ['only my railgun', 'とある科学の超電磁砲'], ['紅蓮の弓矢', '進撃の巨人'],
+  ['心臓を捧げよ!', '進撃の巨人'], ['ブルーバード', 'NARUTO -ナルト- 疾風伝'], ['ウィーアー!', 'ONE PIECE'],
+  ['摩訶不思議アドベンチャー!', 'ドラゴンボール'], ['CHA-LA HEAD-CHA-LA', 'ドラゴンボールZ'], ['ムーンライト伝説', '美少女戦士セーラームーン'],
+  ['タッチ', 'タッチ'], ['Butter-Fly', 'デジモンアドベンチャー'], ['めざせポケモンマスター', 'ポケットモンスター'],
+  ['unravel', '東京喰種トーキョーグール'], ['KICK BACK', 'チェンソーマン'], ['怪物', 'BEASTARS'],
+  ['廻廻奇譚', '呪術廻戦'], ['SPECIALZ', '呪術廻戦'], ['ミックスナッツ', 'SPY×FAMILY'], ['青のすみか', '呪術廻戦'],
+  ['魂のルフラン', '新世紀エヴァンゲリオン劇場版'], ['鳥の詩', 'AIR'], ['コネクト', '魔法少女まどか☆マギカ'],
+  ['1/3の純情な感情', 'るろうに剣心'], ['そばかす', 'るろうに剣心'], ['ペガサス幻想', '聖闘士星矢'],
+  ['愛をとりもどせ!!', '北斗の拳'], ['CAT\'S EYE', 'キャッツ・アイ'], ['Get Wild', 'シティーハンター'],
+  ['シルエット', 'NARUTO -ナルト- 疾風伝'], ['夢をかなえてドラえもん', 'ドラえもん'], ['檄!帝国華撃団', 'サクラ大戦'],
+];
+
+const VOL = 80, FADE_OUT = 800, FADE_IN = 1000, REVEAL_INTRO = 4;
+const ADJ_KEY = 'aq-proto-adjust';
+const $ = id => document.getElementById(id);
+
+// 調整値（ブラウザ保存）
+let adjust = {};
+try { adjust = JSON.parse(localStorage.getItem(ADJ_KEY)) || {}; } catch (e) {}
+const saveAdjust = () => { try { localStorage.setItem(ADJ_KEY, JSON.stringify(adjust)); } catch (e) {} renderDump(); };
+const introOf = s => (adjust[s.id]?.intro ?? s.intro);
+const chorusOf = s => {
+  const c = adjust[s.id]?.chorus ?? s.chorus;
+  return c > 0 ? c : introOf(s) + 50;
+};
+
+for (let n = 2; n <= 12; n++) $('choiceCount').add(new Option(n + '択', n, false, n === 8));
+
+// ── YouTube ──
+let player, ready = false;
+const tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+document.head.appendChild(tag);
+window.onYouTubeIframeAPIReady = () => {
+  player = new YT.Player('player', {
+    width: 240, height: 135,
+    playerVars: { controls: 0, disablekb: 1, rel: 0, playsinline: 1, fs: 0, modestbranding: 1, origin: location.origin },
+    events: {
+      onReady: () => { ready = true; $('startBtn').disabled = false; $('startBtn').textContent = 'スタート'; },
+      onError: e => { showError('この動画は再生できません（エラー ' + e.data + '）。次の問題へ進んでください。'); },
+    },
+  });
+};
+
+let fadeTimer = null;
+function fade(from, to, ms, done) {
+  clearInterval(fadeTimer);
+  const steps = Math.max(1, Math.round(ms / 50)); let i = 0;
+  player.setVolume(from);
+  fadeTimer = setInterval(() => {
+    i++; player.setVolume(from + (to - from) * i / steps);
+    if (i >= steps) { clearInterval(fadeTimer); done && done(); }
+  }, 50);
+}
+
+// ── ゲーム状態 ──
+let order = [], qIndex = -1, total = 0, cur = null;
+let phase = 'idle', t0 = 0, tick = null, timers = [];
+const clearTimers = () => { timers.forEach(clearTimeout); timers = []; clearInterval(tick); clearInterval(fadeTimer); };
+const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+function setPhase(p, label) { phase = p; $('phase').className = 'phase ' + p; $('phase').textContent = label; }
+
+$('startBtn').onclick = () => {
+  // 最初のタップで音声再生を許可させる（スマホ対策）
+  order = shuffle(SONGS.map((_, i) => i)); qIndex = -1; total = 0;
+  $('startBtn').hidden = true;
+  nextQuestion();
+};
+$('nextBtn').onclick = nextQuestion;
+
+function nextQuestion() {
+  clearTimers();
+  qIndex++;
+  if (qIndex >= order.length) { order = shuffle(order); qIndex = 0; }
+  cur = SONGS[order[qIndex]];
+  $('resultArea').hidden = true; $('quizArea').hidden = false;
+  $('cover').hidden = false; $('cover').textContent = '？';
+  renderChoices();
+  updateScore();
+
+  const S = settings();
+  setPhase('intro', 'イントロ');
+  $('barMark').style.left = (S.hintAt / S.total * 100) + '%';
+  player.mute();
+  player.loadVideoById({ videoId: cur.id, startSeconds: introOf(cur) });
+
+  // 再生が始まった瞬間から計測（読み込み時間を除く）
+  let started = false;
+  const wait = setInterval(() => {
+    if (player.getPlayerState() === YT.PlayerState.PLAYING && !started) {
+      started = true; clearInterval(wait);
+      player.seekTo(introOf(cur), true);
+      player.unMute(); player.setVolume(VOL);
+      beginTimeline(S);
+    }
+  }, 50);
+  timers.push(wait);
+}
+
+function settings() {
+  const introLen = +$('introLen').value, hintAt = +$('hintAt').value, chorusLen = +$('chorusLen').value;
+  return { introLen, hintAt, chorusLen, total: hintAt + chorusLen, choices: +$('choiceCount').value };
+}
+
+function beginTimeline(S) {
+  t0 = performance.now();
+  // イントロを指定秒で止める（サビに移る前なら）
+  if (S.introLen < S.hintAt) later(() => { if (phase === 'intro') fade(VOL, 0, FADE_OUT, () => player.pauseVideo()); }, S.introLen * 1000);
+  // 回答がなければサビへ
+  later(() => {
+    if (phase !== 'intro') return;
+    setPhase('chorus', 'サビ（ヒント・得点半分）');
+    const go = () => { player.seekTo(chorusOf(cur), true); player.playVideo(); fade(0, VOL, FADE_IN); };
+    if (player.getPlayerState() === YT.PlayerState.PLAYING) fade(VOL, 0, FADE_OUT, go); else go();
+  }, S.hintAt * 1000);
+  later(() => { if (phase === 'intro' || phase === 'chorus') reveal(null); }, S.total * 1000);
+
+  tick = setInterval(() => {
+    const t = (performance.now() - t0) / 1000;
+    $('timer').textContent = t.toFixed(1);
+    $('barFill').style.width = Math.min(100, t / S.total * 100) + '%';
+    $('barFill').style.background = phase === 'chorus' ? 'var(--warn)' : 'var(--accent2)';
+  }, 50);
+}
+
+function renderChoices() {
+  const n = settings().choices;
+  const correct = { title: cur.title, work: cur.work, ok: true };
+  const pool = shuffle([
+    ...SONGS.filter(s => s.work !== cur.work).map(s => ({ title: s.title, work: s.work })),
+    ...DECOYS.map(([title, work]) => ({ title, work })),
+  ]).filter((d, i, a) => d.title !== cur.title && a.findIndex(x => x.title === d.title) === i);
+  const list = shuffle([correct, ...pool.slice(0, n - 1)]);
+  const box = $('choices'); box.hidden = false; box.innerHTML = '';
+  list.forEach(c => {
+    const b = document.createElement('button');
+    b.className = 'choice';
+    b.innerHTML = `${esc(c.title)}<small>${esc(c.work)}</small>`;
+    b.dataset.ok = c.ok ? '1' : '';
+    b.onclick = () => { if (phase === 'intro' || phase === 'chorus') reveal(b); };
+    box.appendChild(b);
+  });
+}
+
+function reveal(picked) {
+  const elapsed = (performance.now() - t0) / 1000;
+  const S = settings();
+  const wasChorus = phase === 'chorus';
+  clearTimers();
+  setPhase('reveal', '答え合わせ');
+
+  [...$('choices').children].forEach(b => {
+    b.disabled = true;
+    if (b.dataset.ok) b.classList.add('correct');
+    else if (b === picked) b.classList.add('wrong');
+  });
+
+  let pts = 0, msg, cls;
+  if (!picked) { msg = '時間切れ'; cls = 'ng'; }
+  else if (picked.dataset.ok) {
+    // 速いほど高得点（100〜1000点）、サビ中は半分
+    const base = Math.round(100 + 900 * Math.max(0, 1 - elapsed / S.total));
+    pts = wasChorus ? Math.round(base / 2) : base;
+    msg = `正解！ +${pts}点（${elapsed.toFixed(1)}秒${wasChorus ? '・サビで回答' : ''}）`; cls = 'ok';
+  } else { msg = '不正解'; cls = 'ng'; }
+  total += pts;
+  updateScore();
+
+  $('resultBig').textContent = msg; $('resultBig').className = 'big ' + cls;
+  $('answerText').innerHTML = `${esc(cur.title)} <small>／ ${esc(cur.work)} ／ ${esc(cur.artist)}（${cur.year}）</small>`;
+  $('resultArea').hidden = false;
+  renderAdjust();
+
+  // 答え合わせ演出：動画を見せて、イントロ少し→サビへ
+  $('cover').hidden = true;
+  playReveal();
+}
+
+function playReveal() {
+  clearTimers();
+  player.seekTo(introOf(cur), true); player.unMute(); player.playVideo(); player.setVolume(VOL);
+  later(() => fade(VOL, 0, FADE_OUT), REVEAL_INTRO * 1000 - FADE_OUT);
+  later(() => { player.seekTo(chorusOf(cur), true); player.playVideo(); fade(0, VOL, FADE_IN); }, REVEAL_INTRO * 1000);
+}
+
+function updateScore() { $('score').textContent = `第 ${qIndex + 1} 問 ／ 合計 ${total} 点`; }
+
+// ── 秒数調整 ──
+function renderAdjust() { $('introVal').textContent = introOf(cur); $('chorusVal').textContent = chorusOf(cur); }
+function setAdj(key, val) {
+  adjust[cur.id] = { ...(adjust[cur.id] || {}), [key]: Math.max(0, Math.round(val)) };
+  saveAdjust(); renderAdjust();
+}
+document.querySelectorAll('[data-adj]').forEach(b => b.onclick = () => {
+  const key = b.dataset.adj, d = +b.dataset.d;
+  setAdj(key, (key === 'intro' ? introOf(cur) : chorusOf(cur)) + d);
+  if (key === 'chorus') playChorusOnly(); else playIntroOnly();
+});
+$('markChorus').onclick = () => setAdj('chorus', player.getCurrentTime());
+$('playChorus').onclick = playChorusOnly;
+$('playIntro').onclick = playIntroOnly;
+function playChorusOnly() { clearTimers(); player.seekTo(chorusOf(cur), true); player.setVolume(VOL); player.playVideo(); }
+function playIntroOnly() { clearTimers(); player.seekTo(introOf(cur), true); player.setVolume(VOL); player.playVideo(); }
+$('resetAdj').onclick = () => { adjust = {}; saveAdjust(); if (cur) renderAdjust(); };
+
+function renderDump() {
+  $('dump').value = JSON.stringify(SONGS.map(s => ({ ...s, intro: introOf(s), chorus: chorusOf(s) })), null, 2);
+}
+renderDump();
+
+function showError(text) {
+  clearTimers(); setPhase('reveal', 'エラー');
+  $('resultBig').textContent = text; $('resultBig').className = 'big ng';
+  $('answerText').textContent = cur ? `${cur.title} ／ ${cur.work}` : '';
+  $('resultArea').hidden = false;
+}
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+</script>
+</body>
+</html>

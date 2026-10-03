@@ -34,6 +34,15 @@
 
   <!-- 部屋 -->
   <section id="room" hidden>
+    <!-- 左：プレイヤー一覧 -->
+    <aside class="panel room-side">
+      <h3>プレイヤー</h3>
+      <ul class="players" id="players"></ul>
+      <label class="vol">音量<input type="range" id="volume" min="0" max="100" value="80"></label>
+    </aside>
+
+    <!-- 右：ゲーム画面 -->
+    <div class="room-main">
     <div class="panel stage">
       <div class="screen"><div id="player"></div><div class="cover" id="cover"><span>?</span></div></div>
       <div class="status">
@@ -107,11 +116,6 @@
       <ol class="ranking" id="ranking"></ol>
       <button class="btn-main" id="lobbyBtn" hidden>部屋に戻る</button>
     </div>
-
-    <div class="panel">
-      <h3>プレイヤー</h3>
-      <ul class="players" id="players"></ul>
-      <label class="vol">音量<input type="range" id="volume" min="0" max="100" value="80"></label>
     </div>
   </section>
 

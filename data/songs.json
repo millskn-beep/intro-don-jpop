@@ -1591,6 +1591,27 @@
     "introMeasured": true
   },
   {
+    "id": "WqPi7g_TKfA",
+    "title": "Winter Bells",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 1997,
+    "type": "OP",
+    "confidence": "中",
+    "source": "名探偵コナン公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "うぃんたーべるず",
+      "めいたんていこなん",
+      "コナン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "E_BsL8_cFnE",
     "title": "めざせポケモンマスター",
     "work": "ポケットモンスター",
@@ -1945,6 +1966,69 @@
     "introMeasured": true
   },
   {
+    "id": "NBfpKsOwk1c",
+    "title": "My will",
+    "work": "犬夜叉",
+    "artist": "dream",
+    "year": 2000,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "まいうぃる",
+      "いぬやしゃ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "DZvDz6YdnP4",
+    "title": "Secret of my heart",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 2000,
+    "type": "ED",
+    "confidence": "高",
+    "source": "名探偵コナン公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "しーくれっとおぶまいはーと",
+      "めいたんていこなん",
+      "コナン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "o8LGBqvYFIw",
+    "title": "ターゲット〜赤い衝撃〜",
+    "work": "デジモンアドベンチャー02",
+    "artist": "和田光司",
+    "year": 2000,
+    "type": "OP",
+    "confidence": "高",
+    "source": "デジモン公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "たーげっと",
+      "あかいしょうげき",
+      "デジモン",
+      "でじもんあどべんちゃーぜろつー"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "Lg96zmH7D7w",
     "title": "ハム太郎とっとこうた",
     "work": "とっとこハム太郎",
@@ -2026,6 +2110,27 @@
     "introMeasured": true
   },
   {
+    "id": "JnwJLTOtTMk",
+    "title": "Stand Up",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 2001,
+    "type": "OP",
+    "confidence": "中",
+    "source": "倉木麻衣公式",
+    "intro": 1.2,
+    "chorus": 0,
+    "aliases": [
+      "すたんどあっぷ",
+      "めいたんていこなん",
+      "コナン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "6ubYJTvaVhE",
     "title": "いつも何度でも",
     "work": "千と千尋の神隠し",
@@ -2047,6 +2152,26 @@
     "introMeasured": true
   },
   {
+    "id": "AwnT23djebo",
+    "title": "ヒカリへ",
+    "work": "ONE PIECE",
+    "artist": "the babystars",
+    "year": 2001,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ONE PIECE公式（TVサイズ）",
+    "intro": 0.1,
+    "chorus": 0,
+    "aliases": [
+      "ひかりへ",
+      "わんぴーす"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "qIoDWTF0qSo",
     "title": "深い森",
     "work": "犬夜叉",
@@ -2060,6 +2185,27 @@
     "aliases": [
       "ふかいもり",
       "いぬやしゃ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "sLAMTCMHfos",
+    "title": "明日へ架ける橋",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 2001,
+    "type": "ED",
+    "confidence": "中",
+    "source": "倉木麻衣公式",
+    "intro": 1.1,
+    "chorus": 0,
+    "aliases": [
+      "あしたへかけるはし",
+      "めいたんていこなん",
+      "コナン"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -2110,6 +2256,47 @@
     "introMeasured": true
   },
   {
+    "id": "cDILVWma8Sk",
+    "title": "Let Me Be With You",
+    "work": "ちょびっツ",
+    "artist": "ROUND TABLE featuring Nino",
+    "year": 2002,
+    "type": "OP",
+    "confidence": "中",
+    "source": "NBCユニバーサル公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "れっとみーびーうぃずゆー",
+      "ちょびっつ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "ZOvvqko2gT4",
+    "title": "Start in my life",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 2002,
+    "type": "ED",
+    "confidence": "中",
+    "source": "名探偵コナン公式（TVサイズ）",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [
+      "すたーといんまいらいふ",
+      "めいたんていこなん",
+      "コナン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "lHWVOfC41L4",
     "title": "風になる",
     "work": "猫の恩返し",
@@ -2144,6 +2331,46 @@
       "びりーぶ",
       "きどうせんしがんだむしーど",
       "ガンダムSEED"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "TApFCt9m0ug",
+    "title": "BON VOYAGE!",
+    "work": "ONE PIECE",
+    "artist": "BON-BON BLANCO",
+    "year": 2003,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ONE PIECE公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "ぼんぼやーじゅ",
+      "わんぴーす"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "RUZCdggY34c",
+    "title": "ココロのちず",
+    "work": "ONE PIECE",
+    "artist": "BOYSTYLE",
+    "year": 2003,
+    "type": "OP",
+    "confidence": "中",
+    "source": "テイチク公式",
+    "intro": 13.1,
+    "chorus": 0,
+    "aliases": [
+      "こころのちず",
+      "わんぴーす"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -2314,6 +2541,27 @@
     "introMeasured": true
   },
   {
+    "id": "LgJJuj38ue0",
+    "title": "Growing of My heart",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 2004,
+    "type": "OP",
+    "confidence": "中",
+    "source": "名探偵コナン公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "ぐろーいんぐおぶまいはーと",
+      "めいたんていこなん",
+      "コナン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "my7Rtb6ToZ4",
     "title": "ignited -イグナイテッド-",
     "work": "機動戦士ガンダムSEED DESTINY",
@@ -2458,6 +2706,28 @@
     "introMeasured": true
   },
   {
+    "id": "QAmE089GnZ8",
+    "title": "DAYS",
+    "work": "交響詩篇エウレカセブン",
+    "artist": "FLOW",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "高",
+    "source": "FLOW公式",
+    "intro": 3.6,
+    "chorus": 0,
+    "aliases": [
+      "でいず",
+      "こうきょうしへんえうれかせぶん",
+      "エウレカセブン",
+      "エウレカ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "VAH508mZmXQ",
     "title": "PRIDE",
     "work": "機動戦士ガンダムSEED DESTINY",
@@ -2472,6 +2742,70 @@
       "ぷらいど",
       "きどうせんしがんだむしーど",
       "ガンダムSEED"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "4E9KOdbuBXE",
+    "title": "SUMMER TIME GONE",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "中",
+    "source": "名探偵コナン公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "さまーたいむごーん",
+      "めいたんていこなん",
+      "コナン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "lQmWnU-pXWk",
+    "title": "サンキュー!!",
+    "work": "BLEACH",
+    "artist": "HOME MADE 家族",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "中",
+    "source": "BLEACH公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "さんきゅー",
+      "Thank You!!",
+      "ぶりーち"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "235s_Kkp0gc",
+    "title": "少年ハート",
+    "work": "交響詩篇エウレカセブン",
+    "artist": "HOME MADE 家族",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "中",
+    "source": "HOME MADE 家族公式",
+    "intro": 4.9,
+    "chorus": 0,
+    "aliases": [
+      "しょうねんはーと",
+      "こうきょうしへんえうれかせぶん",
+      "エウレカセブン",
+      "エウレカ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -2519,6 +2853,26 @@
     "introMeasured": true
   },
   {
+    "id": "-qOIwxWYdX4",
+    "title": "ALONES",
+    "work": "BLEACH",
+    "artist": "Aqua Timez",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "中",
+    "source": "BLEACH公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "あろーんず",
+      "ぶりーち"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "ny3Mh1fojl0",
     "title": "COLORS",
     "work": "コードギアス 反逆のルルーシュ",
@@ -2533,6 +2887,88 @@
       "からーず",
       "こーどぎあす",
       "ギアス"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "xtxUqqb-f38",
+    "title": "disillusion",
+    "work": "Fate/stay night",
+    "artist": "タイナカサチ",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "中",
+    "source": "NBCユニバーサル公式（TVサイズ）",
+    "intro": 0.8,
+    "chorus": 0,
+    "aliases": [
+      "でぃすいりゅーじょん",
+      "ふぇいとすていないと",
+      "UBW"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "1eDwwHZXHN8",
+    "title": "pray",
+    "work": "銀魂",
+    "artist": "Tommy heavenly6",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ジャンプチャンネル公式",
+    "intro": 3,
+    "chorus": 0,
+    "aliases": [
+      "ぷれい",
+      "ぎんたま"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "qSh1abQuiP0",
+    "title": "Red fraction",
+    "work": "BLACK LAGOON",
+    "artist": "MELL",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "中",
+    "source": "NBCユニバーサル公式",
+    "intro": 5.6,
+    "chorus": 0,
+    "aliases": [
+      "れっどふらくしょん",
+      "ぶらっくらぐーん",
+      "ブララグ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "SYtLk2GwLLs",
+    "title": "rose",
+    "work": "NANA",
+    "artist": "ANNA inspi' NANA(BLACK STONES)",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "高",
+    "source": "avex公式",
+    "intro": 2.9,
+    "chorus": 0,
+    "aliases": [
+      "ろーず",
+      "なな"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -2662,6 +3098,27 @@
     "introMeasured": true
   },
   {
+    "id": "2HeZZIWDwvI",
+    "title": "モザイクカケラ",
+    "work": "コードギアス 反逆のルルーシュ",
+    "artist": "SunSet Swish",
+    "year": 2006,
+    "type": "ED",
+    "confidence": "中",
+    "source": "コードギアス公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "もざいくかけら",
+      "こーどぎあす",
+      "ギアス"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "tILoQy3R7Tc",
     "title": "桜キッス",
     "work": "桜蘭高校ホスト部",
@@ -2676,6 +3133,27 @@
       "さくらきっす",
       "おうらんこうこうほすとぶ",
       "ホスト部"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "v0jR6L0znLY",
+    "title": "白い雪",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 2006,
+    "type": "ED",
+    "confidence": "中",
+    "source": "名探偵コナン公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "しろいゆき",
+      "めいたんていこなん",
+      "コナン"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -2768,6 +3246,26 @@
     "introMeasured": true
   },
   {
+    "id": "n2dD_rPwlQg",
+    "title": "Rolling star",
+    "work": "BLEACH",
+    "artist": "YUI",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "中",
+    "source": "BLEACH公式（TVサイズ）",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [
+      "ろーりんぐすたー",
+      "ぶりーち"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "NweUS90PRLQ",
     "title": "だんご大家族",
     "work": "CLANNAD",
@@ -2781,6 +3279,25 @@
     "aliases": [
       "だんごだいかぞく",
       "くらなど"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "zQiAtfs-Zb4",
+    "title": "ハヤテのごとく!",
+    "work": "ハヤテのごとく!",
+    "artist": "KOTOKO",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "中",
+    "source": "KOTOKO公式",
+    "intro": 0.1,
+    "chorus": 0,
+    "aliases": [
+      "はやてのごとく"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -2828,6 +3345,27 @@
     "introMeasured": true
   },
   {
+    "id": "piT9VI2zy5o",
+    "title": "解読不能",
+    "work": "コードギアス 反逆のルルーシュ",
+    "artist": "ジン",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "中",
+    "source": "コードギアス公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "かいどくふのう",
+      "こーどぎあす",
+      "ギアス"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "9US7wh4oOjE",
     "title": "空色デイズ",
     "work": "天元突破グレンラガン",
@@ -2842,6 +3380,47 @@
       "そらいろでいず",
       "てんげんとっぱぐれんらがん",
       "グレンラガン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "ZAivUh5DclM",
+    "title": "人として軸がぶれている",
+    "work": "さよなら絶望先生",
+    "artist": "大槻ケンヂと絶望少女達",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "中",
+    "source": "キングレコード公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ひととしてじくがぶれている",
+      "さよならぜつぼうせんせい",
+      "絶望先生"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "k0r3H-L6Et0",
+    "title": "motto☆派手にね!",
+    "work": "かんなぎ",
+    "artist": "戸松遥",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "もっとはでにね",
+      "かんなぎ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -3013,6 +3592,26 @@
     "introMeasured": true
   },
   {
+    "id": "WzZinjm_9k0",
+    "title": "夏夕空",
+    "work": "夏目友人帳",
+    "artist": "中孝介",
+    "year": 2008,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0.6,
+    "chorus": 0,
+    "aliases": [
+      "なつゆうぞら",
+      "なつめゆうじんちょう"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "-AYDR7S0SCE",
     "title": "時を刻む唄",
     "work": "CLANNAD 〜AFTER STORY〜",
@@ -3046,6 +3645,28 @@
     "aliases": [
       "せいかんひこう",
       "まくろすふろんてぃあ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "ZIEQDjrAdwE",
+    "title": "儚くも永久のカナシ",
+    "work": "機動戦士ガンダム00 セカンドシーズン",
+    "artist": "UVERworld",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "source": "UVERworld公式",
+    "intro": 2.6,
+    "chorus": 0,
+    "aliases": [
+      "はかなくもとわのかなし",
+      "きどうせんしがんだむだぶるおー",
+      "ガンダム00",
+      "ダブルオー"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -3132,6 +3753,67 @@
     "introMeasured": true
   },
   {
+    "id": "dbbfj5HJzMg",
+    "title": "Revive",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "中",
+    "source": "名探偵コナン公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "りばいぶ",
+      "めいたんていこなん",
+      "コナン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "IznYQHSWJ7w",
+    "title": "Share The World",
+    "work": "ONE PIECE",
+    "artist": "東方神起",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ONE PIECE公式（TVサイズ）",
+    "intro": 2.4,
+    "chorus": 0,
+    "aliases": [
+      "しぇあざわーるど",
+      "わんぴーす"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "vUxUXwL4IKY",
+    "title": "Velonica",
+    "work": "BLEACH",
+    "artist": "Aqua Timez",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "中",
+    "source": "BLEACH公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "べろにか",
+      "ぶりーち"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "0iAF8TJAqp4",
     "title": "ゴールデンタイムラバー",
     "work": "鋼の錬金術師 FULLMETAL ALCHEMIST",
@@ -3146,6 +3828,26 @@
       "ごーるでんたいむらばー",
       "はがねのれんきんじゅつし",
       "ハガレン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "IqKqNcW2-b4",
+    "title": "ホタルノヒカリ",
+    "work": "NARUTO -ナルト- 疾風伝",
+    "artist": "いきものがかり",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "中",
+    "source": "いきものがかり公式",
+    "intro": 1.2,
+    "chorus": 0,
+    "aliases": [
+      "ほたるのひかり",
+      "なると"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -3250,6 +3952,26 @@
     "aliases": [
       "ぶれいぶそんぐ",
       "えんじぇるびーつ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "-TVU-yNFc9E",
+    "title": "chAngE",
+    "work": "BLEACH",
+    "artist": "miwa",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "中",
+    "source": "BLEACH公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "ちぇんじ",
+      "ぶりーち"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -3922,7 +4644,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
-    "intro": 0,
+    "intro": 0.9,
     "chorus": 0,
     "aliases": [
       "なついろえがおでわんつーじゃんぷ",
@@ -3930,7 +4652,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "kpeCOzKvK-0",
@@ -4058,6 +4781,27 @@
     "introMeasured": true
   },
   {
+    "id": "vdPPA-2ErW8",
+    "title": "INNOCENCE",
+    "work": "ソードアート・オンライン",
+    "artist": "藍井エイル",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "中",
+    "source": "アニプレックス公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "いのせんす",
+      "そーどあーとおんらいん",
+      "SAO"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "iz8q6NmU7xU",
     "title": "Music S.T.A.R.T!!",
     "work": "ラブライブ!",
@@ -4066,7 +4810,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
-    "intro": 0,
+    "intro": 2.5,
     "chorus": 0,
     "aliases": [
       "みゅーじっくすたーと",
@@ -4074,7 +4818,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "9OsLd7U90Lw",
@@ -4167,7 +4912,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
-    "intro": 0,
+    "intro": 1.6,
     "chorus": 0,
     "aliases": [
       "わんだふるらっしゅ",
@@ -4175,7 +4920,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "BW4H15rK6iI",
@@ -4330,7 +5076,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "ワーナー公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1,
     "chorus": 0,
     "aliases": [
       "ぶらっでぃすとりーむ",
@@ -4339,7 +5085,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "pgCNibhSYsY",
@@ -4370,7 +5117,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ソニー公式",
-    "intro": 0,
+    "intro": 1,
     "chorus": 0,
     "aliases": [
       "でーたべーす",
@@ -4379,7 +5126,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "s3_riCFJ3MY",
@@ -4417,6 +5165,27 @@
     "aliases": [
       "ごーえくしーど",
       "だいやのえーす"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "jXeD6i0Vssg",
+    "title": "great escape",
+    "work": "進撃の巨人",
+    "artist": "cinema staff",
+    "year": 2013,
+    "type": "ED",
+    "confidence": "中",
+    "source": "ポニーキャニオン公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ぐれいとえすけーぷ",
+      "しんげきのきょじん",
+      "進撃"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -4474,7 +5243,7 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "ラブライブ!シリーズ公式",
-    "intro": 0,
+    "intro": 2.3,
     "chorus": 0,
     "aliases": [
       "すたーとだっしゅ",
@@ -4482,7 +5251,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "3_MMEKaN_kw",
@@ -4536,7 +5306,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "「ラブライブ!」チャンネル",
-    "intro": 0,
+    "intro": 0.3,
     "chorus": 0,
     "aliases": [
       "きっとせいしゅんがきこえる",
@@ -4544,7 +5314,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "XY3RhMPMWAk",
@@ -4575,7 +5346,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "Topic",
-    "intro": 0,
+    "intro": 0.4,
     "chorus": 0,
     "aliases": [
       "すすめとぅもろう",
@@ -4583,7 +5354,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "h8sjg6M0iGg",
@@ -4794,7 +5566,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "スキマスイッチ公式",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 0,
     "aliases": [
       "あーいぇー",
@@ -4802,7 +5574,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "QZaLLicaPHU",
@@ -4936,7 +5709,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "tacica公式",
-    "intro": 0,
+    "intro": 0.3,
     "chorus": 0,
     "aliases": [
       "れお",
@@ -4944,7 +5717,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "naMHtah5Gz8",
@@ -4955,7 +5729,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
-    "intro": 0,
+    "intro": 1.8,
     "chorus": 0,
     "aliases": [
       "のーぶらんどがーるず",
@@ -4963,7 +5737,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "cVKb_oerO7w",
@@ -4995,7 +5770,7 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "ラブライブ!シリーズ公式",
-    "intro": 0,
+    "intro": 0.4,
     "chorus": 0,
     "aliases": [
       "すのーはれーしょん",
@@ -5003,7 +5778,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "dfFfMRC3E1g",
@@ -5118,7 +5894,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "KANA-BOON公式",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 0,
     "aliases": [
       "しるえっと",
@@ -5126,7 +5902,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "j2ztNLvSMno",
@@ -5199,7 +5976,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "avex pictures公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.3,
     "chorus": 0,
     "aliases": [
       "ごやのまちあわせ",
@@ -5207,7 +5984,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "YehoLyzE_EQ",
@@ -5239,7 +6017,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1.4,
     "chorus": 0,
     "aliases": [
       "せかいはこいにおちている",
@@ -5247,7 +6025,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "nWnePUo6c-w",
@@ -5532,7 +6311,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "ERLEeGVWYxg",
@@ -5556,6 +6336,27 @@
     "introMeasured": true
   },
   {
+    "id": "JlVpQucPS-o",
+    "title": "ジョジョ その血の記憶〜end of THE WORLD〜",
+    "work": "ジョジョの奇妙な冒険 スターダストクルセイダース",
+    "artist": "JO☆STARS",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ワーナー公式（TVサイズ）",
+    "intro": 1.5,
+    "chorus": 0,
+    "aliases": [
+      "そのちのきおく",
+      "じょじょのきみょうなぼうけん",
+      "ジョジョ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "EYiNo2kLAHw",
     "title": "プライド革命",
     "work": "銀魂゜",
@@ -5564,7 +6365,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ソニー公式",
-    "intro": 0,
+    "intro": 0.3,
     "chorus": 0,
     "aliases": [
       "ぷらいどかくめい",
@@ -5573,7 +6374,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "WTZRgj6Afes",
@@ -5673,7 +6475,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "en8jbz3aVJE",
@@ -5726,7 +6529,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ワーナー公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1.3,
     "chorus": 0,
     "aliases": [
       "ちぇいす",
@@ -5735,7 +6538,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "FrI_31R-EfM",
@@ -5793,6 +6597,48 @@
     "aliases": [
       "ふらいはい",
       "はいきゅー"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "Zx_rFZhJCB0",
+    "title": "Great Days",
+    "work": "ジョジョの奇妙な冒険 ダイヤモンドは砕けない",
+    "artist": "JO☆STARS",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ワーナー公式（TVサイズ）",
+    "intro": 0.8,
+    "chorus": 0,
+    "aliases": [
+      "ぐれいとでいず",
+      "じょじょのきみょうなぼうけん",
+      "ジョジョ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "Evb_iw2GsxI",
+    "title": "HEROES",
+    "work": "僕のヒーローアカデミア",
+    "artist": "Brian the Sun",
+    "year": 2016,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "ひーろーず",
+      "ぼくのひーろーあかでみあ",
+      "ヒロアカ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -6115,7 +6961,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "BURNOUT SYNDROMES公式",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 0,
     "aliases": [
       "ひかりあれ",
@@ -6123,7 +6969,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "-Zikbf9aQh4",
@@ -6134,7 +6981,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "NICO Touches the Walls公式",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "ましまし",
@@ -6142,7 +6989,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "mO20a-BFIbA",
@@ -6214,7 +7062,7 @@
     "type": "映画主題歌",
     "confidence": "中",
     "source": "LiSA公式",
-    "intro": 0,
+    "intro": 1.1,
     "chorus": 0,
     "aliases": [
       "きゃっちざもーめんと",
@@ -6223,7 +7071,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "SNUOYgeuwso",
@@ -6323,6 +7172,27 @@
       "かーすとるーむ",
       "ようこそじつりょくしじょうしゅぎのきょうしつへ",
       "よう実"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "jNjGRYgid8k",
+    "title": "だから、ひとりじゃない",
+    "work": "僕のヒーローアカデミア 2期",
+    "artist": "Little Glee Monster",
+    "year": 2017,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "だからひとりじゃない",
+      "ぼくのひーろーあかでみあ",
+      "ヒロアカ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -6469,7 +7339,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "C9MuI4gfyiA",
@@ -6576,6 +7447,27 @@
     "introMeasured": true
   },
   {
+    "id": "p6nf7iyQugo",
+    "title": "渡月橋 〜君 想ふ〜",
+    "work": "劇場版 名探偵コナン から紅の恋歌",
+    "artist": "倉木麻衣",
+    "year": 2017,
+    "type": "映画主題歌",
+    "confidence": "高",
+    "source": "名探偵コナン公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "とげつきょう",
+      "めいたんていこなん",
+      "コナン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "Gpwt7R9pGuo",
     "title": "夕暮れの鳥",
     "work": "進撃の巨人 Season 2",
@@ -6647,7 +7539,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ソニー公式",
-    "intro": 0,
+    "intro": 4.2,
     "chorus": 0,
     "aliases": [
       "あすふぃきしあ",
@@ -6656,7 +7548,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "xgWr4cKD4AU",
@@ -6667,7 +7560,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "ワーナー公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1.4,
     "chorus": 0,
     "aliases": [
       "ふぁいてぃんぐごーるど",
@@ -6676,7 +7569,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "VekCU4YJiR8",
@@ -6707,7 +7601,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "とあるプロジェクト公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.3,
     "chorus": 0,
     "aliases": [
       "ぐらびてーしょん",
@@ -6716,7 +7610,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "sHaZqEJNSg8",
@@ -6727,7 +7622,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "FLOW公式",
-    "intro": 0,
+    "intro": 3.2,
     "chorus": 0,
     "aliases": [
       "はうりんぐ",
@@ -6736,7 +7631,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "tPzgijBoVec",
@@ -6777,7 +7673,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "ne8DSp1pdgU",
@@ -6830,7 +7727,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "BiSH公式",
-    "intro": 0,
+    "intro": 0.9,
     "chorus": 0,
     "aliases": [
       "ぺいんといっとぶらっく",
@@ -6839,7 +7736,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "enVaErING1w",
@@ -6995,7 +7893,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "MAN WITH A MISSION公式",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 0,
     "aliases": [
       "わいんでぃんぐろーど",
@@ -7004,7 +7902,29 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "ljG4KZ0oP1o",
+    "title": "アップデート",
+    "work": "僕のヒーローアカデミア 3期",
+    "artist": "miwa",
+    "year": 2018,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "あっぷでーと",
+      "ぼくのひーろーあかでみあ",
+      "ヒロアカ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "k09sgrXVt88",
@@ -7076,7 +7996,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ポニーキャニオン公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [
       "あかつきのれくいえむ",
@@ -7085,7 +8005,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "0vcyIgLvPAo",
@@ -7123,6 +8044,27 @@
       "あだばなねくろまんしー",
       "ぞんびらんどさが",
       "ゾンサガ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "n269iQ2UTKg",
+    "title": "薔薇色の人生",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 2018,
+    "type": "OP",
+    "confidence": "中",
+    "source": "名探偵コナン公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "ばらいろのじんせい",
+      "めいたんていこなん",
+      "コナン"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -7209,7 +8151,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "ewPsNiklKcY",
@@ -7220,7 +8163,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "ONE PIECE公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.8,
     "chorus": 0,
     "aliases": [
       "おーばーざとっぷ",
@@ -7228,7 +8171,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "3KGjAw0fGX0",
@@ -7342,7 +8286,7 @@
     "type": "映画主題歌",
     "confidence": "中",
     "source": "ランティス公式",
-    "intro": 0,
+    "intro": 0.1,
     "chorus": 0,
     "aliases": [
       "えいみー",
@@ -7350,7 +8294,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "2pECnr5MNuU",
@@ -7616,6 +8561,27 @@
     "introMeasured": true
   },
   {
+    "id": "kbjr3JIuOtY",
+    "title": "裏切り者のレクイエム",
+    "work": "ジョジョの奇妙な冒険 黄金の風",
+    "artist": "ハセガワダイスケ",
+    "year": 2019,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ワーナー公式（TVサイズ）",
+    "intro": 2.1,
+    "chorus": 0,
+    "aliases": [
+      "うらぎりもののれくいえむ",
+      "じょじょのきみょうなぼうけん",
+      "ジョジョ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "Qo_4XqKwrSM",
     "title": "ANIMA",
     "work": "ソードアート・オンライン アリシゼーション War of Underworld",
@@ -7721,6 +8687,27 @@
     "introMeasured": true
   },
   {
+    "id": "TbgbIbODhjs",
+    "title": "Grandeur",
+    "work": "ブラッククローバー",
+    "artist": "Snow Man",
+    "year": 2020,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ジャンプチャンネル公式",
+    "intro": 1.2,
+    "chorus": 0,
+    "aliases": [
+      "ぐらんでゅーる",
+      "ぶらっくくろーばー",
+      "ブラクロ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "AWEm4tA2hMc",
     "title": "LOST IN PARADISE feat. AKLO",
     "work": "呪術廻戦",
@@ -7771,7 +8758,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "SPYAIR公式",
-    "intro": 0,
+    "intro": 0.1,
     "chorus": 0,
     "aliases": [
       "わんでい",
@@ -7779,7 +8766,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "b5lsuPxMFmw",
@@ -7816,6 +8804,27 @@
       "りあらいず",
       "りぜろからはじめるいせかいせいかつ",
       "リゼロ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "qi1J4Lyl8do",
+    "title": "Shout Baby",
+    "work": "僕のヒーローアカデミア 4期",
+    "artist": "緑黄色社会",
+    "year": 2020,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "しゃうとべいびー",
+      "ぼくのひーろーあかでみあ",
+      "ヒロアカ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -7864,6 +8873,27 @@
     "introMeasured": true
   },
   {
+    "id": "_9OJs43bPwk",
+    "title": "ZEROからハジメテ",
+    "work": "名探偵コナン",
+    "artist": "倉木麻衣",
+    "year": 2020,
+    "type": "OP",
+    "confidence": "中",
+    "source": "名探偵コナン公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "ぜろからはじめて",
+      "めいたんていこなん",
+      "コナン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "MdfFVdFWl1U",
     "title": "スターマーカー",
     "work": "僕のヒーローアカデミア 4期",
@@ -7894,7 +8924,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "DMM pictures公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.3,
     "chorus": 0,
     "aliases": [
       "せんちめーとる",
@@ -7903,7 +8933,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "jRLuWFPYGzc",
@@ -7976,7 +9007,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "CHiCO with HoneyWorks公式",
-    "intro": 0,
+    "intro": 0.4,
     "chorus": 0,
     "aliases": [
       "けっせんすぴりっと",
@@ -7984,7 +9015,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "AT2tulhSprE",
@@ -8000,6 +9032,27 @@
     "aliases": [
       "とっぱこう",
       "はいきゅー"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "l0Z6_6fi-HI",
+    "title": "風に吹かれて",
+    "work": "かぐや様は告らせたい?",
+    "artist": "福原遥",
+    "year": 2020,
+    "type": "ED",
+    "confidence": "中",
+    "source": "アニプレックス公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "かぜにふかれて",
+      "かぐやさまはこくらせたい",
+      "かぐや様"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -8070,6 +9123,27 @@
     "introMeasured": true
   },
   {
+    "id": "uQfd61IZjMM",
+    "title": "Long shot",
+    "work": "Re:ゼロから始める異世界生活 2nd season",
+    "artist": "前島麻由",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "中",
+    "source": "KADOKAWA公式（TVサイズ）",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [
+      "ろんぐしょっと",
+      "りぜろからはじめるいせかいせいかつ",
+      "リゼロ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "jlwOlzVK5kY",
     "title": "No.1",
     "work": "僕のヒーローアカデミア 5期",
@@ -8121,7 +9195,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "フリュー公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.4,
     "chorus": 0,
     "aliases": [
       "しーずざでい",
@@ -8129,7 +9203,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
   },
   {
     "id": "2p8ig-TrYPY",
@@ -8234,6 +9309,27 @@
     "introMeasured": true
   },
   {
+    "id": "YlhUujBIwd8",
+    "title": "ここで息をして",
+    "work": "東京リベンジャーズ",
+    "artist": "eill",
+    "year": 2021,
+    "type": "ED",
+    "confidence": "中",
+    "source": "東京リベンジャーズ公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "ここでいきをして",
+      "とうきょうりべんじゃーず",
+      "東リベ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "XCs7FacjHQY",
     "title": "愛のシュプリーム!",
     "work": "小林さんちのメイドラゴンS",
@@ -8289,6 +9385,26 @@
     "aliases": [
       "かいぶつ",
       "びすたーず"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "34wlhlQpidc",
+    "title": "楽園",
+    "work": "Dr.STONE STONE WARS",
+    "artist": "Fujifabric",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "らくえん",
+      "どくたーすとーん"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -8380,6 +9496,27 @@
     "introMeasured": true
   },
   {
+    "id": "5whFTc6SaI8",
+    "title": "白銀",
+    "work": "鬼滅の刃 無限列車編",
+    "artist": "LiSA",
+    "year": 2021,
+    "type": "ED",
+    "confidence": "中",
+    "source": "LiSA公式",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "しろがね",
+      "きめつのやいば",
+      "鬼滅"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "6TolbTZXDjI",
     "title": "僕の戦争",
     "work": "進撃の巨人 The Final Season",
@@ -8394,6 +9531,27 @@
       "ぼくのせんそう",
       "しんげきのきょじん",
       "進撃"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "yGcm81aaTHg",
+    "title": "明け星",
+    "work": "鬼滅の刃 無限列車編",
+    "artist": "LiSA",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "高",
+    "source": "LiSA公式",
+    "intro": 1.1,
+    "chorus": 0,
+    "aliases": [
+      "あけぼし",
+      "きめつのやいば",
+      "鬼滅"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -8454,6 +9612,26 @@
     "chorus": 0,
     "aliases": [
       "ちぇんそーぶらっど",
+      "ちぇんそーまん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "6ej4gHhUzek",
+    "title": "first death",
+    "work": "チェンソーマン",
+    "artist": "TK from 凛として時雨",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MAPPA公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ふぁーすとです",
       "ちぇんそーまん"
     ],
     "embeddable": true,
@@ -8562,6 +9740,26 @@
     "introMeasured": true
   },
   {
+    "id": "qSWR8QDtDXY",
+    "title": "WINNER",
+    "work": "ブルーロック",
+    "artist": "仲村宗悟",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "中",
+    "source": "バンダイナムコ公式（TVサイズ）",
+    "intro": 0.7,
+    "chorus": 0,
+    "aliases": [
+      "うぃなー",
+      "ぶるーろっく"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "L2i0i9gWE00",
     "title": "あのバンド",
     "work": "ぼっち・ざ・ろっく!",
@@ -8576,6 +9774,26 @@
       "あのばんど",
       "ぼっちざろっく",
       "ぼざろ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "ymQ3wEIq84Y",
+    "title": "インザバックルーム",
+    "work": "チェンソーマン",
+    "artist": "syudou",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MAPPA公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "いんざばっくるーむ",
+      "ちぇんそーまん"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -8688,6 +9906,47 @@
     "introMeasured": true
   },
   {
+    "id": "sVoz_fH59Ew",
+    "title": "ハートはお手上げ",
+    "work": "かぐや様は告らせたい-ウルトラロマンティック-",
+    "artist": "鈴木愛理",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "中",
+    "source": "アニプレックス公式（TVサイズ）",
+    "intro": 0.1,
+    "chorus": 0,
+    "aliases": [
+      "はーとはおてあげ",
+      "かぐやさまはこくらせたい",
+      "かぐや様"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "UTwujrP2pFo",
+    "title": "バイオレンス",
+    "work": "チェンソーマン",
+    "artist": "女王蜂",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MAPPA公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ばいおれんす",
+      "ちぇんそーまん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "6BrHcmH3Gyk",
     "title": "ひたむき",
     "work": "僕のヒーローアカデミア 6期",
@@ -8709,6 +9968,26 @@
     "introMeasured": true
   },
   {
+    "id": "7jM0fUAR2xg",
+    "title": "ファイトソング",
+    "work": "チェンソーマン",
+    "artist": "Eve",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MAPPA公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ふぁいとそんぐ",
+      "ちぇんそーまん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "CbH2F0kXgTY",
     "title": "ミックスナッツ",
     "work": "SPY×FAMILY",
@@ -8722,6 +10001,27 @@
       "みっくすなっつ"
     ],
     "embeddable": true,
+    "introMeasured": true
+  },
+  {
+    "id": "9lnh--ZOPyo",
+    "title": "悪魔の子",
+    "work": "進撃の巨人 The Final Season Part 2",
+    "artist": "ヒグチアイ",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "高",
+    "source": "ポニーキャニオン公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "あくまのこ",
+      "しんげきのきょじん",
+      "進撃"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
     "introMeasured": true
   },
   {
@@ -8807,6 +10107,26 @@
     "introMeasured": true
   },
   {
+    "id": "Hw1fy7VF_w8",
+    "title": "残機",
+    "work": "チェンソーマン",
+    "artist": "ずっと真夜中でいいのに。",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MAPPA公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ざんき",
+      "ちぇんそーまん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "sk1Z-Hqwwog",
     "title": "私は最強",
     "work": "ONE PIECE FILM RED",
@@ -8848,6 +10168,26 @@
     "introMeasured": true
   },
   {
+    "id": "xIKW3NKYBWw",
+    "title": "錠剤",
+    "work": "チェンソーマン",
+    "artist": "TOOBOE",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MAPPA公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "じょうざい",
+      "ちぇんそーまん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "1FliVTcX8bQ",
     "title": "新時代",
     "work": "ONE PIECE FILM RED",
@@ -8861,6 +10201,26 @@
     "aliases": [
       "しんじだい",
       "わんぴーす"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "HEwAiwttN10",
+    "title": "刃渡り2億センチ",
+    "work": "チェンソーマン",
+    "artist": "マキシマム ザ ホルモン",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MAPPA公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "はわたりにおくせんち",
+      "ちぇんそーまん"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -8973,6 +10333,27 @@
     "introMeasured": true
   },
   {
+    "id": "Jk6S15iIgxc",
+    "title": "heart notes",
+    "work": "かぐや様は告らせたい-ファーストキッスは終わらない-",
+    "artist": "鈴木愛理",
+    "year": 2023,
+    "type": "ED",
+    "confidence": "中",
+    "source": "アニプレックス公式（TVサイズ）",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "はーとのーつ",
+      "かぐやさまはこくらせたい",
+      "かぐや様"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "GuAcdIqcanA",
     "title": "innocent arrogance",
     "work": "天国大魔境",
@@ -8986,6 +10367,26 @@
     "aliases": [
       "いのせんとあろがんす",
       "てんごくだいまきょう"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "e9jh494EMj4",
+    "title": "Judgement",
+    "work": "ブルーロック",
+    "artist": "ASH DA HERO",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "中",
+    "source": "バンダイナムコ公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "じゃっじめんと",
+      "ぶるーろっく"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -9007,6 +10408,47 @@
       "もあざんわーず",
       "じゅじゅつかいせん",
       "呪術"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "K-XH333Tofo",
+    "title": "Numbness like a ginger",
+    "work": "ブルーロック",
+    "artist": "UNISON SQUARE GARDEN",
+    "year": 2023,
+    "type": "ED",
+    "confidence": "中",
+    "source": "バンダイナムコ公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "なむねすらいくあじんじゃー",
+      "ぶるーろっく"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "PX-RhjDLVDQ",
+    "title": "Say My Name",
+    "work": "東京リベンジャーズ 天竺編",
+    "artist": "HEY-SMITH",
+    "year": 2023,
+    "type": "ED",
+    "confidence": "中",
+    "source": "東京リベンジャーズ公式（TVサイズ）",
+    "intro": 0.1,
+    "chorus": 0,
+    "aliases": [
+      "せいまいねーむ",
+      "とうきょうりべんじゃーず",
+      "東リベ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -9052,6 +10494,27 @@
     "introMeasured": true
   },
   {
+    "id": "4QesgADu8gM",
+    "title": "UNDER THE TREE",
+    "work": "進撃の巨人 The Final Season 完結編",
+    "artist": "SiM",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ポニーキャニオン公式",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [
+      "あんだーざつりー",
+      "しんげきのきょじん",
+      "進撃"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "RS94j08yIHs",
     "title": "W●RK",
     "work": "地獄楽",
@@ -9073,6 +10536,26 @@
     "introMeasured": true
   },
   {
+    "id": "PojnddmnjNs",
+    "title": "アイコトバ",
+    "work": "薬屋のひとりごと",
+    "artist": "アイナ・ジ・エンド",
+    "year": 2023,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "あいことば",
+      "くすりやのひとりごと"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "ZRtdQ81jPUQ",
     "title": "アイドル",
     "work": "【推しの子】",
@@ -9087,6 +10570,27 @@
       "おしのこ"
     ],
     "embeddable": true,
+    "introMeasured": true
+  },
+  {
+    "id": "DU2KGyQgso4",
+    "title": "いってらっしゃい",
+    "work": "進撃の巨人 The Final Season 完結編",
+    "artist": "ヒグチアイ",
+    "year": 2023,
+    "type": "ED",
+    "confidence": "中",
+    "source": "ポニーキャニオン公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "いってらっしゃい",
+      "しんげきのきょじん",
+      "進撃"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
     "introMeasured": true
   },
   {
@@ -9130,6 +10634,27 @@
     "introMeasured": true
   },
   {
+    "id": "vZUyKVE9dus",
+    "title": "コイコガレ",
+    "work": "鬼滅の刃 刀鍛冶の里編",
+    "artist": "milet×MAN WITH A MISSION",
+    "year": 2023,
+    "type": "ED",
+    "confidence": "中",
+    "source": "milet公式",
+    "intro": 1,
+    "chorus": 0,
+    "aliases": [
+      "こいこがれ",
+      "きめつのやいば",
+      "鬼滅"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "zJRZ9ybACB4",
     "title": "ソングオブザデッド",
     "work": "ゾン100〜ゾンビになるまでにしたい100のこと〜",
@@ -9163,6 +10688,48 @@
     "aliases": [
       "とどめのいちげき",
       "すぱいふぁみりー"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "bzNXDsfqfVs",
+    "title": "ぼくらの",
+    "work": "僕のヒーローアカデミア 6期",
+    "artist": "Eve",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ぼくらの",
+      "ぼくのひーろーあかでみあ",
+      "ヒロアカ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "keFRueltLIU",
+    "title": "ホワイトノイズ",
+    "work": "東京リベンジャーズ 聖夜決戦編",
+    "artist": "Official髭男dism",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "高",
+    "source": "東京リベンジャーズ公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "ほわいとのいず",
+      "とうきょうりべんじゃーず",
+      "東リベ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -9211,6 +10778,26 @@
     "introMeasured": true
   },
   {
+    "id": "81H41vp96ag",
+    "title": "ワスレガタキ",
+    "work": "Dr.STONE NEW WORLD",
+    "artist": "石崎ひゅーい",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "わすれがたき",
+      "どくたーすとーん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "v-WcMQbXbKY",
     "title": "花になって",
     "work": "薬屋のひとりごと",
@@ -9224,6 +10811,69 @@
     "aliases": [
       "はなになって",
       "くすりやのひとりごと"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "EvRTJbVcFQA",
+    "title": "言葉にせずとも",
+    "work": "BLEACH 千年血戦篇-相剋譚-",
+    "artist": "SIX LOUNGE",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "中",
+    "source": "BLEACH公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "ことばにせずとも",
+      "ぶりーちせんねんけっせんへん",
+      "BLEACH",
+      "ブリーチ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "d6qCbdXqsOs",
+    "title": "最後の巨人",
+    "work": "進撃の巨人 The Final Season 完結編",
+    "artist": "Linked Horizon",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ポニーキャニオン公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "さいごのきょじん",
+      "しんげきのきょじん",
+      "進撃"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "yu-0eh9jdZg",
+    "title": "最高到達点",
+    "work": "ONE PIECE",
+    "artist": "SEKAI NO OWARI",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ONE PIECE公式（TVサイズ）",
+    "intro": 0.6,
+    "chorus": 0,
+    "aliases": [
+      "さいこうとうたつてん",
+      "わんぴーす"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -9286,6 +10936,27 @@
     "aliases": [
       "ちきゅうぎ",
       "きみたちはどういきるか"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "ZSLmP-af8W0",
+    "title": "燈",
+    "work": "呪術廻戦 懐玉・玉折",
+    "artist": "崎山蒼志",
+    "year": 2023,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "あかり",
+      "じゅじゅつかいせん",
+      "呪術"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -9396,6 +11067,67 @@
     "introMeasured": true
   },
   {
+    "id": "aPzI7S3MVI4",
+    "title": "NOX LUX",
+    "work": "Re:ゼロから始める異世界生活 3rd season",
+    "artist": "MYTH & ROID",
+    "year": 2024,
+    "type": "ED",
+    "confidence": "中",
+    "source": "KADOKAWA公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "のくするくす",
+      "りぜろからはじめるいせかいせいかつ",
+      "リゼロ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "iL1RmBRXnp0",
+    "title": "One",
+    "work": "ブルーロック VS. U-20 JAPAN",
+    "artist": "Snow Man",
+    "year": 2024,
+    "type": "ED",
+    "confidence": "中",
+    "source": "バンダイナムコ公式（TVサイズ）",
+    "intro": 1.2,
+    "chorus": 0,
+    "aliases": [
+      "わん",
+      "ぶるーろっく"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "jio_17jg980",
+    "title": "Party!!",
+    "work": "ダンジョン飯",
+    "artist": "緑黄色社会",
+    "year": 2024,
+    "type": "ED",
+    "confidence": "中",
+    "source": "KADOKAWA公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ぱーてぃー",
+      "だんじょんめし"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "wKvBpv2idRc",
     "title": "Reweave",
     "work": "Re:ゼロから始める異世界生活 3rd season",
@@ -9457,6 +11189,28 @@
     "introMeasured": true
   },
   {
+    "id": "AR1ecFmd8yw",
+    "title": "STARS",
+    "work": "BLEACH 千年血戦篇-訣別譚-",
+    "artist": "w.o.d.",
+    "year": 2024,
+    "type": "OP",
+    "confidence": "中",
+    "source": "BLEACH公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "すたーず",
+      "ぶりーちせんねんけっせんへん",
+      "BLEACH",
+      "ブリーチ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "s8SSPUQvUzI",
     "title": "TAIDADA",
     "work": "ダンダダン",
@@ -9470,6 +11224,26 @@
     "aliases": [
       "たいだだ",
       "だんだだん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "YFbno_aPm0w",
+    "title": "あーーっす!",
+    "work": "ONE PIECE",
+    "artist": "きただにひろし",
+    "year": 2024,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ONE PIECE公式（TVサイズ）",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [
+      "あーっす",
+      "わんぴーす"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -9599,6 +11373,26 @@
     "introMeasured": true
   },
   {
+    "id": "bYNlZ0KkPuo",
+    "title": "愛は薬",
+    "work": "薬屋のひとりごと",
+    "artist": "wacci",
+    "year": 2024,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "あいはくすり",
+      "くすりやのひとりごと"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "eZAocot63s8",
     "title": "怪獣",
     "work": "チ。 ―地球の運動について―",
@@ -9654,6 +11448,109 @@
       "たがため",
       "ぼくのひーろーあかでみあ",
       "ヒロアカ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "VhneiPkG_W0",
+    "title": "傍若のカリスマ",
+    "work": "ブルーロック VS. U-20 JAPAN",
+    "artist": "UNISON SQUARE GARDEN",
+    "year": 2024,
+    "type": "OP",
+    "confidence": "中",
+    "source": "バンダイナムコ公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ぼうじゃくのかりすま",
+      "ぶるーろっく"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "ULEk2BWoIPI",
+    "title": "六等星",
+    "work": "僕のヒーローアカデミア 7期",
+    "artist": "ざらめ",
+    "year": 2024,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ろくとうせい",
+      "ぼくのひーろーあかでみあ",
+      "ヒロアカ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "e0wrj-qP4LI",
+    "title": "Actor",
+    "work": "SPY×FAMILY Season 3",
+    "artist": "幾田りら",
+    "year": 2025,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [
+      "あくたー",
+      "すぱいふぁみりー"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "K0v0lTbZnvM",
+    "title": "I",
+    "work": "僕のヒーローアカデミア FINAL SEASON",
+    "artist": "BUMP OF CHICKEN",
+    "year": 2025,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "あい",
+      "ぼくのひーろーあかでみあ",
+      "ヒロアカ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "aKs9Tod3mro",
+    "title": "IGNITE",
+    "work": "東京リベンジャーズ 三天戦争編",
+    "artist": "JO1",
+    "year": 2025,
+    "type": "OP",
+    "confidence": "中",
+    "source": "東京リベンジャーズ公式（TVサイズ）",
+    "intro": 0.7,
+    "chorus": 0,
+    "aliases": [
+      "いぐないと",
+      "とうきょうりべんじゃーず",
+      "東リベ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -9721,6 +11618,47 @@
     "introMeasured": true
   },
   {
+    "id": "HXvZ7Y7uYbo",
+    "title": "ROCKET",
+    "work": "Dr.STONE SCIENCE FUTURE",
+    "artist": "BURNOUT SYNDROMES",
+    "year": 2025,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.1,
+    "chorus": 0,
+    "aliases": [
+      "ろけっと",
+      "どくたーすとーん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "5ALFVv_tdYw",
+    "title": "THE REVO",
+    "work": "僕のヒーローアカデミア FINAL SEASON",
+    "artist": "ポルノグラフィティ",
+    "year": 2025,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ざれぼ",
+      "ぼくのひーろーあかでみあ",
+      "ヒロアカ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "a_NB6QkfzAM",
     "title": "Watch me!",
     "work": "ウィッチウォッチ",
@@ -9761,6 +11699,26 @@
     "introMeasured": true
   },
   {
+    "id": "ycH4Twoq83I",
+    "title": "スキンズ",
+    "work": "Dr.STONE SCIENCE FUTURE",
+    "artist": "ASIAN KUNG-FU GENERATION",
+    "year": 2025,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "すきんず",
+      "どくたーすとーん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "LxUeFYhLE0U",
     "title": "どうかしてる",
     "work": "ダンダダン 第2期",
@@ -9781,6 +11739,47 @@
     "introMeasured": true
   },
   {
+    "id": "KKxnWfww-24",
+    "title": "トリックスター",
+    "work": "東京リベンジャーズ 三天戦争編",
+    "artist": "go!go!vanillas",
+    "year": 2025,
+    "type": "ED",
+    "confidence": "中",
+    "source": "東京リベンジャーズ公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "とりっくすたー",
+      "とうきょうりべんじゃーず",
+      "東リベ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "2ujbjT7k6ak",
+    "title": "ひとりごと",
+    "work": "薬屋のひとりごと 第2期",
+    "artist": "Omoinotake",
+    "year": 2025,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "ひとりごと",
+      "くすりやのひとりごと"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "ZWjbvYWUMHo",
     "title": "革命道中",
     "work": "ダンダダン 第2期",
@@ -9794,6 +11793,26 @@
     "aliases": [
       "かくめいどうちゅう",
       "だんだだん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "WDL0jSFr6e8",
+    "title": "幸せのレシピ",
+    "work": "薬屋のひとりごと 第2期",
+    "artist": "平井大",
+    "year": 2025,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [
+      "しあわせのれしぴ",
+      "くすりやのひとりごと"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -9883,6 +11902,46 @@
     "introMeasured": true
   },
   {
+    "id": "VHxeuLf_eRs",
+    "title": "天使と悪魔",
+    "work": "ONE PIECE",
+    "artist": "GRe4N BOYZ",
+    "year": 2025,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ONE PIECE公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "てんしとあくま",
+      "わんぴーす"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "PcmmU4aEQu0",
+    "title": "灯を護る",
+    "work": "SPY×FAMILY Season 3",
+    "artist": "スピッツ",
+    "year": 2025,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "ひをまもる",
+      "すぱいふぁみりー"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
     "id": "wOleNo7T6_4",
     "title": "百花繚乱",
     "work": "薬屋のひとりごと 第2期",
@@ -9895,6 +11954,230 @@
     "chorus": 0,
     "aliases": [
       "ひゃっかりょうらん",
+      "くすりやのひとりごと"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "kswDfgziS9I",
+    "title": "AIYOU",
+    "work": "薬屋のひとりごと 第3期",
+    "artist": "Eve",
+    "year": 2026,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "あいゆー",
+      "くすりやのひとりごと"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "Xr032EhUDPw",
+    "title": "AIZO",
+    "work": "呪術廻戦 死滅回游 前編",
+    "artist": "King Gnu",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "あいぞう",
+      "じゅじゅつかいせん",
+      "呪術"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "fG07I9UlnoI",
+    "title": "CASANOVA POSSE",
+    "work": "Dr.STONE SCIENCE FUTURE",
+    "artist": "ALI",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "かさのばぽっせ",
+      "どくたーすとーん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "C0BG3B7aksU",
+    "title": "lulu.",
+    "work": "葬送のフリーレン 第2期",
+    "artist": "Mrs. GREEN APPLE",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [
+      "るる",
+      "そうそうのふりーれん",
+      "フリーレン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "HNYp4T0kMNU",
+    "title": "SUPERNOVA",
+    "work": "Dr.STONE SCIENCE FUTURE",
+    "artist": "KANA-BOON",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "すーぱーのば",
+      "どくたーすとーん"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "QgIQbeRzkkc",
+    "title": "TEST ME",
+    "work": "【推しの子】第3期",
+    "artist": "ちゃんみな",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "中",
+    "source": "【推しの子】公式（TVサイズ）",
+    "intro": 0.4,
+    "chorus": 0,
+    "aliases": [
+      "てすとみー",
+      "おしのこ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "FY4Bx2qtkRM",
+    "title": "The Story of Us",
+    "work": "葬送のフリーレン 第2期",
+    "artist": "milet",
+    "year": 2026,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "ざすとーりーおぶあす",
+      "そうそうのふりーれん",
+      "フリーレン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "ZWvFR00t-NE",
+    "title": "セレナーデ",
+    "work": "【推しの子】第3期",
+    "artist": "なとり",
+    "year": 2026,
+    "type": "ED",
+    "confidence": "中",
+    "source": "【推しの子】公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "せれなーで",
+      "おしのこ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "-i8LR9-WVps",
+    "title": "よあけのうた",
+    "work": "呪術廻戦 死滅回游 前編",
+    "artist": "jo0ji",
+    "year": 2026,
+    "type": "ED",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "よあけのうた",
+      "じゅじゅつかいせん",
+      "呪術"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "X48ZNGHBa8A",
+    "title": "ルミナス -Luminous",
+    "work": "ONE PIECE",
+    "artist": "アイナ・ジ・エンド",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ONE PIECE公式（TVサイズ）",
+    "intro": 1.2,
+    "chorus": 0,
+    "aliases": [
+      "るみなす",
+      "わんぴーす"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-03",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true
+  },
+  {
+    "id": "lBsQCQDbgOE",
+    "title": "雲を抜け風下へ私だけ",
+    "work": "薬屋のひとりごと 第3期",
+    "artist": "ヨルシカ",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0.3,
+    "chorus": 0,
+    "aliases": [
+      "くもをぬけかざしもへわたしだけ",
       "くすりやのひとりごと"
     ],
     "embeddable": true,

@@ -57,7 +57,6 @@
         <label>テーマ<select data-key="theme"><option value="random">ランダム（ゲームごと）</option><option value="neon">ネオン・ライブ会場</option><option value="studio">クイズ番組スタジオ</option><option value="pop">ポップ</option><option value="retro">レトロゲーム</option></select></label>
         <label>回答方法<select data-key="answerMode"><option value="choice">選択肢から選ぶ</option><option value="input">曲名・作品名を入力</option></select></label>
         <label>時間で出るヒント<select data-key="clues"><option value="true">あり</option><option value="false">なし</option></select></label>
-        <label>ライフライン<select data-key="lifelines"><option value="true">あり（各1回）</option><option value="false">なし</option></select></label>
         <label>採点<select data-key="mode"><option value="score">スコア制（速いほど高得点）</option><option value="buzz">早押し制（最速の正解者のみ）</option></select></label>
         <label>問題数<select data-key="questions"></select></label>
         <label>選択肢<select data-key="choices"></select></label>
@@ -83,13 +82,9 @@
         <button class="btn-main" id="sendBtn" type="submit">回答</button>
       </form>
       <div class="lifelines" id="lifelines">
-        <button class="life" data-life="fifty"><img data-icon="fifty" alt=""><span>50:50</span></button>
-        <button class="life" data-life="audience"><img data-icon="audience" alt=""><span>オーディエンス</span></button>
-        <button class="life" data-life="phone"><img data-icon="phone" alt=""><span>テレフォン</span></button>
-        <button class="life" data-life="replay"><img data-icon="replay" alt=""><span>もう一度聴く</span></button>
-        <button class="life pass" id="passBtn"><img data-icon="pass" alt=""><span>わからない</span></button>
+        <button class="btn-sub skip" id="passBtn">次の曲へ ▶▶</button>
       </div>
-      <ul class="life-results" id="lifeResults"></ul>
+      <ul class="life-results" id="lifeResults" hidden></ul>
       <p class="note" id="quizNote"></p>
     </div>
 

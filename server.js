@@ -86,7 +86,7 @@ const randomTheme = () => THEMES[crypto.randomInt(THEMES.length)];
 // 設定が「ランダム」ならゲームごとに選び直す。固定テーマならそれを使う
 function pickTheme(room) { room.theme = room.settings.theme === 'random' ? randomTheme() : room.settings.theme; }
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
-                   yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: true, theme: 'random' };
+                   yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, theme: 'random' }; // ライフラインは使わない（画面からも外した）
 const LIFELINES = ['fifty', 'audience', 'phone', 'replay']; // 50:50 / オーディエンス / テレフォン / もう一度聴く
 const NEAR_YEARS = 5; // 選択肢は、まず出題曲の前後この年数以内の曲から選ぶ
 const READY_TIMEOUT = 4000;      // 全員の読み込みを待つ上限

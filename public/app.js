@@ -248,7 +248,7 @@ function markAnswered({ index = null, text = null, given = null, pass = false })
   });
   $('answerInput').disabled = true; $('sendBtn').disabled = true;
   if (text ?? given) $('answerInput').value = text ?? given;
-  $('quizNote').textContent = pass ? 'パスしました。答え合わせを待っています…' : '回答しました。答え合わせを待っています…';
+  $('quizNote').textContent = pass ? '「次の曲へ」を押しました。全員がそろうと答え合わせです…' : '回答しました。答え合わせを待っています…';
   updateLifelineButtons();
 }
 
@@ -341,7 +341,7 @@ socket.on('reveal', r => {
   $('results').innerHTML = r.results.map(x => `
     <tr>
       <td>${esc(x.name)}</td>
-      <td class="${x.correct ? 'ok' : 'ng'}">${!x.answered ? '未回答' : x.pass ? 'パス' : x.correct ? '正解' + (x.hint ? '（サビ）' : '') : '不正解'}${x.given ? `<small>「${esc(x.given)}」</small>` : ''}</td>
+      <td class="${x.correct ? 'ok' : 'ng'}">${!x.answered ? '未回答' : x.pass ? 'スキップ' : x.correct ? '正解' + (x.hint ? '（サビ）' : '') : '不正解'}${x.given ? `<small>「${esc(x.given)}」</small>` : ''}</td>
       <td class="num">${x.elapsed === null ? '' : x.elapsed.toFixed(2) + '秒'}</td>
       <td class="num">+${x.points}</td>
     </tr>`).join('');
@@ -349,7 +349,7 @@ socket.on('reveal', r => {
   const mine = r.results.find(x => x.id === me);
   if (mine) {
     if (mine.correct) { flash('ok', '正解！', `+${mine.points}`); confetti(40); }
-    else if (mine.pass) flash('ng', 'パス');
+    else if (mine.pass) flash('ng', 'スキップ');
     else if (!mine.answered) flash('ng', '時間切れ');
     else flash('ng', '不正解');
   }

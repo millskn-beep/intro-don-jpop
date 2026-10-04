@@ -52,7 +52,8 @@
         <select id="decade"><option value="">全年代</option></select>
         <select id="status">
           <option value="">すべて</option><option value="un">未チェック</option>
-          <option value="ok">再生OK</option><option value="ng">再生NG</option><option value="nochorus">サビ未設定</option>
+          <option value="ok">再生OK</option><option value="ng">再生NG</option><option value="nochorus">サビが仮の値の曲</option>
+          <option value="chorusest">サビが自動推定の曲</option><option value="introunsure">イントロ要確認の曲</option>
         </select>
       </div>
       <div class="toolbar" style="margin-top:8px">
@@ -88,6 +89,13 @@
 </main>
 
 <script>
+// 動画の長さからサビの位置を推定（public/chorus-guess.js と同じ計算）
+function guessChorus(intro, duration) {
+  intro = intro || 0;
+  if (!(duration > 0)) return intro + 50;
+  if (duration <= 110) return Math.round(Math.max(intro + 20, duration * 0.5));
+  return Math.round(Math.max(intro + 30, Math.min(duration * 0.27, 90)));
+}
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const CHECK_TIMEOUT = 8000;
@@ -113,7 +121,9 @@ function filtered() {
   return songs.filter(s => {
     if (q && ![s.title, s.work, s.artist].join(' ').toLowerCase().includes(q)) return false;
     if (dec && Math.floor(s.year / 10) * 10 !== +dec) return false;
-    if (st === 'nochorus') return !(s.chorus > 0);
+    if (st === 'nochorus') return s.embeddable !== false && !(s.chorus > 0);
+    if (st === 'chorusest') return s.embeddable !== false && s.chorusSource === 'heatmap';
+    if (st === 'introunsure') return s.embeddable !== false && !!s.introUnsure;
     if (st && statusOf(s) !== st) return false;
     return true;
   });
@@ -204,6 +214,7 @@ function renderDetail() {
       <button class="btn-sub" data-k="chorus" data-d="1">＋1</button>
       <button class="btn-sub" data-k="chorus" data-d="5">＋5</button>
       <button class="btn-sub" data-mark="chorus">今の位置</button>
+      <button class="btn-sub" id="guessChorus" title="動画の長さから推定した位置にする（TVサイズは真ん中あたり、フルは1/4あたり）">長さから推定</button>
       <button class="btn-sub" data-play="chorus">▶ 再生</button>
     </div>
     <div class="adj">
@@ -229,6 +240,12 @@ function renderDetail() {
     afterEdit(null);
   });
   $('detail').querySelectorAll('[data-play]').forEach(b => b.onclick = () => playAt(b.dataset.play));
+  $('guessChorus').onclick = () => {
+    const d = player.getVideoData?.().video_id === s.id ? player.getDuration() : 0;
+    if (!(d > 0)) { toast('先に「▶ 再生」で動画を読み込んでください'); return; }
+    s.chorus = guessChorus(s.intro, d); s.chorusSource = 'manual';
+    afterEdit('chorus');
+  };
   $('aliasSave').onclick = () => {
     s.aliases = $('aliasInput').value.split(/[\/／]/).map(a => a.trim()).filter(Boolean);
     markDirty(); renderDetail(); toast('別名を反映しました（保存ボタンで書き込み）');

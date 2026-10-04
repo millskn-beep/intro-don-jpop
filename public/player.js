@@ -89,6 +89,7 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
       });
     },
     stop() { clear(); run(() => yt.stopVideo()); },
+    duration() { return apiReady && yt.getDuration ? yt.getDuration() : 0; },
     setVolume(v) { volume = v; run(() => yt.setVolume(v)); },
     // スマホ（特にiPhone）は、タップの処理の中で一度再生しておかないと、後から音が出ないことがある。
     // ボタンのクリック処理から同期的に呼ぶこと。

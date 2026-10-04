@@ -408,7 +408,7 @@ function resendQuestion(room, socket, token) {
     const offset = (Date.now() - q.t0) / 1000;
     socket.emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt: S.hintAt,
                         total: questionTotal(S), offset, introLen: S.introLen });
-    if (q.phase === 'chorus') socket.emit('hint', { chorus: chorusOf(q.song), seek: q.kind !== 'sabimae' });
+    if (q.phase === 'chorus') socket.emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' });
   }
   q.clues.forEach(c => socket.emit('clue', c));
   (q.lifelineResults.get(token) || []).forEach(r => socket.emit('lifelineResult', r));
@@ -442,7 +442,7 @@ function go(room) {
   later(room, () => {
     if (q.phase !== 'intro') return;
     q.phase = 'chorus';
-    io.to(room.code).emit('hint', { chorus: chorusOf(q.song), seek: !sabimae });
+    io.to(room.code).emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: !sabimae });
     broadcastRoom(room);
   }, S.hintAt * 1000);
   if (S.clues) {
@@ -574,7 +574,7 @@ function reveal(room) {
   io.to(room.code).emit('reveal', {
     correctIndex: q.correctIndex,
     song: { title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type },
-    intro: s.intro || 0, chorus: chorusOf(s),
+    intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0,
     results,
     highlights: highlightsOf(room, results),
     last,

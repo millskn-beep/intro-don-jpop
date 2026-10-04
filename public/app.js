@@ -1,4 +1,5 @@
 import { createPlayer } from './player.js';
+import { guessChorus } from './chorus-guess.js';
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -259,8 +260,7 @@ function renderRoom(r) {
   $('players').innerHTML = r.players.map(p => `
     <li data-id="${p.id}" class="${p.answered ? 'answered' : ''} ${p.connected ? '' : 'off'} ${p.id === me ? 'me' : ''}">
       <span class="pl-face">${avatarImg(p.avatar)}${top > 0 && p.score === top ? icon('crown', 'crown') : ''}</span>
-      <span class="pl-name">${esc(p.name)}${p.id === r.hostId ? '<span class="host">HOST</span>' : ''}${p.id === me ? '<span class="you">YOU</span>' : ''}</span>
-      ${p.streak >= 2 ? `<span class="streak" title="連続正解">${p.streak}連</span>` : ''}
+      <span class="pl-name"><b>${esc(p.name)}</b>${p.id === r.hostId || p.id === me || p.streak >= 2 ? `<span class="tags">${p.id === r.hostId ? '<span class="host">HOST</span>' : ''}${p.id === me ? '<span class="you">YOU</span>' : ''}${p.streak >= 2 ? `<span class="streak" title="連続正解">${p.streak}連</span>` : ''}</span>` : ''}</span>
       <span class="pts${prevScores.has(p.id) && p.score > prevScores.get(p.id) ? ' bump' : ''}">${p.score}</span>
       ${p.answered ? '<span class="pl-check" title="回答済み"></span>' : ''}
     </li>`).join('');
@@ -357,8 +357,8 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
   }, wait * 1000);
 });
 socket.on('stopIntro', () => player.stopIntro());
-socket.on('hint', ({ chorus, seek = true }) => {
-  if (seek) { player.hint(chorus); setPhase('chorus', 'サビ（ヒント・得点半分）'); }
+socket.on('hint', ({ chorus, known = true, intro = 0, seek = true }) => {
+  if (seek) { player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); setPhase('chorus', 'サビ（ヒント・得点半分）'); }
   else setPhase('chorus', 'サビ（得点半分）'); // サビ前問題は流れのままサビに入る
 });
 
@@ -463,7 +463,9 @@ socket.on('reveal', r => {
   setPhase('reveal', '答え合わせ');
   $('cover').innerHTML = icon('note', 'cover-icon');
   document.body.classList.remove('playing'); document.body.classList.add('revealing'); // 背景全体に映像を出す
-  player.reveal(r.intro, r.chorus);
+  // サビの位置が仮（イントロ＋50秒）の曲は、動画の長さから推定した位置にする
+  const unknown = r.chorusKnown === false || (r.chorusKnown === undefined && r.chorus === r.intro + 50);
+  player.reveal(r.intro, unknown ? guessChorus(r.intro, player.duration()) : r.chorus);
   $('choices').querySelectorAll('.choice').forEach(b => {
     b.disabled = true;
     if (+b.dataset.i === r.correctIndex) b.classList.add('correct');
@@ -519,7 +521,7 @@ socket.on('react', ({ id, name, kind }) => {
 
 socket.on('gameover', ({ ranking, titles = [] }) => {
   $('qno').textContent = ''; $('timer').textContent = ''; $('barFill').style.width = '0';
-  $('titles').innerHTML = titles.map(x => `<li>${avatarImg(x.avatar, 'avatar sm')}<b>${esc(x.title)}</b>${esc(x.name)}<small>${esc(x.why)}</small></li>`).join('');
+  $('titles').innerHTML = titles.map(x => `<li>${avatarImg(x.avatar)}<div><b>${esc(x.title)}</b><span>${esc(x.name)}</span><small>${esc(x.why)}</small></div></li>`).join('');
   document.body.classList.remove('revealing', 'playing');
   question = null;
   player.stop(); stopTick();

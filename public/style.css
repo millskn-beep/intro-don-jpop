@@ -38,13 +38,30 @@ h3 { font-size: 12px; margin: 0 0 8px; color: var(--sub); letter-spacing: .18em;
 .video-bg iframe { position: absolute; top: 50%; left: 50%; width: 100vw; height: 56.25vw; min-width: 177.78vh; min-height: 100vh;
                    transform: translate(-50%, -50%); border: 0; transition: filter 1.2s ease, transform 1.2s ease; }
 /* 出題中は Ambient light 風：映像を強くぼかして色の光だけを広げる（中身は読めない）。ぼかしは即時にかける */
-body.playing .video-bg { opacity: .95; background: transparent; transition: opacity 1s ease; }
-body.playing .video-bg iframe { filter: blur(64px) saturate(2) brightness(.85); transform: translate(-50%, -50%) scale(1.3); transition: none; }
+/* 出題中：ぼかした映像の光を、ゆっくり流れる波の形だけ見せる。点滅の多い動画でも見やすいよう、明るさ・コントラストを抑える */
+body.playing .video-bg { opacity: .9; background: transparent; transition: opacity 1s ease;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'><filter id='b'><feGaussianBlur stdDeviation='28'/></filter><g filter='url(%23b)' fill='white'><path d='M0 250 Q200 60 400 250 T800 250 T1200 250 T1600 250 L1600 430 Q1400 610 1200 430 T800 430 T400 430 T0 430 Z'/><path fill-opacity='.7' d='M0 600 Q200 770 400 600 T800 600 T1200 600 T1600 600 L1600 760 Q1400 600 1200 760 T800 760 T400 760 T0 760 Z'/></g></svg>"), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'><filter id='b'><feGaussianBlur stdDeviation='36'/></filter><g filter='url(%23b)' fill='white' fill-opacity='.55'><path d='M0 120 Q400 -40 800 120 T1600 120 L1600 230 Q1200 380 800 230 T0 230 Z'/><path d='M0 470 Q400 620 800 470 T1600 470 L1600 590 Q1200 450 800 590 T0 590 Z'/></g></svg>"); mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'><filter id='b'><feGaussianBlur stdDeviation='28'/></filter><g filter='url(%23b)' fill='white'><path d='M0 250 Q200 60 400 250 T800 250 T1200 250 T1600 250 L1600 430 Q1400 610 1200 430 T800 430 T400 430 T0 430 Z'/><path fill-opacity='.7' d='M0 600 Q200 770 400 600 T800 600 T1200 600 T1600 600 L1600 760 Q1400 600 1200 760 T800 760 T400 760 T0 760 Z'/></g></svg>"), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'><filter id='b'><feGaussianBlur stdDeviation='36'/></filter><g filter='url(%23b)' fill='white' fill-opacity='.55'><path d='M0 120 Q400 -40 800 120 T1600 120 L1600 230 Q1200 380 800 230 T0 230 Z'/><path d='M0 470 Q400 620 800 470 T1600 470 L1600 590 Q1200 450 800 590 T0 590 Z'/></g></svg>");
+  -webkit-mask-size: 1600px 100%, 2200px 100%; mask-size: 1600px 100%, 2200px 100%;
+  -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x; animation: wave 26s linear infinite; }
+@keyframes wave { from { -webkit-mask-position: 0 0, 0 0; mask-position: 0 0, 0 0; }
+                  to { -webkit-mask-position: -1600px 0, 2200px 0; mask-position: -1600px 0, 2200px 0; } }
+body.playing .video-bg iframe { filter: blur(80px) saturate(1.5) brightness(.7) contrast(.7); transform: translate(-50%, -50%) scale(1.3); transition: none; }
 body.playing .backdrop { opacity: .15; }
 body.revealing .video-bg { opacity: 1; transition: opacity 1s ease; }
 /* 答え合わせは少し拡大して、YouTube の上のタイトルと右下のロゴを画面の外に出す */
 body.revealing .video-bg iframe { transform: translate(-50%, -50%) scale(1.2); }
 body.revealing .backdrop { opacity: 0; }
+body.revealing { --text-shadow: 0 1px 4px rgba(0, 0, 0, .95), 0 0 2px rgba(0, 0, 0, .9); }
+body.revealing .panel, body.revealing .brand, body.revealing .code {
+  background: rgba(8, 8, 20, .12); border-color: rgba(255, 255, 255, .1); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+  transition: background .6s ease, border-color .6s ease; }
+body.revealing .choice, body.revealing .players li, body.revealing .clues li, body.revealing .highlights li, body.revealing .btn-sub,
+body.revealing .phase, body.revealing .cover, body.revealing .titles li {
+  background: rgba(8, 8, 20, .22); border-color: rgba(255, 255, 255, .14); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.revealing .btn-main { background: rgba(20, 16, 48, .3); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.revealing #quiz { opacity: .4; transition: opacity .6s ease; } /* 選択肢は薄く。触れたら戻す */
+body.revealing #quiz:hover { opacity: 1; }
+body.revealing .results td { border-color: rgba(255, 255, 255, .1); }
 
 /* ── ガラスの部品 ── */
 .panel { background: linear-gradient(180deg, var(--glass-hi), transparent 40%), var(--glass); border: 1px solid var(--line);
@@ -204,16 +221,21 @@ button:disabled { cursor: default; }
 .players li.off { opacity: .4; }
 .pl-face { position: relative; flex: none; }
 .pl-face .crown { position: absolute; left: 50%; top: -15px; width: 28px; height: 28px; transform: translateX(-50%) rotate(-8deg); }
-.pl-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
-.players .host, .players .you { font-family: var(--font-num); font-size: 9px; font-weight: 800; letter-spacing: .1em; margin-left: 5px; padding: 1px 6px;
-                                border-radius: 6px; border: 1px solid var(--line-strong); vertical-align: 2px; text-shadow: none; }
+.pl-name { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.pl-name b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+.pl-name .tags { display: flex; gap: 4px; }
+.players .host, .players .you { font-family: var(--font-num); font-size: 9px; font-weight: 800; letter-spacing: .1em; padding: 0 6px;
+                                border-radius: 6px; border: 1px solid var(--line-strong); text-shadow: none; }
 .players .host { color: var(--warn); border-color: rgba(255, 211, 107, .6); }
 .players .pts { font-family: var(--font-num); font-weight: 800; font-size: 18px; font-variant-numeric: tabular-nums; }
 .players .pts.bump { animation: bump .6s ease; }
 @keyframes bump { 30% { transform: scale(1.5); color: var(--ok); } }
 .pl-check { position: absolute; right: -4px; top: -4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
-.vol { margin-top: 14px; }
-.vol input { padding: 0; accent-color: #b69bff; background: none; border: none; }
+.vol { flex: none; display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 11px; color: var(--sub); }
+.vol input { -webkit-appearance: none; appearance: none; width: 110px; height: 6px; margin: 0; padding: 0; border: none; border-radius: 99px;
+             background: rgba(255, 255, 255, .18); box-shadow: none; cursor: pointer; }
+.vol input::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: 0 0 10px rgba(182, 155, 255, .8); }
+.vol input::-moz-range-thumb { width: 16px; height: 16px; border: none; border-radius: 50%; background: #fff; box-shadow: 0 0 10px rgba(182, 155, 255, .8); }
 
 /* ── 最終結果・表彰台 ── */
 .over-title { text-align: center; font-weight: 900; font-size: 28px; letter-spacing: .1em; }
@@ -248,14 +270,16 @@ button:disabled { cursor: default; }
 
 /* ── 部屋：左にプレイヤー一覧、右にゲーム画面。PCでは1画面に収める ── */
 .room-side h3 { margin-bottom: 12px; }
-.room-side .players { grid-template-columns: 1fr; gap: 10px; padding-top: 6px; }
+.room-side .players { grid-template-columns: minmax(0, 1fr); gap: 10px; padding-top: 6px; }
+.players li { min-width: 0; }
 @media (min-width: 900px) {
   main:has(#room:not([hidden])) { max-width: 1280px; height: 100vh; display: flex; flex-direction: column; padding: 12px 16px; }
   main:has(#room:not([hidden])) .top { margin-bottom: 10px; }
   main:has(#room:not([hidden])) .emblem { width: 42px; height: 42px; }
   main:has(#room:not([hidden])) .logo { font-size: 22px; }
-  #room:not([hidden]) { flex: 1; min-height: 0; display: grid; grid-template-columns: 240px 1fr; gap: 14px; }
-  .room-side { margin: 0; overflow-y: auto; overflow-x: hidden; }
+  #room:not([hidden]) { flex: 1; min-height: 0; display: grid; grid-template-columns: 240px 1fr; gap: 14px; align-items: start; }
+  .room-side { margin: 0; max-height: 100%; overflow-y: auto; overflow-x: hidden; } /* 人数ぶんの高さだけ伸びる */
+  .room-main { max-height: 100%; }
   .room-main { min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
   .room-main > .panel { margin: 0; padding: 14px 16px; }
   .stage { flex: none; }
@@ -287,7 +311,7 @@ button:disabled { cursor: default; }
 .highlights li { padding: 4px 13px; border-radius: 99px; font-size: 13px; font-weight: 700; background: var(--glass-strong);
                  border: 1px solid rgba(255, 211, 107, .6); box-shadow: 0 0 12px rgba(255, 211, 107, .3); animation: pop .4s ease both; }
 .highlights li:nth-child(2) { animation-delay: .15s; } .highlights li:nth-child(3) { animation-delay: .3s; }
-.streak { flex: none; font-family: var(--font-num); font-size: 11px; font-weight: 800; padding: 1px 7px; border-radius: 99px; text-shadow: none;
+.streak { flex: none; font-family: var(--font-num); font-size: 9px; font-weight: 800; padding: 0 6px; border-radius: 99px; text-shadow: none;
           color: #1a1000; background: linear-gradient(120deg, #ffd36b, #ff9a5a); box-shadow: 0 0 10px rgba(255, 170, 90, .6); }
 .next-count { margin: 6px 0 0; font-weight: 700; color: var(--text); }
 .choice { font-size: 15px; }
@@ -313,16 +337,18 @@ details.more .settings { margin-top: 6px; }
                     80% { transform: translateY(-6px); opacity: 1; } 100% { transform: translateY(-14px); opacity: 0; } }
 
 /* ── 最終結果の称号 ── */
-.titles { list-style: none; margin: 0 0 6px; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; }
-.titles li { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: var(--glass-strong); border: 1px solid rgba(255, 211, 107, .55);
-             border-radius: 14px; box-shadow: 0 0 14px rgba(255, 211, 107, .25); font-weight: 700; animation: pop .5s ease both; }
-.titles li b { color: var(--warn); margin-right: 2px; white-space: nowrap; }
-.titles li small { margin-left: auto; color: var(--sub); font-size: 11px; font-weight: 500; text-align: right; }
+.titles { list-style: none; margin: 0 0 6px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+.titles li { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 10px 12px; background: var(--glass-strong); border: 1px solid rgba(255, 211, 107, .55);
+             border-radius: 14px; box-shadow: 0 0 14px rgba(255, 211, 107, .25); animation: pop .5s ease both; }
+.titles li div { display: flex; flex-direction: column; gap: 1px; min-width: 0; line-height: 1.35; }
+.titles li b { color: var(--warn); font-size: 15px; font-weight: 900; }
+.titles li span { font-weight: 700; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.titles li small { color: var(--sub); font-size: 11px; }
 
 /* スマホ：描画が重くならないよう、ぼかしを軽くしてガラスを少し濃くする */
 @media (max-width: 899px) {
   :root { --blur: blur(6px); --glass: rgba(12, 12, 30, .58); --glass-strong: rgba(10, 10, 26, .7); }
-  body.playing .video-bg iframe { filter: blur(40px) saturate(1.8) brightness(.85); }
+  body.playing .video-bg iframe { filter: blur(44px) saturate(1.4) brightness(.7) contrast(.7); }
 }
 @media (max-width: 899px) {
   /* スマホ・タブレットではプレイヤーを横に並べて縦を詰める */
@@ -357,8 +383,8 @@ details.more .settings { margin-top: 6px; }
   .room-side .players .avatar { width: 26px; height: 26px; }
   .room-side .players .pts { font-size: 14px; }
   .room-side .players .host, .room-side .players .you { display: none; }
-  .vol { margin-top: 6px; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
-  .vol input { flex: 1; }
+  .vol span { display: none; }
+  .vol input { width: 64px; }
   .vol input { margin: 0; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

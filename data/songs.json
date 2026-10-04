@@ -10634,6 +10634,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "be1waE9myCU",
+    "title": "Deathfire Grasp",
+    "work": "Pentakill",
+    "artist": "Pentakill",
+    "year": 2014,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 63,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "4kIhBSzgbEQ",
     "title": "Determination",
     "work": "弱虫ペダル GRANDE ROAD",
@@ -10718,6 +10733,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "QJRLhRhcfgs",
+    "title": "Frozen Heart",
+    "work": "Pentakill",
+    "artist": "Pentakill",
+    "year": 2014,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 87,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "ayEAEF0iwiY",
@@ -11065,6 +11095,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "btSlfXILTkU",
+    "title": "Tear of the Goddess",
+    "work": "Pentakill",
+    "artist": "Pentakill",
+    "year": 2014,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 77,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "kJ04dMmimn8",
     "title": "This game",
     "work": "ノーゲーム・ノーライフ",
@@ -11110,6 +11155,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "fmI_Ndrxy14",
+    "title": "Warriors",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "Imagine Dragons",
+    "year": 2014,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 32,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "wDIUyyQqQ_M",
@@ -12027,6 +12087,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "4Twd965VzX4",
+    "title": "Worlds Collide",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "Nicki Taylor",
+    "year": 2015,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 41,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "WJrPUtozf5Q",
@@ -13922,6 +13997,51 @@
     "introMethod": "v2"
   },
   {
+    "id": "op2XTE3pNkg",
+    "title": "Last Whisper",
+    "work": "Pentakill",
+    "artist": "Pentakill",
+    "year": 2017,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 89,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "r6zIGXun57U",
+    "title": "Legends Never Die",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "Against The Current",
+    "year": 2017,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 59,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "oUiOylPbfV0",
+    "title": "Lightbringer",
+    "work": "Pentakill",
+    "artist": "Pentakill",
+    "year": 2017,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 77,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "_werYjm5BmY",
     "title": "Los! Los! Los!",
     "work": "幼女戦記",
@@ -13963,6 +14083,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "5-mT9D4fdgQ",
+    "title": "Mortal Reminder",
+    "work": "Pentakill",
+    "artist": "Pentakill",
+    "year": 2017,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 104,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "yirNgfGns9w",
     "title": "STEP by STEP UP↑↑↑↑",
     "work": "NEW GAME!!",
@@ -13983,6 +14118,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "KBq_KtuSIF0",
+    "title": "The Bloodthirster",
+    "work": "Pentakill",
+    "artist": "Pentakill",
+    "year": 2017,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "Du3tQ2SXezA",
@@ -15201,6 +15351,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "UOxkGD8qRB4",
+    "title": "POP/STARS",
+    "work": "K/DA",
+    "artist": "K/DA（Madison Beer, (G)I-DLE, Jaira Burns）",
+    "year": 2018,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 83,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "IjwuJT6q54s",
     "title": "Red Swan",
     "work": "進撃の巨人 Season 3",
@@ -15265,6 +15430,20 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "fB8TyLTD7EE",
+    "title": "RISE",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "The Glitch Mob, Mako, The Word Alive",
+    "year": 2018,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "4FkVzeiWF18",
@@ -16168,6 +16347,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "sVZpHFXcFJw",
+    "title": "GIANTS",
+    "work": "True Damage",
+    "artist": "True Damage（Becky G, Keke Palmer, SOYEON, DUCKWRTH, Thutmose）",
+    "year": 2019,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "8cLydM4MA-U",
     "title": "GOLD",
     "work": "BORUTO-ボルト- NARUTO NEXT GENERATIONS",
@@ -16425,6 +16619,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "i1IKnWDecwA",
+    "title": "Phoenix",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "Cailin Russo, Chrissy Costanza",
+    "year": 2019,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 121,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "2kp6O5IG92A",
@@ -17550,6 +17759,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "VLE6Y1q13qE",
+    "title": "DRUM GO DUM",
+    "work": "K/DA",
+    "artist": "K/DA（Aluna, Wolftyla, Bekuh BOOM）",
+    "year": 2020,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 34,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "djwxLXJvgbQ",
     "title": "dual existence",
     "work": "とある科学の超電磁砲T",
@@ -17709,6 +17933,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "7ns79MgJJQY",
+    "title": "I'LL SHOW YOU",
+    "work": "K/DA",
+    "artist": "K/DA（TWICE, Bekuh BOOM, Annika Wells）",
+    "year": 2020,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "i34ilDuvtHw",
     "title": "Let's Go Crazy",
     "work": "ダイヤのA actII -Second Season-",
@@ -17773,6 +18012,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "3VTkBuxU4yk",
+    "title": "MORE",
+    "work": "K/DA",
+    "artist": "K/DA（Madison Beer, (G)I-DLE, Lexie Liu, Jaira Burns, Seraphine）",
+    "year": 2020,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 58,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "GwA9x534cb0",
@@ -17992,6 +18246,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "KbNL9ZyB49c",
+    "title": "Take Over",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "Jeremy McKinnon, MAX, Henry",
+    "year": 2020,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 124,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "RkID8_gnTxw",
+    "title": "THE BADDEST",
+    "work": "K/DA",
+    "artist": "K/DA（(G)I-DLE, Bea Miller, Wolftyla）",
+    "year": 2020,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "lHZBBE4a02s",
     "title": "TOMORROW",
     "work": "キングダム 第3シリーズ",
@@ -18033,6 +18317,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "tzug3Dm37NQ",
+    "title": "VILLAIN",
+    "work": "K/DA",
+    "artist": "K/DA（Madison Beer, Kim Petras）",
+    "year": 2020,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 46,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "iH_YJde1yps",
@@ -18628,6 +18927,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "1Z6CHioIn3s",
+    "title": "Burn It All Down",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "PVRIS",
+    "year": 2021,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "2qbHikwRimU",
     "title": "Cry Baby",
     "work": "東京リベンジャーズ",
@@ -18650,6 +18964,51 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "w88d-uKh_Uw",
+    "title": "Dirty Little Animals",
+    "work": "Arcane",
+    "artist": "Bones UK",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 27,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "y_fB0IMbq54",
+    "title": "Dynasties & Dystopia",
+    "work": "Arcane",
+    "artist": "Denzel Curry, Gizzle, Bren Joy",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 21,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "UqcE-IIevf0",
+    "title": "Enemy",
+    "work": "Arcane",
+    "artist": "Imagine Dragons, JID",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 37,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "92ylxOeT1_g",
@@ -18695,6 +19054,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "omgSWqwVTjY",
+    "title": "Goodbye",
+    "work": "Arcane",
+    "artist": "Ramsey",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 51,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "pKNEx-9OqRM",
+    "title": "Guns for Hire",
+    "work": "Arcane",
+    "artist": "Woodkid",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "q8TGietS5Q0",
     "title": "Like Flames",
     "work": "転生したらスライムだった件 第2期",
@@ -18738,6 +19127,36 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "5IWS7Y5KRhk",
+    "title": "Lost Chapter",
+    "work": "Pentakill",
+    "artist": "Pentakill",
+    "year": 2021,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 62,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "f_Z1E32mxGg",
+    "title": "Misfit Toys",
+    "work": "Arcane",
+    "artist": "Pusha T, Mako",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "NHmEc1WmKYU",
@@ -18807,6 +19226,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "2Yr3sKPi8mM",
+    "title": "Our Love",
+    "work": "Arcane",
+    "artist": "Curtis Harding, Jazmine Sullivan",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 118,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "3jfI-z__GY0",
+    "title": "Playground",
+    "work": "Arcane",
+    "artist": "Bea Miller",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 35,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "SvTb43SY460",
     "title": "Seize The Day",
     "work": "ゆるキャン△ SEASON2",
@@ -18850,6 +19299,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "4UprHuO_zCc",
+    "title": "Snakes",
+    "work": "Arcane",
+    "artist": "MIYAVI, PVRIS",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 41,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "Y0z_2C2LFfE",
@@ -19044,6 +19508,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "liPu1_aPH5k",
+    "title": "What Could Have Been",
+    "work": "Arcane",
+    "artist": "Sting, Ray Chen",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "2GKJlRfDKZo",
@@ -20224,6 +20703,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "HYsz1hP0BFo",
+    "title": "STAR WALKIN'",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "Lil Nas X",
+    "year": 2022,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 98,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "NFS7ZvqOO_A",
@@ -21548,6 +22042,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "C3GouGa0noM",
+    "title": "GODS",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "NewJeans",
+    "year": 2023,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 41,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "LQRbFCAHDUU",
     "title": "grayscale dominator",
     "work": "陰の実力者になりたくて! 2nd season",
@@ -21762,6 +22271,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "MDErQ1KTzaI",
+    "title": "PARANOIA",
+    "work": "HEARTSTEEL",
+    "artist": "HEARTSTEEL（BAEKHYUN, tobi lou, ØZI, Cal Scruby）",
+    "year": 2023,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 40,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "c7E-tgmFuzw",
@@ -22998,6 +23522,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "rhTZTy1rZhw",
+    "title": "Blood Sweat & Tears",
+    "work": "Arcane シーズン2",
+    "artist": "Sheryl Lee Ralph",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 127,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "JuS4iuhG-vc",
     "title": "Burning",
     "work": "【推しの子】第2期",
@@ -23062,6 +23601,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "3jf6xOg6e7Y",
+    "title": "Come Play",
+    "work": "Arcane シーズン2",
+    "artist": "Stray Kids, Young Miko, Tom Morello",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 71,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "t9mpyRzipww",
+    "title": "Fantastic",
+    "work": "Arcane シーズン2",
+    "artist": "King Princess",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 127,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "VJLJ15yIQlI",
     "title": "Fire and Fear",
     "work": "杖と剣のウィストリア",
@@ -23106,6 +23675,51 @@
     "introMethod": "v2"
   },
   {
+    "id": "5FrhtahQiRc",
+    "title": "Heavy Is the Crown",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "Linkin Park",
+    "year": 2024,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "ksFovPa5kaQ",
+    "title": "Hellfire",
+    "work": "Arcane シーズン2",
+    "artist": "Fever 333",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 36,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "n68BF6IlGhk",
+    "title": "Isha's Song",
+    "work": "Arcane シーズン2",
+    "artist": "Eason Chan",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 99,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "9KBl_UurkEc",
     "title": "LEveL",
     "work": "俺だけレベルアップな件",
@@ -23125,6 +23739,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "j-RpvIuazmc",
+    "title": "Ma Meilleure Ennemie",
+    "work": "Arcane シーズン2",
+    "artist": "Stromae, Pomme",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 51,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "aiCMXJ4zKWA",
@@ -23214,6 +23843,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "pl2K9rvsS74",
+    "title": "Paint The Town Blue",
+    "work": "Arcane シーズン2",
+    "artist": "Ashnikko",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Netflix公式",
+    "intro": 0,
+    "chorus": 46,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "jio_17jg980",
     "title": "Party!!",
     "work": "ダンジョン飯",
@@ -23299,6 +23943,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "xhkMbMZQV1Q",
+    "title": "Renegade (We Never Run)",
+    "work": "Arcane シーズン2",
+    "artist": "Stefflon Don, Raja Kumari, Jarina De Marco",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 37,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "HCqVYCNZIrQ",
@@ -23453,6 +24112,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "opy_y0dkwmk",
+    "title": "Spin The Wheel",
+    "work": "Arcane シーズン2",
+    "artist": "Mick Wingert",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 79,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "AR1ecFmd8yw",
     "title": "STARS",
     "work": "BLEACH 千年血戦篇-訣別譚-",
@@ -23476,6 +24150,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "8sekyV_o2pM",
+    "title": "Sucker",
+    "work": "Arcane シーズン2",
+    "artist": "Marcus King",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 38,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "s8SSPUQvUzI",
     "title": "TAIDADA",
     "work": "ダンダダン",
@@ -23496,6 +24185,36 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "E2Rj2gQAyPA",
+    "title": "The Line",
+    "work": "Arcane シーズン2",
+    "artist": "Twenty One Pilots",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "Gj-jmBi0aK8",
+    "title": "To Ashes and Blood",
+    "work": "Arcane シーズン2",
+    "artist": "Woodkid",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "jAAZDIGWcio",
@@ -23539,6 +24258,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "WPDpgSBEWaI",
+    "title": "Wasteland",
+    "work": "Arcane シーズン2",
+    "artist": "Royal & the Serpent",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Riot Games Music公式",
+    "intro": 0,
+    "chorus": 125,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "kfKpW49yqNs",
@@ -24956,6 +25690,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "gMkuV5hh7-s",
+    "title": "Live My Life",
+    "work": "HEARTSTEEL",
+    "artist": "HEARTSTEEL（Anderson .Paak, BAEKHYUN, Connor Price, Nic D）",
+    "year": 2025,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "YNYkTXknYjE",
     "title": "Method",
     "work": "SAKAMOTO DAYS",
@@ -25189,6 +25937,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "pzt6SmvGpXk",
+    "title": "Sacrifice",
+    "work": "リーグ・オブ・レジェンド",
+    "artist": "G.E.M.",
+    "year": 2025,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "League of Legends公式",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "qCOCq2Gay84",
@@ -26347,7 +27110,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ガチアクタ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1,
     "chorus": 52,
     "aliases": [
       "ともしび",
@@ -26356,7 +27119,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "08TGBLLK8RE",
@@ -26367,7 +27132,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ガチアクタ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 43,
     "aliases": [
       "つがい",
@@ -26376,7 +27141,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "wOleNo7T6_4",
@@ -26397,7 +27164,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "8SpMHADYTD4",
@@ -26408,7 +27176,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TMSアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 54,
     "aliases": [
       "ふつう",
@@ -26417,7 +27185,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "n9sb98NNmTI",
@@ -26428,7 +27198,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ウィッチウォッチ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 46,
     "aliases": [
       "まほうはすぱいす",
@@ -26437,7 +27207,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "K5T_aKoN31Q",
@@ -26448,7 +27220,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "フジテレビアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "ねむれ",
@@ -26456,7 +27228,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "bmvbiNk_vXE",
@@ -26467,7 +27241,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "fhána公式",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 0,
     "aliases": [
       "なみだのぱれーど",
@@ -26476,7 +27250,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "PtDyORrf4oc",
@@ -26487,7 +27263,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "キングダム公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 0,
     "aliases": [
       "ほうこう",
@@ -26495,7 +27271,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "-Tjgsun9sao",
@@ -26506,7 +27284,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 0,
     "aliases": [
       "めいたんていこなん",
@@ -26514,7 +27292,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "kswDfgziS9I",
@@ -26525,7 +27305,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 2.2,
     "chorus": 0,
     "aliases": [
       "あいゆー",
@@ -26534,7 +27314,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Xr032EhUDPw",
@@ -26545,7 +27326,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 53,
     "aliases": [
       "あいぞう",
@@ -26556,7 +27337,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "I5u5gNcKVfk",
@@ -26567,7 +27349,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "isekai channel公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [
       "つえとけんのうぃすとりあ",
@@ -26575,7 +27357,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "oDsll0GzhpY",
@@ -26586,7 +27370,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "ONE PIECE公式",
-    "intro": 0,
+    "intro": 11.7,
     "chorus": 54,
     "aliases": [
       "わんぴーす"
@@ -26594,7 +27378,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "fG07I9UlnoI",
@@ -26605,7 +27391,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 61,
     "aliases": [
       "かさのばぽっせ",
@@ -26615,7 +27401,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "bJFqYBcIMcc",
@@ -26626,7 +27413,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 37,
     "aliases": [
       "ゔぃじらんて",
@@ -26635,7 +27422,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "-hPpXrlgncE",
@@ -26646,7 +27435,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "メダリスト公式（TVサイズ）",
-    "intro": 0,
+    "intro": 3.2,
     "chorus": 51,
     "aliases": [
       "めだりすと"
@@ -26654,7 +27443,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "iKLqlb_oX60",
@@ -26665,7 +27456,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "リゼロ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 3,
     "chorus": 33,
     "aliases": [
       "りぜろからはじめるいせかいせいかつ",
@@ -26674,7 +27465,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "QjaSxtWwn7I",
@@ -26685,7 +27478,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TMSアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 30,
     "aliases": [
       "めいたんていこなん",
@@ -26694,7 +27487,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "C0BG3B7aksU",
@@ -26705,7 +27500,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.5,
+    "intro": 3.2,
     "chorus": 61,
     "aliases": [
       "るる",
@@ -26716,7 +27511,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "VDGG9zi53rQ",
@@ -26727,7 +27523,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "リゼロ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 55,
     "aliases": [
       "りぜろからはじめるいせかいせいかつ",
@@ -26736,7 +27532,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "o076YrFjZsA",
@@ -26747,7 +27545,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "メダリスト公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 72,
     "aliases": [
       "めだりすと"
@@ -26755,7 +27553,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "6UF_qprQiu0",
@@ -26766,7 +27566,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ワーナー公式（TVサイズ）",
-    "intro": 0,
+    "intro": 4.5,
     "chorus": 0,
     "aliases": [
       "すてぃーるぼーるらん",
@@ -26776,7 +27576,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "HNYp4T0kMNU",
@@ -26787,7 +27589,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 41,
     "aliases": [
       "すーぱーのば",
@@ -26797,7 +27599,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "QgIQbeRzkkc",
@@ -26808,7 +27611,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "【推しの子】公式（TVサイズ）",
-    "intro": 0.4,
+    "intro": 0.5,
     "chorus": 28,
     "aliases": [
       "てすとみー",
@@ -26818,7 +27621,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "SrmET-l5P_4",
@@ -26829,7 +27633,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 41,
     "aliases": [
       "ごーるでんかむい",
@@ -26838,7 +27642,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "FY4Bx2qtkRM",
@@ -26849,7 +27655,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.2,
+    "intro": 3,
     "chorus": 48,
     "aliases": [
       "ざすとーりーおぶあす",
@@ -26860,7 +27666,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "x2k_iYCGKvE",
@@ -26871,7 +27678,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 60,
     "aliases": [
       "ようじょせんき"
@@ -26879,7 +27686,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "3a1w0lo3OxM",
@@ -26890,7 +27699,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 40,
     "aliases": [
       "かたいなかのおっさんけんせいになる",
@@ -26899,7 +27708,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "guARjKjyFLY",
@@ -26910,7 +27721,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 56,
     "aliases": [
       "ぜったいますとだんめん",
@@ -26919,7 +27730,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ZWvFR00t-NE",
@@ -26930,7 +27743,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "【推しの子】公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 44,
     "aliases": [
       "せれなーで",
@@ -26940,7 +27753,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "Qx-XXzEUm-8",
@@ -26951,7 +27765,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ONE PIECE公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 59,
     "aliases": [
       "そのみらい",
@@ -26960,7 +27774,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "j3wz60GbRic",
@@ -26971,7 +27787,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "プリキュア公式（TVサイズ）",
-    "intro": 0,
+    "intro": 3,
     "chorus": 0,
     "aliases": [
       "はーとにひんとめいたんていぷりきゅあ",
@@ -26980,7 +27796,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "S3HQmsf7BSY",
@@ -26991,7 +27809,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 59,
     "aliases": [
       "ゔぃじらんて",
@@ -27000,7 +27818,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "-i8LR9-WVps",
@@ -27011,7 +27831,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 7.2,
     "chorus": 45,
     "aliases": [
       "よあけのうた",
@@ -27022,7 +27842,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "X48ZNGHBa8A",
@@ -27043,7 +27864,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "-CNVskec8Ig",
@@ -27054,7 +27876,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "あいでぜんぶだきしめてあいして",
@@ -27063,7 +27885,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "UV53uVaECT8",
@@ -27074,7 +27898,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 81,
     "aliases": [
       "あいのふぁいやー",
@@ -27084,7 +27908,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "asyT-N1Ip70",
@@ -27095,7 +27921,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 2.7,
     "chorus": 52,
     "aliases": [
       "うんめい",
@@ -27104,7 +27930,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "lBsQCQDbgOE",
@@ -27115,7 +27943,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 1.5,
     "chorus": 0,
     "aliases": [
       "くもをぬけかざしもへわたしだけ",
@@ -27124,7 +27952,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "YcRYX8hwQ8Y",
@@ -27135,7 +27964,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 44,
     "aliases": [
       "おうごんのかなた",
@@ -27145,7 +27974,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ILfcwl8ZKDs",
@@ -27156,7 +27987,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ランティス公式",
-    "intro": 0,
+    "intro": 6.7,
     "chorus": 0,
     "aliases": [
       "えそらごと",
@@ -27165,7 +27996,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "UKcJqQqiXq0",
@@ -27184,7 +28017,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "3F8-KF40VhI",
@@ -27204,7 +28039,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "icDXBve8tGc",
@@ -27215,7 +28052,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 4.2,
     "chorus": 0,
     "aliases": [
       "ひかりのうた",
@@ -27223,7 +28060,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "zgLov1TFHL4",
@@ -27234,7 +28073,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ポニーキャニオン公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 39,
     "aliases": [
       "ひかりよぼくに",
@@ -27243,7 +28082,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "FRO9n3JQaRE",
@@ -27254,7 +28095,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "SUPER BEAVER公式",
-    "intro": 0,
+    "intro": 8.2,
     "chorus": 93,
     "aliases": [
       "さんぜん"
@@ -27262,7 +28103,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "BfZD2dAqt6k",
@@ -27273,7 +28116,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ワーナー公式（TVサイズ）",
-    "intro": 0,
+    "intro": 2.5,
     "chorus": 0,
     "aliases": [
       "しぬかいきるか",
@@ -27284,7 +28127,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "PtBmc0oFIx4",
@@ -27295,7 +28140,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "テレ東アニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "きえないりゆう",
@@ -27304,7 +28149,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "HPZQQFmPoGs",
@@ -27315,7 +28162,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "FictionJunction公式",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 0,
     "aliases": [
       "かなた",
@@ -27325,7 +28172,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "InKfZBjNlQE",
@@ -27336,7 +28185,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
-    "intro": 0,
+    "intro": 9,
     "chorus": 41,
     "aliases": [
       "とぼうよ",
@@ -27345,7 +28194,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "rQ0S_0CepIo",
@@ -27356,7 +28207,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "とんがり帽子のアトリエ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 49,
     "aliases": [
       "かぜのあんせむ",
@@ -27365,7 +28216,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "KUrvQ0UYuYQ",
@@ -27376,7 +28229,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "みかんせい",
@@ -27385,6 +28238,8 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   }
 ]

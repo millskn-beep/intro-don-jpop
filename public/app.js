@@ -255,7 +255,7 @@ function renderRoom(r) {
   $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
   $('lobbyBtn').hidden = !isHost;
 
-  if (r.state === 'lobby') { show('lobby'); document.body.classList.remove('revealing', 'playing'); reloadIfPending(); }
+  if (r.state === 'lobby') { show('lobby'); document.body.classList.remove('revealing', 'playing', 'fading'); reloadIfPending(); }
   else if (r.state === 'playing' && prevState !== 'playing' && !question) {
     // 途中参加：次の問題から
     show('quiz'); $('choices').innerHTML = ''; $('quizNote').textContent = '次の問題から参加します';
@@ -308,7 +308,7 @@ socket.on('question', q => {
   question = q; myAnswer = null; answering = false;
   stopTick();
   $('timer').textContent = ''; $('barFill').style.width = '0';
-  clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer); fadingOut = false;
+  clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer); fadingOut = false; document.body.classList.remove('fading');
   $('barMark').style.left = (q.settings.hintAt / (q.settings.hintAt + q.settings.chorusLen) * 100) + '%';
   $('qno').innerHTML = `第 ${q.qNo} / ${q.qTotal} 問` + (q.kind === 'sabimae' ? '（サビ前問題）' : '')
     + (q.final ? ' <b class="final">最終問題・得点2倍</b>' : '');
@@ -526,13 +526,22 @@ socket.on('almost', ({ text, left }) => {
   $('quizNote').textContent = `惜しい！ もう一度（あと${left + 1}回まで）`;
   flash('ng', '惜しい！');
 });
-// 誰かがスタンプを押した：その人のカードの上に吹き出しを出す
+// 誰かがスタンプを押した：画面の中央から「アイコン＋名前＋スタンプ」が浮き上がり、放物線を描いて落ちる
 socket.on('react', ({ id, name, kind }) => {
-  const li = document.querySelector(`#players li[data-id="${id}"]`);
-  const bubble = document.createElement('span');
-  bubble.className = 'bubble'; bubble.textContent = kind;
-  if (li) li.appendChild(bubble); else { bubble.textContent = `${name}：${kind}`; bubble.classList.add('free'); document.body.appendChild(bubble); }
-  setTimeout(() => bubble.remove(), 2200);
+  const avatar = room?.players?.find(p => p.id === id)?.avatar;
+  const el = document.createElement('div');
+  el.className = 'react-pop';
+  el.innerHTML = `${avatarImg(avatar, 'avatar sm')}<span>${esc(name)}</span><b>${esc(kind)}</b>`;
+  document.body.appendChild(el);
+  const dx = (Math.random() * 2 - 1) * Math.min(innerWidth * 0.3, 260); // 同時に押されても重ならないよう左右に散らす
+  const rot = dx / 20;
+  el.animate([
+    { transform: 'translate(-50%, -50%) scale(.5)', opacity: 0, offset: 0 },
+    { transform: `translate(calc(-50% + ${dx * 0.25}px), calc(-50% - 16vh)) scale(1.1) rotate(${rot * 0.3}deg)`, opacity: 1, offset: 0.25, easing: 'ease-in' },
+    { transform: `translate(calc(-50% + ${dx * 0.5}px), calc(-50% - 19vh)) scale(1) rotate(${rot * 0.5}deg)`, opacity: 1, offset: 0.4, easing: 'ease-in' },
+    { transform: `translate(calc(-50% + ${dx}px), calc(-50% + 60vh)) scale(.9) rotate(${rot}deg)`, opacity: 0, offset: 1 },
+  ], { duration: 2500, easing: 'linear', fill: 'forwards' });
+  setTimeout(() => el.remove(), 2600);
 });
 
 socket.on('gameover', ({ ranking, titles = [] }) => {
@@ -559,14 +568,14 @@ let nextUntil = 0, nextIsLast = false, listenBy = '';
 const FADE_BEFORE_NEXT_MS = 1500;
 let fadingOut = false;
 function startNextCount(seconds, last = nextIsLast) {
-  if (fadingOut) { fadingOut = false; player.fadeBack(); } // 「サビを聞く」で延びたら音量を戻す
+  if (fadingOut) { fadingOut = false; player.fadeBack(); document.body.classList.remove('fading'); } // 「サビを聞く」で延びたら音量と映像を戻す
   nextUntil = performance.now() + seconds * 1000; nextIsLast = last;
   clearInterval(nextTick);
   const draw = () => {
     const s = Math.ceil((nextUntil - performance.now()) / 1000);
     $('nextCount').textContent = s > 0 ? `${listenBy ? `${listenBy}さんがサビを聞いています・` : ''}${s}秒後に${nextIsLast ? '結果発表' : '次の問題'}へ` : '';
     // 次へ進む少し前からサビをフェードアウト
-    if (!fadingOut && nextUntil - performance.now() <= FADE_BEFORE_NEXT_MS) { fadingOut = true; player.fadeOut(FADE_BEFORE_NEXT_MS); }
+    if (!fadingOut && nextUntil - performance.now() <= FADE_BEFORE_NEXT_MS) { fadingOut = true; player.fadeOut(FADE_BEFORE_NEXT_MS); document.body.classList.add('fading'); }
     if (s <= 0) clearInterval(nextTick);
   };
   draw(); nextTick = setInterval(draw, 250);

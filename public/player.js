@@ -1,7 +1,7 @@
 // YouTube プレーヤーの操作（試作ページで確認したフェード・シーク処理をまとめたもの）
 // サーバーからの合図（question / go / stopIntro / hint / reveal）に合わせて呼び出す。
 
-const VOL_DEFAULT = 80, FADE_OUT = 800, FADE_IN = 1000, REVEAL_INTRO = 4;
+const VOL_DEFAULT = 80, FADE_OUT = 800, FADE_IN = 1000;
 
 export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
   let yt = null, apiReady = false, pending = [];
@@ -67,13 +67,12 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
         if (yt.getPlayerState() === YT.PlayerState.PLAYING) fade(volume, 0, FADE_OUT, go); else go();
       });
     },
-    // 答え合わせ：イントロを少し流してからサビへ
+    // 答え合わせ：サビから流す（サビの位置が未設定の曲は推定・仮の位置から）
     reveal(intro, chorus) {
       clear();
       run(() => {
-        yt.seekTo(intro, true); yt.unMute(); yt.setVolume(volume); yt.playVideo();
-        later(() => fade(volume, 0, FADE_OUT), REVEAL_INTRO * 1000 - FADE_OUT);
-        later(() => { yt.seekTo(chorus, true); yt.playVideo(); fade(0, volume, FADE_IN); }, REVEAL_INTRO * 1000);
+        const go = () => { yt.seekTo(chorus, true); yt.unMute(); yt.playVideo(); fade(0, volume, FADE_IN); };
+        if (yt.getPlayerState() === YT.PlayerState.PLAYING) fade(volume, 0, FADE_OUT / 2, go); else go();
       });
     },
     // もう一度聴く：イントロを introLen 秒だけ流し、終わったら元の位置・状態に戻す

@@ -1,76 +1,44 @@
-// デザイン用の画像を、ローカルの ComfyUI（FLUX.2 klein）でまとめて生成して public/assets/<テーマ>/ に保存する。
+// デザイン用の画像を、ローカルの ComfyUI（FLUX.2 klein）で生成して data/assets-src/glass/ に保存する。
 // 既存キャラクターやロゴは描かせない。文字は崩れるので画像には入れず、画面側で重ねる。
-// 使い方: node tools/gen-assets.js [テーマ名...]   （省略で全テーマ。既にある画像は作り直さない。--force で作り直す）
+// 1つの画像につき複数の seed で候補を作り（<名前>_<seed>.png）、見比べて良いものを <名前>.png として採用する。
+// 使い方: node tools/gen-assets.js [名前...] [--seeds 4] [--from 1]
+//   名前を省くと全部。--seeds は候補の数、--from は seed の開始番号（作り直すときにずらす）
 
 const fs = require('fs');
 const path = require('path');
 
 const COMFY = 'http://127.0.0.1:8188';
 const WORKFLOW = 'E:\\flux2\\workflows\\flux2_klein4b_fp8_api.json';
-const OUT = path.join(__dirname, '..', 'data', 'assets-src'); // 元画像（公開しない）。optimize_assets.py で public/assets に軽量版を書き出す
+const OUT = path.join(__dirname, '..', 'data', 'assets-src', 'glass'); // 元画像（公開しない）。optimize_assets.py で public/assets/glass に軽量版を書き出す
 
 const NO_TEXT = 'no text, no letters, no words, no logo, no watermark';
+const STYLE = 'sleek, stylish, premium, futuristic, iridescent glass and chrome, soft cyan magenta violet light, high quality';
+// アイコンは黒背景で作り、画面では mix-blend-mode: screen で黒を消して光だけ重ねる
+const ICON = subject => `Glowing white line icon of ${subject}, thin elegant strokes, soft iridescent cyan and magenta glow, centered, minimal, flat, on a pure black background`;
+// アバターは実在の人物ではなく、動物などのマスコット
+const AVATAR = animal => `Stylish minimal mascot avatar of a cute ${animal} head, made of glossy iridescent glass, simple geometric shapes, soft rim light, centered, front view, on a dark navy gradient background, 3D render`;
 
-// テーマごとの画風と、各画像の中身
-const THEMES = {
-  neon: {
-    style: 'glowing neon tubes, magenta and cyan, dark navy background, high contrast',
-    bg: 'Wide panoramic view of an empty concert stage at night, vivid magenta and cyan neon light beams and lasers, light haze, glowing speaker towers, bokeh of crowd penlights in the dark, no people in focus, cinematic digital illustration',
-    emblem: 'Neon sign emblem of a vintage stage microphone crossed with a music note inside a glowing circle, mounted on a dark brick wall, symmetrical, centered',
-    podium: 'Three-step winner podium on a dark concert stage, edges glowing with magenta and cyan neon, a golden trophy cup on the top step, falling confetti, centered, front view',
-    icon: subject => `Neon light icon of ${subject}, glowing cyan and magenta lines on a solid black circle, simple, minimal, centered, flat`,
-  },
-  studio: {
-    style: 'deep royal blue and gold, dramatic spotlights, glossy, TV game show',
-    bg: 'Grand TV quiz show studio set, deep royal blue and gold color scheme, dramatic spotlights shining down, circular stage floor with glowing concentric rings, dark empty audience seats, glossy reflections, no people, cinematic wide shot',
-    emblem: 'Ornate golden medallion emblem with a music note in the center, deep blue enamel inlay, rays of light behind it, luxury game show style, symmetrical, centered',
-    podium: 'Golden three-step winner podium under spotlights in a deep blue TV studio, a shining golden trophy cup on top, sparkles, centered, front view',
-    icon: subject => `Glossy round game show button icon of ${subject}, gold rim, deep blue center, soft highlight, centered, simple`,
-  },
-  pop: {
-    style: 'bright pastel candy colors, flat vector illustration, kawaii, cheerful',
-    bg: 'Bright cheerful pastel background with floating music notes, stars, hearts and bubbles, candy colors pink mint lemon lavender, soft gradient, flat vector illustration, kawaii pattern, no characters',
-    emblem: 'Cute pastel round sticker badge with a big music note and little stars, thick white outline, flat vector illustration, centered on plain light background',
-    podium: 'Cute pastel three-step podium with a shiny golden trophy cup, confetti and stars, flat vector illustration, plain white background, centered',
-    icon: subject => `Cute flat pastel sticker icon of ${subject}, thick white outline, rounded shapes, centered on a plain soft pink circle`,
-  },
-  retro: {
-    style: '16-bit pixel art, limited palette purple orange teal, CRT scanlines',
-    bg: 'Pixel art landscape of a retro arcade game, starry night sky with a big pixel moon, synthwave neon grid floor stretching to the horizon, CRT scanlines, limited palette purple orange teal, 16-bit style, no characters',
-    emblem: 'Pixel art emblem of a cassette tape with a music note, 16-bit sprite style, bold dark outline, centered on a dark purple background',
-    podium: 'Pixel art three-step podium with a golden trophy cup on top, 16-bit game style, sparkles, centered on a dark purple background',
-    icon: subject => `16-bit pixel art icon of ${subject}, bold black outline, limited palette, centered on a dark purple square`,
-  },
-};
+const ANIMALS = ['fox', 'cat with big cute eyes, small nose and whiskers', 'rabbit', 'owl', 'penguin', 'bear', 'panda', 'hamster with round cheeks', 'baby dragon with two small horns and big eyes', 'round robot', 'shiba inu dog', 'frog'];
 
-const ICONS = {
-  fifty: 'a circle split exactly in half, the left half bright and the right half faded',
-  audience: 'three simple person silhouettes raising their hands',
-  phone: 'a classic telephone handset',
-  replay: 'a circular rewind arrow around a music note',
-  pass: 'a big question mark',
-};
+const JOBS = [
+  { name: 'logo', w: 1024, h: 1024, text: `Minimal logo mark: an abstract stylized music note fused with a play button and circular sound waves, made of glowing iridescent glass and chrome, symmetrical, centered on a pure black background, ${STYLE}` },
+  { name: 'bg', w: 1920, h: 1088, text: `Abstract dark background of flowing soft light ribbons and blurred bokeh, iridescent cyan magenta violet gradients, glass refraction, deep navy and black, calm, cinematic, wide, ${STYLE}` },
+  { name: 'podium', w: 1024, h: 768, text: `Three-step winner podium made of frosted glass with softly glowing edges, a polished chrome trophy cup on the top step, dark background with soft iridescent light, centered, front view, ${STYLE}` },
+  { name: 'icon-crown', w: 512, h: 512, text: ICON('a royal crown') },
+  { name: 'icon-note', w: 512, h: 512, text: ICON('a music note') },
+  { name: 'icon-ok', w: 512, h: 512, text: ICON('a perfect circle ring') },
+  { name: 'icon-ng', w: 512, h: 512, text: ICON('a bold X cross mark') },
+  { name: 'icon-skip', w: 512, h: 512, text: ICON('a fast forward symbol, two right-pointing triangles') },
+  ...ANIMALS.map((a, i) => ({ name: `avatar-${i + 1}`, w: 512, h: 512, text: AVATAR(a) })),
+].map(j => ({ ...j, text: `${j.text}, ${NO_TEXT}` }));
 
-function jobsFor(theme) {
-  const t = THEMES[theme];
-  const jobs = [
-    { name: 'bg', w: 1920, h: 1088, text: `${t.bg}, ${t.style}, ${NO_TEXT}` },
-    { name: 'emblem', w: 1024, h: 1024, text: `${t.emblem}, ${t.style}, ${NO_TEXT}` },
-    { name: 'podium', w: 1024, h: 768, text: `${t.podium}, ${t.style}, ${NO_TEXT}` },
-  ];
-  for (const [name, subject] of Object.entries(ICONS)) {
-    jobs.push({ name: `icon-${name}`, w: 512, h: 512, text: `${t.icon(subject)}, ${t.style}, ${NO_TEXT}` });
-  }
-  return jobs;
-}
-
-async function generate(theme, job, seed) {
+async function generate(job, seed) {
   const wf = JSON.parse(fs.readFileSync(WORKFLOW, 'utf8'));
   wf['4'].inputs.text = job.text;
   wf['8'].inputs.width = wf['10'].inputs.width = job.w;
   wf['8'].inputs.height = wf['10'].inputs.height = job.h;
   wf['9'].inputs.noise_seed = seed;
-  wf['13'].inputs.filename_prefix = `anison/${theme}_${job.name}`;
+  wf['13'].inputs.filename_prefix = `anison/glass_${job.name}`;
 
   const res = await fetch(`${COMFY}/prompt`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: wf }) });
   if (!res.ok) throw new Error(`投入失敗 ${res.status}: ${await res.text()}`);
@@ -85,25 +53,24 @@ async function generate(theme, job, seed) {
     const img = entry.outputs?.['13']?.images?.[0];
     if (!img) continue;
     const q = new URLSearchParams({ filename: img.filename, subfolder: img.subfolder, type: img.type });
-    const buf = Buffer.from(await fetch(`${COMFY}/view?${q}`).then(r => r.arrayBuffer()));
-    return buf;
+    return Buffer.from(await fetch(`${COMFY}/view?${q}`).then(r => r.arrayBuffer()));
   }
   throw new Error('タイムアウト');
 }
 
 (async () => {
   const args = process.argv.slice(2);
-  const force = args.includes('--force');
-  const themes = args.filter(a => !a.startsWith('--'));
-  for (const theme of themes.length ? themes : Object.keys(THEMES)) {
-    fs.mkdirSync(path.join(OUT, theme), { recursive: true });
-    for (const [i, job] of jobsFor(theme).entries()) {
-      const file = path.join(OUT, theme, `${job.name}.png`);
-      if (fs.existsSync(file) && !force) { console.log(`skip ${theme}/${job.name}`); continue; }
+  const opt = (k, d) => { const i = args.indexOf(k); return i >= 0 ? +args[i + 1] : d; };
+  const seeds = opt('--seeds', 4), from = opt('--from', 1);
+  const names = args.filter((a, i) => !a.startsWith('--') && !(args[i - 1] || '').startsWith('--'));
+  fs.mkdirSync(OUT, { recursive: true });
+  for (const job of JOBS.filter(j => !names.length || names.includes(j.name))) {
+    for (let s = from; s < from + seeds; s++) {
+      const file = path.join(OUT, `${job.name}_${s}.png`);
+      if (fs.existsSync(file)) continue;
       const t0 = Date.now();
-      const buf = await generate(theme, job, 1000 + i * 7 + theme.length * 101);
-      fs.writeFileSync(file, buf);
-      console.log(`ok   ${theme}/${job.name}.png  ${(buf.length / 1024).toFixed(0)}KB  ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+      fs.writeFileSync(file, await generate(job, 7000 + s * 13));
+      console.log(`ok ${job.name}_${s}.png ${((Date.now() - t0) / 1000).toFixed(1)}s`);
     }
   }
 })().catch(e => { console.error(e.message); process.exit(1); });

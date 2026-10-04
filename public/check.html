@@ -57,7 +57,7 @@
       </div>
       <div class="toolbar" style="margin-top:8px">
         <button class="btn-sub" id="checkAll">未チェックの曲を自動で再生チェック</button>
-        <button class="btn-sub" id="measureAll" title="タブの音声を共有して、各曲の音が鳴り始める秒数を測り、イントロ開始秒にします">無音カット（音の始まりを計測）</button>
+        <button class="btn-sub" id="measureAll" title="タブの音声を共有して、各曲の音楽が鳴り始める秒数を測り、イントロ開始秒にします（前の効果音や環境音は飛ばします）。途中で止めても続きから再開できます">無音カット（音楽の始まりを計測・全曲）</button>
         <button class="btn-sub" id="measureStop" hidden>計測を止める</button>
         <span class="summary" id="progress"></span>
       </div>
@@ -128,8 +128,8 @@ function render() {
       <td class="num">${s.year}</td>
       <td>${esc(s.title)}<small>${esc(s.work)} ／ ${esc(s.artist)}</small></td>
       <td>${esc(s.type || '')}</td>
-      <td class="num">${s.intro || 0}</td>
-      <td class="num">${s.chorus > 0 ? s.chorus : `<span class="badge b-edit">仮 ${chorusOf(s)}</span>`}</td>
+      <td class="num">${s.intro || 0}${s.introUnsure ? ' <span class="badge b-edit">要確認</span>' : ''}</td>
+      <td class="num">${s.chorus > 0 ? s.chorus + (s.chorusSource === 'heatmap' ? ' <span class="badge b-un">推定</span>' : '') : `<span class="badge b-edit">仮 ${chorusOf(s)}</span>`}</td>
       <td>${badge}</td></tr>`;
   }).join('');
   $('rows').querySelectorAll('tr').forEach(tr => tr.onclick = () => select(songs.find(s => s.id === tr.dataset.id)));
@@ -141,6 +141,8 @@ function render() {
 }
 
 function markDirty() { dirty = true; render(); }
+// 手でイントロ秒を直した曲は、無音カットの計測し直しで上書きしない
+function markIntroManual(s) { s.introMeasured = false; delete s.introMethod; delete s.introUnsure; }
 
 // ── YouTube ──
 let player, ready = false, lastError = null;
@@ -196,7 +198,7 @@ function renderDetail() {
       <button class="btn-sub" data-play="intro">▶ 再生</button>
     </div>
     <div class="adj">
-      <span class="label">サビ開始 <b>${chorusOf(s)}</b> 秒 ${s.chorus > 0 ? '' : '<span class="badge b-edit">仮の値</span>'}</span>
+      <span class="label">サビ開始 <b>${chorusOf(s)}</b> 秒 ${!(s.chorus > 0) ? '<span class="badge b-edit">仮の値</span>' : s.chorusSource === 'heatmap' ? '<span class="badge b-un">自動推定（よく再生される部分）</span>' : '<span class="badge b-ok">手で設定</span>'}</span>
       <button class="btn-sub" data-k="chorus" data-d="-5">−5</button>
       <button class="btn-sub" data-k="chorus" data-d="-1">−1</button>
       <button class="btn-sub" data-k="chorus" data-d="1">＋1</button>
@@ -217,10 +219,13 @@ function renderDetail() {
   $('detail').querySelectorAll('[data-k]').forEach(b => b.onclick = () => {
     const k = b.dataset.k, base = k === 'chorus' ? chorusOf(s) : (s.intro || 0);
     s[k] = Math.max(0, base + +b.dataset.d);
+    if (k === 'chorus') s.chorusSource = 'manual';
+    else markIntroManual(s);
     afterEdit(k);
   });
   $('detail').querySelectorAll('[data-mark]').forEach(b => b.onclick = () => {
     s[b.dataset.mark] = Math.max(0, Math.round(player.getCurrentTime()));
+    if (b.dataset.mark === 'chorus') s.chorusSource = 'manual'; else markIntroManual(s);
     afterEdit(null);
   });
   $('detail').querySelectorAll('[data-play]').forEach(b => b.onclick = () => playAt(b.dataset.play));
@@ -275,20 +280,31 @@ function probe(id) {
   });
 }
 
-// ── 無音カット：音が鳴り始める秒数を測ってイントロ開始秒にする ──
+// ── 無音カット：音楽が鳴り始める秒数を測ってイントロ開始秒にする ──
 // YouTube の埋め込みからは音量を読めないので、このタブの音声を共有してもらい、その音の大きさを測る。
 // 音声はその場で大きさを測るだけで、保存も送信もしない。
-const ONSET_DB = -45;          // これより大きければ「鳴っている」とみなす
-const ONSET_HOLD_MS = 150;     // この時間続いたら鳴り始めと判定（ノイズ対策）
-const ONSET_MARGIN = 0.3;      // 最初の音が欠けないよう、少し手前から流す
-const MEASURE_MAX_SEC = 25;    // 動画のこの秒数までに鳴らなければあきらめる
+// 最初の RECORD_SEC 秒の音量の流れを記録してから判定する：
+//   その曲の「普通に鳴っている音量」(上位10%の音量)を基準に、それに近い音量が SUSTAIN_SEC 続いた所を音楽の始まりとし、
+//   それより前の小さい音・短い音（ロゴ音・効果音・環境音・セリフ）は飛ばす。
+const RECORD_SEC = 20;         // 動画の最初のこの秒数を記録する
 const MEASURE_RATE = 2;        // 2倍速で再生して時間を短縮
+const BIN = 0.25;              // 音量をこの秒数ごとにまとめる
+const LOUD_DB = 10;            // 基準音量からこの dB 以内なら「曲が鳴っている」
+const KEEP_DB = 16;            // 続いているかの判定はここまで下がっても許す
+const SUSTAIN_SEC = 2;         // この秒数ほぼ鳴り続けたら音楽の始まり
+const ATTACK_DB = 22;          // 立ち上がりはここまで遡る（頭の音を欠かさない）
+const ONSET_MARGIN = 0.3;      // さらに少し手前から流す
+const SILENT_DB = -50;         // 基準音量がこれ未満なら音なしとみなす
+const AUTOSAVE_EVERY = 20;     // 途中で止めても続きから再開できるよう、この曲数ごとに保存する
 let measuring = false, stopMeasure = false;
+
+// 手で直した曲（introMeasured が false でイントロ秒あり）は触らない。新方式で測り終えた曲は飛ばす（再開用）
+const needsMeasure = s => s.embeddable !== false && s.introMethod !== 'v2' && (s.introMeasured || !(s.intro > 0));
 
 $('measureStop').onclick = () => { stopMeasure = true; };
 $('measureAll').onclick = async () => {
   if (!ready || measuring || checking) return;
-  const targets = songs.filter(s => s.embeddable !== false && !s.introMeasured && !(s.intro > 0));
+  const targets = songs.filter(needsMeasure);
   if (!targets.length) { toast('計測が必要な曲はありません'); return; }
   let stream;
   try {
@@ -307,68 +323,108 @@ $('measureAll').onclick = async () => {
   analyser.fftSize = 1024;
   ctx.createMediaStreamSource(stream).connect(analyser);
   const buf = new Float32Array(analyser.fftSize);
-  const levelDb = () => {
+  const power = () => {
     analyser.getFloatTimeDomainData(buf);
     let sum = 0; for (const v of buf) sum += v * v;
-    return 10 * Math.log10(sum / buf.length + 1e-12);
+    return sum / buf.length;
   };
 
   measuring = true; stopMeasure = false;
   $('measureAll').disabled = true; $('checkAll').disabled = true; $('measureStop').hidden = false;
-  let done = 0, changed = 0, silent = [];
+  let done = 0, changed = 0, silent = [], unsure = [];
   player.unMute(); player.setVolume(100);
   for (const s of targets) {
     if (stopMeasure) break;
-    $('progress').textContent = `計測中 ${done + 1} / ${targets.length}：${s.title}`;
-    const onset = await measureOnset(s.id, levelDb);
-    if (onset == null) silent.push(s.title);
+    const left = Math.ceil((targets.length - done) * (RECORD_SEC / MEASURE_RATE + 2) / 60);
+    $('progress').textContent = `計測中 ${done + 1} / ${targets.length}（残り約${left}分）：${s.title}`;
+    const levels = await recordLevels(s.id, power);
+    const r = levels && findMusicStart(levels);
+    if (!r) silent.push(s.title);
     else {
-      const intro = Math.max(0, Math.round((onset - ONSET_MARGIN) * 10) / 10);
+      const intro = Math.max(0, Math.round((r.onset - ONSET_MARGIN) * 10) / 10);
       if (intro !== (s.intro || 0)) changed++;
       s.intro = intro;
       s.introMeasured = true;
+      s.introMethod = 'v2';
+      if (r.unsure) { s.introUnsure = true; unsure.push(s.title); } else delete s.introUnsure;
       markDirty();
     }
     done++;
+    if (done % AUTOSAVE_EVERY === 0 && canEdit) await saveSongs(true);
   }
   player.setPlaybackRate(1); player.stopVideo();
   stream.getTracks().forEach(t => t.stop()); ctx.close();
   measuring = false;
   $('measureAll').disabled = false; $('checkAll').disabled = false; $('measureStop').hidden = true;
+  if (dirty && canEdit) await saveSongs(true);
   $('progress').textContent = `計測 ${done} 曲（イントロ秒が変わった曲 ${changed}）` +
-    (silent.length ? `／音を検出できなかった曲：${silent.join('、')}` : '') + '。保存ボタンで書き込みます';
+    (unsure.length ? `／判定があいまいな曲（要確認）：${unsure.join('、')}` : '') +
+    (silent.length ? `／音を検出できなかった曲：${silent.join('、')}` : '') + '。保存済みです';
 };
 
-function measureOnset(id, levelDb) {
+// 動画の頭から RECORD_SEC 秒まで、BIN 秒ごとの平均音量(dB)を記録する
+function recordLevels(id, power) {
   return new Promise(resolve => {
     player.loadVideoById({ videoId: id, startSeconds: 0 });
     player.setPlaybackRate(MEASURE_RATE);
     const t0 = Date.now();
-    let loudSince = 0, firstLoudAt = null;
+    const sums = [], counts = [];
+    const finish = () => {
+      clearInterval(timer);
+      const db = sums.map((v, i) => counts[i] ? 10 * Math.log10(v / counts[i] + 1e-12) : -120);
+      resolve(db.length ? db : null);
+    };
     const timer = setInterval(() => {
       if (stopMeasure) { clearInterval(timer); resolve(null); return; }
-      if (player.getPlayerState() !== YT.PlayerState.PLAYING) {
-        if (Date.now() - t0 > 15000) { clearInterval(timer); resolve(null); } // 再生が始まらない
+      const st = player.getPlayerState();
+      if (st === YT.PlayerState.ENDED) { finish(); return; }
+      if (st !== YT.PlayerState.PLAYING) {
+        if (!sums.length && Date.now() - t0 > 15000) { clearInterval(timer); resolve(null); } // 再生が始まらない
         return;
       }
       const now = player.getCurrentTime();
-      if (levelDb() > ONSET_DB) {
-        if (!loudSince) { loudSince = Date.now(); firstLoudAt = now; }
-        if (Date.now() - loudSince >= ONSET_HOLD_MS / MEASURE_RATE) { clearInterval(timer); resolve(firstLoudAt); }
-      } else { loudSince = 0; }
-      if (now > MEASURE_MAX_SEC) { clearInterval(timer); resolve(null); }
-    }, 25);
+      if (now >= RECORD_SEC) { finish(); return; }
+      const i = Math.floor(now / BIN);
+      while (sums.length <= i) { sums.push(0); counts.push(0); }
+      sums[i] += power(); counts[i]++;
+    }, 20);
   });
 }
 
+// 記録した音量の流れから、音楽が鳴り始めた秒数を探す
+function findMusicStart(db) {
+  const heard = db.filter(v => v > -100).sort((a, b) => a - b);
+  if (!heard.length) return null;
+  const ref = heard[Math.floor(heard.length * 0.9)]; // その曲の普通に鳴っている音量
+  if (ref < SILENT_DB) return null;
+  const need = Math.round(SUSTAIN_SEC / BIN);
+  let start = -1;
+  for (let i = 0; i < db.length; i++) {
+    if (db[i] < ref - LOUD_DB) continue;
+    const win = db.slice(i, i + need);
+    if (win.length < Math.min(need, 4)) break;
+    if (win.filter(v => v >= ref - KEEP_DB).length / win.length >= 0.85) { start = i; break; }
+  }
+  if (start < 0) return { onset: 0, unsure: true };
+  // 立ち上がりの頭まで遡る（最大1.5秒）
+  let a = start;
+  while (a > 0 && start - a < 1.5 / BIN && db[a - 1] >= ref - ATTACK_DB) a--;
+  // 始まりより前も同じくらいの音量だった（セリフや音楽の上の効果音など）なら要確認
+  const before = db.slice(0, a); // 無音も含めたエネルギーの平均（一瞬のロゴ音だけなら小さくなる）
+  const avgBefore = before.length ? 10 * Math.log10(before.reduce((x, v) => x + 10 ** (v / 10), 0) / before.length + 1e-12) : -120;
+  const unsure = a * BIN > 1 && avgBefore > ref - 6;
+  return { onset: a * BIN, unsure };
+}
+
 // ── 保存 ──
-$('saveBtn').onclick = async () => {
+async function saveSongs(quiet) {
   const res = await fetch('/api/songs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ songs }) });
   const d = await res.json();
   if (!res.ok) { toast(d.error || '保存に失敗しました'); return; }
   dirty = false; render();
-  toast(`保存しました（全 ${d.total} 曲、出題対象 ${d.playable} 曲）`);
-};
+  if (!quiet) toast(`保存しました（全 ${d.total} 曲、出題対象 ${d.playable} 曲）`);
+}
+$('saveBtn').onclick = () => saveSongs(false);
 window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
 
 let toastTimer = null;

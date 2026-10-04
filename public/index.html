@@ -1,21 +1,23 @@
 <!doctype html>
-<html lang="ja" data-theme="neon">
+<html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>アニソンイントロ対戦</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=DotGothic16&family=M+PLUS+Rounded+1c:wght@500;800&family=Shippori+Mincho+B1:wght@800&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="backdrop" aria-hidden="true"></div>
+<!-- YouTube は画面全体の背景に置く。出題中は見えず、答え合わせで透けて見える -->
+<div class="video-bg" aria-hidden="true"><div id="player"></div></div>
 <main>
   <header class="top">
     <div class="brand">
-      <img class="emblem" id="emblem" alt="">
-      <h1 class="logo"><small>ANISONG INTRO</small>アニソン<em>イントロ</em>対戦</h1>
+      <img class="emblem" id="emblem" src="assets/glass/logo.webp" alt="">
+      <h1 class="logo"><small>ANISONG INTRO BATTLE</small>アニソン<em>イントロ</em>対戦</h1>
     </div>
     <span class="code" id="roomCode" hidden></span>
   </header>
@@ -61,7 +63,7 @@
     <!-- 右：ゲーム画面 -->
     <div class="room-main">
     <div class="panel stage">
-      <div class="screen"><div id="player"></div><div class="cover" id="cover"><span>?</span></div></div>
+      <div class="cover" id="cover"><span>?</span></div>
       <div class="status">
         <div class="status-top">
           <span class="phase" id="phase">待機中</span>
@@ -79,13 +81,29 @@
         <input id="inviteUrl" readonly>
         <button class="btn-sub" id="copyBtn">コピー</button>
       </div>
-      <div class="settings" id="settings">
-        <label>テーマ<select data-key="theme"><option value="random">ランダム（ゲームごと）</option><option value="neon">ネオン・ライブ会場</option><option value="studio">クイズ番組スタジオ</option><option value="pop">ポップ</option><option value="retro">レトロゲーム</option></select></label>
+      <div id="settings">
+      <div class="settings">
+        <label>お題<select data-key="topic"><option value="all">全部</option><option value="series">作品を選ぶ</option></select></label>
+        <label id="seriesLabel" hidden>作品<select data-key="series"></select></label>
+        <label>出題タイプ<select data-key="quizType"><option value="intro">イントロ</option><option value="sabimae">サビ前</option><option value="mix">イントロ＋サビ前（ランダム）</option></select></label>
+        <label>問題数<select data-key="questions"></select></label>
+      </div>
+      <div class="modes" id="modes">
+        <span>おまかせ設定</span>
+        <button class="btn-sub" data-mode="easy">かんたん</button>
+        <button class="btn-sub" data-mode="normal">ふつう</button>
+        <button class="btn-sub" data-mode="hard">ガチ</button>
+      </div>
+      <details class="more">
+        <summary>詳細設定</summary>
+        <div class="settings">
+        <label>サビ前：サビの何秒前から<select data-key="leadSec"></select></label>
+        <label>答え合わせ後、自動で次へ<select data-key="autoNext"></select></label>
+        <label>連続正解ボーナス・最終問題2倍<select data-key="bonus"><option value="true">あり</option><option value="false">なし</option></select></label>
         <label>回答方法<select data-key="answerMode"><option value="choice">選択肢から選ぶ</option><option value="input">曲名・作品名を入力</option></select></label>
         <label>時間で出るヒント<select data-key="clues"><option value="true">あり</option><option value="false">なし</option></select></label>
         <label>入力：ヒント3のあとの時間<select data-key="typingExtra"></select></label>
         <label>採点<select data-key="mode"><option value="score">スコア制（速いほど高得点）</option><option value="buzz">早押し制（最速の正解者のみ）</option></select></label>
-        <label>問題数<select data-key="questions"></select></label>
         <label>選択肢<select data-key="choices"></select></label>
         <label>イントロの長さ<select data-key="introLen"></select></label>
         <label>サビに移るまで<select data-key="hintAt"></select></label>
@@ -93,6 +111,8 @@
         <label>定員<select data-key="maxPlayers"></select></label>
         <label>年代（から）<select data-key="yearFrom"></select></label>
         <label>年代（まで）<select data-key="yearTo"></select></label>
+        </div>
+      </details>
       </div>
       <div class="presets" id="presets"></div>
       <p class="note" id="poolInfo"></p>
@@ -109,7 +129,7 @@
         <button class="btn-main" id="sendBtn" type="submit">回答</button>
       </form>
       <div class="lifelines" id="lifelines">
-        <button class="btn-sub skip" id="passBtn">次の曲へ ▶▶</button>
+        <button class="btn-sub skip" id="passBtn"><img class="icon" src="assets/glass/icon-skip.webp" alt="">次の曲へ</button>
       </div>
       <ul class="life-results" id="lifeResults" hidden></ul>
       <p class="note" id="quizNote"></p>
@@ -118,16 +138,20 @@
     <!-- 答え合わせ -->
     <div id="result" class="panel" hidden>
       <div class="answer" id="answer"></div>
+      <ul class="highlights" id="highlights"></ul>
+      <div class="reactions" id="reactions"><button class="btn-sub" data-react="神曲">神曲</button><button class="btn-sub" data-react="知らん">知らん</button><button class="btn-sub" data-react="懐かしい">懐かしい</button><button class="btn-sub" data-react="惜しい">惜しい</button><button class="btn-sub" data-react="草">草</button><button class="btn-sub" data-react="天才">天才</button></div>
       <table class="results" id="results"></table>
       <button class="btn-main" id="nextBtn" hidden>次の問題へ</button>
       <p class="note" id="waitNext" hidden>ホストが次へ進むのを待っています…</p>
+      <p class="note next-count" id="nextCount"></p>
     </div>
 
     <!-- 終了 -->
     <div id="over" class="panel" hidden>
       <h2 class="over-title">最終結果</h2>
+      <ul class="titles" id="titles"></ul>
       <div class="podium" id="podium">
-        <img id="podiumImg" alt="">
+        <img id="podiumImg" src="assets/glass/podium.webp" alt="">
         <div class="places" id="places"></div>
       </div>
       <ol class="ranking" id="ranking"></ol>

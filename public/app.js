@@ -15,18 +15,10 @@ $('nameInput').value = store.get('aq-name') || '';
 const params = new URLSearchParams(location.search);
 if (params.get('room')) $('codeInput').value = params.get('room').toUpperCase();
 
-// ── テーマ（背景・アイコン・表彰台の画像を切り替える）──
-const THEMES = ['neon', 'studio', 'pop', 'retro'];
-let currentTheme = null;
-function applyTheme(t) {
-  if (!THEMES.includes(t) || t === currentTheme) return;
-  currentTheme = t;
-  document.documentElement.dataset.theme = t;
-  $('emblem').src = `assets/${t}/emblem.webp`;
-  $('podiumImg').src = `assets/${t}/podium.webp`;
-  document.querySelectorAll('[data-icon]').forEach(img => { img.src = `assets/${t}/icon-${img.dataset.icon}.webp`; });
-}
-applyTheme(THEMES[Math.floor(Math.random() * THEMES.length)]); // 入室前はランダム
+// ── 画像（すりガラスのデザイン用。tools/gen-assets.js で生成）──
+const ASSET = 'assets/glass/';
+const avatarImg = (n, cls = 'avatar') => `<img class="${cls}" src="${ASSET}avatar-${n || 1}.webp" alt="">`;
+const icon = (name, cls = 'icon') => `<img class="${cls}" src="${ASSET}icon-${name}.webp" alt="">`;
 
 const WARMUP_VIDEO = 'o6wtDPVkKqI';
 const socket = io();
@@ -176,6 +168,8 @@ const SETTING_OPTIONS = {
   hintAt: [5, 10, 15, 20].map(n => [n, n + '秒後']),
   chorusLen: [10, 15, 20].map(n => [n, n + '秒']),
   typingExtra: [5, 10, 15, 20, 30].map(n => [n, '最低 ' + n + '秒']),
+  leadSec: [3, 5, 10].map(n => [n, n + '秒前']),
+  autoNext: [[8, '8秒後'], [12, '12秒後'], [0, '自動で進まない']],
   maxPlayers: Array.from({ length: 11 }, (_, i) => [i + 2, (i + 2) + '人']),
   yearFrom: Array.from({ length: 50 }, (_, i) => [1980 + i, (1980 + i) + '年']),
   yearTo: Array.from({ length: 50 }, (_, i) => [1980 + i, (1980 + i) + '年']),
@@ -189,7 +183,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'theme'], BOOL_KEYS = ['clues', 'lifelines'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series'], BOOL_KEYS = ['clues', 'lifelines', 'bonus'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -204,6 +198,27 @@ $('presets').querySelectorAll('button').forEach(b => b.onclick = () => {
   const [, yearFrom, yearTo] = PRESETS[+b.dataset.p];
   sendSettings({ yearFrom, yearTo });
 });
+// お題の選択肢（ジャンルと作品）をサーバーから読み込む
+let TOPIC_DATA = { genres: [], series: [] };
+const topicLabel = S => S.topic === 'series' ? (S.series || '作品') : S.topic === 'all' ? '全部' : (TOPIC_DATA.genres.find(g => g.key === S.topic)?.label || 'お題');
+fetch('/api/topics').then(r => r.json()).then(d => {
+  TOPIC_DATA = d;
+  const tp = document.querySelector('[data-key="topic"]');
+  d.genres.forEach(g => tp.add(new Option(`${g.label}（${g.count}曲）`, g.key)));
+  const se = document.querySelector('[data-key="series"]');
+  d.series.forEach(s => se.add(new Option(`${s.name}（${s.count}曲）`, s.name)));
+  if (room) renderRoom(room); // 選択肢がそろったので選ばれている値を入れ直す
+}).catch(() => {});
+
+// おまかせ設定（細かい設定はまとめて変える）
+const MODES = {
+  easy:   { choices: 4,  introLen: 10, hintAt: 15, chorusLen: 20, clues: true,  answerMode: 'choice', mode: 'score', typingExtra: 20 },
+  normal: { choices: 8,  introLen: 5,  hintAt: 10, chorusLen: 15, clues: true,  answerMode: 'choice', mode: 'score', typingExtra: 10 },
+  hard:   { choices: 12, introLen: 3,  hintAt: 5,  chorusLen: 10, clues: false, answerMode: 'input',  mode: 'buzz',  typingExtra: 10 },
+};
+document.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { sendSettings(MODES[b.dataset.mode]); toast(`「${b.textContent}」の設定にしました`); });
+// リアクションスタンプ
+document.querySelectorAll('[data-react]').forEach(b => b.onclick = () => socket.emit('react', b.dataset.react));
 $('startBtn').onclick = () => socket.emit('start');
 $('nextBtn').onclick = () => socket.emit('next');
 $('lobbyBtn').onclick = () => socket.emit('backToLobby');
@@ -214,21 +229,22 @@ function renderRoom(r) {
   const prevState = room?.state;
   const prevScores = new Map((room?.players || []).map(p => [p.id, p.score]));
   room = r;
-  applyTheme(r.theme);
   const isHost = r.hostId === me;
   document.querySelectorAll('#settings select').forEach(sel => {
-    sel.value = String(r.settings[sel.dataset.key]);
+    sel.value = String(r.settings[sel.dataset.key] ?? '');
     sel.disabled = !isHost;
   });
+  $('seriesLabel').hidden = r.settings.topic !== 'series';
   $('presets').hidden = !isHost;
-  $('poolInfo').textContent = `${r.settings.yearFrom}〜${r.settings.yearTo}年：出題できる曲 ${r.poolSize} 曲` +
+  $('modes').hidden = !isHost;
+  $('poolInfo').textContent = `${topicLabel(r.settings)}・${r.settings.yearFrom}〜${r.settings.yearTo}年：出題できる曲 ${r.poolSize} 曲` +
     (r.poolSize < r.settings.questions ? `（${r.settings.questions}問に足りないので ${r.poolSize} 問で出題します）` : '');
   $('startBtn').disabled = r.poolSize === 0;
   $('startBtn').hidden = !isHost; $('waitHost').hidden = isHost;
-  $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost;
+  $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
   $('lobbyBtn').hidden = !isHost;
 
-  if (r.state === 'lobby') show('lobby');
+  if (r.state === 'lobby') { show('lobby'); document.body.classList.remove('revealing', 'playing'); }
   else if (r.state === 'playing' && prevState !== 'playing' && !question) {
     // 途中参加：次の問題から
     show('quiz'); $('choices').innerHTML = ''; $('quizNote').textContent = '次の問題から参加します';
@@ -238,10 +254,15 @@ function renderRoom(r) {
   myLifelines = r.players.find(p => p.id === me)?.lifelines || null;
   updateLifelineButtons();
 
+  // 得点が一番の人（0点より上）に王冠をつける
+  const top = Math.max(0, ...r.players.map(p => p.score));
   $('players').innerHTML = r.players.map(p => `
-    <li class="${p.answered ? 'answered' : ''} ${p.connected ? '' : 'off'}">
-      <span>${esc(p.name)}${p.id === r.hostId ? '<span class="host">HOST</span>' : ''}${p.id === me ? '（あなた）' : ''}</span>
+    <li data-id="${p.id}" class="${p.answered ? 'answered' : ''} ${p.connected ? '' : 'off'} ${p.id === me ? 'me' : ''}">
+      <span class="pl-face">${avatarImg(p.avatar)}${top > 0 && p.score === top ? icon('crown', 'crown') : ''}</span>
+      <span class="pl-name">${esc(p.name)}${p.id === r.hostId ? '<span class="host">HOST</span>' : ''}${p.id === me ? '<span class="you">YOU</span>' : ''}</span>
+      ${p.streak >= 2 ? `<span class="streak" title="連続正解">${p.streak}連</span>` : ''}
       <span class="pts${prevScores.has(p.id) && p.score > prevScores.get(p.id) ? ' bump' : ''}">${p.score}</span>
+      ${p.answered ? '<span class="pl-check" title="回答済み"></span>' : ''}
     </li>`).join('');
 }
 
@@ -249,7 +270,7 @@ function renderRoom(r) {
 function flash(kind, text, sub = '') {
   const el = $('flash');
   el.className = 'flash ' + kind;
-  el.innerHTML = `<span>${esc(text)}${sub ? `<small>${esc(sub)}</small>` : ''}</span>`;
+  el.innerHTML = `<span>${icon(kind === 'ok' ? 'ok' : 'ng', 'flash-icon')}${esc(text)}${sub ? `<small>${esc(sub)}</small>` : ''}</span>`;
   el.hidden = false;
   clearTimeout(flash.t); flash.t = setTimeout(() => { el.hidden = true; }, 1400);
 }
@@ -276,10 +297,13 @@ const isInput = () => question?.answerMode === 'input';
 socket.on('question', q => {
   question = q; myAnswer = null; answering = false;
   stopTick();
-  $('timer').textContent = '0.0'; $('barFill').style.width = '0';
+  $('timer').textContent = ''; $('barFill').style.width = '0';
+  clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer);
   $('barMark').style.left = (q.settings.hintAt / (q.settings.hintAt + q.settings.chorusLen) * 100) + '%';
-  $('qno').textContent = `第 ${q.qNo} / ${q.qTotal} 問`;
-  $('cover').hidden = false; $('cover').textContent = '？';
+  $('qno').innerHTML = `第 ${q.qNo} / ${q.qTotal} 問` + (q.kind === 'sabimae' ? '（サビ前問題）' : '')
+    + (q.final ? ' <b class="final">最終問題・得点2倍</b>' : '');
+  $('cover').innerHTML = '<span>?</span>';
+  document.body.classList.remove('revealing', 'playing'); // 背景の映像を隠す
   setPhase('', '読み込み中');
   $('quizNote').textContent = '';
   $('clues').innerHTML = ''; $('lifeResults').innerHTML = '';
@@ -291,33 +315,52 @@ socket.on('question', q => {
   $('lifelines').hidden = false;
   updateLifelineButtons();
   show('quiz');
-  player.load(q.videoId, q.intro);
+  player.load(q.videoId, q.start ?? q.intro);
 });
 
 // offset は途中から戻ってきた人向け（経過秒）
-socket.on('go', ({ intro, hintAt, total, offset = 0, introLen }) => {
-  if (!offset) player.start(intro);
-  else if (offset < introLen && offset < hintAt) player.start(intro + offset);
-  setPhase('intro', 'イントロ');
-  if (myAnswer === null) {
-    answering = true;
-    $('choices').querySelectorAll('.choice:not(.gone)').forEach(b => b.disabled = false);
-    $('answerInput').disabled = false; $('sendBtn').disabled = false;
-    if (isInput() && !offset) $('answerInput').focus();
-  }
-  updateLifelineButtons();
-  $('barMark').style.left = (hintAt / total * 100) + '%';
+// offset は曲が流れ始めてからの経過秒。マイナスのときは、選択肢を見せてからその秒数待って流す（最初の1秒の待ち）。
+// 途中から戻ってきた人はプラスの経過秒が届く
+let goTimer = null;
+socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introLen }) => {
+  document.body.classList.add('playing'); // 背景に Ambient light 風のぼかし映像
+  clearTimeout(goTimer);
   stopTick();
-  timerStart = performance.now() - offset * 1000;
-  tick = setInterval(() => {
-    const t = (performance.now() - timerStart) / 1000;
-    $('timer').textContent = Math.min(t, total).toFixed(1);
-    $('barFill').style.width = Math.min(100, t / total * 100) + '%';
-    $('barFill').style.background = t >= hintAt ? 'var(--warn)' : 'var(--accent2)';
-  }, 50);
+  $('barMark').style.left = (hintAt / total * 100) + '%';
+  $('timer').textContent = total.toFixed(1);
+  const wait = Math.max(0, -offset), off = Math.max(0, offset);
+  if (wait > 0) setPhase('ready', 'まもなく…');
+  goTimer = setTimeout(() => {
+    if (kind === 'sabimae') {
+      // サビ前問題：止めずに流し続ける。戻ってきた人も経過秒ぶん先から
+      player.start(start + off);
+      setPhase('intro', 'サビ前');
+    } else {
+      if (!off) player.start(intro);
+      else if (off < introLen && off < hintAt) player.start(intro + off);
+      setPhase('intro', 'イントロ');
+    }
+    if (myAnswer === null) {
+      answering = true;
+      $('choices').querySelectorAll('.choice:not(.gone)').forEach(b => b.disabled = false);
+      $('answerInput').disabled = false; $('sendBtn').disabled = false;
+      if (isInput() && !off) $('answerInput').focus();
+    }
+    updateLifelineButtons();
+    timerStart = performance.now() - off * 1000;
+    tick = setInterval(() => {
+      const t = (performance.now() - timerStart) / 1000;
+      $('timer').textContent = Math.max(0, total - t).toFixed(1); // 残り時間
+      $('barFill').style.width = Math.min(100, t / total * 100) + '%';
+      $('barFill').style.background = t >= hintAt ? 'var(--warn)' : 'var(--accent2)';
+    }, 50);
+  }, wait * 1000);
 });
 socket.on('stopIntro', () => player.stopIntro());
-socket.on('hint', ({ chorus }) => { player.hint(chorus); setPhase('chorus', 'サビ（ヒント・得点半分）'); });
+socket.on('hint', ({ chorus, seek = true }) => {
+  if (seek) { player.hint(chorus); setPhase('chorus', 'サビ（ヒント・得点半分）'); }
+  else setPhase('chorus', 'サビ（得点半分）'); // サビ前問題は流れのままサビに入る
+});
 
 // 再接続したとき、すでに答えていた問題の表示を戻す
 socket.on('answered', a => markAnswered(a));
@@ -418,7 +461,8 @@ socket.on('reveal', r => {
   answering = false; updateLifelineButtons();
   $('answerInput').disabled = true; $('sendBtn').disabled = true;
   setPhase('reveal', '答え合わせ');
-  $('cover').hidden = true;
+  $('cover').innerHTML = icon('note', 'cover-icon');
+  document.body.classList.remove('playing'); document.body.classList.add('revealing'); // 背景全体に映像を出す
   player.reveal(r.intro, r.chorus);
   $('choices').querySelectorAll('.choice').forEach(b => {
     b.disabled = true;
@@ -429,7 +473,7 @@ socket.on('reveal', r => {
   $('answer').innerHTML = `${esc(s.title)}<small>${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}（${s.year}）</small>`;
   $('results').innerHTML = r.results.map(x => `
     <tr>
-      <td>${esc(x.name)}</td>
+      <td class="who">${avatarImg(x.avatar, 'avatar sm')}${esc(x.name)}</td>
       <td class="${x.correct ? 'ok' : 'ng'}">${!x.answered ? '未回答' : x.pass ? 'スキップ' : x.correct ? '正解' + (x.hint ? '（サビ）' : '') : '不正解'}${x.given ? `<small>「${esc(x.given)}」</small>` : ''}</td>
       <td class="num">${x.elapsed === null ? '' : x.elapsed.toFixed(2) + '秒'}</td>
       <td class="num">+${x.points}</td>
@@ -443,18 +487,47 @@ socket.on('reveal', r => {
     else flash('ng', '不正解');
   }
   $('nextBtn').textContent = r.last ? '結果発表へ' : '次の問題へ';
+  $('highlights').innerHTML = (r.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');
+  // 自動で次へ進むまでのカウント（ホストは「次へ」で早送りできる）
+  clearInterval(nextTick); $('nextCount').textContent = '';
+  if (r.autoNext > 0) {
+    const until = performance.now() + r.autoNext * 1000;
+    const draw = () => { const s = Math.ceil((until - performance.now()) / 1000);
+      $('nextCount').textContent = s > 0 ? `${s}秒後に${r.last ? '結果発表' : '次の問題'}へ` : ''; if (s <= 0) clearInterval(nextTick); };
+    draw(); nextTick = setInterval(draw, 250);
+  }
   // 選択肢を見せたまま結果を下に出す
   $('quiz').hidden = false; $('result').hidden = false;
 });
 
-socket.on('gameover', ({ ranking }) => {
+// 惜しい：回答にはならないので、打ち直せるように戻す
+socket.on('almost', ({ text, left }) => {
+  myAnswer = null; answering = true;
+  $('answerInput').disabled = false; $('sendBtn').disabled = false;
+  $('answerInput').value = text; $('answerInput').select();
+  $('quizNote').textContent = `惜しい！ もう一度（あと${left + 1}回まで）`;
+  flash('ng', '惜しい！');
+});
+// 誰かがスタンプを押した：その人のカードの上に吹き出しを出す
+socket.on('react', ({ id, name, kind }) => {
+  const li = document.querySelector(`#players li[data-id="${id}"]`);
+  const bubble = document.createElement('span');
+  bubble.className = 'bubble'; bubble.textContent = kind;
+  if (li) li.appendChild(bubble); else { bubble.textContent = `${name}：${kind}`; bubble.classList.add('free'); document.body.appendChild(bubble); }
+  setTimeout(() => bubble.remove(), 2200);
+});
+
+socket.on('gameover', ({ ranking, titles = [] }) => {
+  $('qno').textContent = ''; $('timer').textContent = ''; $('barFill').style.width = '0';
+  $('titles').innerHTML = titles.map(x => `<li>${avatarImg(x.avatar, 'avatar sm')}<b>${esc(x.title)}</b>${esc(x.name)}<small>${esc(x.why)}</small></li>`).join('');
+  document.body.classList.remove('revealing', 'playing');
   question = null;
   player.stop(); stopTick();
   setPhase('', '終了');
   // 上位3人は表彰台に、全員の順位は下の一覧に
   $('places').innerHTML = ranking.slice(0, 3).map((p, i) =>
-    `<div class="place p${i + 1}"><b>${['🥇', '🥈', '🥉'][i]}</b>${esc(p.name)}<span><br>${p.score}点</span></div>`).join('');
-  $('ranking').innerHTML = ranking.map(p => `<li>${esc(p.name)}<span>${p.score}点</span></li>`).join('');
+    `<div class="place p${i + 1}">${i === 0 ? icon('crown', 'crown') : ''}${avatarImg(p.avatar, 'avatar lg')}<b>${i + 1}位</b>${esc(p.name)}<span>${p.score}点</span></div>`).join('');
+  $('ranking').innerHTML = ranking.map(p => `<li>${avatarImg(p.avatar, 'avatar sm')}${esc(p.name)}<span>${p.score}点</span></li>`).join('');
   show('over');
   confetti(160);
   if (ranking[0]?.id === me) flash('ok', '優勝！');
@@ -463,6 +536,7 @@ socket.on('gameover', ({ ranking }) => {
 socket.on('notice', msg => toast(msg));
 
 function stopTick() { clearInterval(tick); tick = null; }
+let nextTick = null; // 答え合わせ後の自動で次へのカウント
 
 let toastTimer = null;
 function toast(msg) {

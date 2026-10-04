@@ -597,6 +597,7 @@ function reveal(room) {
   io.to(room.code).emit('reveal', {
     correctIndex: q.correctIndex,
     song: { id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type },
+    log: playedLog(room), // ここまでに出た曲（ページを読み込み直した人も曲ログをコピーできるように）
     intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0,
     results,
     highlights: highlightsOf(room, results),
@@ -680,11 +681,11 @@ function skipQuestion(room, reason) {
 
 // ── 一時停止（ホストが「設定を変える」）。変えた設定は次の問題から ──
 const poolKey = S => JSON.stringify([S.topic, S.series, S.yearFrom, S.yearTo, S.excludeGenres, S.quizType]);
-function pauseGame(room) {
+function pauseGame(room, auto = false) {
   const g = room.game, q = g?.q;
   if (room.state !== 'playing' || !g || g.paused || !q) return false;
   if (q.phase === 'loading' || (q.t0 && Date.now() < q.t0)) return false; // 曲が流れ始める直前は止めない
-  g.paused = { at: Date.now(), poolKey: poolKey(room.settings), questions: room.settings.questions };
+  g.paused = { at: Date.now(), poolKey: poolKey(room.settings), questions: room.settings.questions, auto };
   for (const t of g.timers) if (!t.done) { clearTimeout(t.h); t.left = Math.max(0, t.due - Date.now()); }
   io.to(room.code).emit('paused');
   broadcastRoom(room);
@@ -732,6 +733,12 @@ function abortGame(room) {
   broadcastRoom(room);
 }
 
+// このゲームでここまでに出題した曲（曲ログ用）
+function playedLog(room) {
+  const g = room.game;
+  return g.order.slice(0, g.qi + 1).map(s => ({ id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type }));
+}
+
 function endGame(room) {
   clearTimers(room);
   room.state = 'over';
@@ -739,7 +746,7 @@ function endGame(room) {
   const ranking = [...room.players.values()]
     .map(p => ({ id: p.id, name: p.name, avatar: p.avatar, score: p.score }))
     .sort((a, b) => b.score - a.score);
-  io.to(room.code).emit('gameover', { ranking, titles: titlesOf(room) });
+  io.to(room.code).emit('gameover', { ranking, titles: titlesOf(room), log: playedLog(room) });
   broadcastRoom(room);
 }
 
@@ -761,6 +768,16 @@ io.on('connection', socket => {
     p.name = name; p.connected = true; p.socketId = socket.id;
     r.emptySince = null;
     room = r; player = p;
+    // 全員いなくなって止まっていたゲームを、戻ってきた人で再開する
+    const g = r.game;
+    if (r.state === 'playing' && g) {
+      if (g.paused?.auto) resumeGame(r);
+      else if (g.restartQuestion && g.q) { // 曲が流れ始める前に止まった問題は、読み込みからやり直す
+        g.restartQuestion = false;
+        g.q.phase = 'loading'; g.q.ready = new Set(); g.q.participants.add(token);
+        later(r, () => go(r), READY_TIMEOUT);
+      }
+    }
     socket.join(r.code);
     if (!r.hostId) r.hostId = p.id;
     ensureHost(r);
@@ -818,6 +835,13 @@ io.on('connection', socket => {
     if (!room || !player || (room.state === 'playing' && !room.game?.paused) || !Array.isArray(list)) return;
     room.settings = { ...room.settings, excludeGenres: [...new Set(list.filter(k => GENRES[k]))] };
     broadcastRoom(room);
+  });
+  // 除外中の曲の一覧（ロビーで「除外中の曲をコピー」）
+  socket.on('excludedList', ack => {
+    if (typeof ack !== 'function' || !room) return;
+    const byId = new Map(ALL_SONGS.map(s => [s.id, s]));
+    ack([...(room.played || [])].map(id => byId.get(id)).filter(Boolean)
+      .map(s => ({ id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type })));
   });
   socket.on('clearExclude', () => {
     if (!isHost() || room.state === 'playing') return;
@@ -915,8 +939,9 @@ io.on('connection', socket => {
     ensureHost(room);
     if (connectedPlayers(room).length === 0) {
       room.emptySince = Date.now();
-      clearTimers(room);
-      if (room.state === 'playing') { room.state = 'over'; room.game.q = null; }
+      // 全員いなくなっても終わらせず止めておく（ページを読み込み直した人が戻ってきたら続きから）
+      const g = room.game;
+      if (room.state === 'playing' && g && !g.paused && !pauseGame(room, true)) { clearTimers(room); g.restartQuestion = true; }
     } else if (room.game?.q) {
       const q = room.game.q;
       // 抜けた人を待たない

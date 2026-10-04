@@ -150,7 +150,9 @@ function render() {
   $('dirty').textContent = dirty ? '保存していない変更があります' : '';
 }
 
-function markDirty() { dirty = true; render(); }
+// 変更した曲だけを保存する（開いた後にサーバー側で更新された他の曲を古い内容で上書きしないため）
+const dirtyIds = new Set();
+function markDirty(s = selected) { dirty = true; if (s) dirtyIds.add(s.id); render(); }
 // 手でイントロ秒を直した曲は、無音カットの計測し直しで上書きしない
 function markIntroManual(s) { s.introMeasured = false; delete s.introMethod; delete s.introUnsure; }
 
@@ -180,7 +182,7 @@ function setResult(s, ok, error) {
   if (ok) delete s.error; else s.error = error;
   s.checkedAt = new Date().toISOString().slice(0, 10);
   s.checkedOrigin = location.host;
-  markDirty();
+  markDirty(s);
 }
 
 // ── 1曲の詳細 ──
@@ -356,7 +358,12 @@ $('measureAll').onclick = async () => {
     $('progress').textContent = `計測中 ${done + 1} / ${targets.length}（残り約${left}分）：${s.title}`;
     const levels = await recordLevels(s.id, power);
     const r = levels && findMusicStart(levels);
-    if (!r) silent.push(s.title);
+    if (!r) {
+      if (stopMeasure) break; // 止めたときは測っていない扱い（次回また測る）
+      // 音を検出できなかった曲は「要確認」にして、次からは飛ばす（毎回やり直しにならないように）
+      silent.push(s.title);
+      s.introMethod = 'v2'; s.introUnsure = true; markDirty(s);
+    }
     else {
       const intro = Math.max(0, Math.round((r.onset - ONSET_MARGIN) * 10) / 10);
       if (intro !== (s.intro || 0)) changed++;
@@ -364,10 +371,14 @@ $('measureAll').onclick = async () => {
       s.introMeasured = true;
       s.introMethod = 'v2';
       if (r.unsure) { s.introUnsure = true; unsure.push(s.title); } else delete s.introUnsure;
-      markDirty();
+      markDirty(s);
     }
     done++;
-    if (done % AUTOSAVE_EVERY === 0 && canEdit) await saveSongs(true);
+    // 1曲ごとにすぐ保存する（途中で閉じても・止まっても、測った分は残り、次は続きから）
+    if (canEdit && dirty) {
+      const ok = await saveSongs(true);
+      if (!ok) { stopMeasure = true; $('progress').textContent = '保存できなかったので計測を止めました。サーバー（http://localhost:3000）が動いているか確認して、もう一度押すと続きから再開します'; }
+    }
   }
   player.setPlaybackRate(1); player.stopVideo();
   stream.getTracks().forEach(t => t.stop()); ctx.close();
@@ -435,11 +446,17 @@ function findMusicStart(db) {
 
 // ── 保存 ──
 async function saveSongs(quiet) {
-  const res = await fetch('/api/songs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ songs }) });
-  const d = await res.json();
-  if (!res.ok) { toast(d.error || '保存に失敗しました'); return; }
-  dirty = false; render();
-  if (!quiet) toast(`保存しました（全 ${d.total} 曲、出題対象 ${d.playable} 曲）`);
+  const changed = songs.filter(s => dirtyIds.has(s.id));
+  let res, d;
+  try {
+    res = await fetch('/api/songs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ songs: changed }) });
+    d = await res.json();
+  } catch (e) { toast('保存に失敗しました（サーバーにつながりません）'); return false; }
+  if (!res.ok) { toast(d.error || '保存に失敗しました'); return false; }
+  changed.forEach(s => dirtyIds.delete(s.id));
+  dirty = dirtyIds.size > 0; render();
+  if (!quiet) toast(`保存しました（${changed.length} 曲／全 ${d.total} 曲、出題対象 ${d.playable} 曲）`);
+  return true;
 }
 $('saveBtn').onclick = () => saveSongs(false);
 window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });

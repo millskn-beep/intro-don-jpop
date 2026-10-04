@@ -8,13 +8,15 @@
     "type": "OP",
     "confidence": "高",
     "source": "Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 51,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "5dzhgOxlr-U",
@@ -25,13 +27,15 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 90,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "JPLRmL3Vqlw",
@@ -102,11 +106,13 @@
     "type": "",
     "confidence": "中",
     "source": "松田聖子オフィシャルYouTubeチャンネル",
-    "intro": 0,
+    "intro": 1.7,
     "chorus": 85,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "lrFAj84yCrM",
@@ -139,10 +145,12 @@
     "type": "",
     "confidence": "低",
     "source": "Aloha Mahalo",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "MBEgw_kfhzc",
@@ -174,11 +182,13 @@
     "type": "",
     "confidence": "低",
     "source": "Akira Terao - Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 47,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "xzcFEJDfmv0",
@@ -212,11 +222,13 @@
     "type": "",
     "confidence": "中",
     "source": "松任谷由実",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 72,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "oSrVLQa4-EU",
@@ -358,11 +370,13 @@
     "type": "",
     "confidence": "低",
     "source": "Warner Music Japan",
-    "intro": 0,
+    "intro": 1,
     "chorus": 81,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "2Htj6AChzTE",
@@ -373,11 +387,13 @@
     "type": "",
     "confidence": "低",
     "source": "Free Time",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 49,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "a7WhrI0Bbnk",
@@ -388,11 +404,13 @@
     "type": "",
     "confidence": "中",
     "source": "あみん - Topic",
-    "intro": 0,
+    "intro": 1,
     "chorus": 80,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "m1ZZwp-39UY",
@@ -446,11 +464,13 @@
     "type": "",
     "confidence": "中",
     "source": "チェッカーズ公式YouTubeチャンネル",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 21,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "x4scqkonxEw",
@@ -593,11 +613,13 @@
     "type": "",
     "confidence": "中",
     "source": "ANRI 杏里 Official",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 32,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "UmmfjUUiTmU",
@@ -631,10 +653,12 @@
     "type": "",
     "confidence": "低",
     "source": "はるはる",
-    "intro": 0,
+    "intro": 1,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "T_lC2O1oIew",
@@ -645,11 +669,13 @@
     "type": "",
     "confidence": "低",
     "source": "竹内まりや - Mariya Takeuchi Official YouTube Channel",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 124,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "d4tcQJ4SIXk",
@@ -746,10 +772,12 @@
     "type": "",
     "confidence": "低",
     "source": "中村友三",
-    "intro": 0,
+    "intro": 1.7,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Y7bsWiz0q_Y",
@@ -781,11 +809,13 @@
     "type": "",
     "confidence": "中",
     "source": "チェッカーズ公式YouTubeチャンネル",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 25,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "XF1Sf8R3qTc",
@@ -796,11 +826,13 @@
     "type": "",
     "confidence": "中",
     "source": "アン・ルイス ANN LEWIS Official Channel",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 22,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "GZAV7G5Q0r0",
@@ -903,7 +935,10 @@
     "chorus": 50,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "introUnsure": true
   },
   {
     "id": "bnbJPQfU9QM",
@@ -959,10 +994,12 @@
     "type": "",
     "confidence": "低",
     "source": "鹿角聖良",
-    "intro": 0,
+    "intro": 1,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "DH3Ywt7mQa4",
@@ -997,11 +1034,13 @@
     "type": "",
     "confidence": "中",
     "source": "Yutaka Ozaki Official YouTube Channel",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 22,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "8czr8HabP6A",
@@ -1012,11 +1051,13 @@
     "type": "",
     "confidence": "低",
     "source": "MUSIC Liverary",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 86,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "dbHPwFo_28o",
@@ -1026,11 +1067,13 @@
     "year": 1985,
     "type": "",
     "confidence": "低",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 94,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "CCfRM-2M62k",
@@ -1040,11 +1083,13 @@
     "year": 1986,
     "type": "",
     "confidence": "低",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 77,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "EwTZwtGnc-c",
@@ -1055,13 +1100,15 @@
     "type": "OP",
     "confidence": "中",
     "source": "Topic",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 61,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "bYbN2nyuN9Y",
@@ -1226,11 +1273,13 @@
     "type": "",
     "confidence": "中",
     "source": "松田聖子オフィシャルYouTubeチャンネル",
-    "intro": 0,
+    "intro": 4.5,
     "chorus": 73,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "UftYXtQ1xAA",
@@ -1326,10 +1375,12 @@
     "type": "",
     "confidence": "低",
     "source": "Hikaru GENJI - Topic",
-    "intro": 0,
+    "intro": 3.5,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "RYC71PAuIKE",
@@ -1340,11 +1391,13 @@
     "type": "",
     "confidence": "中",
     "source": "THE BLUE HEARTS",
-    "intro": 0,
+    "intro": 5.7,
     "chorus": 37,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "4xUufRft9Hs",
@@ -1355,11 +1408,13 @@
     "type": "",
     "confidence": "低",
     "source": "MUSIC Liverary",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 79,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "InPGzqxwlFg",
@@ -1392,11 +1447,13 @@
     "type": "",
     "confidence": "低",
     "source": "MUSIC Liverary",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 71,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "QYMP3JTE-Qg",
@@ -1430,11 +1487,13 @@
     "type": "",
     "confidence": "中",
     "source": "THE BLUE HEARTS",
-    "intro": 0,
+    "intro": 5.7,
     "chorus": 32,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "5mLape5F0Fw",
@@ -1553,11 +1612,13 @@
     "type": "",
     "confidence": "中",
     "source": "Wink",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 53,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "JZQ3oUSSyHo",
@@ -1595,7 +1656,9 @@
     "chorus": 79,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "rzfLx6TVCv0",
@@ -1606,11 +1669,13 @@
     "type": "",
     "confidence": "中",
     "source": "プリンセス プリンセス official YouTube channel",
-    "intro": 0,
+    "intro": 7.5,
     "chorus": 105,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "9Q5Lw_azgpI",
@@ -1706,11 +1771,13 @@
     "type": "",
     "confidence": "中",
     "source": "DREAMS COME TRUE",
-    "intro": 0,
+    "intro": 5.7,
     "chorus": 102,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Hw2vX7PViN4",
@@ -1807,11 +1874,13 @@
     "type": "",
     "confidence": "中",
     "source": "JITTERIN' JINN",
-    "intro": 0,
+    "intro": 1,
     "chorus": 129,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "EX3TRj0_2Ys",
@@ -1822,11 +1891,13 @@
     "type": "",
     "confidence": "中",
     "source": "米米CLUB Official YouTube Channel",
-    "intro": 0,
+    "intro": 3.7,
     "chorus": 45,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "bPXS-74Vpnk",
@@ -1859,11 +1930,13 @@
     "type": "",
     "confidence": "中",
     "source": "CHAGE and ASKA Official Channel",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 87,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "FUnt9xvJc6M",
@@ -1874,11 +1947,13 @@
     "type": "",
     "confidence": "低",
     "source": "Daijiman Brothers Band - Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 61,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "b88pxLpMZKk",
@@ -1889,11 +1964,13 @@
     "type": "",
     "confidence": "低",
     "source": "Warner Music Japan",
-    "intro": 0,
+    "intro": 13,
     "chorus": 83,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "LDe0rbDromY",
@@ -1904,11 +1981,13 @@
     "type": "",
     "confidence": "中",
     "source": "小田和正 YouTube Official Channel",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 71,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "viIw3G2bw6I",
@@ -2006,11 +2085,13 @@
     "type": "",
     "confidence": "低",
     "source": "Kome Kome Club - Topic",
-    "intro": 0,
+    "intro": 8,
     "chorus": 71,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "LysmOXQ1H2k",
@@ -2042,11 +2123,13 @@
     "type": "",
     "confidence": "中",
     "source": "中山美穂 Official YouTube Channel",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 42,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "qyOglsmaLJI",
@@ -2057,10 +2140,12 @@
     "type": "",
     "confidence": "中",
     "source": "The Boom - Topic",
-    "intro": 0,
+    "intro": 5.7,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "TlENd4mP9Gs",
@@ -2116,11 +2201,13 @@
     "type": "",
     "confidence": "中",
     "source": "CHAGE and ASKA Official Channel",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 62,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "BmjjgJZwP3Y",
@@ -2218,11 +2305,13 @@
     "type": "",
     "confidence": "中",
     "source": "広瀬 香美 Official YouTube channel",
-    "intro": 0,
+    "intro": 2.2,
     "chorus": 74,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "FwP0I7-jEw0",
@@ -2233,11 +2322,13 @@
     "type": "",
     "confidence": "中",
     "source": "Bz",
-    "intro": 0,
+    "intro": 2,
     "chorus": 74,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "l5CfEKiSf8A",
@@ -2291,11 +2382,13 @@
     "type": "",
     "confidence": "中",
     "source": "zardofficial",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 57,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "jaFE9YH3Zmk",
@@ -2306,11 +2399,13 @@
     "type": "",
     "confidence": "中",
     "source": "zardofficial",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 80,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "kSk33GyJyII",
@@ -2344,11 +2439,13 @@
     "type": "",
     "confidence": "中",
     "source": "Mr.Children Official Channel",
-    "intro": 0,
+    "intro": 2,
     "chorus": 81,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Nj7QToGak2E",
@@ -2381,11 +2478,13 @@
     "type": "",
     "confidence": "中",
     "source": "Mr.Children Official Channel",
-    "intro": 0,
+    "intro": 6.5,
     "chorus": 81,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Bwp2b0E_pXg",
@@ -2442,11 +2541,13 @@
     "type": "",
     "confidence": "低",
     "source": "spitzclips",
-    "intro": 0,
+    "intro": 8,
     "chorus": 75,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "1Bk9YpwWEsg",
@@ -2505,7 +2606,9 @@
     "chorus": 93,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "wNhuXQyyBr8",
@@ -2583,11 +2686,13 @@
     "type": "",
     "confidence": "中",
     "source": "DREAMS COME TRUE",
-    "intro": 0,
+    "intro": 11.7,
     "chorus": 119,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ON4NXPUx-E8",
@@ -2598,11 +2703,13 @@
     "type": "",
     "confidence": "中",
     "source": "Bz",
-    "intro": 0,
+    "intro": 1,
     "chorus": 80,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "BRILvx3Lxr8",
@@ -2613,11 +2720,13 @@
     "type": "",
     "confidence": "低",
     "source": "Judy & Mary - Topic",
-    "intro": 0,
+    "intro": 2,
     "chorus": 92,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "FdyJDp_8FUs",
@@ -2652,11 +2761,13 @@
     "type": "",
     "confidence": "中",
     "source": "H Jungle With t - Topic",
-    "intro": 0,
+    "intro": 2.2,
     "chorus": 129,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "UBR_P1S4Gww",
@@ -2685,11 +2796,13 @@
     "type": "",
     "confidence": "低",
     "source": "spitzclips",
-    "intro": 0,
+    "intro": 7,
     "chorus": 91,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "o6wtDPVkKqI",
@@ -2742,11 +2855,13 @@
     "type": "",
     "confidence": "中",
     "source": "globe",
-    "intro": 0,
+    "intro": 3.7,
     "chorus": 59,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "q1l-oY3hMng",
@@ -2800,11 +2915,13 @@
     "type": "",
     "confidence": "中",
     "source": "久保田利伸 / Toshinobu Kubota Official YouTube Channel",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 73,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "2IwalA2_aMg",
@@ -2882,11 +2999,13 @@
     "type": "",
     "confidence": "低",
     "source": "spitzclips",
-    "intro": 0,
+    "intro": 3,
     "chorus": 63,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "_A2th9RSL4U",
@@ -2970,7 +3089,9 @@
     "chorus": 82,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "CWLnpHe9B-Q",
@@ -3004,13 +3125,15 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "Topic",
-    "intro": 0,
+    "intro": 1,
     "chorus": 50,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "RgC8kKv0hqM",
@@ -3043,11 +3166,13 @@
     "type": "",
     "confidence": "低",
     "source": "J-POP Paradise",
-    "intro": 0,
+    "intro": 11.5,
     "chorus": 128,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "n7di6LFTtPA",
@@ -3081,11 +3206,13 @@
     "type": "",
     "confidence": "中",
     "source": "GLAY",
-    "intro": 0,
+    "intro": 2.7,
     "chorus": 92,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "DrWiRdFajTQ",
@@ -3096,13 +3223,15 @@
     "type": "OP",
     "confidence": "高",
     "source": "VAP公式",
-    "intro": 0,
+    "intro": 8,
     "chorus": 129,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "WqPi7g_TKfA",
@@ -3201,11 +3330,13 @@
     "type": "",
     "confidence": "中",
     "source": "KinKi Kids",
-    "intro": 0,
+    "intro": 7.7,
     "chorus": 88,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "HS1aw5WjWTc",
@@ -3285,11 +3416,13 @@
     "type": "",
     "confidence": "低",
     "source": "Hikaru Utada",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 87,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "6gpcPYDkPdg",
@@ -3323,11 +3456,13 @@
     "type": "",
     "confidence": "中",
     "source": "L'Arc-en-Ciel",
-    "intro": 0,
+    "intro": 4.2,
     "chorus": 48,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "-mWglCLEZus",
@@ -3382,11 +3517,13 @@
     "type": "",
     "confidence": "低",
     "source": "ELTV",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 105,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "0PbQmAQFFN8",
@@ -3439,11 +3576,13 @@
     "type": "",
     "confidence": "中",
     "source": "中島みゆき公式チャンネル",
-    "intro": 0,
+    "intro": 3,
     "chorus": 74,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "IiqOCE3_8iI",
@@ -3454,11 +3593,13 @@
     "type": "",
     "confidence": "中",
     "source": "Kiroro official channel",
-    "intro": 0,
+    "intro": 2.5,
     "chorus": 77,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "qDwO4_kMaTc",
@@ -3491,10 +3632,12 @@
     "type": "",
     "confidence": "中",
     "source": "SMA",
-    "intro": 0,
+    "intro": 5.5,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "vUa8zKnVFhc",
@@ -3571,11 +3714,13 @@
     "type": "",
     "confidence": "低",
     "source": "Hikaru Utada",
-    "intro": 0,
+    "intro": 3.5,
     "chorus": 67,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "wVaeZYUNjqE",
@@ -3613,7 +3758,10 @@
     "chorus": 114,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "introUnsure": true
   },
   {
     "id": "btrlfg29EUg",
@@ -3823,11 +3971,13 @@
     "type": "",
     "confidence": "中",
     "source": "MISIA",
-    "intro": 0,
+    "intro": 7.7,
     "chorus": 129,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "NBfpKsOwk1c",
@@ -3923,11 +4073,13 @@
     "type": "",
     "confidence": "低",
     "source": "ayumi hamasaki",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 65,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "DZvDz6YdnP4",
@@ -3960,11 +4112,13 @@
     "type": "",
     "confidence": "中",
     "source": "サザンオールスターズ",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 69,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "w05Q_aZKkFw",
@@ -3975,11 +4129,13 @@
     "type": "",
     "confidence": "低",
     "source": "Warner Music Japan",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 22,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ZPi-Zl1ppo0",
@@ -4013,11 +4169,13 @@
     "type": "",
     "confidence": "中",
     "source": "椎名林檎",
-    "intro": 0,
+    "intro": 13.7,
     "chorus": 91,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "o8LGBqvYFIw",
@@ -4076,7 +4234,9 @@
     "intro": 0,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "X3eU7FUhsd0",
@@ -4087,11 +4247,13 @@
     "type": "",
     "confidence": "低",
     "source": "福山雅治 Official",
-    "intro": 0,
+    "intro": 2.7,
     "chorus": 24,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "VFSeESRAPKU",
@@ -4209,11 +4371,13 @@
     "type": "",
     "confidence": "中",
     "source": "CHEMISTRY Official YouTube Channel",
-    "intro": 0,
+    "intro": 6,
     "chorus": 80,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "JnwJLTOtTMk",
@@ -4247,11 +4411,13 @@
     "type": "",
     "confidence": "低",
     "source": "Hikaru Utada",
-    "intro": 0,
+    "intro": 10.7,
     "chorus": 91,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "1SqPAxQmXpg",
@@ -4262,11 +4428,13 @@
     "type": "",
     "confidence": "低",
     "source": "CAT SUPER",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 129,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "swxob0SJyHg",
@@ -4277,11 +4445,13 @@
     "type": "",
     "confidence": "中",
     "source": "ポルノグラフィティ Official YouTube Channel",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 82,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "6ubYJTvaVhE",
@@ -4336,11 +4506,13 @@
     "type": "",
     "confidence": "中",
     "source": "MONGOL800",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 49,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "qIoDWTF0qSo",
@@ -4372,11 +4544,13 @@
     "type": "",
     "confidence": "中",
     "source": "BUMP OF CHICKEN",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 39,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "sLAMTCMHfos",
@@ -4410,11 +4584,13 @@
     "type": "",
     "confidence": "中",
     "source": "夏川りみ",
-    "intro": 0,
+    "intro": 1,
     "chorus": 52,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "K5hMzC-ST6A",
@@ -4447,11 +4623,13 @@
     "type": "",
     "confidence": "中",
     "source": "Mr.Children Official Channel",
-    "intro": 0,
+    "intro": 13,
     "chorus": 65,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "QnuWM42S4h4",
@@ -4723,11 +4901,13 @@
     "type": "",
     "confidence": "低",
     "source": "dreamusic",
-    "intro": 0,
+    "intro": 3.2,
     "chorus": 128,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "jB6PAfKhbW8",
@@ -4782,11 +4962,13 @@
     "type": "",
     "confidence": "中",
     "source": "森山直太朗",
-    "intro": 0,
+    "intro": 11,
     "chorus": 105,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "upODO6OuOOk",
@@ -4797,11 +4979,13 @@
     "type": "",
     "confidence": "中",
     "source": "avex",
-    "intro": 0,
+    "intro": 9.2,
     "chorus": 61,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "DXo_xX_Hqro",
@@ -4879,10 +5063,12 @@
     "type": "",
     "confidence": "中",
     "source": "SMA",
-    "intro": 0,
+    "intro": 3.5,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "BosTnTfIo9U",
@@ -4914,11 +5100,13 @@
     "type": "",
     "confidence": "中",
     "source": "中島美嘉 Official YouTube Channel",
-    "intro": 0,
+    "intro": 1,
     "chorus": 42,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "veuBA4Cj5ew",
@@ -5317,10 +5505,12 @@
     "type": "",
     "confidence": "中",
     "source": "一青窈",
-    "intro": 0,
+    "intro": 5.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Y6uXU7hMG9M",
@@ -5377,11 +5567,13 @@
     "type": "",
     "confidence": "中",
     "source": "ORANGE RANGE",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 80,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "fVYLkQ3X21c",
@@ -5414,11 +5606,13 @@
     "type": "",
     "confidence": "中",
     "source": "スキマスイッチ / SUKIMASWITCH",
-    "intro": 0,
+    "intro": 12.5,
     "chorus": 55,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "EqVoCfSwfUY",
@@ -5429,11 +5623,13 @@
     "type": "",
     "confidence": "中",
     "source": "平井 堅 YouTube Official Channel",
-    "intro": 0,
+    "intro": 8.2,
     "chorus": 117,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "8XkiWX48nds",
@@ -5555,11 +5751,13 @@
     "type": "",
     "confidence": "中",
     "source": "AI",
-    "intro": 0,
+    "intro": 3.2,
     "chorus": 80,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "8MWWCndfRQE",
@@ -5576,7 +5774,9 @@
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "4E9KOdbuBXE",
@@ -5631,13 +5831,15 @@
     "type": "ED",
     "confidence": "高",
     "source": "水樹奈々公式",
-    "intro": 0,
+    "intro": 12.5,
     "chorus": 22,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ZVHQa-d0vZI",
@@ -5715,13 +5917,15 @@
     "type": "OP",
     "confidence": "高",
     "source": "陰陽座公式",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 56,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "235s_Kkp0gc",
@@ -5799,12 +6003,14 @@
     "type": "OP",
     "confidence": "高",
     "source": "AnimeSongs公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "fsPGyJio38s",
@@ -5815,13 +6021,15 @@
     "type": "ED",
     "confidence": "中",
     "source": "公式リリックビデオ",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 89,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "FNl1ud7KxtI",
@@ -5854,11 +6062,13 @@
     "type": "",
     "confidence": "中",
     "source": "レミオロメン",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 120,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "o77nTb--Bho",
@@ -6148,13 +6358,15 @@
     "type": "OP",
     "confidence": "高",
     "source": "Sony Music公式",
-    "intro": 0,
+    "intro": 7,
     "chorus": 128,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "D7MMMNTQ7H0",
@@ -6206,13 +6418,15 @@
     "type": "ED",
     "confidence": "高",
     "source": "NBCユニバーサル公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1,
     "chorus": 69,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "wnO_7TYL_to",
@@ -6223,13 +6437,15 @@
     "type": "イメージソング",
     "confidence": "中",
     "source": "Topic",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 86,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "fhgwSyRmAb8",
@@ -6439,11 +6655,13 @@
     "type": "",
     "confidence": "低",
     "source": "Warner Music Japan",
-    "intro": 0,
+    "intro": 13.2,
     "chorus": 73,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "hlfEJcAqD6s",
@@ -6611,10 +6829,12 @@
     "type": "",
     "confidence": "低",
     "source": "katteniPVIV.Channel",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "x0KzJYb7kCo",
@@ -6711,11 +6931,13 @@
     "type": "",
     "confidence": "低",
     "source": "ARASHI",
-    "intro": 0,
+    "intro": 6.2,
     "chorus": 88,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "rxEDTNBLzo0",
@@ -6938,11 +7160,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "malo - Topic",
-    "intro": 0,
+    "intro": 3,
     "chorus": 85,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "zQiAtfs-Zb4",
@@ -6974,11 +7198,13 @@
     "type": "",
     "confidence": "中",
     "source": "Perfume",
-    "intro": 0,
+    "intro": 5.2,
     "chorus": 39,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "nUhQW57VE0Y",
@@ -7013,7 +7239,9 @@
     "chorus": 37,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "tCV7yyImQFk",
@@ -7046,10 +7274,12 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "VocaloidAlbums",
-    "intro": 0,
+    "intro": 1,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "lAaU7EO_8AA",
@@ -7259,11 +7489,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "OSTER projectテスロ&ロゼット",
-    "intro": 0,
+    "intro": 2.2,
     "chorus": 78,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "WPH1BLHKOJE",
@@ -7274,11 +7506,13 @@
     "type": "",
     "confidence": "中",
     "source": "コブクロ 公式チャンネル",
-    "intro": 0,
+    "intro": 11.5,
     "chorus": 123,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "3wGJMnFGzAw",
@@ -7332,13 +7566,15 @@
     "type": "OP",
     "confidence": "高",
     "source": "NBCユニバーサル公式",
-    "intro": 0,
+    "intro": 10.2,
     "chorus": 91,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "XbhBT0u0Cmo",
@@ -7565,13 +7801,15 @@
     "type": "OP",
     "confidence": "高",
     "source": "石田燿子公式",
-    "intro": 0,
+    "intro": 1,
     "chorus": 66,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "yySkwG-reF4",
@@ -7626,11 +7864,13 @@
     "type": "",
     "confidence": "低",
     "source": "GRe4N BOYZ",
-    "intro": 0,
+    "intro": 1,
     "chorus": 82,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "0h8sqfo3QJ4",
@@ -7641,11 +7881,13 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "toraboruta - Topic",
-    "intro": 0,
+    "intro": 7.7,
     "chorus": 96,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "om5pEjRP3Yc",
@@ -7677,11 +7919,13 @@
     "type": "",
     "confidence": "低",
     "source": "UNIVERSAL MUSIC JAPAN",
-    "intro": 0,
+    "intro": 6,
     "chorus": 92,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "YYxRvpLPyLQ",
@@ -7756,10 +8000,12 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "eitovl08313909268",
-    "intro": 0,
+    "intro": 2.7,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "KpsJWFuVTdI",
@@ -7814,11 +8060,13 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "LamazeP",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 36,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "kRHYuG1KBdA",
@@ -7873,11 +8121,13 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "初音ミク",
-    "intro": 0,
+    "intro": 2.7,
     "chorus": 69,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "BtemB49vx9s",
@@ -7910,11 +8160,13 @@
     "type": "",
     "confidence": "中",
     "source": "Superfly",
-    "intro": 0,
+    "intro": 8.2,
     "chorus": 87,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "W77q-kK8iA8",
@@ -7925,11 +8177,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "mothy akuno",
-    "intro": 0,
+    "intro": 8.7,
     "chorus": 66,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "WzZinjm_9k0",
@@ -7961,11 +8215,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "doriko",
-    "intro": 0,
+    "intro": 3.7,
     "chorus": 94,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Gj3CDpydJQE",
@@ -8017,11 +8273,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "halyosy",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 110,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "-AYDR7S0SCE",
@@ -8099,11 +8357,13 @@
     "type": "",
     "confidence": "低",
     "source": "ANGELA AKI",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 60,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "VWVtIg5cdDU",
@@ -8114,11 +8374,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "cosMo@暴走P",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 26,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "weWIUylAq0s",
@@ -8195,10 +8457,12 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "supercell00",
-    "intro": 0,
+    "intro": 4.5,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "dSw8CucthGc",
@@ -8209,11 +8473,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "iroha(sasaki)",
-    "intro": 0,
+    "intro": 2.2,
     "chorus": 40,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ZIEQDjrAdwE",
@@ -8318,10 +8584,12 @@
     "type": "OP",
     "confidence": "高",
     "source": "非公式",
-    "intro": 0,
+    "intro": 1.7,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ua02dloykJ4",
@@ -8357,7 +8625,9 @@
     "chorus": 55,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "5CSNv9MNEC4",
@@ -8411,10 +8681,12 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "hatunemikulove",
-    "intro": 0,
+    "intro": 3.5,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "li1WjKl2boY",
@@ -8425,11 +8697,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "dixie flatline",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 79,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "rug7us2-DUA",
@@ -8440,10 +8714,12 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "猫お揺れる",
-    "intro": 0,
+    "intro": 1,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "EjQCuivmbjs",
@@ -8609,7 +8885,9 @@
     "chorus": 63,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2",
+    "introUnsure": true
   },
   {
     "id": "SIQbrX8yxCU",
@@ -8642,13 +8920,15 @@
     "type": "OP",
     "confidence": "高",
     "source": "Topic",
-    "intro": 0,
+    "intro": 6.7,
     "chorus": 83,
     "aliases": [],
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "vUxUXwL4IKY",
@@ -8686,7 +8966,9 @@
     "embeddable": true,
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "QdiYMLKL11Q",
@@ -8783,11 +9065,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "アゴアニキ",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 118,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "LllC8pkaHJc",
@@ -8819,10 +9103,12 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "Nanou Official",
-    "intro": 0,
+    "intro": 13,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "6kt427Z5Udo",
@@ -8901,7 +9187,9 @@
     "intro": 0,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "9HrOqmiEsN8",
@@ -8912,11 +9200,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "doriko",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 121,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "nq5xZfYm0oo",
@@ -8952,7 +9242,9 @@
     "chorus": 69,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "HhOK1-whpsc",
@@ -8963,11 +9255,13 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "noripy",
-    "intro": 0,
+    "intro": 8.5,
     "chorus": 77,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "rZZzlY8vUf8",
@@ -9000,11 +9294,13 @@
     "type": "",
     "confidence": "中",
     "source": "ゴールデンボンバー公式",
-    "intro": 0,
+    "intro": 3.7,
     "chorus": 69,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "zWKbJ5DGDJc",
@@ -9061,11 +9357,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "DECO*27",
-    "intro": 0,
+    "intro": 3.2,
     "chorus": 113,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "taVyTMTA7Vo",
@@ -9097,11 +9395,13 @@
     "year": 2009,
     "type": "ボカロ",
     "confidence": "低",
-    "intro": 0,
+    "intro": 3.7,
     "chorus": 80,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "C4OlB6E8Cyw",
@@ -9133,10 +9433,12 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "非公式",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Iooh7W_yD5s",
@@ -9738,11 +10040,13 @@
     "type": "",
     "confidence": "中",
     "source": "いきものがかり Official YouTube Channel",
-    "intro": 0,
+    "intro": 7.5,
     "chorus": 23,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "yhYaa7YAFDs",
@@ -9839,11 +10143,13 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "40meterP",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 64,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "FfQfs25X5f8",
@@ -9876,11 +10182,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "EasyPop",
-    "intro": 0,
+    "intro": 3,
     "chorus": 55,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "yg2iZJPJ4HM",
@@ -9913,11 +10221,13 @@
     "type": "",
     "confidence": "中",
     "source": "AKB48",
-    "intro": 0,
+    "intro": 12.7,
     "chorus": 76,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "HOz-9FzIDf0",
@@ -9928,11 +10238,13 @@
     "type": "ボカロ",
     "confidence": "低",
     "source": "Kenshi Yonezu  米津玄師",
-    "intro": 0,
+    "intro": 3,
     "chorus": 46,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "86_kvUqhY-A",
@@ -9943,11 +10255,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "Junky // Clover lab.",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 68,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "WysuxO4yR04",
@@ -9962,7 +10276,9 @@
     "chorus": 130,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "vnw8zURAxkU",
@@ -9973,11 +10289,13 @@
     "type": "ボカロ",
     "confidence": "中",
     "source": "ヒトリエ / wowaka",
-    "intro": 0,
+    "intro": 2.2,
     "chorus": 81,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ZB75e7vzX0I",

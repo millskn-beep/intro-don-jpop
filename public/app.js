@@ -65,6 +65,9 @@ function createRoom() {
     if (!res.ok) { $('homeError').textContent = res.error; return; }
     savePassword({ code: res.code, name: res.room.name }, password);
     joined(res);
+    // 自分で作った部屋には、この端末に保存している「出た曲」を自動で除外として入れる
+    const ids = deviceIds();
+    if (ids.length) socket.emit('exclude', ids);
   });
 }
 // info: 一覧の部屋情報（code, name, locked）。onNeedPassword: パスワード入力を出す関数
@@ -155,7 +158,9 @@ socket.on('version', v => {
 function reloadIfPending() { if (reloadPending) location.reload(); }
 
 socket.on('connect', () => {
-  const code = me ? store.get('aq-room') : null;
+  // 部屋にいる途中の再接続、またはページを読み込み直した（URL の部屋が前回入っていた部屋と同じ）ときは、自動で同じ席に戻る
+  const urlRoom = (params.get('room') || '').toUpperCase();
+  const code = me ? store.get('aq-room') : (urlRoom && urlRoom === store.get('aq-room') ? urlRoom : null);
   if (code) socket.emit('join', { code, token, name: store.get('aq-name'), password: store.get(passKey.code(code)) || '' },
     res => res.ok ? joined(res) : leaveToHome(res.error));
   else socket.emit('watchRooms');
@@ -240,11 +245,11 @@ $('nextBtn').onclick = () => socket.emit('next');
 $('lobbyBtn').onclick = () => socket.emit('backToLobby');
 // 出題した曲のログ：コピーしてどこかに貼り付けて残せるように
 let playLog = [];
-function playLogText() {
+function playLogText(list = playLog, title = '出題曲') {
   const d = new Date();
-  const head = `アニソンイントロ対戦 ${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()} 出題曲`;
-  const lines = playLog.map((s, i) => s && `${i + 1}. ${s.title} ／ ${s.work}${s.type ? `（${s.type}）` : ''} ／ ${s.artist}${s.year ? `（${s.year}）` : ''}`).filter(Boolean);
-  const ids = playLog.filter(s => s?.id).map(s => s.id).join('');
+  const head = `アニソンイントロ対戦 ${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()} ${title}`;
+  const lines = list.map((s, i) => s && `${i + 1}. ${s.title} ／ ${s.work}${s.type ? `（${s.type}）` : ''} ／ ${s.artist}${s.year ? `（${s.year}）` : ''}`).filter(Boolean);
+  const ids = list.filter(s => s?.id).map(s => s.id).join('');
   return [head, ...lines, ...(ids ? [`除外コード（新しい部屋に貼ると、この曲を出題しません）：AQX1:${ids}`] : [])].join('\n');
 }
 async function copyText(text) {
@@ -257,13 +262,56 @@ async function copyText(text) {
 $('excludeBtn').onclick = () => {
   const ids = [...$('excludeInput').value.matchAll(/AQX1:([\w-]+)/g)].flatMap(m => m[1].match(/[\w-]{11}/g) || []);
   if (!ids.length) return toast('除外コードが見つかりません（ログを丸ごと貼り付けてください）');
-  socket.emit('exclude', ids); $('excludeInput').value = '';
+  socket.emit('exclude', ids); rememberIds(ids); $('excludeInput').value = '';
 };
 $('excludeClear').onclick = () => socket.emit('clearExclude');
+// 除外中の曲（この部屋で出た曲＋貼り付けたログの曲）を全部コピー
+// （スマホではタップの処理の中ですぐコピーしないと失敗するので、一覧は先に受け取っておく）
+let excludedCache = [], excludedCount = -1;
+// ゲーム中の除外には「これから出す予定の曲」も入っているので、端末に記録するのはゲーム中以外だけ
+const refreshExcluded = () => socket.emit('excludedList', list => { excludedCache = list || []; if (room?.state !== 'playing') rememberIds(excludedCache.map(s => s.id)); });
+// ── この端末に保存する「出た曲」（サーバーの再起動・反映で部屋が消えても、除外し直せるように）──
+const DEVICE_KEY = 'aq-device-played', DEVICE_MAX = 5000;
+function deviceIds() { try { return JSON.parse(store.get(DEVICE_KEY) || '[]'); } catch (e) { return []; } }
+function rememberIds(ids) {
+  const set = new Set(deviceIds());
+  let added = false;
+  for (const id of ids) if (/^[\w-]{11}$/.test(id) && !set.has(id)) { set.add(id); added = true; }
+  if (!added) return;
+  store.set(DEVICE_KEY, JSON.stringify([...set].slice(-DEVICE_MAX)));
+  updateDeviceInfo();
+}
+function updateDeviceInfo() {
+  const n = deviceIds().length;
+  $('deviceInfo').textContent = `この端末の記録：${n}曲`;
+  $('deviceApply').disabled = $('deviceClear').disabled = !n;
+}
+updateDeviceInfo();
+$('deviceApply').onclick = () => { const ids = deviceIds(); if (ids.length) socket.emit('exclude', ids); };
+$('deviceClear').onclick = () => {
+  if (!confirm('この端末に保存している「出た曲」の記録を消しますか？（部屋の除外はそのまま）')) return;
+  store.set(DEVICE_KEY, '[]'); updateDeviceInfo(); toast('端末の記録を消しました');
+};
+$('excludeCopy').onclick = async () => {
+  if (!excludedCache.length) return toast('除外中の曲はありません');
+  toast(await copyText(playLogText(excludedCache, '除外中の曲')) ? `除外中の${excludedCache.length}曲をコピーしました` : 'コピーできませんでした');
+};
 document.querySelectorAll('[data-copylog]').forEach(b => b.onclick = async () => {
   if (!playLog.some(Boolean)) return toast('まだ出題した曲がありません');
   toast(await copyText(playLogText()) ? `${playLog.filter(Boolean).length}曲のログをコピーしました` : 'コピーできませんでした');
 });
+
+// ── 背景の映像の濃さ（0〜100%、スライダー）。自分の画面だけに効き、次に開いたときも覚えておく ──
+function applyBg(v) {
+  v = Math.max(0, Math.min(100, Number(v)));
+  if (!Number.isFinite(v)) v = 100;
+  document.body.style.setProperty('--bgk', v / 100);
+  $('bgRange').value = v;
+  $('bgRange').title = `背景の濃さ ${v}%`;
+  store.set('aq-bg', String(v));
+}
+applyBg({ normal: 100, dim: 40, off: 0 }[store.get('aq-bg')] ?? store.get('aq-bg') ?? 100);
+$('bgRange').oninput = e => applyBg(e.target.value);
 
 // ── 一時停止・途中でやめる ──
 let shownBeforePause = null, pausedNow = false, pausedAt = 0;
@@ -307,6 +355,8 @@ function renderRoom(r) {
     (r.poolSize < r.settings.questions ? `（${r.settings.questions}問に足りないので ${r.poolSize} 問で出題します）` : '');
   $('startBtn').disabled = r.poolSize === 0;
   $('excludeCount').textContent = r.excluded ? `（除外中 ${r.excluded}曲）` : '';
+  if (r.excluded !== excludedCount) { excludedCount = r.excluded; refreshExcluded(); }
+  $('excludeCopy').hidden = !r.excluded;
   $('excludeClear').hidden = !(isHost && r.excluded);
   $('startBtn').hidden = !isHost; $('waitHost').hidden = isHost;
   $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
@@ -543,7 +593,9 @@ socket.on('lifelineResult', r => {
 // ── 答え合わせ ──
 socket.on('reveal', r => {
   stopTick();
-  if (question?.qNo && r.song) playLog[question.qNo - 1] = r.song;
+  if (Array.isArray(r.log)) playLog = r.log; // サーバーが持っている「ここまでの曲」
+  if (r.song?.id) rememberIds([r.song.id]);
+  else if (question?.qNo && r.song) playLog[question.qNo - 1] = r.song;
   answering = false; updateLifelineButtons();
   $('answerInput').disabled = true; $('sendBtn').disabled = true;
   setPhase('reveal', '答え合わせ');
@@ -620,7 +672,8 @@ socket.on('react', ({ id, name, kind }) => {
   setTimeout(() => el.remove(), 2600);
 });
 
-socket.on('gameover', ({ ranking, titles = [] }) => {
+socket.on('gameover', ({ ranking, titles = [], log }) => {
+  if (Array.isArray(log)) playLog = log;
   $('qno').textContent = ''; $('timer').textContent = ''; $('barFill').style.width = '0';
   $('titles').innerHTML = titles.map(x => `<li>${avatarImg(x.avatar)}<div><b>${esc(x.title)}</b><span>${esc(x.name)}</span><small>${esc(x.why)}</small></div></li>`).join('');
   document.body.classList.remove('revealing', 'playing');

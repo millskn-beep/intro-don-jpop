@@ -71,10 +71,13 @@
         <div class="timer" id="timer">0.0</div>
         <div class="bar"><i id="barFill"></i><b id="barMark"></b></div>
       </div>
+      <div class="stage-tools">
       <label class="vol" title="音量"><span>音量</span><input type="range" id="volume" min="0" max="100" value="80"></label>
+      <label class="vol" title="背景の映像の濃さ（自分の画面だけ）"><span>背景</span><input type="range" id="bgRange" min="0" max="100" value="100"></label>
       <div class="game-ctrl" id="gameCtrl" hidden>
         <button class="btn-sub" id="pauseBtn" title="問題を一時停止して設定を変える（次の問題から反映）">⏸ 設定を変える</button>
         <button class="btn-sub" id="abortBtn" title="ゲームをやめて部屋に戻る">ルームに戻る</button>
+      </div>
       </div>
     </div>
 
@@ -128,7 +131,8 @@
       <details class="exclude">
         <summary>前回のログを貼り付けて、出た曲を除外 <span id="excludeCount"></span></summary>
         <textarea id="excludeInput" rows="3" placeholder="コピーした曲ログをそのまま貼り付け（何回分でも）"></textarea>
-        <div class="exclude-row"><button class="btn-sub" id="excludeBtn">除外に追加</button><button class="btn-sub" id="excludeClear" hidden>除外をリセット</button></div>
+        <div class="exclude-row device-row"><span id="deviceInfo"></span><button class="btn-sub" id="deviceApply">この端末の記録を除外に追加</button><button class="btn-sub" id="deviceClear">端末の記録を消す</button></div>
+        <div class="exclude-row"><button class="btn-sub" id="excludeBtn">除外に追加</button><button class="btn-sub" id="excludeCopy">📋 除外中の曲をコピー</button><button class="btn-sub" id="excludeClear" hidden>除外をリセット</button></div>
       </details>
       <button class="btn-main" id="startBtn">ゲーム開始</button>
       <button class="btn-main" id="resumeBtn" hidden>▶ 再開する（変えた設定は次の問題から）</button>

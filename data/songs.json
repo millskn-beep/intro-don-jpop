@@ -94,6 +94,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "DVOgvzl395w",
+    "title": "青い珊瑚礁",
+    "work": "J-POP（松田聖子）",
+    "artist": "松田聖子",
+    "year": 1980,
+    "type": "",
+    "confidence": "中",
+    "source": "松田聖子オフィシャルYouTubeチャンネル",
+    "intro": 0,
+    "chorus": 85,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "lrFAj84yCrM",
     "title": "復活のイデオン",
     "work": "伝説巨神イデオン",
@@ -114,6 +129,20 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "tmKmDeksMaM",
+    "title": "セーラー服と機関銃",
+    "work": "J-POP（薬師丸ひろ子）",
+    "artist": "薬師丸ひろ子",
+    "year": 1981,
+    "type": "",
+    "confidence": "低",
+    "source": "Aloha Mahalo",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "MBEgw_kfhzc",
@@ -137,6 +166,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "ZYeVfKtIH4c",
+    "title": "ルビーの指環",
+    "work": "J-POP（寺尾聰）",
+    "artist": "寺尾聰",
+    "year": 1981,
+    "type": "",
+    "confidence": "低",
+    "source": "Akira Terao - Topic",
+    "intro": 0,
+    "chorus": 47,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "xzcFEJDfmv0",
     "title": "哀 戦士",
     "work": "機動戦士ガンダムII 哀・戦士編",
@@ -158,6 +202,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "kQ9gbYURKy4",
+    "title": "守ってあげたい",
+    "work": "J-POP（松任谷由実）",
+    "artist": "松任谷由実",
+    "year": 1981,
+    "type": "",
+    "confidence": "中",
+    "source": "松任谷由実",
+    "intro": 0,
+    "chorus": 72,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "oSrVLQa4-EU",
@@ -291,6 +350,51 @@
     "introMethod": "v2"
   },
   {
+    "id": "pNNn0izjwDI",
+    "title": "少女A",
+    "work": "J-POP（中森明菜）",
+    "artist": "中森明菜",
+    "year": 1982,
+    "type": "",
+    "confidence": "低",
+    "source": "Warner Music Japan",
+    "intro": 0,
+    "chorus": 81,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "2Htj6AChzTE",
+    "title": "赤いスイートピー",
+    "work": "J-POP（松田聖子）",
+    "artist": "松田聖子",
+    "year": 1982,
+    "type": "",
+    "confidence": "低",
+    "source": "Free Time",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "a7WhrI0Bbnk",
+    "title": "待つわ",
+    "work": "J-POP（あみん）",
+    "artist": "あみん",
+    "year": 1982,
+    "type": "",
+    "confidence": "中",
+    "source": "あみん - Topic",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "m1ZZwp-39UY",
     "title": "恋の呪文はスキトキメキトキス",
     "work": "さすがの猿飛",
@@ -332,6 +436,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "dvbjQoX9p6o",
+    "title": "ギザギザハートの子守唄",
+    "work": "J-POP（チェッカーズ）",
+    "artist": "チェッカーズ",
+    "year": 1983,
+    "type": "",
+    "confidence": "中",
+    "source": "チェッカーズ公式YouTubeチャンネル",
+    "intro": 0,
+    "chorus": 21,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "x4scqkonxEw",
@@ -466,6 +585,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "6q6GtPdVHL4",
+    "title": "悲しみがとまらない",
+    "work": "J-POP（杏里）",
+    "artist": "杏里",
+    "year": 1983,
+    "type": "",
+    "confidence": "中",
+    "source": "ANRI 杏里 Official",
+    "intro": 0,
+    "chorus": 32,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "UmmfjUUiTmU",
     "title": "エルガイム -Time for L-GAIM-",
     "work": "重戦機エルガイム",
@@ -487,6 +621,35 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "Re8l4a48R70",
+    "title": "そして僕は途方に暮れる",
+    "work": "J-POP（大沢誉志幸）",
+    "artist": "大沢誉志幸",
+    "year": 1984,
+    "type": "",
+    "confidence": "低",
+    "source": "はるはる",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
+    "id": "T_lC2O1oIew",
+    "title": "プラスティック・ラブ",
+    "work": "J-POP（竹内まりや）",
+    "artist": "竹内まりや",
+    "year": 1984,
+    "type": "",
+    "confidence": "低",
+    "source": "竹内まりや - Mariya Takeuchi Official YouTube Channel",
+    "intro": 0,
+    "chorus": 124,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "d4tcQJ4SIXk",
@@ -575,6 +738,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "sHCzMsSC9dk",
+    "title": "飾りじゃないのよ涙は",
+    "work": "J-POP（中森明菜）",
+    "artist": "中森明菜",
+    "year": 1984,
+    "type": "",
+    "confidence": "低",
+    "source": "中村友三",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "Y7bsWiz0q_Y",
     "title": "風の谷のナウシカ",
     "work": "風の谷のナウシカ",
@@ -594,6 +771,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "N7MHXbsT3J4",
+    "title": "涙のリクエスト",
+    "work": "J-POP（チェッカーズ）",
+    "artist": "チェッカーズ",
+    "year": 1984,
+    "type": "",
+    "confidence": "中",
+    "source": "チェッカーズ公式YouTubeチャンネル",
+    "intro": 0,
+    "chorus": 25,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "XF1Sf8R3qTc",
+    "title": "六本木心中",
+    "work": "J-POP（アン・ルイス）",
+    "artist": "アン・ルイス",
+    "year": 1984,
+    "type": "",
+    "confidence": "中",
+    "source": "アン・ルイス ANN LEWIS Official Channel",
+    "intro": 0,
+    "chorus": 22,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "GZAV7G5Q0r0",
@@ -684,6 +891,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "gWFX_JqYYt8",
+    "title": "ダンシング・ヒーロー",
+    "work": "J-POP（荻野目洋子）",
+    "artist": "荻野目洋子",
+    "year": 1985,
+    "type": "",
+    "confidence": "中",
+    "source": "荻野目洋子",
+    "intro": 0,
+    "chorus": 50,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "bnbJPQfU9QM",
     "title": "メロスのように -LONELY WAY-",
     "work": "蒼き流星SPTレイズナー",
@@ -729,6 +951,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "O9NIxNlRs8U",
+    "title": "仮面舞踏会",
+    "work": "J-POP（少年隊）",
+    "artist": "少年隊",
+    "year": 1985,
+    "type": "",
+    "confidence": "低",
+    "source": "鹿角聖良",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "DH3Ywt7mQa4",
     "title": "水の星へ愛をこめて",
     "work": "機動戦士Zガンダム",
@@ -751,6 +987,64 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "HUHUsfbvw9I",
+    "title": "卒業",
+    "work": "J-POP（尾崎豊）",
+    "artist": "尾崎豊",
+    "year": 1985,
+    "type": "",
+    "confidence": "中",
+    "source": "Yutaka Ozaki Official YouTube Channel",
+    "intro": 0,
+    "chorus": 22,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "8czr8HabP6A",
+    "title": "大きな玉ねぎの下で",
+    "work": "J-POP（爆風スランプ）",
+    "artist": "爆風スランプ",
+    "year": 1985,
+    "type": "",
+    "confidence": "低",
+    "source": "MUSIC Liverary",
+    "intro": 0,
+    "chorus": 86,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "dbHPwFo_28o",
+    "title": "恋におちて -Fall in love-",
+    "work": "J-POP（小林明子）",
+    "artist": "小林明子",
+    "year": 1985,
+    "type": "",
+    "confidence": "低",
+    "intro": 0,
+    "chorus": 94,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "CCfRM-2M62k",
+    "title": "DESIRE -情熱-",
+    "work": "J-POP（中森明菜）",
+    "artist": "中森明菜",
+    "year": 1986,
+    "type": "",
+    "confidence": "低",
+    "intro": 0,
+    "chorus": 77,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "EwTZwtGnc-c",
@@ -924,6 +1218,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "xhnYYIKG6cI",
+    "title": "瑠璃色の地球",
+    "work": "J-POP（松田聖子）",
+    "artist": "松田聖子",
+    "year": 1986,
+    "type": "",
+    "confidence": "中",
+    "source": "松田聖子オフィシャルYouTubeチャンネル",
+    "intro": 0,
+    "chorus": 73,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "UftYXtQ1xAA",
     "title": "City Hunter〜愛よ消えないで〜",
     "work": "シティーハンター",
@@ -1009,6 +1318,50 @@
     "introMethod": "v2"
   },
   {
+    "id": "NZTIUAXa10U",
+    "title": "ガラスの十代",
+    "work": "J-POP（光GENJI）",
+    "artist": "光GENJI",
+    "year": 1987,
+    "type": "",
+    "confidence": "低",
+    "source": "Hikaru GENJI - Topic",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
+    "id": "RYC71PAuIKE",
+    "title": "リンダ リンダ",
+    "work": "J-POP（THE BLUE HEARTS）",
+    "artist": "THE BLUE HEARTS",
+    "year": 1987,
+    "type": "",
+    "confidence": "中",
+    "source": "THE BLUE HEARTS",
+    "intro": 0,
+    "chorus": 37,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "4xUufRft9Hs",
+    "title": "夢をあきらめないで",
+    "work": "J-POP（岡村孝子）",
+    "artist": "岡村孝子",
+    "year": 1987,
+    "type": "",
+    "confidence": "低",
+    "source": "MUSIC Liverary",
+    "intro": 0,
+    "chorus": 79,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "InPGzqxwlFg",
     "title": "BEYOND THE TIME",
     "work": "機動戦士ガンダム 逆襲のシャア",
@@ -1029,6 +1382,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "KWZf8MrUm2U",
+    "title": "Runner",
+    "work": "J-POP（爆風スランプ）",
+    "artist": "爆風スランプ",
+    "year": 1988,
+    "type": "",
+    "confidence": "低",
+    "source": "MUSIC Liverary",
+    "intro": 0,
+    "chorus": 71,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "QYMP3JTE-Qg",
@@ -1052,6 +1420,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "BSkLe-EOq5U",
+    "title": "TRAIN-TRAIN",
+    "work": "J-POP（THE BLUE HEARTS）",
+    "artist": "THE BLUE HEARTS",
+    "year": 1988,
+    "type": "",
+    "confidence": "中",
+    "source": "THE BLUE HEARTS",
+    "intro": 0,
+    "chorus": 32,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "5mLape5F0Fw",
@@ -1162,6 +1545,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "wcvnmwrsJn8",
+    "title": "愛が止まらない 〜Turn It Into Love〜",
+    "work": "J-POP（Wink）",
+    "artist": "Wink",
+    "year": 1988,
+    "type": "",
+    "confidence": "中",
+    "source": "Wink",
+    "intro": 0,
+    "chorus": 53,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "JZQ3oUSSyHo",
     "title": "CHA-LA HEAD-CHA-LA",
     "work": "ドラゴンボールZ",
@@ -1183,6 +1581,36 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "IKjRLKQo7O0",
+    "title": "Diamonds",
+    "work": "J-POP（プリンセス プリンセス）",
+    "artist": "プリンセス プリンセス",
+    "year": 1989,
+    "type": "",
+    "confidence": "中",
+    "source": "プリンセス プリンセス official YouTube channel",
+    "intro": 0,
+    "chorus": 79,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "rzfLx6TVCv0",
+    "title": "M",
+    "work": "J-POP（プリンセス プリンセス）",
+    "artist": "プリンセス プリンセス",
+    "year": 1989,
+    "type": "",
+    "confidence": "中",
+    "source": "プリンセス プリンセス official YouTube channel",
+    "intro": 0,
+    "chorus": 105,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "9Q5Lw_azgpI",
@@ -1268,6 +1696,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "AYhxRUJxQYM",
+    "title": "未来予想図II",
+    "work": "J-POP（DREAMS COME TRUE）",
+    "artist": "DREAMS COME TRUE",
+    "year": 1989,
+    "type": "",
+    "confidence": "中",
+    "source": "DREAMS COME TRUE",
+    "intro": 0,
+    "chorus": 102,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "Hw2vX7PViN4",
@@ -1356,6 +1799,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "BFvdvIFsvPg",
+    "title": "夏祭り",
+    "work": "J-POP（JITTERIN'JINN）",
+    "artist": "JITTERIN'JINN",
+    "year": 1990,
+    "type": "",
+    "confidence": "中",
+    "source": "JITTERIN' JINN",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "EX3TRj0_2Ys",
+    "title": "浪漫飛行",
+    "work": "J-POP（米米CLUB）",
+    "artist": "米米CLUB",
+    "year": 1990,
+    "type": "",
+    "confidence": "中",
+    "source": "米米CLUB Official YouTube Channel",
+    "intro": 0,
+    "chorus": 45,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "bPXS-74Vpnk",
     "title": "ETERNAL WIND〜ほほえみは光る風の中〜",
     "work": "機動戦士ガンダムF91",
@@ -1376,6 +1849,66 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "Q9qAyt0G-jM",
+    "title": "SAY YES",
+    "work": "J-POP（CHAGE&ASKA）",
+    "artist": "CHAGE&ASKA",
+    "year": 1991,
+    "type": "",
+    "confidence": "中",
+    "source": "CHAGE and ASKA Official Channel",
+    "intro": 0,
+    "chorus": 87,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "FUnt9xvJc6M",
+    "title": "それが大事",
+    "work": "J-POP（大事MANブラザーズバンド）",
+    "artist": "大事MANブラザーズバンド",
+    "year": 1991,
+    "type": "",
+    "confidence": "低",
+    "source": "Daijiman Brothers Band - Topic",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "b88pxLpMZKk",
+    "title": "どんなときも。",
+    "work": "J-POP（槇原敬之）",
+    "artist": "槇原敬之",
+    "year": 1991,
+    "type": "",
+    "confidence": "低",
+    "source": "Warner Music Japan",
+    "intro": 0,
+    "chorus": 83,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "LDe0rbDromY",
+    "title": "ラブ・ストーリーは突然に",
+    "work": "J-POP（小田和正）",
+    "artist": "小田和正",
+    "year": 1991,
+    "type": "",
+    "confidence": "中",
+    "source": "小田和正 YouTube Official Channel",
+    "intro": 0,
+    "chorus": 71,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "viIw3G2bw6I",
@@ -1465,6 +1998,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "xGccMCNqTik",
+    "title": "君がいるだけで",
+    "work": "J-POP（米米CLUB）",
+    "artist": "米米CLUB",
+    "year": 1992,
+    "type": "",
+    "confidence": "低",
+    "source": "Kome Kome Club - Topic",
+    "intro": 0,
+    "chorus": 71,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "LysmOXQ1H2k",
     "title": "時には昔の話を",
     "work": "紅の豚",
@@ -1484,6 +2032,35 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "Y-D7VtFMGMo",
+    "title": "世界中の誰よりきっと",
+    "work": "J-POP（中山美穂&WANDS）",
+    "artist": "中山美穂&WANDS",
+    "year": 1992,
+    "type": "",
+    "confidence": "中",
+    "source": "中山美穂 Official YouTube Channel",
+    "intro": 0,
+    "chorus": 42,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "qyOglsmaLJI",
+    "title": "島唄",
+    "work": "J-POP（THE BOOM）",
+    "artist": "THE BOOM",
+    "year": 1992,
+    "type": "",
+    "confidence": "中",
+    "source": "The Boom - Topic",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "TlENd4mP9Gs",
@@ -1529,6 +2106,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "yfZIaTZJo0o",
+    "title": "YAH YAH YAH",
+    "work": "J-POP（CHAGE&ASKA）",
+    "artist": "CHAGE&ASKA",
+    "year": 1993,
+    "type": "",
+    "confidence": "中",
+    "source": "CHAGE and ASKA Official Channel",
+    "intro": 0,
+    "chorus": 62,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "BmjjgJZwP3Y",
@@ -1618,6 +2210,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "T8yZWCg85Cs",
+    "title": "ロマンスの神様",
+    "work": "J-POP（広瀬香美）",
+    "artist": "広瀬香美",
+    "year": 1993,
+    "type": "",
+    "confidence": "中",
+    "source": "広瀬 香美 Official YouTube channel",
+    "intro": 0,
+    "chorus": 74,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "FwP0I7-jEw0",
+    "title": "愛のままにわがままに 僕は君だけを傷つけない",
+    "work": "J-POP（B'z）",
+    "artist": "B'z",
+    "year": 1993,
+    "type": "",
+    "confidence": "中",
+    "source": "Bz",
+    "intro": 0,
+    "chorus": 74,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "l5CfEKiSf8A",
     "title": "乙女のポリシー",
     "work": "美少女戦士セーラームーンR",
@@ -1661,6 +2283,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "_4DJkOUU648",
+    "title": "負けないで",
+    "work": "J-POP（ZARD）",
+    "artist": "ZARD",
+    "year": 1993,
+    "type": "",
+    "confidence": "中",
+    "source": "zardofficial",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "jaFE9YH3Zmk",
+    "title": "揺れる想い",
+    "work": "J-POP（ZARD）",
+    "artist": "ZARD",
+    "year": 1993,
+    "type": "",
+    "confidence": "中",
+    "source": "zardofficial",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "kSk33GyJyII",
     "title": "FLYING IN THE SKY",
     "work": "機動武闘伝Gガンダム",
@@ -1684,6 +2336,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "rfVhsgCqG0I",
+    "title": "innocent world",
+    "work": "J-POP（Mr.Children）",
+    "artist": "Mr.Children",
+    "year": 1994,
+    "type": "",
+    "confidence": "中",
+    "source": "Mr.Children Official Channel",
+    "intro": 0,
+    "chorus": 81,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "Nj7QToGak2E",
     "title": "PLANET DANCE",
     "work": "マクロス7",
@@ -1704,6 +2371,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "Nxwt_s1lM04",
+    "title": "Tomorrow never knows",
+    "work": "J-POP（Mr.Children）",
+    "artist": "Mr.Children",
+    "year": 1994,
+    "type": "",
+    "confidence": "中",
+    "source": "Mr.Children Official Channel",
+    "intro": 0,
+    "chorus": 81,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "Bwp2b0E_pXg",
@@ -1752,6 +2434,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "h-kQw4JqCHE",
+    "title": "空も飛べるはず",
+    "work": "J-POP（スピッツ）",
+    "artist": "スピッツ",
+    "year": 1994,
+    "type": "",
+    "confidence": "低",
+    "source": "spitzclips",
+    "intro": 0,
+    "chorus": 75,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "1Bk9YpwWEsg",
     "title": "世界が終るまでは…",
     "work": "SLAM DUNK",
@@ -1794,6 +2491,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "QGYfX8z4goE",
+    "title": "恋しさと せつなさと 心強さと",
+    "work": "J-POP（篠原涼子 with t.komuro）",
+    "artist": "篠原涼子 with t.komuro",
+    "year": 1994,
+    "type": "",
+    "confidence": "低",
+    "source": "MUSIC Liverary",
+    "intro": 0,
+    "chorus": 93,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "wNhuXQyyBr8",
@@ -1863,6 +2575,51 @@
     "introMethod": "v2"
   },
   {
+    "id": "Vj6OAlDgv9M",
+    "title": "LOVE LOVE LOVE",
+    "work": "J-POP（DREAMS COME TRUE）",
+    "artist": "DREAMS COME TRUE",
+    "year": 1995,
+    "type": "",
+    "confidence": "中",
+    "source": "DREAMS COME TRUE",
+    "intro": 0,
+    "chorus": 119,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "ON4NXPUx-E8",
+    "title": "LOVE PHANTOM",
+    "work": "J-POP（B'z）",
+    "artist": "B'z",
+    "year": 1995,
+    "type": "",
+    "confidence": "中",
+    "source": "Bz",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "BRILvx3Lxr8",
+    "title": "Over Drive",
+    "work": "J-POP（JUDY AND MARY）",
+    "artist": "JUDY AND MARY",
+    "year": 1995,
+    "type": "",
+    "confidence": "低",
+    "source": "Judy & Mary - Topic",
+    "intro": 0,
+    "chorus": 92,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "FdyJDp_8FUs",
     "title": "RHYTHM EMOTION",
     "work": "新機動戦記ガンダムW",
@@ -1887,6 +2644,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "wzcm_awsZeQ",
+    "title": "WOW WAR TONIGHT 〜時には起こせよムーヴメント〜",
+    "work": "J-POP（H Jungle with t）",
+    "artist": "H Jungle with t",
+    "year": 1995,
+    "type": "",
+    "confidence": "中",
+    "source": "H Jungle With t - Topic",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "UBR_P1S4Gww",
     "title": "カントリー・ロード",
     "work": "耳をすませば",
@@ -1903,6 +2675,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "51CH3dPaWXc",
+    "title": "ロビンソン",
+    "work": "J-POP（スピッツ）",
+    "artist": "スピッツ",
+    "year": 1995,
+    "type": "",
+    "confidence": "低",
+    "source": "spitzclips",
+    "intro": 0,
+    "chorus": 91,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "o6wtDPVkKqI",
@@ -1947,6 +2734,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "Z-asfMte17s",
+    "title": "DEPARTURES",
+    "work": "J-POP（globe）",
+    "artist": "globe",
+    "year": 1996,
+    "type": "",
+    "confidence": "中",
+    "source": "globe",
+    "intro": 0,
+    "chorus": 59,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "q1l-oY3hMng",
     "title": "Give a reason",
     "work": "スレイヤーズNEXT",
@@ -1988,6 +2790,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "YZ6wH-MqZvM",
+    "title": "LA・LA・LA LOVE SONG",
+    "work": "J-POP（久保田利伸）",
+    "artist": "久保田利伸",
+    "year": 1996,
+    "type": "",
+    "confidence": "中",
+    "source": "久保田利伸 / Toshinobu Kubota Official YouTube Channel",
+    "intro": 0,
+    "chorus": 73,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "2IwalA2_aMg",
@@ -2055,6 +2872,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "Eze6-eHmtJg",
+    "title": "チェリー",
+    "work": "J-POP（スピッツ）",
+    "artist": "スピッツ",
+    "year": 1996,
+    "type": "",
+    "confidence": "低",
+    "source": "spitzclips",
+    "intro": 0,
+    "chorus": 63,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "_A2th9RSL4U",
@@ -2126,6 +2958,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "4gd2oVFUcz0",
+    "title": "名もなき詩",
+    "work": "J-POP（Mr.Children）",
+    "artist": "Mr.Children",
+    "year": 1996,
+    "type": "",
+    "confidence": "中",
+    "source": "Eric Wu",
+    "intro": 0,
+    "chorus": 82,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "CWLnpHe9B-Q",
     "title": "約束はいらない",
     "work": "天空のエスカフローネ",
@@ -2188,6 +3035,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "YuBG--STyAw",
+    "title": "CAN YOU CELEBRATE?",
+    "work": "J-POP（安室奈美恵）",
+    "artist": "安室奈美恵",
+    "year": 1997,
+    "type": "",
+    "confidence": "低",
+    "source": "J-POP Paradise",
+    "intro": 0,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "n7di6LFTtPA",
     "title": "HEART OF SWORD 〜夜明け前〜",
     "work": "るろうに剣心",
@@ -2209,6 +3071,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "gPcPseeICjs",
+    "title": "HOWEVER",
+    "work": "J-POP（GLAY）",
+    "artist": "GLAY",
+    "year": 1997,
+    "type": "",
+    "confidence": "中",
+    "source": "GLAY",
+    "intro": 0,
+    "chorus": 92,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "DrWiRdFajTQ",
@@ -2316,6 +3193,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "TYhWV4H83sU",
+    "title": "硝子の少年",
+    "work": "J-POP（KinKi Kids）",
+    "artist": "KinKi Kids",
+    "year": 1997,
+    "type": "",
+    "confidence": "中",
+    "source": "KinKi Kids",
+    "intro": 0,
+    "chorus": 88,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "HS1aw5WjWTc",
     "title": "謎",
     "work": "名探偵コナン",
@@ -2385,6 +3277,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "-9DxpPiE458",
+    "title": "Automatic",
+    "work": "J-POP（宇多田ヒカル）",
+    "artist": "宇多田ヒカル",
+    "year": 1998,
+    "type": "",
+    "confidence": "低",
+    "source": "Hikaru Utada",
+    "intro": 0,
+    "chorus": 87,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "6gpcPYDkPdg",
     "title": "Catch You Catch Me",
     "work": "カードキャプターさくら",
@@ -2406,6 +3313,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "WmM-KTcG3QY",
+    "title": "HONEY",
+    "work": "J-POP（L'Arc〜en〜Ciel）",
+    "artist": "L'Arc〜en〜Ciel",
+    "year": 1998,
+    "type": "",
+    "confidence": "中",
+    "source": "L'Arc-en-Ciel",
+    "intro": 0,
+    "chorus": 48,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "-mWglCLEZus",
@@ -2452,6 +3374,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "PwhKGjv4Yjc",
+    "title": "Time goes by",
+    "work": "J-POP（Every Little Thing）",
+    "artist": "Every Little Thing",
+    "year": 1998,
+    "type": "",
+    "confidence": "低",
+    "source": "ELTV",
+    "intro": 0,
+    "chorus": 105,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "0PbQmAQFFN8",
     "title": "タイプ:ワイルド",
     "work": "ポケットモンスター",
@@ -2494,6 +3431,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "78UwqbJnI18",
+    "title": "糸",
+    "work": "J-POP（中島みゆき）",
+    "artist": "中島みゆき",
+    "year": 1998,
+    "type": "",
+    "confidence": "中",
+    "source": "中島みゆき公式チャンネル",
+    "intro": 0,
+    "chorus": 74,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "IiqOCE3_8iI",
+    "title": "長い間",
+    "work": "J-POP（Kiroro）",
+    "artist": "Kiroro",
+    "year": 1998,
+    "type": "",
+    "confidence": "中",
+    "source": "Kiroro official channel",
+    "intro": 0,
+    "chorus": 77,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "qDwO4_kMaTc",
     "title": "風といっしょに",
     "work": "劇場版ポケットモンスター ミュウツーの逆襲",
@@ -2514,6 +3481,20 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "iY_WqX5VaL4",
+    "title": "夜空ノムコウ",
+    "work": "J-POP（SMAP）",
+    "artist": "SMAP",
+    "year": 1998,
+    "type": "",
+    "confidence": "中",
+    "source": "SMA",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "vUa8zKnVFhc",
@@ -2582,6 +3563,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "o1sUaVJUeB0",
+    "title": "First Love",
+    "work": "J-POP（宇多田ヒカル）",
+    "artist": "宇多田ヒカル",
+    "year": 1999,
+    "type": "",
+    "confidence": "低",
+    "source": "Hikaru Utada",
+    "intro": 0,
+    "chorus": 67,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "wVaeZYUNjqE",
     "title": "I wish",
     "work": "デジモンアドベンチャー",
@@ -2603,6 +3599,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "6A7j6eryPV4",
+    "title": "LOVEマシーン",
+    "work": "J-POP（モーニング娘。）",
+    "artist": "モーニング娘。",
+    "year": 1999,
+    "type": "",
+    "confidence": "中",
+    "source": "モーニング娘。",
+    "intro": 0,
+    "chorus": 114,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "btrlfg29EUg",
@@ -2804,6 +3815,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "aHIR33pOUv0",
+    "title": "Everything",
+    "work": "J-POP（MISIA）",
+    "artist": "MISIA",
+    "year": 2000,
+    "type": "",
+    "confidence": "中",
+    "source": "MISIA",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "NBfpKsOwk1c",
     "title": "My will",
     "work": "犬夜叉",
@@ -2889,6 +3915,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "AuZSyBa6phU",
+    "title": "SEASONS",
+    "work": "J-POP（浜崎あゆみ）",
+    "artist": "浜崎あゆみ",
+    "year": 2000,
+    "type": "",
+    "confidence": "低",
+    "source": "ayumi hamasaki",
+    "intro": 0,
+    "chorus": 65,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "DZvDz6YdnP4",
     "title": "Secret of my heart",
     "work": "名探偵コナン",
@@ -2909,6 +3950,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "xRyL5BPOWfE",
+    "title": "TSUNAMI",
+    "work": "J-POP（サザンオールスターズ）",
+    "artist": "サザンオールスターズ",
+    "year": 2000,
+    "type": "",
+    "confidence": "中",
+    "source": "サザンオールスターズ",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "w05Q_aZKkFw",
+    "title": "エイリアンズ",
+    "work": "J-POP（キリンジ）",
+    "artist": "キリンジ",
+    "year": 2000,
+    "type": "",
+    "confidence": "低",
+    "source": "Warner Music Japan",
+    "intro": 0,
+    "chorus": 22,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "ZPi-Zl1ppo0",
@@ -2932,6 +4003,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "zldBTSx9JpE",
+    "title": "ギブス",
+    "work": "J-POP（椎名林檎）",
+    "artist": "椎名林檎",
+    "year": 2000,
+    "type": "",
+    "confidence": "中",
+    "source": "椎名林檎",
+    "intro": 0,
+    "chorus": 91,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "o8LGBqvYFIw",
@@ -2977,6 +4063,35 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "c3da37T4EXY",
+    "title": "銀色",
+    "work": "AIR",
+    "artist": "VISUAL ARTS / Key（作曲：麻枝准）",
+    "year": 2000,
+    "type": "BGM",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
+    "id": "X3eU7FUhsd0",
+    "title": "桜坂",
+    "work": "J-POP（福山雅治）",
+    "artist": "福山雅治",
+    "year": 2000,
+    "type": "",
+    "confidence": "低",
+    "source": "福山雅治 Official",
+    "intro": 0,
+    "chorus": 24,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "VFSeESRAPKU",
@@ -3086,6 +4201,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "NxDu0M_8jd0",
+    "title": "PIECES OF A DREAM",
+    "work": "J-POP（CHEMISTRY）",
+    "artist": "CHEMISTRY",
+    "year": 2001,
+    "type": "",
+    "confidence": "中",
+    "source": "CHEMISTRY Official YouTube Channel",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "JnwJLTOtTMk",
     "title": "Stand Up",
     "work": "名探偵コナン",
@@ -3107,6 +4237,51 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "tuyZ9f6mHZk",
+    "title": "traveling",
+    "work": "J-POP（宇多田ヒカル）",
+    "artist": "宇多田ヒカル",
+    "year": 2001,
+    "type": "",
+    "confidence": "低",
+    "source": "Hikaru Utada",
+    "intro": 0,
+    "chorus": 91,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "1SqPAxQmXpg",
+    "title": "ultra soul",
+    "work": "J-POP（B'z）",
+    "artist": "B'z",
+    "year": 2001,
+    "type": "",
+    "confidence": "低",
+    "source": "CAT SUPER",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "swxob0SJyHg",
+    "title": "アゲハ蝶",
+    "work": "J-POP（ポルノグラフィティ）",
+    "artist": "ポルノグラフィティ",
+    "year": 2001,
+    "type": "",
+    "confidence": "中",
+    "source": "ポルノグラフィティ Official YouTube Channel",
+    "intro": 0,
+    "chorus": 82,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "6ubYJTvaVhE",
@@ -3153,6 +4328,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "JoJ6lnF07U4",
+    "title": "小さな恋のうた",
+    "work": "J-POP（MONGOL800）",
+    "artist": "MONGOL800",
+    "year": 2001,
+    "type": "",
+    "confidence": "中",
+    "source": "MONGOL800",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "qIoDWTF0qSo",
     "title": "深い森",
     "work": "犬夜叉",
@@ -3172,6 +4362,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "-htsLEAtaKs",
+    "title": "天体観測",
+    "work": "J-POP（BUMP OF CHICKEN）",
+    "artist": "BUMP OF CHICKEN",
+    "year": 2001,
+    "type": "",
+    "confidence": "中",
+    "source": "BUMP OF CHICKEN",
+    "intro": 0,
+    "chorus": 39,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "sLAMTCMHfos",
@@ -3197,6 +4402,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "5TR1wJCimyk",
+    "title": "涙そうそう",
+    "work": "J-POP（夏川りみ）",
+    "artist": "夏川りみ",
+    "year": 2001,
+    "type": "",
+    "confidence": "中",
+    "source": "夏川りみ",
+    "intro": 0,
+    "chorus": 52,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "K5hMzC-ST6A",
     "title": "Every Heart -ミンナノキモチ-",
     "work": "犬夜叉",
@@ -3217,6 +4437,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "ofYTAoS4LzE",
+    "title": "HERO",
+    "work": "J-POP（Mr.Children）",
+    "artist": "Mr.Children",
+    "year": 2002,
+    "type": "",
+    "confidence": "中",
+    "source": "Mr.Children Official Channel",
+    "intro": 0,
+    "chorus": 65,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "QnuWM42S4h4",
@@ -3480,6 +4715,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "aGWzRUdn0so",
+    "title": "Jupiter",
+    "work": "J-POP（平原綾香）",
+    "artist": "平原綾香",
+    "year": 2003,
+    "type": "",
+    "confidence": "低",
+    "source": "dreamusic",
+    "intro": 0,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "jB6PAfKhbW8",
     "title": "カサブタ",
     "work": "金色のガッシュベル!!",
@@ -3522,6 +4772,36 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "p_2F2lKV9uA",
+    "title": "さくら(独唱)",
+    "work": "J-POP（森山直太朗）",
+    "artist": "森山直太朗",
+    "year": 2003,
+    "type": "",
+    "confidence": "中",
+    "source": "森山直太朗",
+    "intro": 0,
+    "chorus": 105,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "upODO6OuOOk",
+    "title": "さくらんぼ",
+    "work": "J-POP（大塚愛）",
+    "artist": "大塚愛",
+    "year": 2003,
+    "type": "",
+    "confidence": "中",
+    "source": "avex",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "DXo_xX_Hqro",
@@ -3591,6 +4871,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "_m6Q019Fpys",
+    "title": "世界に一つだけの花",
+    "work": "J-POP（SMAP）",
+    "artist": "SMAP",
+    "year": 2003,
+    "type": "",
+    "confidence": "中",
+    "source": "SMA",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "BosTnTfIo9U",
     "title": "青春狂騒曲",
     "work": "NARUTO -ナルト-",
@@ -3610,6 +4904,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "mF5Qq2YheTg",
+    "title": "雪の華",
+    "work": "J-POP（中島美嘉）",
+    "artist": "中島美嘉",
+    "year": 2003,
+    "type": "",
+    "confidence": "中",
+    "source": "中島美嘉 Official YouTube Channel",
+    "intro": 0,
+    "chorus": 42,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "veuBA4Cj5ew",
@@ -4000,6 +5309,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "TngUo1gDNOg",
+    "title": "ハナミズキ",
+    "work": "J-POP（一青窈）",
+    "artist": "一青窈",
+    "year": 2004,
+    "type": "",
+    "confidence": "中",
+    "source": "一青窈",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "Y6uXU7hMG9M",
     "title": "ビバ★ロック",
     "work": "NARUTO -ナルト-",
@@ -4046,6 +5369,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "iYkg90hDInc",
+    "title": "花",
+    "work": "J-POP（ORANGE RANGE）",
+    "artist": "ORANGE RANGE",
+    "year": 2004,
+    "type": "",
+    "confidence": "中",
+    "source": "ORANGE RANGE",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "fVYLkQ3X21c",
     "title": "禁じられた遊び",
     "work": "ローゼンメイデン",
@@ -4066,6 +5404,36 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "J5Z7tIq7bco",
+    "title": "奏(かなで)",
+    "work": "J-POP（スキマスイッチ）",
+    "artist": "スキマスイッチ",
+    "year": 2004,
+    "type": "",
+    "confidence": "中",
+    "source": "スキマスイッチ / SUKIMASWITCH",
+    "intro": 0,
+    "chorus": 55,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "EqVoCfSwfUY",
+    "title": "瞳をとじて",
+    "work": "J-POP（平井堅）",
+    "artist": "平井堅",
+    "year": 2004,
+    "type": "",
+    "confidence": "中",
+    "source": "平井 堅 YouTube Official Channel",
+    "intro": 0,
+    "chorus": 117,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "8XkiWX48nds",
@@ -4177,6 +5545,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "B2fPYlGKdXM",
+    "title": "Story",
+    "work": "J-POP（AI）",
+    "artist": "AI",
+    "year": 2005,
+    "type": "",
+    "confidence": "中",
+    "source": "AI",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "8MWWCndfRQE",
@@ -4461,6 +5844,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "1wxTksLZ1Mw",
+    "title": "粉雪",
+    "work": "J-POP（レミオロメン）",
+    "artist": "レミオロメン",
+    "year": 2005,
+    "type": "",
+    "confidence": "中",
+    "source": "レミオロメン",
+    "intro": 0,
+    "chorus": 120,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "o77nTb--Bho",
@@ -5033,6 +6431,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "wHw6W4BznTM",
+    "title": "三日月",
+    "work": "J-POP（絢香）",
+    "artist": "絢香",
+    "year": 2006,
+    "type": "",
+    "confidence": "低",
+    "source": "Warner Music Japan",
+    "intro": 0,
+    "chorus": 73,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "hlfEJcAqD6s",
     "title": "真赤な誓い",
     "work": "武装錬金",
@@ -5190,6 +6603,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "BQ4JRebpuD0",
+    "title": "Flavor Of Life",
+    "work": "J-POP（宇多田ヒカル）",
+    "artist": "宇多田ヒカル",
+    "year": 2007,
+    "type": "",
+    "confidence": "低",
+    "source": "katteniPVIV.Channel",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "x0KzJYb7kCo",
     "title": "GO MY WAY!!",
     "work": "アイドルマスター",
@@ -5274,6 +6701,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "EAgACSowE5k",
+    "title": "Love so sweet",
+    "work": "J-POP（嵐）",
+    "artist": "嵐",
+    "year": 2007,
+    "type": "",
+    "confidence": "低",
+    "source": "ARASHI",
+    "intro": 0,
+    "chorus": 88,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "rxEDTNBLzo0",
@@ -5488,6 +6930,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "lyMrKFS_qls",
+    "title": "ハジメテノオト",
+    "work": "ボカロ（malo）",
+    "artist": "malo",
+    "year": 2007,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "malo - Topic",
+    "intro": 0,
+    "chorus": 85,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "zQiAtfs-Zb4",
     "title": "ハヤテのごとく!",
     "work": "ハヤテのごとく!",
@@ -5507,6 +6964,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "KbiSxunJatM",
+    "title": "ポリリズム",
+    "work": "J-POP（Perfume）",
+    "artist": "Perfume",
+    "year": 2007,
+    "type": "",
+    "confidence": "中",
+    "source": "Perfume",
+    "intro": 0,
+    "chorus": 39,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "nUhQW57VE0Y",
@@ -5530,6 +7002,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "HYxWRTPn9vM",
+    "title": "みくみくにしてあげる♪【してやんよ】",
+    "work": "ボカロ（ika）",
+    "artist": "ika",
+    "year": 2007,
+    "type": "ボカロ",
+    "confidence": "低",
+    "intro": 0,
+    "chorus": 37,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "tCV7yyImQFk",
     "title": "メグメル",
     "work": "CLANNAD",
@@ -5550,6 +7036,20 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "4dkRoZ4lzKU",
+    "title": "メルト",
+    "work": "ボカロ（ryo）",
+    "artist": "supercell",
+    "year": 2007,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "VocaloidAlbums",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "lAaU7EO_8AA",
@@ -5749,6 +7249,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "-cT1zaotfuU",
+    "title": "恋スルVOC@LOID",
+    "work": "ボカロ（OSTER project）",
+    "artist": "OSTER project",
+    "year": 2007,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "OSTER projectテスロ&ロゼット",
+    "intro": 0,
+    "chorus": 78,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "WPH1BLHKOJE",
+    "title": "蕾",
+    "work": "J-POP（コブクロ）",
+    "artist": "コブクロ",
+    "year": 2007,
+    "type": "",
+    "confidence": "中",
+    "source": "コブクロ 公式チャンネル",
+    "intro": 0,
+    "chorus": 123,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "3wGJMnFGzAw",
@@ -6088,6 +7618,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "DwTinTO0o9I",
+    "title": "キセキ",
+    "work": "J-POP（GReeeeN）",
+    "artist": "GReeeeN",
+    "year": 2008,
+    "type": "",
+    "confidence": "低",
+    "source": "GRe4N BOYZ",
+    "intro": 0,
+    "chorus": 82,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "0h8sqfo3QJ4",
+    "title": "ココロ",
+    "work": "ボカロ（トラボルタ）",
+    "artist": "トラボルタ",
+    "year": 2008,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "toraboruta - Topic",
+    "intro": 0,
+    "chorus": 96,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "om5pEjRP3Yc",
     "title": "シアワセネイロ",
     "work": "コードギアス 反逆のルルーシュR2",
@@ -6107,6 +7667,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "M80XXxMKFWw",
+    "title": "そばにいるね",
+    "work": "J-POP（青山テルマ feat.SoulJa）",
+    "artist": "青山テルマ feat.SoulJa",
+    "year": 2008,
+    "type": "",
+    "confidence": "低",
+    "source": "UNIVERSAL MUSIC JAPAN",
+    "intro": 0,
+    "chorus": 92,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "YYxRvpLPyLQ",
@@ -6173,6 +7748,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "YjOzaIXEoPA",
+    "title": "ブラック★ロックシューター",
+    "work": "ボカロ（ryo）",
+    "artist": "supercell",
+    "year": 2008,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "eitovl08313909268",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "KpsJWFuVTdI",
     "title": "ブルーバード",
     "work": "NARUTO -ナルト- 疾風伝",
@@ -6215,6 +7804,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "ikgQhG4AlVk",
+    "title": "ぽっぴっぽー",
+    "work": "ボカロ（ラマーズP）",
+    "artist": "ラマーズP",
+    "year": 2008,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "LamazeP",
+    "intro": 0,
+    "chorus": 36,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "kRHYuG1KBdA",
@@ -6261,6 +7865,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "jhl5afLEKdo",
+    "title": "ワールドイズマイン",
+    "work": "ボカロ（ryo）",
+    "artist": "supercell",
+    "year": 2008,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "初音ミク",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "BtemB49vx9s",
     "title": "わが臈たし悪の華",
     "work": "コードギアス 反逆のルルーシュR2",
@@ -6283,6 +7902,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "gU5oN0KVofU",
+    "title": "愛をこめて花束を",
+    "work": "J-POP（Superfly）",
+    "artist": "Superfly",
+    "year": 2008,
+    "type": "",
+    "confidence": "中",
+    "source": "Superfly",
+    "intro": 0,
+    "chorus": 87,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "W77q-kK8iA8",
+    "title": "悪ノ娘",
+    "work": "ボカロ（mothy）",
+    "artist": "mothy",
+    "year": 2008,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "mothy akuno",
+    "intro": 0,
+    "chorus": 66,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "WzZinjm_9k0",
     "title": "夏夕空",
     "work": "夏目友人帳",
@@ -6302,6 +7951,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "7xEkLsQXONQ",
+    "title": "歌に形はないけれど",
+    "work": "ボカロ（doriko）",
+    "artist": "doriko",
+    "year": 2008,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "doriko",
+    "intro": 0,
+    "chorus": 94,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "Gj3CDpydJQE",
@@ -6343,6 +8007,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "1UAkQP8tytM",
+    "title": "桜ノ雨",
+    "work": "ボカロ（halyosy）",
+    "artist": "halyosy",
+    "year": 2008,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "halyosy",
+    "intro": 0,
+    "chorus": 110,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "-AYDR7S0SCE",
@@ -6412,6 +8091,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "erGCAu_hFqM",
+    "title": "手紙 〜拝啓 十五の君へ〜",
+    "work": "J-POP（アンジェラ・アキ）",
+    "artist": "アンジェラ・アキ",
+    "year": 2008,
+    "type": "",
+    "confidence": "低",
+    "source": "ANGELA AKI",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "VWVtIg5cdDU",
+    "title": "初音ミクの消失",
+    "work": "ボカロ（cosMo@暴走P）",
+    "artist": "cosMo@暴走P",
+    "year": 2008,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "cosMo@暴走P",
+    "intro": 0,
+    "chorus": 26,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "weWIUylAq0s",
     "title": "星間飛行",
     "work": "マクロスF",
@@ -6476,6 +8185,35 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "jDop41Bxq2A",
+    "title": "恋は戦争",
+    "work": "ボカロ（ryo）",
+    "artist": "supercell",
+    "year": 2008,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "supercell00",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
+    "id": "dSw8CucthGc",
+    "title": "炉心融解",
+    "work": "ボカロ（iroha(sasaki)）",
+    "artist": "iroha(sasaki)",
+    "year": 2008,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "iroha(sasaki)",
+    "intro": 0,
+    "chorus": 40,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "ZIEQDjrAdwE",
@@ -6572,6 +8310,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "YBVQcTE2Z08",
+    "title": "BOYS＆GIRLS",
+    "work": "家庭教師ヒットマンREBORN!",
+    "artist": "LM.C",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "高",
+    "source": "非公式",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "ua02dloykJ4",
     "title": "Cagayake!GIRLS",
     "work": "けいおん!",
@@ -6591,6 +8343,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "lDwejy2HYCA",
+    "title": "CHU-BURA",
+    "work": "BLEACH",
+    "artist": "Kelun",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 55,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "5CSNv9MNEC4",
@@ -6634,6 +8401,49 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "CDTiyUm5ggM",
+    "title": "from Y to Y",
+    "work": "ボカロ（ジミーサムP）",
+    "artist": "ジミーサムP",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "hatunemikulove",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
+    "id": "li1WjKl2boY",
+    "title": "Just Be Friends",
+    "work": "ボカロ（Dixie Flatline）",
+    "artist": "Dixie Flatline",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "dixie flatline",
+    "intro": 0,
+    "chorus": 79,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "rug7us2-DUA",
+    "title": "magnet",
+    "work": "ボカロ（流星P）",
+    "artist": "流星P",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "猫お揺れる",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "EjQCuivmbjs",
@@ -6785,6 +8595,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "FGjBWcHqC3o",
+    "title": "staple stable",
+    "work": "化物語",
+    "artist": "戦場ヶ原ひたぎ(CV:斎藤千和)",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 63,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "SIQbrX8yxCU",
@@ -6950,6 +8775,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "hC8KrIY8qT4",
+    "title": "ダブルラリアット",
+    "work": "ボカロ（アゴアニキ）",
+    "artist": "アゴアニキ",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "アゴアニキ",
+    "intro": 0,
+    "chorus": 118,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "LllC8pkaHJc",
     "title": "ツキアカリのミチシルベ",
     "work": "DARKER THAN BLACK -流星の双子-",
@@ -6969,6 +8809,20 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "-M4sAQYi6r4",
+    "title": "ハロ/ハワユ",
+    "work": "ボカロ（ナノウ）",
+    "artist": "ナノウ",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Nanou Official",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "6kt427Z5Udo",
@@ -7036,6 +8890,35 @@
     "introMethod": "v2"
   },
   {
+    "id": "dvsPRlm4I_A",
+    "title": "ルカルカ★ナイトフィーバー",
+    "work": "ボカロ（samfree）",
+    "artist": "samfree",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Mellow Mel",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
+    "id": "9HrOqmiEsN8",
+    "title": "ロミオとシンデレラ",
+    "work": "ボカロ（doriko）",
+    "artist": "doriko",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "doriko",
+    "intro": 0,
+    "chorus": 121,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "nq5xZfYm0oo",
     "title": "わたしの恋はホッチキス",
     "work": "けいおん!",
@@ -7055,6 +8938,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "I0eeS5wYGzI",
+    "title": "愛言葉",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "HhOK1-whpsc",
+    "title": "右肩の蝶",
+    "work": "ボカロ（のりP）",
+    "artist": "のりP",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "noripy",
+    "intro": 0,
+    "chorus": 77,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "rZZzlY8vUf8",
@@ -7077,6 +8990,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "BC9P3DSZu0A",
+    "title": "女々しくて",
+    "work": "J-POP（ゴールデンボンバー）",
+    "artist": "ゴールデンボンバー",
+    "year": 2009,
+    "type": "",
+    "confidence": "中",
+    "source": "ゴールデンボンバー公式",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "zWKbJ5DGDJc",
@@ -7125,6 +9053,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "iM8d0SzJTIU",
+    "title": "二息歩行",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 113,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "taVyTMTA7Vo",
     "title": "乱舞のメロディ",
     "work": "BLEACH",
@@ -7147,6 +9090,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "b_cuMcDWwsI",
+    "title": "裏表ラバーズ",
+    "work": "ボカロ（wowaka）",
+    "artist": "wowaka",
+    "year": 2009,
+    "type": "ボカロ",
+    "confidence": "低",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "C4OlB6E8Cyw",
     "title": "恋愛サーキュレーション",
     "work": "化物語",
@@ -7166,6 +9123,20 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "8ld4Mj1EkqU",
+    "title": "Alchemy",
+    "work": "Angel Beats!",
+    "artist": "Girls Dead Monster",
+    "year": 2010,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "非公式",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "Iooh7W_yD5s",
@@ -7759,6 +9730,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "VZBU8LvZ91Q",
+    "title": "ありがとう",
+    "work": "J-POP（いきものがかり）",
+    "artist": "いきものがかり",
+    "year": 2010,
+    "type": "",
+    "confidence": "中",
+    "source": "いきものがかり Official YouTube Channel",
+    "intro": 0,
+    "chorus": 23,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "yhYaa7YAFDs",
     "title": "ごはんはおかず",
     "work": "けいおん!!",
@@ -7845,6 +9831,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "yIQDGwyJpSo",
+    "title": "トリノコシティ",
+    "work": "ボカロ（40mP）",
+    "artist": "40mP",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "40meterP",
+    "intro": 0,
+    "chorus": 64,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "FfQfs25X5f8",
     "title": "ニワカ雨ニモ負ケズ",
     "work": "NARUTO -ナルト- 疾風伝",
@@ -7867,6 +9868,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "xOKplMgHxxA",
+    "title": "ハッピーシンセサイザ",
+    "work": "ボカロ（EasyPop）",
+    "artist": "EasyPop",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "EasyPop",
+    "intro": 0,
+    "chorus": 55,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "yg2iZJPJ4HM",
     "title": "ベストウイッシュ!",
     "work": "ポケットモンスター ベストウイッシュ",
@@ -7887,6 +9903,96 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "lkHlnWFnA0c",
+    "title": "ヘビーローテーション",
+    "work": "J-POP（AKB48）",
+    "artist": "AKB48",
+    "year": 2010,
+    "type": "",
+    "confidence": "中",
+    "source": "AKB48",
+    "intro": 0,
+    "chorus": 76,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "HOz-9FzIDf0",
+    "title": "マトリョシカ",
+    "work": "ボカロ（ハチ）",
+    "artist": "ハチ",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Kenshi Yonezu  米津玄師",
+    "intro": 0,
+    "chorus": 46,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "86_kvUqhY-A",
+    "title": "メランコリック",
+    "work": "ボカロ（Junky）",
+    "artist": "Junky",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Junky // Clover lab.",
+    "intro": 0,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "WysuxO4yR04",
+    "title": "モザイクロール",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 130,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "vnw8zURAxkU",
+    "title": "ローリンガール",
+    "work": "ボカロ（wowaka）",
+    "artist": "wowaka",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ヒトリエ / wowaka",
+    "intro": 0,
+    "chorus": 81,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "ZB75e7vzX0I",
+    "title": "ワールズエンド・ダンスホール",
+    "work": "ボカロ（wowaka）",
+    "artist": "wowaka",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ヒトリエ / wowaka",
+    "intro": 0,
+    "chorus": 83,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "XQWWS8f6X9I",
@@ -7952,6 +10058,35 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "RGOe8SEuemg",
+    "title": "空気力学少女と少年の詩",
+    "work": "素晴らしき日々 ～不連続存在～",
+    "artist": "rea（原曲：はな）",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
+    "id": "AKffZySqQts",
+    "title": "結ンデ開イテ羅刹ト骸",
+    "work": "ボカロ（ハチ）",
+    "artist": "ハチ",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Kenshi Yonezu  米津玄師",
+    "intro": 0,
+    "chorus": 30,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "UnfeeRnGjQA",
@@ -8020,6 +10155,35 @@
     "introMethod": "v2"
   },
   {
+    "id": "T6kVa48UbUw",
+    "title": "深海少女",
+    "work": "ボカロ（ゆうゆ）",
+    "artist": "ゆうゆ",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ゆうゆ /仮乃スガタ",
+    "intro": 0,
+    "chorus": 44,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "IudXfIgXH-s",
+    "title": "千年の独奏歌",
+    "work": "ボカロ（yanagiP）",
+    "artist": "yanagiP",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "猫お揺れる",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "ba0juE9ROCg",
     "title": "天使にふれたよ!",
     "work": "けいおん!!",
@@ -8039,6 +10203,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "wRoA3VuDK4c",
+    "title": "天樂",
+    "work": "ボカロ（ゆうゆ）",
+    "artist": "ゆうゆ",
+    "year": 2010,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ゆうゆ /仮乃スガタ",
+    "intro": 0,
+    "chorus": 105,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "YIgoFjO9Mg4",
@@ -8083,6 +10262,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "QvGLt5CUBVo",
+    "title": "1925",
+    "work": "ボカロ（T-POCKET）",
+    "artist": "T-POCKET",
+    "year": 2011,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "冨田悠斗 / サクラレイ",
+    "intro": 0,
+    "chorus": 91,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "Ngy3tyOc0Rs",
     "title": "BLUE",
     "work": "BLEACH",
@@ -8102,6 +10296,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "_cRN3Yd6sQs",
+    "title": "Clover Day's",
+    "work": "Clover Day's（ALcot）",
+    "artist": "真理絵",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 82,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "UjPcAeF9-zc",
@@ -8566,6 +10775,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "uMlv9VWAxko",
+    "title": "アンハッピーリフレイン",
+    "work": "ボカロ（wowaka）",
+    "artist": "wowaka",
+    "year": 2011,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ヒトリエ / wowaka",
+    "intro": 0,
+    "chorus": 95,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "IgEuCx2hYso",
     "title": "ウィーゴー!",
     "work": "ONE PIECE",
@@ -8608,6 +10832,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "QBzPTVFXD64",
+    "title": "カゲロウデイズ",
+    "work": "ボカロ（じん）",
+    "artist": "じん",
+    "year": 2011,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "じん OFFICIAL YOUTUBE CHANNEL",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "xxFkW3PCT5M",
+    "title": "からくりピエロ",
+    "work": "ボカロ（40mP）",
+    "artist": "40mP",
+    "year": 2011,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "40meterP",
+    "intro": 0,
+    "chorus": 86,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "7EuTPTVpuNI",
@@ -8654,6 +10908,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "0RU_05zpETo",
+    "title": "パンダヒーロー",
+    "work": "ボカロ（ハチ）",
+    "artist": "ハチ",
+    "year": 2011,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Kenshi Yonezu  米津玄師",
+    "intro": 0,
+    "chorus": 66,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "osWXbe7MbGE",
@@ -8831,6 +11100,65 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "shs0rAiwsGQ",
+    "title": "千本桜",
+    "work": "ボカロ（黒うさP）",
+    "artist": "黒うさP",
+    "year": 2011,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "WhiteFlame official",
+    "intro": 0,
+    "chorus": 32,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "2-zPY0vrpjQ",
+    "title": "天ノ弱",
+    "work": "ボカロ（164）",
+    "artist": "164",
+    "year": 2011,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "164",
+    "intro": 0,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "eSI7RsjZy1E",
+    "title": "東京テディベア",
+    "work": "ボカロ（Neru）",
+    "artist": "Neru",
+    "year": 2011,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Neru OFFICIAL",
+    "intro": 0,
+    "chorus": 47,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "Ey_NHZNYTeE",
+    "title": "脳漿炸裂ガール",
+    "work": "ボカロ（れるりり）",
+    "artist": "れるりり",
+    "year": 2011,
+    "type": "ボカロ",
+    "confidence": "低",
+    "intro": 0,
+    "chorus": 56,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "medv3y09E5Q",
@@ -9331,6 +11659,21 @@
     "checkedOrigin": "localhost:3000"
   },
   {
+    "id": "PqJNc9KVIZE",
+    "title": "Tell Your World",
+    "work": "ボカロ（kz）",
+    "artist": "livetune",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "kz-livetune",
+    "intro": 0,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "XTdRNjuGE_k",
     "title": "The Everlasting Guilty Crown",
     "work": "ギルティクラウン",
@@ -9438,6 +11781,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "oBgADhsOoog",
+    "title": "いーあるふぁんくらぶ",
+    "work": "ボカロ（みきとP）",
+    "artist": "みきとP",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "低",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "WxmlArNCNxM",
     "title": "カレンダーガール",
     "work": "アイカツ!",
@@ -9498,6 +11855,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "wQ0PlFvH1no",
+    "title": "ゴーゴー幽霊船",
+    "work": "ボカロ（ハチ）",
+    "artist": "ハチ",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "米津玄師ハチ",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "BW4H15rK6iI",
     "title": "ジョジョ〜その血の運命〜",
     "work": "ジョジョの奇妙な冒険",
@@ -9520,6 +11891,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "WEVgkh_7_0k",
+    "title": "チルドレンレコード",
+    "work": "ボカロ（じん）",
+    "artist": "じん",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "じん OFFICIAL YOUTUBE CHANNEL",
+    "intro": 0,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "f3fg3RZsUOE",
@@ -9606,6 +11992,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "ixvgn4os8iA",
+    "title": "リアルワールド",
+    "work": "人類は衰退しました",
+    "artist": "nano.RIPE",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 50,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "1st0XSY0VKQ",
+    "title": "リモコン",
+    "work": "ボカロ（じーざすP）",
+    "artist": "じーざすP",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "WONDERFUL★OPPORTUNITY!",
+    "intro": 0,
+    "chorus": 84,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "b5-BiwtGTn4",
     "title": "ルミナス",
     "work": "劇場版 魔法少女まどか☆マギカ",
@@ -9644,6 +12060,20 @@
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000"
+  },
+  {
+    "id": "NKYqJ3UvjIk",
+    "title": "吉原ラメント",
+    "work": "ボカロ（亜沙）",
+    "artist": "亜沙",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "低",
+    "intro": 0,
+    "chorus": 56,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "ARnlcCWTjYI",
@@ -9705,6 +12135,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "u1XhZiPX3eI",
+    "title": "紅一葉",
+    "work": "ボカロ（黒うさP）",
+    "artist": "黒うさP",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Release - Topic",
+    "intro": 0,
+    "chorus": 106,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "5GUHzOvKG8g",
     "title": "桜流し",
     "work": "ヱヴァンゲリヲン新劇場版:Q",
@@ -9725,6 +12170,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "wfBVjsMVZV4",
+    "title": "人生リセットボタン",
+    "work": "ボカロ（kemu）",
+    "artist": "kemu",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "kemu",
+    "intro": 0,
+    "chorus": 50,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "0y13j5JfKlQ",
@@ -9748,6 +12208,36 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "HjcWqtbpWR8",
+    "title": "如月アテンション",
+    "work": "ボカロ（じん）",
+    "artist": "じん",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "じん OFFICIAL YOUTUBE CHANNEL",
+    "intro": 0,
+    "chorus": 64,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "sjr-tPFADpM",
+    "title": "脳内革命ガール",
+    "work": "ボカロ（MARETU）",
+    "artist": "MARETU",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "MARETU",
+    "intro": 0,
+    "chorus": 70,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "Yye3364B2bw",
@@ -9816,6 +12306,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "aPDaFGqMX4I",
+    "title": "夜咄ディセイブ",
+    "work": "ボカロ（じん）",
+    "artist": "じん",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "IA PROJECT",
+    "intro": 0,
+    "chorus": 106,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "RpqqaNJuopc",
     "title": "優しさの理由",
     "work": "氷菓",
@@ -9836,6 +12341,36 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "TXzfQ0cP1P0",
+    "title": "恋愛裁判",
+    "work": "ボカロ（40mP）",
+    "artist": "40mP",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "40meterP",
+    "intro": 0,
+    "chorus": 64,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "Om3MTou2kPg",
+    "title": "六兆年と一夜物語",
+    "work": "ボカロ（kemu）",
+    "artist": "kemu",
+    "year": 2012,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "ke-san β",
+    "intro": 0,
+    "chorus": 55,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "E3GJ5_iYj10",
@@ -10164,6 +12699,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "Mi9uNu35Gmk",
+    "title": "RPG",
+    "work": "J-POP（SEKAI NO OWARI）",
+    "artist": "SEKAI NO OWARI",
+    "year": 2013,
+    "type": "",
+    "confidence": "低",
+    "source": "SEKAI NO OWARI",
+    "intro": 0,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "tpoBqgynpDE",
     "title": "Seek Diamonds",
     "work": "ダイヤのA",
@@ -10247,6 +12797,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "4hnn9BywgTQ",
+    "title": "starlog",
+    "work": "Fate/kaleid liner プリズマ☆イリヤ",
+    "artist": "ChouCho",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Lantis公式",
+    "intro": 0,
+    "chorus": 52,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "69w7p05W8HA",
@@ -10348,6 +12913,21 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "0Be-YbyeseE",
+    "title": "X-encounter",
+    "work": "東京レイヴンズ",
+    "artist": "黒崎真音",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "高",
+    "source": "黒崎真音公式",
+    "intro": 0,
+    "chorus": 75,
+    "aliases": [],
+    "embeddable": null,
     "chorusSource": "heatmap"
   },
   {
@@ -10460,6 +13040,36 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "9DD6JvY06Ok",
+    "title": "ストリーミングハート",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2013,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "U/M/A/A Inc.",
+    "intro": 0,
+    "chorus": 130,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "qnX2CdOBcDI",
+    "title": "ドーナツホール",
+    "work": "ボカロ（ハチ）",
+    "artist": "ハチ",
+    "year": 2013,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Kenshi Yonezu  米津玄師",
+    "intro": 0,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "h8sjg6M0iGg",
@@ -10614,6 +13224,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "8oBV3jPTW4s",
+    "title": "ロストワンの号哭",
+    "work": "ボカロ（Neru）",
+    "artist": "Neru",
+    "year": 2013,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Neru OFFICIAL",
+    "intro": 0,
+    "chorus": 74,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "xGNQOqtGU_E",
+    "title": "威風堂々",
+    "work": "ボカロ（梅とら）",
+    "artist": "梅とら",
+    "year": 2013,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "official梅とら",
+    "intro": 0,
+    "chorus": 46,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "gd8D552XOVc",
     "title": "回レ!雪月花",
     "work": "機巧少女は傷つかない",
@@ -10634,6 +13274,20 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "-fJ03NXRQUo",
+    "title": "骸骨楽団とリリア",
+    "work": "ボカロ（トーマ）",
+    "artist": "トーマ",
+    "year": 2013,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "トーマ /Tohma Official Channel",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "Ztt4JKdbygw",
@@ -10676,6 +13330,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "SII-S-zCg-c",
+    "title": "高嶺の花子さん",
+    "work": "J-POP（back number）",
+    "artist": "back number",
+    "year": 2013,
+    "type": "",
+    "confidence": "中",
+    "source": "back number",
+    "intro": 0,
+    "chorus": 86,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "W8UNLOOogU4",
     "title": "自由の翼",
     "work": "進撃の巨人",
@@ -10697,6 +13366,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "w2ySuxC2SNI",
+    "title": "敗北の少年",
+    "work": "ボカロ（kemu）",
+    "artist": "kemu",
+    "year": 2013,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "ke-san β",
+    "intro": 0,
+    "chorus": 130,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "eN_rq3FvJUs",
@@ -10759,6 +13443,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "dFf4AgBNR1E",
+    "title": "恋するフォーチュンクッキー",
+    "work": "J-POP（AKB48）",
+    "artist": "AKB48",
+    "year": 2013,
+    "type": "",
+    "confidence": "中",
+    "source": "AKB48",
+    "intro": 0,
+    "chorus": 103,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "Lcb7Za77lfw",
@@ -11063,6 +13762,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "UcoFyrlQev0",
+    "title": "Dragon Night",
+    "work": "J-POP（SEKAI NO OWARI）",
+    "artist": "SEKAI NO OWARI",
+    "year": 2014,
+    "type": "",
+    "confidence": "中",
+    "source": "SEKAI NO OWARI",
+    "intro": 0,
+    "chorus": 41,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "BK7IkNyMmms",
     "title": "Dried Up Youthful Fame",
     "work": "Free! Eternal Summer",
@@ -11083,6 +13797,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "HNQhNY_ks2I",
+    "title": "ECHO",
+    "work": "ボカロ（Crusher-P）",
+    "artist": "Crusher-P",
+    "year": 2014,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Circrush (Circusp+Crusher-P) - Topic",
+    "intro": 0,
+    "chorus": 34,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "wxG6X7aMQGI",
@@ -11587,6 +14316,36 @@
     "checkedOrigin": "localhost:3000"
   },
   {
+    "id": "-EKxzId_Sj4",
+    "title": "アイネクライネ",
+    "work": "J-POP（米津玄師）",
+    "artist": "米津玄師",
+    "year": 2014,
+    "type": "",
+    "confidence": "中",
+    "source": "Kenshi Yonezu  米津玄師",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "XogSflwXgpw",
+    "title": "アスノヨゾラ哨戒班",
+    "work": "ボカロ（Orangestar）",
+    "artist": "Orangestar",
+    "year": 2014,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Orangestar",
+    "intro": 0,
+    "chorus": 35,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "wDIUyyQqQ_M",
     "title": "イマジネーション",
     "work": "ハイキュー!!",
@@ -11886,6 +14645,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "NTrm_idbhUk",
+    "title": "愛して愛して愛して",
+    "work": "ボカロ（きくお）",
+    "artist": "きくお",
+    "year": 2014,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Kikuo",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "wtJcLWeY114",
     "title": "季節は次々死んでいく",
     "work": "東京喰種トーキョーグール",
@@ -12022,6 +14796,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "l1oyWrhEQ7A",
+    "title": "心はひとつじゃない",
+    "work": "銀河機攻隊マジェスティックプリンス",
+    "artist": "昆夏美",
+    "year": 2014,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 34,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "3SkNrZnoK5w",
+    "title": "心做し",
+    "work": "ボカロ（蝶々P）",
+    "artist": "蝶々P",
+    "year": 2014,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "蝶々P / 一之瀬ユウ",
+    "intro": 0,
+    "chorus": 83,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "6p6CIOtB2AI",
     "title": "世界は恋に落ちている",
     "work": "アオハライド",
@@ -12042,6 +14846,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "u5mHVUwDf_0",
+    "title": "脱法ロック",
+    "work": "ボカロ（Neru）",
+    "artist": "Neru",
+    "year": 2014,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Neru OFFICIAL",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "nWnePUo6c-w",
@@ -12085,6 +14904,36 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "dCeXY0pGXXg",
+    "title": "未来はきっとＳｈｉｎｙＤａｙｓ",
+    "work": "ボクラはピアチェーレ",
+    "artist": "奏英学園軽音楽部",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "低",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 65,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "xKREOxN4GWo",
+    "title": "夜もすがら君想ふ",
+    "work": "ボカロ（TOKOTOKO）",
+    "artist": "TOKOTOKO",
+    "year": 2014,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "TOKOTOKO / 西沢さんP / zawaso Official",
+    "intro": 0,
+    "chorus": 53,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "uIrI4M8ia2E",
@@ -12447,6 +15296,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "n-HL7fNsPAQ",
+    "title": "Re:LieF ～親愛なるあなたへ～",
+    "work": "Re:LieF ～親愛なるあなたへ～",
+    "artist": "rea",
+    "year": 2015,
+    "type": "主題歌",
+    "confidence": "低",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "6AECf-1yVdk",
     "title": "Shine!!",
     "work": "アイドルマスター シンデレラガールズ",
@@ -12513,6 +15376,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "7gcCRAl58u4",
+    "title": "SUN",
+    "work": "J-POP（星野源）",
+    "artist": "星野源",
+    "year": 2015,
+    "type": "",
+    "confidence": "中",
+    "source": "星野源 Gen Hoshino",
+    "intro": 0,
+    "chorus": 48,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "oZU6QvWHBxY",
@@ -12595,6 +15473,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "grrX9elpi_A",
+    "title": "おかえり",
+    "work": "のんのんびより りぴーと",
+    "artist": "宮内れんげ(CV:小岩井ことり)ほか",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "中",
+    "source": "非公式",
+    "intro": 0,
+    "chorus": 130,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "B0SlTh_A20I",
@@ -12686,6 +15579,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "7zBeQezaz4U",
+    "title": "クリスマスソング",
+    "work": "J-POP（back number）",
+    "artist": "back number",
+    "year": 2015,
+    "type": "",
+    "confidence": "中",
+    "source": "back number",
+    "intro": 0,
+    "chorus": 75,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "ERLEeGVWYxg",
     "title": "シュガーソングとビターステップ",
     "work": "血界戦線",
@@ -12732,6 +15640,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "3Fv9q5uDEDE",
+    "title": "トゥッティ！",
+    "work": "響け！ユーフォニアム",
+    "artist": "北宇治カルテット",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "DgnNopHF6W4",
     "title": "ニルバナ",
     "work": "ノラガミ ARAGOTO",
@@ -12751,6 +15674,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "sUaoCdvwigk",
+    "title": "ニルバナ",
+    "work": "ノラガミ ARAGOTO",
+    "artist": "Tia",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "nsSMrv7ad1M",
@@ -12816,6 +15754,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "-zQWavER7to",
+    "title": "海の声",
+    "work": "J-POP（浦島太郎(桐谷健太)）",
+    "artist": "浦島太郎(桐谷健太)",
+    "year": 2015,
+    "type": "",
+    "confidence": "低",
+    "source": "au",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "IZ5UB9abD-c",
@@ -12936,7 +15889,7 @@
     "artist": "やなぎなぎ",
     "year": 2015,
     "type": "OP",
-    "confidence": "中",
+    "confidence": "高",
     "source": "やなぎなぎ公式",
     "intro": 0.7,
     "chorus": 51,
@@ -12951,6 +15904,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "LIlZCmETvsY",
+    "title": "新宝島",
+    "work": "J-POP（サカナクション）",
+    "artist": "サカナクション",
+    "year": 2015,
+    "type": "",
+    "confidence": "中",
+    "source": "サカナクション sakanaction",
+    "intro": 0,
+    "chorus": 63,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "6MXzlLq7L9I",
@@ -13346,6 +16314,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "vvb_BudGzJ8",
+    "title": "Philosophyz",
+    "work": "Rewrite",
+    "artist": "水谷瑠奈",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 82,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "6DrKJzuH7M8",
     "title": "QUESTION",
     "work": "暗殺教室 第2期",
@@ -13477,6 +16460,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "84YBqfpCGW8",
+    "title": "Stay Alive",
+    "work": "Re:ゼロから始める異世界生活",
+    "artist": "エミリア(CV:高橋李依)",
+    "year": 2016,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 51,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "KXblGo-B9Ds",
@@ -13679,6 +16677,64 @@
     "introMethod": "v2"
   },
   {
+    "id": "AK3GGK_d0t4",
+    "title": "エアキャッチボール",
+    "work": "押忍！番長（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2016,
+    "type": "イメージソング",
+    "confidence": "低",
+    "source": "Daito Music公式",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
+    "id": "2t1NMRse6aI",
+    "title": "エイリアンエイリアン",
+    "work": "ボカロ（ナユタン星人）",
+    "artist": "ナユタン星人",
+    "year": 2016,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ナユタン星人Official / NayutalieN",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "KushW6zvazM",
+    "title": "ゴーストルール",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2016,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 48,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "vKAKA60WcUo",
+    "title": "サイレントマジョリティー",
+    "work": "J-POP（欅坂46）",
+    "artist": "欅坂46",
+    "year": 2016,
+    "type": "",
+    "confidence": "中",
+    "source": "欅坂46 channel",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "a9-e_0l7dU4",
     "title": "サウンドスケープ",
     "work": "響け!ユーフォニアム2",
@@ -13721,6 +16777,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "Ut64ptd0bYk",
+    "title": "シャルル",
+    "work": "ボカロ（バルーン）",
+    "artist": "バルーン",
+    "year": 2016,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "balloon - Topic",
+    "intro": 0,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "d_FFoU4K53Y",
@@ -13831,6 +16902,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "T8y_RsF4TSw",
+    "title": "ハッピーエンド",
+    "work": "J-POP（back number）",
+    "artist": "back number",
+    "year": 2016,
+    "type": "",
+    "confidence": "中",
+    "source": "back number",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "24LxVVnRTpg",
     "title": "ヒカリアレ",
     "work": "ハイキュー!! 烏野高校 VS 白鳥沢学園高校",
@@ -13896,6 +16982,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "Af_ydUD8kQs",
+    "title": "叫べ",
+    "work": "魔法少女育成計画",
+    "artist": "沼倉愛美",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "高",
+    "source": "FlyingDog公式",
+    "intro": 0,
+    "chorus": 130,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "K7PahPJiRzE",
     "title": "空が青空であるために",
     "work": "ダイヤのA Second Season",
@@ -13941,6 +17042,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "Ae6gQmhaMn4",
+    "title": "私以外私じゃないの",
+    "work": "J-POP（ゲスの極み乙女。）",
+    "artist": "ゲスの極み乙女。",
+    "year": 2016,
+    "type": "",
+    "confidence": "中",
+    "source": "ゲスの極み乙女",
+    "intro": 0,
+    "chorus": 58,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "3iC5uEYtlZM",
     "title": "週替わりの奇跡の神話",
     "work": "うしおととら",
@@ -13979,6 +17095,20 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "_vAyEsZ-YS4",
+    "title": "世界はふたりのために",
+    "work": "ハッピーライヴ ショウアップ！",
+    "artist": "木須実怜花",
+    "year": 2016,
+    "type": "主題歌",
+    "confidence": "低",
+    "source": "非公式",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "mO20a-BFIbA",
@@ -14072,6 +17202,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "grdy6rLbQ-c",
+    "title": "拝啓ドッペルゲンガー",
+    "work": "ボカロ（kemu）",
+    "artist": "kemu",
+    "year": 2016,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "ke-san β",
+    "intro": 0,
+    "chorus": 56,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "C8IYZkoWodE",
     "title": "悲しくてやりきれない",
     "work": "この世界の片隅に",
@@ -14158,6 +17303,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "jhOVibLEDhA",
+    "title": "恋",
+    "work": "J-POP（星野源）",
+    "artist": "星野源",
+    "year": 2016,
+    "type": "",
+    "confidence": "中",
+    "source": "星野源 Gen Hoshino",
+    "intro": 0,
+    "chorus": 47,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "ONrdzBsOgEw",
@@ -14352,6 +17512,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "qmJE-VyA9gI",
+    "title": "DEAREST DROP",
+    "work": "終末なにしてますか？忙しいですか？救ってもらっていいですか？",
+    "artist": "田所あずさ",
+    "year": 2017,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "zdv082ZzvxU",
@@ -14591,6 +17766,21 @@
     "checkedOrigin": "localhost:3000"
   },
   {
+    "id": "1R9thHfD6b0",
+    "title": "Ruler",
+    "work": "その他（岸田教団&THE明星ロケッツ）",
+    "artist": "岸田教団&THE明星ロケッツ",
+    "year": 2017,
+    "type": "オリジナル",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 50,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "yirNgfGns9w",
     "title": "STEP by STEP UP↑↑↑↑",
     "work": "NEW GAME!!",
@@ -14672,6 +17862,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "P_CSdxSGfaA",
+    "title": "アンノウン・マザーグース",
+    "work": "ボカロ（wowaka）",
+    "artist": "wowaka",
+    "year": 2017,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ヒトリエ / wowaka",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "LvIf82-d2IE",
@@ -14784,6 +17989,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "ZuT3xYLW7vA",
+    "title": "スターナイトスノウ",
+    "work": "ボカロ（ナユタン星人）",
+    "artist": "ナユタン星人",
+    "year": 2017,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "初音ミク",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "jNjGRYgid8k",
     "title": "だから、ひとりじゃない",
     "work": "僕のヒーローアカデミア 2期",
@@ -14828,6 +18048,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "jJzw1h5CR-I",
+    "title": "ドラマツルギー",
+    "work": "ボカロ（Eve）",
+    "artist": "Eve",
+    "year": 2017,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Eve",
+    "intro": 0,
+    "chorus": 62,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "KbpdUE9ksvM",
     "title": "トランジット",
     "work": "弱虫ペダル NEW GENERATION",
@@ -14870,6 +18105,20 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "4DbM_WD0kl8",
+    "title": "ハイスペックニート",
+    "work": "ボカロ（40mP）",
+    "artist": "40mP",
+    "year": 2017,
+    "type": "ボカロ",
+    "confidence": "低",
+    "intro": 0,
+    "chorus": 20,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "OFquPzLWJ5Q",
@@ -14962,6 +18211,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "hxSg2Ioz3LM",
+    "title": "ヒバナ",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2017,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 85,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "mORyYinMBdg",
     "title": "ファイター",
     "work": "3月のライオン 第2シリーズ",
@@ -15001,6 +18265,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "oRJBwaZ59fQ",
+    "title": "ベノム",
+    "work": "ボカロ（かいりきベア）",
+    "artist": "かいりきベア",
+    "year": 2017,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "かいりきベア／Kairiki bear",
+    "intro": 0,
+    "chorus": 63,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "xkMdLcB_vNU",
@@ -15135,6 +18414,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "AS4q9yaWJkI",
+    "title": "砂の惑星",
+    "work": "ボカロ（ハチ）",
+    "artist": "ハチ",
+    "year": 2017,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Kenshi Yonezu  米津玄師",
+    "intro": 0,
+    "chorus": 115,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "nAksM2HAAqo",
     "title": "心臓を捧げよ!",
     "work": "進撃の巨人 Season 2",
@@ -15179,6 +18473,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "Ja9qmYjXk6U",
+    "title": "太陽系デスコ",
+    "work": "ボカロ（ナユタン星人）",
+    "artist": "ナユタン星人",
+    "year": 2017,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ナユタン星人Official / NayutalieN",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "-tKVN2mAKRI",
@@ -15248,6 +18557,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "o9ol4uGatIg",
+    "title": "平行線",
+    "work": "クズの本懐",
+    "artist": "さユり",
+    "year": 2017,
+    "type": "ED",
+    "confidence": "高",
+    "source": "さユり公式（ショート版）",
+    "intro": 0,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "AstXx7hOPvU",
     "title": "未来の僕らは知ってるよ",
     "work": "ラブライブ!サンシャイン!! 2期",
@@ -15269,6 +18593,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "N2A2VZTl9X0",
+    "title": "命に嫌われている。",
+    "work": "ボカロ（カンザキイオリ）",
+    "artist": "カンザキイオリ",
+    "year": 2017,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "カンザキイオリ",
+    "intro": 0,
+    "chorus": 56,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "Gpwt7R9pGuo",
@@ -15710,6 +19049,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "SX_ViT4Ra7k",
+    "title": "Lemon",
+    "work": "J-POP（米津玄師）",
+    "artist": "米津玄師",
+    "year": 2018,
+    "type": "",
+    "confidence": "中",
+    "source": "Kenshi Yonezu  米津玄師",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "ww12naiqmzc",
     "title": "Make debut!",
     "work": "ウマ娘 プリティーダービー",
@@ -16053,6 +19407,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "fhFwN1sFrBw",
+    "title": "U.S.A.",
+    "work": "J-POP（DA PUMP）",
+    "artist": "DA PUMP",
+    "year": 2018,
+    "type": "",
+    "confidence": "低",
+    "source": "avex",
+    "intro": 0,
+    "chorus": 65,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "ku6Lz0dlTfs",
     "title": "UNION",
     "work": "SSSS.GRIDMAN",
@@ -16184,6 +19553,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "fs4sqRVEsqg",
+    "title": "あの夏が飽和する。",
+    "work": "ボカロ（カンザキイオリ）",
+    "artist": "カンザキイオリ",
+    "year": 2018,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "カンザキイオリ",
+    "intro": 0,
+    "chorus": 97,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "VFOg6mHtZcA",
     "title": "うまぴょい伝説",
     "work": "ウマ娘 プリティーダービー",
@@ -16229,6 +19613,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "-VKIqrvVOpo",
+    "title": "ただ君に晴れ",
+    "work": "J-POP（ヨルシカ）",
+    "artist": "ヨルシカ",
+    "year": 2018,
+    "type": "",
+    "confidence": "中",
+    "source": "ヨルシカ / n-buna Official",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "9oqz1EAbR3Q",
     "title": "ダンシング",
     "work": "弱虫ペダル GLORY LINE",
@@ -16271,6 +19670,36 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "rWTjsCjH2kM",
+    "title": "パプリカ",
+    "work": "J-POP（Foorin）",
+    "artist": "Foorin",
+    "year": 2018,
+    "type": "",
+    "confidence": "中",
+    "source": "Foorin - Paprika",
+    "intro": 0,
+    "chorus": 52,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "XCyKJD6uQyg",
+    "title": "ビターチョコデコレーション",
+    "work": "ボカロ（syudou）",
+    "artist": "syudou",
+    "year": 2018,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "syudou",
+    "intro": 0,
+    "chorus": 93,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "hgFPAJNuVhM",
@@ -16339,6 +19768,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "0xSiBpUdW4E",
+    "title": "マリーゴールド",
+    "work": "J-POP（あいみょん）",
+    "artist": "あいみょん",
+    "year": 2018,
+    "type": "",
+    "confidence": "中",
+    "source": "あいみょん",
+    "intro": 0,
+    "chorus": 64,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "UKU4B05fPck",
     "title": "みちしるべ",
     "work": "ヴァイオレット・エヴァーガーデン",
@@ -16404,6 +19848,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "ZEy36W1xX8c",
+    "title": "メルティランドナイトメア",
+    "work": "ボカロ（はるまきごはん）",
+    "artist": "はるまきごはん",
+    "year": 2018,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "はるまきごはん / Harumaki Gohan Official",
+    "intro": 0,
+    "chorus": 73,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "LOOTDNga7hY",
     "title": "レイメイ",
     "work": "ゴールデンカムイ 第二期",
@@ -16423,6 +19882,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "Xg-qfsKN2_E",
+    "title": "ロキ",
+    "work": "ボカロ（みきとP）",
+    "artist": "みきとP",
+    "year": 2018,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "みきとP mikitoP OFFICIAL",
+    "intro": 0,
+    "chorus": 21,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "cLh6WWq35jA",
@@ -16538,6 +20012,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "X5kQR92kYn0",
+    "title": "君の神様になりたい。",
+    "work": "ボカロ（カンザキイオリ）",
+    "artist": "カンザキイオリ",
+    "year": 2018,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "カンザキイオリ",
+    "intro": 0,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "zORYdnt1XFE",
     "title": "言わないけどね。",
     "work": "からかい上手の高木さん",
@@ -16576,6 +20065,20 @@
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000"
+  },
+  {
+    "id": "m34DPnRUfMU",
+    "title": "青と夏",
+    "work": "J-POP（Mrs. GREEN APPLE）",
+    "artist": "Mrs. GREEN APPLE",
+    "year": 2018,
+    "type": "",
+    "confidence": "中",
+    "source": "Mrs. GREEN APPLE",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "yDXVqicnWeo",
@@ -16687,6 +20190,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "oEkGC2HV7rc",
+    "title": "劣等上等",
+    "work": "ボカロ（Giga）",
+    "artist": "Giga",
+    "year": 2018,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Giga",
+    "intro": 0,
+    "chorus": 52,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "n269iQ2UTKg",
@@ -17156,6 +20674,21 @@
     "checkedOrigin": "localhost:3000"
   },
   {
+    "id": "TQ8WlA2GXbk",
+    "title": "Pretender",
+    "work": "J-POP（Official髭男dism）",
+    "artist": "Official髭男dism",
+    "year": 2019,
+    "type": "",
+    "confidence": "中",
+    "source": "Official髭男dism",
+    "intro": 0,
+    "chorus": 91,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "2kp6O5IG92A",
     "title": "Q-vism",
     "work": "PSYCHO-PASS サイコパス 3",
@@ -17264,6 +20797,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "SIuF37EWaLU",
+    "title": "Tokyo Flash",
+    "work": "J-POP（Vaundy）",
+    "artist": "Vaundy",
+    "year": 2019,
+    "type": "",
+    "confidence": "低",
+    "source": "Vaundy",
+    "intro": 0,
+    "chorus": 21,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "DP89-sZL1YM",
@@ -17617,6 +21165,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "Rkrm5foi188",
+    "title": "ダーリンダンス",
+    "work": "ボカロ（かいりきベア）",
+    "artist": "かいりきベア",
+    "year": 2019,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "かいりきベア／Kairiki bear",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "Ywq4XR0G4Qk",
     "title": "チカっとチカ千花っ♡",
     "work": "かぐや様は告らせたい",
@@ -17637,6 +21200,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "SJazpfgAm8Y",
+    "title": "チカっとチカ千花っ♡",
+    "work": "かぐや様は告らせたい",
+    "artist": "藤原千花(CV:小原好美)",
+    "year": 2019,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 55,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "i-DZukWFR64",
+    "title": "テレキャスタービーボーイ",
+    "work": "ボカロ（すりぃ）",
+    "artist": "すりぃ",
+    "year": 2019,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "すりぃ",
+    "intro": 0,
+    "chorus": 36,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "Wt5AhyH6BRE",
@@ -17747,6 +21340,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "7zwCIz-Ohn4",
+    "title": "乙女解剖",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2019,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "nS32IXrNgfw",
     "title": "火炎",
     "work": "どろろ",
@@ -17830,6 +21438,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "9MjAJSoaoSo",
+    "title": "香水",
+    "work": "J-POP（瑛人）",
+    "artist": "瑛人",
+    "year": 2019,
+    "type": "",
+    "confidence": "中",
+    "source": "瑛人",
+    "intro": 0,
+    "chorus": 70,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "dN020llYLQU",
@@ -18072,6 +21695,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "ony539T074w",
+    "title": "白日",
+    "work": "J-POP（King Gnu）",
+    "artist": "King Gnu",
+    "year": 2019,
+    "type": "",
+    "confidence": "中",
+    "source": "King Gnu official YouTube channel",
+    "intro": 0,
+    "chorus": 67,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "GJPMqJf6fOo",
     "title": "粉雪",
     "work": "からかい上手の高木さん2",
@@ -18138,6 +21776,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "by4SYYWlhEs",
+    "title": "夜に駆ける",
+    "work": "J-POP（YOASOBI）",
+    "artist": "YOASOBI",
+    "year": 2019,
+    "type": "",
+    "confidence": "中",
+    "source": "YOASOBI",
+    "intro": 0,
+    "chorus": 76,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "kbjr3JIuOtY",
@@ -18252,6 +21905,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "ye1YacA8HvE",
+    "title": "CITRUS",
+    "work": "J-POP（Da-iCE）",
+    "artist": "Da-iCE",
+    "year": 2020,
+    "type": "",
+    "confidence": "中",
+    "source": "Da-iCE",
+    "intro": 0,
+    "chorus": 75,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "4NEbSnuL6GA",
     "title": "DADDY ! DADDY ! DO ! feat. 鈴木愛理",
     "work": "かぐや様は告らせたい?",
@@ -18294,6 +21962,20 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "PMWu-oLVWWc",
+    "title": "Dream with You",
+    "work": "ラブライブ!虹ヶ咲学園スクールアイドル同好会",
+    "artist": "上原歩夢(CV:大西亜玖璃)",
+    "year": 2020,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "VLE6Y1q13qE",
@@ -18504,6 +22186,21 @@
     "chorusSource": "heatmap",
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000"
+  },
+  {
+    "id": "cm-l2h6GB8Q",
+    "title": "KING",
+    "work": "ボカロ（Kanaria）",
+    "artist": "Kanaria",
+    "year": 2020,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Kanaria",
+    "intro": 0,
+    "chorus": 85,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "i34ilDuvtHw",
@@ -18966,6 +22663,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "p9FJXfGHtDA",
+    "title": "ヴィラン",
+    "work": "ボカロ（てにをは）",
+    "artist": "てにをは",
+    "year": 2020,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "てにをは",
+    "intro": 0,
+    "chorus": 103,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "Qp3b-RXtz4w",
+    "title": "うっせぇわ",
+    "work": "J-POP（Ado）",
+    "artist": "Ado",
+    "year": 2020,
+    "type": "",
+    "confidence": "中",
+    "source": "Ado",
+    "intro": 0,
+    "chorus": 51,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "KYSrLAKicE0",
     "title": "えんとつ町のプペル",
     "work": "映画 えんとつ町のプペル",
@@ -18984,6 +22711,51 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "dHXC_ahjtEE",
+    "title": "グッバイ宣言",
+    "work": "ボカロ（Chinozo）",
+    "artist": "Chinozo",
+    "year": 2020,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Chinozo",
+    "intro": 0,
+    "chorus": 35,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "E1PGiyRjqkU",
+    "title": "ジャンキーナイトタウンオーケストラ",
+    "work": "ボカロ（すりぃ）",
+    "artist": "すりぃ",
+    "year": 2020,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "すりぃ",
+    "intro": 0,
+    "chorus": 53,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "POy0RvJeaqM",
+    "title": "シャンティ",
+    "work": "ボカロ（wotaku）",
+    "artist": "wotaku",
+    "year": 2020,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "wotaku",
+    "intro": 0,
+    "chorus": 120,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "MdfFVdFWl1U",
@@ -19055,6 +22827,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "weERytKD1Sc",
+    "title": "ドライフラワー",
+    "work": "J-POP（優里）",
+    "artist": "優里",
+    "year": 2020,
+    "type": "",
+    "confidence": "中",
+    "source": "優里 Official YouTube Channel",
+    "intro": 0,
+    "chorus": 37,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "mfrw2yHIwlA",
     "title": "ヒーリングっど♥プリキュア Touch!!",
     "work": "ヒーリングっど♥プリキュア",
@@ -19075,6 +22862,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "tCiIq8-rKrw",
+    "title": "ラストページ",
+    "work": "その他（THE SIXTH LIE）",
+    "artist": "THE SIXTH LIE",
+    "year": 2020,
+    "type": "オリジナル",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 38,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "jRLuWFPYGzc",
@@ -19188,6 +22990,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "UM9XNpgrqVk",
+    "title": "怪獣の花唄",
+    "work": "J-POP（Vaundy）",
+    "artist": "Vaundy",
+    "year": 2020,
+    "type": "",
+    "confidence": "中",
+    "source": "Vaundy",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "tOv4k7wmzoE",
     "title": "君は天然色",
     "work": "かくしごと",
@@ -19208,6 +23024,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "Y4nEEZwckuU",
+    "title": "群青",
+    "work": "J-POP（YOASOBI）",
+    "artist": "YOASOBI",
+    "year": 2020,
+    "type": "",
+    "confidence": "中",
+    "source": "YOASOBI、Echoes",
+    "intro": 0,
+    "chorus": 29,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "ErqUUYWfOBo",
@@ -19251,6 +23082,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "DC6JppqHkaM",
+    "title": "春を告げる",
+    "work": "J-POP（yama）",
+    "artist": "yama",
+    "year": 2020,
+    "type": "",
+    "confidence": "中",
+    "source": "yama",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "iqEr3P78fz8",
+    "title": "水平線",
+    "work": "J-POP（back number）",
+    "artist": "back number",
+    "year": 2020,
+    "type": "",
+    "confidence": "中",
+    "source": "back number",
+    "intro": 0,
+    "chorus": 72,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "pyDCubgU57g",
@@ -19338,6 +23199,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "1KgAear9rao",
+    "title": "猫",
+    "work": "J-POP（DISH//）",
+    "artist": "DISH//",
+    "year": 2020,
+    "type": "",
+    "confidence": "中",
+    "source": "DISH// official YouTube channel",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "l0Z6_6fi-HI",
@@ -20049,6 +23925,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "03K1vrdhxT8",
+    "title": "Tiny Stars",
+    "work": "ラブライブ!スーパースター!!",
+    "artist": "澁谷かのん(CV:伊達さゆり)・唐可可(CV:Liyuu)",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 77,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "R3V4sAXUJ-g",
     "title": "U",
     "work": "竜とそばかすの姫",
@@ -20115,6 +24006,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "mp2-w15SXms",
+    "title": "W/X/Y",
+    "work": "J-POP（Tani Yuuki）",
+    "artist": "Tani Yuuki",
+    "year": 2021,
+    "type": "",
+    "confidence": "低",
+    "intro": 0,
+    "chorus": 45,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "liPu1_aPH5k",
     "title": "What Could Have Been",
     "work": "Arcane",
@@ -20154,6 +24059,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "YsVmtXmpGEI",
+    "title": "アイノマテリアル",
+    "work": "ボカロ（Junky）",
+    "artist": "Junky",
+    "year": 2021,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Junky // Clover lab.",
+    "intro": 0,
+    "chorus": 89,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "j6N2DV3lclY",
     "title": "インパーフェクト",
     "work": "SSSS.DYNAZENON",
@@ -20173,6 +24093,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "e1xCOsgWG0M",
+    "title": "ヴァンパイア",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2021,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 63,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "a_RC7u-INwI",
@@ -20239,6 +24174,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "IVbY5edMfCA",
+    "title": "シンデレラボーイ",
+    "work": "J-POP（Saucy Dog）",
+    "artist": "Saucy Dog",
+    "year": 2021,
+    "type": "",
+    "confidence": "中",
+    "source": "Saucy Dog",
+    "intro": 0,
+    "chorus": 59,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "PCDzg5kdGPM",
     "title": "はるのとなり",
     "work": "ゆるキャン△ SEASON2",
@@ -20258,6 +24208,36 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "9QLT1Aw_45s",
+    "title": "フォニイ",
+    "work": "ボカロ（ツミキ）",
+    "artist": "ツミキ",
+    "year": 2021,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ツミキ / NOMELON NOLEMON",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "cbqvxDTLMps",
+    "title": "ベテルギウス",
+    "work": "J-POP（優里）",
+    "artist": "優里",
+    "year": 2021,
+    "type": "",
+    "confidence": "中",
+    "source": "優里 Official YouTube Channel",
+    "intro": 0,
+    "chorus": 58,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "vIo3GWaAbw8",
@@ -20459,6 +24439,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "nhOhFOoURnE",
+    "title": "三原色",
+    "work": "J-POP（YOASOBI）",
+    "artist": "YOASOBI",
+    "year": 2021,
+    "type": "",
+    "confidence": "中",
+    "source": "YOASOBI、Echoes",
+    "intro": 0,
+    "chorus": 89,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "tLQLa6lM3Us",
     "title": "残響散歌",
     "work": "鬼滅の刃 遊郭編",
@@ -20524,6 +24519,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "EHBFKhLUVig",
+    "title": "神っぽいな",
+    "work": "ボカロ（ピノキオピー）",
+    "artist": "ピノキオピー",
+    "year": 2021,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ピノキオピー PINOCCHIOP OFFICIAL CHANNEL",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "vB8sxY_PJ_w",
+    "title": "酔いどれ知らず",
+    "work": "ボカロ（Kanaria）",
+    "artist": "Kanaria",
+    "year": 2021,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Kanaria",
+    "intro": 0,
+    "chorus": 101,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "_Dss-RZ9L-Y",
@@ -20817,6 +24842,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "7HgJIAUtICU",
+    "title": "踊り子",
+    "work": "J-POP（Vaundy）",
+    "artist": "Vaundy",
+    "year": 2021,
+    "type": "",
+    "confidence": "中",
+    "source": "Vaundy",
+    "intro": 0,
+    "chorus": 106,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "hZ6TnKvB2rc",
     "title": "旅人の唄",
     "work": "無職転生 〜異世界行ったら本気だす〜",
@@ -20882,6 +24922,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "_qHONVvlyPU",
+    "title": "Ambitious World",
+    "work": "ウマ娘 プリティーダービー",
+    "artist": "ウマ娘",
+    "year": 2022,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 62,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "bGfqZi1e1jY",
@@ -21120,6 +25175,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "8OZDgBmehbA",
+    "title": "Habit",
+    "work": "J-POP（SEKAI NO OWARI）",
+    "artist": "SEKAI NO OWARI",
+    "year": 2022,
+    "type": "",
+    "confidence": "低",
+    "source": "SEKAI NO OWARI",
+    "intro": 0,
+    "chorus": 115,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "T9MLjIsfUOU",
     "title": "HIGHEST",
     "work": "陰の実力者になりたくて!",
@@ -21161,6 +25231,20 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "mZVgLZsRQsY",
+    "title": "I'm Still...",
+    "work": "ラブライブ!虹ヶ咲学園スクールアイドル同好会 2期",
+    "artist": "ミア・テイラー(CV:内田秀)",
+    "year": 2022,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
   },
   {
     "id": "M2cckDmNLMI",
@@ -21270,6 +25354,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "kagoEGKHZvU",
+    "title": "NIGHT DANCER",
+    "work": "J-POP（imase）",
+    "artist": "imase",
+    "year": 2022,
+    "type": "",
+    "confidence": "中",
+    "source": "imase",
+    "intro": 0,
+    "chorus": 72,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "9kPy5LT56v8",
     "title": "No Man's Dawn",
     "work": "オーバーロードIV",
@@ -21288,6 +25387,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "H08YWE4CIFQ",
+    "title": "Overdose",
+    "work": "J-POP（なとり）",
+    "artist": "なとり",
+    "year": 2022,
+    "type": "",
+    "confidence": "中",
+    "source": "なとり / natori",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "44cICMd3jW4",
+    "title": "Soranji",
+    "work": "J-POP（Mrs. GREEN APPLE）",
+    "artist": "Mrs. GREEN APPLE",
+    "year": 2022,
+    "type": "",
+    "confidence": "中",
+    "source": "Mrs. GREEN APPLE",
+    "intro": 0,
+    "chorus": 92,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "YOIJOJsUkUg",
@@ -21347,6 +25476,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "hN5MBlGv2Ac",
+    "title": "Subtitle",
+    "work": "J-POP（Official髭男dism）",
+    "artist": "Official髭男dism",
+    "year": 2022,
+    "type": "",
+    "confidence": "中",
+    "source": "Official髭男dism",
+    "intro": 0,
+    "chorus": 71,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "jwS1gd3HiGE",
@@ -21413,6 +25557,20 @@
     "introMethod": "v2"
   },
   {
+    "id": "aogImr2yxt8",
+    "title": "Toy Doll",
+    "work": "ラブライブ!虹ヶ咲学園スクールアイドル同好会 2期",
+    "artist": "ミア・テイラー(CV:内田秀)",
+    "year": 2022,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
     "id": "6lnS-8FVod4",
     "title": "Universe",
     "work": "映画ドラえもん のび太の宇宙小戦争 2021",
@@ -21473,6 +25631,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "M9moY0hEJRE",
+    "title": "アイデンティティ",
+    "work": "ボカロ（Kanaria）",
+    "artist": "Kanaria",
+    "year": 2022,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "Kanaria",
+    "intro": 0,
+    "chorus": 28,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "stb-BpPpJ7U",
@@ -21667,6 +25840,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "-H2PCK7DJsQ",
+    "title": "サラマンダー",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2022,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 121,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "FEn8A5uxK24",
     "title": "スカー",
     "work": "BLEACH 千年血戦篇",
@@ -21713,6 +25901,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "x2rvSf0STBM",
+    "title": "ダンスホール",
+    "work": "J-POP（Mrs. GREEN APPLE）",
+    "artist": "Mrs. GREEN APPLE",
+    "year": 2022,
+    "type": "",
+    "confidence": "中",
+    "source": "Mrs. GREEN APPLE",
+    "intro": 0,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "XicdpSmxuT0",
     "title": "チキチキバンバン",
     "work": "パリピ孔明",
@@ -21753,6 +25956,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "5XehRIb81k8",
+    "title": "ド屑",
+    "work": "ボカロ（なきそ）",
+    "artist": "なきそ",
+    "year": 2022,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "なきそ",
+    "intro": 0,
+    "chorus": 25,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "3ijkvUYwJhU",
@@ -22080,6 +26298,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "K4xLi8IF1FM",
+    "title": "可愛くてごめん",
+    "work": "J-POP（HoneyWorks feat.かぴ）",
+    "artist": "HoneyWorks feat.かぴ",
+    "year": 2022,
+    "type": "",
+    "confidence": "中",
+    "source": "HoneyWorks OFFICIAL",
+    "intro": 0,
+    "chorus": 42,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "WIKKyrGGaDk",
     "title": "花の塔",
     "work": "リコリス・リコイル",
@@ -22167,6 +26400,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "SaX0By61S3U",
+    "title": "月光",
+    "work": "ボカロ（はるまきごはん）",
+    "artist": "はるまきごはん",
+    "year": 2022,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "はるまきごはん / Harumaki Gohan Official",
+    "intro": 0,
+    "chorus": 122,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "8pGN2YEMXHo",
@@ -22609,6 +26857,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "Q0WO7O_xl4I",
+    "title": "Exercise the Right",
+    "work": "ウマ娘 プリティーダービー",
+    "artist": "キングヘイロー(CV:佐伯伊織)",
+    "year": 2023,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 56,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "asNbGXxlNGc",
     "title": "Friends Are For",
     "work": "七つの大罪 黙示録の四騎士",
@@ -22730,6 +26993,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "Gp7RYVemVT8",
+    "title": "Infinity Rage",
+    "work": "その他（La prière）",
+    "artist": "La prière",
+    "year": 2023,
+    "type": "オリジナル",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 76,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "GuAcdIqcanA",
@@ -23313,6 +27591,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "Jy-QS27q7lA",
+    "title": "ケセラセラ",
+    "work": "J-POP（Mrs. GREEN APPLE）",
+    "artist": "Mrs. GREEN APPLE",
+    "year": 2023,
+    "type": "",
+    "confidence": "中",
+    "source": "Mrs. GREEN APPLE",
+    "intro": 0,
+    "chorus": 22,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "vZUyKVE9dus",
     "title": "コイコガレ",
     "work": "鬼滅の刃 刀鍛冶の里編",
@@ -23333,6 +27626,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "q90SFMi8aUg",
+    "title": "ザムザ",
+    "work": "ボカロ（てにをは）",
+    "artist": "てにをは",
+    "year": 2023,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "てにをは",
+    "intro": 0,
+    "chorus": 116,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "RUY9dMkpBAI",
@@ -23398,6 +27706,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "lMEt3RdqB9Y",
+    "title": "デビルじゃないもん",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27×ピノキオピー",
+    "year": 2023,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27、ピノキオピー PINOCCHIOP OFFICIAL CHANNEL",
+    "intro": 0,
+    "chorus": 121,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "d66nA8nRUZc",
@@ -23576,6 +27899,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "eSW2LVbPThw",
+    "title": "ラビットホール",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2023,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 41,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "81H41vp96ag",
     "title": "ワスレガタキ",
     "work": "Dr.STONE NEW WORLD",
@@ -23620,6 +27958,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "ixLrlhthgHs",
+    "title": "花に風",
+    "work": "ボカロ（バルーン）",
+    "artist": "バルーン",
+    "year": 2023,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "須田景凪 バルーン",
+    "intro": 0,
+    "chorus": 115,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "vuYs-1hVXlY",
     "title": "軌跡",
     "work": "文豪ストレイドッグス 第5シーズン",
@@ -23640,6 +27993,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "D6DVTLvOupE",
+    "title": "強風オールバック",
+    "work": "ボカロ（ゆこぴ）",
+    "artist": "ゆこぴ",
+    "year": 2023,
+    "type": "ボカロ",
+    "confidence": "低",
+    "source": "Yukopi",
+    "intro": 0,
+    "chorus": 56,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "OdfFUJUzNTY",
@@ -23822,6 +28190,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "pgXpM4l_MwI",
+    "title": "唱",
+    "work": "J-POP（Ado）",
+    "artist": "Ado",
+    "year": 2023,
+    "type": "",
+    "confidence": "中",
+    "source": "Ado",
+    "intro": 0,
+    "chorus": 67,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "ql9o0oo4OBc",
     "title": "数センチメンタル",
     "work": "僕の心のヤバイやつ",
@@ -23931,6 +28314,51 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "yiqEEL7ac6M",
+    "title": "匿名M",
+    "work": "ボカロ（ピノキオピー）",
+    "artist": "ピノキオピー",
+    "year": 2023,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "ピノキオピー PINOCCHIOP OFFICIAL CHANNEL",
+    "intro": 0,
+    "chorus": 22,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "I-dau-DJS18",
+    "title": "白命",
+    "work": "その他（Es）",
+    "artist": "Es",
+    "year": 2023,
+    "type": "オリジナル",
+    "confidence": "中",
+    "source": "Es公式",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "oZpYEEcvu5I",
+    "title": "晩餐歌",
+    "work": "J-POP（tuki.）",
+    "artist": "tuki.",
+    "year": 2023,
+    "type": "",
+    "confidence": "中",
+    "source": "tuki.(17)",
+    "intro": 0,
+    "chorus": 48,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "w-Gvclnnfpc",
@@ -24800,6 +29228,21 @@
     "checkedOrigin": "localhost:3000"
   },
   {
+    "id": "UxwHkqkzm0o",
+    "title": "Summering",
+    "work": "ボカロ（じん）",
+    "artist": "じん",
+    "year": 2024,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "じん OFFICIAL YOUTUBE CHANNEL",
+    "intro": 0,
+    "chorus": 130,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "s8SSPUQvUzI",
     "title": "TAIDADA",
     "work": "ダンダダン",
@@ -25389,6 +29832,36 @@
     "introMethod": "v2"
   },
   {
+    "id": "19y8YTbvri8",
+    "title": "メズマライザー",
+    "work": "ボカロ（サツキ）",
+    "artist": "サツキ",
+    "year": 2024,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "サツキ",
+    "intro": 0,
+    "chorus": 122,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "kbNdx0yqbZE",
+    "title": "モニタリング",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2024,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 40,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "Bcy8yp6iYGI",
     "title": "ライラック",
     "work": "忘却バッテリー",
@@ -25542,6 +30015,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "jaSJ4t2ITW8",
+    "title": "化けの花",
+    "work": "ボカロ（なきそ）",
+    "artist": "なきそ",
+    "year": 2024,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "なきそ",
+    "intro": 0,
+    "chorus": 87,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "eZAocot63s8",
     "title": "怪獣",
     "work": "チ。 ―地球の運動について―",
@@ -25647,6 +30135,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "O0knOzGvZng",
+    "title": "心身無双の剣になれ",
+    "work": "魔都精兵のスレイブ",
+    "artist": "羽前京香(CV:鬼頭明里)",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 40,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "iqsnJJK8GA4",
@@ -25781,6 +30284,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "8L5cQlXMpeY",
+    "title": "僕は...",
+    "work": "僕の心のヤバイやつ 第2期",
+    "artist": "あたらよ",
+    "year": 2024,
+    "type": "OP",
+    "confidence": "高",
+    "source": "あたらよ公式",
+    "intro": 0,
+    "chorus": 64,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "Bj0QisxV0RA",
@@ -26044,6 +30562,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "kEMLqgcxrM0",
+    "title": "BLUE BACK",
+    "work": "ボカロ（じん）",
+    "artist": "じん",
+    "year": 2025,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "じん OFFICIAL YOUTUBE CHANNEL",
+    "intro": 0,
+    "chorus": 123,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "H3SUAiwfyp0",
@@ -26914,6 +31447,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "3iUgKH8c7p4",
+    "title": "いますぐ輪廻",
+    "work": "ボカロ（なきそ）",
+    "artist": "なきそ",
+    "year": 2025,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "なきそ",
+    "intro": 0,
+    "chorus": 98,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "QQ94onekjWE",
     "title": "ウォーアイニー",
     "work": "らんま1/2 第2期",
@@ -27235,6 +31783,36 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "BI9Ue6JwJic",
+    "title": "チェリーポップ",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2025,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 104,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "c56TpxfO9q0",
+    "title": "テレパシ",
+    "work": "ボカロ（DECO*27）",
+    "artist": "DECO*27",
+    "year": 2025,
+    "type": "ボカロ",
+    "confidence": "中",
+    "source": "DECO*27",
+    "intro": 0,
+    "chorus": 41,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "LxUeFYhLE0U",

@@ -308,7 +308,7 @@ socket.on('question', q => {
   question = q; myAnswer = null; answering = false;
   stopTick();
   $('timer').textContent = ''; $('barFill').style.width = '0';
-  clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer);
+  clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer); fadingOut = false;
   $('barMark').style.left = (q.settings.hintAt / (q.settings.hintAt + q.settings.chorusLen) * 100) + '%';
   $('qno').innerHTML = `第 ${q.qNo} / ${q.qTotal} 問` + (q.kind === 'sabimae' ? '（サビ前問題）' : '')
     + (q.final ? ' <b class="final">最終問題・得点2倍</b>' : '');
@@ -512,7 +512,7 @@ socket.on('reveal', r => {
   $('highlights').innerHTML = (r.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');
   // 自動で次へ進むまでのカウント（ホストは「次へ」で早送りできる）
   clearInterval(nextTick); $('nextCount').textContent = ''; listenBy = '';
-  $('listenBtn').hidden = !(r.autoNext > 0); $('listenBtn').disabled = false;
+  $('listenBtn').hidden = !(r.autoNext > 0); $('listenBtn').disabled = false; $('listenBtn').textContent = '♪ サビを聞く（10秒）';
   if (r.autoNext > 0) startNextCount(r.autoNext, r.last);
   // 選択肢を見せたまま結果を下に出す
   $('quiz').hidden = false; $('result').hidden = false;
@@ -556,19 +556,29 @@ socket.on('notice', msg => toast(msg));
 function stopTick() { clearInterval(tick); tick = null; }
 let nextTick = null; // 答え合わせ後の自動で次へのカウント
 let nextUntil = 0, nextIsLast = false, listenBy = '';
+const FADE_BEFORE_NEXT_MS = 1500;
+let fadingOut = false;
 function startNextCount(seconds, last = nextIsLast) {
+  if (fadingOut) { fadingOut = false; player.fadeBack(); } // 「サビを聞く」で延びたら音量を戻す
   nextUntil = performance.now() + seconds * 1000; nextIsLast = last;
   clearInterval(nextTick);
   const draw = () => {
     const s = Math.ceil((nextUntil - performance.now()) / 1000);
     $('nextCount').textContent = s > 0 ? `${listenBy ? `${listenBy}さんがサビを聞いています・` : ''}${s}秒後に${nextIsLast ? '結果発表' : '次の問題'}へ` : '';
+    // 次へ進む少し前からサビをフェードアウト
+    if (!fadingOut && nextUntil - performance.now() <= FADE_BEFORE_NEXT_MS) { fadingOut = true; player.fadeOut(FADE_BEFORE_NEXT_MS); }
     if (s <= 0) clearInterval(nextTick);
   };
   draw(); nextTick = setInterval(draw, 250);
 }
 // だれかが「サビを聞く」を押した：次へ進むまでの時間が延びる
 socket.on('nextAt', ({ seconds, by }) => { listenBy = by; startNextCount(seconds); });
-$('listenBtn').onclick = () => { socket.emit('listen'); $('listenBtn').disabled = true; setTimeout(() => { $('listenBtn').disabled = false; }, 3000); };
+$('listenBtn').onclick = () => { socket.emit('listen'); $('listenBtn').disabled = true; };
+// 押した後は「もっと聞く」に変わる。回数を使い切ったら押せない
+socket.on('listenLeft', left => {
+  $('listenBtn').textContent = left > 0 ? `♪ ＋10秒 もっと聞く（あと${left}回）` : '♪ もう延ばせません';
+  if (left > 0) setTimeout(() => { $('listenBtn').disabled = false; }, 1000);
+});
 
 let toastTimer = null;
 function toast(msg) {

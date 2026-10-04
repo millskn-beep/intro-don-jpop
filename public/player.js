@@ -40,6 +40,9 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     load(videoId, intro) {
       clear();
       run(() => {
+        // 前の曲が鳴っていたら、ぷつっと切らずに短くフェードアウトしてから次の曲を読み込む
+        const playing = yt.getPlayerState() === YT.PlayerState.PLAYING && !yt.isMuted() && yt.getVolume() > 0;
+        if (playing) { fade(yt.getVolume(), 0, 400, () => this.load(videoId, intro)); return; }
         yt.mute();
         yt.loadVideoById({ videoId, startSeconds: intro });
         let notified = false;
@@ -89,6 +92,9 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
       });
     },
     stop() { clear(); run(() => yt.stopVideo()); },
+    // 答え合わせの終わりに、サビをフェードアウトする／延長されたら戻す
+    fadeOut(ms = 1500) { run(() => fade(yt.getVolume(), 0, ms)); },
+    fadeBack() { run(() => fade(yt.getVolume(), volume, 500)); },
     duration() { return apiReady && yt.getDuration ? yt.getDuration() : 0; },
     setVolume(v) { volume = v; run(() => yt.setVolume(v)); },
     // スマホ（特にiPhone）は、タップの処理の中で一度再生しておかないと、後から音が出ないことがある。

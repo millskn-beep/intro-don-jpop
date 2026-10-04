@@ -741,17 +741,18 @@ io.on('connection', socket => {
   // リアクションスタンプ（部屋の全員に表示。連打は1秒に1回まで）
   const REACTIONS = ['神曲', '知らん', '懐かしい', '惜しい', '草', '天才'];
   let lastReact = 0;
-  // 答え合わせで「サビを聞く」：自動で次へ進むのを、押した時点から LISTEN_SEC 秒まで待つ
+  // 答え合わせで「サビを聞く」：押すたびに、次へ進むまでの時間を LISTEN_SEC 秒ずつ延ばす
   socket.on('listen', () => {
     const q = room?.game?.q;
     if (!q || !player || room.state !== 'playing' || q.phase !== 'reveal' || !q.nextAt) return;
     q.listens = q.listens || new Map();
     const n = q.listens.get(player.token) || 0;
-    if (n >= LISTEN_PER_PLAYER) return socket.emit('notice', 'サビを聞くのは1問2回までです');
+    if (n >= LISTEN_PER_PLAYER) { socket.emit('listenLeft', 0); return socket.emit('notice', 'サビを聞くのは1問2回までです'); }
     const limit = q.revealAt + (room.settings.autoNext + LISTEN_MAX_EXTRA) * 1000;
-    const at = Math.min(limit, Math.max(q.nextAt, Date.now() + LISTEN_SEC * 1000));
-    if (at <= q.nextAt) return socket.emit('notice', 'これ以上は延ばせません');
+    const at = Math.min(limit, Math.max(q.nextAt, Date.now()) + LISTEN_SEC * 1000);
+    if (at <= q.nextAt) { socket.emit('listenLeft', 0); return socket.emit('notice', 'これ以上は延ばせません'); }
     q.listens.set(player.token, n + 1);
+    socket.emit('listenLeft', LISTEN_PER_PLAYER - n - 1);
     scheduleNext(room, q, at);
     io.to(room.code).emit('nextAt', { seconds: (at - Date.now()) / 1000, by: player.name });
   });

@@ -323,6 +323,19 @@ const needsMeasure = s => s.embeddable !== false && s.introMethod !== 'v2' && (s
 $('measureStop').onclick = () => { stopMeasure = true; };
 $('measureAll').onclick = async () => {
   if (!ready || measuring || checking) return;
+  // 始める前にサーバーの songs.json を読み直し、ほかの画面・前回までに計測済みの曲は測り直さない
+  try {
+    const fresh = await (await fetch('/api/songs')).json();
+    const byId = new Map(fresh.songs.map(s => [s.id, s]));
+    for (const s of songs) {
+      const f = byId.get(s.id);
+      if (!f || dirtyIds.has(s.id) || f.introMethod !== 'v2') continue;
+      for (const k of ['intro', 'introMeasured', 'introMethod', 'introUnsure']) { if (k in f) s[k] = f[k]; else delete s[k]; }
+    }
+    // 画面を開いた後に追加された曲も計測の対象にする
+    const have = new Set(songs.map(s => s.id));
+    for (const f of fresh.songs) if (!have.has(f.id)) songs.push(f);
+  } catch (e) { toast('最新の曲データを読めませんでした（画面の内容で計測します）'); }
   const targets = songs.filter(needsMeasure);
   if (!targets.length) { toast('計測が必要な曲はありません'); return; }
   let stream;

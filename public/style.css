@@ -373,7 +373,8 @@ details.more .settings { margin-top: 6px; }
                        background: var(--glass); border: 1px solid var(--line-strong); font-size: 12px; }
 .genre-ex-list label:has(input:checked) { border-color: var(--ng); color: var(--ng); text-decoration: line-through; }
 .genre-ex-list small { color: var(--sub); font-size: 10px; text-decoration: none; }
-.genre-ex-list input { margin: 0; accent-color: var(--ng); }
+.genre-ex-list input { width: auto; height: auto; flex: none; margin: 0; padding: 0; box-shadow: none; accent-color: var(--ng); }
+.genre-ex-list label { white-space: nowrap; font-size: 12px; color: var(--text); letter-spacing: 0; }
 .exclude { margin: 8px 0; font-size: 13px; }
 .exclude summary { cursor: pointer; color: var(--sub); }
 .exclude textarea { width: 100%; margin-top: 6px; padding: 8px; border-radius: 10px; font: inherit; font-size: 12px; resize: vertical;

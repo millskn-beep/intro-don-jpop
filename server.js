@@ -108,7 +108,7 @@ app.post('/api/songs', (req, res) => {
   if (!valid) return res.status(400).json({ error: '曲データの形式が正しくありません' });
 
   // 画面で編集する項目だけを曲IDごとに上書きする（画面を開いた後にCSVから取り込んだ曲を消さないため）
-  const EDITABLE = ['intro', 'chorus', 'aliases', 'embeddable', 'error', 'checkedAt', 'checkedOrigin', 'introMeasured', 'chorusSource', 'introMethod', 'introUnsure'];
+  const EDITABLE = ['intro', 'chorus', 'aliases', 'embeddable', 'error', 'checkedAt', 'checkedOrigin', 'introMeasured', 'chorusSource', 'chorusChecked', 'introMethod', 'introUnsure'];
   loadSongs();
   const byId = new Map(ALL_SONGS.map(s => [s.id, s]));
   let changed = 0;
@@ -334,6 +334,7 @@ function startGame(room) {
   // 曲オブジェクトそのものを持つ（ゲーム中に曲データが保存し直されても影響しないように）
   const order = shuffle([...fresh]).slice(0, n);
   order.forEach(s => { room.played.delete(s.id); room.played.add(s.id); }); // 新しく出た曲ほど後ろ（戻すのは古い順）
+  room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map() }; // stats: token -> 称号用の成績
   nextQuestion(room);
   return true;
@@ -450,7 +451,8 @@ const INTRO_GAP = 1; // 流し直す前の間（秒）
 const introPlaysOf = (S, kind) => (kind === 'sabimae' ? 1 : (S.introPlays || 1));
 function hintAtOf(S, kind) {
   const n = introPlaysOf(S, kind);
-  return n <= 1 ? S.hintAt : Math.max(S.hintAt, n * (S.introLen + INTRO_GAP));
+  // 最後のイントロのあとは 1.5 秒あけてからサビへ
+  return n <= 1 ? S.hintAt : Math.max(S.hintAt, n * S.introLen + (n - 1) * INTRO_GAP + 1.5);
 }
 
 function chorusOf(song) { return song.chorus > 0 ? song.chorus : (song.intro || 0) + 50; }
@@ -743,6 +745,7 @@ function abortGame(room) {
   const g = room.game;
   if (room.state !== 'playing' || !g) return;
   clearTimers(room);
+  saveHistory(room);
   g.order.slice(g.qi + 1).forEach(s => room.played.delete(s.id));
   g.q = null; g.paused = null;
   room.state = 'lobby';
@@ -756,14 +759,24 @@ function playedLog(room) {
   return g.order.slice(0, g.qi + 1).map(s => ({ id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type }));
 }
 
+// ゲームが終わったら（途中でやめたときも）、出た曲をこの部屋の履歴に残す
+function saveHistory(room) {
+  if (!room.game || room.game.saved) return;
+  room.game.saved = true;
+  room.history = room.history || [];
+  room.history.push(...playedLog(room).map(s => ({ ...s, game: room.gameNo || 1 })));
+  if (room.history.length > 3000) room.history = room.history.slice(-3000);
+}
+
 function endGame(room) {
+  saveHistory(room);
   clearTimers(room);
   room.state = 'over';
   room.game.q = null;
   const ranking = [...room.players.values()]
     .map(p => ({ id: p.id, name: p.name, avatar: p.avatar, score: p.score }))
     .sort((a, b) => b.score - a.score);
-  io.to(room.code).emit('gameover', { ranking, titles: titlesOf(room), log: playedLog(room) });
+  io.to(room.code).emit('gameover', { ranking, titles: titlesOf(room), log: playedLog(room), roomLog: room.history });
   broadcastRoom(room);
 }
 

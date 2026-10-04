@@ -253,6 +253,23 @@ function playLogText(list = playLog, title = '出題曲') {
   const ids = list.filter(s => s?.id).map(s => s.id).join('');
   return [head, ...lines, ...(ids ? [`除外コード（新しい部屋に貼ると、この曲を出題しません）：AQX1:${ids}`] : [])].join('\n');
 }
+// この部屋で遊んだ全ゲームの曲（ゲームごとに区切る）
+let roomLog = [];
+function roomLogText() {
+  const d = new Date();
+  const out = [`アニソンイントロ対戦 ${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()} この部屋で出題した曲（全${roomLog.length}曲）`];
+  let game = null, i = 0;
+  for (const s of roomLog) {
+    if (s.game !== game) { game = s.game; i = 0; out.push(`■ ${game}ゲーム目`); }
+    out.push(`${++i}. ${s.title} ／ ${s.work}${s.type ? `（${s.type}）` : ''} ／ ${s.artist}${s.year ? `（${s.year}）` : ''}`);
+  }
+  out.push(`除外コード（新しい部屋に貼ると、この曲を出題しません）：AQX1:${roomLog.map(s => s.id).join('')}`);
+  return out.join('\n');
+}
+$('roomLogBtn').onclick = async () => {
+  if (!roomLog.length) return toast('まだ出題した曲がありません');
+  toast(await copyText(roomLogText()) ? `この部屋の${roomLog.length}曲をコピーしました` : 'コピーできませんでした');
+};
 async function copyText(text) {
   try { await navigator.clipboard.writeText(text); return true; } catch {}
   const ta = Object.assign(document.createElement('textarea'), { value: text }); // 古いブラウザ・http 用
@@ -680,8 +697,9 @@ socket.on('react', ({ id, name, kind }) => {
   setTimeout(() => el.remove(), 2600);
 });
 
-socket.on('gameover', ({ ranking, titles = [], log }) => {
+socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl }) => {
   if (Array.isArray(log)) playLog = log;
+  if (Array.isArray(rl)) roomLog = rl;
   $('qno').textContent = ''; $('timer').textContent = ''; $('barFill').style.width = '0';
   $('titles').innerHTML = titles.map(x => `<li>${avatarImg(x.avatar)}<div><b>${esc(x.title)}</b><span>${esc(x.name)}</span><small>${esc(x.why)}</small></div></li>`).join('');
   document.body.classList.remove('revealing', 'playing');

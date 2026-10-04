@@ -2,6 +2,7 @@
 // サーバーからの合図（question / go / stopIntro / hint / reveal）に合わせて呼び出す。
 
 const VOL_DEFAULT = 80, FADE_OUT = 800, FADE_IN = 1000;
+const HINT_WAIT = 1500; // イントロ→サビの間の待ち
 
 export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
   let yt = null, apiReady = false, pending = [];
@@ -67,7 +68,8 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     hint(chorus) {
       run(() => {
         const go = () => { yt.seekTo(chorus, true); yt.unMute(); yt.playVideo(); fade(0, volume, FADE_IN); };
-        if (yt.getPlayerState() === YT.PlayerState.PLAYING) fade(volume, 0, FADE_OUT, go); else go();
+        // イントロが鳴っていたら、フェードアウトして HINT_WAIT ミリ秒待ってからサビへ（いきなり切り替わらないように）
+        if (yt.getPlayerState() === YT.PlayerState.PLAYING) fade(volume, 0, FADE_OUT, () => later(go, HINT_WAIT)); else go();
       });
     },
     // 答え合わせ：頭出しせず、流れている映像をそのまま流し続ける（ノンストップ）。

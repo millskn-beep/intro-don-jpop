@@ -96,6 +96,9 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
       });
     },
     stop() { clear(); run(() => yt.stopVideo()); },
+    // 一時停止（ホストが設定を変えている間）／再開
+    pause() { run(() => { this.wasPlaying = yt.getPlayerState() === YT.PlayerState.PLAYING; yt.pauseVideo(); }); },
+    resume() { run(() => { if (this.wasPlaying) yt.playVideo(); }); },
     // 答え合わせの終わりに、サビをフェードアウトする／延長されたら戻す
     fadeOut(ms = 1500) { run(() => fade(yt.getVolume(), 0, ms)); },
     fadeBack() { run(() => fade(yt.getVolume(), volume, 500)); },

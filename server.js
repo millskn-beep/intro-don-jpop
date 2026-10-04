@@ -29,7 +29,10 @@ const GENRE_KEYS = Object.keys(GENRES);
 const genresOf = song => GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => String(song.work).includes(w)));
 const inTopic = (song, S) => {
   const topic = S.topic || 'all';
-  if (topic === 'all') return true;
+  if (topic === 'all') { // 「全部」のときだけ、除外にチェックしたジャンルの曲を外す（お題で選んだときはそのまま）
+    const ex = S.excludeGenres || [];
+    return !ex.length || !genresOf(song).some(k => ex.includes(k));
+  }
   if (topic === 'series') return SERIES_OF.get(song.id) === S.series;
   return GENRES[topic] ? genresOf(song).includes(topic) : true;
 };
@@ -147,7 +150,9 @@ const OPTIONS = {
 const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（public/assets/glass/avatar-1〜12）
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
-                   quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all' }; // ライフラインは使わない（画面からも外した）
+                   quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all' };
+// 新しい部屋で最初から除外しておくジャンル（アニソン以外）
+const DEFAULT_EXCLUDE = ['vocaloid', 'jpop']; // ライフラインは使わない（画面からも外した）
 const LIFELINES = ['fifty', 'audience', 'phone', 'replay']; // 50:50 / オーディエンス / テレフォン / もう一度聴く
 const NEAR_YEARS = 5; // 選択肢は、まず出題曲の前後この年数以内の曲から選ぶ
 const READY_TIMEOUT = 4000;      // 全員の読み込みを待つ上限
@@ -205,7 +210,7 @@ function createRoom({ roomName, password } = {}) {
     salt,
     passwordHash: pw ? hashPassword(salt, pw) : null,
     hostId: null,
-    settings: { ...DEFAULTS },
+    settings: { ...DEFAULTS, excludeGenres: DEFAULT_EXCLUDE.filter(k => GENRES[k]) },
     players: new Map(), // token -> player
     state: 'lobby',     // lobby | playing | over
     game: null,
@@ -252,6 +257,7 @@ function publicRoom(room) {
     settings: room.settings,
     poolSize: poolFor(room.settings).length,
     excluded: room.played?.size || 0,
+    paused: !!room.game?.paused,
     state: room.state,
     phase: q?.phase || null,
     qNo: room.game ? room.game.qi + 1 : 0,
@@ -283,10 +289,17 @@ function ensureHost(room) {
 
 // ── 進行 ──
 function clearTimers(room) {
-  room.game?.timers.forEach(clearTimeout);
+  room.game?.timers.forEach(t => clearTimeout(t.h));
   if (room.game) room.game.timers = [];
 }
-const later = (room, fn, ms) => room.game.timers.push(setTimeout(fn, ms));
+// 進行のタイマー。一時停止できるよう、いつ何を呼ぶかを覚えておく
+function addTimer(room, fn, ms) {
+  const t = { fn, due: Date.now() + ms, done: false };
+  t.h = setTimeout(() => { t.done = true; fn(); }, ms);
+  room.game.timers.push(t);
+  return t;
+}
+const later = (room, fn, ms) => addTimer(room, fn, ms);
 const laterAt = later;
 const LEAD_MS = 1000; // 選択肢が出てから曲が流れるまでの待ち
 
@@ -442,6 +455,7 @@ function go(room) {
   q.phase = 'intro';
   // 選択肢を見てから1秒後に曲が流れ始める。時間・得点の計算もそこから
   q.t0 = Date.now() + LEAD_MS;
+  q.total = questionTotal(S); // 途中で設定が変わっても、この問題の得点計算は始めた時の設定で
   const sabimae = q.kind === 'sabimae';
   io.to(room.code).emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt: S.hintAt, total: questionTotal(S), offset: -LEAD_MS / 1000 });
   const later = (r, fn, ms) => laterAt(r, fn, ms + LEAD_MS);
@@ -467,7 +481,7 @@ function go(room) {
 // payload は { index }（選択肢）/ { text }（入力）/ { pass: true }（わからない）
 function onAnswer(room, player, payload) {
   const q = room.game?.q;
-  if (!q || (q.phase !== 'intro' && q.phase !== 'chorus')) return;
+  if (!q || (q.phase !== 'intro' && q.phase !== 'chorus') || room.game.paused) return;
   if (!q.participants.has(player.token) || q.answers.has(player.token)) return;
 
   const S = room.settings;
@@ -503,7 +517,7 @@ function onAnswer(room, player, payload) {
   if (correct) {
     if (S.mode === 'score') {
       // 早いほど高い（500〜1000点）。サビ（ヒント）が流れてからの正解は ×0.7
-      const base = Math.round(500 + 500 * Math.max(0, 1 - elapsed / questionTotal(S)));
+      const base = Math.round(500 + 500 * Math.max(0, 1 - elapsed / (q.total || questionTotal(S))));
       points = hint ? Math.round(base * 0.7) : base;
       // 連続正解ボーナス：2連続 ×1.2、3連続以上 ×1.5
       if (S.bonus) points = Math.round(points * (player.streak >= 3 ? 1.5 : player.streak === 2 ? 1.2 : 1));
@@ -631,10 +645,9 @@ function titlesOf(room) {
 
 // 答え合わせから次の問題へ進む時刻を決める（「サビを聞く」で延ばせる）
 function scheduleNext(room, q, at) {
-  clearTimeout(q.nextTimer);
+  if (q.nextTimer) clearTimeout(q.nextTimer.h);
   q.nextAt = at;
-  q.nextTimer = setTimeout(() => { if (room.game?.q === q && q.phase === 'reveal') nextQuestion(room); }, Math.max(0, at - Date.now()));
-  room.game.timers.push(q.nextTimer);
+  q.nextTimer = addTimer(room, () => { if (room.game?.q === q && q.phase === 'reveal') nextQuestion(room); }, Math.max(0, at - Date.now()));
 }
 const LISTEN_SEC = 10;        // 「サビを聞く」で、押した時点から最低この秒数は次へ進まない
 const LISTEN_PER_PLAYER = 2;  // 1問で1人が押せる回数
@@ -663,6 +676,60 @@ function highlightsOf(room, results) {
 function skipQuestion(room, reason) {
   io.to(room.code).emit('notice', reason);
   nextQuestion(room);
+}
+
+// ── 一時停止（ホストが「設定を変える」）。変えた設定は次の問題から ──
+const poolKey = S => JSON.stringify([S.topic, S.series, S.yearFrom, S.yearTo, S.excludeGenres, S.quizType]);
+function pauseGame(room) {
+  const g = room.game, q = g?.q;
+  if (room.state !== 'playing' || !g || g.paused || !q) return false;
+  if (q.phase === 'loading' || (q.t0 && Date.now() < q.t0)) return false; // 曲が流れ始める直前は止めない
+  g.paused = { at: Date.now(), poolKey: poolKey(room.settings), questions: room.settings.questions };
+  for (const t of g.timers) if (!t.done) { clearTimeout(t.h); t.left = Math.max(0, t.due - Date.now()); }
+  io.to(room.code).emit('paused');
+  broadcastRoom(room);
+  return true;
+}
+function resumeGame(room) {
+  const g = room.game;
+  if (!g?.paused) return;
+  const d = Date.now() - g.paused.at, q = g.q;
+  if (q) { if (q.t0) q.t0 += d; if (q.nextAt) q.nextAt += d; if (q.revealAt) q.revealAt += d; }
+  const old = g.timers; g.timers = [];
+  for (const t of old) {
+    if (t.done) continue;
+    const n = addTimer(room, t.fn, t.left);
+    if (q?.nextTimer === t) q.nextTimer = n;
+  }
+  // お題・年代・問題数が変わったら、残りの問題を入れ替える（今の問題はそのまま）
+  const S = room.settings, poolChanged = poolKey(S) !== g.paused.poolKey;
+  if (poolChanged || S.questions !== g.paused.questions) {
+    const done = g.order.slice(0, g.qi + 1), rest = g.order.slice(g.qi + 1);
+    const pool = poolChanged ? poolFor(S) : g.pool;
+    if (pool.length) g.pool = pool;
+    const need = Math.max(0, S.questions - done.length);
+    const keep = poolChanged ? [] : rest.filter(s => g.pool.includes(s));
+    const fresh = shuffle(g.pool.filter(s => !done.includes(s) && !keep.includes(s) && !room.played.has(s.id)));
+    const reuse = shuffle(g.pool.filter(s => !done.includes(s) && !keep.includes(s) && room.played.has(s.id)));
+    const next = [...keep, ...fresh, ...reuse].slice(0, need);
+    rest.forEach(s => { if (!next.includes(s)) room.played.delete(s.id); }); // 出さなくなった曲は除外の記録から外す
+    next.forEach(s => { room.played.delete(s.id); room.played.add(s.id); });
+    g.order = [...done, ...next];
+  }
+  g.paused = null;
+  io.to(room.code).emit('resumed', { ms: d, qTotal: g.order.length });
+  broadcastRoom(room);
+}
+// ホストが「ルームに戻る」：ゲームを途中でやめる。まだ出ていない曲は除外の記録から外す
+function abortGame(room) {
+  const g = room.game;
+  if (room.state !== 'playing' || !g) return;
+  clearTimers(room);
+  g.order.slice(g.qi + 1).forEach(s => room.played.delete(s.id));
+  g.q = null; g.paused = null;
+  room.state = 'lobby';
+  io.to(room.code).emit('aborted');
+  broadcastRoom(room);
 }
 
 function endGame(room) {
@@ -729,7 +796,7 @@ io.on('connection', socket => {
   const isHost = () => room && player && room.hostId === player.id;
 
   socket.on('settings', input => {
-    if (!isHost() || room.state === 'playing') return;
+    if (!isHost() || (room.state === 'playing' && !room.game?.paused)) return;
     room.settings = sanitizeSettings(input, room.settings);
     broadcastRoom(room);
   });
@@ -744,6 +811,12 @@ io.on('connection', socket => {
       if (typeof id === 'string' && known.has(id) && !room.played.has(id)) { room.played.add(id); added++; }
     }
     socket.emit('notice', `${added}曲を出題から外しました（除外中 ${room.played.size}曲）`);
+    broadcastRoom(room);
+  });
+  // 除外するジャンル（チェック式）：参加者だれでも変えられる
+  socket.on('excludeGenres', list => {
+    if (!room || !player || (room.state === 'playing' && !room.game?.paused) || !Array.isArray(list)) return;
+    room.settings = { ...room.settings, excludeGenres: [...new Set(list.filter(k => GENRES[k]))] };
     broadcastRoom(room);
   });
   socket.on('clearExclude', () => {
@@ -771,7 +844,7 @@ io.on('connection', socket => {
   // 答え合わせで「サビを聞く」：押すたびに、次へ進むまでの時間を LISTEN_SEC 秒ずつ延ばす
   socket.on('listen', () => {
     const q = room?.game?.q;
-    if (!q || !player || room.state !== 'playing' || q.phase !== 'reveal' || !q.nextAt) return;
+    if (!q || !player || room.state !== 'playing' || room.game.paused || q.phase !== 'reveal' || !q.nextAt) return;
     q.listens = q.listens || new Map();
     const n = q.listens.get(player.token) || 0;
     if (n >= LISTEN_PER_PLAYER) { socket.emit('listenLeft', 0); return socket.emit('notice', 'サビを聞くのは1問2回までです'); }
@@ -820,9 +893,15 @@ io.on('connection', socket => {
   });
 
   socket.on('next', () => {
-    if (!isHost() || room.state !== 'playing' || room.game.q?.phase !== 'reveal') return;
+    if (!isHost() || room.state !== 'playing' || room.game.paused || room.game.q?.phase !== 'reveal') return;
     nextQuestion(room);
   });
+  socket.on('pause', () => {
+    if (!isHost()) return;
+    if (!pauseGame(room)) socket.emit('notice', '曲が流れ始めてから止められます');
+  });
+  socket.on('resume', () => { if (isHost()) resumeGame(room); });
+  socket.on('abort', () => { if (isHost()) abortGame(room); });
 
   socket.on('backToLobby', () => {
     if (!isHost() || room.state === 'playing') return;

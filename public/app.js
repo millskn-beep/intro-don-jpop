@@ -218,6 +218,11 @@ fetch('/api/topics').then(r => r.json()).then(d => {
   d.genres.forEach(g => tp.add(new Option(`${g.label}（${g.count}曲）`, g.key)));
   const se = document.querySelector('[data-key="series"]');
   d.series.forEach(s => se.add(new Option(`${s.name}（${s.count}曲）`, s.name)));
+  // 除外するジャンルのチェック欄
+  $('genreExList').innerHTML = d.genres.map(g =>
+    `<label><input type="checkbox" value="${esc(g.key)}">${esc(g.label)}<small>${g.count}</small></label>`).join('');
+  $('genreExList').querySelectorAll('input').forEach(cb => cb.onchange = () =>
+    socket.emit('excludeGenres', [...$('genreExList').querySelectorAll('input:checked')].map(x => x.value)));
   if (room) renderRoom(room); // 選択肢がそろったので選ばれている値を入れ直す
 }).catch(() => {});
 
@@ -260,6 +265,26 @@ document.querySelectorAll('[data-copylog]').forEach(b => b.onclick = async () =>
   toast(await copyText(playLogText()) ? `${playLog.filter(Boolean).length}曲のログをコピーしました` : 'コピーできませんでした');
 });
 
+// ── 一時停止・途中でやめる ──
+let shownBeforePause = null, pausedNow = false, pausedAt = 0;
+$('pauseBtn').onclick = () => socket.emit('pause');
+$('resumeBtn').onclick = () => socket.emit('resume');
+$('abortBtn').onclick = () => { if (confirm('ゲームをやめて部屋に戻りますか？（得点は残りません）')) socket.emit('abort'); };
+socket.on('paused', () => { pausedNow = true; pausedAt = performance.now(); player.pause(); setPhase('ready', '一時停止中'); });
+socket.on('resumed', ({ ms, qTotal }) => {
+  pausedNow = false;
+  const d = performance.now() - pausedAt; // 止まっていたぶん、残り時間の計算を後ろへずらす
+  timerStart += d; nextUntil += d;
+  player.resume();
+  setPhase(document.body.classList.contains('revealing') ? 'reveal' : 'intro', document.body.classList.contains('revealing') ? '答え合わせ' : '再開');
+  if (question && qTotal) { question.qTotal = qTotal; $('qno').innerHTML = $('qno').innerHTML.replace(/\/ \d+ 問/, `/ ${qTotal} 問`); }
+});
+socket.on('aborted', () => {
+  player.stop(); stopTick(); clearInterval(nextTick); clearTimeout(goTimer);
+  $('nextCount').textContent = ''; question = null; pausedNow = false; shownBeforePause = null;
+  toast('ゲームを中断して部屋に戻りました');
+});
+
 // ── 部屋の状態 ──
 socket.on('room', renderRoom);
 function renderRoom(r) {
@@ -274,7 +299,11 @@ function renderRoom(r) {
   $('seriesLabel').hidden = r.settings.topic !== 'series';
   $('presets').hidden = !isHost;
   $('modes').hidden = !isHost;
-  $('poolInfo').textContent = `${topicLabel(r.settings)}・${r.settings.yearFrom}〜${r.settings.yearTo}年：出題できる曲 ${r.poolSize} 曲` +
+  const ex = r.settings.excludeGenres || [];
+  $('genreExList').querySelectorAll('input').forEach(cb => { cb.checked = ex.includes(cb.value); cb.disabled = r.state === 'playing' && !r.paused; });
+  const exLabels = ex.map(k => TOPIC_DATA.genres.find(g => g.key === k)?.label || k);
+  $('genreExInfo').textContent = exLabels.length ? `（${exLabels.join('・')}）` : '（なし）';
+  $('poolInfo').textContent = `${topicLabel(r.settings)}${r.settings.topic === 'all' && exLabels.length ? `（${exLabels.join('・')}を除く）` : ''}・${r.settings.yearFrom}〜${r.settings.yearTo}年：出題できる曲 ${r.poolSize} 曲` +
     (r.poolSize < r.settings.questions ? `（${r.settings.questions}問に足りないので ${r.poolSize} 問で出題します）` : '');
   $('startBtn').disabled = r.poolSize === 0;
   $('excludeCount').textContent = r.excluded ? `（除外中 ${r.excluded}曲）` : '';
@@ -282,6 +311,22 @@ function renderRoom(r) {
   $('startBtn').hidden = !isHost; $('waitHost').hidden = isHost;
   $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
   $('lobbyBtn').hidden = !isHost;
+  // ゲーム中のホスト用ボタン。一時停止中は設定画面を出す
+  const playing = r.state === 'playing';
+  $('gameCtrl').hidden = !(isHost && playing && !r.paused);
+  if (playing && r.paused && !shownBeforePause) {
+    shownBeforePause = ['quiz', 'result'].find(x => !$(x).hidden) || 'quiz';
+    show('lobby');
+  } else if (!(playing && r.paused) && shownBeforePause) {
+    if (playing) show(shownBeforePause);
+    shownBeforePause = null;
+  }
+  if (playing && r.paused) {
+    $('startBtn').hidden = true; $('resumeBtn').hidden = !isHost;
+    $('waitHost').hidden = isHost; $('waitHost').textContent = '一時停止中：ホストが設定を変えています…';
+  } else {
+    $('resumeBtn').hidden = true; $('waitHost').textContent = 'ホストがゲームを開始するのを待っています…';
+  }
 
   if (r.state === 'lobby') { show('lobby'); document.body.classList.remove('revealing', 'playing', 'fading'); reloadIfPending(); }
   else if (r.state === 'playing' && prevState !== 'playing' && !question) {
@@ -388,6 +433,7 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
     updateLifelineButtons();
     timerStart = performance.now() - off * 1000;
     tick = setInterval(() => {
+      if (pausedNow) return; // 一時停止中は進めない
       const t = (performance.now() - timerStart) / 1000;
       $('timer').textContent = Math.max(0, total - t).toFixed(1); // 残り時間
       $('barFill').style.width = Math.min(100, t / total * 100) + '%';
@@ -602,6 +648,7 @@ function startNextCount(seconds, last = nextIsLast) {
   nextUntil = performance.now() + seconds * 1000; nextIsLast = last;
   clearInterval(nextTick);
   const draw = () => {
+    if (pausedNow) return; // 一時停止中はカウントもフェードも止める
     const s = Math.ceil((nextUntil - performance.now()) / 1000);
     $('nextCount').textContent = s > 0 ? `${listenBy ? `${listenBy}さんがサビを聞いています・` : ''}${s}秒後に${nextIsLast ? '結果発表' : '次の問題'}へ` : '';
     // 次へ進む少し前からサビをフェードアウト

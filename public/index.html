@@ -72,6 +72,10 @@
         <div class="bar"><i id="barFill"></i><b id="barMark"></b></div>
       </div>
       <label class="vol" title="音量"><span>音量</span><input type="range" id="volume" min="0" max="100" value="80"></label>
+      <div class="game-ctrl" id="gameCtrl" hidden>
+        <button class="btn-sub" id="pauseBtn" title="問題を一時停止して設定を変える（次の問題から反映）">⏸ 設定を変える</button>
+        <button class="btn-sub" id="abortBtn" title="ゲームをやめて部屋に戻る">ルームに戻る</button>
+      </div>
     </div>
 
     <!-- 待機中 -->
@@ -88,6 +92,11 @@
         <label>出題タイプ<select data-key="quizType"><option value="intro">イントロ</option><option value="sabimae">サビ前</option><option value="mix">イントロ＋サビ前（ランダム）</option></select></label>
         <label>問題数<select data-key="questions"></select></label>
       </div>
+      <details class="genre-ex">
+        <summary>除外するジャンル <span id="genreExInfo"></span></summary>
+        <div class="genre-ex-list" id="genreExList"></div>
+        <p class="note">お題が「全部」のとき、チェックしたジャンルの曲は出題しません（だれでも変えられます）</p>
+      </details>
       <div class="modes" id="modes">
         <span>おまかせ設定</span>
         <button class="btn-sub" data-mode="easy">かんたん</button>
@@ -122,6 +131,7 @@
         <div class="exclude-row"><button class="btn-sub" id="excludeBtn">除外に追加</button><button class="btn-sub" id="excludeClear" hidden>除外をリセット</button></div>
       </details>
       <button class="btn-main" id="startBtn">ゲーム開始</button>
+      <button class="btn-main" id="resumeBtn" hidden>▶ 再開する（変えた設定は次の問題から）</button>
       <p class="note" id="waitHost" hidden>ホストがゲームを開始するのを待っています…</p>
     </div>
 

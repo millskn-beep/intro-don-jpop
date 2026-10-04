@@ -39,13 +39,14 @@ h3 { font-size: 12px; margin: 0 0 8px; color: var(--sub); letter-spacing: .18em;
                    transform: translate(-50%, -50%); border: 0; transition: filter 1.2s ease, transform 1.2s ease; }
 /* 出題中は Ambient light 風：映像を強くぼかして色の光だけを広げる（中身は読めない）。ぼかしは即時にかける */
 /* 出題中：ぼかした映像の光を、ゆっくり流れる波の形だけ見せる。点滅の多い動画でも見やすいよう、明るさ・コントラストを抑える */
-body.playing .video-bg { opacity: calc(.9 * var(--bgk, 1)); background: transparent; transition: opacity 1s ease;
+/* 出題中：点滅する映像でもまぶしくならないよう、光は限りなく薄く */
+body.playing .video-bg { opacity: calc(.15 * var(--bgk, 1)); background: transparent; transition: opacity 1s ease;
   -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'><filter id='b'><feGaussianBlur stdDeviation='28'/></filter><g filter='url(%23b)' fill='white'><path d='M0 250 Q200 60 400 250 T800 250 T1200 250 T1600 250 L1600 430 Q1400 610 1200 430 T800 430 T400 430 T0 430 Z'/><path fill-opacity='.7' d='M0 600 Q200 770 400 600 T800 600 T1200 600 T1600 600 L1600 760 Q1400 600 1200 760 T800 760 T400 760 T0 760 Z'/></g></svg>"), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'><filter id='b'><feGaussianBlur stdDeviation='36'/></filter><g filter='url(%23b)' fill='white' fill-opacity='.55'><path d='M0 120 Q400 -40 800 120 T1600 120 L1600 230 Q1200 380 800 230 T0 230 Z'/><path d='M0 470 Q400 620 800 470 T1600 470 L1600 590 Q1200 450 800 590 T0 590 Z'/></g></svg>"); mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'><filter id='b'><feGaussianBlur stdDeviation='28'/></filter><g filter='url(%23b)' fill='white'><path d='M0 250 Q200 60 400 250 T800 250 T1200 250 T1600 250 L1600 430 Q1400 610 1200 430 T800 430 T400 430 T0 430 Z'/><path fill-opacity='.7' d='M0 600 Q200 770 400 600 T800 600 T1200 600 T1600 600 L1600 760 Q1400 600 1200 760 T800 760 T400 760 T0 760 Z'/></g></svg>"), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900' preserveAspectRatio='none'><filter id='b'><feGaussianBlur stdDeviation='36'/></filter><g filter='url(%23b)' fill='white' fill-opacity='.55'><path d='M0 120 Q400 -40 800 120 T1600 120 L1600 230 Q1200 380 800 230 T0 230 Z'/><path d='M0 470 Q400 620 800 470 T1600 470 L1600 590 Q1200 450 800 590 T0 590 Z'/></g></svg>");
   -webkit-mask-size: 1600px 100%, 2200px 100%; mask-size: 1600px 100%, 2200px 100%;
   -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x; animation: wave 26s linear infinite; }
 @keyframes wave { from { -webkit-mask-position: 0 0, 0 0; mask-position: 0 0, 0 0; }
                   to { -webkit-mask-position: -1600px 0, 2200px 0; mask-position: -1600px 0, 2200px 0; } }
-body.playing .video-bg iframe { filter: blur(80px) saturate(1.5) brightness(.7) contrast(.7); transform: translate(-50%, -50%) scale(1.3); transition: none; }
+body.playing .video-bg iframe { filter: blur(80px) saturate(1.2) brightness(.5) contrast(.5); transform: translate(-50%, -50%) scale(1.3); transition: none; }
 body.playing .backdrop { opacity: .15; }
 body.revealing .video-bg { opacity: var(--bgk, 1); transition: opacity 1s ease; }
 /* 次の問題へ移る直前：音のフェードアウトに合わせて映像も黒へ消す */
@@ -399,7 +400,7 @@ details.more .settings { margin-top: 6px; }
 /* スマホ：描画が重くならないよう、ぼかしを軽くしてガラスを少し濃くする */
 @media (max-width: 899px) {
   :root { --blur: blur(6px); --glass: rgba(12, 12, 30, .58); --glass-strong: rgba(10, 10, 26, .7); }
-  body.playing .video-bg iframe { filter: blur(44px) saturate(1.4) brightness(.7) contrast(.7); }
+  body.playing .video-bg iframe { filter: blur(44px) saturate(1.2) brightness(.5) contrast(.5); }
 }
 @media (max-width: 899px) {
   /* スマホ・タブレットではプレイヤーを横に並べて縦を詰める */

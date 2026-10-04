@@ -145,12 +145,13 @@ const OPTIONS = {
   autoNext: [8, 12, 0],                  // 答え合わせから自動で次へ進むまでの秒数（0 は自動で進まない）
   bonus: [true, false],                  // 連続正解ボーナス・最終問題2倍
   topic: ['all', 'series', ...GENRE_KEYS], // お題：全部／作品を選ぶ／ジャンル（data/genres.json）
+  introPlays: [1, 2, 3],                 // イントロを流す回数（わからなかったときのため、頭から流し直す）
 };
 
 const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（public/assets/glass/avatar-1〜12）
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
-                   quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all' };
+                   quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1 };
 // 新しい部屋で最初から除外しておくジャンル（アニソン以外）
 const DEFAULT_EXCLUDE = ['vocaloid', 'jpop']; // ライフラインは使わない（画面からも外した）
 const LIFELINES = ['fifty', 'audience', 'phone', 'replay']; // 50:50 / オーディエンス / テレフォン / もう一度聴く
@@ -427,8 +428,8 @@ function resendQuestion(room, socket, token) {
   socket.emit('question', questionPayload(room));
   if (q.phase === 'intro' || q.phase === 'chorus') {
     const offset = (Date.now() - q.t0) / 1000;
-    socket.emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt: S.hintAt,
-                        total: questionTotal(S), offset, introLen: S.introLen });
+    socket.emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt: q.hintAt || S.hintAt,
+                        total: q.total || questionTotal(S), offset, introLen: S.introLen, plays: q.plays || 1, gap: INTRO_GAP });
     if (q.phase === 'chorus') socket.emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' });
   }
   q.clues.forEach(c => socket.emit('clue', c));
@@ -438,11 +439,18 @@ function resendQuestion(room, socket, token) {
 }
 
 // 1問の制限時間（秒）。入力で答えるときは、ヒント3が出てから最低 typingExtra 秒は答えられるよう延ばす
-function questionTotal(S) {
-  const base = S.hintAt + S.chorusLen;
+function questionTotal(S, hintAt = S.hintAt) {
+  const base = hintAt + S.chorusLen;
   if (S.answerMode !== 'input' || !S.clues) return base;
-  const clue3At = S.hintAt + S.chorusLen * 2 / 3;
+  const clue3At = hintAt + S.chorusLen * 2 / 3;
   return Math.max(base, clue3At + S.typingExtra);
+}
+// イントロを何回か流すときは、流し終わって少し空けてからサビのヒントにする
+const INTRO_GAP = 1; // 流し直す前の間（秒）
+const introPlaysOf = (S, kind) => (kind === 'sabimae' ? 1 : (S.introPlays || 1));
+function hintAtOf(S, kind) {
+  const n = introPlaysOf(S, kind);
+  return n <= 1 ? S.hintAt : Math.max(S.hintAt, n * (S.introLen + INTRO_GAP));
 }
 
 function chorusOf(song) { return song.chorus > 0 ? song.chorus : (song.intro || 0) + 50; }
@@ -455,26 +463,35 @@ function go(room) {
   q.phase = 'intro';
   // 選択肢を見てから1秒後に曲が流れ始める。時間・得点の計算もそこから
   q.t0 = Date.now() + LEAD_MS;
-  q.total = questionTotal(S); // 途中で設定が変わっても、この問題の得点計算は始めた時の設定で
+  // 途中で設定が変わっても、この問題は始めた時の設定で進める
+  const plays = introPlaysOf(S, q.kind), hintAt = hintAtOf(S, q.kind);
+  q.hintAt = hintAt; q.plays = plays; q.total = questionTotal(S, hintAt);
   const sabimae = q.kind === 'sabimae';
-  io.to(room.code).emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt: S.hintAt, total: questionTotal(S), offset: -LEAD_MS / 1000 });
+  io.to(room.code).emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt, total: q.total, offset: -LEAD_MS / 1000,
+                                introLen: S.introLen, plays, gap: INTRO_GAP });
   const later = (r, fn, ms) => laterAt(r, fn, ms + LEAD_MS);
-  // サビ前問題は止めずに流し続ける
-  if (!sabimae && S.introLen < S.hintAt) later(room, () => { if (q.phase === 'intro') io.to(room.code).emit('stopIntro'); }, S.introLen * 1000);
+  // サビ前問題は止めずに流し続ける。イントロは introLen 秒で止め、回数の設定があれば少し空けて頭から流し直す
+  if (!sabimae) {
+    for (let i = 0; i < plays; i++) {
+      const at = i * (S.introLen + INTRO_GAP);
+      if (i > 0) later(room, () => { if (q.phase === 'intro') io.to(room.code).emit('restartIntro', { n: i + 1, plays }); }, at * 1000);
+      if (at + S.introLen < hintAt) later(room, () => { if (q.phase === 'intro') io.to(room.code).emit('stopIntro'); }, (at + S.introLen) * 1000);
+    }
+  }
   later(room, () => {
     if (q.phase !== 'intro') return;
     q.phase = 'chorus';
     io.to(room.code).emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: !sabimae });
     broadcastRoom(room);
-  }, S.hintAt * 1000);
+  }, hintAt * 1000);
   if (S.clues) {
     clueList(q.song).forEach((c, i) => later(room, () => {
       if (q.phase !== 'intro' && q.phase !== 'chorus') return;
       q.clues.push(c);
       io.to(room.code).emit('clue', c);
-    }, (S.hintAt + S.chorusLen * i / 3) * 1000));
+    }, (hintAt + S.chorusLen * i / 3) * 1000));
   }
-  later(room, () => reveal(room), questionTotal(S) * 1000);
+  later(room, () => reveal(room), q.total * 1000);
   broadcastRoom(room);
 }
 

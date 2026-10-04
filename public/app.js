@@ -185,6 +185,7 @@ const SETTING_OPTIONS = {
   chorusLen: [10, 15, 20].map(n => [n, n + '秒']),
   typingExtra: [5, 10, 15, 20, 30].map(n => [n, '最低 ' + n + '秒']),
   leadSec: [3, 5, 10].map(n => [n, n + '秒前']),
+  introPlays: [[1, '1回'], [2, '2回'], [3, '3回']],
   autoNext: [[8, '8秒後'], [12, '12秒後'], [0, '自動で進まない']],
   maxPlayers: Array.from({ length: 11 }, (_, i) => [i + 2, (i + 2) + '人']),
   yearFrom: Array.from({ length: 50 }, (_, i) => [1980 + i, (1980 + i) + '年']),
@@ -456,7 +457,7 @@ socket.on('question', q => {
 // offset は曲が流れ始めてからの経過秒。マイナスのときは、選択肢を見せてからその秒数待って流す（最初の1秒の待ち）。
 // 途中から戻ってきた人はプラスの経過秒が届く
 let goTimer = null;
-socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introLen }) => {
+socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introLen, plays = 1, gap = 1 }) => {
   document.body.classList.add('playing'); // 背景に Ambient light 風のぼかし映像
   clearTimeout(goTimer);
   stopTick();
@@ -470,9 +471,11 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
       player.start(start + off);
       setPhase('intro', 'サビ前');
     } else {
+      // 戻ってきた人は、いま何回目のイントロのどこかを計算して、その位置から
+      const cycle = introLen + gap, k = Math.floor(off / cycle), within = off - k * cycle;
       if (!off) player.start(intro);
-      else if (off < introLen && off < hintAt) player.start(intro + off);
-      setPhase('intro', 'イントロ');
+      else if (k < plays && within < introLen && off < hintAt) player.start(intro + within);
+      setPhase('intro', plays > 1 ? `イントロ（1 / ${plays}回目）` : 'イントロ');
     }
     if (myAnswer === null) {
       answering = true;
@@ -492,6 +495,11 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
   }, wait * 1000);
 });
 socket.on('stopIntro', () => player.stopIntro());
+// イントロをもう一度頭から（部屋の設定「イントロの回数」）
+socket.on('restartIntro', ({ n, plays }) => {
+  player.start(question?.intro || 0);
+  setPhase('intro', `イントロ（${n} / ${plays}回目）`);
+});
 socket.on('hint', ({ chorus, known = true, intro = 0, seek = true }) => {
   if (seek) { player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); setPhase('chorus', 'サビ（ヒント・得点×0.7）'); }
   else setPhase('chorus', 'サビ（得点×0.7）'); // サビ前問題は流れのままサビに入る

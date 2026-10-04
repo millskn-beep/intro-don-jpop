@@ -397,8 +397,8 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
 });
 socket.on('stopIntro', () => player.stopIntro());
 socket.on('hint', ({ chorus, known = true, intro = 0, seek = true }) => {
-  if (seek) { player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); setPhase('chorus', 'サビ（ヒント・得点半分）'); }
-  else setPhase('chorus', 'サビ（得点半分）'); // サビ前問題は流れのままサビに入る
+  if (seek) { player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); setPhase('chorus', 'サビ（ヒント・得点×0.7）'); }
+  else setPhase('chorus', 'サビ（得点×0.7）'); // サビ前問題は流れのままサビに入る
 });
 
 // 再接続したとき、すでに答えていた問題の表示を戻す

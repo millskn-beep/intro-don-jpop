@@ -70,12 +70,16 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
         if (yt.getPlayerState() === YT.PlayerState.PLAYING) fade(volume, 0, FADE_OUT, go); else go();
       });
     },
-    // 答え合わせ：サビから流す（サビの位置が未設定の曲は推定・仮の位置から）
+    // 答え合わせ：頭出しせず、流れている映像をそのまま流し続ける（ノンストップ）。
+    // イントロで止まっていたらその位置から再開し、終わっていた・まだ読み込みだけの場合はサビ（推定・仮の位置）から
     reveal(intro, chorus) {
       clear();
       run(() => {
-        const go = () => { yt.seekTo(chorus, true); yt.unMute(); yt.playVideo(); fade(0, volume, FADE_IN); };
-        if (yt.getPlayerState() === YT.PlayerState.PLAYING) fade(volume, 0, FADE_OUT / 2, go); else go();
+        const st = yt.getPlayerState();
+        yt.unMute();
+        if (st === YT.PlayerState.PLAYING) { fade(yt.getVolume(), volume, 300); return; }
+        if (st !== YT.PlayerState.PAUSED) yt.seekTo(chorus, true);
+        yt.playVideo(); fade(0, volume, FADE_IN);
       });
     },
     // もう一度聴く：イントロを introLen 秒だけ流し、終わったら元の位置・状態に戻す

@@ -1,5 +1,35 @@
 [
   {
+    "id": "lCQ392MwsYo",
+    "title": "宇宙戦艦ヤマト",
+    "work": "宇宙戦艦ヤマト",
+    "artist": "ささきいさお",
+    "year": 1974,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 51,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "5dzhgOxlr-U",
+    "title": "炎のたからもの",
+    "work": "ルパン三世 カリオストロの城",
+    "artist": "ボビー",
+    "year": 1979,
+    "type": "映画主題歌",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 90,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "JPLRmL3Vqlw",
     "title": "ニルスのふしぎな旅",
     "work": "ニルスのふしぎな旅",
@@ -717,6 +747,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "EwTZwtGnc-c",
+    "title": "SILENT SURVIVOR",
+    "work": "北斗の拳",
+    "artist": "KODOMO BAND",
+    "year": 1986,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "bYbN2nyuN9Y",
@@ -2098,6 +2143,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "1unWMPRefn0",
+    "title": "檄!帝国華撃団",
+    "work": "サクラ大戦",
+    "artist": "真宮寺さくら（横山智佐）・帝国歌劇団",
+    "year": 1996,
+    "type": "主題歌",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 50,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "RgC8kKv0hqM",
     "title": "1/3の純情な感情",
     "work": "るろうに剣心",
@@ -2141,6 +2201,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "DrWiRdFajTQ",
+    "title": "TELL ME WHY",
+    "work": "剣風伝奇ベルセルク",
+    "artist": "PENPALS",
+    "year": 1997,
+    "type": "OP",
+    "confidence": "高",
+    "source": "VAP公式",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "WqPi7g_TKfA",
@@ -3164,7 +3239,7 @@
     "confidence": "高",
     "source": "T.M.Revolution公式",
     "intro": 2,
-    "chorus": 45,
+    "chorus": 50,
     "aliases": [
       "いんゔぉーく",
       "いんぼーく",
@@ -4094,6 +4169,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "8MWWCndfRQE",
+    "title": "STORYWRITER",
+    "work": "交響詩篇エウレカセブン",
+    "artist": "SUPERCAR",
+    "year": 2005,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "SUPERCAR公式",
+    "intro": 0,
+    "chorus": 67,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "4E9KOdbuBXE",
     "title": "SUMMER TIME GONE",
     "work": "名探偵コナン",
@@ -4136,6 +4226,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "wXVCiDL6ExI",
+    "title": "WILD EYES",
+    "work": "バジリスク ～甲賀忍法帖～",
+    "artist": "水樹奈々",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "高",
+    "source": "水樹奈々公式",
+    "intro": 0,
+    "chorus": 22,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "ZVHQa-d0vZI",
@@ -4205,6 +4310,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "v86m2RdPSo8",
+    "title": "甲賀忍法帖",
+    "work": "バジリスク ～甲賀忍法帖～",
+    "artist": "陰陽座",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "高",
+    "source": "陰陽座公式",
+    "intro": 0,
+    "chorus": 56,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "235s_Kkp0gc",
     "title": "少年ハート",
     "work": "交響詩篇エウレカセブン",
@@ -4270,6 +4390,35 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "Sh8qvnqQ4Zk",
+    "title": "太陽の真ん中へ",
+    "work": "交響詩篇エウレカセブン",
+    "artist": "Bivattchee",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "高",
+    "source": "AnimeSongs公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null
+  },
+  {
+    "id": "fsPGyJio38s",
+    "title": "秘密基地",
+    "work": "交響詩篇エウレカセブン",
+    "artist": "高田梢枝",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "中",
+    "source": "公式リリックビデオ",
+    "intro": 0,
+    "chorus": 89,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "FNl1ud7KxtI",
@@ -4573,6 +4722,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "-VZjNpstO1o",
+    "title": "sakura",
+    "work": "交響詩篇エウレカセブン",
+    "artist": "NIRGILIS",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Sony Music公式",
+    "intro": 0,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "D7MMMNTQ7H0",
     "title": "the WORLD",
     "work": "DEATH NOTE",
@@ -4612,6 +4776,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "2vIGPwbmmRU",
+    "title": "why, or why not",
+    "work": "ひぐらしのなく頃に",
+    "artist": "片霧烈火",
+    "year": 2006,
+    "type": "ED",
+    "confidence": "高",
+    "source": "NBCユニバーサル公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "wnO_7TYL_to",
+    "title": "you",
+    "work": "ひぐらしのなく頃に",
+    "artist": "dai",
+    "year": 2006,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 86,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "fhgwSyRmAb8",
@@ -5574,6 +5768,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "l8KIJCrr0_o",
+    "title": "forever we can make it!",
+    "work": "To LOVEる -とらぶる-",
+    "artist": "THYME",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "高",
+    "source": "NBCユニバーサル公式",
+    "intro": 0,
+    "chorus": 91,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "XbhBT0u0Cmo",
     "title": "HANABI",
     "work": "BLEACH",
@@ -5788,6 +5997,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "NunTnaEfxkE",
+    "title": "STRIKE WITCHES 〜わたしにできること〜",
+    "work": "ストライクウィッチーズ",
+    "artist": "石田燿子",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "高",
+    "source": "石田燿子公式",
+    "intro": 0,
+    "chorus": 66,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "yySkwG-reF4",
@@ -6555,6 +6779,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "Ql3aSenmx50",
+    "title": "super scription of data",
+    "work": "ひぐらしのなく頃に礼",
+    "artist": "島みやえい子",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 83,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "vUxUXwL4IKY",
     "title": "Velonica",
     "work": "BLEACH",
@@ -6574,6 +6813,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "Z4HQiLWCXtk",
+    "title": "うみねこのなく頃に",
+    "work": "うみねこのなく頃に",
+    "artist": "志方あきこ",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 59,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "QdiYMLKL11Q",
@@ -9026,6 +9280,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "2DKCoLZAGvQ",
+    "title": "Synchrogazer",
+    "work": "戦姫絶唱シンフォギア",
+    "artist": "水樹奈々",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "水樹奈々公式",
+    "intro": 0,
+    "chorus": 90,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "XTdRNjuGE_k",
     "title": "The Everlasting Guilty Crown",
     "work": "ギルティクラウン",
@@ -9240,6 +9509,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "teGnY6H3Xes",
+    "title": "ひかりふる",
+    "work": "劇場版 魔法少女まどか☆マギカ",
+    "artist": "Kalafina",
+    "year": 2012,
+    "type": "映画主題歌",
+    "confidence": "高",
+    "source": "Kalafina公式",
+    "intro": 0,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "Zw60p6DvzYE",
     "title": "ブレイブルー",
     "work": "エウレカセブンAO",
@@ -9305,6 +9589,36 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "-tww49g8e2Y",
+    "title": "楽園PROJECT",
+    "work": "To LOVEる -とらぶる- ダークネス",
+    "artist": "Ray",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "NBCユニバーサル公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "ARnlcCWTjYI",
+    "title": "逆光のフリューゲル",
+    "work": "戦姫絶唱シンフォギア",
+    "artist": "ツヴァイウィング",
+    "year": 2012,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 75,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "We_uZ7-_HmM",
@@ -9959,6 +10273,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "ALFzHCrkLXI",
+    "title": "Vitalization",
+    "work": "戦姫絶唱シンフォギアG",
+    "artist": "水樹奈々",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "高",
+    "source": "水樹奈々公式",
+    "intro": 0,
+    "chorus": 95,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "wykx9MzjL-8",
     "title": "Wake up!",
     "work": "ONE PIECE",
@@ -10347,6 +10676,21 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "EdATz3qOAbw",
+    "title": "不死鳥のフランメ",
+    "work": "戦姫絶唱シンフォギアG",
+    "artist": "風鳴翼×マリア（水樹奈々・日笠陽子）",
+    "year": 2013,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "vQuP_HWH4Vg",
@@ -10883,6 +11227,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "mmMjjXu5tPs",
+    "title": "Liar Mask",
+    "work": "アカメが斬る!",
+    "artist": "真山りか",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "高",
+    "source": "TOHO animation公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "tDHcemDdDYw",
@@ -11809,6 +12168,36 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "m9rtKGYBwCw",
+    "title": "Exterminate",
+    "work": "戦姫絶唱シンフォギアGX",
+    "artist": "水樹奈々",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "高",
+    "source": "水樹奈々公式",
+    "intro": 0,
+    "chorus": 95,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
+    "id": "MtW4-X-dqXc",
+    "title": "Feed A",
+    "work": "GOD EATER",
+    "artist": "OLDCODEX",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Lantis公式",
+    "intro": 0,
+    "chorus": 82,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "9wh8FgsEtNQ",
@@ -12822,6 +13211,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "wwA_13wpfEc",
+    "title": "Into the Sky",
+    "work": "機動戦士ガンダムUC RE:0096",
+    "artist": "SawanoHiroyuki[nZk]:Tielle",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "高",
+    "source": "澤野弘之公式",
+    "intro": 0,
+    "chorus": 53,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "BpAZbM6FYkE",
     "title": "KABANERI OF THE IRON FORTRESS",
     "work": "甲鉄城のカバネリ",
@@ -13481,6 +13885,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "3iC5uEYtlZM",
+    "title": "週替わりの奇跡の神話",
+    "work": "うしおととら",
+    "artist": "筋肉少女帯",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "高",
+    "source": "徳間ジャパン公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 65,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "4e0exHEcpsA",
@@ -16086,6 +16505,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "uB0tLQjoukA",
+    "title": "桜花忍法帖",
+    "work": "バジリスク ～桜花忍法帖～",
+    "artist": "陰陽座",
+    "year": 2018,
+    "type": "OP",
+    "confidence": "高",
+    "source": "KING AMUSEMENT CREATIVE公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "yDXVqicnWeo",
     "title": "徒花ネクロマンシー",
     "work": "ゾンビランドサガ",
@@ -17340,6 +17774,21 @@
     "introMethod": "v2"
   },
   {
+    "id": "dN020llYLQU",
+    "title": "咲かせや咲かせ",
+    "work": "甲鉄城のカバネリ 海門決戦",
+    "artist": "EGOIST",
+    "year": 2019,
+    "type": "映画主題歌",
+    "confidence": "高",
+    "source": "EGOIST公式",
+    "intro": 0,
+    "chorus": 103,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
+  },
+  {
     "id": "SohCAjC-Npk",
     "title": "三原色",
     "work": "Dr.STONE",
@@ -17961,6 +18410,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "KFHxOryOgls",
+    "title": "I believe what you said",
+    "work": "ひぐらしのなく頃に業",
+    "artist": "亜咲花",
+    "year": 2020,
+    "type": "OP",
+    "confidence": "高",
+    "source": "亜咲花公式",
+    "intro": 0,
+    "chorus": 56,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "7ns79MgJJQY",
@@ -18923,6 +19387,21 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "DPUngxYPb1g",
+    "title": "Analogy",
+    "work": "ひぐらしのなく頃に卒",
+    "artist": "彩音",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "高",
+    "source": "彩音公式",
+    "intro": 0,
+    "chorus": 59,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "vMdlbE-MzF8",
@@ -25064,6 +25543,21 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "GAo4TR6Okgo",
+    "title": "鋼鉄の意志",
+    "work": "甲鉄城のカバネリ（パチスロ）",
+    "artist": "nana hatori",
+    "year": 2024,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "サミー公式",
+    "intro": 0,
+    "chorus": 71,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap"
   },
   {
     "id": "IbmrFglLWNk",

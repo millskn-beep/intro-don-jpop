@@ -502,8 +502,9 @@ function onAnswer(room, player, payload) {
   player.streak = correct ? (player.streak || 0) + 1 : 0;
   if (correct) {
     if (S.mode === 'score') {
-      const base = Math.round(100 + 900 * Math.max(0, 1 - elapsed / questionTotal(S)));
-      points = hint ? Math.round(base / 2) : base;
+      // 早いほど高い（500〜1000点）。サビ（ヒント）が流れてからの正解は ×0.7
+      const base = Math.round(500 + 500 * Math.max(0, 1 - elapsed / questionTotal(S)));
+      points = hint ? Math.round(base * 0.7) : base;
       // 連続正解ボーナス：2連続 ×1.2、3連続以上 ×1.5
       if (S.bonus) points = Math.round(points * (player.streak >= 3 ? 1.5 : player.streak === 2 ? 1.2 : 1));
     } else if (!q.winner) {

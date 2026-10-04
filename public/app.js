@@ -233,6 +233,24 @@ document.querySelectorAll('[data-react]').forEach(b => b.onclick = () => socket.
 $('startBtn').onclick = () => socket.emit('start');
 $('nextBtn').onclick = () => socket.emit('next');
 $('lobbyBtn').onclick = () => socket.emit('backToLobby');
+// 出題した曲のログ：コピーしてどこかに貼り付けて残せるように
+let playLog = [];
+function playLogText() {
+  const d = new Date();
+  const head = `アニソンイントロ対戦 ${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()} 出題曲`;
+  const lines = playLog.map((s, i) => s && `${i + 1}. ${s.title} ／ ${s.work}${s.type ? `（${s.type}）` : ''} ／ ${s.artist}${s.year ? `（${s.year}）` : ''}`).filter(Boolean);
+  return [head, ...lines].join('\n');
+}
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch {}
+  const ta = Object.assign(document.createElement('textarea'), { value: text }); // 古いブラウザ・http 用
+  ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
+  const ok = document.execCommand('copy'); ta.remove(); return ok;
+}
+document.querySelectorAll('[data-copylog]').forEach(b => b.onclick = async () => {
+  if (!playLog.some(Boolean)) return toast('まだ出題した曲がありません');
+  toast(await copyText(playLogText()) ? `${playLog.filter(Boolean).length}曲のログをコピーしました` : 'コピーできませんでした');
+});
 
 // ── 部屋の状態 ──
 socket.on('room', renderRoom);
@@ -305,6 +323,7 @@ function setPhase(cls, label) { $('phase').className = 'phase ' + cls; $('phase'
 const isInput = () => question?.answerMode === 'input';
 
 socket.on('question', q => {
+  if (q.qNo === 1) playLog = []; // 新しいゲーム
   question = q; myAnswer = null; answering = false;
   stopTick();
   $('timer').textContent = ''; $('barFill').style.width = '0';
@@ -468,6 +487,7 @@ socket.on('lifelineResult', r => {
 // ── 答え合わせ ──
 socket.on('reveal', r => {
   stopTick();
+  if (question?.qNo && r.song) playLog[question.qNo - 1] = r.song;
   answering = false; updateLifelineButtons();
   $('answerInput').disabled = true; $('sendBtn').disabled = true;
   setPhase('reveal', '答え合わせ');

@@ -53,15 +53,23 @@ body.revealing .video-bg iframe { transform: translate(-50%, -50%) scale(1.2); }
 body.revealing .backdrop { opacity: 0; }
 body.revealing { --text-shadow: 0 1px 4px rgba(0, 0, 0, .95), 0 0 2px rgba(0, 0, 0, .9); }
 body.revealing .panel, body.revealing .brand, body.revealing .code {
-  background: rgba(8, 8, 20, .12); border-color: rgba(255, 255, 255, .1); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+  background: rgba(8, 8, 20, .04); border-color: rgba(255, 255, 255, .06); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
   transition: background .6s ease, border-color .6s ease; }
 body.revealing .choice, body.revealing .players li, body.revealing .clues li, body.revealing .highlights li, body.revealing .btn-sub,
 body.revealing .phase, body.revealing .cover, body.revealing .titles li {
-  background: rgba(8, 8, 20, .22); border-color: rgba(255, 255, 255, .14); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
-body.revealing .btn-main { background: rgba(20, 16, 48, .3); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
-body.revealing #quiz { opacity: .4; transition: opacity .6s ease; } /* 選択肢は薄く。触れたら戻す */
-body.revealing #quiz:hover { opacity: 1; }
-body.revealing .results td { border-color: rgba(255, 255, 255, .1); }
+  background: rgba(8, 8, 20, .1); border-color: rgba(255, 255, 255, .08); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.revealing .btn-main { background: rgba(20, 16, 48, .12); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+/* 選択肢は、正解とだれかが押したものだけはっきり。ほかは薄く（触れたら戻す） */
+body.revealing #quiz .clues, body.revealing #quiz .lifelines, body.revealing #quiz .note { opacity: .25; }
+body.revealing .choice:not(.correct):not(.picked) { opacity: .2; transition: opacity .6s ease; }
+body.revealing .choice.correct { border-color: var(--ok); background: rgba(20, 70, 50, .4); box-shadow: 0 0 18px rgba(93, 255, 176, .5); }
+body.revealing .choice.wrong, body.revealing .choice.wrong-other { border-color: var(--ng); background: rgba(80, 20, 40, .35); }
+body.revealing #quiz:hover .choice, body.revealing #quiz:hover .clues { opacity: 1; }
+body.revealing .results td { border-color: rgba(255, 255, 255, .06); }
+/* 答えと結果以外（プレイヤー欄・タイマー・ロゴ）も控えめに。触れたら戻す */
+body.revealing .room-side, body.revealing .stage, body.revealing .top { opacity: .55; transition: opacity .6s ease; }
+body.revealing .room-side:hover, body.revealing .stage:hover, body.revealing .top:hover { opacity: 1; }
+body.revealing .btn-main::before { opacity: .5; }
 
 /* ── ガラスの部品 ── */
 .panel { background: linear-gradient(180deg, var(--glass-hi), transparent 40%), var(--glass); border: 1px solid var(--line);
@@ -177,6 +185,13 @@ button:disabled { cursor: default; }
 .choice.correct { border-color: var(--ok); background: rgba(20, 70, 50, .55); box-shadow: 0 0 22px rgba(93, 255, 176, .5); animation: win .6s ease; }
 .choice.wrong { border-color: var(--ng); background: rgba(80, 20, 40, .55); box-shadow: 0 0 18px rgba(255, 107, 138, .45); animation: shake .4s ease; }
 .choice.gone { visibility: hidden; }
+.choice.wrong-other { border-color: rgba(255, 107, 138, .7); }
+/* 答え合わせで、その選択肢を押した人 */
+.pickers { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.picker { display: inline-flex; align-items: center; gap: 4px; padding: 1px 8px 1px 2px; border-radius: 99px; font-size: 11px; font-weight: 700;
+          background: rgba(0, 0, 0, .45); border: 1px solid rgba(255, 255, 255, .25); animation: pop .4s ease both; }
+.picker.me { border-color: var(--accent); }
+.avatar.xs { width: 18px; height: 18px; box-shadow: none; }
 .choice small.count { color: var(--accent); }
 @keyframes win { 40% { transform: scale(1.04); } }
 @keyframes shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
@@ -314,6 +329,7 @@ button:disabled { cursor: default; }
 .streak { flex: none; font-family: var(--font-num); font-size: 9px; font-weight: 800; padding: 0 6px; border-radius: 99px; text-shadow: none;
           color: #1a1000; background: linear-gradient(120deg, #ffd36b, #ff9a5a); box-shadow: 0 0 10px rgba(255, 170, 90, .6); }
 .next-count { margin: 6px 0 0; font-weight: 700; color: var(--text); }
+.btn-sub.listen { display: block; margin: 8px auto 0; padding: 8px 20px; border-radius: 99px; }
 .choice { font-size: 15px; }
 .choice small { font-size: 12px; }
 

@@ -20234,14 +20234,16 @@
     "type": "OP",
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "いせかいおじさん"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "jwS1gd3HiGE",
@@ -20252,7 +20254,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "亜咲花公式",
-    "intro": 0,
+    "intro": 3,
     "chorus": 55,
     "aliases": [
       "ゆるきゃん"
@@ -20260,7 +20262,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "2S4qGKmzBJE",
@@ -20282,7 +20286,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "V9_ZpqfqHFI",
@@ -20293,14 +20298,16 @@
     "type": "劇中歌",
     "confidence": "中",
     "source": "Ado公式",
-    "intro": 0,
+    "intro": 2,
     "chorus": 0,
     "aliases": [
       "わんぴーす"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "6lnS-8FVod4",
@@ -20311,14 +20318,16 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "Official髭男dism公式",
-    "intro": 0,
+    "intro": 15.5,
     "chorus": 0,
     "aliases": [
       "どらえもん"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "2tJGGmJhm_E",
@@ -20329,14 +20338,16 @@
     "type": "OP",
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 0,
     "aliases": [
       "らぶらいぶ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "qSWR8QDtDXY",
@@ -20347,7 +20358,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "バンダイナムコ公式（TVサイズ）",
-    "intro": 0.7,
+    "intro": 5.2,
     "chorus": 74,
     "aliases": [
       "うぃなー",
@@ -20357,7 +20368,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "stb-BpPpJ7U",
@@ -20368,7 +20380,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "フジテレビアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 35,
     "aliases": [
       "うるせいやつら"
@@ -20376,7 +20388,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "L2i0i9gWE00",
@@ -20387,7 +20401,7 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "アニプレックス公式",
-    "intro": 0.1,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "あのばんど",
@@ -20397,7 +20411,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ymQ3wEIq84Y",
@@ -20408,7 +20423,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "MAPPA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 36,
     "aliases": [
       "いんざばっくるーむ",
@@ -20418,7 +20433,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "hyV1AJiFNyo",
@@ -20429,7 +20445,7 @@
     "type": "劇中歌",
     "confidence": "中",
     "source": "Ado公式",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 69,
     "aliases": [
       "わんぴーす"
@@ -20437,7 +20453,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "o_RG03t7cVE",
@@ -20448,7 +20466,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 49,
     "aliases": [
       "めいどいんあびす"
@@ -20456,7 +20474,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "RfYQIScpUoo",
@@ -20467,14 +20487,16 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "非公式",
-    "intro": 0,
+    "intro": 7.2,
     "chorus": 0,
     "aliases": [
       "すずめのとじまり"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "MTPiaDzacSI",
@@ -20495,7 +20517,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "B7BxrAAXl94",
@@ -20506,7 +20529,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "アニプレックス公式",
-    "intro": 2.3,
+    "intro": 2.7,
     "chorus": 0,
     "aliases": [
       "ぎたーとこどくとあおいほし",
@@ -20516,7 +20539,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "B--iJ2pNvLU",
@@ -20527,7 +20551,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "BUMP OF CHICKEN公式",
-    "intro": 0,
+    "intro": 2.2,
     "chorus": 0,
     "aliases": [
       "めいたんていこなん",
@@ -20535,7 +20559,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "FEn8A5uxK24",
@@ -20546,7 +20572,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "BLEACH公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 8.5,
     "chorus": 45,
     "aliases": [
       "すかー",
@@ -20559,7 +20585,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "Xs0Lxif1u9E",
@@ -20570,7 +20597,7 @@
     "type": "映画主題歌",
     "confidence": "中",
     "source": "RADWIMPS公式",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [
       "すずめ",
@@ -20579,7 +20606,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "XicdpSmxuT0",
@@ -20590,14 +20618,16 @@
     "type": "OP",
     "confidence": "高",
     "source": "avex pictures公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [
       "ぱりぴこうめい"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "msZ5b2usBNc",
@@ -20618,7 +20648,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "3ijkvUYwJhU",
@@ -20639,7 +20670,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "sVoz_fH59Ew",
@@ -20650,7 +20683,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
-    "intro": 0.1,
+    "intro": 0,
     "chorus": 47,
     "aliases": [
       "はーとはおてあげ",
@@ -20661,7 +20694,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "UTwujrP2pFo",
@@ -20672,7 +20706,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "MAPPA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 52,
     "aliases": [
       "ばいおれんす",
@@ -20682,7 +20716,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "6doKKoHQmTI",
@@ -20693,7 +20728,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 0,
     "aliases": [
       "あけびちゃんのせーらーふく",
@@ -20701,7 +20736,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "6BrHcmH3Gyk",
@@ -20712,7 +20749,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 3.2,
     "chorus": 67,
     "aliases": [
       "ひたむき",
@@ -20723,7 +20760,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "PbwPWLCTktY",
@@ -20734,7 +20772,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "Topic",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [
       "ひとりぼっちとうきょう",
@@ -20743,7 +20781,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Whr_aXoCOWo",
@@ -20754,7 +20794,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 6.2,
     "chorus": 0,
     "aliases": [
       "ひまわりのやくそく",
@@ -20763,7 +20803,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "7jM0fUAR2xg",
@@ -20784,7 +20826,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "YzoNZ-ozS3o",
@@ -20795,7 +20838,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "アニプレックス公式",
-    "intro": 0,
+    "intro": 3,
     "chorus": 103,
     "aliases": [
       "ぼっちざろっく",
@@ -20804,7 +20847,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "v8gAfylTw-w",
@@ -20815,7 +20860,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 44,
     "aliases": [
       "からかいじょうずのたかぎさん",
@@ -20824,7 +20869,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "CbH2F0kXgTY",
@@ -20833,14 +20880,15 @@
     "artist": "Official髭男dism",
     "year": 2022,
     "type": "OP",
-    "intro": 0.6,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [
       "スパイファミリー",
       "みっくすなっつ"
     ],
     "embeddable": true,
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "kbsRaNXfsew",
@@ -20851,7 +20899,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ソニー公式",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 0,
     "aliases": [
       "ぽけっともんすたー",
@@ -20859,7 +20907,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "syucUN9w1Go",
@@ -20870,7 +20920,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [
       "たてのゆうしゃのなりあがり",
@@ -20878,7 +20928,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "PvyaVqfylu4",
@@ -20889,7 +20941,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "フジテレビアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 3.5,
     "chorus": 63,
     "aliases": [
       "よふかしのうた"
@@ -20897,7 +20949,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "9lnh--ZOPyo",
@@ -20908,7 +20962,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "ポニーキャニオン公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 47,
     "aliases": [
       "あくまのこ",
@@ -20919,7 +20973,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "WIKKyrGGaDk",
@@ -20941,7 +20996,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "nRKJBpFFsuI",
@@ -20952,7 +21008,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 3,
     "chorus": 61,
     "aliases": [
       "きげき",
@@ -20962,7 +21018,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "0njrO-Qb0u8",
@@ -20973,7 +21030,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "avex pictures公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 45,
     "aliases": [
       "きぶんじょうじょう",
@@ -20982,7 +21039,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "gt-v_YCkaMY",
@@ -20993,7 +21052,7 @@
     "type": "劇中歌",
     "confidence": "高",
     "source": "Ado公式",
-    "intro": 0.2,
+    "intro": 2,
     "chorus": 38,
     "aliases": [
       "ぎゃっこう",
@@ -21003,7 +21062,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "8pGN2YEMXHo",
@@ -21014,7 +21074,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "スピラ・スピカ公式",
-    "intro": 0,
+    "intro": 3.2,
     "chorus": 0,
     "aliases": [
       "さんさんでいず",
@@ -21024,7 +21084,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Hw1fy7VF_w8",
@@ -21035,7 +21096,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "MAPPA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 3.7,
     "chorus": 56,
     "aliases": [
       "ざんき",
@@ -21045,7 +21106,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "sk1Z-Hqwwog",
@@ -21056,7 +21118,7 @@
     "type": "劇中歌",
     "confidence": "高",
     "source": "Ado公式",
-    "intro": 1.1,
+    "intro": 2,
     "chorus": 0,
     "aliases": [
       "わたしはさいきょう",
@@ -21065,7 +21127,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "aU8ruUe7UlE",
@@ -21087,7 +21150,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "xIKW3NKYBWw",
@@ -21108,7 +21172,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "4kNt62PptEQ",
@@ -21119,7 +21184,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 49,
     "aliases": [
       "しきさい",
@@ -21128,7 +21193,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "1FliVTcX8bQ",
@@ -21139,7 +21206,7 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "Ado公式",
-    "intro": 0.8,
+    "intro": 1.2,
     "chorus": 79,
     "aliases": [
       "しんじだい",
@@ -21149,7 +21216,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "HEwAiwttN10",
@@ -21169,7 +21237,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "b3GCfyNKeLs",
@@ -21180,7 +21249,7 @@
     "type": "劇中歌",
     "confidence": "中",
     "source": "Ado公式",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [
       "せかいのつづき",
@@ -21188,7 +21257,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "icLOdUKFW8Q",
@@ -21208,7 +21279,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "wSTbdqo-j74",
@@ -21219,7 +21292,7 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "アニプレックス公式",
-    "intro": 0.5,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [
       "せいざになれたら",
@@ -21229,7 +21302,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Yd8kUoB72xU",
@@ -21240,7 +21314,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "アニプレックス公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 2,
     "chorus": 33,
     "aliases": [
       "せいしゅんこんぷれっくす",
@@ -21251,7 +21325,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "AwXRPWmgLbU",
@@ -21262,7 +21337,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "フジテレビアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 61,
     "aliases": [
       "だてん",
@@ -21271,7 +21346,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "EsJGbHJyXYc",
@@ -21282,7 +21359,7 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "10-FEET公式",
-    "intro": 0.1,
+    "intro": 0,
     "chorus": 0,
     "aliases": [
       "だいぜろかん",
@@ -21293,7 +21370,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "FzXoCx8dsgc",
@@ -21304,7 +21382,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "Topic",
-    "intro": 0,
+    "intro": 5,
     "chorus": 0,
     "aliases": [
       "ころがるいわきみにあさがふる",
@@ -21313,7 +21391,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "YO-rXgQKlF8",
@@ -21324,7 +21404,7 @@
     "type": "劇中歌",
     "confidence": "中",
     "source": "Ado公式",
-    "intro": 2,
+    "intro": 3.7,
     "chorus": 0,
     "aliases": [
       "かぜのゆくえ",
@@ -21333,7 +21413,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "EY02nMUwXtA",
@@ -21344,7 +21425,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "わすれてやらない",
@@ -21353,7 +21434,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Xi7xa3fzXQ4",
@@ -21364,7 +21447,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "キングダム公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 41,
     "aliases": [
       "れい",
@@ -21373,7 +21456,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "stzAsF51T_w",
@@ -21384,7 +21469,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TMSアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 2.2,
     "chorus": 66,
     "aliases": [
       "あんでっどあんらっく",
@@ -21393,7 +21478,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "HAOQDCF0jQE",
@@ -21404,7 +21491,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 6,
     "chorus": 47,
     "aliases": [
       "えにたいむえにうぇあ",
@@ -21415,7 +21502,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "asNbGXxlNGc",
@@ -21426,7 +21514,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TMSアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 25,
     "aliases": [
       "ななつのたいざい"
@@ -21434,7 +21522,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "km0-E99w8f0",
@@ -21445,7 +21535,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "ウマ娘公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1,
     "chorus": 57,
     "aliases": [
       "うまむすめ"
@@ -21453,7 +21543,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "LQRbFCAHDUU",
@@ -21464,7 +21556,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "かげのじつりょくしゃになりたくて",
@@ -21472,7 +21564,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "MkHaKj-P7jA",
@@ -21483,14 +21577,16 @@
     "type": "ED",
     "confidence": "中",
     "source": "早見沙織公式",
-    "intro": 0,
+    "intro": 1.7,
     "chorus": 0,
     "aliases": [
       "ダンまち"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Jk6S15iIgxc",
@@ -21501,7 +21597,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
-    "intro": 0.2,
+    "intro": 3.5,
     "chorus": 40,
     "aliases": [
       "はーとのーつ",
@@ -21512,7 +21608,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "GuAcdIqcanA",
@@ -21523,7 +21620,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "avex pictures公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 60,
     "aliases": [
       "いのせんとあろがんす",
@@ -21533,7 +21630,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "e9jh494EMj4",
@@ -21544,7 +21642,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "バンダイナムコ公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 51,
     "aliases": [
       "じゃっじめんと",
@@ -21554,7 +21652,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "SzOWbrTG_kE",
@@ -21565,7 +21664,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 66,
     "aliases": [
       "まっしゅる"
@@ -21573,7 +21672,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "canptz0g5_k",
@@ -21584,7 +21685,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TMSアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 3.5,
     "chorus": 0,
     "aliases": [
       "あんでっどあんらっく",
@@ -21592,7 +21693,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "fR0tqhqM7Yg",
@@ -21603,7 +21706,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "もあざんわーず",
@@ -21613,7 +21716,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "18q5wBrMYFg",
@@ -21624,7 +21728,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 64,
     "aliases": [
       "ごーるでんかむい",
@@ -21633,7 +21737,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "K-XH333Tofo",
@@ -21644,7 +21750,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "バンダイナムコ公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 68,
     "aliases": [
       "なむねすらいくあじんじゃー",
@@ -21654,7 +21760,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "c7E-tgmFuzw",
@@ -21665,7 +21772,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "推しの子公式",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 46,
     "aliases": [
       "おしのこ"
@@ -21673,7 +21780,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "YvYiAqC3Mb8",
@@ -21684,7 +21793,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ガンダムチャンネル（TVサイズ）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 45,
     "aliases": [
       "きどうせんしがんだむすいせいのまじょ",
@@ -21693,7 +21802,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "PX-RhjDLVDQ",
@@ -21704,7 +21815,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "東京リベンジャーズ公式（TVサイズ）",
-    "intro": 0.1,
+    "intro": 0.2,
     "chorus": 59,
     "aliases": [
       "せいまいねーむ",
@@ -21715,7 +21826,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "2vjoMYD4oZM",
@@ -21726,7 +21838,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 3,
     "chorus": 50,
     "aliases": [
       "たてのゆうしゃのなりあがり",
@@ -21735,7 +21847,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "bJa4Fwi5X9g",
@@ -21746,7 +21860,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ガンダムチャンネル（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 57,
     "aliases": [
       "すらっしゅ",
@@ -21757,7 +21871,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "-H_k7iwrWVY",
@@ -21768,7 +21883,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "Official髭男dism公式",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 107,
     "aliases": [
       "すぱいふぁみりー"
@@ -21776,7 +21891,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "fhzKLBZJC3w",
@@ -21785,7 +21902,7 @@
     "artist": "King Gnu",
     "year": 2023,
     "type": "OP",
-    "intro": 0,
+    "intro": 2,
     "chorus": 44,
     "aliases": [
       "スペシャルズ",
@@ -21794,7 +21911,8 @@
     ],
     "embeddable": true,
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "_NIp8wvNXmM",
@@ -21805,7 +21923,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0,
+    "intro": 7,
     "chorus": 37,
     "aliases": [
       "むしょくてんせい"
@@ -21813,7 +21931,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "mxYqXOL5uLk",
@@ -21833,7 +21953,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "4QesgADu8gM",
@@ -21855,7 +21977,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "7lpQxveooI4",
@@ -21866,7 +21989,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TMSアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 63,
     "aliases": [
       "ななつのたいざい"
@@ -21874,7 +21997,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "RS94j08yIHs",
@@ -21885,7 +22010,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "地獄楽公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 45,
     "aliases": [
       "わーく",
@@ -21896,7 +22021,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "JCpx6jqdOKg",
@@ -21907,7 +22033,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TMSアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 9,
     "chorus": 52,
     "aliases": [
       "めいたんていこなん",
@@ -21916,7 +22042,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "pEVhv4eB8Q8",
@@ -21927,7 +22055,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "フジテレビアニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 35,
     "aliases": [
       "あいうえ",
@@ -21936,7 +22064,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "PojnddmnjNs",
@@ -21947,7 +22077,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 1,
     "chorus": 52,
     "aliases": [
       "あいことば",
@@ -21957,7 +22087,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "ZRtdQ81jPUQ",
@@ -21974,7 +22105,8 @@
       "おしのこ"
     ],
     "embeddable": true,
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "DU2KGyQgso4",
@@ -21985,7 +22117,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ポニーキャニオン公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 2,
     "chorus": 47,
     "aliases": [
       "いってらっしゃい",
@@ -21996,7 +22128,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "hbZr47jwL_4",
@@ -22007,7 +22140,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "バンダイナムコ公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 53,
     "aliases": [
       "かおすがきわまる",
@@ -22017,7 +22150,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "gz--GkzpAf8",
@@ -22028,7 +22162,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 4.2,
     "chorus": 40,
     "aliases": [
       "くらくら",
@@ -22038,7 +22172,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "vZUyKVE9dus",
@@ -22049,7 +22184,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "milet公式",
-    "intro": 1,
+    "intro": 1.5,
     "chorus": 0,
     "aliases": [
       "こいこがれ",
@@ -22059,7 +22194,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "RUY9dMkpBAI",
@@ -22070,7 +22206,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 67,
     "aliases": [
       "まっしゅる"
@@ -22078,7 +22214,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Z0oU5k2ECIQ",
@@ -22089,7 +22227,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1,
     "chorus": 44,
     "aliases": [
       "ごーるでんかむい",
@@ -22098,7 +22236,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "zJRZ9ybACB4",
@@ -22119,7 +22259,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "d66nA8nRUZc",
@@ -22130,7 +22271,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ポケモン公式",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 50,
     "aliases": [
       "ぽけっともんすたー",
@@ -22139,7 +22280,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "4Ql6YwCTAko",
@@ -22150,7 +22293,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.5,
+    "intro": 0.7,
     "chorus": 62,
     "aliases": [
       "とどめのいちげき",
@@ -22160,7 +22303,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "C6ufOc-buj0",
@@ -22171,7 +22315,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ShoPro公式（TVサイズ）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 35,
     "aliases": [
       "ぞんひゃく"
@@ -22179,7 +22323,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "PuJMfePEKr4",
@@ -22190,7 +22336,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "プリキュア公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1.7,
     "chorus": 48,
     "aliases": [
       "ひろがるすかいぷりきゅあ",
@@ -22199,7 +22345,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "bzNXDsfqfVs",
@@ -22221,7 +22369,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "keFRueltLIU",
@@ -22232,7 +22381,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "東京リベンジャーズ公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "ほわいとのいず",
@@ -22242,7 +22391,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "0saw1cGIl1A",
@@ -22253,7 +22403,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "【推しの子】公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 6.7,
     "chorus": 0,
     "aliases": [
       "めふぃすと",
@@ -22262,7 +22412,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "PJirQlsWemk",
@@ -22273,7 +22424,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "DMM pictures公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 54,
     "aliases": [
       "めろう",
@@ -22284,7 +22435,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "81H41vp96ag",
@@ -22295,7 +22447,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.4,
+    "intro": 2,
     "chorus": 38,
     "aliases": [
       "わすれがたき",
@@ -22305,7 +22457,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "v-WcMQbXbKY",
@@ -22316,7 +22469,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "緑黄色社会公式",
-    "intro": 0.1,
+    "intro": 2.5,
     "chorus": 48,
     "aliases": [
       "はなになって",
@@ -22326,7 +22479,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "vuYs-1hVXlY",
@@ -22337,7 +22491,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ランティス公式",
-    "intro": 0,
+    "intro": 10,
     "chorus": 0,
     "aliases": [
       "きせき",
@@ -22346,7 +22500,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "OdfFUJUzNTY",
@@ -22357,7 +22513,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ガンダムチャンネル（TVサイズ）",
-    "intro": 0,
+    "intro": 1,
     "chorus": 0,
     "aliases": [
       "きみよけだかくあれ",
@@ -22366,7 +22522,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "EvRTJbVcFQA",
@@ -22377,7 +22535,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "BLEACH公式（TVサイズ）",
-    "intro": 0.3,
+    "intro": 0.2,
     "chorus": 46,
     "aliases": [
       "ことばにせずとも",
@@ -22389,7 +22547,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "dVlBxDHzrf8",
@@ -22400,7 +22559,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 5.2,
     "chorus": 50,
     "aliases": [
       "すきになってはいけないりゆう",
@@ -22410,7 +22569,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "d6qCbdXqsOs",
@@ -22421,7 +22582,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ポニーキャニオン公式（TVサイズ）",
-    "intro": 0.4,
+    "intro": 0.5,
     "chorus": 73,
     "aliases": [
       "さいごのきょじん",
@@ -22432,7 +22593,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "yu-0eh9jdZg",
@@ -22443,7 +22605,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ONE PIECE公式（TVサイズ）",
-    "intro": 0.6,
+    "intro": 3.7,
     "chorus": 35,
     "aliases": [
       "さいこうとうたつてん",
@@ -22453,7 +22615,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "x60xR0TEQ88",
@@ -22464,7 +22627,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "Uru公式",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [
       "かみひとえ",
@@ -22472,7 +22635,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Za2FmwuIEwY",
@@ -22483,7 +22648,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "テレビ朝日アニメ公式（TVサイズ）",
-    "intro": 0.7,
+    "intro": 4.7,
     "chorus": 49,
     "aliases": [
       "しゃよう",
@@ -22494,7 +22659,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "ZsvJUh03MwI",
@@ -22514,7 +22680,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ql9o0oo4OBc",
@@ -22525,7 +22693,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "テレ朝アニメ公式（TVサイズ）",
-    "intro": 0,
+    "intro": 2.5,
     "chorus": 0,
     "aliases": [
       "すうせんちめんたる",
@@ -22534,7 +22702,9 @@
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000"
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "gcgKUcJKxIs",
@@ -22556,7 +22726,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "VUsURj_OYdA",
@@ -22567,7 +22738,7 @@
     "type": "映画主題歌",
     "confidence": "中",
     "source": "米津玄師公式",
-    "intro": 0.7,
+    "intro": 2.7,
     "chorus": 0,
     "aliases": [
       "ちきゅうぎ",
@@ -22576,7 +22747,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "NeEW7LsJd50",
@@ -22587,7 +22759,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 52,
     "aliases": [
       "ともしび",
@@ -22596,7 +22768,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ZSLmP-af8W0",
@@ -22607,7 +22781,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.4,
+    "intro": 0.7,
     "chorus": 57,
     "aliases": [
       "あかり",
@@ -22618,7 +22792,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "w-Gvclnnfpc",
@@ -22629,7 +22804,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "MyGO!!!!!公式",
-    "intro": 0,
+    "intro": 1,
     "chorus": 43,
     "aliases": [
       "まよいうた",
@@ -22639,7 +22814,9 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "QoGM9hCxr4k",
@@ -22650,7 +22827,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "TOHO animation公式（TVサイズ）",
-    "intro": 0.5,
+    "intro": 3,
     "chorus": 55,
     "aliases": [
       "ゆうしゃ",
@@ -22661,7 +22838,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMethod": "v2"
   },
   {
     "id": "wuUZjdiUCj0",

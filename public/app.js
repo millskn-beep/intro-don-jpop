@@ -144,6 +144,16 @@ function joined(res) {
 }
 
 // 接続したら：部屋にいれば同じ席に戻る。ホームなら部屋一覧を受け取る
+// 新しい版がデプロイされたら（再接続時に版が変わったら）、対戦中でなければ自動で読み込み直す
+let appVersion = null, reloadPending = false;
+socket.on('version', v => {
+  if (appVersion === null) { appVersion = v; return; }
+  if (v === appVersion) return;
+  if (!room || room.state !== 'playing') location.reload();
+  else if (!reloadPending) { reloadPending = true; toast('新しい版が公開されました。部屋に戻ったときに自動で読み込み直します'); }
+});
+function reloadIfPending() { if (reloadPending) location.reload(); }
+
 socket.on('connect', () => {
   const code = me ? store.get('aq-room') : null;
   if (code) socket.emit('join', { code, token, name: store.get('aq-name'), password: store.get(passKey.code(code)) || '' },
@@ -245,7 +255,7 @@ function renderRoom(r) {
   $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
   $('lobbyBtn').hidden = !isHost;
 
-  if (r.state === 'lobby') { show('lobby'); document.body.classList.remove('revealing', 'playing'); }
+  if (r.state === 'lobby') { show('lobby'); document.body.classList.remove('revealing', 'playing'); reloadIfPending(); }
   else if (r.state === 'playing' && prevState !== 'playing' && !question) {
     // 途中参加：次の問題から
     show('quiz'); $('choices').innerHTML = ''; $('quizNote').textContent = '次の問題から参加します';
@@ -466,17 +476,27 @@ socket.on('reveal', r => {
   // サビの位置が仮（イントロ＋50秒）の曲は、動画の長さから推定した位置にする
   const unknown = r.chorusKnown === false || (r.chorusKnown === undefined && r.chorus === r.intro + 50);
   player.reveal(r.intro, unknown ? guessChorus(r.intro, player.duration()) : r.chorus);
+  // だれがどの選択肢を押したか（アバターと名前を選択肢の中に出す）
+  const pickers = new Map();
+  for (const x of r.results) if (Number.isInteger(x.index) && !x.pass) pickers.set(x.index, [...(pickers.get(x.index) || []), x]);
   $('choices').querySelectorAll('.choice').forEach(b => {
     b.disabled = true;
-    if (+b.dataset.i === r.correctIndex) b.classList.add('correct');
-    else if (+b.dataset.i === myAnswer) b.classList.add('wrong');
+    const i = +b.dataset.i, who = pickers.get(i);
+    if (i === r.correctIndex) b.classList.add('correct');
+    else if (i === myAnswer) b.classList.add('wrong');
+    else if (who) b.classList.add('wrong-other'); // ほかの人が選んだ不正解
+    if (who) {
+      b.classList.add('picked');
+      b.insertAdjacentHTML('beforeend', `<span class="pickers">${who.map(x =>
+        `<span class="picker${x.id === me ? ' me' : ''}">${avatarImg(x.avatar, 'avatar xs')}${esc(x.name)}</span>`).join('')}</span>`);
+    }
   });
   const s = r.song;
   $('answer').innerHTML = `${esc(s.title)}<small>${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}（${s.year}）</small>`;
   $('results').innerHTML = r.results.map(x => `
     <tr>
       <td class="who">${avatarImg(x.avatar, 'avatar sm')}${esc(x.name)}</td>
-      <td class="${x.correct ? 'ok' : 'ng'}">${!x.answered ? '未回答' : x.pass ? 'スキップ' : x.correct ? '正解' + (x.hint ? '（サビ）' : '') : '不正解'}${x.given ? `<small>「${esc(x.given)}」</small>` : ''}</td>
+      <td class="${x.correct ? 'ok' : 'ng'}">${!x.answered ? '未回答' : x.pass ? 'スキップ' : x.correct ? '正解' + (x.hint ? '（サビ）' : '') : '不正解'}${x.given ? `<small>「${esc(x.given)}」</small>` : ''}${!x.correct && Number.isInteger(x.index) && question?.choices?.[x.index] ? `<small>「${esc(question.choices[x.index].title)}」を選択</small>` : ''}</td>
       <td class="num">${x.elapsed === null ? '' : x.elapsed.toFixed(2) + '秒'}</td>
       <td class="num">+${x.points}</td>
     </tr>`).join('');
@@ -491,13 +511,9 @@ socket.on('reveal', r => {
   $('nextBtn').textContent = r.last ? '結果発表へ' : '次の問題へ';
   $('highlights').innerHTML = (r.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');
   // 自動で次へ進むまでのカウント（ホストは「次へ」で早送りできる）
-  clearInterval(nextTick); $('nextCount').textContent = '';
-  if (r.autoNext > 0) {
-    const until = performance.now() + r.autoNext * 1000;
-    const draw = () => { const s = Math.ceil((until - performance.now()) / 1000);
-      $('nextCount').textContent = s > 0 ? `${s}秒後に${r.last ? '結果発表' : '次の問題'}へ` : ''; if (s <= 0) clearInterval(nextTick); };
-    draw(); nextTick = setInterval(draw, 250);
-  }
+  clearInterval(nextTick); $('nextCount').textContent = ''; listenBy = '';
+  $('listenBtn').hidden = !(r.autoNext > 0); $('listenBtn').disabled = false;
+  if (r.autoNext > 0) startNextCount(r.autoNext, r.last);
   // 選択肢を見せたまま結果を下に出す
   $('quiz').hidden = false; $('result').hidden = false;
 });
@@ -539,6 +555,20 @@ socket.on('notice', msg => toast(msg));
 
 function stopTick() { clearInterval(tick); tick = null; }
 let nextTick = null; // 答え合わせ後の自動で次へのカウント
+let nextUntil = 0, nextIsLast = false, listenBy = '';
+function startNextCount(seconds, last = nextIsLast) {
+  nextUntil = performance.now() + seconds * 1000; nextIsLast = last;
+  clearInterval(nextTick);
+  const draw = () => {
+    const s = Math.ceil((nextUntil - performance.now()) / 1000);
+    $('nextCount').textContent = s > 0 ? `${listenBy ? `${listenBy}さんがサビを聞いています・` : ''}${s}秒後に${nextIsLast ? '結果発表' : '次の問題'}へ` : '';
+    if (s <= 0) clearInterval(nextTick);
+  };
+  draw(); nextTick = setInterval(draw, 250);
+}
+// だれかが「サビを聞く」を押した：次へ進むまでの時間が延びる
+socket.on('nextAt', ({ seconds, by }) => { listenBy = by; startNextCount(seconds); });
+$('listenBtn').onclick = () => { socket.emit('listen'); $('listenBtn').disabled = true; setTimeout(() => { $('listenBtn').disabled = false; }, 3000); };
 
 let toastTimer = null;
 function toast(msg) {

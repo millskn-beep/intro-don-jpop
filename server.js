@@ -580,7 +580,10 @@ function reveal(room) {
     last,
     autoNext: S.autoNext, // 0 なら自動では進まない
   });
-  if (S.autoNext > 0) later(room, () => { if (room.game?.q === q) nextQuestion(room); }, S.autoNext * 1000);
+  if (S.autoNext > 0) {
+    q.revealAt = Date.now();
+    scheduleNext(room, q, Date.now() + S.autoNext * 1000);
+  }
   broadcastRoom(room);
 }
 
@@ -616,6 +619,17 @@ function titlesOf(room) {
     ...genreTitles,
   ].filter(Boolean);
 }
+
+// 答え合わせから次の問題へ進む時刻を決める（「サビを聞く」で延ばせる）
+function scheduleNext(room, q, at) {
+  clearTimeout(q.nextTimer);
+  q.nextAt = at;
+  q.nextTimer = setTimeout(() => { if (room.game?.q === q && q.phase === 'reveal') nextQuestion(room); }, Math.max(0, at - Date.now()));
+  room.game.timers.push(q.nextTimer);
+}
+const LISTEN_SEC = 10;        // 「サビを聞く」で、押した時点から最低この秒数は次へ進まない
+const LISTEN_PER_PLAYER = 2;  // 1問で1人が押せる回数
+const LISTEN_MAX_EXTRA = 30;  // 1問あたり延ばせる合計の秒数
 
 const isFinalQuestion = room => room.game.qi + 1 >= room.game.order.length && room.game.order.length > 1;
 
@@ -654,7 +668,11 @@ function endGame(room) {
 }
 
 // ── 接続 ──
+// 画面の版。新しい版をデプロイすると変わるので、古いページを開いたままの人に再読み込みしてもらう
+const APP_VERSION = process.env.RENDER_GIT_COMMIT || String(Date.now());
+
 io.on('connection', socket => {
+  socket.emit('version', APP_VERSION);
   let room = null, player = null;
 
   function enter(r, token, name) {
@@ -723,6 +741,21 @@ io.on('connection', socket => {
   // リアクションスタンプ（部屋の全員に表示。連打は1秒に1回まで）
   const REACTIONS = ['神曲', '知らん', '懐かしい', '惜しい', '草', '天才'];
   let lastReact = 0;
+  // 答え合わせで「サビを聞く」：自動で次へ進むのを、押した時点から LISTEN_SEC 秒まで待つ
+  socket.on('listen', () => {
+    const q = room?.game?.q;
+    if (!q || !player || room.state !== 'playing' || q.phase !== 'reveal' || !q.nextAt) return;
+    q.listens = q.listens || new Map();
+    const n = q.listens.get(player.token) || 0;
+    if (n >= LISTEN_PER_PLAYER) return socket.emit('notice', 'サビを聞くのは1問2回までです');
+    const limit = q.revealAt + (room.settings.autoNext + LISTEN_MAX_EXTRA) * 1000;
+    const at = Math.min(limit, Math.max(q.nextAt, Date.now() + LISTEN_SEC * 1000));
+    if (at <= q.nextAt) return socket.emit('notice', 'これ以上は延ばせません');
+    q.listens.set(player.token, n + 1);
+    scheduleNext(room, q, at);
+    io.to(room.code).emit('nextAt', { seconds: (at - Date.now()) / 1000, by: player.name });
+  });
+
   socket.on('react', kind => {
     if (!room || !player || !REACTIONS.includes(kind)) return;
     const now = Date.now();

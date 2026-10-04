@@ -116,6 +116,11 @@
       </div>
       <div class="presets" id="presets"></div>
       <p class="note" id="poolInfo"></p>
+      <details class="exclude">
+        <summary>前回のログを貼り付けて、出た曲を除外 <span id="excludeCount"></span></summary>
+        <textarea id="excludeInput" rows="3" placeholder="コピーした曲ログをそのまま貼り付け（何回分でも）"></textarea>
+        <div class="exclude-row"><button class="btn-sub" id="excludeBtn">除外に追加</button><button class="btn-sub" id="excludeClear" hidden>除外をリセット</button></div>
+      </details>
       <button class="btn-main" id="startBtn">ゲーム開始</button>
       <p class="note" id="waitHost" hidden>ホストがゲームを開始するのを待っています…</p>
     </div>

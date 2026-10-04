@@ -251,6 +251,7 @@ function publicRoom(room) {
     hostId: room.hostId,
     settings: room.settings,
     poolSize: poolFor(room.settings).length,
+    excluded: room.played?.size || 0,
     state: room.state,
     phase: q?.phase || null,
     qNo: room.game ? room.game.qi + 1 : 0,
@@ -302,16 +303,23 @@ function startGame(room) {
     const sure = pool.filter(hasChorus);
     if (sure.length >= S.questions) candidates = sure;
   }
-  // この部屋で前のゲームに出た曲は避ける。足りなくなったら覚えていた分を忘れる
+  // この部屋で前のゲームに出た曲・貼り付けたログの曲は避ける。足りなければ古く除外した曲から戻して使う
   if (!room.played) room.played = new Set();
+  const need = Math.min(S.questions, candidates.length);
   let fresh = candidates.filter(s => !room.played.has(s.id));
-  if (fresh.length < Math.min(S.questions, candidates.length)) { room.played.clear(); fresh = candidates; }
+  if (fresh.length < need) {
+    const byId = new Map(candidates.map(s => [s.id, s]));
+    for (const id of room.played) {
+      if (fresh.length >= need) break;
+      if (byId.has(id)) { fresh.push(byId.get(id)); room.played.delete(id); }
+    }
+  }
   const n = Math.min(S.questions, fresh.length);
   room.state = 'playing';
   for (const p of room.players.values()) { p.score = 0; p.streak = 0; p.lifelines = freshLifelines(S); }
   // 曲オブジェクトそのものを持つ（ゲーム中に曲データが保存し直されても影響しないように）
   const order = shuffle([...fresh]).slice(0, n);
-  order.forEach(s => room.played.add(s.id));
+  order.forEach(s => { room.played.delete(s.id); room.played.add(s.id); }); // 新しく出た曲ほど後ろ（戻すのは古い順）
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map() }; // stats: token -> 称号用の成績
   nextQuestion(room);
   return true;
@@ -573,7 +581,7 @@ function reveal(room) {
   const S = room.settings;
   io.to(room.code).emit('reveal', {
     correctIndex: q.correctIndex,
-    song: { title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type },
+    song: { id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type },
     intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0,
     results,
     highlights: highlightsOf(room, results),
@@ -722,6 +730,24 @@ io.on('connection', socket => {
   socket.on('settings', input => {
     if (!isHost() || room.state === 'playing') return;
     room.settings = sanitizeSettings(input, room.settings);
+    broadcastRoom(room);
+  });
+
+  // 前回のログを貼り付け：その曲を出題から外す（参加者だれでも足せる。リセットはホスト）
+  socket.on('exclude', ids => {
+    if (!room || !player || !Array.isArray(ids)) return;
+    const known = new Set(ALL_SONGS.map(s => s.id));
+    if (!room.played) room.played = new Set();
+    let added = 0;
+    for (const id of ids.slice(0, 5000)) {
+      if (typeof id === 'string' && known.has(id) && !room.played.has(id)) { room.played.add(id); added++; }
+    }
+    socket.emit('notice', `${added}曲を出題から外しました（除外中 ${room.played.size}曲）`);
+    broadcastRoom(room);
+  });
+  socket.on('clearExclude', () => {
+    if (!isHost() || room.state === 'playing') return;
+    room.played = new Set();
     broadcastRoom(room);
   });
 

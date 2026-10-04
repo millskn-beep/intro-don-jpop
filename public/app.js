@@ -239,7 +239,8 @@ function playLogText() {
   const d = new Date();
   const head = `アニソンイントロ対戦 ${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()} 出題曲`;
   const lines = playLog.map((s, i) => s && `${i + 1}. ${s.title} ／ ${s.work}${s.type ? `（${s.type}）` : ''} ／ ${s.artist}${s.year ? `（${s.year}）` : ''}`).filter(Boolean);
-  return [head, ...lines].join('\n');
+  const ids = playLog.filter(s => s?.id).map(s => s.id).join('');
+  return [head, ...lines, ...(ids ? [`除外コード（新しい部屋に貼ると、この曲を出題しません）：AQX1:${ids}`] : [])].join('\n');
 }
 async function copyText(text) {
   try { await navigator.clipboard.writeText(text); return true; } catch {}
@@ -247,6 +248,13 @@ async function copyText(text) {
   ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select();
   const ok = document.execCommand('copy'); ta.remove(); return ok;
 }
+// 貼り付けたログから除外コードを読み取る（動画IDは11文字ずつ）
+$('excludeBtn').onclick = () => {
+  const ids = [...$('excludeInput').value.matchAll(/AQX1:([\w-]+)/g)].flatMap(m => m[1].match(/[\w-]{11}/g) || []);
+  if (!ids.length) return toast('除外コードが見つかりません（ログを丸ごと貼り付けてください）');
+  socket.emit('exclude', ids); $('excludeInput').value = '';
+};
+$('excludeClear').onclick = () => socket.emit('clearExclude');
 document.querySelectorAll('[data-copylog]').forEach(b => b.onclick = async () => {
   if (!playLog.some(Boolean)) return toast('まだ出題した曲がありません');
   toast(await copyText(playLogText()) ? `${playLog.filter(Boolean).length}曲のログをコピーしました` : 'コピーできませんでした');
@@ -269,6 +277,8 @@ function renderRoom(r) {
   $('poolInfo').textContent = `${topicLabel(r.settings)}・${r.settings.yearFrom}〜${r.settings.yearTo}年：出題できる曲 ${r.poolSize} 曲` +
     (r.poolSize < r.settings.questions ? `（${r.settings.questions}問に足りないので ${r.poolSize} 問で出題します）` : '');
   $('startBtn').disabled = r.poolSize === 0;
+  $('excludeCount').textContent = r.excluded ? `（除外中 ${r.excluded}曲）` : '';
+  $('excludeClear').hidden = !(isHost && r.excluded);
   $('startBtn').hidden = !isHost; $('waitHost').hidden = isHost;
   $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
   $('lobbyBtn').hidden = !isHost;

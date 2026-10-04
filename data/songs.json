@@ -10645,8 +10645,10 @@
     "intro": 0,
     "chorus": 63,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "4kIhBSzgbEQ",
@@ -10746,8 +10748,10 @@
     "intro": 0,
     "chorus": 87,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "ayEAEF0iwiY",
@@ -11106,8 +11110,10 @@
     "intro": 0,
     "chorus": 77,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "kJ04dMmimn8",
@@ -11168,8 +11174,10 @@
     "intro": 0,
     "chorus": 32,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "wDIUyyQqQ_M",
@@ -12100,8 +12108,10 @@
     "intro": 0,
     "chorus": 41,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "WJrPUtozf5Q",
@@ -14008,8 +14018,10 @@
     "intro": 0,
     "chorus": 89,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "r6zIGXun57U",
@@ -14023,8 +14035,10 @@
     "intro": 0,
     "chorus": 59,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "oUiOylPbfV0",
@@ -14038,8 +14052,10 @@
     "intro": 0,
     "chorus": 77,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "_werYjm5BmY",
@@ -14094,8 +14110,10 @@
     "intro": 0,
     "chorus": 104,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "yirNgfGns9w",
@@ -14131,8 +14149,10 @@
     "intro": 0,
     "chorus": 69,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "Du3tQ2SXezA",
@@ -15362,8 +15382,10 @@
     "intro": 0,
     "chorus": 83,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "IjwuJT6q54s",
@@ -15443,7 +15465,9 @@
     "intro": 0,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": true,
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "4FkVzeiWF18",
@@ -16358,8 +16382,10 @@
     "intro": 0,
     "chorus": 68,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "8cLydM4MA-U",
@@ -16632,8 +16658,10 @@
     "intro": 0,
     "chorus": 121,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "2kp6O5IG92A",
@@ -17770,8 +17798,10 @@
     "intro": 0,
     "chorus": 34,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "djwxLXJvgbQ",
@@ -17944,8 +17974,10 @@
     "intro": 0,
     "chorus": 129,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "i34ilDuvtHw",
@@ -18025,8 +18057,10 @@
     "intro": 0,
     "chorus": 58,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "GwA9x534cb0",
@@ -18257,8 +18291,10 @@
     "intro": 0,
     "chorus": 124,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "RkID8_gnTxw",
@@ -18272,8 +18308,10 @@
     "intro": 0,
     "chorus": 128,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "lHZBBE4a02s",
@@ -18330,8 +18368,10 @@
     "intro": 0,
     "chorus": 46,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "iH_YJde1yps",
@@ -18938,8 +18978,10 @@
     "intro": 0,
     "chorus": 57,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "2qbHikwRimU",
@@ -18977,8 +19019,10 @@
     "intro": 0,
     "chorus": 27,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "y_fB0IMbq54",
@@ -18992,8 +19036,10 @@
     "intro": 0,
     "chorus": 21,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "UqcE-IIevf0",
@@ -19007,8 +19053,10 @@
     "intro": 0,
     "chorus": 37,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "92ylxOeT1_g",
@@ -19065,8 +19113,10 @@
     "intro": 0,
     "chorus": 51,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "pKNEx-9OqRM",
@@ -19080,8 +19130,10 @@
     "intro": 0,
     "chorus": 68,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "q8TGietS5Q0",
@@ -19140,8 +19192,10 @@
     "intro": 0,
     "chorus": 62,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "f_Z1E32mxGg",
@@ -19155,8 +19209,10 @@
     "intro": 0,
     "chorus": 49,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "NHmEc1WmKYU",
@@ -19237,8 +19293,10 @@
     "intro": 0,
     "chorus": 118,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "3jfI-z__GY0",
@@ -19252,8 +19310,10 @@
     "intro": 0,
     "chorus": 35,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "SvTb43SY460",
@@ -19312,8 +19372,10 @@
     "intro": 0,
     "chorus": 41,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "Y0z_2C2LFfE",
@@ -19521,8 +19583,10 @@
     "intro": 0,
     "chorus": 128,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "2GKJlRfDKZo",
@@ -20716,8 +20780,10 @@
     "intro": 0,
     "chorus": 98,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "NFS7ZvqOO_A",
@@ -22053,8 +22119,10 @@
     "intro": 0,
     "chorus": 41,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "LQRbFCAHDUU",
@@ -22284,8 +22352,10 @@
     "intro": 0,
     "chorus": 40,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "c7E-tgmFuzw",
@@ -23533,8 +23603,10 @@
     "intro": 0,
     "chorus": 127,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "JuS4iuhG-vc",
@@ -23612,8 +23684,10 @@
     "intro": 0,
     "chorus": 71,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "t9mpyRzipww",
@@ -23627,8 +23701,10 @@
     "intro": 0,
     "chorus": 127,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "VJLJ15yIQlI",
@@ -23686,8 +23762,10 @@
     "intro": 0,
     "chorus": 129,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "ksFovPa5kaQ",
@@ -23701,8 +23779,10 @@
     "intro": 0,
     "chorus": 36,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "n68BF6IlGhk",
@@ -23716,8 +23796,10 @@
     "intro": 0,
     "chorus": 99,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "9KBl_UurkEc",
@@ -23752,8 +23834,10 @@
     "intro": 0,
     "chorus": 51,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "aiCMXJ4zKWA",
@@ -23854,8 +23938,10 @@
     "intro": 0,
     "chorus": 46,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "jio_17jg980",
@@ -23956,8 +24042,10 @@
     "intro": 0,
     "chorus": 37,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "HCqVYCNZIrQ",
@@ -24123,8 +24211,10 @@
     "intro": 0,
     "chorus": 79,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "AR1ecFmd8yw",
@@ -24161,8 +24251,10 @@
     "intro": 0,
     "chorus": 38,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "s8SSPUQvUzI",
@@ -24198,8 +24290,10 @@
     "intro": 0,
     "chorus": 129,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "Gj-jmBi0aK8",
@@ -24213,8 +24307,10 @@
     "intro": 0,
     "chorus": 57,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "jAAZDIGWcio",
@@ -24271,8 +24367,10 @@
     "intro": 0,
     "chorus": 125,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "kfKpW49yqNs",
@@ -25701,7 +25799,9 @@
     "intro": 0,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": true,
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "YNYkTXknYjE",
@@ -25950,8 +26050,10 @@
     "intro": 0,
     "chorus": 129,
     "aliases": [],
-    "embeddable": null,
-    "chorusSource": "heatmap"
+    "embeddable": true,
+    "chorusSource": "heatmap",
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000"
   },
   {
     "id": "qCOCq2Gay84",

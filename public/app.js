@@ -760,7 +760,13 @@ socket.on('reveal', r => {
     }
   });
   const s = r.song;
-  $('answer').innerHTML = `${esc(s.title)}<small>${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}（${s.year}）</small>`;
+  $('answer').innerHTML = `${esc(s.title)}<small>${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}（${s.year}）</small>`
+    + (s.id ? '<button class="btn-sub copy-song" id="copySongBtn">📋 この曲をコピー</button>' : '');
+  if (s.id) $('copySongBtn').onclick = async () => {
+    // 曲名・作品名と YouTube の URL（あとで聴き直したり、人に送ったりする用）
+    const text = `${s.title} ／ ${s.work}\nhttps://www.youtube.com/watch?v=${s.id}`;
+    toast(await copyText(text) ? `「${s.title}」をコピーしました` : 'コピーできませんでした');
+  };
   $('results').innerHTML = r.results.map(x => `
     <tr>
       <td class="who">${avatarImg(x.avatar, 'avatar sm')}${esc(x.name)}</td>

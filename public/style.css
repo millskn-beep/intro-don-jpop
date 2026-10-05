@@ -419,6 +419,7 @@ details.more .settings { margin-top: 6px; }
 .device-row span { color: var(--sub); font-size: 12px; margin-right: auto; }
 .exclude-row { display: flex; gap: 8px; margin-top: 6px; }
 .btn-sub.copy-log { display: block; margin: 8px auto 0; padding: 6px 16px; font-size: 12px; border-radius: 99px; }
+.answer .copy-song { display: block; margin: 6px auto 0; padding: 4px 14px; font-size: 12px; font-weight: 700; border-radius: 99px; }
 .react-pop { position: fixed; left: 50%; top: 50%; z-index: 60; display: flex; align-items: center; gap: 8px; padding: 6px 16px 6px 6px;
              border-radius: 99px; background: var(--glass-strong); border: 1px solid var(--line-strong); box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
              backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); pointer-events: none; white-space: nowrap; opacity: 0; }

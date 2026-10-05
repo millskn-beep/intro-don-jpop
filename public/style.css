@@ -412,7 +412,20 @@ details.more .settings { margin-top: 6px; }
 .device-row span { color: var(--sub); font-size: 12px; margin-right: auto; }
 .exclude-row { display: flex; gap: 8px; margin-top: 6px; }
 .btn-sub.copy-log { display: block; margin: 8px auto 0; padding: 6px 16px; font-size: 12px; border-radius: 99px; }
-.answer .copy-song { display: block; margin: 6px auto 0; padding: 4px 14px; font-size: 12px; font-weight: 700; border-radius: 99px; }
+/* 答え合わせの曲ツール（コピー・除外しない・位置を直す） */
+.song-tools { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-top: 6px; }
+.song-tools .btn-sub { padding: 4px 12px; font-size: 12px; font-weight: 700; border-radius: 99px; }
+.fix-panel { margin: 8px auto 10px; padding: 10px 12px; max-width: 520px; border-radius: 14px; background: var(--glass-strong); border: 1px solid var(--line);
+             font-size: 13px; font-weight: 700; text-align: left; }
+.fix-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-bottom: 8px; }
+.fix-row b { min-width: 4.5em; }
+.fix-sec { font-family: var(--font-num); font-size: 18px; min-width: 4.5em; }
+.fix-btns { display: flex; flex-wrap: wrap; gap: 4px; }
+.fix-btns .btn-sub { padding: 4px 9px; font-size: 12px; border-radius: 8px; }
+.fix-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.fix-actions .btn-main { width: auto; margin: 0; padding: 7px 18px; font-size: 14px; }
+.fix-actions .btn-sub { padding: 6px 14px; font-size: 12px; border-radius: 99px; }
+.fix-panel .note { margin: 6px 0 0; font-weight: 500; }
 .react-pop { position: fixed; left: 50%; top: 50%; z-index: 60; display: flex; align-items: center; gap: 8px; padding: 6px 16px 6px 6px;
              border-radius: 99px; background: var(--glass-strong); border: 1px solid var(--line-strong); box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
              backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); pointer-events: none; white-space: nowrap; opacity: 0; }

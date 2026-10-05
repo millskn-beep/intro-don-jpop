@@ -83,6 +83,11 @@
       <section class="panel savebar">
         <button class="btn-main" id="saveBtn" disabled>songs.json に保存</button>
       </section>
+      <details class="panel fix-import">
+        <summary>ゲーム中に直した位置を取り込む</summary>
+        <textarea id="fixInput" rows="4" style="width:100%;margin-top:8px" placeholder="答え合わせの「📋 直した位置をコピー」で写した内容をそのまま貼り付け"></textarea>
+        <button class="btn-sub" id="fixApply" style="margin-top:6px">取り込む（このあと保存してください）</button>
+      </details>
       <p class="dirty" id="dirty"></p>
       <p class="note" id="perm"></p>
     </aside>
@@ -489,6 +494,22 @@ $('saveBtn').onclick = () => saveSongs(false);
 window.addEventListener('beforeunload', e => { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
 
 let toastTimer = null;
+// ゲームの答え合わせで直したイントロ・サビの位置（AQFIX1 の行）を取り込む。取り込んだ曲は「保存」が必要
+$('fixApply').onclick = () => {
+  const byId = new Map(songs.map(s => [s.id, s]));
+  let n = 0, unknown = 0;
+  for (const m of $('fixInput').value.matchAll(/AQFIX1\s+([\w-]{11})\s+intro=([\d.]+)\s+chorus=([\d.]+)/g)) {
+    const s = byId.get(m[1]);
+    if (!s) { unknown++; continue; }
+    const intro = +m[2], chorus = +m[3];
+    if (intro !== (s.intro || 0)) { s.intro = intro; markIntroManual(s); }
+    if (chorus !== s.chorus) { s.chorus = chorus; s.chorusSource = 'manual'; }
+    dirtyIds.add(s.id); n++;
+  }
+  dirty = dirtyIds.size > 0; render();
+  toast(n ? `${n}曲の位置を取り込みました（保存してください）${unknown ? `／見つからない曲 ${unknown}` : ''}` : '取り込める行がありませんでした');
+};
+
 function toast(msg) {
   $('toast').textContent = msg; $('toast').hidden = false;
   clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').hidden = true, 3500);

@@ -86,7 +86,8 @@ body.sheet-open .sheet-close { display: block; }
 #result { padding-bottom: 0 !important; }
 .answer { font-size: 20px; margin-bottom: 6px; line-height: 1.3; }
 .answer small { font-size: 12px; }
-.answer .copy-song { margin-top: 6px; }
+.song-tools { gap: 5px; }
+.fix-row b { min-width: 0; width: 100%; }
 .highlights { margin-bottom: 6px; }
 .highlights li { font-size: 12px; padding: 3px 10px; }
 .reactions { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; margin: 2px -10px 6px; padding: 0 10px; }

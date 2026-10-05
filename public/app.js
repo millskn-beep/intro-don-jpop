@@ -200,7 +200,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series'], BOOL_KEYS = ['clues', 'lifelines', 'bonus'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -259,7 +259,8 @@ function playLogText(list = playLog, title = '出題曲') {
   const d = new Date();
   const head = `アニソンイントロ対戦 ${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()} ${title}`;
   const lines = list.map((s, i) => s && `${i + 1}. ${s.title} ／ ${s.work}${s.type ? `（${s.type}）` : ''} ／ ${s.artist}${s.year ? `（${s.year}）` : ''}`).filter(Boolean);
-  const ids = list.filter(s => s?.id).map(s => s.id).join('');
+  const kept = keptIds(); // 「除外しない」にした曲は除外コードに入れない
+  const ids = list.filter(s => s?.id && !kept.has(s.id)).map(s => s.id).join('');
   return [head, ...lines, ...(ids ? [`除外コード（新しい部屋に貼ると、この曲を出題しません）：AQX1:${ids}`] : [])].join('\n');
 }
 // この部屋で遊んだ全ゲームの曲（ゲームごとに区切る）
@@ -303,7 +304,8 @@ function deviceIds() { try { return JSON.parse(store.get(DEVICE_KEY) || '[]'); }
 function rememberIds(ids) {
   const set = new Set(deviceIds());
   let added = false;
-  for (const id of ids) if (/^[\w-]{11}$/.test(id) && !set.has(id)) { set.add(id); added = true; }
+  const kept = keptIds(); // 「除外しない」にした曲は記録しない
+  for (const id of ids) if (/^[\w-]{11}$/.test(id) && !set.has(id) && !kept.has(id)) { set.add(id); added = true; }
   if (!added) return;
   store.set(DEVICE_KEY, JSON.stringify([...set].slice(-DEVICE_MAX)));
   updateDeviceInfo();
@@ -526,6 +528,63 @@ function stageMascot(name) {
   if (!name) { m.hidden = true; return; }
   if (!m.src.endsWith(`/${name}.webp`)) m.src = `/assets/mascot/${name}.webp`;
   m.hidden = false; m.classList.remove('hop'); void m.offsetWidth; m.classList.add('hop');
+}
+// ── 答え合わせの曲ツール：この曲をコピー／この曲は除外しない／イントロ・サビの位置を直す（メモ）──
+const KEEP_KEY = 'aq-keep', FIX_KEY = 'aq-fixes';
+const readJson = (k, d) => { try { return JSON.parse(store.get(k) || 'null') ?? d; } catch (e) { return d; } };
+const keptIds = () => new Set(readJson(KEEP_KEY, []));   // 「除外しない」にした曲（この端末）
+const fixes = () => readJson(FIX_KEY, {});                 // 直した位置のメモ（この端末）：id → { t: 曲名, w: 作品, i: イントロ, c: サビ }
+const fixText = () => ['アニソンイントロ対戦 イントロ・サビ位置の修正メモ（チェック画面の「ゲーム中に直した位置を取り込む」に貼り付け）',
+  ...Object.entries(fixes()).map(([id, f]) => `AQFIX1 ${id} intro=${f.i} chorus=${f.c} ｜ ${f.t} ／ ${f.w}`)].join('\n');
+function setupSongTools(s, r) {
+  $('copySongBtn').onclick = async () => {
+    // 曲名・作品名と YouTube の URL（あとで聴き直したり、人に送ったりする用）
+    const text = `${s.title} ／ ${s.work}\nhttps://www.youtube.com/watch?v=${s.id}`;
+    toast(await copyText(text) ? `「${s.title}」をコピーしました` : 'コピーできませんでした');
+  };
+  // 部屋の除外・この端末の記録から外し、この先も除外しない（何度か出てもいい曲）
+  $('keepSongBtn').onclick = () => {
+    const kept = keptIds(); kept.add(s.id);
+    store.set(KEEP_KEY, JSON.stringify([...kept].slice(-3000)));
+    store.set(DEVICE_KEY, JSON.stringify(deviceIds().filter(id => id !== s.id)));
+    updateDeviceInfo();
+    socket.emit('keepSong', s.id);
+    $('keepSongBtn').textContent = '✓ 除外しない曲';
+    toast(`「${s.title}」は除外しません（また出ることがあります）`);
+  };
+  // 位置を直す：自分の画面のプレーヤーで試し聴きしながら、イントロ・サビの秒数を決めてメモに残す
+  const saved = fixes()[s.id];
+  const pos = { i: saved?.i ?? r.intro ?? 0, c: saved?.c ?? r.chorus ?? 0 };
+  const round = x => Math.max(0, Math.round(x * 10) / 10);
+  const row = (k, label) => `<div class="fix-row"><b>${label}</b><span class="fix-sec" id="fix-${k}">${pos[k]}秒</span>
+    <span class="fix-btns"><button class="btn-sub" data-fk="${k}" data-d="-1">−1</button><button class="btn-sub" data-fk="${k}" data-d="-0.1">−0.1</button>`
+    + `<button class="btn-sub" data-fk="${k}" data-d="0.1">+0.1</button><button class="btn-sub" data-fk="${k}" data-d="1">+1</button>`
+    + `<button class="btn-sub" data-now="${k}">今の位置</button><button class="btn-sub" data-play="${k}">▶ 聴く</button></span></div>`;
+  $('fixToggle').onclick = () => {
+    const p = $('fixPanel');
+    p.hidden = !p.hidden;
+    if (p.hidden) return;
+    p.innerHTML = row('i', 'イントロ') + row('c', 'サビ')
+      + `<div class="fix-actions"><button class="btn-main" id="fixSave">メモに保存</button><button class="btn-sub" id="fixCopy">📋 直した位置をコピー</button></div>`
+      + '<p class="note">直した位置は変えるたびにこの端末にメモとして残ります。手元のチェック画面に貼り付けて取り込むと、曲データに反映されます。</p>';
+    const save = quiet => {
+      const all = fixes(); all[s.id] = { t: s.title, w: s.work, i: pos.i, c: pos.c };
+      store.set(FIX_KEY, JSON.stringify(all));
+      $('fixToggle').textContent = '⏱ 位置を直す（直し済み）';
+      if (!quiet) toast(`「${s.title}」の位置をメモしました（${Object.keys(all).length}曲）`);
+    };
+    // 変えるたびにメモに残す（自動で次の問題に進んでも消えないように）
+    const show = () => { $('fix-i').textContent = `${pos.i}秒`; $('fix-c').textContent = `${pos.c}秒`; save(true); };
+    p.querySelectorAll('[data-fk]').forEach(b => b.onclick = () => { pos[b.dataset.fk] = round(pos[b.dataset.fk] + +b.dataset.d); show(); });
+    p.querySelectorAll('[data-now]').forEach(b => b.onclick = () => { pos[b.dataset.now] = round(player.time()); show(); });
+    p.querySelectorAll('[data-play]').forEach(b => b.onclick = () => player.playFrom(pos[b.dataset.play]));
+    $('fixSave').onclick = () => save(false);
+    $('fixCopy').onclick = async () => {
+      const n = Object.keys(fixes()).length;
+      if (!n) return toast('まだメモした曲がありません');
+      toast(await copyText(fixText()) ? `直した位置 ${n}曲をコピーしました` : 'コピーできませんでした');
+    };
+  };
 }
 // 最初の問題で前もって読み込んでおく（アニメで少し重いので、出る瞬間に遅れないように）
 function preloadMascot() {
@@ -768,12 +827,10 @@ socket.on('reveal', r => {
   });
   const s = r.song;
   $('answer').innerHTML = `${esc(s.title)}<small>${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}（${s.year}）</small>`
-    + (s.id ? '<button class="btn-sub copy-song" id="copySongBtn">📋 この曲をコピー</button>' : '');
-  if (s.id) $('copySongBtn').onclick = async () => {
-    // 曲名・作品名と YouTube の URL（あとで聴き直したり、人に送ったりする用）
-    const text = `${s.title} ／ ${s.work}\nhttps://www.youtube.com/watch?v=${s.id}`;
-    toast(await copyText(text) ? `「${s.title}」をコピーしました` : 'コピーできませんでした');
-  };
+    + (s.id ? `<div class="song-tools"><button class="btn-sub" id="copySongBtn">📋 この曲をコピー</button>`
+      + `<button class="btn-sub" id="keepSongBtn">${keptIds().has(s.id) ? '✓ 除外しない曲' : '🔁 この曲は除外しない'}</button>`
+      + `<button class="btn-sub" id="fixToggle">⏱ 位置を直す${fixes()[s.id] ? '（直し済み）' : ''}</button></div><div class="fix-panel" id="fixPanel" hidden></div>` : '');
+  if (s.id) setupSongTools(s, r);
   $('results').innerHTML = r.results.map(x => `
     <tr>
       <td class="who">${avatarImg(x.avatar, 'avatar sm')}${esc(x.name)}</td>

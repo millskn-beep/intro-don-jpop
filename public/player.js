@@ -111,6 +111,9 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     fadeOut(ms = 1500) { run(() => fade(yt.getVolume(), 0, ms)); },
     fadeBack() { run(() => fade(yt.getVolume(), volume, 500)); },
     duration() { return apiReady && yt.getDuration ? yt.getDuration() : 0; },
+    // 答え合わせで位置を直すとき用：いまの再生位置／その位置から流す（自分の画面だけ）
+    time() { return apiReady && yt.getCurrentTime ? yt.getCurrentTime() : 0; },
+    playFrom(t) { clear(); run(() => { yt.seekTo(t, true); yt.unMute(); yt.setVolume(volume); yt.playVideo(); }); },
     setVolume(v) { volume = v; run(() => yt.setVolume(v)); },
     // スマホ（特にiPhone）は、タップの処理の中で一度再生しておかないと、後から音が出ないことがある。
     // ボタンのクリック処理から同期的に呼ぶこと。

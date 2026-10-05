@@ -151,12 +151,13 @@ const OPTIONS = {
   bonus: [true, false],                  // 連続正解ボーナス・最終問題2倍
   topic: ['all', 'series', ...GENRE_KEYS], // お題：全部／作品を選ぶ／ジャンル（data/genres.json）
   introPlays: [1, 2, 3],                 // イントロを流す回数（わからなかったときのため、頭から流し直す）
+  noExclude: [false, true],              // 前に出た曲・ログを貼った曲も出す（除外しない。同じゲームの中で重なることはない）
 };
 
 const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（public/assets/glass/avatar-1〜12）
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
-                   quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1 };
+                   quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false };
 // 新しい部屋で最初から除外しておくジャンル（アニソン以外）
 const DEFAULT_EXCLUDE = ['vocaloid', 'jpop']; // ライフラインは使わない（画面からも外した）
 const LIFELINES = ['fifty', 'audience', 'phone', 'replay']; // 50:50 / オーディエンス / テレフォン / もう一度聴く
@@ -339,7 +340,7 @@ function startGame(room) {
   // この部屋で前のゲームに出た曲・貼り付けたログの曲は避ける。足りなければ古く除外した曲から戻して使う
   if (!room.played) room.played = new Set();
   const need = Math.min(S.questions, candidates.length);
-  let fresh = candidates.filter(s => !room.played.has(s.id));
+  let fresh = S.noExclude ? [...candidates] : candidates.filter(s => !room.played.has(s.id));
   if (fresh.length < need) {
     const byId = new Map(candidates.map(s => [s.id, s]));
     for (const id of room.played) {
@@ -349,12 +350,12 @@ function startGame(room) {
   }
   const n = Math.min(S.questions, fresh.length);
   const freshSet = new Set(fresh);
-  const popular = candidates.filter(s => !freshSet.has(s) && room.played.has(s.id) && isPopular(s));
+  const popular = S.noExclude ? [] : candidates.filter(s => !freshSet.has(s) && room.played.has(s.id) && isPopular(s));
   room.state = 'playing';
   for (const p of room.players.values()) { p.score = 0; p.streak = 0; p.lifelines = freshLifelines(S); }
   // 曲オブジェクトそのものを持つ（ゲーム中に曲データが保存し直されても影響しないように）
   const order = weightedPick([...fresh.map(s => [s, 1]), ...popular.map(s => [s, POPULAR_REPEAT])], n);
-  order.forEach(s => { room.played.delete(s.id); room.played.add(s.id); }); // 新しく出た曲ほど後ろ（戻すのは古い順）
+  order.forEach(s => { room.played.delete(s.id); if (!room.kept?.has(s.id)) room.played.add(s.id); }); // 新しく出た曲ほど後ろ（戻すのは古い順）。「除外しない」にした曲は記録しない
   room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map() }; // stats: token -> 称号用の成績
   nextQuestion(room);
@@ -751,13 +752,13 @@ function resumeGame(room) {
     const need = Math.max(0, S.questions - done.length);
     const keep = poolChanged ? [] : rest.filter(s => g.pool.includes(s));
     const avail = g.pool.filter(s => !done.includes(s) && !keep.includes(s));
-    const fresh = avail.filter(s => !room.played.has(s.id));
-    const popular = avail.filter(s => room.played.has(s.id) && isPopular(s));
+    const fresh = S.noExclude ? avail : avail.filter(s => !room.played.has(s.id));
+    const popular = S.noExclude ? [] : avail.filter(s => room.played.has(s.id) && isPopular(s));
     const picked = weightedPick([...fresh.map(s => [s, 1]), ...popular.map(s => [s, POPULAR_REPEAT])], Math.max(0, need - keep.length));
     const reuse = shuffle(avail.filter(s => room.played.has(s.id) && !picked.includes(s))); // それでも足りなければ除外中の曲から
     const next = [...keep, ...picked, ...reuse].slice(0, need);
     rest.forEach(s => { if (!next.includes(s)) room.played.delete(s.id); }); // 出さなくなった曲は除外の記録から外す
-    next.forEach(s => { room.played.delete(s.id); room.played.add(s.id); });
+    next.forEach(s => { room.played.delete(s.id); if (!room.kept?.has(s.id)) room.played.add(s.id); });
     g.order = [...done, ...next];
   }
   g.paused = null;
@@ -884,9 +885,17 @@ io.on('connection', socket => {
     if (!room.played) room.played = new Set();
     let added = 0;
     for (const id of ids.slice(0, 5000)) {
-      if (typeof id === 'string' && known.has(id) && !room.played.has(id)) { room.played.add(id); added++; }
+      if (typeof id === 'string' && known.has(id) && !room.played.has(id) && !room.kept?.has(id)) { room.played.add(id); added++; }
     }
     socket.emit('notice', `${added}曲を出題から外しました（除外中 ${room.played.size}曲）`);
+    broadcastRoom(room);
+  });
+  // 答え合わせの「この曲は除外しない」：その曲を除外の記録から外し、この部屋ではこの先も除外しない（参加者だれでも）
+  socket.on('keepSong', id => {
+    if (!room || !player || typeof id !== 'string' || !/^[\w-]{11}$/.test(id)) return;
+    if (!room.kept) room.kept = new Set();
+    room.kept.add(id);
+    room.played?.delete(id);
     broadcastRoom(room);
   });
   // 除外するジャンル（チェック式）：参加者だれでも変えられる

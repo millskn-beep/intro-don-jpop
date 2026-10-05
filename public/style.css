@@ -383,16 +383,9 @@ details.more .settings { margin-top: 6px; }
 /* 背景の映像の濃さ（自分の画面だけ）：スライダーの値を --bgk（0〜1）として掛ける */
 .stage-tools { display: flex; align-items: center; gap: 10px; flex: none; }
 /* スマホ：音量・背景・ホスト用ボタンはステージの下の段にまとめる */
-@media (max-width: 600px) {
-  .stage { flex-wrap: wrap; }
-  .stage .status { flex: 1 1 0; min-width: 0; }
-  .stage-tools { flex: 1 1 100%; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
-  .stage-tools .game-ctrl { flex-direction: row; }
-  .stage-tools .vol { flex-direction: row; gap: 6px; }
-  .stage-tools .vol span { display: inline !important; white-space: nowrap; }
-  .stage-tools .vol input { width: 90px; }
 }
 .game-ctrl { display: flex; flex-direction: column; gap: 6px; flex: none; }
+.gear, .sheet-shade, .sheet-close { display: none; } /* スマホ版だけで使う（mobile.css） */
 .game-ctrl .btn-sub { padding: 6px 12px; font-size: 12px; border-radius: 99px; white-space: nowrap; }
 /* 知名度のチェック（チェックした段階の曲だけを出題） */
 .fame-row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; margin: 10px 0 4px; font-size: 12px; color: var(--sub); font-weight: 700; }
@@ -447,34 +440,7 @@ details.more .settings { margin-top: 6px; }
   .players .avatar { width: 32px; height: 32px; }
   .players .pts { font-size: 16px; }
 }
-@media (max-width: 600px) {
-  main { padding: 12px; }
-  .emblem { width: 40px; height: 40px; }
-  .logo { font-size: 16px; white-space: nowrap; }
-  .top { gap: 8px; }
-  .logo small { letter-spacing: .2em; font-size: 9px; }
-  .brand { padding: 4px 12px 4px 6px; gap: 8px; }
-  .code { font-size: 13px; letter-spacing: .1em; padding: 5px 8px; }
-  .create-row { grid-template-columns: 1fr; }
-  .stage { gap: 12px; }
-  .cover { width: 72px; height: 72px; } .cover-icon { width: 58px; height: 58px; } .cover span { font-size: 44px; }
-  .choices { grid-template-columns: 1fr 1fr; gap: 6px; }
-  .choice { min-height: 54px; padding: 8px 8px 8px 36px; font-size: 14px; }
-  .choice::before { left: 7px; width: 22px; height: 22px; font-size: 12px; }
-  .choice small { font-size: 11px; }
-  .timer { font-size: 34px; margin: 0; }
-  .room-main > .panel, .room-side { padding: 10px 12px; margin-bottom: 8px; }
-  .room-main { gap: 0; }
-  /* プレイヤーは横一列（横にスクロール）にして、選択肢が最初の画面に入るように */
-  .room-side h3 { display: none; }
-  .room-side .players { display: flex; overflow-x: auto; gap: 6px; padding: 14px 0 2px; scrollbar-width: none; }
-  .room-side .players li { flex: none; min-width: 112px; padding: 4px 8px 4px 4px; font-size: 12px; }
-  .room-side .players .avatar { width: 26px; height: 26px; }
-  .room-side .players .pts { font-size: 14px; }
-  .room-side .players .host, .room-side .players .you { display: none; }
-  .vol span { display: none; }
-  .vol input { width: 64px; }
-  .vol input { margin: 0; }
+/* スマホ（幅600px以下）の見た目は mobile.css にまとめている */
 }
 /* ── 答え合わせ：画面が広いPC（1200px〜）だけ、結果を右側の縦パネルに移して真ん中は映像を見せる。
       それより狭いPCでは中央が潰れるので、結果はステージのすぐ下に置く ── */

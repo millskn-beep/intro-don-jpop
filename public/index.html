@@ -2,12 +2,13 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>アニソンイントロ対戦</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile.css" media="(max-width: 600px)">
 </head>
 <body>
 <div class="backdrop" aria-hidden="true"></div>
@@ -72,7 +73,9 @@
         <div class="timer" id="timer">0.0</div>
         <div class="bar"><i id="barFill"></i><b id="barMark"></b></div>
       </div>
+      <button class="gear" id="gearBtn" type="button" aria-label="音量・表示・一時停止">⚙</button>
       <div class="stage-tools">
+      <button class="sheet-close" id="sheetClose" type="button">閉じる</button>
       <label class="vol" title="音量"><span>音量</span><input type="range" id="volume" min="0" max="100" value="80"></label>
       <label class="vol" title="背景の映像の濃さ（自分の画面だけ）"><span>背景</span><input type="range" id="bgRange" min="0" max="100" value="100"></label>
       <label class="vol" title="エフェクトの輝き（自分の画面だけ。0で消す）"><span>エフェクト</span><input type="range" id="fxRange" min="0" max="100" value="100"></label>
@@ -204,6 +207,7 @@
   <div class="mascot-pop" id="mascotPop" hidden></div>
   <div class="confetti" id="confetti" aria-hidden="true"></div>
   <div class="toast" id="toast" hidden></div>
+  <div class="sheet-shade" id="sheetShade"></div>
 </main>
 <script src="/socket.io/socket.io.js"></script>
 <script type="module" src="app.js"></script>

@@ -1,0 +1,108 @@
+/* ── スマホ版（幅600px以下だけ読み込む：index.html の <link media>）──
+   パソコン版（style.css）はそのままで、並べ方と大きさだけをスマホ向けに上書きする。
+   ・出題中：上に細いステージ（状態・残り時間）、選択肢は画面の下側（親指で押しやすい位置）
+   ・音量・背景・エフェクト・キャラ・一時停止は ⚙ で下から出るシートに
+   ・答え合わせ：1画面に収めて、「次の問題へ」は下に固定 */
+
+:root { --sp-gap: 8px; --safe-b: env(safe-area-inset-bottom, 0px); }
+
+/* すりガラス（backdrop-filter）は重いうえ、中の position: fixed（シート・固定ボタン）の基準がずれるので、スマホでは使わない */
+.panel, .brand, .code, .choice, .players li, .phase, .cover, .btn-sub, .btn-main, .clues li, .highlights li {
+  backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+.panel { background: rgba(12, 12, 30, .82); }
+
+/* ── 共通（もとの style.css にあったスマホ向けの調整）── */
+main { padding: 8px 10px calc(10px + var(--safe-b)); }
+.emblem { width: 32px; height: 32px; }
+.logo { font-size: 15px; white-space: nowrap; }
+.logo small { display: none; }
+.top { gap: 8px; margin-bottom: 8px; }
+.brand { padding: 3px 12px 3px 4px; gap: 6px; }
+.code { font-size: 13px; letter-spacing: .1em; padding: 5px 8px; }
+.create-row { grid-template-columns: 1fr; }
+
+/* ── 部屋：縦いっぱいを使い、出題中は選択肢を下側に寄せる ── */
+main:has(#room:not([hidden])) { min-height: 100dvh; display: flex; flex-direction: column; }
+#room:not([hidden]) { flex: 1; display: flex; flex-direction: column; }
+.room-main { flex: 1; display: flex; flex-direction: column; gap: 0; }
+.room-main > .panel, .room-side { padding: 8px 10px; margin-bottom: var(--sp-gap); }
+#quiz:not([hidden]) { margin-top: auto; } /* 選択肢を画面の下側へ */
+
+/* プレイヤー：横一列（横にスクロール） */
+.room-side { background: none; border: none; box-shadow: none; padding: 0 !important; }
+.room-side h3 { display: none; }
+.room-side .players { display: flex; overflow-x: auto; gap: 6px; padding: 12px 0 2px; scrollbar-width: none; }
+.room-side .players::-webkit-scrollbar { display: none; }
+.room-side .players li { flex: none; min-width: 104px; padding: 3px 8px 3px 3px; font-size: 12px; }
+.room-side .players .avatar { width: 26px; height: 26px; }
+.room-side .players .pts { font-size: 14px; }
+.room-side .players .host, .room-side .players .you { display: none; }
+
+/* ── ステージ：1行にまとめる（絵・キャラ・状態・残り時間・⚙）── */
+.stage { display: grid; grid-template-columns: auto auto 1fr auto; grid-template-areas: "cover mascot status gear"; align-items: center; gap: 8px; }
+.stage .cover { grid-area: cover; width: 54px; height: 54px; border-radius: 14px; }
+.cover-icon { width: 42px; height: 42px; } .cover span { font-size: 32px; }
+.stage .mascot { grid-area: mascot; height: 58px; }
+.stage .status { grid-area: status; min-width: 0; }
+.status-top { gap: 4px 6px; }
+.phase { font-size: 11.5px; padding: 3px 10px; max-width: 100%; line-height: 1.35; border-radius: 12px; } /* 長い表示は2行に折り返す */
+.qno { font-size: 11.5px; }
+.qno .final { font-size: 10.5px; margin-left: 2px; }
+.timer { font-size: 28px; margin: 0; line-height: 1.15; }
+.bar { height: 6px; }
+.gear { grid-area: gear; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; font-size: 20px; line-height: 1;
+        background: var(--glass-strong); border: 1px solid var(--line); color: #fff; }
+body.sheet-open .gear { border-color: var(--accent); box-shadow: 0 0 12px rgba(127, 232, 255, .5); }
+
+/* ⚙ のシート：画面の下から出す */
+.stage-tools { display: none; }
+body.sheet-open .stage-tools {
+  display: grid; grid-template-columns: 1fr; gap: 14px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  padding: 16px 18px calc(18px + var(--safe-b)); border-radius: 20px 20px 0 0;
+  background: rgba(14, 12, 34, .97); border-top: 1px solid var(--line-strong); box-shadow: 0 -10px 40px rgba(0, 0, 0, .6);
+  animation: sheetUp .22s ease-out; }
+@keyframes sheetUp { from { transform: translateY(100%); } }
+body.sheet-open .sheet-shade { display: block; position: fixed; inset: 0; z-index: 39; background: rgba(0, 0, 0, .45); }
+.sheet-close { justify-self: end; padding: 4px 14px; border-radius: 99px; font-size: 13px; background: var(--glass-strong); border: 1px solid var(--line); color: #fff; }
+body.sheet-open .sheet-close { display: block; }
+.stage-tools .vol { flex-direction: row; justify-content: space-between; gap: 12px; font-size: 14px; color: #fff; }
+.stage-tools .vol span { display: inline !important; white-space: nowrap; min-width: 5em; }
+.stage-tools .vol input[type=range] { flex: 1; width: auto; height: 8px; }
+.stage-tools .vol.chk { justify-content: flex-start; }
+.stage-tools .game-ctrl:not([hidden]) { display: flex; flex-direction: row; gap: 8px; }
+.stage-tools .game-ctrl .btn-sub { flex: 1; padding: 11px 8px; font-size: 14px; }
+
+/* ── 出題中 ── */
+.clues { margin-bottom: 6px; }
+.choices { grid-template-columns: 1fr 1fr; gap: 7px; }
+.choice { min-height: 64px; padding: 8px 8px 8px 36px; font-size: 14.5px; line-height: 1.3; }
+.choice::before { left: 7px; width: 22px; height: 22px; font-size: 12px; }
+.choice small { font-size: 11px; }
+.answer-input input { font-size: 16px; } /* 16px 未満だと iPhone が勝手に拡大する */
+.lifelines { margin-top: 8px; }
+.lifelines .skip { width: 100%; justify-content: center; padding: 11px 14px; }
+
+/* ── 答え合わせ：1画面に収める ── */
+#result { padding-bottom: 0 !important; }
+.answer { font-size: 20px; margin-bottom: 6px; line-height: 1.3; }
+.answer small { font-size: 12px; }
+.answer .copy-song { margin-top: 6px; }
+.highlights { margin-bottom: 6px; }
+.highlights li { font-size: 12px; padding: 3px 10px; }
+.reactions { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; margin: 2px -10px 6px; padding: 0 10px; }
+.reactions::-webkit-scrollbar { display: none; }
+.reactions .btn-sub { flex: none; padding: 6px 13px; }
+.results { font-size: 13px; }
+.results td { padding: 5px 3px; }
+#result .listen, #result .copy-log { display: inline-flex; margin: 6px 4px 0; padding: 6px 13px; font-size: 12px; }
+/* 「次の問題へ」は画面の下に固定 */
+#nextBtn:not([hidden]) { position: sticky; bottom: calc(8px + var(--safe-b)); z-index: 5; margin: 8px 0 10px; box-shadow: 0 6px 24px rgba(0, 0, 0, .55); }
+#result .next-count { margin: 6px 0 0; }
+
+/* ── 演出：キャラは画面の真ん中あたりで、ぽんっと出す（下の選択肢にかぶりすぎないように）── */
+.mascot-pop { place-items: center; padding-bottom: 12vh; }
+.mascot-pop img { height: clamp(140px, 28dvh, 220px); transform: scale(0); }
+.mascot-pop.show img { animation: mascotPopSp 1.6s cubic-bezier(.3, 1.5, .5, 1) forwards; }
+@keyframes mascotPopSp { 0% { transform: scale(0); opacity: 0; } 20% { transform: scale(1.08); opacity: 1; } 30%, 80% { transform: scale(1); opacity: 1; } 100% { transform: scale(.6) translateY(20%); opacity: 0; } }
+.cue video { width: min(80vw, 340px); }
+.cue span { font-size: clamp(36px, 12vw, 56px); }

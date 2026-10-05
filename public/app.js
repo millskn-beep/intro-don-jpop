@@ -359,6 +359,13 @@ function applyMascot(on) {
 }
 applyMascot(store.get('aq-mascot') !== '0');
 $('mascotChk').onchange = e => applyMascot(e.target.checked);
+// スマホ版（mobile.css）：音量・表示・一時停止などは ⚙ で下から出るシートにまとめる
+const closeSheet = () => document.body.classList.remove('sheet-open');
+$('gearBtn').onclick = () => document.body.classList.toggle('sheet-open');
+$('sheetClose').onclick = closeSheet;
+$('sheetShade').onclick = closeSheet;
+$('gameCtrl').addEventListener('click', closeSheet); // 一時停止・ルームに戻るを押したら閉じる
+matchMedia('(max-width: 600px)').addEventListener('change', closeSheet);
 
 // ── 一時停止・途中でやめる ──
 let shownBeforePause = null, pausedNow = false, pausedAt = 0;

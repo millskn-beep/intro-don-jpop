@@ -4282,10 +4282,12 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "Maaya Sakamoto - Topic",
-    "intro": 0,
+    "intro": 4.7,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "cTlukCKaGoM",
@@ -4299,7 +4301,9 @@
     "intro": 0,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "_A2th9RSL4U",
@@ -4554,10 +4558,12 @@
     "type": "ED",
     "confidence": "高",
     "source": "Maaya Sakamoto - Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "n7di6LFTtPA",
@@ -5509,10 +5515,12 @@
     "type": "OP",
     "confidence": "高",
     "source": "angela Official Channel",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "6QouPXYYxTo",
@@ -6341,10 +6349,12 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "Maaya Sakamoto - Topic",
-    "intro": 0,
+    "intro": 2.7,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "UTryYnwLsys",
@@ -6774,10 +6784,12 @@
     "type": "OP",
     "confidence": "高",
     "source": "Maaya Sakamoto - Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "mDfz8gmTYhw",
@@ -6952,7 +6964,9 @@
     "intro": 0,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "K5hMzC-ST6A",
@@ -7262,10 +7276,12 @@
     "type": "OP",
     "confidence": "高",
     "source": "Maaya Sakamoto - Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "s-PIh2NwxSo",
@@ -7472,10 +7488,12 @@
     "type": "ED",
     "confidence": "高",
     "source": "angela Official Channel（最終話ED）",
-    "intro": 0,
+    "intro": 2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "5OBi7SWjwQI",
@@ -7486,10 +7504,12 @@
     "type": "ED",
     "confidence": "高",
     "source": "Maaya Sakamoto - Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "lhZUbiqDr34",
@@ -7565,10 +7585,12 @@
     "type": "ED",
     "confidence": "高",
     "source": "angela Official Channel",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "gXxhXIDliCI",
@@ -7579,10 +7601,12 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "Maaya Sakamoto - Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "jB6PAfKhbW8",
@@ -7976,10 +8000,12 @@
     "type": "OP",
     "confidence": "高",
     "source": "angela Official Channel（Music Clip）",
-    "intro": 0,
+    "intro": 1,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "XggsuWPjLhc",
@@ -8017,10 +8043,12 @@
     "type": "ED",
     "confidence": "高",
     "source": "angela Official Channel",
-    "intro": 0,
+    "intro": 2.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "iqCu1cnJTjU",
@@ -8106,10 +8134,12 @@
     "type": "イメージソング",
     "confidence": "中",
     "source": "angela Official Channel（Music Clip）",
-    "intro": 0,
+    "intro": 2.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "zejYD43HyQo",
@@ -8385,7 +8415,9 @@
     "intro": 0,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "6QLJw5cZ_tw",
@@ -8422,10 +8454,12 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "Nana Mizuki - Topic",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "RXCdBw5Ft2s",
@@ -8857,10 +8891,12 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "Nana Mizuki - Topic",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "8XkiWX48nds",
@@ -8926,10 +8962,12 @@
     "type": "イメージソング",
     "confidence": "中",
     "source": "angela Official Channel",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "QSETkbXV4Qs",
@@ -8990,7 +9028,9 @@
     "intro": 0,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMethod": "v2",
+    "introUnsure": true
   },
   {
     "id": "eDh5Pyn1_fw",
@@ -9069,10 +9109,12 @@
     "type": "主題歌",
     "confidence": "高",
     "source": "angela Official Channel（Music Clip）",
-    "intro": 0,
+    "intro": 2.7,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "VAH508mZmXQ",
@@ -9396,10 +9438,12 @@
     "type": "ED",
     "confidence": "高",
     "source": "Maaya Sakamoto - Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "UjeCuToebmQ",
@@ -9741,10 +9785,12 @@
     "type": "ED",
     "confidence": "高",
     "source": "angela Official Channel",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "sld64Husm3E",
@@ -9991,7 +10037,9 @@
     "intro": 0,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMethod": "v2",
+    "introUnsure": true
   },
   {
     "id": "a26P38E2OPc",
@@ -10028,10 +10076,12 @@
     "type": "主題歌",
     "confidence": "高",
     "source": "水樹奈々公式MV",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "huypyP0y04s",
@@ -10785,10 +10835,12 @@
     "type": "ED",
     "confidence": "高",
     "source": "Maaya Sakamoto - Topic",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Lq2-HHP04jM",
@@ -10987,7 +11039,9 @@
     "intro": 0,
     "chorus": 0,
     "aliases": [],
-    "embeddable": null
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "9yWrOmJBjfA",

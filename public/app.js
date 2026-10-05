@@ -293,6 +293,10 @@ $('excludeBtn').onclick = () => {
   socket.emit('exclude', ids); rememberIds(ids); $('excludeInput').value = '';
 };
 $('excludeClear').onclick = () => socket.emit('clearExclude');
+// ロビーの一番上：この部屋で遊んだ曲・貼り付けたログの除外をまとめてリセット（ホスト）
+$('resetPlayed').onclick = () => {
+  if (confirm('この部屋で出た曲・貼り付けたログの除外をリセットしますか？（前に出た曲もまた出るようになります。この端末の記録は消えません）')) socket.emit('clearExclude');
+};
 // 除外中の曲（この部屋で出た曲＋貼り付けたログの曲）を全部コピー
 // （スマホではタップの処理の中ですぐコピーしないと失敗するので、一覧は先に受け取っておく）
 let excludedCache = [], excludedCount = -1;
@@ -419,6 +423,9 @@ function renderRoom(r) {
   if (r.excluded !== excludedCount) { excludedCount = r.excluded; refreshExcluded(); }
   $('excludeCopy').hidden = !r.excluded;
   $('excludeClear').hidden = !(isHost && r.excluded);
+  $('resetRow').hidden = !r.excluded;
+  $('resetInfo').textContent = `この部屋で除外中の曲：${r.excluded}曲`;
+  $('resetPlayed').hidden = !isHost;
   $('startBtn').hidden = !isHost; $('waitHost').hidden = isHost;
   $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
   $('lobbyBtn').hidden = !isHost; $('againBtn').hidden = !isHost;

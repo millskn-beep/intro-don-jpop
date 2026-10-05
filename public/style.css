@@ -156,17 +156,21 @@ button:disabled { cursor: default; }
 
 /* ── ステージ（問題の状態・タイマー）── */
 .stage { display: flex; gap: 16px; align-items: center; }
-.cover { position: relative; width: 92px; height: 92px; flex: none; border-radius: 22px; display: grid; place-items: center;
+.cover { position: relative; overflow: hidden; width: 92px; height: 92px; flex: none; border-radius: 22px; display: grid; place-items: center;
          background: var(--glass-strong); border: 1px solid var(--line); box-shadow: 0 0 28px rgba(182, 155, 255, .3), var(--glow); }
 .cover span { font-family: var(--font-num); font-weight: 800; font-size: 56px; background: var(--grad); -webkit-background-clip: text; background-clip: text;
               color: transparent; text-shadow: none; animation: pulse 1.2s ease-in-out infinite; }
 .cover-icon { width: 76px; height: 76px; animation: pulse 1.6s ease-in-out infinite; }
+.cover-fx { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; mix-blend-mode: screen; pointer-events: none; opacity: var(--fxk, 1); }
+body:not(.fx-off) .cover:has(.cover-fx) > span { display: none; }
+body.fx-off .cover-fx, body.fx-off .cue video { display: none; }
 @keyframes pulse { 50% { transform: scale(1.1); opacity: .8; } }
 .status { flex: 1; min-width: 0; }
 .status-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .phase { display: inline-block; padding: 4px 13px; border-radius: 99px; font-size: 13px; font-weight: 700; background: var(--glass-strong); border: 1px solid var(--line); }
-.phase.intro { border-color: var(--accent); box-shadow: 0 0 14px rgba(127, 232, 255, .45); }
-.phase.chorus { border-color: var(--warn); box-shadow: 0 0 14px rgba(255, 211, 107, .45); }
+.phase.intro { border-color: var(--accent); box-shadow: 0 0 14px rgba(127, 232, 255, .45); animation: phaseGlow 1.6s ease-in-out infinite; }
+.phase.chorus { border-color: var(--warn); box-shadow: 0 0 14px rgba(255, 211, 107, .45); animation: phaseGlow 1s ease-in-out infinite; }
+@keyframes phaseGlow { 50% { box-shadow: 0 0 22px currentColor; filter: brightness(1.15); } }
 .phase.reveal { border-color: var(--ok); box-shadow: 0 0 14px rgba(93, 255, 176, .45); }
 .qno { font-size: 13px; color: var(--sub); }
 .timer { font-family: var(--font-num); font-weight: 800; font-size: 50px; font-variant-numeric: tabular-nums; margin: 2px 0 4px; letter-spacing: .02em; }
@@ -279,6 +283,30 @@ button:disabled { cursor: default; }
 .flash.ok span { color: #fff; text-shadow: 0 0 24px var(--ok), 0 0 60px var(--ok), 0 3px 6px #000; }
 .flash.ng span { color: #fff; text-shadow: 0 0 24px var(--ng), 0 0 60px var(--ng), 0 3px 6px #000; }
 .flash small { display: block; font-family: var(--font-num); font-size: .35em; text-align: center; }
+/* 場面の切り替わり：画面中央に一瞬だけ出す文字と光（動画の黒い背景は screen で消える） */
+.cue { position: fixed; inset: 0; display: grid; place-items: center; pointer-events: none; z-index: 19; mix-blend-mode: screen; } /* 重ね全体を screen にして、動画の黒を消す */
+.cue > * { grid-area: 1 / 1; }
+.cue video { width: min(72vw, 460px); aspect-ratio: 1; opacity: 0; }
+.cue span { font-weight: 900; font-size: clamp(40px, 10vw, 92px); color: #fff; opacity: 0;
+            text-shadow: 0 0 24px var(--accent), 0 0 60px var(--accent2), 0 3px 6px #000; }
+.cue.show video { animation: cueFx 1.6s ease forwards; }
+.cue.show span { animation: flash 1.4s ease forwards; }
+.cue.show video.fx-replay { animation: cueSpin 1.6s ease-out forwards; } /* 矢印をくるっと1回転 */
+@keyframes cueSpin { 0% { opacity: 0; transform: scale(.6) rotate(-300deg); } 15% { opacity: calc(.95 * var(--fxk, 1)); } 60% { transform: scale(1) rotate(0); opacity: calc(.9 * var(--fxk, 1)); } 100% { opacity: 0; transform: scale(1.1) rotate(20deg); } }
+@keyframes cueFx { 0% { opacity: 0; transform: scale(.6); } 15% { opacity: calc(.95 * var(--fxk, 1)); } 70% { opacity: calc(.85 * var(--fxk, 1)); } 100% { opacity: 0; transform: scale(1.2); } }
+@media (prefers-reduced-motion: reduce) { .cue video { display: none; } }
+/* マスコット（双子）：切り替わりで画面の下からぴょこっと出る。光の重ね（screen）とは別の層にして色を保つ */
+.mascot-pop { position: fixed; inset: 0; display: grid; place-items: end center; pointer-events: none; z-index: 21; overflow: hidden; }
+.mascot-pop img { height: clamp(150px, 32vh, 280px); filter: drop-shadow(0 0 18px rgba(182, 155, 255, .55)); transform: translateY(110%); }
+.mascot-pop.show img { animation: mascotPop 1.6s cubic-bezier(.3, 1.4, .5, 1) forwards; }
+@keyframes mascotPop { 0% { transform: translateY(110%); } 22% { transform: translateY(-4%); } 32% { transform: translateY(0); } 78% { transform: translateY(0); } 100% { transform: translateY(110%); } }
+/* ステージ：場面ごとの絵を小さく。ゆらゆら揺れて、切り替わりで跳ねる */
+.mascot { height: 92px; flex: none; filter: drop-shadow(0 0 10px rgba(182, 155, 255, .45)); animation: mascotSway 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
+.mascot.hop { animation: mascotHop .5s ease-out, mascotSway 2.4s ease-in-out .5s infinite; }
+@keyframes mascotSway { 50% { transform: rotate(-3deg) translateY(-2px); } }
+@keyframes mascotHop { 0% { transform: scale(.6) translateY(20%); opacity: 0; } 60% { transform: scale(1.08) translateY(-6%); opacity: 1; } 100% { transform: none; } }
+body.mascot-off .mascot, body.mascot-off .mascot-pop, body.in-lobby .mascot, body.revealing .mascot { display: none; }
+.stage-tools .vol.chk input { -webkit-appearance: auto; appearance: auto; width: 16px; height: 16px; background: none; box-shadow: none; accent-color: var(--accent2); }
 @keyframes flash { 0% { transform: scale(.4); opacity: 0; } 20% { transform: scale(1.06); opacity: 1; } 75% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.04); opacity: 0; } }
 .confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 19; }
 .confetti i { position: absolute; top: -20px; width: 10px; height: 14px; border-radius: 2px; animation: fall linear forwards; }

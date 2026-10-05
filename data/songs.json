@@ -4117,7 +4117,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "Megumi Hayashibara - Topic",
-    "intro": 0,
+    "intro": 1,
     "chorus": 80,
     "aliases": [],
     "embeddable": null,
@@ -4126,7 +4126,9 @@
     "views": 2818183,
     "channel": "Megumi Hayashibara - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "2IwalA2_aMg",
@@ -5709,7 +5711,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "堂島孝平",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 127,
     "aliases": [],
     "embeddable": null,
@@ -5718,7 +5720,9 @@
     "views": 15007027,
     "channel": "堂島孝平",
     "viewsAt": "2026-10-05",
-    "fame": "top"
+    "fame": "top",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "aDehqMVTwJE",
@@ -5729,7 +5733,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "DEEN Official YouTube Channel",
-    "intro": 0,
+    "intro": 6.2,
     "chorus": 89,
     "aliases": [],
     "embeddable": null,
@@ -5738,7 +5742,9 @@
     "views": 659826,
     "channel": "DEEN Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "WJ4Kz_7S-9Y",
@@ -7024,7 +7030,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "MUSIC Liverary",
-    "intro": 0,
+    "intro": 6.2,
     "chorus": 116,
     "aliases": [],
     "embeddable": null,
@@ -7033,7 +7039,9 @@
     "views": 1724961,
     "channel": "MUSIC Liverary",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "fVh_GJJuXJY",
@@ -9047,7 +9055,9 @@
     "views": 1638,
     "channel": "AnimeSongs Official",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "cpAz9KI6-3s",
@@ -15046,7 +15056,9 @@
     "views": 2421467,
     "channel": "tacica",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "QIU044tsV2Q",
@@ -15444,7 +15456,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "ryo (supercell)",
-    "intro": 0,
+    "intro": 3.5,
     "chorus": 115,
     "aliases": [],
     "embeddable": null,
@@ -15453,7 +15465,9 @@
     "views": 859289,
     "channel": "ryo (supercell)",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "yhYaa7YAFDs",
@@ -16311,7 +16325,9 @@
     "views": 649297,
     "channel": "ASIAN KUNG-FU GENERATION Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "bkyO2nOWzrI",
@@ -26648,7 +26664,7 @@
     "type": "映画主題歌",
     "confidence": "中",
     "source": "GLIM SPANKY",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 53,
     "aliases": [],
     "embeddable": null,
@@ -26657,7 +26673,9 @@
     "views": 6931066,
     "channel": "GLIM SPANKY",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "grdy6rLbQ-c",

@@ -339,19 +339,42 @@ function applyBg(v) {
 }
 applyBg({ normal: 100, dim: 40, off: 0 }[store.get('aq-bg')] ?? store.get('aq-bg') ?? 100);
 $('bgRange').oninput = e => applyBg(e.target.value);
+// エフェクトの輝き（0〜100%）。--fxk として掛ける。0 のときはエフェクトを出さず文字だけ
+function applyFx(v) {
+  v = Math.max(0, Math.min(100, Number(v)));
+  if (!Number.isFinite(v)) v = 100;
+  document.body.style.setProperty('--fxk', v / 100);
+  document.body.classList.toggle('fx-off', v === 0);
+  $('fxRange').value = v;
+  $('fxRange').title = `エフェクトの輝き ${v}%`;
+  store.set('aq-fx', String(v));
+}
+applyFx(store.get('aq-fx') ?? 100);
+$('fxRange').oninput = e => applyFx(e.target.value);
+// キャラクター（双子）の表示のオンオフ
+function applyMascot(on) {
+  document.body.classList.toggle('mascot-off', !on);
+  $('mascotChk').checked = on;
+  store.set('aq-mascot', on ? '1' : '0');
+}
+applyMascot(store.get('aq-mascot') !== '0');
+$('mascotChk').onchange = e => applyMascot(e.target.checked);
 
 // ── 一時停止・途中でやめる ──
 let shownBeforePause = null, pausedNow = false, pausedAt = 0;
 $('pauseBtn').onclick = () => socket.emit('pause');
 $('resumeBtn').onclick = () => socket.emit('resume');
 $('abortBtn').onclick = () => { if (confirm('ゲームをやめて部屋に戻りますか？（得点は残りません）')) socket.emit('abort'); };
-socket.on('paused', () => { pausedNow = true; pausedAt = performance.now(); player.pause(); setPhase('ready', '一時停止中'); });
+let phaseBefore = null; // 一時停止の前の表示（再開したら戻す）
+socket.on('paused', () => { pausedNow = true; pausedAt = performance.now(); player.pause(); phaseBefore = [$('phase').className.replace('phase ', ''), $('phase').textContent]; setPhase('ready', '一時停止中'); });
 socket.on('resumed', ({ ms, qTotal }) => {
   pausedNow = false;
   const d = performance.now() - pausedAt; // 止まっていたぶん、残り時間の計算を後ろへずらす
   timerStart += d; nextUntil += d;
   player.resume();
-  setPhase(document.body.classList.contains('revealing') ? 'reveal' : 'intro', document.body.classList.contains('revealing') ? '答え合わせ' : '再開');
+  if (document.body.classList.contains('revealing')) setPhase('reveal', '答え合わせ');
+  else if (phaseBefore && phaseBefore[0] !== 'ready') setPhase(...phaseBefore);
+  else setPhase('intro', '再開');
   if (question && qTotal) { question.qTotal = qTotal; $('qno').innerHTML = $('qno').innerHTML.replace(/\/ \d+ 問/, `/ ${qTotal} 問`); }
 });
 socket.on('aborted', () => {
@@ -441,6 +464,7 @@ function flash(kind, text, sub = '') {
   el.innerHTML = `<span>${icon(kind === 'ok' ? 'ok' : 'ng', 'flash-icon')}${esc(text)}${sub ? `<small>${esc(sub)}</small>` : ''}</span>`;
   el.hidden = false;
   clearTimeout(flash.t); flash.t = setTimeout(() => { el.hidden = true; }, 1400);
+  popMascot(kind === 'ok' ? 'both-ok' : 'both-ng', 1400);
 }
 function confetti(count = 80) {
   const colors = ['var(--accent)', 'var(--accent2)', 'var(--warn)', 'var(--ok)', '#fff'];
@@ -478,6 +502,40 @@ function showBigChoices() {
 }
 function setPhase(cls, label) { $('phase').className = 'phase ' + cls; $('phase').textContent = label; }
 
+// 場面の切り替わり演出（動画は tools/gen-effects.js で作ったもの。黒い背景は CSS で消す）
+// ステージの絵：場面ごとのループ動画
+function coverFx(name) {
+  const v = document.createElement('video');
+  Object.assign(v, { src: `/assets/fx/${name}.mp4`, autoplay: true, loop: true, muted: true, playsInline: true, className: 'cover-fx' });
+  v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); // 自動再生の判定が属性を見るブラウザ向け
+  v.onerror = () => { $('cover').innerHTML = '<span>?</span>'; }; // 動画が読めなければ元の「？」
+  $('cover').innerHTML = '<span>?</span>'; // エフェクトを0にしたときは「？」が見える
+  $('cover').append(v);
+}
+// マスコット（双子の女の子。tools/gen-mascot.js で作った絵）。イントロ＝青の子、サビ＝赤の子、「もう一回！」・正解・不正解＝2人
+// ステージ：場面ごとに小さく出しておく（null で隠す）
+function stageMascot(name) {
+  const m = $('mascot');
+  if (!name) { m.hidden = true; return; }
+  if (!m.src.endsWith(`/${name}.webp`)) m.src = `/assets/mascot/${name}.webp`;
+  m.hidden = false; m.classList.remove('hop'); void m.offsetWidth; m.classList.add('hop');
+}
+// 画面の下から、ぴょこっと出て引っ込む
+function popMascot(name, ms = 1600) {
+  const el = $('mascotPop');
+  el.innerHTML = `<img src="/assets/mascot/${name}.webp" alt="">`;
+  el.classList.remove('show'); el.hidden = false; void el.offsetWidth; el.classList.add('show');
+  clearTimeout(popMascot.t); popMascot.t = setTimeout(() => { el.hidden = true; el.innerHTML = ''; }, ms);
+}
+// 画面中央に一瞬だけ出す文字（「もう一回！」「サビ！」など）
+function cue(text, fx) {
+  const el = $('cue');
+  el.innerHTML = `<video class="${fx}" src="/assets/fx/${fx}.mp4" autoplay muted playsinline></video><span>${esc(text)}</span>`;
+  const v = el.querySelector('video'); v.playbackRate = 1.3; v.onerror = () => v.remove();
+  el.classList.remove('show'); el.hidden = false; void el.offsetWidth; el.classList.add('show');
+  clearTimeout(cue.t); cue.t = setTimeout(() => { el.hidden = true; el.innerHTML = ''; }, 1600);
+}
+
 // ── 出題 ──
 const isInput = () => question?.answerMode === 'input';
 
@@ -485,13 +543,13 @@ socket.on('question', q => {
   if (q.qNo === 1) playLog = []; // 新しいゲーム
   question = q; myAnswer = null; answering = false;
   stopTick();
-  showBigChoices(); hintSeen = false;
+  showBigChoices(); hintSeen = false; introLeft = 0;
   $('timer').textContent = ''; $('barFill').style.width = '0';
   clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer); fadingOut = false; document.body.classList.remove('fading');
   $('barMark').style.left = (q.settings.hintAt / (q.settings.hintAt + q.settings.chorusLen) * 100) + '%';
   $('qno').innerHTML = `第 ${q.qNo} / ${q.qTotal} 問` + (q.kind === 'sabimae' ? '（サビ前問題）' : '')
     + (q.final ? ' <b class="final">最終問題・得点2倍</b>' : '');
-  $('cover').innerHTML = '<span>?</span>';
+  $('cover').innerHTML = '<span>?</span>'; stageMascot(null);
   document.body.classList.remove('revealing', 'playing'); // 背景の映像を隠す
   setPhase('', '読み込み中');
   $('quizNote').textContent = '';
@@ -523,13 +581,16 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
     if (kind === 'sabimae') {
       // サビ前問題：止めずに流し続ける。戻ってきた人も経過秒ぶん先から
       player.start(start + off);
-      setPhase('intro', 'サビ前');
+      setPhase('intro', 'サビ前を再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('blue-listen');
     } else {
       // 戻ってきた人は、いま何回目のイントロのどこかを計算して、その位置から
       const cycle = introLen + gap, k = Math.floor(off / cycle), within = off - k * cycle;
       if (!off) player.start(intro);
       else if (k < plays && within < introLen && off < hintAt) player.start(intro + within);
-      setPhase('intro', plays > 1 ? `イントロ（1 / ${plays}回目）` : 'イントロ');
+      // 戻ってきた人は、いま何回目かを表示する
+      const nth = off ? Math.min(plays, k + 1) : 1;
+      introLeft = Math.max(0, plays - nth);
+      setPhase('intro', nth > 1 ? `イントロ再生中…（${nth}回目！）` : 'イントロ再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('blue-listen');
     }
     if (myAnswer === null) {
       answering = true;
@@ -548,17 +609,23 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
     }, 50);
   }, wait * 1000);
 });
-socket.on('stopIntro', () => player.stopIntro());
+let introLeft = 0; // この問題で、あと何回イントロを流し直すか
+socket.on('stopIntro', () => {
+  player.stopIntro();
+  // 流し直す前の間に「もう一回！」（イントロ→間→「もう一回！」→2回目、の順に見えるように）
+  if (introLeft > 0) { introLeft--; cue('もう一回！', 'fx-replay'); popMascot('both-again'); stageMascot('both-again'); setPhase('intro', 'もう一回！'); }
+});
 // イントロをもう一度頭から（部屋の設定「イントロの回数」）
 socket.on('restartIntro', ({ n, plays }) => {
   player.start(question?.intro || 0);
-  setPhase('intro', `イントロ（${n} / ${plays}回目）`);
+  setPhase('intro', `イントロ再生中…（${n}回目！）`); coverFx('fx-intro'); stageMascot('blue-listen');
 });
 let hintSeen = false; // この問題でサビ（ヒント）まで流したか。流していなければ、答え合わせでサビへ移動する
 socket.on('hint', ({ chorus, known = true, intro = 0, seek = true }) => {
   hintSeen = true;
-  if (seek) { player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); setPhase('chorus', 'サビ（ヒント・得点×0.7）'); }
-  else setPhase('chorus', 'サビ（得点×0.7）'); // サビ前問題は流れのままサビに入る
+  if (seek) player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); // サビ前問題は流れのままサビに入る
+  cue('サビ！', 'fx-burst');
+  setPhase('chorus', 'サビ再生中 ✨（得点×0.7）'); coverFx('fx-chorus'); popMascot('red-chorus'); stageMascot('red-chorus');
 });
 
 // 再接続したとき、すでに答えていた問題の表示を戻す
@@ -663,7 +730,7 @@ socket.on('reveal', r => {
   answering = false; updateLifelineButtons();
   $('answerInput').disabled = true; $('sendBtn').disabled = true;
   setPhase('reveal', '答え合わせ');
-  $('cover').innerHTML = icon('note', 'cover-icon');
+  $('cover').innerHTML = icon('note', 'cover-icon'); stageMascot(null);
   document.body.classList.remove('playing'); document.body.classList.add('revealing'); // 背景全体に映像を出す
   $('timer').textContent = ''; $('barFill').style.width = '0'; // 問題の残り時間は消す（自動で進むときは「次の問題まで」を出す）
   setCompact(true);
@@ -743,6 +810,7 @@ socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total }) => {
   if (Array.isArray(log)) playLog = log;
   if (Array.isArray(rl)) roomLog = rl;
   clearInterval(nextTick); $('nextCount').textContent = ''; // 「結果発表まで」のカウントを止める
+  stageMascot(null);
   $('qno').textContent = ''; $('timer').textContent = ''; $('barFill').style.width = '0';
   $('titles').innerHTML = titles.map(x => `<li>${avatarImg(x.avatar)}<div><b>${esc(x.title)}</b><span>${esc(x.name)}</span><small>${esc(x.why)}</small></div></li>`).join('');
   document.body.classList.remove('revealing', 'playing');

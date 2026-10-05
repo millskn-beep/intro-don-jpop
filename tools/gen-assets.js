@@ -30,6 +30,11 @@ const JOBS = [
   { name: 'icon-ng', w: 512, h: 512, text: ICON('a bold X cross mark') },
   { name: 'icon-skip', w: 512, h: 512, text: ICON('a fast forward symbol, two right-pointing triangles') },
   ...ANIMALS.map((a, i) => ({ name: `avatar-${i + 1}`, w: 512, h: 512, text: AVATAR(a) })),
+  // 場面の切り替わりエフェクトの元画像（tools/gen-effects.js で動画にする）
+  { name: 'fx-intro', w: 640, h: 640, text: ICON('a music note surrounded by concentric circular sound wave rings and small equalizer bars') },
+  { name: 'fx-replay', w: 640, h: 640, text: ICON('a circular replay arrow made of light, a ring with an arrowhead') },
+  { name: 'fx-chorus', w: 640, h: 640, text: ICON('a bright four-pointed sparkle star with many small glittering stars around it') },
+  { name: 'fx-burst', w: 640, h: 640, text: 'Radial burst of thin glowing light rays and a soft shockwave ring expanding from the center, iridescent cyan and magenta glow, centered, minimal, on a pure black background' },
 ].map(j => ({ ...j, text: `${j.text}, ${NO_TEXT}` }));
 
 async function generate(job, seed) {

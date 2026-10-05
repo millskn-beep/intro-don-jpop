@@ -63,6 +63,7 @@
     <div class="room-main">
     <div class="panel stage">
       <div class="cover" id="cover"><span>?</span></div>
+      <img class="mascot" id="mascot" alt="" hidden>
       <div class="status">
         <div class="status-top">
           <span class="phase" id="phase">待機中</span>
@@ -74,6 +75,8 @@
       <div class="stage-tools">
       <label class="vol" title="音量"><span>音量</span><input type="range" id="volume" min="0" max="100" value="80"></label>
       <label class="vol" title="背景の映像の濃さ（自分の画面だけ）"><span>背景</span><input type="range" id="bgRange" min="0" max="100" value="100"></label>
+      <label class="vol" title="エフェクトの輝き（自分の画面だけ。0で消す）"><span>エフェクト</span><input type="range" id="fxRange" min="0" max="100" value="100"></label>
+      <label class="vol chk" title="キャラクター（双子）を表示する（自分の画面だけ）"><span>キャラ</span><input type="checkbox" id="mascotChk" checked></label>
       <div class="game-ctrl" id="gameCtrl" hidden>
         <button class="btn-sub" id="pauseBtn" title="問題を一時停止して設定を変える（次の問題から反映）">⏸ 設定を変える</button>
         <button class="btn-sub" id="abortBtn" title="ゲームをやめて部屋に戻る">ルームに戻る</button>
@@ -197,6 +200,8 @@
   </section>
 
   <div class="flash" id="flash" hidden></div>
+  <div class="cue" id="cue" hidden></div>
+  <div class="mascot-pop" id="mascotPop" hidden></div>
   <div class="confetti" id="confetti" aria-hidden="true"></div>
   <div class="toast" id="toast" hidden></div>
 </main>

@@ -139,6 +139,22 @@ button:disabled { cursor: default; }
 .list-filter { display: flex; gap: 6px; }
 .list-filter .btn-sub { padding: 5px 14px; font-size: 13px; border-radius: 99px; }
 .list-filter .btn-sub.on { border-color: var(--line-strong); background: rgba(255, 255, 255, .16); }
+/* 曲リクエスト */
+.req-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0 12px; }
+.req-form input { margin: 0; }
+.req-form .btn-main { grid-column: 1 / -1; margin: 0; }
+.req-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.req-list li { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 12px; background: var(--glass-strong); border: 1px solid var(--line); font-size: 13px; }
+.req-list li.empty { color: var(--sub); justify-content: center; }
+.req-status { flex: none; padding: 2px 9px; border-radius: 99px; font-size: 11px; font-weight: 700; border: 1px solid var(--line); }
+.req-open .req-status { border-color: var(--accent); color: var(--accent); }
+.req-added .req-status { border-color: var(--ok); color: var(--ok); }
+.req-notfound .req-status { color: var(--sub); }
+.req-body { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+.req-body small { color: var(--sub); font-size: 11px; }
+.req-body em { font-style: normal; color: var(--sub); font-size: 11px; width: 100%; }
+.req-votes { flex: none; font-family: var(--font-num); font-size: 12px; color: var(--warn); }
+#reqMore { display: block; margin: 8px auto 0; }
 .room-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
 .room-list .empty { grid-column: 1 / -1; text-align: center; color: var(--sub); font-size: 14px; padding: 18px 0; }
 .room-card { background: var(--glass-strong); border: 1px solid var(--line); border-radius: 16px; padding: 13px; display: flex; flex-direction: column; gap: 6px; }

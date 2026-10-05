@@ -20,6 +20,7 @@ main { padding: 8px 10px calc(10px + var(--safe-b)); }
 .brand { padding: 3px 12px 3px 4px; gap: 6px; }
 .code { font-size: 13px; letter-spacing: .1em; padding: 5px 8px; }
 .create-row { grid-template-columns: 1fr; }
+.req-form { grid-template-columns: 1fr; }
 
 /* ── 部屋：縦いっぱいを使い、出題中は選択肢を下側に寄せる ── */
 main:has(#room:not([hidden])) { min-height: 100dvh; display: flex; flex-direction: column; }

@@ -140,7 +140,7 @@ function joined(res) {
   store.set('aq-room', res.code);
   history.replaceState(null, '', '?room=' + res.code);
   socket.emit('unwatchRooms');
-  $('home').hidden = true; $('roomListPanel').hidden = true; $('room').hidden = false;
+  $('home').hidden = true; $('roomListPanel').hidden = true; $('requestPanel').hidden = true; $('room').hidden = false;
   $('roomCode').hidden = false; $('roomCode').textContent = res.code;
   $('inviteUrl').value = location.origin + location.pathname + '?room=' + res.code;
   renderRoom(res.room);
@@ -166,7 +166,7 @@ socket.on('connect', () => {
   else socket.emit('watchRooms');
 });
 function leaveToHome(msg) {
-  me = null; $('room').hidden = true; $('home').hidden = false; $('roomListPanel').hidden = false; $('roomCode').hidden = true;
+  me = null; $('room').hidden = true; $('home').hidden = false; $('roomListPanel').hidden = false; $('requestPanel').hidden = false; loadRequests(); $('roomCode').hidden = true;
   $('homeError').textContent = msg || '';
   socket.emit('watchRooms');
 }
@@ -586,6 +586,36 @@ function setupSongTools(s, r) {
     };
   };
 }
+// ── 曲リクエスト（トップ画面）：だれでも送れて、一覧はみんなに見える ──
+const REQ_LABEL = { open: '受付中', added: '追加済み', notfound: '見つからず' };
+let reqAll = [], reqShown = 20;
+async function loadRequests() {
+  try { reqAll = (await fetch('/api/requests').then(r => r.json())).requests || []; } catch (e) { return; }
+  renderRequests();
+}
+function renderRequests() {
+  const open = reqAll.filter(r => r.status === 'open').length;
+  $('reqCount').textContent = reqAll.length ? `（受付中 ${open}件）` : '';
+  $('reqList').innerHTML = reqAll.slice(0, reqShown).map(r => `<li class="req-${r.status}">
+    <span class="req-status">${REQ_LABEL[r.status] || ''}</span>
+    <span class="req-body"><b>${esc(r.title)}</b>${r.work ? `<small>${esc(r.work)}</small>` : ''}${r.artist ? `<small>${esc(r.artist)}</small>` : ''}${r.note ? `<em>${esc(r.note)}</em>` : ''}</span>
+    ${(r.votes || 1) > 1 ? `<span class="req-votes">${r.votes}票</span>` : ''}</li>`).join('') || '<li class="empty">まだリクエストはありません</li>';
+  $('reqMore').hidden = reqAll.length <= reqShown;
+}
+$('reqMore').onclick = () => { reqShown += 30; renderRequests(); };
+$('reqForm').onsubmit = async e => {
+  e.preventDefault();
+  const body = { title: $('reqTitle').value, work: $('reqWork').value, artist: $('reqArtist').value, note: $('reqNote').value };
+  $('reqSend').disabled = true;
+  try {
+    const res = await fetch('/api/requests', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    const j = await res.json();
+    toast(j.message || j.error || '送れませんでした');
+    if (res.ok && !j.exists) { $('reqForm').reset(); loadRequests(); }
+  } catch (err) { toast('送れませんでした'); }
+  $('reqSend').disabled = false;
+};
+loadRequests();
 // 最初の問題で前もって読み込んでおく（アニメで少し重いので、出る瞬間に遅れないように）
 function preloadMascot() {
   if (preloadMascot.done || document.body.classList.contains('mascot-off')) return;

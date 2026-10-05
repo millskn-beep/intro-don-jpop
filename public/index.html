@@ -52,6 +52,23 @@
     <ul class="room-list" id="roomList"></ul>
   </section>
 
+  <!-- 曲リクエスト（出してほしい曲） -->
+  <section id="requestPanel" class="panel">
+    <div class="list-head">
+      <h3>曲リクエスト <span id="reqCount"></span></h3>
+    </div>
+    <p class="note">出してほしい曲を送ってください。次にサイトを更新するときに探して追加します。</p>
+    <form class="req-form" id="reqForm" autocomplete="off">
+      <input id="reqTitle" maxlength="60" placeholder="曲名（必須）" required>
+      <input id="reqWork" maxlength="60" placeholder="アニメ・作品名">
+      <input id="reqArtist" maxlength="40" placeholder="歌手">
+      <input id="reqNote" maxlength="80" placeholder="ひとこと（OPの2期の方、など）">
+      <button class="btn-main" id="reqSend" type="submit">リクエストを送る</button>
+    </form>
+    <ul class="req-list" id="reqList"></ul>
+    <button class="btn-sub" id="reqMore" hidden>もっと見る</button>
+  </section>
+
   <!-- 部屋 -->
   <section id="room" hidden>
     <!-- 左：プレイヤー一覧 -->

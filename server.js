@@ -131,6 +131,38 @@ app.post('/api/songs', (req, res) => {
   loadSongs();
   res.json({ ok: true, total: ALL_SONGS.length, playable: SONGS.length, changed });
 });
+// ── 曲リクエスト（トップ画面の「出してほしい曲」）──
+// 公開サーバーは再起動（反映）すると書き込んだファイルが消えるので、反映の前に tools/pull-requests.js で手元に取り込んでから曲を追加する。
+// status: open（受付中）／added（追加済み）／notfound（見つからず）
+const REQUESTS_PATH = path.join(__dirname, 'data', 'requests.json');
+let REQUESTS = [];
+try { REQUESTS = JSON.parse(fs.readFileSync(REQUESTS_PATH, 'utf8')); } catch (e) { REQUESTS = []; }
+const REQ_MAX = 300, REQ_INTERVAL = 60 * 1000; // 受付中は最大300件、同じ人（IP）からは1分に1件
+const reqLast = new Map();
+const reqNorm = s => String(s || '').normalize('NFKC').toLowerCase().replace(/[\s!！?？・〜~～()（）\-♪.。,、'"「」『』]/g, '');
+const reqText = (s, n) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, n);
+function saveRequests() {
+  try { fs.writeFileSync(REQUESTS_PATH + '.tmp', JSON.stringify(REQUESTS, null, 1) + '\n'); fs.renameSync(REQUESTS_PATH + '.tmp', REQUESTS_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
+}
+app.get('/api/requests', (req, res) => res.json({ requests: REQUESTS.slice(-500).reverse() }));
+app.post('/api/requests', (req, res) => {
+  const title = reqText(req.body?.title, 60), work = reqText(req.body?.work, 60), artist = reqText(req.body?.artist, 40), note = reqText(req.body?.note, 80);
+  if (!title) return res.status(400).json({ error: '曲名を入れてください' });
+  const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
+  // すでにある曲は知らせるだけ。同じリクエストはまとめる
+  const key = reqNorm(title), wkey = reqNorm(work);
+  const have = ALL_SONGS.find(s => reqNorm(s.title) === key && (!wkey || reqNorm(s.work).includes(wkey) || wkey.includes(reqNorm(s.work))));
+  if (have) return res.json({ ok: true, exists: true, message: `「${have.title}」（${have.work}）はもう入っています` });
+  if (Date.now() - (reqLast.get(ip) || 0) < REQ_INTERVAL) return res.status(429).json({ error: '少し時間をおいてから送ってください（1分に1件まで）' });
+  const same = REQUESTS.find(r => reqNorm(r.title) === key && (!wkey || !r.work || reqNorm(r.work) === wkey));
+  reqLast.set(ip, Date.now());
+  if (same) { same.votes = (same.votes || 1) + 1; saveRequests(); return res.json({ ok: true, message: `同じリクエストに1票足しました（${same.votes}票）` }); }
+  if (REQUESTS.filter(r => r.status === 'open').length >= REQ_MAX) return res.status(429).json({ error: 'リクエストがいっぱいです。追加されるまでお待ちください' });
+  REQUESTS.push({ id: crypto.randomBytes(4).toString('hex'), title, work, artist, note, at: new Date().toISOString(), status: 'open', votes: 1 });
+  saveRequests();
+  res.json({ ok: true, message: 'リクエストを受け付けました' });
+});
+
 const server = http.createServer(app);
 const io = new Server(server);
 

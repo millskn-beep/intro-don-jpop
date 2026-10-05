@@ -139,6 +139,7 @@ button:disabled { cursor: default; }
 .list-filter { display: flex; gap: 6px; }
 .list-filter .btn-sub { padding: 5px 14px; font-size: 13px; border-radius: 99px; }
 .list-filter .btn-sub.on { border-color: var(--line-strong); background: rgba(255, 255, 255, .16); }
+.songs-link { color: #fff; text-decoration: none; padding: 6px 14px; border-radius: 99px; font-size: 13px; }
 /* 曲リクエスト */
 .req-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0 12px; }
 .req-form input { margin: 0; }

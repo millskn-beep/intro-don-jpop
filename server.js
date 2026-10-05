@@ -163,6 +163,40 @@ app.post('/api/requests', (req, res) => {
   res.json({ ok: true, message: 'リクエストを受け付けました' });
 });
 
+// ── 収録曲一覧（トップ画面の「収録曲一覧」）と、イントロ・サビ位置の修正の受け付け ──
+// 修正は誰でも送れる。曲データにはすぐ入れず「修正待ち」として溜め、反映の前に tools/pull-fixes.js で取り込む（公開サーバーは再起動でファイルが消えるため）。
+const FIXES_PATH = path.join(__dirname, 'data', 'fixes.json');
+let FIXES = {};
+try { FIXES = JSON.parse(fs.readFileSync(FIXES_PATH, 'utf8')); } catch (e) { FIXES = {}; }
+const fixLast = new Map(); // IP → 直近の送信時刻（連投を防ぐ）
+function saveFixes() {
+  try { fs.writeFileSync(FIXES_PATH + '.tmp', JSON.stringify(FIXES, null, 1) + '\n'); fs.renameSync(FIXES_PATH + '.tmp', FIXES_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
+}
+app.get('/api/catalog', (req, res) => {
+  loadSongs();
+  res.json({
+    genres: GENRE_KEYS.map(k => ({ key: k, label: GENRES[k].label })),
+    fame: FAME.map(([k, label]) => ({ key: k, label })),
+    songs: SONGS.map(s => ({ id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type || '',
+      genres: genresOf(s), fame: fameOf(s), intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0, fix: FIXES[s.id] || null })),
+  });
+});
+app.get('/api/fixes', (req, res) => res.json({ fixes: FIXES }));
+app.post('/api/fixes', (req, res) => {
+  const id = String(req.body?.id || ''), intro = Number(req.body?.intro), chorus = Number(req.body?.chorus);
+  const song = ALL_SONGS.find(s => s.id === id);
+  if (!song) return res.status(400).json({ error: '曲が見つかりません' });
+  if (!(intro >= 0 && intro <= 1200 && chorus >= 0 && chorus <= 1200)) return res.status(400).json({ error: '秒数が正しくありません' });
+  const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
+  const recent = (fixLast.get(ip) || []).filter(t => Date.now() - t < 60 * 1000);
+  if (recent.length >= 10) return res.status(429).json({ error: '少し時間をおいてから送ってください（1分に10曲まで）' });
+  fixLast.set(ip, [...recent, Date.now()]);
+  const r = x => Math.round(x * 10) / 10;
+  FIXES[id] = { intro: r(intro), chorus: r(chorus), at: new Date().toISOString(), count: (FIXES[id]?.count || 0) + 1, title: song.title };
+  saveFixes();
+  res.json({ ok: true, message: `「${song.title}」の修正を受け付けました（次の更新で反映されます）` });
+});
+
 const server = http.createServer(app);
 const io = new Server(server);
 

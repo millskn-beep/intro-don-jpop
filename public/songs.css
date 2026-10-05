@@ -1,0 +1,57 @@
+/* 収録曲一覧（songs.html）。色や部品は style.css のものを使う */
+.songs-main { max-width: 1100px; }
+body.editing .songs-main { margin-right: 400px; } /* PC：右側に編集パネル */
+.songs-page .top { display: flex; align-items: center; justify-content: space-between; }
+.songs-page .brand { text-decoration: none; color: inherit; }
+.back-home { color: #fff; text-decoration: none; padding: 7px 14px; border-radius: 99px; font-size: 13px; }
+.songs-title { margin: 0 0 10px; font-size: 20px; }
+.songs-title span { font-size: 13px; color: var(--sub); font-weight: 500; }
+.songs-tools { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.songs-tools input[type=search] { flex: 1 1 220px; margin: 0; }
+.songs-tools select { width: auto; margin: 0; padding: 7px 10px; font-size: 13px; }
+.songs-tools .btn-sub { padding: 7px 12px; font-size: 13px; }
+.fix-only { display: flex; align-items: center; gap: 4px; font-size: 13px; color: var(--sub); }
+.fix-only input { width: auto; margin: 0; }
+
+.sg-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.sg-rows li { display: grid; grid-template-columns: 1fr auto auto; gap: 4px 12px; align-items: center; padding: 7px 10px; border-radius: 10px;
+              background: var(--glass-strong); border: 1px solid var(--line); cursor: pointer; }
+.sg-rows li:hover { border-color: var(--line-strong); }
+.sg-rows li.on { border-color: var(--accent); box-shadow: 0 0 12px rgba(127, 232, 255, .35); }
+.sg-main { min-width: 0; }
+.sg-main b { display: block; font-size: 14px; }
+.sg-main small { display: block; font-size: 11px; color: var(--sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sg-tags { display: flex; flex-wrap: wrap; gap: 3px; justify-content: flex-end; }
+.sg-tags i { font-style: normal; font-size: 10.5px; padding: 1px 7px; border-radius: 99px; border: 1px solid var(--line); color: var(--sub); white-space: nowrap; }
+.sg-tags .fame-top { color: #ffd36b; border-color: rgba(255, 211, 107, .5); }
+.sg-tags .fame-famous { color: var(--accent); border-color: rgba(127, 232, 255, .45); }
+.sg-tags .fame-otaku { color: #ff7ad9; border-color: rgba(255, 122, 217, .45); }
+.sg-tags .pending { color: #fff; background: rgba(255, 122, 217, .25); border-color: rgba(255, 122, 217, .6); }
+.sg-sec { font-family: var(--font-num); font-size: 11px; color: var(--sub); text-align: right; white-space: nowrap; }
+.sg-group { margin-bottom: 6px; }
+.sg-group summary { cursor: pointer; font-weight: 700; padding: 6px 4px; }
+.sg-group summary span { font-size: 12px; color: var(--sub); font-weight: 500; }
+#more { display: block; margin: 10px auto 0; }
+
+/* 編集パネル */
+.song-editor { position: fixed; top: 16px; right: 16px; bottom: 16px; width: 370px; z-index: 30; overflow-y: auto;
+               padding: 14px; border-radius: 18px; background: rgba(14, 12, 34, .96); border: 1px solid var(--line-strong); box-shadow: 0 10px 40px rgba(0, 0, 0, .6); }
+.ed-close { float: right; padding: 4px 12px; font-size: 12px; border-radius: 99px; }
+.ed-head b { display: block; font-size: 17px; margin-bottom: 2px; }
+.ed-head small { display: block; font-size: 12px; color: var(--sub); }
+.ed-player { margin: 10px 0; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
+.ed-player iframe, .ed-player #player { width: 100%; height: 100%; display: block; }
+.song-editor .fix-row { font-size: 13px; font-weight: 700; }
+.song-editor .fix-actions .btn-main:disabled { opacity: .45; }
+
+@media (max-width: 900px) {
+  body.editing .songs-main { margin-right: auto; }
+  .song-editor { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 78dvh; border-radius: 18px 18px 0 0;
+                 padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+}
+@media (max-width: 600px) {
+  .sg-rows li { grid-template-columns: 1fr auto; }
+  .sg-tags { grid-column: 1 / -1; justify-content: flex-start; }
+  .sg-sec { grid-row: 1; grid-column: 2; }
+  .songs-tools select, .songs-tools .btn-sub { flex: 1 1 auto; }
+}

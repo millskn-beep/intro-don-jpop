@@ -106,7 +106,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 2.7,
-    "chorus": 0,
+    "chorus": 50.2,
     "aliases": [],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -117,7 +117,8 @@
     "views": 360205,
     "channel": "パインサラダ2023",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "DVOgvzl395w",
@@ -150,7 +151,7 @@
     "confidence": "低",
     "source": "Topic",
     "intro": 11.7,
-    "chorus": 0,
+    "chorus": 48.9,
     "aliases": [
       "ふっかつのいでおん",
       "でんせつきょじんいでおん",
@@ -165,7 +166,8 @@
     "views": 45449,
     "channel": "たいらいさお - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "tmKmDeksMaM",
@@ -177,7 +179,7 @@
     "confidence": "低",
     "source": "Aloha Mahalo",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 66.2,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -186,7 +188,8 @@
     "views": 427068,
     "channel": "Aloha Mahalo",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "MBEgw_kfhzc",
@@ -314,7 +317,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 3.2,
-    "chorus": 0,
+    "chorus": 51,
     "aliases": [
       "こぶら"
     ],
@@ -327,7 +330,8 @@
     "views": 1521370,
     "channel": "高沢創大",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "1-d8U3kt-fM",
@@ -339,7 +343,7 @@
     "confidence": "中",
     "source": "アルバム公式チャンネル（要確認）",
     "intro": 2.7,
-    "chorus": 0,
+    "chorus": 55.8,
     "aliases": [
       "まくろす",
       "ちょうじくうようさいまくろす"
@@ -353,7 +357,8 @@
     "views": 12733,
     "channel": "超時空要塞マクロス",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "Y1cP_uvJV98",
@@ -419,7 +424,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 43.7,
     "aliases": [
       "わたしのかれはぱいろっと",
       "ちょうじくうようさいまくろす",
@@ -434,7 +439,8 @@
     "views": 22207,
     "channel": "sweet PEACHPIE 스위트 피치파이",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "RQ8b-RlTRws",
@@ -689,7 +695,7 @@
     "confidence": "中",
     "source": "MIQ (MIO) - Topic",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 52.5,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -698,7 +704,8 @@
     "views": 24840,
     "channel": "MIQ (MIO) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "PgcqajBYbmg",
@@ -859,7 +866,7 @@
     "confidence": "低",
     "source": "はるはる",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 80.7,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -868,7 +875,8 @@
     "views": 10942545,
     "channel": "はるはる",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "T_lC2O1oIew",
@@ -901,7 +909,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 58.2,
     "aliases": [
       "ゆりあえいえんに",
       "ほくとのけん"
@@ -915,7 +923,8 @@
     "views": 6695,
     "channel": "Crystal King - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "OfuW_Wbt73c",
@@ -1006,7 +1015,7 @@
     "confidence": "低",
     "source": "中村友三",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 80.1,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -1015,7 +1024,8 @@
     "views": 324776,
     "channel": "中村友三",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "_uCKP-GJyoU",
@@ -1299,7 +1309,7 @@
     "confidence": "低",
     "source": "鹿角聖良",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 65.5,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -1308,7 +1318,8 @@
     "views": 998678,
     "channel": "鹿角聖良",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "ZWU0hAPm7Z4",
@@ -1909,7 +1920,7 @@
     "confidence": "中",
     "source": "名無星",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 70.8,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -1918,7 +1929,8 @@
     "views": 1695112,
     "channel": "名無星",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "InPGzqxwlFg",
@@ -2268,7 +2280,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 78.3,
     "aliases": [
       "してぃーはんたー"
     ],
@@ -2281,7 +2293,8 @@
     "views": 1567302,
     "channel": "nantkhr",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "hFqnjW6s9lU",
@@ -2293,7 +2306,7 @@
     "confidence": "中",
     "source": "futurecop.one",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 48.9,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -2302,7 +2315,8 @@
     "views": 4872444,
     "channel": "futurecop.one",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "Vi7v-nmn4pE",
@@ -2314,7 +2328,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 59.1,
     "aliases": [
       "どらごんぼーるぜっと",
       "DBZ"
@@ -2328,7 +2342,8 @@
     "views": 1580981,
     "channel": "Reni Muto",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "2gAGzN4rjHY",
@@ -2462,7 +2477,7 @@
     "confidence": "中",
     "source": "酢の物屋 金太郎",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 28.5,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -2471,7 +2486,8 @@
     "views": 408,
     "channel": "酢の物屋 金太郎",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "Dj5MR8e1LBI",
@@ -2935,7 +2951,7 @@
     "confidence": "中",
     "source": "sakusaku",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 58.8,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -2944,7 +2960,8 @@
     "views": 29081,
     "channel": "sakusaku",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "Y-D7VtFMGMo",
@@ -2977,7 +2994,7 @@
     "confidence": "中",
     "source": "The Boom - Topic",
     "intro": 5.7,
-    "chorus": 0,
+    "chorus": 91.5,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -2986,7 +3003,8 @@
     "views": 429114,
     "channel": "The Boom - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "TlENd4mP9Gs",
@@ -3025,7 +3043,7 @@
     "confidence": "中",
     "source": "バンダイナムコ公式",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 64.5,
     "aliases": [
       "うぃーがったぱわー",
       "どらごんぼーるぜっと",
@@ -3040,7 +3058,8 @@
     "views": 142548,
     "channel": "Bandai Namco Entertainment ",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "yfZIaTZJo0o",
@@ -4580,7 +4599,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 30.9,
     "aliases": [
       "うぃんたーべるず",
       "めいたんていこなん",
@@ -4595,7 +4614,8 @@
     "views": 57102,
     "channel": "【アニメ】名探偵コナン公式",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "RO_HZGKYS6s",
@@ -4677,7 +4697,7 @@
     "confidence": "高",
     "source": "非公式",
     "intro": 10.2,
-    "chorus": 0,
+    "chorus": 54.7,
     "aliases": [],
     "embeddable": true,
     "checkedAt": "2026-10-03",
@@ -4688,7 +4708,8 @@
     "views": 30720196,
     "channel": "eitoman1000",
     "viewsAt": "2026-10-05",
-    "fame": "top"
+    "fame": "top",
+    "chorusSource": "audio"
   },
   {
     "id": "sjgM3PrYm1Y",
@@ -5066,7 +5087,7 @@
     "confidence": "中",
     "source": "SonicTVPlay",
     "intro": 6.2,
-    "chorus": 0,
+    "chorus": 63.2,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -5075,7 +5096,8 @@
     "views": 1816314,
     "channel": "SonicTVPlay",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "gNod5q2FGag",
@@ -5156,7 +5178,7 @@
     "confidence": "中",
     "source": "neko20021215",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 63.6,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -5165,7 +5187,8 @@
     "views": 515120,
     "channel": "neko20021215",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "78UwqbJnI18",
@@ -5246,7 +5269,7 @@
     "confidence": "中",
     "source": "SMA",
     "intro": 5.5,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -5255,7 +5278,8 @@
     "views": 203911,
     "channel": "SMA",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "vUa8zKnVFhc",
@@ -5444,7 +5468,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 4.5,
-    "chorus": 0,
+    "chorus": 78.6,
     "aliases": [
       "うぃんどくらいみんぐ",
       "かぜにあそばれて",
@@ -5459,7 +5483,8 @@
     "views": 40128,
     "channel": "Aki Okui - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "zFg0iWmXoBs",
@@ -5756,7 +5781,7 @@
     "confidence": "中",
     "source": "Rin Nissin Lámen",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 57.8,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -5765,7 +5790,8 @@
     "views": 50847,
     "channel": "Rin Nissin Lámen",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "qM_FepDsJ-Q",
@@ -5777,7 +5803,7 @@
     "confidence": "中",
     "source": "avex公式",
     "intro": 8.7,
-    "chorus": 0,
+    "chorus": 69.4,
     "aliases": [
       "びりーぶ",
       "わんぴーす"
@@ -5791,7 +5817,8 @@
     "views": 13263213,
     "channel": "avex",
     "viewsAt": "2026-10-05",
-    "fame": "top"
+    "fame": "top",
+    "chorusSource": "audio"
   },
   {
     "id": "Hok551J0Cbc",
@@ -6216,7 +6243,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 50.2,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -6225,7 +6252,8 @@
     "views": 3273,
     "channel": "VISUAL ARTS / Key - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "X3eU7FUhsd0",
@@ -6355,7 +6383,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 8,
-    "chorus": 0,
+    "chorus": 63.6,
     "aliases": [
       "めいたんていこなん",
       "コナン"
@@ -6369,7 +6397,8 @@
     "views": 4011310,
     "channel": "PhantomKendoTV",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "oa4GECdXbC8",
@@ -7005,7 +7034,7 @@
     "confidence": "中",
     "source": "公式MV",
     "intro": 3,
-    "chorus": 0,
+    "chorus": 61.2,
     "aliases": [
       "でじもんていまーず",
       "デジモン"
@@ -7019,7 +7048,8 @@
     "views": 19218,
     "channel": "FEEL MEE OFFICIAL",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "6Bosj_gedCA",
@@ -7143,7 +7173,7 @@
     "confidence": "中",
     "source": "AnimeSongs Official",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 52.1,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -7152,7 +7182,8 @@
     "views": 6997,
     "channel": "AnimeSongs Official",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "0_AeYPS8JPM",
@@ -7185,7 +7216,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 58.4,
     "aliases": [
       "なると"
     ],
@@ -7198,7 +7229,8 @@
     "views": 4216,
     "channel": "アニメMUSIC",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "lHWVOfC41L4",
@@ -7621,7 +7653,7 @@
     "confidence": "中",
     "source": "SMA",
     "intro": 3.5,
-    "chorus": 0,
+    "chorus": 76.8,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -7630,7 +7662,8 @@
     "views": 389971,
     "channel": "SMA",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "BosTnTfIo9U",
@@ -7642,7 +7675,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 82.4,
     "aliases": [
       "せいしゅんきょうそうきょく",
       "なると"
@@ -7656,7 +7689,8 @@
     "views": 226713,
     "channel": "アニメソングコレクション",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "YrY5SDSiEnc",
@@ -7711,7 +7745,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 34.8,
     "aliases": [
       "かぜのららら",
       "めいたんていこなん",
@@ -7726,7 +7760,8 @@
     "views": 39349,
     "channel": "【アニメ】名探偵コナン公式",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "wEUDk-EnUgM",
@@ -7738,7 +7773,7 @@
     "confidence": "中",
     "source": "Kiroro official channel",
     "intro": 3,
-    "chorus": 0,
+    "chorus": 51.5,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -7747,7 +7782,8 @@
     "views": 47364,
     "channel": "Kiroro official channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "XggsuWPjLhc",
@@ -7913,7 +7949,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 27.6,
     "aliases": [
       "ぐろーいんぐおぶまいはーと",
       "めいたんていこなん",
@@ -7928,7 +7964,8 @@
     "views": 65396,
     "channel": "【アニメ】名探偵コナン公式",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "kUV8hAn5YfM",
@@ -8174,7 +8211,7 @@
     "confidence": "中",
     "source": "avex",
     "intro": 8.5,
-    "chorus": 0,
+    "chorus": 68.4,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -8183,7 +8220,8 @@
     "views": 16708263,
     "channel": "avex",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "RHNVD2NrKVI",
@@ -8315,7 +8353,7 @@
     "confidence": "中",
     "source": "一青窈",
     "intro": 5.2,
-    "chorus": 0,
+    "chorus": 94.4,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -8324,7 +8362,8 @@
     "views": 97158031,
     "channel": "一青窈",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "Y6uXU7hMG9M",
@@ -8830,7 +8869,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 49.1,
     "aliases": [
       "さまーたいむごーん",
       "めいたんていこなん",
@@ -8845,7 +8884,8 @@
     "views": 55384,
     "channel": "【アニメ】名探偵コナン公式",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "PHclD2joubc",
@@ -8980,7 +9020,7 @@
     "confidence": "中",
     "source": "Atelier Xanadu",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 67.9,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -8989,7 +9029,8 @@
     "views": 1295,
     "channel": "Atelier Xanadu",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "GUwRKC0gung",
@@ -9048,7 +9089,7 @@
     "confidence": "中",
     "source": "AnimeSongs Official",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 36.7,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -9057,7 +9098,8 @@
     "viewsAt": "2026-10-05",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "cpAz9KI6-3s",
@@ -9217,7 +9259,7 @@
     "confidence": "高",
     "source": "AnimeSongs公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 47.4,
     "aliases": [],
     "embeddable": true,
     "checkedAt": "2026-10-04",
@@ -9228,7 +9270,8 @@
     "views": 318,
     "channel": "AnimeSongs Official",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "7mZlRSAUSsU",
@@ -9556,7 +9599,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 56.2,
     "aliases": [
       "ぜろのつかいま",
       "ゼロ魔"
@@ -9570,7 +9613,8 @@
     "views": 1788010,
     "channel": "sada0029",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "YvIsU9kgZz4",
@@ -9635,7 +9679,7 @@
     "confidence": "中",
     "source": "VISUAL ARTS公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 117.7,
     "aliases": [
       "かのん"
     ],
@@ -9648,7 +9692,8 @@
     "views": 8456,
     "channel": "VISUAL ARTS / Key - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "p5HllU0Q-oI",
@@ -9839,7 +9884,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 31.7,
     "aliases": [
       "ですのーと"
     ],
@@ -9852,7 +9897,8 @@
     "views": 710,
     "channel": "Anime Collections",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "2vIGPwbmmRU",
@@ -10348,7 +10394,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 44.7,
     "aliases": [
       "しろいゆき",
       "めいたんていこなん",
@@ -10363,7 +10409,8 @@
     "views": 44526,
     "channel": "【アニメ】名探偵コナン公式",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "Lq2-HHP04jM",
@@ -10512,7 +10559,7 @@
     "confidence": "低",
     "source": "katteniPVIV.Channel",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 86.3,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -10521,7 +10568,8 @@
     "views": 251746,
     "channel": "katteniPVIV.Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "x0KzJYb7kCo",
@@ -10586,7 +10634,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 60.3,
     "aliases": [
       "ぜろのつかいま",
       "ゼロ魔"
@@ -10600,7 +10648,8 @@
     "views": 6853572,
     "channel": "syakkinnsituzi1sub",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "NFVszxIykGI",
@@ -10814,7 +10863,7 @@
     "confidence": "高",
     "source": "非公式",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 45.8,
     "aliases": [
       "ぼくらの"
     ],
@@ -10827,7 +10876,8 @@
     "views": 136154,
     "channel": "外人 man",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "PGr1xValDrI",
@@ -10861,7 +10911,7 @@
     "confidence": "中",
     "source": "AnimeSongs Official",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 37,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -10870,7 +10920,8 @@
     "views": 591,
     "channel": "AnimeSongs Official",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "NweUS90PRLQ",
@@ -11120,7 +11171,7 @@
     "confidence": "低",
     "source": "VocaloidAlbums",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 73.3,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -11129,7 +11180,8 @@
     "views": 421586,
     "channel": "VocaloidAlbums",
     "viewsAt": "2026-10-05",
-    "fame": "top"
+    "fame": "top",
+    "chorusSource": "audio"
   },
   {
     "id": "lAaU7EO_8AA",
@@ -11223,7 +11275,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 69,
     "aliases": [
       "けいけんちじょうしょうちゅう",
       "みなみけ"
@@ -11237,7 +11289,8 @@
     "views": 1532,
     "channel": "Chiaki Minami(CV:Minori Chihara) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "kBQmuw3CYnE",
@@ -11376,7 +11429,7 @@
     "confidence": "中",
     "source": "Topic（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 42.6,
     "aliases": [
       "ゆうきょうせいしゅんか",
       "こーどぎあす",
@@ -11391,7 +11444,8 @@
     "views": 49848,
     "channel": "Ali Project - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "SzitXKbqvmQ",
@@ -11724,7 +11778,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 72.1,
     "aliases": [
       "もっとはでにね",
       "かんなぎ"
@@ -11738,7 +11792,8 @@
     "views": 41494,
     "channel": "Haruka Tomatsu - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "HgGcePdMsDY",
@@ -11878,7 +11933,7 @@
     "confidence": "高",
     "source": "非公式",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 62.7,
     "aliases": [
       "そうるいーたー"
     ],
@@ -11891,7 +11946,8 @@
     "views": 9707760,
     "channel": "The Darkesttarget",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "XS-2I4a8hJU",
@@ -12091,7 +12147,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 65.3,
     "aliases": [
       "あのひたいむましん",
       "なつめゆうじんちょう"
@@ -12105,7 +12161,8 @@
     "views": 990068,
     "channel": "アニメソングコレクション",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "yDl_qY8AQKw",
@@ -12348,7 +12405,7 @@
     "confidence": "低",
     "source": "eitovl08313909268",
     "intro": 2.7,
-    "chorus": 0,
+    "chorus": 75.3,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -12357,7 +12414,8 @@
     "views": 4155937,
     "channel": "eitovl08313909268",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "KpsJWFuVTdI",
@@ -12421,7 +12479,7 @@
     "confidence": "中",
     "source": "センコゼニ",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 70.3,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -12430,7 +12488,8 @@
     "views": 27023,
     "channel": "センコゼニ",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "ikgQhG4AlVk",
@@ -13071,7 +13130,7 @@
     "confidence": "中",
     "source": "AnimeSongs Official（TVサイズ）",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 52.8,
     "aliases": [
       "たびのとちゅう",
       "おおかみとこうしんりょう",
@@ -13086,7 +13145,8 @@
     "views": 138,
     "channel": "AnimeSongs Official",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "jDop41Bxq2A",
@@ -13098,7 +13158,7 @@
     "confidence": "中",
     "source": "supercell00",
     "intro": 4.5,
-    "chorus": 0,
+    "chorus": 22.2,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -13107,7 +13167,8 @@
     "views": 3070089,
     "channel": "supercell00",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "dSw8CucthGc",
@@ -13249,7 +13310,7 @@
     "type": "OP",
     "confidence": "中",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 47.8,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -13258,7 +13319,8 @@
     "views": 434,
     "channel": "AnimeSongs Official",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "YBVQcTE2Z08",
@@ -13270,7 +13332,7 @@
     "confidence": "高",
     "source": "非公式",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 65.3,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -13279,7 +13341,8 @@
     "views": 392639,
     "channel": "aniginn193",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "ua02dloykJ4",
@@ -13392,7 +13455,7 @@
     "confidence": "低",
     "source": "hatunemikulove",
     "intro": 3.5,
-    "chorus": 0,
+    "chorus": 95.7,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -13401,7 +13464,8 @@
     "views": 4219635,
     "channel": "hatunemikulove",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "BTm3L7hZyDs",
@@ -13456,7 +13520,7 @@
     "confidence": "低",
     "source": "猫お揺れる",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 66,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -13465,7 +13529,8 @@
     "views": 69538,
     "channel": "猫お揺れる",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "EjQCuivmbjs",
@@ -13554,7 +13619,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 56.9,
     "aliases": [
       "りばいぶ",
       "めいたんていこなん",
@@ -13569,7 +13634,8 @@
     "views": 61582,
     "channel": "【アニメ】名探偵コナン公式",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "IznYQHSWJ7w",
@@ -13992,7 +14058,7 @@
     "confidence": "中",
     "source": "s0p0i0n0",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 66.9,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -14001,7 +14067,8 @@
     "views": 1780035,
     "channel": "s0p0i0n0",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "-M4sAQYi6r4",
@@ -14013,7 +14080,7 @@
     "confidence": "低",
     "source": "Nanou Official",
     "intro": 13,
-    "chorus": 0,
+    "chorus": 75.7,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -14022,7 +14089,8 @@
     "views": 2654072,
     "channel": "Nanou Official",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "6kt427Z5Udo",
@@ -14156,7 +14224,7 @@
     "confidence": "中",
     "source": "ShinyPikachu12",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 37.4,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -14165,7 +14233,8 @@
     "views": 39151,
     "channel": "ShinyPikachu12",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "dvsPRlm4I_A",
@@ -14177,7 +14246,7 @@
     "confidence": "低",
     "source": "Mellow Mel",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 64,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -14186,7 +14255,8 @@
     "views": 6882728,
     "channel": "Mellow Mel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "9HrOqmiEsN8",
@@ -14615,7 +14685,7 @@
     "confidence": "高",
     "source": "非公式",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 69,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -14624,7 +14694,8 @@
     "views": 4668831,
     "channel": "AngelBeatsFanSSS",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "Iooh7W_yD5s",
@@ -15718,7 +15789,7 @@
     "confidence": "中",
     "source": "UNLIMITSnoOfficial",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 56.2,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -15727,7 +15798,8 @@
     "views": 3669996,
     "channel": "UNLIMITSnoOfficial",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "yg2iZJPJ4HM",
@@ -15939,7 +16011,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 35.2,
     "aliases": [
       "いちびょうごとにらぶふぉーゆー",
       "めいたんていこなん",
@@ -15954,7 +16026,8 @@
     "views": 59593,
     "channel": "【アニメ】名探偵コナン公式",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "X1Vm1YnDbj4",
@@ -15994,7 +16067,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 61.9,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -16003,7 +16076,8 @@
     "views": 43659,
     "channel": "rea",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "AKffZySqQts",
@@ -16137,7 +16211,7 @@
     "confidence": "中",
     "source": "ロ郎",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 73.3,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -16146,7 +16220,8 @@
     "views": 2043,
     "channel": "ロ郎",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "_6aBd14jQ74",
@@ -16200,7 +16275,7 @@
     "confidence": "低",
     "source": "猫お揺れる",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 83.7,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -16209,7 +16284,8 @@
     "views": 688498,
     "channel": "猫お揺れる",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "ba0juE9ROCg",
@@ -16296,7 +16372,7 @@
     "confidence": "中",
     "source": "MixMan Berryz",
     "intro": 4.5,
-    "chorus": 0,
+    "chorus": 57.3,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -16305,7 +16381,8 @@
     "views": 1409018,
     "channel": "MixMan Berryz",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "xQvPyqXNNj8",
@@ -17150,7 +17227,7 @@
     "confidence": "中",
     "source": "brack326",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 72.7,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -17159,7 +17236,8 @@
     "views": 475626,
     "channel": "brack326",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "Lw5o2pSrVbQ",
@@ -17290,7 +17368,7 @@
     "confidence": "中",
     "source": "株式会社インフィニット",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 42.6,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -17299,7 +17377,8 @@
     "views": 38360,
     "channel": " infinite channel",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "8GMrg7d7AQk",
@@ -17358,7 +17437,7 @@
     "confidence": "中",
     "source": "ヒャダイン公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 53.2,
     "aliases": [
       "かかかたかたおもいしー",
       "にちじょう"
@@ -17372,7 +17451,8 @@
     "views": 24776894,
     "channel": "Hyadain",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "Vs8MDmSMMa0",
@@ -17384,7 +17464,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 65.8,
     "aliases": [
       "にちじょう"
     ],
@@ -17397,7 +17477,8 @@
     "views": 12018,
     "channel": "Hyadain - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "R42DQONDQn8",
@@ -18417,7 +18498,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 68.1,
     "aliases": [
       "にせものがたり",
       "物語シリーズ"
@@ -18431,7 +18512,8 @@
     "views": 1049291,
     "channel": "EienNoChou",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "2DKCoLZAGvQ",
@@ -18714,7 +18796,7 @@
     "confidence": "中",
     "source": "米津玄師ハチ",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 79.2,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -18723,7 +18805,8 @@
     "views": 1039,
     "channel": "米津玄師ハチ",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "XQtT_oSFuoI",
@@ -18735,7 +18818,7 @@
     "confidence": "中",
     "source": "小エビ",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 57.8,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -18744,7 +18827,8 @@
     "views": 57203,
     "channel": "小エビ",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "BW4H15rK6iI",
@@ -19254,7 +19338,7 @@
     "confidence": "中",
     "source": "燐鬼",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 67.5,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -19263,7 +19347,8 @@
     "views": 975112,
     "channel": "燐鬼",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "6yAebPF-Fsw",
@@ -19296,7 +19381,7 @@
     "confidence": "中",
     "source": "aya",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 73.8,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -19305,7 +19390,8 @@
     "views": 2129185,
     "channel": "aya",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "wfBVjsMVZV4",
@@ -19428,7 +19514,7 @@
     "confidence": "高",
     "source": "非公式",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 42.4,
     "aliases": [
       "ぷらちなでぃすこ",
       "にせものがたり",
@@ -19443,7 +19529,8 @@
     "views": 179927,
     "channel": "アニメ主題歌 映像 保存庫",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "u73s4otbjos",
@@ -19455,7 +19542,7 @@
     "confidence": "中",
     "source": "燐鬼",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 208.9,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -19464,7 +19551,8 @@
     "views": 747483,
     "channel": "燐鬼",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "2IfqimeWay8",
@@ -19751,7 +19839,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 5.2,
-    "chorus": 0,
+    "chorus": 35.9,
     "aliases": [
       "わんぴーす"
     ],
@@ -19764,7 +19852,8 @@
     "views": 13945,
     "channel": "AnimeKashi - アニメ歌詞",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "Rhx8FogWiyI",
@@ -19881,7 +19970,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 66.4,
     "aliases": [
       "きんいろもざいく",
       "きんモザ"
@@ -19895,7 +19984,8 @@
     "views": 9116,
     "channel": "Rhodanthe* - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "EebgFIu3mMI",
@@ -19976,7 +20066,7 @@
     "confidence": "高",
     "source": "非公式",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 59.9,
     "aliases": [
       "かくめいきゔぁるゔれいゔ",
       "ヴァルヴレイヴ"
@@ -19990,7 +20080,8 @@
     "views": 11596,
     "channel": "アニメMUSIC",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "P8JV2xnyJ9Q",
@@ -20097,7 +20188,7 @@
     "confidence": "中",
     "source": "ポニーキャニオン公式（TVサイズ）",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 46.9,
     "aliases": [
       "だいやのえーす"
     ],
@@ -20110,7 +20201,8 @@
     "views": 37163,
     "channel": "ぽにきゃん-Anime PONY CANYON",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "7XFBC2bym14",
@@ -20222,7 +20314,7 @@
     "confidence": "中",
     "source": "Aimer公式",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 90.9,
     "aliases": [
       "きどうせんしがんだむ",
       "ガンダム"
@@ -20236,7 +20328,8 @@
     "views": 13241173,
     "channel": "Aimer Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "9JmH8LsodvQ",
@@ -20382,20 +20475,23 @@
     "fame": "normal"
   },
   {
-    "id": "YwqTRaDaK_8",
+    "id": "BSUVnK6bn8Y",
     "title": "X海峡Y景色",
     "work": "ポケットモンスター XY",
     "artist": "J☆Dee'Z",
     "year": 2013,
     "type": "ED",
     "confidence": "中",
-    "source": "Jewel (J☆Dee’Z) Official YouTube Channel",
-    "intro": 0,
-    "chorus": 0,
+    "source": "Sony Music（アニメサイズ）",
+    "intro": 0.2,
+    "chorus": 36.1,
     "aliases": [],
     "embeddable": null,
-    "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true
   },
   {
     "id": "rbVFAF9BmwE",
@@ -20692,7 +20788,7 @@
     "confidence": "中",
     "source": "Topic（TVサイズ）",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 55.6,
     "aliases": [
       "どらまちっくまーけっとらいど",
       "たまこまーけっと"
@@ -20706,7 +20802,8 @@
     "views": 39776,
     "channel": "北白川たまこ(cv:洲崎 綾) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "j6WuUAuD8JU",
@@ -20718,7 +20815,7 @@
     "confidence": "中",
     "source": "ランティス公式",
     "intro": 7.5,
-    "chorus": 0,
+    "chorus": 69.4,
     "aliases": [
       "なないろびより",
       "のんのんびより"
@@ -20732,7 +20829,8 @@
     "views": 997479,
     "channel": "Lantis Global Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "srIQEU5R2Ko",
@@ -20820,7 +20918,7 @@
     "confidence": "中",
     "source": "meiharu",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -20829,7 +20927,8 @@
     "views": 10332,
     "channel": "meiharu",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "ein8in8zJro",
@@ -20867,7 +20966,7 @@
     "type": "OP",
     "confidence": "中",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 66,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -20876,7 +20975,8 @@
     "views": 5775,
     "channel": "Sakercitooo",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "qDE4pm6yiHM",
@@ -21030,7 +21130,7 @@
     "confidence": "中",
     "source": "トーマ /Tohma Official Channel",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 51.5,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -21039,7 +21139,8 @@
     "views": 3436,
     "channel": "トーマ /Tohma Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "Ztt4JKdbygw",
@@ -21147,7 +21248,7 @@
     "confidence": "中",
     "source": "Felipe 牛込",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 71,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -21156,7 +21257,8 @@
     "views": 401165,
     "channel": "Felipe 牛込",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "oQuUhMJqED4",
@@ -21308,7 +21410,7 @@
     "confidence": "中",
     "source": "大根",
     "intro": 8.7,
-    "chorus": 0,
+    "chorus": 73.8,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -21317,7 +21419,8 @@
     "views": 21662,
     "channel": "大根",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "dFf4AgBNR1E",
@@ -22047,7 +22150,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 47.3,
     "aliases": [
       "きせいじゅう"
     ],
@@ -22060,7 +22163,8 @@
     "views": 1241017,
     "channel": "akitoshi hayami (shiopeko)",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "mmMjjXu5tPs",
@@ -22095,7 +22199,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 5.7,
-    "chorus": 0,
+    "chorus": 81.1,
     "aliases": [
       "らぶらいぶ"
     ],
@@ -22108,7 +22212,8 @@
     "views": 31052,
     "channel": "Rin Hoshizora (CV: Riho Iida) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "VNnciosQYVA",
@@ -22570,7 +22675,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 30.5,
     "aliases": [
       "つきものがたり",
       "物語シリーズ"
@@ -22584,7 +22689,8 @@
     "views": 877287,
     "channel": "Anime Creditless 60fps アニメ ノンクレジット 60fps",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "QJTOWaPdlgg",
@@ -22992,7 +23098,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
-    "intro": 0,
+    "intro": 3.2,
     "chorus": 101,
     "aliases": [],
     "embeddable": null,
@@ -23001,7 +23107,9 @@
     "views": 278770,
     "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "VyKLQXOj0ts",
@@ -23013,7 +23121,7 @@
     "confidence": "高",
     "source": "レベルファイブ公式",
     "intro": 7.7,
-    "chorus": 0,
+    "chorus": 70.1,
     "aliases": [
       "ようかいたいそうだいいち",
       "ようかいうぉっち"
@@ -23027,7 +23135,8 @@
     "views": 247167951,
     "channel": "LEVEL5ch【公式】",
     "viewsAt": "2026-10-05",
-    "fame": "top"
+    "fame": "top",
+    "chorusSource": "audio"
   },
   {
     "id": "48HKB2eXvXc",
@@ -23680,7 +23789,7 @@
     "confidence": "中",
     "source": "Trustrick - Topic",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 52.5,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -23689,7 +23798,8 @@
     "views": 37142,
     "channel": "Trustrick - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "qVEVRTUAy0M",
@@ -23909,7 +24019,7 @@
     "confidence": "低",
     "source": "Topic",
     "intro": 5,
-    "chorus": 0,
+    "chorus": 64.7,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -23918,7 +24028,8 @@
     "views": 29930,
     "channel": "rea",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "3106hWeD6K8",
@@ -25890,7 +26001,7 @@
     "confidence": "低",
     "source": "Daito Music公式",
     "intro": 12.5,
-    "chorus": 0,
+    "chorus": 75.1,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -25899,7 +26010,8 @@
     "views": 18490,
     "channel": "Daito Music OFFCIAL",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "2t1NMRse6aI",
@@ -25953,7 +26065,7 @@
     "confidence": "中",
     "source": "欅坂46 channel",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 61.4,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -25962,7 +26074,8 @@
     "views": 23056,
     "channel": "欅坂46 channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "a9-e_0l7dU4",
@@ -26515,7 +26628,7 @@
     "confidence": "低",
     "source": "非公式",
     "intro": 6.5,
-    "chorus": 0,
+    "chorus": 96.9,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -26524,7 +26637,8 @@
     "views": 273747,
     "channel": "ルナ",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "mO20a-BFIbA",
@@ -26708,7 +26822,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 5,
-    "chorus": 0,
+    "chorus": 153.7,
     "aliases": [
       "かなしくてやりきれない",
       "このせかいのかたすみに"
@@ -26722,7 +26836,8 @@
     "views": 6178692,
     "channel": "Midori Ito",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "vcJ61mfcK3A",
@@ -26761,7 +26876,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 49.3,
     "aliases": [
       "ゆめとうろう",
       "きみのなは"
@@ -26775,7 +26890,8 @@
     "views": 750269,
     "channel": "きんた",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "nEukZalW7Ac",
@@ -27191,7 +27307,7 @@
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
     "intro": 7.2,
-    "chorus": 0,
+    "chorus": 46,
     "aliases": [
       "らぶらいぶさんしゃいん",
       "サンシャイン"
@@ -27205,7 +27321,8 @@
     "views": 44568,
     "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "SNUOYgeuwso",
@@ -27531,7 +27648,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 67.5,
     "aliases": [
       "めいたんていこなん",
       "コナン"
@@ -27545,7 +27662,8 @@
     "views": 71358,
     "channel": "【アニメ】名探偵コナン公式",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "OV9HvOKP_k8",
@@ -27868,7 +27986,7 @@
     "confidence": "高",
     "source": "バンドリ公式",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 61,
     "aliases": [
       "ばんどりーむ",
       "バンドリ"
@@ -27882,7 +28000,8 @@
     "views": 31616,
     "channel": "BanG Dream! Girls Band Party! Official",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "jJzw1h5CR-I",
@@ -29619,7 +29738,7 @@
     "confidence": "高",
     "source": "ランティス公式",
     "intro": 8.7,
-    "chorus": 0,
+    "chorus": 72.9,
     "aliases": [
       "しんしあり",
       "ゔぁいおれっとえゔぁーがーでん",
@@ -29634,7 +29753,8 @@
     "views": 25090975,
     "channel": "Lantis Channel",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "2VtepSkxrmE",
@@ -30158,7 +30278,7 @@
     "confidence": "中",
     "source": "佐々木恵梨公式",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 64.2,
     "aliases": [
       "ふゆびより",
       "ゆるきゃん"
@@ -30172,7 +30292,8 @@
     "views": 29696,
     "channel": "Eri Sasaki 佐々木恵梨",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "Apf3_U65W6E",
@@ -30206,7 +30327,7 @@
     "confidence": "中",
     "source": "ポルノグラフィティ Official YouTube Channel",
     "intro": 9.7,
-    "chorus": 0,
+    "chorus": 71.6,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -30215,7 +30336,8 @@
     "views": 942958,
     "channel": "PORNOGRAFFITTI Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "0xSiBpUdW4E",
@@ -30348,7 +30470,7 @@
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 45,
     "aliases": [
       "ごーるでんかむい",
       "金カム"
@@ -30362,7 +30484,8 @@
     "views": 50478,
     "channel": "NBCUniversal Anime/Music",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "Xg-qfsKN2_E",
@@ -30647,7 +30770,7 @@
     "confidence": "中",
     "source": "Mrs. GREEN APPLE",
     "intro": 6.2,
-    "chorus": 0,
+    "chorus": 101.1,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -30656,7 +30779,8 @@
     "views": 213745676,
     "channel": "Mrs. GREEN APPLE",
     "viewsAt": "2026-10-05",
-    "fame": "top"
+    "fame": "top",
+    "chorusSource": "audio"
   },
   {
     "id": "yDXVqicnWeo",
@@ -30849,7 +30973,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 31.7,
     "aliases": [
       "ばらいろのじんせい",
       "めいたんていこなん",
@@ -30864,7 +30988,8 @@
     "views": 70476,
     "channel": "【アニメ】名探偵コナン公式",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "Iepb3R9kW3s",
@@ -30876,7 +31001,7 @@
     "confidence": "中",
     "source": "ソニー公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 47.8,
     "aliases": [
       "ぽけっともんすたー",
       "ポケモン"
@@ -30890,7 +31015,8 @@
     "views": 5285030,
     "channel": "Sony Music Japan",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "NCFzjmFrY3E",
@@ -31851,7 +31977,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
     "intro": 3.7,
-    "chorus": 0,
+    "chorus": 48.6,
     "aliases": [
       "きみのなまえ",
       "たてのゆうしゃのなりあがり",
@@ -31866,7 +31992,8 @@
     "views": 52493,
     "channel": "KADOKAWAanime",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "Q6MCyXi7ygA",
@@ -32145,7 +32272,7 @@
     "confidence": "中",
     "source": "ポケモン公式YouTubeチャンネル",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 63.2,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -32154,7 +32281,8 @@
     "views": 3574895,
     "channel": "ポケモン公式YouTubeチャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "VtNgeDxYJzE",
@@ -32571,7 +32699,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 91.1,
     "aliases": [
       "だいじょうぶ",
       "てんきのこ"
@@ -32585,7 +32713,8 @@
     "views": 4086447,
     "channel": "C_foot【アニメ】",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "MeK5M0M8U8A",
@@ -33032,7 +33161,7 @@
     "confidence": "高",
     "source": "Topic",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 74.2,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -33041,7 +33170,8 @@
     "views": 25018,
     "channel": "Ayumu Uehara (CV: Aguri Onishi) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "VLE6Y1q13qE",
@@ -34399,7 +34529,7 @@
     "confidence": "中",
     "source": "Vaundy",
     "intro": 8.2,
-    "chorus": 0,
+    "chorus": 61.2,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -34408,7 +34538,8 @@
     "views": 206986965,
     "channel": "Vaundy",
     "viewsAt": "2026-10-05",
-    "fame": "top"
+    "fame": "top",
+    "chorusSource": "audio"
   },
   {
     "id": "tOv4k7wmzoE",
@@ -34617,7 +34748,7 @@
     "confidence": "中",
     "source": "菅田将暉公式",
     "intro": 2.7,
-    "chorus": 0,
+    "chorus": 63,
     "aliases": [
       "にじ",
       "すたんどばいみーどらえもん",
@@ -34632,7 +34763,8 @@
     "views": 194570912,
     "channel": "菅田将暉 Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "top"
+    "fame": "top",
+    "chorusSource": "audio"
   },
   {
     "id": "mefHQA2fGzg",
@@ -37263,7 +37395,7 @@
     "confidence": "高",
     "source": "Topic",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 60.1,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -37272,7 +37404,8 @@
     "views": 16021,
     "channel": "Mia Taylor (CV: Shu Uchida) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "M2cckDmNLMI",
@@ -37676,7 +37809,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 55.4,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -37685,7 +37818,8 @@
     "views": 15758,
     "channel": "Mia Taylor (CV: Shu Uchida) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "6lnS-8FVod4",
@@ -37925,7 +38059,7 @@
     "confidence": "中",
     "source": "非公式",
     "intro": 7.2,
-    "chorus": 0,
+    "chorus": 95.6,
     "aliases": [
       "すずめのとじまり"
     ],
@@ -37938,7 +38072,8 @@
     "views": 726105,
     "channel": "C_foot【アニメ】",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "MTPiaDzacSI",
@@ -38495,7 +38630,7 @@
     "confidence": "中",
     "source": "ソニー公式",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 41.9,
     "aliases": [
       "ぽけっともんすたー",
       "ポケモン"
@@ -38509,7 +38644,8 @@
     "views": 6207879,
     "channel": "Sony Music Japan",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "syucUN9w1Go",
@@ -38521,7 +38657,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 44.1,
     "aliases": [
       "たてのゆうしゃのなりあがり",
       "盾の勇者"
@@ -38535,7 +38671,8 @@
     "views": 42672,
     "channel": "KADOKAWAanime",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "PvyaVqfylu4",
@@ -44207,7 +44344,7 @@
     "confidence": "中",
     "source": "東京リベンジャーズ公式（TVサイズ）",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 44.8,
     "aliases": [
       "いぐないと",
       "とうきょうりべんじゃーず",
@@ -44222,7 +44359,8 @@
     "views": 1045870,
     "channel": "TV anime \"Tokyo Revengers\"",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "ux3QETpLcPs",
@@ -44905,7 +45043,7 @@
     "confidence": "中",
     "source": "テレ東アニメ公式（TVサイズ）",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 26.4,
     "aliases": [
       "ぶらっくくろーばー",
       "ブラクロ"
@@ -44919,7 +45057,8 @@
     "views": 221532,
     "channel": "テレ東アニメ",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "rH8FCwzOdpI",
@@ -45560,7 +45699,7 @@
     "confidence": "中",
     "source": "東京リベンジャーズ公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 49.9,
     "aliases": [
       "とりっくすたー",
       "とうきょうりべんじゃーず",
@@ -45575,7 +45714,8 @@
     "views": 129953,
     "channel": "TV anime \"Tokyo Revengers\"",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "ciFvLHCThdg",
@@ -46378,7 +46518,7 @@
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 64.2,
     "aliases": [
       "あいゆー",
       "くすりやのひとりごと"
@@ -46392,7 +46532,8 @@
     "views": 748629,
     "channel": "TOHO animation",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "Xr032EhUDPw",
@@ -47141,7 +47282,7 @@
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 39.8,
     "aliases": [
       "くもをぬけかざしもへわたしだけ",
       "くすりやのひとりごと"
@@ -47155,7 +47296,8 @@
     "views": 1692663,
     "channel": "TOHO animation",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "YcRYX8hwQ8Y",
@@ -47383,7 +47525,7 @@
     "confidence": "中",
     "source": "テレ東アニメ公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 34.4,
     "aliases": [
       "きえないりゆう",
       "ぶらっくくろーばー",
@@ -47398,7 +47540,8 @@
     "views": 924811,
     "channel": "テレ東アニメ",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "HPZQQFmPoGs",
@@ -47410,7 +47553,7 @@
     "confidence": "中",
     "source": "FictionJunction公式",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 89.4,
     "aliases": [
       "かなた",
       "まほうしょうじょまどかまぎか",
@@ -47426,7 +47569,8 @@
     "views": 480261,
     "channel": "FictionJunction Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "InKfZBjNlQE",

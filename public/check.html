@@ -53,7 +53,7 @@
         <select id="status">
           <option value="">すべて</option><option value="un">未チェック</option>
           <option value="ok">再生OK</option><option value="ng">再生NG</option><option value="nochorus">サビが仮の値の曲</option>
-          <option value="chorusest">サビが自動推定の曲</option><option value="introunsure">イントロ要確認の曲</option>
+          <option value="chorusest">サビが自動推定の曲</option><option value="chorusaudio">サビを音から推定した曲</option><option value="introunsure">イントロ要確認の曲</option>
           <option value="fame:top">知名度：超有名</option><option value="fame:famous">知名度：有名</option><option value="fame:normal">知名度：普通</option>
           <option value="fame:minor">知名度：マイナー</option><option value="fame:otaku">知名度：オタク</option>
         </select>
@@ -124,7 +124,8 @@ function filtered() {
     if (q && ![s.title, s.work, s.artist].join(' ').toLowerCase().includes(q)) return false;
     if (dec && Math.floor(s.year / 10) * 10 !== +dec) return false;
     if (st === 'nochorus') return s.embeddable !== false && !(s.chorus > 0);
-    if (st === 'chorusest') return s.embeddable !== false && s.chorusSource === 'heatmap';
+    if (st === 'chorusest') return s.embeddable !== false && (s.chorusSource === 'heatmap' || s.chorusSource === 'audio');
+    if (st === 'chorusaudio') return s.embeddable !== false && s.chorusSource === 'audio';
     if (st === 'introunsure') return s.embeddable !== false && !!s.introUnsure;
     if (st.startsWith('fame:')) return (s.fame || 'normal') === st.slice(5);
     if (st && statusOf(s) !== st) return false;
@@ -142,7 +143,7 @@ function render() {
       <td>${esc(s.title)}<small>${esc(s.work)} ／ ${esc(s.artist)}</small></td>
       <td>${esc(s.type || '')}</td>
       <td class="num">${s.intro || 0}${s.introUnsure ? ' <span class="badge b-edit">要確認</span>' : ''}</td>
-      <td class="num">${s.chorus > 0 ? s.chorus + (s.chorusSource === 'heatmap' ? ' <span class="badge b-un">推定</span>' : '') : `<span class="badge b-edit">仮 ${chorusOf(s)}</span>`}</td>
+      <td class="num">${s.chorus > 0 ? s.chorus + (s.chorusSource === 'heatmap' ? ' <span class="badge b-un">推定</span>' : s.chorusSource === 'audio' ? ' <span class="badge b-un">推定（音）</span>' : '') : `<span class="badge b-edit">仮 ${chorusOf(s)}</span>`}</td>
       <td>${badge}</td></tr>`;
   }).join('');
   $('rows').querySelectorAll('tr').forEach(tr => tr.onclick = () => select(songs.find(s => s.id === tr.dataset.id)));
@@ -215,7 +216,7 @@ function renderDetail() {
       <button class="btn-sub" data-play="intro">▶ 再生</button>
     </div>
     <div class="adj">
-      <span class="label">サビ開始 <b>${chorusOf(s)}</b> 秒 ${!(s.chorus > 0) ? '<span class="badge b-edit">仮の値</span>' : s.chorusSource === 'heatmap' ? '<span class="badge b-un">自動推定（よく再生される部分）</span>' : '<span class="badge b-ok">手で設定</span>'}</span>
+      <span class="label">サビ開始 <b>${chorusOf(s)}</b> 秒 ${!(s.chorus > 0) ? '<span class="badge b-edit">仮の値</span>' : s.chorusSource === 'heatmap' ? '<span class="badge b-un">自動推定（よく再生される部分）</span>' : s.chorusSource === 'audio' ? '<span class="badge b-un">自動推定（音の解析・要確認）</span>' : '<span class="badge b-ok">手で設定</span>'}</span>
       <button class="btn-sub" data-k="chorus" data-d="-5">−5</button>
       <button class="btn-sub" data-k="chorus" data-d="-1">−1</button>
       <button class="btn-sub" data-k="chorus" data-d="1">＋1</button>

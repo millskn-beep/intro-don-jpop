@@ -113,7 +113,7 @@ app.post('/api/songs', (req, res) => {
   if (!valid) return res.status(400).json({ error: '曲データの形式が正しくありません' });
 
   // 画面で編集する項目だけを曲IDごとに上書きする（画面を開いた後にCSVから取り込んだ曲を消さないため）
-  const EDITABLE = ['intro', 'chorus', 'aliases', 'embeddable', 'error', 'checkedAt', 'checkedOrigin', 'introMeasured', 'chorusSource', 'chorusChecked', 'introMethod', 'introUnsure', 'fame', 'views', 'channel', 'viewsAt'];
+  const EDITABLE = ['intro', 'chorus', 'aliases', 'embeddable', 'error', 'checkedAt', 'checkedOrigin', 'introMeasured', 'chorusSource', 'chorusChecked', 'introMethod', 'introUnsure', 'fame', 'fameManual', 'views', 'channel', 'viewsAt'];
   loadSongs();
   const byId = new Map(ALL_SONGS.map(s => [s.id, s]));
   let changed = 0;

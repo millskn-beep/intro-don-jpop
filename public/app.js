@@ -485,7 +485,7 @@ socket.on('question', q => {
   if (q.qNo === 1) playLog = []; // 新しいゲーム
   question = q; myAnswer = null; answering = false;
   stopTick();
-  showBigChoices();
+  showBigChoices(); hintSeen = false;
   $('timer').textContent = ''; $('barFill').style.width = '0';
   clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer); fadingOut = false; document.body.classList.remove('fading');
   $('barMark').style.left = (q.settings.hintAt / (q.settings.hintAt + q.settings.chorusLen) * 100) + '%';
@@ -554,7 +554,9 @@ socket.on('restartIntro', ({ n, plays }) => {
   player.start(question?.intro || 0);
   setPhase('intro', `イントロ（${n} / ${plays}回目）`);
 });
+let hintSeen = false; // この問題でサビ（ヒント）まで流したか。流していなければ、答え合わせでサビへ移動する
 socket.on('hint', ({ chorus, known = true, intro = 0, seek = true }) => {
+  hintSeen = true;
   if (seek) { player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); setPhase('chorus', 'サビ（ヒント・得点×0.7）'); }
   else setPhase('chorus', 'サビ（得点×0.7）'); // サビ前問題は流れのままサビに入る
 });
@@ -667,7 +669,8 @@ socket.on('reveal', r => {
   setCompact(true);
   // サビの位置が仮（イントロ＋50秒）の曲は、動画の長さから推定した位置にする
   const unknown = r.chorusKnown === false || (r.chorusKnown === undefined && r.chorus === r.intro + 50);
-  player.reveal(r.intro, unknown ? guessChorus(r.intro, player.duration()) : r.chorus);
+  // サビまで流れていたらそのまま流し続ける。イントロのうちに答え合わせになったらサビへ移動（サビ前問題は流れのまま）
+  player.reveal(r.intro, unknown ? guessChorus(r.intro, player.duration()) : r.chorus, !hintSeen && question?.kind !== 'sabimae');
   // だれがどの選択肢を押したか（アバターと名前を選択肢の中に出す）
   const pickers = new Map();
   for (const x of r.results) if (Number.isInteger(x.index) && !x.pass) pickers.set(x.index, [...(pickers.get(x.index) || []), x]);

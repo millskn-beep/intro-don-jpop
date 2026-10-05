@@ -74,11 +74,17 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     },
     // 答え合わせ：頭出しせず、流れている映像をそのまま流し続ける（ノンストップ）。
     // イントロで止まっていたらその位置から再開し、終わっていた・まだ読み込みだけの場合はサビ（推定・仮の位置）から
-    reveal(intro, chorus) {
+    // jump: まだサビを流していない（イントロのうちに全員が答えた）ときは、サビへ移動する
+    reveal(intro, chorus, jump = false) {
       clear();
       run(() => {
         const st = yt.getPlayerState();
         yt.unMute();
+        if (jump) {
+          const go = () => { yt.seekTo(chorus, true); yt.playVideo(); fade(0, volume, FADE_IN); };
+          if (st === YT.PlayerState.PLAYING) fade(yt.getVolume(), 0, FADE_OUT / 2, go); else go();
+          return;
+        }
         if (st === YT.PlayerState.PLAYING) { fade(yt.getVolume(), volume, 300); return; }
         if (st !== YT.PlayerState.PAUSED) yt.seekTo(chorus, true);
         yt.playVideo(); fade(0, volume, FADE_IN);

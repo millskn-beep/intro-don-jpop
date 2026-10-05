@@ -198,6 +198,13 @@ function poolFor(settings) {
 
 const cleanName = n => String(n || '').replace(/[\u0000-\u001f]/g, '').trim().slice(0, 12) || 'ゲスト';
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = crypto.randomInt(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+// 除外中（前に出た・ログを貼った）の曲でも、超有名・有名の曲はときどき出す（除外していない曲の 1/10 の出やすさ）
+const POPULAR_REPEAT = 0.1;
+const isPopular = s => fameOf(s) === 'top' || fameOf(s) === 'famous';
+// [曲, 重み] から重みつきで n 曲を選ぶ（同じ曲は選ばない。並びもランダム）。u^(1/重み) が大きい順に取る方法
+function weightedPick(items, n) {
+  return items.map(([song, w]) => [song, Math.random() ** (1 / w)]).sort((a, b) => b[1] - a[1]).slice(0, n).map(([song]) => song);
+}
 
 // ── 部屋 ──
 const rooms = new Map();
@@ -341,10 +348,12 @@ function startGame(room) {
     }
   }
   const n = Math.min(S.questions, fresh.length);
+  const freshSet = new Set(fresh);
+  const popular = candidates.filter(s => !freshSet.has(s) && room.played.has(s.id) && isPopular(s));
   room.state = 'playing';
   for (const p of room.players.values()) { p.score = 0; p.streak = 0; p.lifelines = freshLifelines(S); }
   // 曲オブジェクトそのものを持つ（ゲーム中に曲データが保存し直されても影響しないように）
-  const order = shuffle([...fresh]).slice(0, n);
+  const order = weightedPick([...fresh.map(s => [s, 1]), ...popular.map(s => [s, POPULAR_REPEAT])], n);
   order.forEach(s => { room.played.delete(s.id); room.played.add(s.id); }); // 新しく出た曲ほど後ろ（戻すのは古い順）
   room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map() }; // stats: token -> 称号用の成績
@@ -741,9 +750,12 @@ function resumeGame(room) {
     if (pool.length) g.pool = pool;
     const need = Math.max(0, S.questions - done.length);
     const keep = poolChanged ? [] : rest.filter(s => g.pool.includes(s));
-    const fresh = shuffle(g.pool.filter(s => !done.includes(s) && !keep.includes(s) && !room.played.has(s.id)));
-    const reuse = shuffle(g.pool.filter(s => !done.includes(s) && !keep.includes(s) && room.played.has(s.id)));
-    const next = [...keep, ...fresh, ...reuse].slice(0, need);
+    const avail = g.pool.filter(s => !done.includes(s) && !keep.includes(s));
+    const fresh = avail.filter(s => !room.played.has(s.id));
+    const popular = avail.filter(s => room.played.has(s.id) && isPopular(s));
+    const picked = weightedPick([...fresh.map(s => [s, 1]), ...popular.map(s => [s, POPULAR_REPEAT])], Math.max(0, need - keep.length));
+    const reuse = shuffle(avail.filter(s => room.played.has(s.id) && !picked.includes(s))); // それでも足りなければ除外中の曲から
+    const next = [...keep, ...picked, ...reuse].slice(0, need);
     rest.forEach(s => { if (!next.includes(s)) room.played.delete(s.id); }); // 出さなくなった曲は除外の記録から外す
     next.forEach(s => { room.played.delete(s.id); room.played.add(s.id); });
     g.order = [...done, ...next];

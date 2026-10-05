@@ -20491,7 +20491,10 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "audio",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 641127,
+    "channel": "Sony Music Japan",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "rbVFAF9BmwE",
@@ -23881,32 +23884,6 @@
     "fame": "minor"
   },
   {
-    "id": "C-o8pTi6vd8",
-    "title": "狂乱 Hey Kids!!",
-    "work": "ノラガミ ARAGOTO",
-    "artist": "THE ORAL CIGARETTES",
-    "year": 2015,
-    "type": "OP",
-    "confidence": "中",
-    "source": "THE ORAL CIGARETTES公式",
-    "intro": 0,
-    "chorus": 45,
-    "aliases": [
-      "きょうらんへいきっず",
-      "のらがみ"
-    ],
-    "embeddable": true,
-    "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
-    "introMeasured": true,
-    "introMethod": "v2",
-    "views": 215849627,
-    "channel": "THE ORAL CIGARETTES",
-    "viewsAt": "2026-10-05",
-    "fame": "top"
-  },
-  {
     "id": "YWg4-xfC0_Q",
     "title": "Hey World",
     "work": "ダンジョンに出会いを求めるのは間違っているだろうか",
@@ -24790,6 +24767,32 @@
     "fame": "otaku"
   },
   {
+    "id": "C-o8pTi6vd8",
+    "title": "狂乱 Hey Kids!!",
+    "work": "ノラガミ ARAGOTO",
+    "artist": "THE ORAL CIGARETTES",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "THE ORAL CIGARETTES公式",
+    "intro": 0,
+    "chorus": 45,
+    "aliases": [
+      "きょうらんへいきっず",
+      "のらがみ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000",
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 215849627,
+    "channel": "THE ORAL CIGARETTES",
+    "viewsAt": "2026-10-05",
+    "fame": "top"
+  },
+  {
     "id": "WTZRgj6Afes",
     "title": "狂乱 Hey Kids!!",
     "work": "ノラガミ ARAGOTO",
@@ -25301,7 +25304,7 @@
     "views": 587914,
     "channel": "BURNOUT SYNDROMES Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "normal"
   },
   {
     "id": "Zx_rFZhJCB0",
@@ -35447,7 +35450,7 @@
     "views": 118636951,
     "channel": "Hikaru Utada",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "top"
   },
   {
     "id": "2Yr3sKPi8mM",
@@ -35698,7 +35701,7 @@
     "views": 10752846,
     "channel": "STEREO DIVE FOUNDATION Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "famous"
   },
   {
     "id": "OewLXvs8hl8",
@@ -40443,6 +40446,28 @@
     "fame": "normal"
   },
   {
+    "id": "g4PQGus6wkc",
+    "title": "スイートサイン",
+    "work": "君のことが大大大大大好きな100人の彼女",
+    "artist": "岬なこ",
+    "year": 2023,
+    "type": "ED",
+    "confidence": "高",
+    "source": "バンダイナムコフィルムワークス公式（ノンクレジットED）",
+    "intro": 0.2,
+    "chorus": 76,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1280781,
+    "channel": "Bandai Namco Filmworks Channel",
+    "viewsAt": "2026-10-05",
+    "fame": "normal"
+  },
+  {
     "id": "Z0oU5k2ECIQ",
     "title": "すべてがそこにありますように。",
     "work": "ゴールデンカムイ 第四期",
@@ -41185,6 +41210,28 @@
     "channel": "TOHO animation",
     "viewsAt": "2026-10-05",
     "fame": "top"
+  },
+  {
+    "id": "cBhaKIqvUrQ",
+    "title": "大大大大大好きな君へ♡",
+    "work": "君のことが大大大大大好きな100人の彼女",
+    "artist": "花園羽香里・院田唐音・好本静・栄逢凪乃・薬膳楠莉",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "高",
+    "source": "バンダイナムコフィルムワークス公式（ノンクレジットOP）",
+    "intro": 0,
+    "chorus": 58,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 6755678,
+    "channel": "Bandai Namco Filmworks Channel",
+    "viewsAt": "2026-10-05",
+    "fame": "normal"
   },
   {
     "id": "VUsURj_OYdA",
@@ -44983,6 +45030,28 @@
     "fame": "minor"
   },
   {
+    "id": "LsWpwZ_04Pw",
+    "title": "Unmei?",
+    "work": "君のことが大大大大大好きな100人の彼女 第2期",
+    "artist": "原賀胡桃・銘戸芽衣・須藤育・美杉美々美・華暮愛々",
+    "year": 2025,
+    "type": "ED",
+    "confidence": "高",
+    "source": "バンダイナムコフィルムワークス公式（ノンクレジットED）",
+    "intro": 0,
+    "chorus": 36,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 4016405,
+    "channel": "Bandai Namco Filmworks Channel",
+    "viewsAt": "2026-10-05",
+    "fame": "normal"
+  },
+  {
     "id": "a_NB6QkfzAM",
     "title": "Watch me!",
     "work": "ウィッチウォッチ",
@@ -45184,6 +45253,28 @@
     "introMethod": "v2",
     "views": 1956186,
     "channel": "KADOKAWAanime",
+    "viewsAt": "2026-10-05",
+    "fame": "normal"
+  },
+  {
+    "id": "5cXLBCc_O5U",
+    "title": "ありがと、大好きになってくれて",
+    "work": "君のことが大大大大大好きな100人の彼女 第2期",
+    "artist": "恋太郎ファミリー",
+    "year": 2025,
+    "type": "OP",
+    "confidence": "高",
+    "source": "バンダイナムコフィルムワークス公式（ノンクレジットOP）",
+    "intro": 0.2,
+    "chorus": 78,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1444403,
+    "channel": "Bandai Namco Filmworks Channel",
     "viewsAt": "2026-10-05",
     "fame": "normal"
   },
@@ -46564,6 +46655,28 @@
     "fame": "top"
   },
   {
+    "id": "01Vgu7BIxmI",
+    "title": "Amore",
+    "work": "きみが死ぬまで恋をしたい",
+    "artist": "ReoNa",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "高",
+    "source": "KADOKAWAanime公式（ノンクレジットOP）",
+    "intro": 0.2,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 930038,
+    "channel": "KADOKAWAanime",
+    "viewsAt": "2026-10-05",
+    "fame": "normal"
+  },
+  {
     "id": "I5u5gNcKVfk",
     "title": "BELIEVERS",
     "work": "杖と剣のウィストリア Season2",
@@ -47545,6 +47658,28 @@
     "chorusSource": "audio"
   },
   {
+    "id": "o8WGXDnonpg",
+    "title": "大好き♡ずっと永遠に♡",
+    "work": "君のことが大大大大大好きな100人の彼女 第3期",
+    "artist": "恋太郎ファミリー",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "高",
+    "source": "バンダイナムコフィルムワークス公式（ノンクレジットOP）",
+    "intro": 0.2,
+    "chorus": 27,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 492565,
+    "channel": "Bandai Namco Filmworks Channel",
+    "viewsAt": "2026-10-05",
+    "fame": "minor"
+  },
+  {
     "id": "HPZQQFmPoGs",
     "title": "彼方",
     "work": "劇場版 魔法少女まどか☆マギカ〈ワルプルギスの廻天〉",
@@ -47650,6 +47785,28 @@
     "chorusChecked": true,
     "views": 241466,
     "channel": "NBCUniversal Anime/Music",
+    "viewsAt": "2026-10-05",
+    "fame": "minor"
+  },
+  {
+    "id": "ybQpXYJWDtM",
+    "title": "来れ恋・至れ愛",
+    "work": "君のことが大大大大大好きな100人の彼女 第3期",
+    "artist": "恋太郎ファミリー",
+    "year": 2026,
+    "type": "ED",
+    "confidence": "高",
+    "source": "バンダイナムコフィルムワークス公式（ノンクレジットED）",
+    "intro": 0.2,
+    "chorus": 58,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 558711,
+    "channel": "Bandai Namco Filmworks Channel",
     "viewsAt": "2026-10-05",
     "fame": "minor"
   }

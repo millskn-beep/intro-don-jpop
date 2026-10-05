@@ -143,6 +143,7 @@ button:disabled { cursor: default; }
 .reset-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; padding: 8px 12px;
              border-radius: 12px; background: var(--glass-strong); border: 1px solid var(--line); font-size: 13px; font-weight: 700; }
 .reset-row .btn-sub { padding: 6px 14px; font-size: 13px; border-radius: 99px; }
+.reset-row .btn-sub:disabled { opacity: .4; cursor: default; }
 /* 曲リクエスト */
 .req-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0 12px; }
 .req-form input { margin: 0; }

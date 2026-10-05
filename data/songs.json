@@ -16,7 +16,10 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 1440230,
+    "channel": "Isao Sasaki - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "5dzhgOxlr-U",
@@ -35,7 +38,10 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 1773000,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "JPLRmL3Vqlw",
@@ -56,7 +62,10 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 140197,
+    "channel": "タケカワユキヒデ公式 Yukihide Takekawa Official ",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "f8XAxl_cmwo",
@@ -78,7 +87,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 204136,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "qfoq4ik4iTI",
@@ -97,7 +109,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 360205,
+    "channel": "パインサラダ2023",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "DVOgvzl395w",
@@ -114,7 +129,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 4290218,
+    "channel": "松田聖子オフィシャルYouTubeチャンネル",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "lrFAj84yCrM",
@@ -137,7 +155,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 45449,
+    "channel": "たいらいさお - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "tmKmDeksMaM",
@@ -154,7 +175,10 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 427068,
+    "channel": "Aloha Mahalo",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "MBEgw_kfhzc",
@@ -175,7 +199,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 6076206,
+    "channel": "Yuko Matsutani - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "ZYeVfKtIH4c",
@@ -192,7 +219,31 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 17274214,
+    "channel": "Akira Terao - Topic",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "bf3Oo9AaEfs",
+    "title": "ワイワイワールド",
+    "work": "Dr.スランプ アラレちゃん",
+    "artist": "水森亜土・こおろぎ'73",
+    "year": 1981,
+    "type": "OP",
+    "confidence": "中",
+    "source": "pinkbulldeluxe1",
+    "intro": 0.2,
+    "chorus": 102,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 930184,
+    "channel": "pinkbulldeluxe1",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "xzcFEJDfmv0",
@@ -215,7 +266,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 4018372,
+    "channel": "Daisuke Inoue - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "kQ9gbYURKy4",
@@ -232,7 +286,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 7500959,
+    "channel": "松任谷由実",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "oSrVLQa4-EU",
@@ -253,7 +310,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 1521370,
+    "channel": "高沢創大",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "1-d8U3kt-fM",
@@ -275,7 +335,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 12733,
+    "channel": "超時空要塞マクロス",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "Y1cP_uvJV98",
@@ -298,7 +361,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 2955644,
+    "channel": "Daisuke Inoue - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "nCVEAs4MtDg",
@@ -321,7 +387,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 108670,
+    "channel": "葦プロダクション チャンネル",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "D8mbdoXml38",
@@ -344,7 +413,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 22207,
+    "channel": "sweet PEACHPIE 스위트 피치파이",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "RQ8b-RlTRws",
@@ -367,7 +439,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 4646463,
+    "channel": "Akira Kushida - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "pNNn0izjwDI",
@@ -384,7 +459,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 2477649,
+    "channel": "Warner Music Japan",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "2Htj6AChzTE",
@@ -401,7 +479,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 6270995,
+    "channel": "Free Time",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "a7WhrI0Bbnk",
@@ -418,7 +499,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 6670651,
+    "channel": "あみん - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "m1ZZwp-39UY",
@@ -440,7 +524,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 647483,
+    "channel": "Sayaka Ito - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "yiUuVRBaCy0",
@@ -461,7 +548,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 5779775,
+    "channel": "ANRI 杏里 Official",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "dvbjQoX9p6o",
@@ -478,7 +568,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 6010031,
+    "channel": "チェッカーズ公式YouTubeチャンネル",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "x4scqkonxEw",
@@ -500,7 +593,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 4578605,
+    "channel": "TAB Channel / タブ【Toei Animation Beyond】",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "FbEVXulYEFc",
@@ -523,7 +619,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 206645,
+    "channel": "Mio - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "1kW9T8SOfeI",
@@ -547,7 +646,30 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 77458,
+    "channel": "Takakko Ohta - Topic",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "Gy21vf4d2Hw",
+    "title": "みえるだろう バイストン・ウェル",
+    "work": "聖戦士ダンバイン",
+    "artist": "MIQ",
+    "year": 1983,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MIQ (MIO) - Topic",
+    "intro": 0.7,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 24840,
+    "channel": "MIQ (MIO) - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "PgcqajBYbmg",
@@ -570,7 +692,31 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 3990108,
+    "channel": "TETSU - Topic",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "CSN2sEGQ3v0",
+    "title": "星空サイクリング",
+    "work": "うる星やつら",
+    "artist": "ヴァージンVS",
+    "year": 1983,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Virgin VS - Topic",
+    "intro": 0.7,
+    "chorus": 108,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 157813,
+    "channel": "Virgin VS - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "SF5QKpGLQp8",
@@ -592,7 +738,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 1700096,
+    "channel": "Re:Re:Re:TUNE",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "xYY-EDRuIu0",
@@ -614,7 +763,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 298840,
+    "channel": "Hiroyuki Okita - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "6q6GtPdVHL4",
@@ -631,7 +783,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 7343263,
+    "channel": "ANRI 杏里 Official",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "UmmfjUUiTmU",
@@ -654,7 +809,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 3686403,
+    "channel": "Mio - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "Re8l4a48R70",
@@ -671,7 +829,10 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 10942545,
+    "channel": "はるはる",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "T_lC2O1oIew",
@@ -688,7 +849,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 79105196,
+    "channel": "Mariya Takeuchi",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "d4tcQJ4SIXk",
@@ -710,7 +874,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 6695,
+    "channel": "Crystal King - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "OfuW_Wbt73c",
@@ -733,7 +900,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 3879730,
+    "channel": "Victor Entertainment",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "xp6rspO4uYY",
@@ -755,7 +925,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 557342,
+    "channel": "TAB Channel / タブ【Toei Animation Beyond】",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "f3533dSIR8s",
@@ -777,7 +950,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 610128,
+    "channel": "ダ・カーポ 公式チャンネル",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "sHCzMsSC9dk",
@@ -794,7 +970,30 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 324776,
+    "channel": "中村友三",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "_uCKP-GJyoU",
+    "title": "風のノー・リプライ",
+    "work": "重戦機エルガイム",
+    "artist": "鮎川麻弥",
+    "year": 1984,
+    "type": "OP",
+    "confidence": "中",
+    "intro": 0.5,
+    "chorus": 77,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 941690,
+    "channel": "Mami Ayukawa - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "Y7bsWiz0q_Y",
@@ -816,7 +1015,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 79491,
+    "channel": "Narumi Yasuda - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "N7MHXbsT3J4",
@@ -833,7 +1035,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 3228275,
+    "channel": "チェッカーズ公式YouTubeチャンネル",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "XF1Sf8R3qTc",
@@ -850,7 +1055,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 406421,
+    "channel": "アン・ルイス ANN LEWIS Official Channel",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "GZAV7G5Q0r0",
@@ -875,7 +1083,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 1419495,
+    "channel": "Mami Ayukawa - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "TCvhpc1SvkY",
@@ -898,7 +1109,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 155311,
+    "channel": "Ushiroyubi Sasare Gumi - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "5DFrXPngEIE",
@@ -920,7 +1134,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 1377015,
+    "channel": "TAB Channel / タブ【Toei Animation Beyond】",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "WW6OgFqTNfg",
@@ -941,7 +1158,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 14966125,
+    "channel": "Yoshimi Iwasaki - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "gWFX_JqYYt8",
@@ -959,7 +1179,10 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2",
-    "introUnsure": true
+    "introUnsure": true,
+    "views": 8697533,
+    "channel": "荻野目洋子",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "bnbJPQfU9QM",
@@ -983,7 +1206,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 402314,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "vfRL1SwyGNA",
@@ -1005,7 +1231,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 1906110,
+    "channel": "Yoshimi Iwasaki - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "O9NIxNlRs8U",
@@ -1022,7 +1251,31 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 998678,
+    "channel": "鹿角聖良",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "ZWU0hAPm7Z4",
+    "title": "少年期",
+    "work": "ドラえもん のび太の宇宙小戦争",
+    "artist": "武田鉄矢",
+    "year": 1985,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "Tetsuya Takeda - Topic",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 1694614,
+    "channel": "Tetsuya Takeda - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "DH3Ywt7mQa4",
@@ -1046,7 +1299,31 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 829484,
+    "channel": "森口博子 オフィシャル YouTube チャンネル",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "cNMygl08r1I",
+    "title": "星空のBelieve",
+    "work": "機動戦士Ζガンダム",
+    "artist": "鮎川麻弥",
+    "year": 1985,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Mami Ayukawa - Topic",
+    "intro": 0.7,
+    "chorus": 53,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 915116,
+    "channel": "Mami Ayukawa - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "HUHUsfbvw9I",
@@ -1063,7 +1340,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 3754460,
+    "channel": "Yutaka Ozaki Official YouTube Channel",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "8czr8HabP6A",
@@ -1080,7 +1360,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 457126,
+    "channel": "MUSIC Liverary",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "dbHPwFo_28o",
@@ -1096,7 +1379,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 5531588,
+    "channel": "MUSIC Liverary",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "CCfRM-2M62k",
@@ -1112,7 +1398,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 4190930,
+    "channel": "AKINA NAKAMORI OFFICIAL",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "EwTZwtGnc-c",
@@ -1131,7 +1420,10 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 78233,
+    "channel": "KODOMO BAND - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "bYbN2nyuN9Y",
@@ -1152,7 +1444,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 8582129,
+    "channel": "TOM★CAT - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "Np1HhsXRQ0s",
@@ -1175,7 +1470,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 1888402,
+    "channel": "Masahito Arai - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "9ENe0FsMvqo",
@@ -1197,7 +1495,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 2115109,
+    "channel": "TAB Channel / タブ【Toei Animation Beyond】",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "7p-jT0WjByQ",
@@ -1220,7 +1521,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 522454,
+    "channel": "Ushio Hashimoto - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "3Vhs9hmHh1Q",
@@ -1243,7 +1547,31 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 251395,
+    "channel": "Azumi Inoue - Topic",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "cglVlj7f17U",
+    "title": "情熱物語",
+    "work": "タッチ",
+    "artist": "岩崎良美",
+    "year": 1986,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Yoshimi Iwasaki - Topic",
+    "intro": 0.2,
+    "chorus": 53,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 709624,
+    "channel": "Yoshimi Iwasaki - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "c1Ib0ofb87Q",
@@ -1265,7 +1593,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 1841323,
+    "channel": "Yuki Saito - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "Mqwh5LCyYhQ",
@@ -1288,7 +1619,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 866442,
+    "channel": "Hiroki Takahashi - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "xhnYYIKG6cI",
@@ -1305,7 +1639,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 7298430,
+    "channel": "松田聖子オフィシャルYouTubeチャンネル",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "UftYXtQ1xAA",
@@ -1347,7 +1684,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 2182901,
+    "channel": "Kahoru Kohiruimaki",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "r107W1YXrSM",
@@ -1369,7 +1709,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 44094003,
+    "channel": "TMNETWORK",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "Tth7y7dI3CA",
@@ -1392,7 +1735,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 625755,
+    "channel": "Masanori Ikeda - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "NZTIUAXa10U",
@@ -1409,7 +1755,10 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 147006,
+    "channel": "Hikaru GENJI - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "RYC71PAuIKE",
@@ -1426,7 +1775,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 12409185,
+    "channel": "THE BLUE HEARTS",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "4xUufRft9Hs",
@@ -1443,7 +1795,50 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 42419615,
+    "channel": "MUSIC Liverary",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "HjLraWxzEHc",
+    "title": "夢色チェイサー",
+    "work": "機甲戦記ドラグナー",
+    "artist": "鮎川麻弥",
+    "year": 1987,
+    "type": "OP",
+    "confidence": "中",
+    "intro": 0.7,
+    "chorus": 34,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 1109534,
+    "channel": "Mami Ayukawa - Topic",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "LSn62IoG1J4",
+    "title": "陽だまり",
+    "work": "めぞん一刻",
+    "artist": "村下孝蔵",
+    "year": 1987,
+    "type": "OP",
+    "confidence": "中",
+    "source": "名無星",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 1695112,
+    "channel": "名無星",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "InPGzqxwlFg",
@@ -1466,7 +1861,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 7674275,
+    "channel": "TMNETWORK",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "KWZf8MrUm2U",
@@ -1483,7 +1881,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 14258473,
+    "channel": "MUSIC Liverary",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "QYMP3JTE-Qg",
@@ -1506,7 +1907,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 5806521,
+    "channel": "TMNETWORK",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "BSkLe-EOq5U",
@@ -1523,7 +1927,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 9001014,
+    "channel": "THE BLUE HEARTS",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "5mLape5F0Fw",
@@ -1546,7 +1953,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 58201514,
+    "channel": "VAP OFFICIAL MUSIC CHANNEL",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "6KmCxZE9OoY",
@@ -1569,7 +1979,31 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 594317,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "6oBBGZJhduk",
+    "title": "サイレント・ヴォイス",
+    "work": "聖闘士星矢",
+    "artist": "ひろえ純",
+    "year": 1988,
+    "type": "ED",
+    "confidence": "中",
+    "source": "ひろえ純 - Topic",
+    "intro": 1.5,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 2673869,
+    "channel": "ひろえ純 - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "g8VPgDqKbQU",
@@ -1588,7 +2022,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 1840286,
+    "channel": "サンライズ  SUNRISE Official ",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "NaC5mQngHlQ",
@@ -1611,7 +2048,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 957809,
+    "channel": "Azumi Inoue - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "FA9Ho0i1MiQ",
@@ -1633,7 +2073,10 @@
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 95687,
+    "channel": "Azumi Inoue - Topic",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "wcvnmwrsJn8",
@@ -1650,7 +2093,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 35236179,
+    "channel": "Wink",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "JZQ3oUSSyHo",
@@ -1673,7 +2119,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 272261,
+    "channel": "Kageyama Hironobu Official YouTube Channel",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "IKjRLKQo7O0",
@@ -1690,7 +2139,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 36911271,
+    "channel": "プリンセス プリンセス official YouTube channel",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "rzfLx6TVCv0",
@@ -1707,7 +2159,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 43097131,
+    "channel": "プリンセス プリンセス official YouTube channel",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "9Q5Lw_azgpI",
@@ -1728,7 +2183,30 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 1567302,
+    "channel": "nantkhr",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "hFqnjW6s9lU",
+    "title": "じゃじゃ馬にさせないで",
+    "work": "らんま1/2",
+    "artist": "西尾えつ子",
+    "year": 1989,
+    "type": "OP",
+    "confidence": "中",
+    "source": "futurecop.one",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 4872444,
+    "channel": "futurecop.one",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "Vi7v-nmn4pE",
@@ -1750,7 +2228,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusChecked": true
+    "chorusChecked": true,
+    "views": 1580981,
+    "channel": "Reni Muto",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "2gAGzN4rjHY",
@@ -1773,7 +2254,10 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 3846559,
+    "channel": "松任谷由実",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "F9lYzWkz8Zs",
@@ -1796,7 +2280,31 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "views": 3788935,
+    "channel": "松任谷由実",
+    "viewsAt": "2026-10-05"
+  },
+  {
+    "id": "2ahLWhJEDdc",
+    "title": "雨にキッスの花束を",
+    "work": "YAWARA!",
+    "artist": "今井美樹",
+    "year": 1989,
+    "type": "OP",
+    "confidence": "中",
+    "source": "今井美樹 / Miki Imai",
+    "intro": 9,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "views": 200907,
+    "channel": "今井美樹 / Miki Imai",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "AYhxRUJxQYM",
@@ -1813,7 +2321,10 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "views": 5106893,
+    "channel": "DREAMS COME TRUE",
+    "viewsAt": "2026-10-05"
   },
   {
     "id": "Hw2vX7PViN4",
@@ -1835,6 +2346,23 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap"
+  },
+  {
+    "id": "n4Thmqon6tA",
+    "title": "ねぇ!ムーミン",
+    "work": "楽しいムーミン一家",
+    "artist": "藤田淑子",
+    "year": 1990,
+    "type": "OP",
+    "confidence": "中",
+    "source": "酢の物屋 金太郎",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Dj5MR8e1LBI",
@@ -1918,6 +2446,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "c2AcM9iaPEw",
+    "title": "夢を信じて",
+    "work": "ドラゴンクエスト",
+    "artist": "徳永英明",
+    "year": 1990,
+    "type": "ED",
+    "confidence": "中",
+    "source": "德永英明",
+    "intro": 0,
+    "chorus": 78,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -2074,6 +2620,24 @@
     "chorusSource": "heatmap"
   },
   {
+    "id": "z-oYANDQ9QI",
+    "title": "ドラえもんのうた",
+    "work": "ドラえもん",
+    "artist": "山野さと子",
+    "year": 1992,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Satoko Yamano - Topic",
+    "intro": 0.2,
+    "chorus": 22,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "kFe4NCKnWH8",
     "title": "ホームワークが終わらない",
     "work": "幽☆遊☆白書",
@@ -2120,6 +2684,24 @@
     "chorusSource": "heatmap"
   },
   {
+    "id": "tJV7ycY6lTI",
+    "title": "雲がゆくのは",
+    "work": "ドラえもん のび太と雲の王国",
+    "artist": "武田鉄矢",
+    "year": 1992,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "Tetsuya Takeda - Topic",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "xGccMCNqTik",
     "title": "君がいるだけで",
     "work": "J-POP（米米CLUB）",
@@ -2157,6 +2739,23 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap"
+  },
+  {
+    "id": "Ulqgh5OcAEA",
+    "title": "笑顔のゲンキ",
+    "work": "姫ちゃんのリボン",
+    "artist": "SMAP",
+    "year": 1992,
+    "type": "OP",
+    "confidence": "中",
+    "source": "sakusaku",
+    "intro": 0.7,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Y-D7VtFMGMo",
@@ -2442,6 +3041,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "RVpHECdjRFs",
+    "title": "勇気100%",
+    "work": "忍たま乱太郎",
+    "artist": "光GENJI",
+    "year": 1993,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Release - Topic",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "jaFE9YH3Zmk",
     "title": "揺れる想い",
     "work": "J-POP（ZARD）",
@@ -2601,6 +3218,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "VNbtqQwWPNw",
+    "title": "笑顔に会いたい",
+    "work": "ママレード・ボーイ",
+    "artist": "濱田理恵",
+    "year": 1994,
+    "type": "OP",
+    "confidence": "中",
+    "source": "こももちゃんねる",
+    "intro": 0.7,
+    "chorus": 62,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "1Bk9YpwWEsg",
     "title": "世界が終るまでは…",
     "work": "SLAM DUNK",
@@ -2623,6 +3258,24 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap"
+  },
+  {
+    "id": "q8DgAA4PSBQ",
+    "title": "晴れてハレルヤ",
+    "work": "魔法陣グルグル",
+    "artist": "奥井亜紀",
+    "year": 1994,
+    "type": "OP",
+    "confidence": "中",
+    "source": "奥井亜紀",
+    "intro": 10,
+    "chorus": 84,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "S6Mi7GrbSr8",
@@ -2825,6 +3478,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "47pBmIj6tfo",
+    "title": "うれしい予感",
+    "work": "ちびまる子ちゃん",
+    "artist": "渡辺満里奈",
+    "year": 1995,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Sony Music (Japan)",
+    "intro": 14,
+    "chorus": 86,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "UBR_P1S4Gww",
     "title": "カントリー・ロード",
     "work": "耳をすませば",
@@ -2861,6 +3532,42 @@
     "introMethod": "v2"
   },
   {
+    "id": "cMuOjZtRmkc",
+    "title": "輝きは君の中に",
+    "work": "NINKU -忍空-",
+    "artist": "鈴木結女",
+    "year": 1995,
+    "type": "OP",
+    "confidence": "中",
+    "source": "鈴木結女 - Topic",
+    "intro": 0.7,
+    "chorus": 81,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "WMzqz3Cfqhs",
+    "title": "光と影を抱きしめたまま",
+    "work": "魔法騎士レイアース",
+    "artist": "田村直美",
+    "year": 1995,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Naomi Tamura - Topic",
+    "intro": 2.7,
+    "chorus": 84,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "o6wtDPVkKqI",
     "title": "残酷な天使のテーゼ",
     "work": "新世紀エヴァンゲリオン",
@@ -2879,6 +3586,42 @@
     "embeddable": true,
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "Un4DxLaADvw",
+    "title": "1/2",
+    "work": "るろうに剣心",
+    "artist": "川本真琴",
+    "year": 1996,
+    "type": "OP",
+    "confidence": "中",
+    "source": "川本真琴【公式】かわもっちゃんねる",
+    "intro": 8.2,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "Sv5ORGf7w-8",
+    "title": "10 YEARS AFTER",
+    "work": "機動戦士ガンダム 第08MS小隊",
+    "artist": "米倉千尋",
+    "year": 1996,
+    "type": "ED",
+    "confidence": "中",
+    "source": "KING RECORDS",
+    "intro": 5.5,
+    "chorus": 83,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -2981,6 +3724,22 @@
     "introMethod": "v2"
   },
   {
+    "id": "vXnoZmpBX5g",
+    "title": "Successful Mission",
+    "work": "セイバーマリオネットJ",
+    "artist": "林原めぐみ",
+    "year": 1996,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Megumi Hayashibara - Topic",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true
+  },
+  {
     "id": "2IwalA2_aMg",
     "title": "Tactics",
     "work": "るろうに剣心",
@@ -3002,6 +3761,24 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap"
+  },
+  {
+    "id": "l2FAwmdZ3D0",
+    "title": "the Fourth Avenue Cafe",
+    "work": "るろうに剣心",
+    "artist": "L'Arc〜en〜Ciel",
+    "year": 1996,
+    "type": "ED",
+    "confidence": "中",
+    "source": "L'Arc-en-Ciel",
+    "intro": 6.2,
+    "chorus": 125,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "M44QWKqf8sM",
@@ -3176,6 +3953,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "TposLXHt2aI",
+    "title": "嵐の中で輝いて",
+    "work": "機動戦士ガンダム 第08MS小隊",
+    "artist": "米倉千尋",
+    "year": 1996,
+    "type": "OP",
+    "confidence": "中",
+    "source": "KING RECORDS",
+    "intro": 0.7,
+    "chorus": 83,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "1unWMPRefn0",
     "title": "檄!帝国華撃団",
     "work": "サクラ大戦",
@@ -3231,6 +4026,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "j9rax18IghI",
+    "title": "Don't you see!",
+    "work": "ドラゴンボールGT",
+    "artist": "ZARD",
+    "year": 1997,
+    "type": "ED",
+    "confidence": "中",
+    "source": "zardofficial",
+    "intro": 2.2,
+    "chorus": 79,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -3318,6 +4131,24 @@
     "chorusChecked": true
   },
   {
+    "id": "RO_HZGKYS6s",
+    "title": "キミがいれば",
+    "work": "名探偵コナン",
+    "artist": "伊織",
+    "year": 1997,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Release - Topic",
+    "intro": 0,
+    "chorus": 20,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "4ySnrr_R6pQ",
     "title": "ひゃくごじゅういち",
     "work": "ポケットモンスター",
@@ -3375,6 +4206,42 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusChecked": true
+  },
+  {
+    "id": "sjgM3PrYm1Y",
+    "title": "願い事ひとつだけ",
+    "work": "名探偵コナン",
+    "artist": "小松未歩",
+    "year": 1997,
+    "type": "ED",
+    "confidence": "中",
+    "source": "測試姬",
+    "intro": 4.7,
+    "chorus": 90,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "mPS_ugSvCBA",
+    "title": "君さえいれば",
+    "work": "中華一番!",
+    "artist": "DEEN",
+    "year": 1997,
+    "type": "OP",
+    "confidence": "中",
+    "source": "DEEN Official YouTube Channel",
+    "intro": 6,
+    "chorus": 85,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Wl7IW7OiaHc",
@@ -3525,6 +4392,24 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "s0NME1GfbIc",
+    "title": "Duvet",
+    "work": "serial experiments lain",
+    "artist": "BOA",
+    "year": 1998,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Bôa",
+    "intro": 2.7,
+    "chorus": 116,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -3683,6 +4568,41 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap"
+  },
+  {
+    "id": "sFvCfGJQMhM",
+    "title": "渇いた叫び",
+    "work": "遊☆戯☆王",
+    "artist": "FIELD OF VIEW",
+    "year": 1998,
+    "type": "OP",
+    "confidence": "中",
+    "source": "FIELD OF VIEW - Topic",
+    "intro": 0.2,
+    "chorus": 52,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "T13kjLivE2Q",
+    "title": "奇跡の海",
+    "work": "ロードス島戦記 -英雄騎士伝-",
+    "artist": "坂本真綾",
+    "year": 1998,
+    "type": "OP",
+    "confidence": "中",
+    "source": "neko20021215",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "78UwqbJnI18",
@@ -3931,6 +4851,24 @@
     "chorusChecked": true
   },
   {
+    "id": "zFg0iWmXoBs",
+    "title": "アララの呪文",
+    "work": "ちびまる子ちゃん",
+    "artist": "ちびまる子ちゃんwith爆チュー問題",
+    "year": 1999,
+    "type": "ED",
+    "confidence": "中",
+    "source": "ちびまる子ちゃんwith爆チュー問題 - Topic",
+    "intro": 0,
+    "chorus": 81,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "r7n-L5B0bBw",
     "title": "ウィーアー!",
     "work": "ONE PIECE",
@@ -3973,6 +4911,24 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "wr7xTGTG-Mo",
+    "title": "ギリギリchop",
+    "work": "名探偵コナン",
+    "artist": "B'z",
+    "year": 1999,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Bz",
+    "intro": 0.7,
+    "chorus": 53,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -4096,6 +5052,55 @@
     "introMethod": "v2"
   },
   {
+    "id": "yEVEKekvbFo",
+    "title": "葛飾ラプソディー",
+    "work": "こちら葛飾区亀有公園前派出所",
+    "artist": "堂島孝平",
+    "year": 1999,
+    "type": "OP",
+    "confidence": "中",
+    "source": "堂島孝平",
+    "intro": 0,
+    "chorus": 127,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true
+  },
+  {
+    "id": "aDehqMVTwJE",
+    "title": "君がいない夏",
+    "work": "名探偵コナン",
+    "artist": "DEEN",
+    "year": 1999,
+    "type": "ED",
+    "confidence": "中",
+    "source": "DEEN Official YouTube Channel",
+    "intro": 0,
+    "chorus": 89,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true
+  },
+  {
+    "id": "WJ4Kz_7S-9Y",
+    "title": "知恵と勇気だ!メダロット",
+    "work": "メダロット",
+    "artist": "竹内順子",
+    "year": 1999,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Rin Nissin Lámen",
+    "intro": 1,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "qM_FepDsJ-Q",
     "title": "BELIEVE",
     "work": "ONE PIECE",
@@ -4153,6 +5158,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "f92VWkYl8CI",
+    "title": "Funny Bunny",
+    "work": "フリクリ",
+    "artist": "the pillows",
+    "year": 2000,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "the pillows",
+    "intro": 1,
+    "chorus": 118,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -4300,6 +5323,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "j3xV8yfBC2A",
+    "title": "いつも いつでも",
+    "work": "デジモンアドベンチャー02",
+    "artist": "AiM",
+    "year": 2000,
+    "type": "ED",
+    "confidence": "中",
+    "source": "東映アニメーション公式YouTubeチャンネル",
+    "intro": 0.2,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -4461,6 +5502,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "UTryYnwLsys",
+    "title": "青い青いこの地球に",
+    "work": "名探偵コナン",
+    "artist": "上原あずみ",
+    "year": 2000,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MVIDEO4K",
+    "intro": 0.7,
+    "chorus": 97,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "VFSeESRAPKU",
     "title": "Dearest",
     "work": "犬夜叉",
@@ -4482,6 +5541,24 @@
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true
+  },
+  {
+    "id": "1A4atRcKSO0",
+    "title": "For フルーツバスケット",
+    "work": "フルーツバスケット",
+    "artist": "岡崎律子",
+    "year": 2001,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Ritsuko Okazaki - Topic",
+    "intro": 0.7,
+    "chorus": 113,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "v5JjlzWbkNQ",
@@ -4761,6 +5838,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "mDfz8gmTYhw",
+    "title": "ミニハムずの愛の唄",
+    "work": "とっとこハム太郎",
+    "artist": "ミニモニ。",
+    "year": 2001,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Minimoni。 - Topic",
+    "intro": 0.2,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "JoJ6lnF07U4",
     "title": "小さな恋のうた",
     "work": "J-POP（MONGOL800）",
@@ -4854,6 +5949,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "GYWlEYyoq4c",
+    "title": "恋はスリル、ショック、サスペンス",
+    "work": "名探偵コナン",
+    "artist": "愛内里菜",
+    "year": 2001,
+    "type": "OP",
+    "confidence": "中",
+    "source": "愛内里菜 オフィシャルチャンネル",
+    "intro": 3.5,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -5034,6 +6147,22 @@
     "chorusChecked": true
   },
   {
+    "id": "6Bosj_gedCA",
+    "title": "Wind",
+    "work": "NARUTO -ナルト-",
+    "artist": "Akeboshi",
+    "year": 2002,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MUSIC Liverary",
+    "intro": 0,
+    "chorus": 116,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true
+  },
+  {
     "id": "fVh_GJJuXJY",
     "title": "アドバンス・アドベンチャー",
     "work": "ポケットモンスター アドバンスジェネレーション",
@@ -5056,6 +6185,23 @@
     "introMethod": "v2"
   },
   {
+    "id": "aufDdA7aoc4",
+    "title": "あんなに一緒だったのに",
+    "work": "機動戦士ガンダムSEED",
+    "artist": "See-Saw",
+    "year": 2002,
+    "type": "ED",
+    "confidence": "中",
+    "intro": 6.2,
+    "chorus": 66,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "Mt9BkAtenCM",
     "title": "そこに空があるから",
     "work": "ポケットモンスター アドバンスジェネレーション",
@@ -5069,6 +6215,41 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "s-PIh2NwxSo",
+    "title": "ポケッターリ モンスターリ",
+    "work": "ポケットモンスター",
+    "artist": "可名",
+    "year": 2002,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Kana - Topic",
+    "intro": 0.5,
+    "chorus": 42,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "xw2b-w0ZTEM",
+    "title": "空耳ケーキ",
+    "work": "あずまんが大王",
+    "artist": "大阪・榊・ちよ・暦・神楽・智",
+    "year": 2002,
+    "type": "OP",
+    "confidence": "中",
+    "source": "AnimeSongs Official",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -5200,6 +6381,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "lhZUbiqDr34",
+    "title": "I can't stop my love for you",
+    "work": "名探偵コナン",
+    "artist": "愛内里菜",
+    "year": 2003,
+    "type": "OP",
+    "confidence": "中",
+    "source": "愛内里菜 オフィシャルチャンネル",
+    "intro": 9.2,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "aGWzRUdn0so",
     "title": "Jupiter",
     "work": "J-POP（平原綾香）",
@@ -5213,6 +6412,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "bk239XQ6MJQ",
+    "title": "OVERLAP",
+    "work": "遊☆戯☆王デュエルモンスターズ",
+    "artist": "Kimeru",
+    "year": 2003,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Kimeru - Topic",
+    "intro": 1,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -5400,6 +6617,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "xV_SicgQOP8",
+    "title": "水の証",
+    "work": "機動戦士ガンダムSEED",
+    "artist": "ラクス・クライン(田中理恵)",
+    "year": 2003,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "ラクス・クライン (CV: 田中理恵) - Topic",
+    "intro": 6,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "_m6Q019Fpys",
     "title": "世界に一つだけの花",
     "work": "J-POP（SMAP）",
@@ -5437,6 +6672,24 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusChecked": true
+  },
+  {
+    "id": "YrY5SDSiEnc",
+    "title": "静かな夜に",
+    "work": "機動戦士ガンダムSEED",
+    "artist": "ラクス・クライン(田中理恵)",
+    "year": 2003,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "ラクス・クライン (CV: 田中理恵) - Topic",
+    "intro": 0.2,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "mF5Qq2YheTg",
@@ -5477,6 +6730,23 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusChecked": true
+  },
+  {
+    "id": "wEUDk-EnUgM",
+    "title": "僕らのメッセージ",
+    "work": "無人惑星サヴァイヴ",
+    "artist": "Kiroro",
+    "year": 2003,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Kiroro official channel",
+    "intro": 3,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "XggsuWPjLhc",
@@ -5521,6 +6791,24 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "fE3tc9-OWA0",
+    "title": "Battlecry",
+    "work": "サムライチャンプルー",
+    "artist": "Nujabes feat. Shing02",
+    "year": 2004,
+    "type": "OP",
+    "confidence": "中",
+    "source": "FlyingDog",
+    "intro": 0.7,
+    "chorus": 59,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -5703,6 +6991,24 @@
     "chorusChecked": true
   },
   {
+    "id": "ZWn0TGokWKg",
+    "title": "LILIUM",
+    "work": "エルフェンリート",
+    "artist": "小西香葉・近藤由紀夫",
+    "year": 2004,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Moka-Lilium",
+    "intro": 9.2,
+    "chorus": 122,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "oWVjyd73aaI",
     "title": "Meteor -ミーティア-",
     "work": "機動戦士ガンダムSEED",
@@ -5790,6 +7096,23 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "LuNmfDmeCTc",
+    "title": "YUME日和",
+    "work": "ドラえもん のび太のワンニャン時空伝",
+    "artist": "島谷ひとみ",
+    "year": 2004,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "avex",
+    "intro": 8.5,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -5996,6 +7319,78 @@
     "introMethod": "v2"
   },
   {
+    "id": "zASgXyO7DIc",
+    "title": "月光花",
+    "work": "ブラック・ジャック",
+    "artist": "Janne Da Arc",
+    "year": 2004,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Janne Da Arc - Topic",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "pC2UYMM3hX8",
+    "title": "黒毛和牛上塩タン焼680円",
+    "work": "ブラック・ジャック",
+    "artist": "大塚愛",
+    "year": 2004,
+    "type": "ED",
+    "confidence": "中",
+    "source": "手塚プロダクション公式チャンネル",
+    "intro": 0,
+    "chorus": 73,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "c9O3OeA1cy4",
+    "title": "四季ノ唄",
+    "work": "サムライチャンプルー",
+    "artist": "MINMI",
+    "year": 2004,
+    "type": "ED",
+    "confidence": "中",
+    "source": "FlyingDog",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "oisKs2G_zcg",
+    "title": "心絵",
+    "work": "メジャー",
+    "artist": "ロードオブメジャー",
+    "year": 2004,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ﾛｰﾄﾞｵﾌﾞﾒｼﾞｬｰ - Topic",
+    "intro": 0.5,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "J5Z7tIq7bco",
     "title": "奏(かなで)",
     "work": "J-POP（スキマスイッチ）",
@@ -6137,6 +7532,41 @@
     "introMethod": "v2"
   },
   {
+    "id": "MLtMuwnwzsQ",
+    "title": "Life Goes On",
+    "work": "機動戦士ガンダムSEED DESTINY",
+    "artist": "有坂美香",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "中",
+    "intro": 0.2,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "qmFTnudzlyI",
+    "title": "Link",
+    "work": "劇場版 鋼の錬金術師 シャンバラを征く者",
+    "artist": "L'Arc〜en〜Ciel",
+    "year": 2005,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "L'Arc-en-Ciel",
+    "intro": 0,
+    "chorus": 64,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "VAH508mZmXQ",
     "title": "PRIDE",
     "work": "機動戦士ガンダムSEED DESTINY",
@@ -6157,6 +7587,24 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "_msng5j20tA",
+    "title": "Re:member",
+    "work": "NARUTO -ナルト-",
+    "artist": "FLOW",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "中",
+    "source": "FLOW Official YouTube Channel",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -6260,6 +7708,23 @@
     "introMethod": "v2"
   },
   {
+    "id": "UagkbcuRAoM",
+    "title": "Wings of Words",
+    "work": "機動戦士ガンダムSEED DESTINY",
+    "artist": "CHEMISTRY",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "中",
+    "intro": 4,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "ZVHQa-d0vZI",
     "title": "Zips",
     "work": "機動戦士ガンダムSEED DESTINY",
@@ -6305,6 +7770,23 @@
     "introMethod": "v2"
   },
   {
+    "id": "w1H4OBnD-Ts",
+    "title": "ハグしちゃお",
+    "work": "ドラえもん",
+    "artist": "夏川りみ",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Atelier Xanadu",
+    "intro": 0.7,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "GUwRKC0gung",
     "title": "ハッピー☆マテリアル",
     "work": "魔法先生ネギま!",
@@ -6340,6 +7822,39 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "UjeCuToebmQ",
+    "title": "ワルツ",
+    "work": "ハチミツとクローバー",
+    "artist": "スネオヘアー",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "中",
+    "source": "AnimeSongs Official",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true
+  },
+  {
+    "id": "cpAz9KI6-3s",
+    "title": "君は僕に似ている",
+    "work": "機動戦士ガンダムSEED DESTINY",
+    "artist": "See-Saw",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "中",
+    "source": "See-Saw - Topic",
+    "intro": 2,
+    "chorus": 65,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -6386,6 +7901,24 @@
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true
+  },
+  {
+    "id": "PrRyJBo7VEw",
+    "title": "生きてこそ",
+    "work": "甲虫王者ムシキング 〜森の民の伝説〜",
+    "artist": "Kiroro",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Kiroro official channel",
+    "intro": 2,
+    "chorus": 112,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "rY3ZmVDVtzg",
@@ -6451,6 +7984,24 @@
     "chorusChecked": true
   },
   {
+    "id": "7mZlRSAUSsU",
+    "title": "鳥の詩",
+    "work": "AIR",
+    "artist": "Lia",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Lia Official YouTube",
+    "intro": 0,
+    "chorus": 114,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "fsPGyJio38s",
     "title": "秘密基地",
     "work": "交響詩篇エウレカセブン",
@@ -6511,6 +8062,59 @@
     "introMethod": "v2"
   },
   {
+    "id": "UDFqyEo2SjA",
+    "title": "忘れ咲き",
+    "work": "名探偵コナン",
+    "artist": "GARNET CROW",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Official GARNET CROW",
+    "intro": 0.5,
+    "chorus": 74,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "JvoPRVY1hkY",
+    "title": "僕たちの行方",
+    "work": "機動戦士ガンダムSEED DESTINY",
+    "artist": "高橋瞳",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "中",
+    "intro": 6,
+    "chorus": 63,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "sld64Husm3E",
+    "title": "夜明け生まれ来る少女",
+    "work": "灼眼のシャナ",
+    "artist": "高橋洋子",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "中",
+    "source": "NBCUniversal Anime/Music",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "o77nTb--Bho",
     "title": "恋に恋して",
     "work": "名探偵コナン",
@@ -6533,6 +8137,24 @@
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true
+  },
+  {
+    "id": "LuEOymnT8TU",
+    "title": "a little pain",
+    "work": "NANA",
+    "artist": "OLIVIA inspi' REIRA(TRAPNEST)",
+    "year": 2006,
+    "type": "ED",
+    "confidence": "中",
+    "source": "avex",
+    "intro": 10.2,
+    "chorus": 72,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "-qOIwxWYdX4",
@@ -6969,6 +8591,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "NEb9MTNk3y4",
+    "title": "シャングリラ",
+    "work": "働きマン",
+    "artist": "チャットモンチー",
+    "year": 2006,
+    "type": "ED",
+    "confidence": "中",
+    "source": "チャットモンチー Official YouTube Channel",
+    "intro": 0.2,
+    "chorus": 125,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "WmTBj6uJ9zA",
     "title": "スパート!",
     "work": "ポケットモンスター アドバンスジェネレーション",
@@ -7007,6 +8647,24 @@
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true
+  },
+  {
+    "id": "SYLWe09cOjc",
+    "title": "バラライカ",
+    "work": "きらりん☆レボリューション",
+    "artist": "月島きらり starring 久住小春(モーニング娘。)",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "中",
+    "source": "アップフロントチャンネル",
+    "intro": 8.2,
+    "chorus": 120,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "C3S3YJW9-CA",
@@ -7051,6 +8709,24 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "4lB-mKmklmw",
+    "title": "ふがいないや",
+    "work": "ハチミツとクローバーII",
+    "artist": "YUKI",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "中",
+    "source": "YUKI YouTube Official Channel",
+    "intro": 1,
+    "chorus": 64,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -7121,6 +8797,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "WGEVZONi2EI",
+    "title": "一輪の花",
+    "work": "BLEACH",
+    "artist": "HIGH and MIGHTY COLOR",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "中",
+    "source": "HIGH and MIGHTY COLOR",
+    "intro": 4.7,
+    "chorus": 127,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "CPk_0MTfgQ4",
     "title": "君のそばで 〜ヒカリのテーマ〜",
     "work": "ポケットモンスター ダイヤモンド&パール",
@@ -7134,6 +8828,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "mLMluQow_TA",
+    "title": "決意の朝に",
+    "work": "ブレイブ・ストーリー",
+    "artist": "Aqua Timez",
+    "year": 2006,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "Aqua Timez Official",
+    "intro": 7.7,
+    "chorus": 98,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -7615,6 +9327,41 @@
     "chorusChecked": true
   },
   {
+    "id": "PGr1xValDrI",
+    "title": "こころのたまご",
+    "work": "しゅごキャラ!",
+    "artist": "Buono!",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ぽにきゃん-Anime PONY CANYON",
+    "intro": 0.2,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "QTmuFh9tp_8",
+    "title": "スケッチスイッチ",
+    "work": "ひだまりスケッチ×365",
+    "artist": "ひだまり荘の住人",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "中",
+    "source": "AnimeSongs Official",
+    "intro": 0.7,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "NweUS90PRLQ",
     "title": "だんご大家族",
     "work": "CLANNAD",
@@ -8052,6 +9799,24 @@
     "chorusChecked": true
   },
   {
+    "id": "SzitXKbqvmQ",
+    "title": "恋☆カナ",
+    "work": "きらりん☆レボリューション",
+    "artist": "月島きらり starring 久住小春(モーニング娘。)",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "中",
+    "source": "アップフロントチャンネル",
+    "intro": 10,
+    "chorus": 128,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "-cT1zaotfuU",
     "title": "恋スルVOC@LOID",
     "work": "ボカロ（OSTER project）",
@@ -8065,6 +9830,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "eZqfPrCTadg",
+    "title": "橙",
+    "work": "BLEACH",
+    "artist": "チャットモンチー",
+    "year": 2007,
+    "type": "ED",
+    "confidence": "中",
+    "source": "チャットモンチー Official YouTube Channel",
+    "intro": 5,
+    "chorus": 105,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -8109,6 +9892,41 @@
     "introMethod": "v2"
   },
   {
+    "id": "xKLBTVesVA8",
+    "title": "Closer",
+    "work": "NARUTO -ナルト- 疾風伝",
+    "artist": "井上ジョー",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "intro": 5.7,
+    "chorus": 112,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "Fe566fX9SWw",
+    "title": "DISCOTHEQUE",
+    "work": "ロザリオとバンパイア CAPU2",
+    "artist": "水樹奈々",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "source": "水樹奈々",
+    "intro": 16.5,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "-vlnpVng5h8",
     "title": "Diver",
     "work": "NARUTO -ナルト- 疾風伝",
@@ -8129,6 +9947,24 @@
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true
+  },
+  {
+    "id": "-b65AwW3snU",
+    "title": "F.D.D.",
+    "work": "CHAOS;HEAD",
+    "artist": "いとうかなこ",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Ito Kanako - Topic",
+    "intro": 1.7,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "l8KIJCrr0_o",
@@ -8171,6 +10007,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "3hblnJc3Nn0",
+    "title": "KNOW KNOW KNOW",
+    "work": "銀魂",
+    "artist": "DOES",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "source": "DOES Official YouTube Channel",
+    "intro": 0.5,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "D3o4yEyhCrQ",
     "title": "Lacrimosa",
     "work": "黒執事",
@@ -8188,6 +10042,24 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "W9iHsOqVrho",
+    "title": "MASK",
+    "work": "BLEACH",
+    "artist": "Aqua Timez",
+    "year": 2008,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Aqua Timez Official",
+    "intro": 3,
+    "chorus": 62,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -8276,6 +10148,24 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "EHzfXqakRqg",
+    "title": "Paradise Lost",
+    "work": "喰霊-零-",
+    "artist": "茅原実里",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "source": "茅原実里 ミノリズム",
+    "intro": 0.7,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -8389,6 +10279,41 @@
     "introMethod": "v2"
   },
   {
+    "id": "ZlRn71T9bDI",
+    "title": "TORCH",
+    "work": "CLANNAD 〜AFTER STORY〜",
+    "artist": "Lia",
+    "year": 2008,
+    "type": "ED",
+    "confidence": "中",
+    "intro": 0,
+    "chorus": 79,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "Pzg0o00d_4s",
+    "title": "What 'bout my star?",
+    "work": "マクロスF",
+    "artist": "シェリル・ノーム starring May'n",
+    "year": 2008,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Release - Topic",
+    "intro": 0,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "yySkwG-reF4",
     "title": "WORLD END",
     "work": "コードギアス 反逆のルルーシュR2",
@@ -8409,6 +10334,23 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "qGjxGdydH7o",
+    "title": "アイモ",
+    "work": "マクロスF",
+    "artist": "ランカ・リー=中島愛",
+    "year": 2008,
+    "type": "挿入歌",
+    "confidence": "中",
+    "intro": 0.2,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -8449,6 +10391,41 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusChecked": true
+  },
+  {
+    "id": "yDl_qY8AQKw",
+    "title": "インフィニティ",
+    "work": "マクロスF",
+    "artist": "シェリル・ノーム starring May'n",
+    "year": 2008,
+    "type": "挿入歌",
+    "confidence": "中",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "mTdcxQZcQAE",
+    "title": "カルマ",
+    "work": "テイルズ オブ ジ アビス",
+    "artist": "BUMP OF CHICKEN",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "source": "BUMP OF CHICKEN",
+    "intro": 0.2,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "DwTinTO0o9I",
@@ -8589,6 +10566,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "lLEqAvVRMi4",
+    "title": "ヒトヒラのハナビラ",
+    "work": "BLEACH",
+    "artist": "ステレオポニー",
+    "year": 2008,
+    "type": "ED",
+    "confidence": "中",
+    "source": "『BLEACH』アニメ公式チャンネル",
+    "intro": 0.2,
+    "chorus": 59,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "YjOzaIXEoPA",
     "title": "ブラック★ロックシューター",
     "work": "ボカロ（ryo）",
@@ -8650,6 +10645,23 @@
     "introMethod": "v2"
   },
   {
+    "id": "CuQ69c2s5mU",
+    "title": "フレンズ",
+    "work": "機動戦士ガンダム00",
+    "artist": "ステファニー",
+    "year": 2008,
+    "type": "ED",
+    "confidence": "中",
+    "source": "センコゼニ",
+    "intro": 1.7,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "ikgQhG4AlVk",
     "title": "ぽっぴっぽー",
     "work": "ボカロ（ラマーズP）",
@@ -8686,6 +10698,42 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "OsCfDyoJwJs",
+    "title": "モノノケダンス",
+    "work": "墓場鬼太郎",
+    "artist": "電気グルーヴ",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "source": "電気グルーヴ OFFICIAL YOUTUBE CHANNEL",
+    "intro": 6.2,
+    "chorus": 125,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "gZ6AbwjOXOk",
+    "title": "ヤッターマンの歌",
+    "work": "ヤッターマン",
+    "artist": "ET-KING",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ET-KING",
+    "intro": 0.2,
+    "chorus": 36,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -8985,6 +11033,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "t9zK9og9Bco",
+    "title": "小さなてのひら",
+    "work": "CLANNAD 〜AFTER STORY〜",
+    "artist": "riya",
+    "year": 2008,
+    "type": "ED",
+    "confidence": "中",
+    "source": "riya - Topic",
+    "intro": 0,
+    "chorus": 120,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "weWIUylAq0s",
     "title": "星間飛行",
     "work": "マクロスF",
@@ -9024,6 +11090,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "sapgmOmPmFU",
+    "title": "千の夜をこえて",
+    "work": "劇場版 BLEACH Fade to Black 君の名を呼ぶ",
+    "artist": "Aqua Timez",
+    "year": 2008,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "Aqua Timez Official",
+    "intro": 6.2,
+    "chorus": 92,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "n5TG3Fxzft0",
     "title": "曇天",
     "work": "銀魂",
@@ -9042,6 +11126,42 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "bWetDAggiiI",
+    "title": "虹いろ・クマクマ",
+    "work": "マクロスF",
+    "artist": "ランカ・リー=中島愛",
+    "year": 2008,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "中島愛",
+    "intro": 0.2,
+    "chorus": 50,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "bMn7j8SfNQU",
+    "title": "妖精",
+    "work": "マクロスF",
+    "artist": "シェリル・ノーム starring May'n",
+    "year": 2008,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "May'n",
+    "intro": 0,
+    "chorus": 85,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -9214,6 +11334,22 @@
     "introMethod": "v2"
   },
   {
+    "id": "UAB_RXjCi9g",
+    "title": "ambivalent world",
+    "work": "化物語",
+    "artist": "神原駿河(沢城みゆき)",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "中",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "YBVQcTE2Z08",
     "title": "BOYS＆GIRLS",
     "work": "家庭教師ヒットマンREBORN!",
@@ -9331,6 +11467,24 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusChecked": true
+  },
+  {
+    "id": "BTm3L7hZyDs",
+    "title": "JAP",
+    "work": "戦国BASARA",
+    "artist": "abingdon boys school",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "中",
+    "source": "absSMEJ",
+    "intro": 3.7,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "li1WjKl2boY",
@@ -9600,6 +11754,24 @@
     "chorusChecked": true
   },
   {
+    "id": "8yLXZZcW-Mg",
+    "title": "アニマロッサ",
+    "work": "BLEACH",
+    "artist": "ポルノグラフィティ",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ポルノグラフィティ Official YouTube Channel",
+    "intro": 3.7,
+    "chorus": 43,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "Z4HQiLWCXtk",
     "title": "うみねこのなく頃に",
     "work": "うみねこのなく頃に",
@@ -9724,6 +11896,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "k2LDC0sTsEQ",
+    "title": "スカイクラッドの観測者",
+    "work": "STEINS;GATE",
+    "artist": "いとうかなこ",
+    "year": 2009,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Ito Kanako - Topic",
+    "intro": 0.7,
+    "chorus": 63,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "hC8KrIY8qT4",
     "title": "ダブルラリアット",
     "work": "ボカロ（アゴアニキ）",
@@ -9818,6 +12008,24 @@
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true
+  },
+  {
+    "id": "TjqfGUFCJeA",
+    "title": "ふわふわ時間",
+    "work": "けいおん!",
+    "artist": "放課後ティータイム",
+    "year": 2009,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Houkago Teatime - Topic",
+    "intro": 1.2,
+    "chorus": 75,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "IqKqNcW2-b4",
@@ -9990,6 +12198,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "eglYGbybkrY",
+    "title": "嘘",
+    "work": "鋼の錬金術師 FULLMETAL ALCHEMIST",
+    "artist": "シド",
+    "year": 2009,
+    "type": "ED",
+    "confidence": "中",
+    "source": "SID",
+    "intro": 5.7,
+    "chorus": 74,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "rZZzlY8vUf8",
     "title": "君の知らない物語",
     "work": "化物語",
@@ -10025,6 +12251,42 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "Hv-59XQK2tw",
+    "title": "心のアンテナ",
+    "work": "劇場版ポケットモンスター ダイヤモンド・パール アルセウス 超克の時空へ",
+    "artist": "中川翔子",
+    "year": 2009,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "Shoko Nakagawa OFFICIAL YouTube CHANNEL",
+    "intro": 7,
+    "chorus": 75,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "A_PtfjzETUo",
+    "title": "深愛",
+    "work": "WHITE ALBUM",
+    "artist": "水樹奈々",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "中",
+    "source": "「KING AMUSEMENT CREATIVE」公式チャンネル",
+    "intro": 0,
+    "chorus": 39,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -10066,6 +12328,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "bGPA9QXcqBU",
+    "title": "透明だった世界",
+    "work": "NARUTO -ナルト- 疾風伝",
+    "artist": "秦基博",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "中",
+    "source": "秦 基博",
+    "intro": 0.5,
+    "chorus": 115,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -10471,6 +12751,23 @@
     "introMethod": "v2"
   },
   {
+    "id": "dWRvMKdFkjk",
+    "title": "Mad Surfer",
+    "work": "BLEACH",
+    "artist": "浅井健一",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "中",
+    "intro": 5.5,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "ml7a88_oXxM",
     "title": "Magic∞world",
     "work": "とある魔術の禁書目録II",
@@ -10535,6 +12832,22 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "QywFMUfEp9c",
+    "title": "newsong",
+    "work": "NARUTO -ナルト- 疾風伝",
+    "artist": "tacica",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "中",
+    "source": "tacica",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "QIU044tsV2Q",
@@ -10763,6 +13076,23 @@
     "introMethod": "v2"
   },
   {
+    "id": "LVZnnqCOw9Q",
+    "title": "Thousand Enemies",
+    "work": "Angel Beats!",
+    "artist": "Girls Dead Monster",
+    "year": 2010,
+    "type": "挿入歌",
+    "confidence": "中",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "prlFUuAEHw0",
     "title": "Trust Me",
     "work": "デュラララ!!",
@@ -10845,6 +13175,22 @@
     "chorusSource": "heatmap",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "e6edTTwERyE",
+    "title": "うたかた花火",
+    "work": "NARUTO -ナルト- 疾風伝",
+    "artist": "supercell",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "中",
+    "source": "ryo (supercell)",
+    "intro": 0,
+    "chorus": 115,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "yhYaa7YAFDs",
@@ -10993,6 +13339,42 @@
     "introMethod": "v2"
   },
   {
+    "id": "cpzenZtO-Tk",
+    "title": "ハートキャッチ☆パラダイス!",
+    "work": "ハートキャッチプリキュア!",
+    "artist": "工藤真由",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Mayu Kudo - Topic",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "aaIBgixsgNc",
+    "title": "バクチ・ダンサー",
+    "work": "劇場版 銀魂 新訳紅桜篇",
+    "artist": "DOES",
+    "year": 2010,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "DOES Official YouTube Channel",
+    "intro": 2.2,
+    "chorus": 116,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "xOKplMgHxxA",
     "title": "ハッピーシンセサイザ",
     "work": "ボカロ（EasyPop）",
@@ -11006,6 +13388,23 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "XAEbFB73JEY",
+    "title": "ハルカカナタ",
+    "work": "BLEACH",
+    "artist": "UNLIMITS",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "中",
+    "source": "UNLIMITSnoOfficial",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -11340,6 +13739,23 @@
     "introMethod": "v2"
   },
   {
+    "id": "4tsRn0Mksgs",
+    "title": "侵略ノススメ☆",
+    "work": "侵略!イカ娘",
+    "artist": "ULTRA-PRISM",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ロ郎",
+    "intro": 1.7,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "_6aBd14jQ74",
     "title": "心のファンファーレ",
     "work": "ポケットモンスター ベストウイッシュ",
@@ -11468,6 +13884,22 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
+    "chorusChecked": true
+  },
+  {
+    "id": "xQvPyqXNNj8",
+    "title": "迷子犬と雨のビート",
+    "work": "四畳半神話大系",
+    "artist": "ASIAN KUNG-FU GENERATION",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ASIAN KUNG-FU GENERATION Official YouTube Channel",
+    "intro": 0,
+    "chorus": 33,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
     "chorusChecked": true
   },
   {
@@ -11655,6 +14087,24 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "lpUKpyUi7wc",
+    "title": "GOOD LUCK MY WAY",
+    "work": "劇場版 鋼の錬金術師 嘆きの丘の聖なる星",
+    "artist": "L'Arc〜en〜Ciel",
+    "year": 2011,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "L'Arc-en-Ciel",
+    "intro": 1.2,
+    "chorus": 124,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -11945,6 +14395,24 @@
     "chorusChecked": true
   },
   {
+    "id": "7dh2zT925Lg",
+    "title": "SCARLET KNIGHT",
+    "work": "ダンタリアンの書架",
+    "artist": "水樹奈々",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "中",
+    "source": "水樹奈々",
+    "intro": 0.2,
+    "chorus": 93,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "jITLVJE2QQg",
     "title": "secret base 〜君がくれたもの〜 (10 years after Ver.)",
     "work": "あの日見た花の名前を僕達はまだ知らない。",
@@ -12012,6 +14480,24 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "FUSEl3p1byQ",
+    "title": "T.W.L",
+    "work": "クレヨンしんちゃん",
+    "artist": "関ジャニ∞",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "中",
+    "source": "SUPER EIGHT - Topic",
+    "intro": 0,
+    "chorus": 81,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -12213,6 +14699,23 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "kfC3xjNX_E0",
+    "title": "はなさくいろは",
+    "work": "花咲くいろは",
+    "artist": "クラムボン",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "中",
+    "source": "株式会社インフィニット",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -12433,6 +14936,42 @@
     "introMethod": "v2"
   },
   {
+    "id": "ZZvJY7_gyfw",
+    "title": "空想メソロギヰ",
+    "work": "未来日記",
+    "artist": "妖精帝國",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Lantis Global Channel",
+    "intro": 1.5,
+    "chorus": 51,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "A02UniwCM9w",
+    "title": "光",
+    "work": "名探偵コナン",
+    "artist": "BREAKERZ",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "中",
+    "source": "BREAKERZ",
+    "intro": 2.7,
+    "chorus": 119,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "T5vVKFfrgkk",
     "title": "紅蓮",
     "work": "NARUTO -ナルト- 疾風伝",
@@ -12474,6 +15013,24 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "G_IEr6P0hH4",
+    "title": "少年よ我に帰れ",
+    "work": "輪るピングドラム",
+    "artist": "やくしまるえつこメトロオーケストラ",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "中",
+    "source": "MIRAI records - 相対性理論 / やくしまるえつこ [Official]",
+    "intro": 4.5,
+    "chorus": 52,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -13412,6 +15969,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "C17BZnrOzww",
+    "title": "テルマエ・ロマン",
+    "work": "テルマエ・ロマエ",
+    "artist": "チャットモンチー",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "中",
+    "source": "チャットモンチー Official YouTube Channel",
+    "intro": 0.2,
+    "chorus": 24,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "f3fg3RZsUOE",
     "title": "ナイショの話",
     "work": "偽物語",
@@ -13721,6 +16296,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "vCxWtZVudQk",
+    "title": "坂道のメロディ",
+    "work": "坂道のアポロン",
+    "artist": "YUKI",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "中",
+    "source": "YUKI YouTube Official Channel",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -14294,6 +16887,42 @@
     "chorusChecked": true
   },
   {
+    "id": "EebgFIu3mMI",
+    "title": "Just Awake",
+    "work": "HUNTER×HUNTER",
+    "artist": "Fear, and Loathing in Las Vegas",
+    "year": 2013,
+    "type": "ED",
+    "confidence": "中",
+    "source": "友人",
+    "intro": 0.7,
+    "chorus": 62,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "hHw3I1ryrBY",
+    "title": "lull 〜そして僕らは〜",
+    "work": "凪のあすから",
+    "artist": "Ray",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Ray Official YouTube Channel",
+    "intro": 0,
+    "chorus": 84,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "SJ-aUXmJM8Q",
     "title": "out of control",
     "work": "PSYCHO-PASS サイコパス",
@@ -14394,6 +17023,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "Zj6OidMy-70",
+    "title": "SAVIOR OF SONG",
+    "work": "蒼き鋼のアルペジオ -アルス・ノヴァ-",
+    "artist": "ナノ feat. MY FIRST STORY",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ナノ / NANO",
+    "intro": 0.2,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -14658,6 +17305,24 @@
     "embeddable": null
   },
   {
+    "id": "rbVFAF9BmwE",
+    "title": "エブリデイワールド",
+    "work": "やはり俺の青春ラブコメはまちがっている。",
+    "artist": "雪ノ下雪乃(早見沙織)・由比ヶ浜結衣(東山奈央)",
+    "year": 2013,
+    "type": "ED",
+    "confidence": "中",
+    "source": "NBCUniversal Music Channel",
+    "intro": 0.7,
+    "chorus": 58,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "mSba1GuAt5s",
     "title": "ガチで勝とうゼッ!",
     "work": "イナズマイレブンGO ギャラクシー",
@@ -14745,6 +17410,24 @@
     "chorusChecked": true
   },
   {
+    "id": "ZWre4Mde13I",
+    "title": "ゴールデンタイム",
+    "work": "ゴールデンタイム",
+    "artist": "堀江由衣",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "中",
+    "source": "堀江由衣 Official Channel",
+    "intro": 0.2,
+    "chorus": 81,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "XY3RhMPMWAk",
     "title": "シリウス",
     "work": "キルラキル",
@@ -14820,6 +17503,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "DZnpq8JuyGQ",
+    "title": "せーのっ!",
+    "work": "ゆゆ式",
+    "artist": "情報処理部",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "中",
+    "source": "NBCUniversal Anime/Music",
+    "intro": 0,
+    "chorus": 76,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -14909,6 +17610,24 @@
     "chorusChecked": true
   },
   {
+    "id": "p6X_0pw8enM",
+    "title": "のんのん日和",
+    "work": "のんのんびより",
+    "artist": "宮内れんげ・一条蛍・越谷夏海・越谷小鞠",
+    "year": 2013,
+    "type": "ED",
+    "confidence": "中",
+    "source": "宮内れんげ (CV.小岩井ことり)、一条 蛍 (CV.村川梨衣)、越谷夏海 (CV.佐倉綾音)、越谷小鞠 (CV.阿澄佳奈) - Topic",
+    "intro": 2.5,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "24g3l_IJuIE",
     "title": "ひこうき雲",
     "work": "風立ちぬ",
@@ -14969,6 +17688,22 @@
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true
+  },
+  {
+    "id": "M1Cd8Gvs9es",
+    "title": "もうそう♡えくすぷれす",
+    "work": "〈物語〉シリーズ セカンドシーズン",
+    "artist": "千石撫子(花澤香菜)",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "中",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "qDE4pm6yiHM",
@@ -15260,6 +17995,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "eKoD2CRr_KA",
+    "title": "表裏一体",
+    "work": "劇場版 HUNTER×HUNTER The LAST MISSION",
+    "artist": "ゆず",
+    "year": 2013,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "yuzuofficial",
+    "intro": 6.5,
+    "chorus": 94,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "EdATz3qOAbw",
     "title": "不死鳥のフランメ",
     "work": "戦姫絶唱シンフォギアG",
@@ -15379,6 +18132,23 @@
     "introMethod": "v2"
   },
   {
+    "id": "q8u7BePJdTk",
+    "title": "7 Girls War",
+    "work": "Wake Up, Girls!",
+    "artist": "Wake Up, Girls!",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "中",
+    "intro": 0.5,
+    "chorus": 45,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "HxTQF1bCyag",
     "title": "Ah Yeah!!",
     "work": "ハイキュー!!",
@@ -15462,6 +18232,24 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "99_UuZDFYnM",
+    "title": "black bullet",
+    "work": "ブラック・ブレット",
+    "artist": "fripSide",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "中",
+    "source": "fripSide Official YouTube Channel",
+    "intro": 4.2,
+    "chorus": 66,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -15845,6 +18633,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "W6I1xm49Lpw",
+    "title": "killy killy JOKER",
+    "work": "selector infected WIXOSS",
+    "artist": "分島花音",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Kanon Wakeshima - Topic",
+    "intro": 0.7,
+    "chorus": 64,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "m2a51Bx7WoU",
     "title": "LEO",
     "work": "ハイキュー!!",
@@ -15994,6 +18800,24 @@
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true
+  },
+  {
+    "id": "c0Va228UhRs",
+    "title": "MOON PRIDE",
+    "work": "美少女戦士セーラームーンCrystal",
+    "artist": "ももいろクローバーZ",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Momoiro Clover Z Channel",
+    "intro": 0,
+    "chorus": 108,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "naMHtah5Gz8",
@@ -16226,6 +19050,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "vvDpqxq4x9w",
+    "title": "アシタノヒカリ",
+    "work": "ワールドトリガー",
+    "artist": "AAA",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "中",
+    "source": "AAA",
+    "intro": 0.5,
+    "chorus": 40,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -16465,6 +19307,23 @@
     "introMethod": "v2"
   },
   {
+    "id": "cBwWZSGfxa0",
+    "title": "タチアガレ!",
+    "work": "Wake Up, Girls!",
+    "artist": "Wake Up, Girls!",
+    "year": 2014,
+    "type": "主題歌",
+    "confidence": "中",
+    "intro": 2.2,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "OE8OlMPCfKc",
     "title": "ドリドリ",
     "work": "ポケットモンスター XY",
@@ -16572,6 +19431,58 @@
     "chorusChecked": true
   },
   {
+    "id": "pw02WjUm6wg",
+    "title": "ぽっぴんジャンプ♪",
+    "work": "ご注文はうさぎですか?",
+    "artist": "チマメ隊",
+    "year": 2014,
+    "type": "ED",
+    "confidence": "中",
+    "source": "NBCUniversal Anime/Music",
+    "intro": 0,
+    "chorus": 43,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "WWP7Jx2LRS8",
+    "title": "まっしろわーるど",
+    "work": "未確認で進行形",
+    "artist": "みかくにんぐッ!",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "中",
+    "source": "みかくにんぐッ! - Topic",
+    "intro": 4.5,
+    "chorus": 39,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "vnhQwxGvS3s",
+    "title": "ユメノトビラ",
+    "work": "ラブライブ! 2期",
+    "artist": "μ's",
+    "year": 2014,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+    "intro": 0,
+    "chorus": 101,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true
+  },
+  {
     "id": "VyKLQXOj0ts",
     "title": "ようかい体操第一",
     "work": "妖怪ウォッチ",
@@ -16592,6 +19503,24 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusChecked": true
+  },
+  {
+    "id": "48HKB2eXvXc",
+    "title": "ラヴァーズ",
+    "work": "NARUTO -ナルト- 疾風伝",
+    "artist": "7!!",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ジャンプチャンネル",
+    "intro": 4,
+    "chorus": 65,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "NTrm_idbhUk",
@@ -16701,6 +19630,24 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "LAr63hXeygM",
+    "title": "祭り囃子でゲラゲラポー",
+    "work": "妖怪ウォッチ",
+    "artist": "キング・クリームソーダ",
+    "year": 2014,
+    "type": "ED",
+    "confidence": "中",
+    "source": "avex",
+    "intro": 1,
+    "chorus": 36,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -17095,6 +20042,23 @@
     "chorusChecked": true
   },
   {
+    "id": "5Iggu9eiA5k",
+    "title": "FLYING FAFNIR",
+    "work": "銃皇無尽のファフニール",
+    "artist": "TRUSTRICK",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Trustrick - Topic",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "qVEVRTUAy0M",
     "title": "GATE〜それは暁のように〜",
     "work": "GATE 自衛隊 彼の地にて、斯く戦えり",
@@ -17288,6 +20252,24 @@
     "chorusChecked": true
   },
   {
+    "id": "3106hWeD6K8",
+    "title": "Ring of Fortune",
+    "work": "プラスティック・メモリーズ",
+    "artist": "佐々木恵梨",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Eri Sasaki 佐々木恵梨",
+    "intro": 0.5,
+    "chorus": 73,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "6AECf-1yVdk",
     "title": "Shine!!",
     "work": "アイドルマスター シンデレラガールズ",
@@ -17415,6 +20397,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "hVTCPKiIC8U",
+    "title": "X.U.",
+    "work": "終わりのセラフ",
+    "artist": "SawanoHiroyuki[nZk]:Gemie",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "澤野弘之 / SawanoHiroyuki[nZk]",
+    "intro": 0,
+    "chorus": 70,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "WJrPUtozf5Q",
     "title": "XY&Z",
     "work": "ポケットモンスター XY&Z",
@@ -17525,6 +20525,24 @@
     "chorusChecked": true
   },
   {
+    "id": "nEJeHJrW4Vw",
+    "title": "お願い!シンデレラ",
+    "work": "アイドルマスター シンデレラガールズ",
+    "artist": "CINDERELLA PROJECT",
+    "year": 2015,
+    "type": "主題歌",
+    "confidence": "中",
+    "source": "日本コロムビア 公式YouTubeチャンネル",
+    "intro": 0,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "EdS3WLHgBSU",
     "title": "ガオガオ・オールスター",
     "work": "ポケットモンスター XY",
@@ -17562,6 +20580,24 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "lugIPQPGwgI",
+    "title": "くちづけDiamond",
+    "work": "山田くんと7人の魔女",
+    "artist": "WEAVER",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "A-Sketch MUSIC LABEL",
+    "intro": 4,
+    "chorus": 65,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -17651,6 +20687,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "1S2xQNwuc_Q",
+    "title": "ダイヤモンドの純度",
+    "work": "やはり俺の青春ラブコメはまちがっている。続",
+    "artist": "雪ノ下雪乃(早見沙織)・由比ヶ浜結衣(東山奈央)",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "中",
+    "source": "NBCUniversal Music Channel",
+    "intro": 1.7,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "3Fv9q5uDEDE",
     "title": "トゥッティ！",
     "work": "響け！ユーフォニアム",
@@ -17664,6 +20718,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "49vjbjdZaOY",
+    "title": "ときめきポポロン♪",
+    "work": "ご注文はうさぎですか??",
+    "artist": "チマメ隊",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "中",
+    "source": "NBCUniversal Anime/Music",
+    "intro": 0,
+    "chorus": 42,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -17854,6 +20926,60 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "ATjOsFJoW1Y",
+    "title": "最後までII",
+    "work": "銀魂゜",
+    "artist": "Aqua Timez",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Aqua Timez Official",
+    "intro": 1.5,
+    "chorus": 120,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "JWfemp8fYuM",
+    "title": "最高速 Fall in Love",
+    "work": "モンスター娘のいる日常",
+    "artist": "ミーア・パピ・セントレア・スー・メロ・ラクネラ",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ミーア、パピ、セントレア、スー、メロ、ラクネラ - Topic",
+    "intro": 0,
+    "chorus": 64,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "ChfQ7iqyOnA",
+    "title": "桜花爛漫",
+    "work": "境界のRINNE",
+    "artist": "KEYTALK",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Victor Entertainment",
+    "intro": 13.2,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -18238,6 +21364,24 @@
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true
+  },
+  {
+    "id": "8BpRh7RtYnE",
+    "title": "High Free Spirits",
+    "work": "ハイスクール・フリート",
+    "artist": "TrySail",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TrySail（麻倉もも・雨宮天・夏川椎菜）official YouTube channel",
+    "intro": 12.2,
+    "chorus": 62,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "6bGivPNjbrw",
@@ -18655,6 +21799,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "nWaZ9vBijc0",
+    "title": "Wishing",
+    "work": "Re:ゼロから始める異世界生活",
+    "artist": "レム(水瀬いのり)",
+    "year": 2016,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Release - Topic",
+    "intro": 3.2,
+    "chorus": 116,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "tBSpLDIqbHc",
     "title": "Yes! BanG_Dream!",
     "work": "BanG Dream!",
@@ -19062,6 +22224,42 @@
     "chorusChecked": true
   },
   {
+    "id": "y8JJ-WlCf44",
+    "title": "ワルキューレは裏切らない",
+    "work": "マクロスΔ",
+    "artist": "ワルキューレ",
+    "year": 2016,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "FlyingDog",
+    "intro": 4.7,
+    "chorus": 73,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "bN1t3-2X3aM",
+    "title": "茜さす",
+    "work": "夏目友人帳 伍",
+    "artist": "Aimer",
+    "year": 2016,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Aimer Official YouTube Channel",
+    "intro": 8.5,
+    "chorus": 99,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "5mzsD2rfR94",
     "title": "一度だけの恋なら",
     "work": "マクロスΔ",
@@ -19159,6 +22357,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "QtsoCUPVW0E",
+    "title": "自力本願レボリューション",
+    "work": "暗殺教室 第2期",
+    "artist": "3年E組うた担",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "中",
+    "source": "【フジテレビ】アニメ公式チャンネル",
+    "intro": 0,
+    "chorus": 52,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -19311,6 +22527,40 @@
     "introMeasured": true,
     "chorusSource": "heatmap",
     "introMethod": "v2"
+  },
+  {
+    "id": "7QDolsGBfMs",
+    "title": "想いよひとつになれ",
+    "work": "ラブライブ!サンシャイン!!",
+    "artist": "Aqours",
+    "year": 2016,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Chika Takami (CV: Anju Inami) - Topic",
+    "intro": 1,
+    "chorus": 71,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "OKeFoFFwYJM",
+    "title": "怒りをくれよ",
+    "work": "ONE PIECE FILM GOLD",
+    "artist": "GLIM SPANKY",
+    "year": 2016,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "GLIM SPANKY",
+    "intro": 0,
+    "chorus": 53,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "grdy6rLbQ-c",
@@ -19568,6 +22818,24 @@
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true
+  },
+  {
+    "id": "VSucxMB_Z6k",
+    "title": "Black Rover",
+    "work": "ブラッククローバー",
+    "artist": "ビッケブランカ",
+    "year": 2017,
+    "type": "OP",
+    "confidence": "中",
+    "source": "VK Blanka - ビッケブランカ",
+    "intro": 5.2,
+    "chorus": 46,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "pzbtfG2OfIk",
@@ -19943,6 +23211,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "sHOTpT0WJTc",
+    "title": "TESTAMENT",
+    "work": "戦姫絶唱シンフォギアAXZ",
+    "artist": "水樹奈々",
+    "year": 2017,
+    "type": "OP",
+    "confidence": "中",
+    "source": "水樹奈々",
+    "intro": 0,
+    "chorus": 85,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "KBq_KtuSIF0",
     "title": "The Bloodthirster",
     "work": "Pentakill",
@@ -20005,6 +23291,24 @@
     "introMeasured": true,
     "introMethod": "v2",
     "chorusChecked": true
+  },
+  {
+    "id": "OV9HvOKP_k8",
+    "title": "WATER BLUE NEW WORLD",
+    "work": "ラブライブ!サンシャイン!! 2期",
+    "artist": "Aqours",
+    "year": 2017,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+    "intro": 0,
+    "chorus": 68,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "P_CSdxSGfaA",
@@ -20094,6 +23398,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "SDtglD5fAok",
+    "title": "ガヴリールドロップキック",
+    "work": "ガヴリールドロップアウト",
+    "artist": "天真=ガヴリール=ホワイト・月乃瀬=ヴィネット=エイプリル・胡桃沢=サタニキア=マクドウェル・白羽=ラフィエル=エインズワース",
+    "year": 2017,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ガヴリール（CV：富田美憂）、ヴィーネ（CV：大西沙織）、サターニャ（CV：大空直美）、ラフィエル（CV：花澤香菜） - Topic",
+    "intro": 0.2,
+    "chorus": 34,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "g4gZAm-_bno",
     "title": "きらりらり",
     "work": "BORUTO-ボルト- NARUTO NEXT GENERATIONS",
@@ -20138,6 +23460,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "CVNy1p3CrVM",
+    "title": "サクリファイス",
+    "work": "ベルセルク",
+    "artist": "9mm Parabellum Bullet",
+    "year": 2017,
+    "type": "OP",
+    "confidence": "中",
+    "source": "9mm Parabellum Bullet",
+    "intro": 2.7,
+    "chorus": 81,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "Z2RmZ0UAxDo",
     "title": "ジャリボーイ・ジャリガール",
     "work": "ポケットモンスター サン&ムーン",
@@ -20168,6 +23508,23 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "wsl8HS_lVHE",
+    "title": "ステップアップLOVE",
+    "work": "血界戦線 & BEYOND",
+    "artist": "DAOKO×岡村靖幸",
+    "year": 2017,
+    "type": "ED",
+    "confidence": "中",
+    "intro": 14.5,
+    "chorus": 79,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -20463,6 +23820,23 @@
     "introMethod": "v2"
   },
   {
+    "id": "J6_8EYrgk2Y",
+    "title": "めいど・うぃず・どらごんず",
+    "work": "小林さんちのメイドラゴン",
+    "artist": "スーパーちょろゴンず",
+    "year": 2017,
+    "type": "ED",
+    "confidence": "中",
+    "intro": 0.2,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "xkMdLcB_vNU",
     "title": "ようこそジャパリパークへ",
     "work": "けものフレンズ",
@@ -20482,6 +23856,24 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "5epjVow18Xc",
+    "title": "雨だれの歌",
+    "work": "少女終末旅行",
+    "artist": "チト(水瀬いのり)・ユーリ(久保ユリカ)",
+    "year": 2017,
+    "type": "ED",
+    "confidence": "中",
+    "source": "チト（CV：水瀬いのり）、ユーリ（CV：久保ユリカ） - Topic",
+    "intro": 6.5,
+    "chorus": 66,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -20612,6 +24004,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "_CjjJmHfaUQ",
+    "title": "純情エモーショナル",
+    "work": "異世界はスマートフォンとともに。",
+    "artist": "エルゼ・リンゼ・八重・ユミナ・スゥシィ・リーン",
+    "year": 2017,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Elze Silviska (CV:Maaya Uchida) - Topic",
+    "intro": 0.5,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -20761,6 +24171,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "o-2_rEgXH64",
+    "title": "僕の心をつくってよ",
+    "work": "ドラえもん のび太の南極カチコチ大冒険",
+    "artist": "平井堅",
+    "year": 2017,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "平井 堅 YouTube Official Channel",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -21428,6 +24856,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "bNY1fd0FsJw",
+    "title": "Prayer X",
+    "work": "BANANA FISH",
+    "artist": "King Gnu",
+    "year": 2018,
+    "type": "ED",
+    "confidence": "中",
+    "source": "King Gnu official YouTube channel",
+    "intro": 0.7,
+    "chorus": 63,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "IjwuJT6q54s",
     "title": "Red Swan",
     "work": "進撃の巨人 Season 3",
@@ -21600,7 +25046,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "2VtepSkxrmE",
@@ -21652,7 +25099,7 @@
     "confidence": "中",
     "source": "ポニーキャニオン公式（TVサイズ）",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 45,
     "aliases": [
       "ゆにおん",
       "ぐりっどまん"
@@ -21661,7 +25108,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "bI2-ioFv3UA",
@@ -21791,6 +25240,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "TWzI9AVNVtE",
+    "title": "あの娘にドロップキック",
+    "work": "邪神ちゃんドロップキック",
+    "artist": "邪神★ガールズ",
+    "year": 2018,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Jashin Girls - Topic",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "VFOg6mHtZcA",
     "title": "うまぴょい伝説",
     "work": "ウマ娘 プリティーダービー",
@@ -21849,6 +25316,24 @@
     "aliases": [],
     "embeddable": null,
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "x7-iffawHg8",
+    "title": "ここから、ここから",
+    "work": "宇宙よりも遠い場所",
+    "artist": "玉木マリ・小淵沢報瀬・三宅日向・白石結月",
+    "year": 2018,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Release - Topic",
+    "intro": 1,
+    "chorus": 44,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -22011,6 +25496,25 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true
+  },
+  {
+    "id": "Apf3_U65W6E",
+    "title": "プライド",
+    "work": "メジャーセカンド",
+    "artist": "高橋優",
+    "year": 2018,
+    "type": "ED",
+    "confidence": "中",
+    "source": "高橋優",
+    "intro": 2.5,
+    "chorus": 73,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -22027,7 +25531,8 @@
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "0xSiBpUdW4E",
@@ -22056,7 +25561,7 @@
     "confidence": "高",
     "source": "ランティス公式",
     "intro": 5.5,
-    "chorus": 0,
+    "chorus": 128,
     "aliases": [
       "みちしるべ",
       "ゔぁいおれっとえゔぁーがーでん",
@@ -22066,7 +25571,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "oUvD1aGDycM",
@@ -22147,7 +25654,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "Xg-qfsKN2_E",
@@ -22199,7 +25707,7 @@
     "confidence": "中",
     "source": "ソニー公式",
     "intro": 5.2,
-    "chorus": 0,
+    "chorus": 129,
     "aliases": [
       "らくえんのきみ",
       "東京喰種",
@@ -22209,7 +25717,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "bUbl1JEDeN0",
@@ -22258,6 +25768,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "TxWJPjaXbLk",
+    "title": "君にふれて",
+    "work": "やがて君になる",
+    "artist": "安月名莉子",
+    "year": 2018,
+    "type": "OP",
+    "confidence": "中",
+    "source": "安月名莉子 ちゃんねる",
+    "intro": 0.2,
+    "chorus": 61,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "0vcyIgLvPAo",
     "title": "君のせい",
     "work": "青春ブタ野郎はバニーガール先輩の夢を見ない",
@@ -22267,7 +25795,7 @@
     "confidence": "中",
     "source": "the peggies公式",
     "intro": 6.7,
-    "chorus": 0,
+    "chorus": 99,
     "aliases": [
       "きみのせい",
       "せいしゅんぶたやろうはばにーがーるせんぱいのゆめをみない",
@@ -22277,7 +25805,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "X5kQR92kYn0",
@@ -22339,6 +25869,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "aI0qBwdsbeU",
+    "title": "星のダイアローグ",
+    "work": "少女☆歌劇 レヴュースタァライト",
+    "artist": "スタァライト九九組",
+    "year": 2018,
+    "type": "OP",
+    "confidence": "中",
+    "source": "スタァライト九九組",
+    "intro": 1.5,
+    "chorus": 57,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "m34DPnRUfMU",
     "title": "青と夏",
     "work": "J-POP（Mrs. GREEN APPLE）",
@@ -22352,7 +25900,8 @@
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "yDXVqicnWeo",
@@ -22387,7 +25936,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 129,
     "aliases": [
       "ふかしぎのかるて",
       "せいしゅんぶたやろうはばにーがーるせんぱいのゆめをみない",
@@ -22397,7 +25946,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "okvq89Lvd10",
@@ -22409,7 +25960,7 @@
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 53,
     "aliases": [
       "ぼくのこえ",
       "よわむしぺだる",
@@ -22419,7 +25970,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "8F2xbQJgHs4",
@@ -22431,7 +25984,7 @@
     "confidence": "中",
     "source": "ランティス公式",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 78,
     "aliases": [
       "ぼくら",
       "ぶんごうすとれいどっぐす",
@@ -22441,7 +25994,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "ZoY6fVYcWu0",
@@ -22470,7 +26025,7 @@
     "confidence": "中",
     "source": "福山雅治公式",
     "intro": 15.5,
-    "chorus": 0,
+    "chorus": 82,
     "aliases": [
       "ぜろ",
       "めいたんていこなん",
@@ -22480,7 +26035,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "oEkGC2HV7rc",
@@ -22519,7 +26076,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "Iepb3R9kW3s",
@@ -22540,7 +26098,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "NCFzjmFrY3E",
@@ -22552,7 +26111,7 @@
     "confidence": "中",
     "source": "Topic（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 57,
     "aliases": [
       "もぶさいこひゃく",
       "モブサイコ"
@@ -22561,7 +26120,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "p6HWwmPJdi4",
@@ -22639,7 +26200,7 @@
     "confidence": "中",
     "source": "バンドリ公式",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 87,
     "aliases": [
       "ばんどりーむ",
       "バンドリ"
@@ -22648,7 +26209,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "ABskGLZrYdc",
@@ -22850,7 +26413,7 @@
     "confidence": "中",
     "source": "Survive Said The Prophet公式",
     "intro": 3.7,
-    "chorus": 0,
+    "chorus": 35,
     "aliases": [
       "むかんじょう",
       "ゔぃんらんどさが",
@@ -22860,7 +26423,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "R8ED7xV3hTU",
@@ -22917,7 +26482,7 @@
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [
       "とあるかがくのあくせられーた",
       "とある"
@@ -22926,7 +26491,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "3KGjAw0fGX0",
@@ -23169,7 +26736,7 @@
     "confidence": "中",
     "source": "LiSA公式",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 80,
     "aliases": [
       "そーどあーとおんらいん",
       "SAO"
@@ -23178,7 +26745,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "bgo9dJB_icw",
@@ -23212,7 +26781,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 51,
     "aliases": [
       "あたしがとなりにいるうちに",
       "たてのゆうしゃのなりあがり",
@@ -23222,7 +26791,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "wfCcs0vLysk",
@@ -23234,7 +26805,7 @@
     "confidence": "高",
     "source": "Mrs. GREEN APPLE公式",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 53,
     "aliases": [
       "いんふぇるの",
       "えんえんのしょうぼうたい"
@@ -23243,7 +26814,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "7C0uci3TJmY",
@@ -23277,7 +26850,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 21,
     "aliases": [
       "おねがいまっする",
       "だんべるなんきろもてる",
@@ -23287,7 +26860,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "0YF8vecQWYs",
@@ -23353,7 +26928,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "Q6MCyXi7ygA",
@@ -23365,7 +26941,7 @@
     "confidence": "中",
     "source": "RADWIMPS公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 119,
     "aliases": [
       "ぐらんどえすけーぷ",
       "てんきのこ"
@@ -23374,7 +26950,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "sIMGyA39hug",
@@ -23492,7 +27070,7 @@
     "confidence": "高",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 12.5,
-    "chorus": 0,
+    "chorus": 53,
     "aliases": [
       "ちかっとちかちかっ",
       "かぐやさまはこくらせたい",
@@ -23502,7 +27080,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "SJazpfgAm8Y",
@@ -23593,7 +27173,8 @@
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "VtNgeDxYJzE",
@@ -23651,7 +27232,7 @@
     "confidence": "高",
     "source": "RADWIMPS公式",
     "intro": 3.7,
-    "chorus": 0,
+    "chorus": 108,
     "aliases": [
       "あいにできることはまだあるかい",
       "てんきのこ"
@@ -23660,7 +27241,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "7zwCIz-Ohn4",
@@ -23689,7 +27272,7 @@
     "confidence": "中",
     "source": "女王蜂公式",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 51,
     "aliases": [
       "かえん",
       "どろろ"
@@ -23697,6 +27280,26 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
+  },
+  {
+    "id": "TiprkVhj7Zc",
+    "title": "気ままな天使たち",
+    "work": "私に天使が舞い降りた!",
+    "artist": "わたてん☆5",
+    "year": 2019,
+    "type": "ED",
+    "confidence": "中",
+    "source": "FlyingDog",
+    "intro": 3.2,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -23710,7 +27313,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 40,
     "aliases": [
       "ごとうぶんのきもち",
       "ごとうぶんのはなよめ",
@@ -23720,7 +27323,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "x1FV6IrjZCY",
@@ -23931,7 +27536,8 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "MeK5M0M8U8A",
@@ -24180,7 +27786,7 @@
     "confidence": "高",
     "source": "アニプレックス公式",
     "intro": 12.2,
-    "chorus": 0,
+    "chorus": 105,
     "aliases": [
       "かまどたんじろうのうた",
       "きめつのやいば",
@@ -24190,7 +27796,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "Qo_4XqKwrSM",
@@ -24312,7 +27920,8 @@
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "VLE6Y1q13qE",
@@ -24366,7 +27975,7 @@
     "confidence": "中",
     "source": "ワーナー公式（TVサイズ）",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 20,
     "aliases": [
       "いーじーぶりーじー",
       "えいぞうけんにはてをだすな",
@@ -24376,7 +27985,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "jPq5elJBwmo",
@@ -24601,7 +28212,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 51,
     "aliases": [
       "めめんと",
       "りぜろからはじめるいせかいせいかつ",
@@ -24611,7 +28222,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "3VTkBuxU4yk",
@@ -24656,6 +28269,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "VUrSsrAnq8M",
+    "title": "NAVIGATOR",
+    "work": "富豪刑事 Balance:UNLIMITED",
+    "artist": "SixTONES",
+    "year": 2020,
+    "type": "OP",
+    "confidence": "中",
+    "source": "SixTONES",
+    "intro": 7.5,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "WWTFfEnMCCc",
     "title": "NIGHT RUNNING",
     "work": "BNA ビー・エヌ・エー",
@@ -24673,6 +28304,24 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "yExFsoZRA8k",
+    "title": "No.7",
+    "work": "地縛少年花子くん",
+    "artist": "地縛少年バンド",
+    "year": 2020,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ぽにきゃん-Anime PONY CANYON、オーイシマサヨシ",
+    "intro": 6.5,
+    "chorus": 62,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -24707,7 +28356,7 @@
     "confidence": "中",
     "source": "SPYAIR公式",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 54,
     "aliases": [
       "わんでい",
       "はいきゅー"
@@ -24716,7 +28365,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "b5lsuPxMFmw",
@@ -24728,7 +28379,7 @@
     "confidence": "中",
     "source": "BURNOUT SYNDROMES公式",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 57,
     "aliases": [
       "ふぇにっくす",
       "はいきゅー"
@@ -24737,7 +28388,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "3Okzra8Anr4",
@@ -24981,7 +28634,7 @@
     "confidence": "中",
     "source": "ランティス公式",
     "intro": 10.7,
-    "chorus": 0,
+    "chorus": 67,
     "aliases": [
       "うぃる",
       "ゔぁいおれっとえゔぁーがーでん",
@@ -24991,7 +28644,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "_9OJs43bPwk",
@@ -25003,7 +28658,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 65,
     "aliases": [
       "ぜろからはじめて",
       "めいたんていこなん",
@@ -25013,7 +28668,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "p9FJXfGHtDA",
@@ -25059,7 +28716,7 @@
     "confidence": "中",
     "source": "ロザリーナ公式",
     "intro": 7.7,
-    "chorus": 0,
+    "chorus": 25,
     "aliases": [
       "えんとつまちのぷぺる"
     ],
@@ -25067,7 +28724,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "dHXC_ahjtEE",
@@ -25334,7 +28993,7 @@
     "confidence": "中",
     "source": "angela公式",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 48,
     "aliases": [
       "おとめのるーとはひとつじゃない",
       "はめふら"
@@ -25343,7 +29002,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "9lVPAWLWtWc",
@@ -25355,7 +29016,7 @@
     "confidence": "中",
     "source": "ヨルシカ公式",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 41,
     "aliases": [
       "はなにぼうれい",
       "なきたいわたしはねこをかぶる",
@@ -25365,7 +29026,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "v8bZVdTgXoY",
@@ -25404,7 +29067,8 @@
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "tOv4k7wmzoE",
@@ -25455,7 +29119,7 @@
     "confidence": "中",
     "source": "CHiCO with HoneyWorks公式",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 49,
     "aliases": [
       "けっせんすぴりっと",
       "はいきゅー"
@@ -25464,7 +29128,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "ekP7VLeXnqY",
@@ -25476,7 +29142,7 @@
     "confidence": "中",
     "source": "Aimer公式",
     "intro": 3.7,
-    "chorus": 0,
+    "chorus": 118,
     "aliases": [
       "はるはゆく",
       "ふぇいとすていないと",
@@ -25486,7 +29152,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "DC6JppqHkaM",
@@ -25554,7 +29222,7 @@
     "confidence": "中",
     "source": "SUPER BEAVER公式",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 63,
     "aliases": [
       "とっぱこう",
       "はいきゅー"
@@ -25563,7 +29231,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "hkBbUf4oGfA",
@@ -25585,7 +29255,8 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "mefHQA2fGzg",
@@ -25659,7 +29330,7 @@
     "confidence": "中",
     "source": "佐藤ミキ公式",
     "intro": 6,
-    "chorus": 0,
+    "chorus": 127,
     "aliases": [
       "なもないはな",
       "まほうかこうこうのれっとうせい",
@@ -25669,7 +29340,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "IgGdTwsjCSM",
@@ -25725,7 +29398,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 47,
     "aliases": [
       "さんぷんにじゅうきゅうびょう",
       "えいてぃしっくす",
@@ -25735,7 +29408,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "DPUngxYPb1g",
@@ -25766,7 +29441,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 11.7,
-    "chorus": 0,
+    "chorus": 75,
     "aliases": [
       "えいてぃしっくす",
       "86"
@@ -25775,7 +29450,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "z63zCfGJ-Mc",
@@ -25787,7 +29464,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 60,
     "aliases": [
       "りぜろからはじめるいせかいせいかつ",
       "リゼロ"
@@ -25796,7 +29473,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "1Z6CHioIn3s",
@@ -25908,7 +29587,7 @@
     "confidence": "中",
     "source": "Omoinotake公式",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 103,
     "aliases": [
       "えばーぶるー",
       "ぶるーぴりおど"
@@ -25917,7 +29596,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "u9rT73uzVKI",
@@ -25929,7 +29610,7 @@
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 36,
     "aliases": [
       "ぎぶいっとばっく",
       "じゅじゅつかいせん",
@@ -25939,7 +29620,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "omgSWqwVTjY",
@@ -26107,6 +29790,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "LKMw0hBDBUw",
+    "title": "ODDTAXI",
+    "work": "オッドタクシー",
+    "artist": "スカートとPUNPEE",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ponycanyon",
+    "intro": 1,
+    "chorus": 30,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "0Uhh62MUEic",
     "title": "One Last Kiss",
     "work": "シン・エヴァンゲリオン劇場版",
@@ -26116,7 +29817,7 @@
     "confidence": "高",
     "source": "宇多田ヒカル公式",
     "intro": 6.5,
-    "chorus": 0,
+    "chorus": 119,
     "aliases": [
       "わんらすときす",
       "しんえゔぁんげりおんげきじょうばん",
@@ -26127,7 +29828,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "2Yr3sKPi8mM",
@@ -26327,7 +30030,7 @@
     "confidence": "中",
     "source": "STEREO DIVE FOUNDATION公式",
     "intro": 9.5,
-    "chorus": 0,
+    "chorus": 53,
     "aliases": [
       "てんせいしたらすらいむだったけん",
       "転スラ"
@@ -26336,7 +30039,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "OewLXvs8hl8",
@@ -26348,7 +30053,7 @@
     "confidence": "中",
     "source": "バンダイナムコ公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 69,
     "aliases": [
       "てんせいしたらすらいむだったけん",
       "転スラ"
@@ -26357,7 +30062,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "03K1vrdhxT8",
@@ -26526,7 +30233,7 @@
     "confidence": "中",
     "source": "ポニーキャニオン公式（TVサイズ）",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 40,
     "aliases": [
       "いんぱーふぇくと",
       "だいなぜのん"
@@ -26535,7 +30242,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "e1xCOsgWG0M",
@@ -26585,7 +30294,7 @@
     "confidence": "中",
     "source": "小野大輔公式",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 128,
     "aliases": [
       "かいぶつじへん"
     ],
@@ -26593,7 +30302,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "YlhUujBIwd8",
@@ -26745,7 +30456,7 @@
     "confidence": "高",
     "source": "King Gnu公式",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 130,
     "aliases": [
       "いちず",
       "じゅじゅつかいせん",
@@ -26755,7 +30466,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "dy90tA3TT1c",
@@ -26767,7 +30480,7 @@
     "confidence": "高",
     "source": "YOASOBI公式",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 38,
     "aliases": [
       "かいぶつ",
       "びすたーず"
@@ -26776,7 +30489,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "34wlhlQpidc",
@@ -26832,7 +30547,7 @@
     "confidence": "高",
     "source": "King Gnu公式",
     "intro": 4.7,
-    "chorus": 0,
+    "chorus": 106,
     "aliases": [
       "さかゆめ",
       "じゅじゅつかいせん",
@@ -26842,7 +30557,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "7YnI1h8HNZo",
@@ -26864,6 +30581,24 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "Z6D_zJ2gyg0",
+    "title": "五等分のカタチ",
+    "work": "五等分の花嫁∬",
+    "artist": "中野家の五つ子",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ぽにきゃん-Anime PONY CANYON",
+    "intro": 0.5,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -26963,7 +30698,7 @@
     "confidence": "中",
     "source": "神山羊公式",
     "intro": 11.7,
-    "chorus": 0,
+    "chorus": 77,
     "aliases": [
       "いろこうすい",
       "ほりみや"
@@ -26972,7 +30707,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "EHBFKhLUVig",
@@ -27109,7 +30846,7 @@
     "confidence": "中",
     "source": "Aimer公式",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 47,
     "aliases": [
       "あさがくる",
       "きめつのやいば",
@@ -27119,7 +30856,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "1DK_oVU9X1M",
@@ -27153,7 +30892,7 @@
     "confidence": "中",
     "source": "LiSA公式",
     "intro": 6.2,
-    "chorus": 0,
+    "chorus": 58,
     "aliases": [
       "しろがね",
       "きめつのやいば",
@@ -27163,7 +30902,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "PINgF6rCuME",
@@ -27229,6 +30970,24 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "gHXZw5ZlV5M",
+    "title": "未来予報ハレルヤ!",
+    "work": "ラブライブ!スーパースター!!",
+    "artist": "Liella!",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+    "intro": 6,
+    "chorus": 50,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -27410,7 +31169,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 2.7,
-    "chorus": 0,
+    "chorus": 79,
     "aliases": [
       "あけびちゃんのせーらーふく",
       "明日ちゃん"
@@ -27419,7 +31178,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "KTLdwbUn-jg",
@@ -27475,7 +31236,7 @@
     "confidence": "中",
     "source": "Vaundy公式",
     "intro": 4.2,
-    "chorus": 0,
+    "chorus": 89,
     "aliases": [
       "ちぇんそーぶらっど",
       "ちぇんそーまん"
@@ -27484,7 +31245,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "B3JAxDoYOs4",
@@ -27560,7 +31323,7 @@
     "confidence": "中",
     "source": "MAPPA公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 39,
     "aliases": [
       "ちぇんそーまん"
     ],
@@ -27568,7 +31331,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "6ej4gHhUzek",
@@ -27710,7 +31475,8 @@
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "M2cckDmNLMI",
@@ -27763,7 +31529,7 @@
     "confidence": "中",
     "source": "The Birthday公式",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 37,
     "aliases": [
       "らぶろけっつ",
       "ざふぁーすとすらむだんく",
@@ -27774,7 +31540,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "yWp6SXivHBQ",
@@ -27846,7 +31614,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式",
     "intro": 3.7,
-    "chorus": 0,
+    "chorus": 130,
     "aliases": [
       "おーばーろーど"
     ],
@@ -27854,7 +31622,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "H08YWE4CIFQ",
@@ -27941,7 +31711,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 48,
     "aliases": [
       "いせかいおじさん"
     ],
@@ -27949,7 +31719,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "hN5MBlGv2Ac",
@@ -28022,7 +31794,7 @@
     "confidence": "中",
     "source": "Ado公式",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 129,
     "aliases": [
       "わんぴーす"
     ],
@@ -28030,7 +31802,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "aogImr2yxt8",
@@ -28046,7 +31820,8 @@
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "6lnS-8FVod4",
@@ -28058,7 +31833,7 @@
     "confidence": "中",
     "source": "Official髭男dism公式",
     "intro": 15.5,
-    "chorus": 0,
+    "chorus": 34,
     "aliases": [
       "どらえもん"
     ],
@@ -28066,7 +31841,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "2tJGGmJhm_E",
@@ -28078,7 +31855,7 @@
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 60,
     "aliases": [
       "らぶらいぶ"
     ],
@@ -28086,7 +31863,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "qSWR8QDtDXY",
@@ -28158,7 +31937,7 @@
     "confidence": "高",
     "source": "アニプレックス公式",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 126,
     "aliases": [
       "あのばんど",
       "ぼっちざろっく",
@@ -28168,7 +31947,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "ymQ3wEIq84Y",
@@ -28252,7 +32033,8 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "MTPiaDzacSI",
@@ -28264,7 +32046,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 68,
     "aliases": [
       "からから",
       "ぼっちざろっく",
@@ -28274,7 +32056,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "B7BxrAAXl94",
@@ -28286,7 +32070,7 @@
     "confidence": "中",
     "source": "アニプレックス公式",
     "intro": 2.7,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [
       "ぎたーとこどくとあおいほし",
       "ぼっちざろっく",
@@ -28296,7 +32080,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "B--iJ2pNvLU",
@@ -28308,7 +32094,7 @@
     "confidence": "中",
     "source": "BUMP OF CHICKEN公式",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 70,
     "aliases": [
       "めいたんていこなん",
       "コナン"
@@ -28317,7 +32103,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "-H2PCK7DJsQ",
@@ -28371,7 +32159,7 @@
     "confidence": "中",
     "source": "RADWIMPS公式",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 76,
     "aliases": [
       "すずめ",
       "すずめのとじまり"
@@ -28380,7 +32168,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "x2rvSf0STBM",
@@ -28409,7 +32199,7 @@
     "confidence": "高",
     "source": "avex pictures公式（TVサイズ）",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 78,
     "aliases": [
       "ぱりぴこうめい"
     ],
@@ -28417,7 +32207,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "msZ5b2usBNc",
@@ -28536,7 +32328,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 68,
     "aliases": [
       "あけびちゃんのせーらーふく",
       "明日ちゃん"
@@ -28545,7 +32337,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "6BrHcmH3Gyk",
@@ -28580,7 +32374,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 47,
     "aliases": [
       "ひとりぼっちとうきょう",
       "ぼっちざろっく",
@@ -28590,7 +32384,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "Whr_aXoCOWo",
@@ -28602,7 +32398,7 @@
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
     "intro": 6.2,
-    "chorus": 0,
+    "chorus": 74,
     "aliases": [
       "ひまわりのやくそく",
       "からかいじょうずのたかぎさん",
@@ -28612,7 +32408,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "7jM0fUAR2xg",
@@ -28688,14 +32486,16 @@
     "year": 2022,
     "type": "OP",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 64,
     "aliases": [
       "スパイファミリー",
       "みっくすなっつ"
     ],
     "embeddable": true,
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "kbsRaNXfsew",
@@ -28716,7 +32516,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "syucUN9w1Go",
@@ -28737,7 +32538,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "PvyaVqfylu4",
@@ -28916,7 +32718,7 @@
     "confidence": "中",
     "source": "スピラ・スピカ公式",
     "intro": 3.2,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [
       "さんさんでいず",
       "そのびすくどーるはこいをする",
@@ -28926,7 +32728,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "Hw1fy7VF_w8",
@@ -28960,7 +32764,7 @@
     "confidence": "高",
     "source": "Ado公式",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 22,
     "aliases": [
       "わたしはさいきょう",
       "わんぴーす"
@@ -28969,7 +32773,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "aU8ruUe7UlE",
@@ -28992,6 +32798,24 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "chorusSource": "heatmap",
+    "introMethod": "v2"
+  },
+  {
+    "id": "oL2gDDjkCb4",
+    "title": "宵加減テトラゴン",
+    "work": "まちカドまぞく 2丁目",
+    "artist": "コーロまちカド",
+    "year": 2022,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Release - Topic",
+    "intro": 0.2,
+    "chorus": 59,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
     "introMethod": "v2"
   },
   {
@@ -29070,7 +32894,7 @@
     "confidence": "中",
     "source": "MAPPA公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 22,
     "aliases": [
       "はわたりにおくせんち",
       "ちぇんそーまん"
@@ -29079,7 +32903,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "b3GCfyNKeLs",
@@ -29091,7 +32917,7 @@
     "confidence": "中",
     "source": "Ado公式",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 71,
     "aliases": [
       "せかいのつづき",
       "わんぴーす"
@@ -29100,7 +32926,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "icLOdUKFW8Q",
@@ -29134,7 +32962,7 @@
     "confidence": "高",
     "source": "アニプレックス公式",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 66,
     "aliases": [
       "せいざになれたら",
       "ぼっちざろっく",
@@ -29144,7 +32972,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "Yd8kUoB72xU",
@@ -29201,7 +33031,7 @@
     "confidence": "高",
     "source": "10-FEET公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 55,
     "aliases": [
       "だいぜろかん",
       "ざふぁーすとすらむだんく",
@@ -29212,7 +33042,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "FzXoCx8dsgc",
@@ -29224,7 +33056,7 @@
     "confidence": "高",
     "source": "Topic",
     "intro": 5,
-    "chorus": 0,
+    "chorus": 63,
     "aliases": [
       "ころがるいわきみにあさがふる",
       "ぼっちざろっく",
@@ -29234,7 +33066,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "YO-rXgQKlF8",
@@ -29246,7 +33080,7 @@
     "confidence": "中",
     "source": "Ado公式",
     "intro": 3.7,
-    "chorus": 0,
+    "chorus": 55,
     "aliases": [
       "かぜのゆくえ",
       "わんぴーす"
@@ -29255,7 +33089,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "EY02nMUwXtA",
@@ -29267,7 +33103,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 20,
     "aliases": [
       "わすれてやらない",
       "ぼっちざろっく",
@@ -29277,7 +33113,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "Xi7xa3fzXQ4",
@@ -29434,7 +33272,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 64,
     "aliases": [
       "かげのじつりょくしゃになりたくて",
       "陰実"
@@ -29443,7 +33281,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "MkHaKj-P7jA",
@@ -29455,7 +33295,7 @@
     "confidence": "中",
     "source": "早見沙織公式",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [
       "ダンまち"
     ],
@@ -29463,7 +33303,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "Jk6S15iIgxc",
@@ -29580,7 +33422,7 @@
     "confidence": "中",
     "source": "TMSアニメ公式（TVサイズ）",
     "intro": 3.5,
-    "chorus": 0,
+    "chorus": 58,
     "aliases": [
       "あんでっどあんらっく",
       "アンデラ"
@@ -29589,7 +33431,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "fR0tqhqM7Yg",
@@ -29601,7 +33445,7 @@
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 61,
     "aliases": [
       "もあざんわーず",
       "じゅじゅつかいせん",
@@ -29611,7 +33455,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "18q5wBrMYFg",
@@ -29728,11 +33574,13 @@
     "type": "ED",
     "confidence": "中",
     "source": "ポケモン公式YouTubeチャンネル",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 67,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap"
+    "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "PX-RhjDLVDQ",
@@ -30026,7 +33874,7 @@
     "year": 2023,
     "type": "OP",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 54,
     "aliases": [
       "推しの子",
       "あいどる",
@@ -30034,7 +33882,9 @@
     ],
     "embeddable": true,
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "DU2KGyQgso4",
@@ -30130,7 +33980,7 @@
     "confidence": "中",
     "source": "milet公式",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 54,
     "aliases": [
       "こいこがれ",
       "きめつのやいば",
@@ -30140,7 +33990,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "q90SFMi8aUg",
@@ -30307,6 +34159,24 @@
     "introMethod": "v2"
   },
   {
+    "id": "t8UtEPaq2Og",
+    "title": "ヒロガリズム",
+    "work": "ひろがるスカイ!プリキュア",
+    "artist": "石井あみ・吉武千颯",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "中",
+    "source": "プリキュア公式YouTubeチャンネル",
+    "intro": 0.2,
+    "chorus": 70,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "PuJMfePEKr4",
     "title": "ひろがるスカイ!プリキュア 〜Hero Girls〜",
     "work": "ひろがるスカイ!プリキュア",
@@ -30361,7 +34231,7 @@
     "confidence": "高",
     "source": "東京リベンジャーズ公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 74,
     "aliases": [
       "ほわいとのいず",
       "とうきょうりべんじゃーず",
@@ -30371,7 +34241,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "0saw1cGIl1A",
@@ -30383,7 +34255,7 @@
     "confidence": "中",
     "source": "【推しの子】公式（TVサイズ）",
     "intro": 6.7,
-    "chorus": 0,
+    "chorus": 70,
     "aliases": [
       "めふぃすと",
       "おしのこ"
@@ -30392,7 +34264,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "PJirQlsWemk",
@@ -30505,7 +34379,7 @@
     "confidence": "中",
     "source": "ランティス公式",
     "intro": 10,
-    "chorus": 0,
+    "chorus": 127,
     "aliases": [
       "きせき",
       "ぶんごうすとれいどっぐす",
@@ -30515,7 +34389,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "D6DVTLvOupE",
@@ -30544,7 +34420,7 @@
     "confidence": "中",
     "source": "ガンダムチャンネル（TVサイズ）",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [
       "きみよけだかくあれ",
       "きどうせんしがんだむすいせいのまじょ",
@@ -30554,7 +34430,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "EvRTJbVcFQA",
@@ -30658,7 +34536,7 @@
     "confidence": "中",
     "source": "Uru公式",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 75,
     "aliases": [
       "かみひとえ",
       "じごくらく"
@@ -30667,7 +34545,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "Za2FmwuIEwY",
@@ -30702,7 +34582,7 @@
     "confidence": "中",
     "source": "MyGO!!!!!公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 81,
     "aliases": [
       "はるひかげ",
       "ばんどりーむ",
@@ -30712,7 +34592,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "pgXpM4l_MwI",
@@ -30741,7 +34623,7 @@
     "confidence": "中",
     "source": "テレ朝アニメ公式（TVサイズ）",
     "intro": 2.5,
-    "chorus": 0,
+    "chorus": 78,
     "aliases": [
       "すうせんちめんたる",
       "ぼくのこころのやばいやつ",
@@ -30751,7 +34633,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "gcgKUcJKxIs",
@@ -30786,7 +34670,7 @@
     "confidence": "中",
     "source": "米津玄師公式",
     "intro": 2.7,
-    "chorus": 0,
+    "chorus": 77,
     "aliases": [
       "ちきゅうぎ",
       "きみたちはどういきるか"
@@ -30795,7 +34679,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "NeEW7LsJd50",
@@ -30949,7 +34835,7 @@
     "confidence": "中",
     "source": "MyGO!!!!!公式",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 53,
     "aliases": [
       "しおり",
       "ばんどりーむ",
@@ -30959,7 +34845,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "Jb6Zlg30rgk",
@@ -31124,7 +35012,7 @@
     "confidence": "中",
     "source": "【推しの子】公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 37,
     "aliases": [
       "ばーにんぐ",
       "おしのこ"
@@ -31133,7 +35021,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "yhL7GvLbSyw",
@@ -31344,7 +35234,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 5.5,
-    "chorus": 0,
+    "chorus": 40,
     "aliases": [
       "おれだけれべるあっぷなけん",
       "俺レベ"
@@ -31353,7 +35243,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "j-RpvIuazmc",
@@ -31428,7 +35320,7 @@
     "confidence": "中",
     "source": "VAP公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 48,
     "aliases": [
       "ざふぁぶる",
       "ファブル"
@@ -31437,7 +35329,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "iL1RmBRXnp0",
@@ -31490,7 +35384,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 60,
     "aliases": [
       "ぱーてぃー",
       "だんじょんめし"
@@ -31499,7 +35393,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "ZqSHUCpwnmQ",
@@ -31533,7 +35429,7 @@
     "confidence": "中",
     "source": "VAP公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 57,
     "aliases": [
       "ぷろふぇっしょなりずむ",
       "ざふぁぶる",
@@ -31543,7 +35439,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "R-40Id14jLU",
@@ -31641,7 +35539,7 @@
     "confidence": "中",
     "source": "キングダム公式（TVサイズ）",
     "intro": 9.5,
-    "chorus": 0,
+    "chorus": 67,
     "aliases": [
       "きんぐだむ"
     ],
@@ -31649,7 +35547,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "4wek3G9tStA",
@@ -31767,7 +35667,7 @@
     "confidence": "中",
     "source": "BLEACH公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 51,
     "aliases": [
       "すたーず",
       "ぶりーちせんねんけっせんへん",
@@ -31778,7 +35678,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "8sekyV_o2pM",
@@ -32184,7 +36086,7 @@
     "confidence": "中",
     "source": "KADOKAWA公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 75,
     "aliases": [
       "きらきらのはい",
       "だんじょんめし"
@@ -32193,7 +36095,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "JeityPnYDiA",
@@ -32205,7 +36109,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 79,
     "aliases": [
       "なつめゆうじんちょう"
     ],
@@ -32213,7 +36117,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "Zy_lfZ-wrs4",
@@ -32309,7 +36215,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 44,
     "aliases": [
       "ぼっちざろっく",
       "ぼざろ"
@@ -32318,7 +36224,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "06LF26kBEGg",
@@ -32339,6 +36247,24 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "chorusSource": "heatmap",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "0vXpw_RXcgA",
+    "title": "なまらめんこいギャル",
+    "work": "道産子ギャルはなまらめんこい",
+    "artist": "オーイシマサヨシ",
+    "year": 2024,
+    "type": "OP",
+    "confidence": "中",
+    "source": "オーイシマサヨシ",
+    "intro": 0,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -32808,7 +36734,7 @@
     "confidence": "中",
     "source": "aiko公式",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 116,
     "aliases": [
       "そうしそうあい",
       "めいたんていこなん",
@@ -32818,7 +36744,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "YEKboKtPx-w",
@@ -33094,7 +37022,7 @@
     "confidence": "中",
     "source": "ウマ娘公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 74,
     "aliases": [
       "うまむすめ"
     ],
@@ -33102,7 +37030,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "e0wrj-qP4LI",
@@ -33136,7 +37066,7 @@
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 53,
     "aliases": [
       "かたいなかのおっさんけんせいになる",
       "おっさん剣聖"
@@ -33145,7 +37075,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "8iesR7f3IwU",
@@ -33280,7 +37212,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 43,
     "aliases": [
       "さいれんとうぃっち"
     ],
@@ -33288,7 +37220,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "Mo6yWVF6Md0",
@@ -33398,7 +37332,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "ux3QETpLcPs",
@@ -33432,7 +37367,7 @@
     "confidence": "高",
     "source": "米津玄師公式",
     "intro": 4.7,
-    "chorus": 0,
+    "chorus": 116,
     "aliases": [
       "じぇーんどぅ",
       "ちぇんそーまん"
@@ -33441,7 +37376,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "75WraMAZ0Lo",
@@ -33518,13 +37455,15 @@
     "confidence": "中",
     "source": "League of Legends公式",
     "intro": 4.7,
-    "chorus": 0,
+    "chorus": 128,
     "aliases": [],
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "YNYkTXknYjE",
@@ -33536,7 +37475,7 @@
     "confidence": "中",
     "source": "TMSアニメ公式（TVサイズ）",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [
       "さかもとでいず"
     ],
@@ -33544,7 +37483,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "l5S0JhqULAU",
@@ -33751,7 +37692,7 @@
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
     "intro": 3.2,
-    "chorus": 0,
+    "chorus": 76,
     "aliases": [
       "どくたーすとーん"
     ],
@@ -33759,7 +37700,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "pzt6SmvGpXk",
@@ -33790,7 +37733,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [
       "あめくたかおのすいりかるて"
     ],
@@ -33798,7 +37741,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "DhUWbErUqlg",
@@ -33810,7 +37755,7 @@
     "confidence": "中",
     "source": "ONE PIECE公式",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 52,
     "aliases": [
       "わんぴーす"
     ],
@@ -33818,7 +37763,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "5ALFVv_tdYw",
@@ -33875,7 +37822,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 4.7,
-    "chorus": 0,
+    "chorus": 58,
     "aliases": [
       "おれだけれべるあっぷなけん",
       "俺レベ"
@@ -33884,7 +37831,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "nejdFT00jK4",
@@ -33941,7 +37890,7 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 45,
     "aliases": [
       "あめくたかおのすいりかるて"
     ],
@@ -33949,7 +37898,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "umzOm3846cA",
@@ -33970,7 +37921,8 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "rH8FCwzOdpI",
@@ -34127,7 +38079,7 @@
     "confidence": "中",
     "source": "TBSアニメ公式（TVサイズ）",
     "intro": 2.7,
-    "chorus": 0,
+    "chorus": 51,
     "aliases": [
       "がらすのせん",
       "たこぴーのげんざい",
@@ -34137,7 +38089,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "hYCs1sEZdsw",
@@ -34300,7 +38254,7 @@
     "confidence": "中",
     "source": "前橋ウィッチーズ公式（TVサイズ）",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 52,
     "aliases": [
       "すごすぎまえばしうぃっちーず",
       "まえばしうぃっちーず"
@@ -34309,7 +38263,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "T2dF1HIVEZs",
@@ -34386,7 +38342,7 @@
     "confidence": "中",
     "source": "バンダイナムコ公式（TVサイズ）",
     "intro": 7.7,
-    "chorus": 0,
+    "chorus": 64,
     "aliases": [
       "そこにあるあかり",
       "わんぱんまん"
@@ -34395,7 +38351,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "3u8JxBtxt5k",
@@ -34515,7 +38473,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "ciFvLHCThdg",
@@ -34702,7 +38661,7 @@
     "confidence": "中",
     "source": "ウィッチウォッチ公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 77,
     "aliases": [
       "つきとわたしのかくれんぼ",
       "うぃっちうぉっち"
@@ -34711,7 +38670,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "WDL0jSFr6e8",
@@ -34723,7 +38684,7 @@
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 45,
     "aliases": [
       "しあわせのれしぴ",
       "くすりやのひとりごと"
@@ -34732,7 +38693,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "UP7la6a1H1g",
@@ -34857,7 +38820,7 @@
     "confidence": "中",
     "source": "TMSアニメ公式（TVサイズ）",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 51,
     "aliases": [
       "しからば",
       "あおのはこ"
@@ -34866,7 +38829,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "zkOYWw0u8as",
@@ -35099,7 +39064,7 @@
     "confidence": "中",
     "source": "フジテレビアニメ公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 79,
     "aliases": [
       "ねむれ",
       "よふかしのうた"
@@ -35108,7 +39073,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "bmvbiNk_vXE",
@@ -35120,7 +39087,7 @@
     "confidence": "中",
     "source": "fhána公式",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 49,
     "aliases": [
       "なみだのぱれーど",
       "こばやしさんちのめいどらごん",
@@ -35130,7 +39097,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "PtDyORrf4oc",
@@ -35142,7 +39111,7 @@
     "confidence": "中",
     "source": "キングダム公式（TVサイズ）",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 75,
     "aliases": [
       "ほうこう",
       "きんぐだむ"
@@ -35151,7 +39120,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "-Tjgsun9sao",
@@ -35163,7 +39134,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 38,
     "aliases": [
       "めいたんていこなん",
       "コナン"
@@ -35172,7 +39143,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "kswDfgziS9I",
@@ -35193,7 +39166,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "Xr032EhUDPw",
@@ -35228,7 +39202,7 @@
     "confidence": "中",
     "source": "isekai channel公式（TVサイズ）",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 60,
     "aliases": [
       "つえとけんのうぃすとりあ",
       "ウィストリア"
@@ -35237,7 +39211,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "oDsll0GzhpY",
@@ -35445,7 +39421,7 @@
     "confidence": "中",
     "source": "ワーナー公式（TVサイズ）",
     "intro": 4.5,
-    "chorus": 0,
+    "chorus": 72,
     "aliases": [
       "すてぃーるぼーるらん",
       "ジョジョの奇妙な冒険",
@@ -35456,7 +39432,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "HNYp4T0kMNU",
@@ -35666,7 +39644,7 @@
     "confidence": "中",
     "source": "プリキュア公式（TVサイズ）",
     "intro": 3,
-    "chorus": 0,
+    "chorus": 58,
     "aliases": [
       "はーとにひんとめいたんていぷりきゅあ",
       "めいたんていぷりきゅあ",
@@ -35676,7 +39654,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "S3HQmsf7BSY",
@@ -35755,7 +39735,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 39,
     "aliases": [
       "あいでぜんぶだきしめてあいして",
       "めいたんていこなん",
@@ -35765,7 +39745,9 @@
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "UV53uVaECT8",
@@ -35831,7 +39813,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "YcRYX8hwQ8Y",
@@ -35866,7 +39849,7 @@
     "confidence": "中",
     "source": "ランティス公式",
     "intro": 6.7,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [
       "えそらごと",
       "てんせいしたらすらいむだったけん",
@@ -35876,7 +39859,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "UKcJqQqiXq0",
@@ -35888,7 +39873,7 @@
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 52,
     "aliases": [
       "いのりおわれば",
       "むしょくてんせい"
@@ -35897,7 +39882,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "3F8-KF40VhI",
@@ -35931,7 +39918,7 @@
     "confidence": "中",
     "source": "TOHO animation公式（TVサイズ）",
     "intro": 4.2,
-    "chorus": 0,
+    "chorus": 72,
     "aliases": [
       "ひかりのうた",
       "むしょくてんせい"
@@ -35940,7 +39927,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "zgLov1TFHL4",
@@ -35995,7 +39984,7 @@
     "confidence": "中",
     "source": "ワーナー公式（TVサイズ）",
     "intro": 2.5,
-    "chorus": 0,
+    "chorus": 66,
     "aliases": [
       "しぬかいきるか",
       "すてぃーるぼーるらん",
@@ -36007,7 +39996,9 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   },
   {
     "id": "PtBmc0oFIx4",
@@ -36029,7 +40020,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "HPZQQFmPoGs",
@@ -36052,7 +40044,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusChecked": true
   },
   {
     "id": "InKfZBjNlQE",
@@ -36108,7 +40101,7 @@
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 70,
     "aliases": [
       "みかんせい",
       "かたいなかのおっさんけんせいになる",
@@ -36118,6 +40111,8 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true
   }
 ]

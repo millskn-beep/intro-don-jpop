@@ -27,6 +27,10 @@ function loadSongs() {
 const GENRES = Object.fromEntries(Object.entries(require('./data/genres.json')).filter(([k]) => !k.startsWith('_')));
 const GENRE_KEYS = Object.keys(GENRES);
 const genresOf = song => GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => String(song.work).includes(w)));
+// 知名度（ジャンルとは別の分類）。曲データの fame。未設定の曲は「普通」
+const FAME = [['top', '超有名'], ['famous', '有名'], ['normal', '普通'], ['minor', 'マイナー'], ['otaku', 'オタク']];
+const FAME_KEYS = FAME.map(([k]) => k);
+const fameOf = song => (FAME_KEYS.includes(song.fame) ? song.fame : 'normal');
 const inTopic = (song, S) => {
   const topic = S.topic || 'all';
   if (topic === 'all') { // 「全部」のときだけ、除外にチェックしたジャンルの曲を外す（お題で選んだときはそのまま）
@@ -97,6 +101,7 @@ function canEdit(req) {
 app.get('/api/topics', (req, res) => res.json({
   genres: GENRE_KEYS.map(k => ({ key: k, label: GENRES[k].label, count: SONGS.filter(s => genresOf(s).includes(k)).length })),
   series: SERIES_LIST,
+  fame: FAME.map(([k, label]) => ({ key: k, label, count: SONGS.filter(s => fameOf(s) === k).length })),
 }));
 app.get('/api/songs', (req, res) => { loadSongs(); res.json({ songs: ALL_SONGS, canEdit: canEdit(req) }); });
 app.post('/api/songs', (req, res) => {
@@ -108,7 +113,7 @@ app.post('/api/songs', (req, res) => {
   if (!valid) return res.status(400).json({ error: '曲データの形式が正しくありません' });
 
   // 画面で編集する項目だけを曲IDごとに上書きする（画面を開いた後にCSVから取り込んだ曲を消さないため）
-  const EDITABLE = ['intro', 'chorus', 'aliases', 'embeddable', 'error', 'checkedAt', 'checkedOrigin', 'introMeasured', 'chorusSource', 'chorusChecked', 'introMethod', 'introUnsure'];
+  const EDITABLE = ['intro', 'chorus', 'aliases', 'embeddable', 'error', 'checkedAt', 'checkedOrigin', 'introMeasured', 'chorusSource', 'chorusChecked', 'introMethod', 'introUnsure', 'fame', 'views', 'channel', 'viewsAt'];
   loadSongs();
   const byId = new Map(ALL_SONGS.map(s => [s.id, s]));
   let changed = 0;
@@ -175,13 +180,20 @@ function sanitizeSettings(input, base) {
   const yf = parseInt(input.yearFrom, 10), yt = parseInt(input.yearTo, 10);
   if (yf >= 1960 && yf <= 2100) s.yearFrom = yf;
   if (yt >= 1960 && yt <= 2100) s.yearTo = yt;
+  // 知名度（チェック式・複数）。空なら全部
+  if (Array.isArray(input.fame)) {
+    const f = [...new Set(input.fame.filter(k => FAME_KEYS.includes(k)))];
+    s.fame = f.length ? f : [...FAME_KEYS];
+  }
   if (s.yearFrom > s.yearTo) [s.yearFrom, s.yearTo] = [s.yearTo, s.yearFrom];
   return s;
 }
 
 // 部屋の年代設定に合う曲
 function poolFor(settings) {
-  return SONGS.filter(s => s.year >= settings.yearFrom && s.year <= settings.yearTo && inTopic(s, settings));
+  // 知名度はお題に関係なく、チェックした段階の曲だけにする（難しさの調整）
+  const fame = Array.isArray(settings.fame) && settings.fame.length ? settings.fame : FAME_KEYS;
+  return SONGS.filter(s => s.year >= settings.yearFrom && s.year <= settings.yearTo && inTopic(s, settings) && fame.includes(fameOf(s)));
 }
 
 const cleanName = n => String(n || '').replace(/[\u0000-\u001f]/g, '').trim().slice(0, 12) || 'ゲスト';
@@ -211,7 +223,7 @@ function createRoom({ roomName, password } = {}) {
     salt,
     passwordHash: pw ? hashPassword(salt, pw) : null,
     hostId: null,
-    settings: { ...DEFAULTS, excludeGenres: DEFAULT_EXCLUDE.filter(k => GENRES[k]) },
+    settings: { ...DEFAULTS, excludeGenres: DEFAULT_EXCLUDE.filter(k => GENRES[k]), fame: [...FAME_KEYS] },
     players: new Map(), // token -> player
     state: 'lobby',     // lobby | playing | over
     game: null,
@@ -699,7 +711,7 @@ function skipQuestion(room, reason) {
 }
 
 // ── 一時停止（ホストが「設定を変える」）。変えた設定は次の問題から ──
-const poolKey = S => JSON.stringify([S.topic, S.series, S.yearFrom, S.yearTo, S.excludeGenres, S.quizType]);
+const poolKey = S => JSON.stringify([S.topic, S.series, S.yearFrom, S.yearTo, S.excludeGenres, S.quizType, S.fame]);
 function pauseGame(room, auto = false) {
   const g = room.game, q = g?.q;
   if (room.state !== 'playing' || !g || g.paused || !q) return false;
@@ -774,9 +786,14 @@ function endGame(room) {
   room.state = 'over';
   room.game.q = null;
   const ranking = [...room.players.values()]
-    .map(p => ({ id: p.id, name: p.name, avatar: p.avatar, score: p.score }))
+    .map(p => {
+      // ふりかえり用：正解数・正解したときの平均タイム・いちばん長い連続正解
+      const s = room.game.stats.get(p.token);
+      return { id: p.id, name: p.name, avatar: p.avatar, score: p.score,
+               correct: s?.correct || 0, avg: s?.correct ? Math.round(s.time / s.correct * 100) / 100 : null, maxStreak: s?.maxStreak || 0 };
+    })
     .sort((a, b) => b.score - a.score);
-  io.to(room.code).emit('gameover', { ranking, titles: titlesOf(room), log: playedLog(room), roomLog: room.history });
+  io.to(room.code).emit('gameover', { total: room.game.order.length, ranking, titles: titlesOf(room), log: playedLog(room), roomLog: room.history });
   broadcastRoom(room);
 }
 

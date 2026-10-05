@@ -54,6 +54,8 @@
           <option value="">すべて</option><option value="un">未チェック</option>
           <option value="ok">再生OK</option><option value="ng">再生NG</option><option value="nochorus">サビが仮の値の曲</option>
           <option value="chorusest">サビが自動推定の曲</option><option value="introunsure">イントロ要確認の曲</option>
+          <option value="fame:top">知名度：超有名</option><option value="fame:famous">知名度：有名</option><option value="fame:normal">知名度：普通</option>
+          <option value="fame:minor">知名度：マイナー</option><option value="fame:otaku">知名度：オタク</option>
         </select>
       </div>
       <div class="toolbar" style="margin-top:8px">
@@ -124,6 +126,7 @@ function filtered() {
     if (st === 'nochorus') return s.embeddable !== false && !(s.chorus > 0);
     if (st === 'chorusest') return s.embeddable !== false && s.chorusSource === 'heatmap';
     if (st === 'introunsure') return s.embeddable !== false && !!s.introUnsure;
+    if (st.startsWith('fame:')) return (s.fame || 'normal') === st.slice(5);
     if (st && statusOf(s) !== st) return false;
     return true;
   });
@@ -194,6 +197,8 @@ function select(s) {
   if (ready) { player.loadVideoById({ videoId: s.id, startSeconds: s.intro || 0 }); player.unMute(); }
 }
 
+// 知名度（ゲームの「知名度」チェックで出題を絞る）。未設定は「普通」
+const FAME_OPTS = [['top', '超有名'], ['famous', '有名'], ['normal', '普通'], ['minor', 'マイナー'], ['otaku', 'オタク']];
 function renderDetail() {
   const s = selected;
   $('detail').innerHTML = `
@@ -225,10 +230,17 @@ function renderDetail() {
       <button class="btn-sub" id="aliasSave">反映</button>
     </div>
     <div class="adj">
+      <span class="label">知名度</span>
+      <select id="fameSel" style="margin:0;width:auto;padding:6px 10px;font-size:14px">
+        ${FAME_OPTS.map(([k, l]) => `<option value="${k}"${(s.fame || 'normal') === k ? ' selected' : ''}>${l}</option>`).join('')}
+      </select>
+    </div>
+    <div class="adj">
       <span class="label">再生チェック ${statusOf(s) === 'ok' ? '<span class="badge b-ok">OK</span>' : statusOf(s) === 'ng' ? '<span class="badge b-ng">NG</span>' : '<span class="badge b-un">未</span>'}</span>
       <button class="btn-sub" data-ok="1">OKにする</button>
       <button class="btn-sub" data-ok="0">NG（出題しない）</button>
     </div>`;
+  $('fameSel').onchange = e => { s.fame = e.target.value; markDirty(s); renderDetail(); };
   $('detail').querySelectorAll('[data-k]').forEach(b => b.onclick = () => {
     const k = b.dataset.k, base = k === 'chorus' ? chorusOf(s) : (s.intro || 0);
     s[k] = Math.max(0, base + +b.dataset.d);

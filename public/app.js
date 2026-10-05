@@ -207,6 +207,9 @@ function sendSettings(extra = {}) {
     const k = x.dataset.key;
     s[k] = STRING_KEYS.includes(k) ? x.value : BOOL_KEYS.includes(k) ? x.value === 'true' : +x.value;
   });
+  // 知名度のチェック（複数）
+  const fame = [...$('fameList').querySelectorAll('input:checked')].map(x => x.value);
+  if ($('fameList').querySelector('input')) s.fame = fame;
   socket.emit('settings', { ...s, ...extra });
 }
 document.querySelectorAll('#settings select').forEach(sel => sel.onchange = () => sendSettings());
@@ -224,6 +227,10 @@ fetch('/api/topics').then(r => r.json()).then(d => {
   d.genres.forEach(g => tp.add(new Option(`${g.label}（${g.count}曲）`, g.key)));
   const se = document.querySelector('[data-key="series"]');
   d.series.forEach(s => se.add(new Option(`${s.name}（${s.count}曲）`, s.name)));
+  // 知名度のチェック欄（ホストが変える）
+  $('fameList').innerHTML = (d.fame || []).map(f =>
+    `<label><input type="checkbox" value="${esc(f.key)}" checked>${esc(f.label)}<small>${f.count}</small></label>`).join('');
+  $('fameList').querySelectorAll('input').forEach(cb => cb.onchange = () => sendSettings());
   // 除外するジャンルのチェック欄
   $('genreExList').innerHTML = d.genres.map(g =>
     `<label><input type="checkbox" value="${esc(g.key)}">${esc(g.label)}<small>${g.count}</small></label>`).join('');
@@ -234,9 +241,9 @@ fetch('/api/topics').then(r => r.json()).then(d => {
 
 // おまかせ設定（細かい設定はまとめて変える）
 const MODES = {
-  easy:   { choices: 4,  introLen: 10, hintAt: 15, chorusLen: 20, clues: true,  answerMode: 'choice', mode: 'score', typingExtra: 20 },
-  normal: { choices: 8,  introLen: 5,  hintAt: 10, chorusLen: 15, clues: true,  answerMode: 'choice', mode: 'score', typingExtra: 10 },
-  hard:   { choices: 12, introLen: 3,  hintAt: 5,  chorusLen: 10, clues: false, answerMode: 'input',  mode: 'buzz',  typingExtra: 10 },
+  easy:   { choices: 4,  introLen: 10, hintAt: 15, chorusLen: 20, clues: true,  answerMode: 'choice', mode: 'score', typingExtra: 20, fame: ['top', 'famous'] },
+  normal: { choices: 8,  introLen: 5,  hintAt: 10, chorusLen: 15, clues: true,  answerMode: 'choice', mode: 'score', typingExtra: 10, fame: ['top', 'famous', 'normal'] },
+  hard:   { choices: 12, introLen: 3,  hintAt: 5,  chorusLen: 10, clues: false, answerMode: 'input',  mode: 'buzz',  typingExtra: 10, fame: ['top', 'famous', 'normal', 'minor', 'otaku'] },
 };
 document.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { sendSettings(MODES[b.dataset.mode]); toast(`「${b.textContent}」の設定にしました`); });
 // リアクションスタンプ
@@ -244,6 +251,8 @@ document.querySelectorAll('[data-react]').forEach(b => b.onclick = () => socket.
 $('startBtn').onclick = () => socket.emit('start');
 $('nextBtn').onclick = () => socket.emit('next');
 $('lobbyBtn').onclick = () => socket.emit('backToLobby');
+$('againBtn').onclick = () => socket.emit('start'); // 同じ設定のまま、すぐ次のゲーム
+$('quitBtn').onclick = () => socket.emit('abort');   // 一時停止中：結果発表はせずにロビーへ戻る
 // 出題した曲のログ：コピーしてどこかに貼り付けて残せるように
 let playLog = [];
 function playLogText(list = playLog, title = '出題曲') {
@@ -365,6 +374,8 @@ function renderRoom(r) {
   $('seriesLabel').hidden = r.settings.topic !== 'series';
   $('presets').hidden = !isHost;
   $('modes').hidden = !isHost;
+  const fame = r.settings.fame || [];
+  $('fameList').querySelectorAll('input').forEach(cb => { cb.checked = !fame.length || fame.includes(cb.value); cb.disabled = !isHost; });
   const ex = r.settings.excludeGenres || [];
   $('genreExList').querySelectorAll('input').forEach(cb => { cb.checked = ex.includes(cb.value); cb.disabled = r.state === 'playing' && !r.paused; });
   const exLabels = ex.map(k => TOPIC_DATA.genres.find(g => g.key === k)?.label || k);
@@ -378,7 +389,8 @@ function renderRoom(r) {
   $('excludeClear').hidden = !(isHost && r.excluded);
   $('startBtn').hidden = !isHost; $('waitHost').hidden = isHost;
   $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
-  $('lobbyBtn').hidden = !isHost;
+  $('lobbyBtn').hidden = !isHost; $('againBtn').hidden = !isHost;
+  $('quitBtn').hidden = !(isHost && r.state === 'playing' && r.paused); // 一時停止の設定画面から、結果発表なしでロビーへ
   // ゲーム中のホスト用ボタン。一時停止中は設定画面を出す
   const playing = r.state === 'playing';
   $('gameCtrl').hidden = !(isHost && playing && !r.paused);
@@ -401,7 +413,12 @@ function renderRoom(r) {
     // 途中参加：次の問題から
     show('quiz'); $('choices').innerHTML = ''; $('quizNote').textContent = '次の問題から参加します';
   }
-  if (r.state === 'lobby') { setPhase('', '待機中'); $('qno').textContent = ''; }
+  // 待機中のステージは、タイマーの代わりに部屋の情報を出す
+  document.body.classList.toggle('in-lobby', r.state === 'lobby');
+  if (r.state === 'lobby') {
+    setPhase('', '待機中');
+    $('qno').textContent = `${r.name ? r.name + '・' : ''}${r.players.filter(p => p.connected !== false).length}人が参加中`;
+  }
 
   myLifelines = r.players.find(p => p.id === me)?.lifelines || null;
   updateLifelineButtons();
@@ -440,6 +457,25 @@ function confetti(count = 80) {
 }
 
 function show(id) { ['lobby', 'quiz', 'result', 'over'].forEach(x => $(x).hidden = x !== id); }
+// 選択肢の大きさ（PC）：出題中は大きく、答え合わせでは小さく（body.compact）。
+// 切り替えは、いったん消して（フェードアウト）から大きさを変えて出す（フェードイン）
+let swapTimer = null;
+const isWide = () => matchMedia('(min-width: 900px)').matches;
+function setCompact(on) {
+  clearTimeout(swapTimer);
+  if (document.body.classList.contains('compact') === on) return;
+  if (!isWide()) { document.body.classList.toggle('compact', on); return; } // スマホは大きさが変わらないので何もしない
+  $('quiz').classList.add('swap');
+  swapTimer = setTimeout(() => { document.body.classList.toggle('compact', on); $('quiz').classList.remove('swap'); }, 220);
+}
+// 新しい問題：前の選択肢はもう無いので、消した状態から大きい選択肢をフェードインで出す
+function showBigChoices() {
+  clearTimeout(swapTimer);
+  const q = $('quiz');
+  if (isWide()) q.classList.add('swap', 'instant');
+  document.body.classList.remove('compact');
+  swapTimer = setTimeout(() => q.classList.remove('swap', 'instant'), 40);
+}
 function setPhase(cls, label) { $('phase').className = 'phase ' + cls; $('phase').textContent = label; }
 
 // ── 出題 ──
@@ -449,6 +485,7 @@ socket.on('question', q => {
   if (q.qNo === 1) playLog = []; // 新しいゲーム
   question = q; myAnswer = null; answering = false;
   stopTick();
+  showBigChoices();
   $('timer').textContent = ''; $('barFill').style.width = '0';
   clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer); fadingOut = false; document.body.classList.remove('fading');
   $('barMark').style.left = (q.settings.hintAt / (q.settings.hintAt + q.settings.chorusLen) * 100) + '%';
@@ -540,7 +577,7 @@ function markAnswered({ index = null, text = null, given = null, pass = false })
   });
   $('answerInput').disabled = true; $('sendBtn').disabled = true;
   if (text ?? given) $('answerInput').value = text ?? given;
-  $('quizNote').textContent = pass ? '「次の曲へ」を押しました。全員がそろうと答え合わせです…' : '回答しました。答え合わせを待っています…';
+  $('quizNote').textContent = pass ? 'パスしました。全員がそろうと答え合わせです…' : '回答しました。答え合わせを待っています…';
   updateLifelineButtons();
 }
 
@@ -626,6 +663,8 @@ socket.on('reveal', r => {
   setPhase('reveal', '答え合わせ');
   $('cover').innerHTML = icon('note', 'cover-icon');
   document.body.classList.remove('playing'); document.body.classList.add('revealing'); // 背景全体に映像を出す
+  $('timer').textContent = ''; $('barFill').style.width = '0'; // 問題の残り時間は消す（自動で進むときは「次の問題まで」を出す）
+  setCompact(true);
   // サビの位置が仮（イントロ＋50秒）の曲は、動画の長さから推定した位置にする
   const unknown = r.chorusKnown === false || (r.chorusKnown === undefined && r.chorus === r.intro + 50);
   player.reveal(r.intro, unknown ? guessChorus(r.intro, player.duration()) : r.chorus);
@@ -697,9 +736,10 @@ socket.on('react', ({ id, name, kind }) => {
   setTimeout(() => el.remove(), 2600);
 });
 
-socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl }) => {
+socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total }) => {
   if (Array.isArray(log)) playLog = log;
   if (Array.isArray(rl)) roomLog = rl;
+  clearInterval(nextTick); $('nextCount').textContent = ''; // 「結果発表まで」のカウントを止める
   $('qno').textContent = ''; $('timer').textContent = ''; $('barFill').style.width = '0';
   $('titles').innerHTML = titles.map(x => `<li>${avatarImg(x.avatar)}<div><b>${esc(x.title)}</b><span>${esc(x.name)}</span><small>${esc(x.why)}</small></div></li>`).join('');
   document.body.classList.remove('revealing', 'playing');
@@ -709,7 +749,14 @@ socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl }) => {
   // 上位3人は表彰台に、全員の順位は下の一覧に
   $('places').innerHTML = ranking.slice(0, 3).map((p, i) =>
     `<div class="place p${i + 1}">${i === 0 ? icon('crown', 'crown') : ''}${avatarImg(p.avatar, 'avatar lg')}<b>${i + 1}位</b>${esc(p.name)}<span>${p.score}点</span></div>`).join('');
-  $('ranking').innerHTML = ranking.map(p => `<li>${avatarImg(p.avatar, 'avatar sm')}${esc(p.name)}<span>${p.score}点</span></li>`).join('');
+  // ふりかえり：正解数・正解したときの平均タイム・いちばん長い連続正解
+  const recap = p => [
+    p.correct !== undefined && `正解 ${p.correct}${total ? ` / ${total}` : ''}問`,
+    p.avg != null && `平均 ${p.avg.toFixed(2)}秒`,
+    p.maxStreak >= 2 && `最長 ${p.maxStreak}連続`,
+  ].filter(Boolean).join('・');
+  $('ranking').innerHTML = ranking.map(p =>
+    `<li>${avatarImg(p.avatar, 'avatar sm')}<div class="rk-name">${esc(p.name)}<small>${esc(recap(p))}</small></div><span>${p.score}点</span></li>`).join('');
   show('over');
   confetti(160);
   if (ranking[0]?.id === me) flash('ok', '優勝！');
@@ -725,11 +772,19 @@ let fadingOut = false;
 function startNextCount(seconds, last = nextIsLast) {
   if (fadingOut) { fadingOut = false; player.fadeBack(); document.body.classList.remove('fading'); } // 「サビを聞く」で延びたら音量と映像を戻す
   nextUntil = performance.now() + seconds * 1000; nextIsLast = last;
+  const total = seconds * 1000;
   clearInterval(nextTick);
   const draw = () => {
     if (pausedNow) return; // 一時停止中はカウントもフェードも止める
-    const s = Math.ceil((nextUntil - performance.now()) / 1000);
-    $('nextCount').textContent = s > 0 ? `${listenBy ? `${listenBy}さんがサビを聞いています・` : ''}${s}秒後に${nextIsLast ? '結果発表' : '次の問題'}へ` : '';
+    const left = nextUntil - performance.now();
+    const s = Math.ceil(left / 1000);
+    // ステージのタイマーは、答え合わせ中は「次の問題まで」の秒数にする
+    $('timer').innerHTML = s > 0 ? `<span class="timer-label">${nextIsLast ? '結果発表' : '次の問題'}まで</span>${s}<span class="timer-unit">秒</span>` : '';
+    $('barFill').style.width = Math.max(0, Math.min(100, (1 - left / total) * 100)) + '%';
+    $('barFill').style.background = 'var(--ok)';
+    // PCはステージのタイマーに秒数が出ているので、結果の欄には「サビを聞いています」のときだけ出す
+    $('nextCount').textContent = s > 0 && (listenBy || !isWide())
+      ? `${listenBy ? `${listenBy}さんがサビを聞いています・` : ''}${s}秒後に${nextIsLast ? '結果発表' : '次の問題'}へ` : '';
     // 次へ進む少し前からサビをフェードアウト
     if (!fadingOut && nextUntil - performance.now() <= FADE_BEFORE_NEXT_MS) { fadingOut = true; player.fadeOut(FADE_BEFORE_NEXT_MS); document.body.classList.add('fading'); }
     if (s <= 0) clearInterval(nextTick);

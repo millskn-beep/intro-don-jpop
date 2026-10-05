@@ -89,17 +89,37 @@
         <button class="btn-sub" id="copyBtn">コピー</button>
       </div>
       <div id="settings">
+      <!-- どの曲を出すか -->
+      <section class="set-group">
+      <h4>曲の範囲</h4>
       <div class="settings">
         <label>お題<select data-key="topic"><option value="all">全部</option><option value="series">作品を選ぶ</option></select></label>
         <label id="seriesLabel" hidden>作品<select data-key="series"></select></label>
-        <label>出題タイプ<select data-key="quizType"><option value="intro">イントロ</option><option value="sabimae">サビ前</option><option value="mix">イントロ＋サビ前（ランダム）</option></select></label>
-        <label>問題数<select data-key="questions"></select></label>
+        <label>年代（から）<select data-key="yearFrom"></select></label>
+        <label>年代（まで）<select data-key="yearTo"></select></label>
       </div>
+      <div class="presets" id="presets"></div>
+      <div class="fame-row"><span>知名度</span><span class="fame-list" id="fameList"></span></div>
       <details class="genre-ex">
         <summary>除外するジャンル <span id="genreExInfo"></span></summary>
         <div class="genre-ex-list" id="genreExList"></div>
         <p class="note">お題が「全部」のとき、チェックしたジャンルの曲は出題しません（だれでも変えられます）</p>
       </details>
+      <details class="exclude">
+        <summary>前回のログを貼り付けて、出た曲を除外 <span id="excludeCount"></span></summary>
+        <textarea id="excludeInput" rows="3" placeholder="コピーした曲ログをそのまま貼り付け（何回分でも）"></textarea>
+        <div class="exclude-row device-row"><span id="deviceInfo"></span><button class="btn-sub" id="deviceApply">この端末の記録を除外に追加</button><button class="btn-sub" id="deviceClear">端末の記録を消す</button></div>
+        <div class="exclude-row"><button class="btn-sub" id="excludeBtn">除外に追加</button><button class="btn-sub" id="excludeCopy">📋 除外中の曲をコピー</button><button class="btn-sub" id="excludeClear" hidden>除外をリセット</button></div>
+      </details>
+      <p class="note pool-info" id="poolInfo"></p>
+      </section>
+      <!-- どう遊ぶか -->
+      <section class="set-group">
+      <h4>ルール</h4>
+      <div class="settings">
+        <label>出題タイプ<select data-key="quizType"><option value="intro">イントロ</option><option value="sabimae">サビ前</option><option value="mix">イントロ＋サビ前（ランダム）</option></select></label>
+        <label>問題数<select data-key="questions"></select></label>
+      </div>
       <div class="modes" id="modes">
         <span>おまかせ設定</span>
         <button class="btn-sub" data-mode="easy">かんたん</button>
@@ -122,21 +142,13 @@
         <label>サビの長さ<select data-key="chorusLen"></select></label>
         <label title="わからなかったときのため、イントロを頭から流し直す回数（サビのヒントはその後）">イントロの回数<select data-key="introPlays"></select></label>
         <label>定員<select data-key="maxPlayers"></select></label>
-        <label>年代（から）<select data-key="yearFrom"></select></label>
-        <label>年代（まで）<select data-key="yearTo"></select></label>
         </div>
       </details>
+      </section>
       </div>
-      <div class="presets" id="presets"></div>
-      <p class="note" id="poolInfo"></p>
-      <details class="exclude">
-        <summary>前回のログを貼り付けて、出た曲を除外 <span id="excludeCount"></span></summary>
-        <textarea id="excludeInput" rows="3" placeholder="コピーした曲ログをそのまま貼り付け（何回分でも）"></textarea>
-        <div class="exclude-row device-row"><span id="deviceInfo"></span><button class="btn-sub" id="deviceApply">この端末の記録を除外に追加</button><button class="btn-sub" id="deviceClear">端末の記録を消す</button></div>
-        <div class="exclude-row"><button class="btn-sub" id="excludeBtn">除外に追加</button><button class="btn-sub" id="excludeCopy">📋 除外中の曲をコピー</button><button class="btn-sub" id="excludeClear" hidden>除外をリセット</button></div>
-      </details>
       <button class="btn-main" id="startBtn">ゲーム開始</button>
       <button class="btn-main" id="resumeBtn" hidden>▶ 再開する（変えた設定は次の問題から）</button>
+      <button class="btn-sub back-lobby" id="quitBtn" hidden>ゲームをやめてロビーに戻る（結果発表はしない）</button>
       <p class="note" id="waitHost" hidden>ホストがゲームを開始するのを待っています…</p>
     </div>
 
@@ -149,7 +161,7 @@
         <button class="btn-main" id="sendBtn" type="submit">回答</button>
       </form>
       <div class="lifelines" id="lifelines">
-        <button class="btn-sub skip" id="passBtn"><img class="icon" src="assets/glass/icon-skip.webp" alt="">次の曲へ</button>
+        <button class="btn-sub skip" id="passBtn"><img class="icon" src="assets/glass/icon-skip.webp" alt="">わからない（パス）</button>
       </div>
       <ul class="life-results" id="lifeResults" hidden></ul>
       <p class="note" id="quizNote"></p>
@@ -178,7 +190,8 @@
       </div>
       <ol class="ranking" id="ranking"></ol>
       <button class="btn-sub copy-log" id="roomLogBtn">📋 この部屋で出題した曲を全部コピー</button>
-      <button class="btn-main" id="lobbyBtn" hidden>部屋に戻る</button>
+      <button class="btn-main" id="againBtn" hidden>もう一回（同じ設定で）</button>
+      <button class="btn-sub back-lobby" id="lobbyBtn" hidden>部屋に戻って設定を変える</button>
     </div>
     </div>
   </section>

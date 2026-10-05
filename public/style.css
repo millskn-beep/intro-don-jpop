@@ -315,11 +315,12 @@ button:disabled { cursor: default; }
   .settings select { padding: 7px 8px; font-size: 14px; }
   .invite { margin-top: 0; }
   .podium { max-width: 400px; }
-  /* 答え合わせ：結果（正解・未回答・サビなど）は右側の縦パネルに移し、真ん中は映像を見せる */
-  body.revealing #room:not([hidden]) { position: relative; grid-template-columns: 240px 1fr 340px; }
-  body.revealing #result:not([hidden]) { position: absolute; top: 0; right: 0; width: 340px; max-height: 100%; overflow-y: auto; margin: 0; }
-  body.revealing #result .answer { font-size: 18px; }
   .ranking { font-size: 15px; }
+  /* 出題中は選択肢を大きく。答え合わせ（body.compact）では元の大きさに戻して、スクロールせずに見えるようにする */
+  body:not(.compact) .choices { gap: 12px; }
+  body:not(.compact) .choice { min-height: 96px; padding: 14px 14px 14px 58px; font-size: 18px; }
+  body:not(.compact) .choice::before { left: 14px; width: 32px; height: 32px; font-size: 15px; }
+  body:not(.compact) .choice small { font-size: 13px; margin-top: 4px; }
 }
 
 /* ── 答え合わせは選択肢より上（ステージのすぐ下）に出して、結果がひと目で見えるように ── */
@@ -366,6 +367,14 @@ details.more .settings { margin-top: 6px; }
 }
 .game-ctrl { display: flex; flex-direction: column; gap: 6px; flex: none; }
 .game-ctrl .btn-sub { padding: 6px 12px; font-size: 12px; border-radius: 99px; white-space: nowrap; }
+/* 知名度のチェック（チェックした段階の曲だけを出題） */
+.fame-row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; margin: 10px 0 4px; font-size: 12px; color: var(--sub); font-weight: 700; }
+.fame-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.fame-list label { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 99px; cursor: pointer; white-space: nowrap;
+                   background: var(--glass); border: 1px solid var(--line-strong); font-size: 12px; color: var(--sub); letter-spacing: 0; }
+.fame-list label:has(input:checked) { color: var(--text); border-color: var(--accent2); box-shadow: 0 0 0 1px var(--accent2) inset; }
+.fame-list input { width: auto; height: auto; flex: none; margin: 0; padding: 0; box-shadow: none; accent-color: var(--accent2); }
+.fame-list small { color: var(--sub); font-size: 10px; }
 .genre-ex { margin: 8px 0; font-size: 13px; }
 .genre-ex summary { cursor: pointer; color: var(--sub); }
 .genre-ex-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
@@ -439,4 +448,45 @@ details.more .settings { margin-top: 6px; }
   .vol input { width: 64px; }
   .vol input { margin: 0; }
 }
+/* ── 答え合わせ：画面が広いPC（1200px〜）だけ、結果を右側の縦パネルに移して真ん中は映像を見せる。
+      それより狭いPCでは中央が潰れるので、結果はステージのすぐ下に置く ── */
+@media (min-width: 1200px) {
+  body.revealing #room:not([hidden]) { position: relative; grid-template-columns: 240px 1fr 340px; }
+  body.revealing #result:not([hidden]) { position: absolute; top: 0; right: 0; width: 340px; max-height: 100%; overflow-y: auto; margin: 0; }
+  body.revealing #result .answer { font-size: 18px; }
+}
+/* 答え合わせの欄は縦を詰める（狭いPCでも、下の選択肢までスクロールせずに見えるように） */
+.next-count:empty, .highlights:empty { display: none; }
+body.revealing #quiz .lifelines, body.revealing #quiz .note { display: none; }
+@media (min-width: 900px) {
+  body.revealing #quiz .clues { display: none; }
+  #result { text-align: center; }
+  #result .answer { margin-bottom: 4px; }
+  #result .reactions { margin: 2px 0 6px; }
+  #result .btn-main { margin-top: 6px; padding: 9px; }
+  #result .btn-sub.listen, #result .btn-sub.copy-log { display: inline-flex; margin: 8px 4px 0; padding: 6px 16px; font-size: 12px; }
+  .set-group { margin-top: 10px; padding: 10px 14px 12px; }
+}
+/* スクロールバーは暗い画面になじむ色に */
+* { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, .25) transparent; }
+/* 選択肢の大きさの切り替え：いったん消して（フェードアウト）、切り替えてから出す（フェードイン） */
+#quiz { transition: opacity .25s ease; }
+#quiz.swap { opacity: 0 !important; transition: opacity .2s ease !important; }
+#quiz.swap.instant { transition: none !important; }
+/* 答え合わせ中のタイマー：次の問題までの秒数 */
+.timer-label { display: block; font-family: var(--font); font-size: 12px; font-weight: 700; color: var(--sub); letter-spacing: .04em; margin-bottom: -4px; }
+.timer-unit { font-size: 18px; margin-left: 3px; color: var(--sub); }
+body.revealing .bar > b { display: none; }
+/* 待機中：ステージはタイマーを出さず、部屋の情報だけ */
+body.in-lobby .cover, body.in-lobby .timer, body.in-lobby .bar { display: none; }
+body.in-lobby .qno { font-size: 14px; color: var(--text); font-weight: 700; }
+/* ロビーの設定：「曲の範囲」と「ルール」に分ける */
+.set-group { margin-top: 14px; padding: 12px 14px 14px; border: 1px solid var(--line); border-radius: 16px; background: rgba(8, 8, 20, .25); }
+.set-group h4 { margin: 0; font-size: 12px; letter-spacing: .18em; color: var(--accent); font-weight: 800; }
+.set-group .settings { margin-top: 8px; }
+.set-group .pool-info { margin: 10px 0 0; text-align: left; color: var(--text); font-weight: 700; }
+/* 最終結果のふりかえり */
+.ranking li .rk-name { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; }
+.ranking li .rk-name small { color: var(--sub); font-size: 11px; font-weight: 500; }
+.btn-sub.back-lobby { display: block; margin: 10px auto 0; padding: 8px 20px; font-size: 13px; border-radius: 99px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }

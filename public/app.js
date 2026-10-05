@@ -520,6 +520,12 @@ function stageMascot(name) {
   if (!m.src.endsWith(`/${name}.webp`)) m.src = `/assets/mascot/${name}.webp`;
   m.hidden = false; m.classList.remove('hop'); void m.offsetWidth; m.classList.add('hop');
 }
+// 最初の問題で前もって読み込んでおく（アニメで少し重いので、出る瞬間に遅れないように）
+function preloadMascot() {
+  if (preloadMascot.done || document.body.classList.contains('mascot-off')) return;
+  preloadMascot.done = true;
+  for (const n of ['blue-listen', 'red-chorus', 'both-again', 'both-ok', 'both-ng']) new Image().src = `/assets/mascot/${n}.webp`;
+}
 // 画面の下から、ぴょこっと出て引っ込む
 function popMascot(name, ms = 1600) {
   const el = $('mascotPop');
@@ -549,7 +555,7 @@ socket.on('question', q => {
   $('barMark').style.left = (q.settings.hintAt / (q.settings.hintAt + q.settings.chorusLen) * 100) + '%';
   $('qno').innerHTML = `第 ${q.qNo} / ${q.qTotal} 問` + (q.kind === 'sabimae' ? '（サビ前問題）' : '')
     + (q.final ? ' <b class="final">最終問題・得点2倍</b>' : '');
-  $('cover').innerHTML = '<span>?</span>'; stageMascot(null);
+  $('cover').innerHTML = '<span>?</span>'; stageMascot(null); preloadMascot();
   document.body.classList.remove('revealing', 'playing'); // 背景の映像を隠す
   setPhase('', '読み込み中');
   $('quizNote').textContent = '';

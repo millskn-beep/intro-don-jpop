@@ -161,7 +161,7 @@ button:disabled { cursor: default; }
 .cover span { font-family: var(--font-num); font-weight: 800; font-size: 56px; background: var(--grad); -webkit-background-clip: text; background-clip: text;
               color: transparent; text-shadow: none; animation: pulse 1.2s ease-in-out infinite; }
 .cover-icon { width: 76px; height: 76px; animation: pulse 1.6s ease-in-out infinite; }
-.cover-fx { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; mix-blend-mode: screen; pointer-events: none; opacity: var(--fxk, 1); }
+.cover-fx { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; mix-blend-mode: screen; pointer-events: none; opacity: var(--fxk, 1); background: #000; }
 body:not(.fx-off) .cover:has(.cover-fx) > span { display: none; }
 body.fx-off .cover-fx, body.fx-off .cue video { display: none; }
 @keyframes pulse { 50% { transform: scale(1.1); opacity: .8; } }
@@ -300,10 +300,9 @@ body.fx-off .cover-fx, body.fx-off .cue video { display: none; }
 .mascot-pop img { height: clamp(150px, 32vh, 280px); filter: drop-shadow(0 0 18px rgba(182, 155, 255, .55)); transform: translateY(110%); }
 .mascot-pop.show img { animation: mascotPop 1.6s cubic-bezier(.3, 1.4, .5, 1) forwards; }
 @keyframes mascotPop { 0% { transform: translateY(110%); } 22% { transform: translateY(-4%); } 32% { transform: translateY(0); } 78% { transform: translateY(0); } 100% { transform: translateY(110%); } }
-/* ステージ：場面ごとの絵を小さく。ゆらゆら揺れて、切り替わりで跳ねる */
-.mascot { height: 92px; flex: none; filter: drop-shadow(0 0 10px rgba(182, 155, 255, .45)); animation: mascotSway 2.4s ease-in-out infinite; transform-origin: 50% 100%; }
-.mascot.hop { animation: mascotHop .5s ease-out, mascotSway 2.4s ease-in-out .5s infinite; }
-@keyframes mascotSway { 50% { transform: rotate(-3deg) translateY(-2px); } }
+/* ステージ：場面ごとの絵（アニメ）を小さく。切り替わりで跳ねる */
+.mascot { height: 92px; flex: none; filter: drop-shadow(0 0 10px rgba(182, 155, 255, .45)); transform-origin: 50% 100%; }
+.mascot.hop { animation: mascotHop .5s ease-out; } /* 絵そのものが動くアニメなので、CSS は切り替わりの跳ねだけ */
 @keyframes mascotHop { 0% { transform: scale(.6) translateY(20%); opacity: 0; } 60% { transform: scale(1.08) translateY(-6%); opacity: 1; } 100% { transform: none; } }
 body.mascot-off .mascot, body.mascot-off .mascot-pop, body.in-lobby .mascot, body.revealing .mascot { display: none; }
 .stage-tools .vol.chk input { -webkit-appearance: auto; appearance: auto; width: 16px; height: 16px; background: none; box-shadow: none; accent-color: var(--accent2); }

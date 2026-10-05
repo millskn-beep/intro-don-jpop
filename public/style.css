@@ -402,8 +402,6 @@ details.more .settings { margin-top: 6px; }
 .reactions .btn-sub { padding: 5px 12px; font-size: 13px; border-radius: 99px; }
 /* 背景の映像の濃さ（自分の画面だけ）：スライダーの値を --bgk（0〜1）として掛ける */
 .stage-tools { display: flex; align-items: center; gap: 10px; flex: none; }
-/* スマホ：音量・背景・ホスト用ボタンはステージの下の段にまとめる */
-}
 .game-ctrl { display: flex; flex-direction: column; gap: 6px; flex: none; }
 .gear, .sheet-shade, .sheet-close { display: none; } /* スマホ版だけで使う（mobile.css） */
 .game-ctrl .btn-sub { padding: 6px 12px; font-size: 12px; border-radius: 99px; white-space: nowrap; }
@@ -474,13 +472,14 @@ details.more .settings { margin-top: 6px; }
   .players .pts { font-size: 16px; }
 }
 /* スマホ（幅600px以下）の見た目は mobile.css にまとめている */
-}
 /* ── 答え合わせ：画面が広いPC（1200px〜）だけ、結果を右側の縦パネルに移して真ん中は映像を見せる。
       それより狭いPCでは中央が潰れるので、結果はステージのすぐ下に置く ── */
 @media (min-width: 1200px) {
   body.revealing #room:not([hidden]) { position: relative; grid-template-columns: 240px 1fr 340px; }
-  body.revealing #result:not([hidden]) { position: absolute; top: 0; right: 0; width: 340px; max-height: 100%; overflow-y: auto; margin: 0; }
-  body.revealing #result .answer { font-size: 18px; }
+  /* 答え合わせ：曲名・ボタン・次へは中央（ステージの下）のまま、全員の結果の表だけを右側に縦に並べる */
+  body.revealing #results { position: absolute; top: 0; right: 0; width: 340px; max-height: 100%; overflow-y: auto; display: block;
+                            padding: 10px 12px; border-radius: 18px; background: rgba(8, 8, 20, .55); border: 1px solid rgba(255, 255, 255, .1); }
+  body.revealing #results tbody { display: table; width: 100%; border-collapse: collapse; }
 }
 /* 答え合わせの欄は縦を詰める（狭いPCでも、下の選択肢までスクロールせずに見えるように） */
 .next-count:empty, .highlights:empty { display: none; }

@@ -128,6 +128,8 @@ def main():
         for k, s, r, why in rows:
             print(f"{s['title']} ／ {s['work']}（{vid_of(s)}）サビ{s.get('chorus')}秒 … " + '、'.join(why))
         print(f'怪しい曲 {len(rows)} / 調べた {len(done)} 曲、読み込めなかった {sum(1 for r in done.values() if "error" in r)} 曲')
+        # 収録曲一覧の「自動チェックで要確認」用：曲ID → 理由（data/scan-flags.json）
+        (ROOT / 'data' / 'scan-flags.json').write_text(json.dumps({s['id']: why for k, s, r, why in rows}, ensure_ascii=False, indent=1), encoding='utf8')
         return
     opt = lambda k, d: args[args.index(k) + 1] if k in args else d
     ids = opt('--ids', '')

@@ -199,11 +199,14 @@ function saveFixes() {
 }
 app.get('/api/catalog', (req, res) => {
   loadSongs();
+  // 自動チェック（tools/scan_videos.py）で「原曲でない・サビの位置がずれているかも」とされた曲
+  let flags = {};
+  try { flags = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'scan-flags.json'), 'utf8')); } catch (e) { flags = {}; }
   res.json({
     genres: GENRE_KEYS.map(k => ({ key: k, label: GENRES[k].label })),
     fame: FAME.map(([k, label]) => ({ key: k, label })),
     songs: SONGS.map(s => ({ id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type || '',
-      genres: genresOf(s), fame: fameOf(s), intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0, fix: FIXES[s.id] || null })),
+      genres: genresOf(s), fame: fameOf(s), intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0, fix: FIXES[s.id] || null, warn: flags[s.id] || null })),
   });
 });
 app.get('/api/fixes', (req, res) => res.json({ fixes: FIXES }));

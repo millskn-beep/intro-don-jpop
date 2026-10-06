@@ -26,6 +26,7 @@ body.editing .songs-main { margin-right: 400px; } /* PC：右側に編集パネ�
 .sg-tags .fame-top { color: #ffd36b; border-color: rgba(255, 211, 107, .5); }
 .sg-tags .fame-famous { color: var(--accent); border-color: rgba(127, 232, 255, .45); }
 .sg-tags .fame-otaku { color: #ff7ad9; border-color: rgba(255, 122, 217, .45); }
+.sg-tags .warn { color: #ffd36b; border-color: rgba(255, 211, 107, .55); }
 .sg-tags .pending { color: #fff; background: rgba(255, 122, 217, .25); border-color: rgba(255, 122, 217, .6); }
 .sg-sec { font-family: var(--font-num); font-size: 11px; color: var(--sub); text-align: right; white-space: nowrap; }
 .sg-group { margin-bottom: 6px; }

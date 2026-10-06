@@ -15773,31 +15773,28 @@
     "fame": "minor"
   },
   {
-    "id": "n8mONVi2egU",
+    "id": "IwYZTBzbsYs",
     "title": "GO! GO! MANIAC",
     "work": "けいおん!!",
     "artist": "放課後ティータイム",
     "year": 2010,
     "type": "OP",
     "confidence": "高",
-    "source": "Topic",
-    "intro": 0,
-    "chorus": 59,
+    "source": "放課後ティータイム - Topic（元の録音）",
+    "intro": 0.2,
+    "chorus": 20,
     "aliases": [
       "ごーごーまにあっく",
       "けいおん"
     ],
-    "embeddable": true,
-    "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000",
+    "fame": "top",
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true,
-    "views": 71806,
+    "views": 10772813,
     "channel": "Houkago Teatime - Topic",
-    "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "viewsAt": "2026-10-06"
   },
   {
     "id": "AL2elWM-y3g",
@@ -17440,7 +17437,7 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "angela Official Channel（Music Clip）",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 116,
     "aliases": [],
     "embeddable": null,
@@ -17449,7 +17446,9 @@
     "views": 588548,
     "channel": "angela Official Channel",
     "viewsAt": "2026-10-06",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "nY2AbtwCWKE",
@@ -18413,7 +18412,7 @@
     "views": 2242234,
     "channel": "Minami Kuribayashi - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "normal"
   },
   {
     "id": "FUSEl3p1byQ",
@@ -19594,31 +19593,28 @@
     "fame": "normal"
   },
   {
-    "id": "JkU_QtJNajA",
+    "id": "asSqfb7YP4Y",
     "title": "DAYS of DASH",
     "work": "さくら荘のペットな彼女",
     "artist": "鈴木このみ",
     "year": 2012,
     "type": "ED",
     "confidence": "中",
-    "source": "鈴木このみ公式",
-    "intro": 0.2,
-    "chorus": 130,
+    "source": "鈴木このみ公式（元の録音）",
+    "intro": 1,
+    "chorus": 66,
     "aliases": [
       "さくらそうのぺっとなかのじょ",
       "さくら荘"
     ],
-    "embeddable": true,
-    "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000",
+    "fame": "famous",
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true,
-    "views": 191503,
+    "views": 304073,
     "channel": "Konomi Suzuki Official",
-    "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "viewsAt": "2026-10-06"
   },
   {
     "id": "_hi7okG2wCE",
@@ -20039,7 +20035,7 @@
     "views": 228329,
     "channel": "Haruka Tomatsu - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "minor"
   },
   {
     "id": "vHplSh4cOaQ",
@@ -20803,31 +20799,29 @@
     "fame": "famous"
   },
   {
-    "id": "b5-BiwtGTn4",
+    "id": "hbSVyUbVojA",
     "title": "ルミナス",
     "work": "劇場版 魔法少女まどか☆マギカ",
     "artist": "ClariS",
     "year": 2012,
     "type": "主題歌",
     "confidence": "中",
-    "source": "ClariS公式",
-    "intro": 1.7,
-    "chorus": 35,
+    "source": "ClariS公式（元の録音）",
+    "intro": 2,
+    "chorus": 40,
     "aliases": [
       "まほうしょうじょまどかまぎか",
       "まどマギ",
       "まどか"
     ],
-    "embeddable": true,
-    "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "fame": "famous",
     "introMeasured": true,
     "introMethod": "v2",
-    "views": 2791552,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 960705,
     "channel": "ClariS Official YouTube Channel",
-    "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "viewsAt": "2026-10-06"
   },
   {
     "id": "6_bZCNcwZyw",
@@ -28255,7 +28249,7 @@
     "views": 290471,
     "channel": "FlyingDog",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -31563,30 +31557,28 @@
     "fame": "famous"
   },
   {
-    "id": "pzbtfG2OfIk",
+    "id": "MmnU-s1TdsI",
     "title": "BLACK SHOUT",
     "work": "BanG Dream!",
     "artist": "Roselia",
     "year": 2017,
     "type": "挿入歌",
     "confidence": "中",
-    "source": "バンドリ公式",
-    "intro": 0.2,
-    "chorus": 115,
+    "source": "Roselia公式（元の録音）",
+    "intro": 0.5,
+    "chorus": 77,
     "aliases": [
       "ばんどりーむ",
       "バンドリ"
     ],
-    "embeddable": true,
-    "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "fame": "normal",
     "introMeasured": true,
     "introMethod": "v2",
-    "views": 853934,
-    "channel": "BanG Dream Channel☆",
-    "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 395484,
+    "channel": "Roselia",
+    "viewsAt": "2026-10-06"
   },
   {
     "id": "4x7tKIiXrvk",
@@ -37000,31 +36992,28 @@
     "fame": "otaku"
   },
   {
-    "id": "-PRjas_vdoQ",
+    "id": "ac66DA0pDbg",
     "title": "FIRE BIRD",
     "work": "BanG Dream! 2nd Season",
     "artist": "Roselia",
     "year": 2019,
     "type": "挿入歌",
     "confidence": "中",
-    "source": "バンドリ公式",
-    "intro": 2,
-    "chorus": 87,
+    "source": "Roselia公式（元の録音）",
+    "intro": 0.7,
+    "chorus": 85,
     "aliases": [
       "ばんどりーむ",
       "バンドリ"
     ],
-    "embeddable": true,
-    "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000",
+    "fame": "normal",
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap",
     "chorusChecked": true,
-    "views": 1504883,
-    "channel": "BanG Dream! Girls Band Party! Official",
-    "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "views": 3231726,
+    "channel": "Roselia",
+    "viewsAt": "2026-10-06"
   },
   {
     "id": "ABskGLZrYdc",
@@ -38861,30 +38850,28 @@
     "fame": "minor"
   },
   {
-    "id": "0JuI1v1eIuM",
+    "id": "63UdhR6WyQA",
     "title": "祝祭",
     "work": "天気の子",
     "artist": "RADWIMPS feat.三浦透子",
     "year": 2019,
     "type": "主題歌",
     "confidence": "中",
-    "source": "RADWIMPS公式",
-    "intro": 0.5,
-    "chorus": 65,
+    "source": "RADWIMPS公式（元の録音）",
+    "intro": 0,
+    "chorus": 77,
     "aliases": [
       "しゅくさい",
       "てんきのこ"
     ],
-    "embeddable": true,
-    "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "fame": "normal",
     "introMeasured": true,
     "introMethod": "v2",
-    "views": 5431464,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1380883,
     "channel": "RADWIMPS",
-    "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "viewsAt": "2026-10-06"
   },
   {
     "id": "o2XFtnlzltM",
@@ -42229,7 +42216,7 @@
     "fame": "famous"
   },
   {
-    "id": "CYIZA7W50sk",
+    "id": "VuOFPfxxmx4",
     "title": "DICE",
     "work": "コードギアス 反逆のルルーシュ",
     "artist": "FLOW",
@@ -42237,18 +42224,17 @@
     "type": "OP",
     "confidence": "高",
     "source": "FLOW公式MV",
-    "intro": 7.5,
-    "chorus": 91.7,
+    "intro": 1.5,
+    "chorus": 51,
     "aliases": [],
-    "embeddable": null,
+    "fame": "normal",
     "introMeasured": true,
     "introMethod": "v2",
+    "chorusSource": "heatmap",
     "chorusChecked": true,
-    "chorusSource": "audio",
-    "views": 50033,
+    "views": 971238,
     "channel": "FLOW Official YouTube Channel",
-    "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "viewsAt": "2026-10-06"
   },
   {
     "id": "w88d-uKh_Uw",

@@ -27,7 +27,7 @@ function filtered() {
   const q = $('q').value.trim().toLowerCase(), g = $('genre').value, f = $('fame').value, d = $('decade').value;
   return songs.filter(s => (!q || `${s.title} ${s.work} ${s.artist}`.toLowerCase().includes(q))
     && (!g || (g === '-' ? !s.genres.length : s.genres.includes(g)))
-    && (!f || s.fame === f) && (!d || Math.floor(s.year / 10) * 10 === +d) && (!$('fixOnly').checked || s.fix));
+    && (!f || s.fame === f) && (!d || Math.floor(s.year / 10) * 10 === +d) && (!$('fixOnly').checked || s.fix) && (!$('warnOnly').checked || s.warn));
 }
 function sorted(list) {
   const k = KEY[$('sort').value];
@@ -39,7 +39,7 @@ function sorted(list) {
 }
 const row = s => `<li data-id="${s.id}" class="${selected?.id === s.id ? 'on' : ''}">
   <span class="sg-main"><b>${esc(s.title)}</b><small>${esc(s.work)}${s.type ? `（${esc(s.type)}）` : ''}／${esc(s.artist)}</small></span>
-  <span class="sg-tags">${s.year ? `<i>${s.year}</i>` : ''}${genreOf(s) ? `<i>${esc(genreOf(s))}</i>` : ''}<i class="fame-${s.fame}">${esc(fameLabel[s.fame] || '')}</i>${s.fix ? '<i class="pending">修正待ち</i>' : ''}</span>
+  <span class="sg-tags">${s.year ? `<i>${s.year}</i>` : ''}${genreOf(s) ? `<i>${esc(genreOf(s))}</i>` : ''}<i class="fame-${s.fame}">${esc(fameLabel[s.fame] || '')}</i>${s.fix ? '<i class="pending">修正待ち</i>' : ''}${s.warn && !s.fix ? '<i class="warn">要確認</i>' : ''}</span>
   <span class="sg-sec">イントロ ${s.fix ? s.fix.intro : s.intro}秒<br>サビ ${s.fix ? s.fix.chorus : s.chorus}秒${!s.chorusKnown && !s.fix ? '（仮）' : ''}</span></li>`;
 
 function render() {
@@ -71,7 +71,7 @@ function render() {
 }
 
 let timer;
-for (const id of ['genre', 'fame', 'decade', 'sort', 'view', 'fixOnly']) $(id).onchange = () => { shown = PAGE; render(); };
+for (const id of ['genre', 'fame', 'decade', 'sort', 'view', 'fixOnly', 'warnOnly']) $(id).onchange = () => { shown = PAGE; render(); };
 $('q').oninput = () => { clearTimeout(timer); timer = setTimeout(() => { shown = PAGE; render(); }, 200); };
 $('order').onclick = () => { asc = !asc; $('order').textContent = asc ? '↑ 昇順' : '↓ 降順'; render(); };
 $('more').onclick = () => { shown += PAGE; render(); };
@@ -99,7 +99,8 @@ function openEditor(s) {
   pos = { intro: s.fix?.intro ?? s.intro, chorus: s.fix?.chorus ?? s.chorus };
   $('edTitle').textContent = s.title;
   $('edMeta').textContent = `${s.work}${s.type ? `（${s.type}）` : ''}／${s.artist}（${s.year}）`;
-  $('edNote').textContent = s.fix ? `修正待ち（${new Date(s.fix.at).toLocaleDateString('ja-JP')}に送られた位置）` : (s.chorusKnown ? '' : 'サビの位置はまだ仮の値です');
+  $('edNote').textContent = s.fix ? `修正待ち（${new Date(s.fix.at).toLocaleDateString('ja-JP')}に送られた位置）`
+    : s.warn ? `自動チェックで要確認：${s.warn.join('、')}` : (s.chorusKnown ? '' : 'サビの位置はまだ仮の値です');
   $('editor').hidden = false; document.body.classList.add('editing');
   if (ytReady) yt.cueVideoById({ videoId: s.id, startSeconds: pos.intro });
   showPos();

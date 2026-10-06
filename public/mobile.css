@@ -108,3 +108,35 @@ body.sheet-open .sheet-close { display: block; }
 @keyframes mascotPopSp { 0% { transform: scale(0); opacity: 0; } 20% { transform: scale(1.08); opacity: 1; } 30%, 80% { transform: scale(1); opacity: 1; } 100% { transform: scale(.6) translateY(20%); opacity: 0; } }
 .cue video { width: min(80vw, 340px); }
 .cue span { font-size: clamp(36px, 12vw, 56px); }
+
+/* ── 部屋の待機中（ロビー）：設定は2列で詰め、「ゲーム開始」は画面の下に固定 ── */
+#lobby { padding-bottom: 0 !important; }
+.reset-row { padding: 6px 10px; margin-bottom: 8px; font-size: 12px; }
+.reset-row .btn-sub { padding: 5px 10px; font-size: 12px; }
+.invite { margin-top: 0; }
+.invite span { display: none; }                 /* 「招待リンク」の文字は省く（入力欄とコピーで分かる） */
+.invite input { font-size: 12px; padding: 8px 10px; }
+.set-group { margin-top: 8px; padding: 8px 10px 10px; }
+.set-group .settings, details.more .settings { grid-template-columns: 1fr 1fr; gap: 6px 8px; margin-top: 6px; }
+.settings label { font-size: 11px; }
+.settings select { font-size: 14px; padding: 8px 8px; margin-top: 3px; }
+.presets { gap: 5px; margin-top: 8px; }
+.presets .btn-sub, .modes .btn-sub { padding: 5px 10px; font-size: 12px; }
+.fame-list { gap: 5px; }
+.fame-list label { padding: 3px 8px; font-size: 12px; }
+#startBtn:not([hidden]), #resumeBtn:not([hidden]) {
+  position: sticky; bottom: calc(8px + var(--safe-b)); z-index: 6; margin: 10px 0; box-shadow: 0 8px 26px rgba(0, 0, 0, .6); }
+#quitBtn:not([hidden]) { margin-bottom: 10px; }
+.set-group .settings:has(> label:only-child) { grid-template-columns: 1fr; } /* 項目が1つだけの段（出た曲の除外）は横いっぱい */
+
+/* ── 最終結果：表彰台は小さく、順位表を見やすく、「もう一回」は下に固定 ── */
+.over-title { font-size: 22px; margin: 4px 0 6px; }
+.podium { max-width: 300px; margin-bottom: 4px; }
+.podium img#podiumImg { max-height: 150px; object-fit: contain; margin-top: -6%; }
+.places .avatar { width: 48px; height: 48px; }
+.titles { margin-bottom: 6px; }
+.ranking { font-size: 15px; margin-top: 6px; }
+.ranking li { padding: 6px 2px; }
+#over .copy-log { margin-top: 8px; }
+#againBtn:not([hidden]) { position: sticky; bottom: calc(8px + var(--safe-b)); z-index: 6; margin: 10px 0 6px; box-shadow: 0 8px 26px rgba(0, 0, 0, .6); }
+#lobbyBtn:not([hidden]) { margin-bottom: 10px; }

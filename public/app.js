@@ -1,6 +1,8 @@
 import { createPlayer } from './player.js';
 import { guessChorus } from './chorus-guess.js';
 import { initLayout } from './layout.js';
+import { CHARACTERS, FALLBACK, kanjiNum } from './characters.js';
+import { initCharFx } from './charfx.js';
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -400,7 +402,19 @@ socket.on('aborted', () => {
 // ── 部屋の状態 ──
 socket.on('room', renderRoom);
 // スマホ版のロビーのタブ（参加者・招待／設定）。最初はホストなら「設定」、ほかの人は「参加者・招待」
-let lobbyTabChosen = false;
+let lobbyTabChosen = false, prevMyStreak = 0, prevMyRank = 0;
+// 答え合わせのあと、順位のことをしゃべる（トップ・接戦・自分の順位が上がった）
+function talkRanking() {
+  const ps = [...(room?.players || [])].sort((a, b) => b.score - a.score);
+  if (!ps.length || !ps[0].score) return;
+  const myRank = ps.findIndex(p => p.id === me) + 1;
+  const [top, second] = ps;
+  if (myRank > 0 && prevMyRank && myRank < prevMyRank && myRank > 1) charFx.say('rankUp', { rank: myRank });
+  else if (top.id === me) charFx.say('meTop');
+  else if (second && second.score && top.score - second.score <= 150) charFx.say('close', { top: top.name, second: second.name });
+  else charFx.say('lead', { top: top.name, score: top.score });
+  prevMyRank = myRank;
+}
 function setLobbyTab(tab) {
   document.body.dataset.ltab = tab;
   $('lobbyTabs').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
@@ -463,6 +477,11 @@ function renderRoom(r) {
     // 途中参加：次の問題から
     show('quiz'); $('choices').innerHTML = ''; $('quizNote').textContent = '次の問題から参加します';
   }
+  if (r.state === 'lobby' && prevState !== 'lobby') { charFx.pose('idle'); charFx.say('lobby'); }
+  // 自分の連続正解が3・5・7…と伸びたら、カットイン
+  const myStreak = r.players.find(p => p.id === me)?.streak || 0;
+  if (myStreak > prevMyStreak && myStreak >= 3 && myStreak % 2 === 1) { charFx.cutin(`${myStreak}連続正解!`, '止まらない！'); charFx.say('streak', { streak: myStreak }); }
+  prevMyStreak = myStreak;
   // 待機中のステージは、タイマーの代わりに部屋の情報を出す
   document.body.classList.toggle('in-lobby', r.state === 'lobby');
   if (r.state === 'lobby') {
@@ -491,7 +510,8 @@ function flash(kind, text, sub = '') {
   el.innerHTML = `<span>${icon(kind === 'ok' ? 'ok' : 'ng', 'flash-icon')}${esc(text)}${sub ? `<small>${esc(sub)}</small>` : ''}</span>`;
   el.hidden = false;
   clearTimeout(flash.t); flash.t = setTimeout(() => { el.hidden = true; }, 1400);
-  popMascot(kind === 'ok' ? 'both-ok' : 'both-ng', 1400);
+  popMascot(kind === 'ok' ? 'ok' : 'ng', 1400);
+  charFx.pose(kind === 'ok' ? 'ok' : 'ng');
 }
 function confetti(count = 80) {
   const colors = ['var(--accent)', 'var(--accent2)', 'var(--warn)', 'var(--ok)', '#fff'];
@@ -539,12 +559,21 @@ function coverFx(name) {
   $('cover').innerHTML = '<span>?</span>'; // エフェクトを0にしたときは「？」が見える
   $('cover').append(v);
 }
-// マスコット（双子の女の子。tools/gen-mascot.js で作った絵）。イントロ＝青の子、サビ＝赤の子、「もう一回！」・正解・不正解＝2人
+// マスコット（キャラクター。public/characters.js）。絵は場面（listen/chorus/again/ok/ng…）ごとに /assets/mascot/<キャラ>/<場面>.webp
+// キャラは自分の画面用に選ぶ（端末に保存）
+let charKey = CHARACTERS[store.get('aq-char')] ? store.get('aq-char') : 'twins';
+const charDef = () => CHARACTERS[charKey];
+// 絵がない場面は近い場面の絵を使う
+const mascotUrl = pose => `/assets/mascot/${charKey}/${charDef().poses.includes(pose) ? pose : FALLBACK[pose] || 'ok'}.webp`;
+document.body.dataset.char = charKey;
+const charFx = initCharFx({ $, mascotUrl: p => mascotUrl(p), assetUrl: f => `/assets/mascot/${charKey}/${f}.webp`, charDef: () => charDef(),
+  getVars: () => ({ name: room?.players?.find(p => p.id === me)?.name || $('nameInput').value || '' }) }); // 常駐・吹き出し・カットイン・カウントダウン
 // ステージ：場面ごとに小さく出しておく（null で隠す）
 function stageMascot(name) {
   const m = $('mascot');
   if (!name) { m.hidden = true; return; }
-  if (!m.src.endsWith(`/${name}.webp`)) m.src = `/assets/mascot/${name}.webp`;
+  const url = mascotUrl(name);
+  if (!m.src.endsWith(url)) m.src = url;
   m.hidden = false; m.classList.remove('hop'); void m.offsetWidth; m.classList.add('hop');
 }
 // ── 答え合わせの曲ツール：この曲をコピー／この曲は除外しない／イントロ・サビの位置を直す（メモ）──
@@ -689,12 +718,14 @@ const layoutApi = initLayout({ socket, player, $, store, toast, getRoom: () => r
 function preloadMascot() {
   if (preloadMascot.done || document.body.classList.contains('mascot-off')) return;
   preloadMascot.done = true;
-  for (const n of ['blue-listen', 'red-chorus', 'both-again', 'both-ok', 'both-ng']) new Image().src = `/assets/mascot/${n}.webp`;
+  for (const n of charDef().poses) new Image().src = mascotUrl(n);
+  const sp = charDef().split; // 左右に分けるときの絵も
+  if (sp) for (const f of new Set([...Object.values(sp.left), ...Object.values(sp.right)])) new Image().src = `/assets/mascot/${charKey}/${f}.webp`;
 }
 // 画面の下から、ぴょこっと出て引っ込む
 function popMascot(name, ms = 1600) {
   const el = $('mascotPop');
-  el.innerHTML = `<img src="/assets/mascot/${name}.webp" alt="">`;
+  el.innerHTML = `<img src="${mascotUrl(name)}" alt="">`;
   el.classList.remove('show'); el.hidden = false; void el.offsetWidth; el.classList.add('show');
   clearTimeout(popMascot.t); popMascot.t = setTimeout(() => { el.hidden = true; el.innerHTML = ''; }, ms);
 }
@@ -718,6 +749,13 @@ socket.on('question', q => {
   $('timer').textContent = ''; $('barFill').style.width = '0';
   clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer); fadingOut = false; document.body.classList.remove('fading');
   $('barMark').style.left = (q.settings.hintAt / (q.settings.hintAt + q.settings.chorusLen) * 100) + '%';
+  if (q.final && !practice) { charFx.cutin('最終問題!!', '得点2倍'); charFx.say('final'); }
+  else if (q.qNo > 1 && !practice) {
+    const left = q.qTotal - q.qNo + 1;
+    if (left <= 3) charFx.say('remain', { left });
+    else if (q.qNo - 1 === Math.floor(q.qTotal / 2)) charFx.say('half');
+    else charFx.say('qstart', { n: q.qNo, nk: kanjiNum(q.qNo) });
+  }
   $('qno').innerHTML = `第 ${q.qNo} / ${q.qTotal} 問` + (q.kind === 'sabimae' ? '（サビ前問題）' : '')
     + (q.final ? ' <b class="final">最終問題・得点2倍</b>' : '');
   $('cover').innerHTML = '<span>?</span>'; stageMascot(null); preloadMascot();
@@ -752,7 +790,7 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
     if (kind === 'sabimae') {
       // サビ前問題：止めずに流し続ける。戻ってきた人も経過秒ぶん先から
       player.start(start + off);
-      setPhase('intro', 'サビ前を再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('blue-listen');
+      setPhase('intro', 'サビ前を再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen'); charFx.say('intro');
     } else {
       // 戻ってきた人は、いま何回目のイントロのどこかを計算して、その位置から
       const cycle = introLen + gap, k = Math.floor(off / cycle), within = off - k * cycle;
@@ -761,7 +799,7 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
       // 戻ってきた人は、いま何回目かを表示する
       const nth = off ? Math.min(plays, k + 1) : 1;
       introLeft = Math.max(0, plays - nth);
-      setPhase('intro', nth > 1 ? `イントロ再生中…（${nth}回目！）` : 'イントロ再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('blue-listen');
+      setPhase('intro', nth > 1 ? `イントロ再生中…（${nth}回目！）` : 'イントロ再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen'); if (!off) charFx.say('intro');
     }
     if (myAnswer === null) {
       answering = true;
@@ -781,22 +819,24 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
   }, wait * 1000);
 });
 let introLeft = 0; // この問題で、あと何回イントロを流し直すか
+// ゲームの最初の問題：3・2・1・START!
+socket.on('countdown', ({ sec }) => charFx.countdown(sec));
 socket.on('stopIntro', () => {
   player.stopIntro();
   // 流し直す前の間に「もう一回！」（イントロ→間→「もう一回！」→2回目、の順に見えるように）
-  if (introLeft > 0) { introLeft--; cue('もう一回！', 'fx-replay'); popMascot('both-again'); stageMascot('both-again'); setPhase('intro', 'もう一回！'); }
+  if (introLeft > 0) { introLeft--; cue('もう一回！', 'fx-replay'); popMascot('again'); stageMascot('again'); charFx.pose('again'); charFx.say('again'); setPhase('intro', 'もう一回！'); }
 });
 // イントロをもう一度頭から（部屋の設定「イントロの回数」）
 socket.on('restartIntro', ({ n, plays }) => {
   player.start(question?.intro || 0);
-  setPhase('intro', `イントロ再生中…（${n}回目！）`); coverFx('fx-intro'); stageMascot('blue-listen');
+  setPhase('intro', `イントロ再生中…（${n}回目！）`); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen');
 });
 let hintSeen = false; // この問題でサビ（ヒント）まで流したか。流していなければ、答え合わせでサビへ移動する
 socket.on('hint', ({ chorus, known = true, intro = 0, seek = true }) => {
   hintSeen = true;
   if (seek) player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); // サビ前問題は流れのままサビに入る
   cue('サビ！', 'fx-burst');
-  setPhase('chorus', 'サビ再生中 ✨（得点×0.7）'); coverFx('fx-chorus'); popMascot('red-chorus'); stageMascot('red-chorus');
+  setPhase('chorus', 'サビ再生中 ✨（得点×0.7）'); coverFx('fx-chorus'); popMascot('chorus'); stageMascot('chorus'); charFx.pose('chorus'); charFx.say('chorus');
 });
 
 // 再接続したとき、すでに答えていた問題の表示を戻す
@@ -947,6 +987,12 @@ socket.on('reveal', r => {
     else if (!mine.answered) flash('ng', '時間切れ');
     else flash('ng', '不正解');
   }
+  // キャラのセリフ：みんなの結果 → 自分の結果。少しあとで順位のこと
+  if (r.results.length > 1 && r.results.every(x => x.correct)) charFx.say('allok');
+  else if (r.results.length > 1 && r.results.every(x => !x.correct)) charFx.say('allng');
+  else if (mine?.correct && mine.elapsed != null && mine.elapsed < 3) charFx.say('fast', { sec: mine.elapsed.toFixed(1) });
+  else if (mine) charFx.say(mine.correct ? 'ok' : mine.pass ? 'pass' : !mine.answered ? 'timeout' : 'ng');
+  if (!practice) setTimeout(talkRanking, 2600);
   $('nextBtn').textContent = r.last ? '結果発表へ' : '次の問題へ';
   $('highlights').innerHTML = (r.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');
   // 自動で次へ進むまでのカウント（ホストは「次へ」で早送りできる）
@@ -1008,6 +1054,12 @@ socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total }) => {
   show('over');
   confetti(160);
   if (ranking[0]?.id === me) flash('ok', '優勝！');
+  // お祝い：優勝した人の名前でカットイン。自分が全問正解なら、それも
+  const mine = ranking.find(p => p.id === me);
+  charFx.pose('celebrate'); charFx.say('win', { top: ranking[0]?.name });
+  // 真ん中の「優勝！」の文字のあとに出す
+  if (ranking[0]) setTimeout(() => charFx.cutin(`優勝 ${ranking[0].name}`, `${ranking[0].score}点`, 'celebrate'), 1500);
+  if (mine && total && mine.correct === total) setTimeout(() => charFx.cutin('全問正解!!', 'パーフェクト！', 'celebrate'), 3800);
 });
 
 socket.on('notice', msg => toast(msg));

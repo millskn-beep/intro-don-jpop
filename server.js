@@ -577,10 +577,18 @@ function hintAtOf(S, kind) {
 
 function chorusOf(song) { return song.chorus > 0 ? song.chorus : (song.intro || 0) + 50; }
 
+const COUNTDOWN = 3; // ゲームの最初の問題だけ「3・2・1・START!」を入れる（秒）
 function go(room) {
   const q = room.game.q;
   if (q.phase !== 'loading') return;
   clearTimers(room);
+  if (room.game.qi === 0 && !q.countdownDone) {
+    q.countdownDone = true;
+    q.phase = 'countdown'; // カウントダウン中は「準備できた」の合図などで先に進まないように
+    io.to(room.code).emit('countdown', { sec: COUNTDOWN });
+    later(room, () => { if (q.phase === 'countdown') { q.phase = 'loading'; go(room); } }, COUNTDOWN * 1000);
+    return;
+  }
   const S = room.settings;
   q.phase = 'intro';
   // 選択肢を見てから1秒後に曲が流れ始める。時間・得点の計算もそこから

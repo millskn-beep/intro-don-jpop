@@ -251,9 +251,12 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
   function onReady() {
     if (!pq || pq.t0) return;
     const { song, S, plays, hintAt, total } = pq;
-    pq.t0 = performance.now() + 1000;
-    fire('go', { intro: song.intro, start: song.intro, kind: 'intro', hintAt, total, offset: -1, introLen: S.introLen, plays, gap: 1 });
-    const base = 1000;
+    // 本物と同じく、最初の問題は 3・2・1・START! のあとに流す
+    const CD = 3;
+    fire('countdown', { sec: CD });
+    pq.t0 = performance.now() + CD * 1000 + 1000;
+    later(() => fire('go', { intro: song.intro, start: song.intro, kind: 'intro', hintAt, total, offset: -1, introLen: S.introLen, plays, gap: 1 }), CD * 1000);
+    const base = CD * 1000 + 1000;
     for (let i = 0; i < plays; i++) {
       const at = i * (S.introLen + 1);
       if (i > 0) later(() => fire('restartIntro', { n: i + 1, plays }), base + at * 1000);

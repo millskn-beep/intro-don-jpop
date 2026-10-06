@@ -1,0 +1,62 @@
+/* キャラクターの演出（public/charfx.js） */
+
+/* 常駐：部屋の画面のときだけ、左下に大きめに立つ（パソコン）。スマホはステージの小さいキャラだけ */
+:root { --dockw: 230px; }
+.char-dock { position: fixed; left: 14px; bottom: 10px; z-index: 18; width: var(--dockw); pointer-events: none; display: none; }
+main:has(#room:not([hidden])) .char-dock.left { display: block; }
+/* 出題中・答え合わせ中は2人を左右に分ける。真ん中の画面を少し狭めて、左右の余白にキャラを立たせる（選択肢にかぶらないように） */
+.char-dock.right { left: auto; right: 14px; }
+body.char-split { --dockw: clamp(120px, 11vw, 220px); }
+body.char-split main:has(#room:not([hidden])) .char-dock.right { display: block; }
+body.char-split.char-split main:has(#room:not([hidden])) { max-width: min(1280px, calc(100vw - 2 * var(--dockw) - 20px)); }
+.char-dock.right .char-bubble { left: auto; right: 4px; transform: none; } /* 右側は画面の端からはみ出さないよう右寄せ */
+.char-dock.right .char-bubble::after { left: auto; right: 30%; }
+.char-dock.right .char-bubble.pop { animation-name: bubblePopR; }
+@keyframes bubblePopR { from { transform: scale(.4); opacity: 0; } }
+.char-img { display: block; width: 100%; filter: drop-shadow(0 0 16px rgba(182, 155, 255, .55)); animation: charBob 2.6s ease-in-out infinite; transform-origin: 50% 100%; }
+.char-img:not([src]) { visibility: hidden; }
+.char-img.hop { animation: charHop .55s cubic-bezier(.3, 1.6, .5, 1), charBob 2.6s ease-in-out .55s infinite; }
+@keyframes charBob { 50% { transform: translateY(-6px) rotate(-1.5deg); } }
+@keyframes charHop { 0% { transform: scale(.7) translateY(18%); opacity: .3; } 60% { transform: scale(1.06) translateY(-5%); opacity: 1; } 100% { transform: none; } }
+/* 吹き出し */
+.char-bubble { position: absolute; left: 8px; bottom: calc(100% - 14px); transform: none; max-width: 240px; padding: 8px 14px; border-radius: 16px;
+  background: #fff; color: #2a2140; font-weight: 900; font-size: 16px; line-height: 1.35; width: max-content; max-width: 250px; white-space: normal; box-shadow: 0 6px 20px rgba(0, 0, 0, .35); }
+.char-bubble::after { content: ""; position: absolute; left: 26%; top: 100%; border: 9px solid transparent; border-top-color: #fff; }
+.char-bubble.pop { animation: bubblePop .35s cubic-bezier(.3, 1.7, .5, 1); }
+@keyframes bubblePop { from { transform: scale(.4); opacity: 0; } }
+
+/* カットイン：斜めの帯＋キャラの決めポーズ＋大きな文字 */
+.cutin { position: fixed; inset: 0; z-index: 30; pointer-events: none; overflow: hidden; }
+.cutin-band { position: absolute; left: -10%; right: -10%; top: 50%; height: 190px; margin-top: -95px; transform: skewY(-6deg) scaleX(0); transform-origin: left center;
+  background: linear-gradient(90deg, rgba(255, 122, 217, .92), rgba(182, 155, 255, .92) 50%, rgba(127, 232, 255, .92));
+  box-shadow: 0 0 60px rgba(255, 122, 217, .6), inset 0 0 0 3px rgba(255, 255, 255, .5); }
+.cutin-art { position: absolute; left: 6%; top: 50%; height: 340px; margin-top: -200px; filter: drop-shadow(0 8px 24px rgba(0, 0, 0, .45)); opacity: 0; }
+.cutin-text { position: absolute; right: 7%; top: 50%; transform: translateY(-50%); text-align: right; opacity: 0; }
+.cutin-text b { display: block; font-size: clamp(44px, 7vw, 96px); font-weight: 900; color: #fff; letter-spacing: .04em; font-style: italic;
+  text-shadow: 0 0 20px rgba(255, 255, 255, .8), 4px 4px 0 #ff4fa8, 8px 8px 0 rgba(0, 0, 0, .35); }
+.cutin-text small { display: block; font-size: clamp(16px, 2vw, 24px); font-weight: 800; color: #fff; text-shadow: 0 2px 8px rgba(0, 0, 0, .6); }
+.cutin.show .cutin-band { animation: cutBand 2.1s cubic-bezier(.2, .9, .3, 1) forwards; }
+.cutin.show .cutin-art { animation: cutArt 2.1s cubic-bezier(.2, .9, .3, 1) forwards; }
+.cutin.show .cutin-text { animation: cutText 2.1s cubic-bezier(.2, .9, .3, 1) forwards; }
+@keyframes cutBand { 0% { transform: skewY(-6deg) scaleX(0); } 15%, 80% { transform: skewY(-6deg) scaleX(1); opacity: 1; } 100% { transform: skewY(-6deg) scaleX(1); opacity: 0; } }
+@keyframes cutArt { 0% { transform: translateX(-120%); opacity: 0; } 20% { transform: translateX(4%); opacity: 1; } 28%, 78% { transform: translateX(0); opacity: 1; } 100% { transform: translateX(-30%); opacity: 0; } }
+@keyframes cutText { 0% { transform: translate(120%, -50%); opacity: 0; } 22% { transform: translate(-3%, -50%); opacity: 1; } 30%, 78% { transform: translate(0, -50%); opacity: 1; } 100% { transform: translate(30%, -50%); opacity: 0; } }
+
+/* カウントダウン：3・2・1 */
+.countdown { position: fixed; inset: 0; z-index: 29; display: grid; place-items: center; pointer-events: none;
+  font-family: var(--font-num); font-weight: 900; font-size: min(38vw, 340px); color: #fff; line-height: 1;
+  text-shadow: 0 0 40px rgba(127, 232, 255, .9), 0 0 90px rgba(255, 122, 217, .7), 6px 6px 0 rgba(0, 0, 0, .35); }
+.countdown.show { animation: countPop .95s cubic-bezier(.2, 1.4, .4, 1) forwards; }
+@keyframes countPop { 0% { transform: scale(2.4); opacity: 0; } 25% { transform: scale(.92); opacity: 1; } 40% { transform: scale(1); } 85% { opacity: 1; } 100% { transform: scale(.7); opacity: 0; } }
+
+/* キャラを消す設定：絵・吹き出し・カットインの絵は出さない（数字と文字の帯は出す） */
+body.mascot-off .char-dock, body.mascot-off .cutin-art { display: none !important; }
+
+/* スマホ：常駐はなし（ステージの小さいキャラとぴょこっと出る演出だけ）。カットインは小さめに */
+@media (max-width: 600px) {
+  .char-dock { display: none !important; }
+  .cutin-band { height: 130px; margin-top: -65px; }
+  .cutin-art { height: 200px; margin-top: -130px; left: -2%; }
+  .cutin-text { right: 4%; }
+}
+@media (prefers-reduced-motion: reduce) { .cutin, .countdown { display: none !important; } }

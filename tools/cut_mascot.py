@@ -1,7 +1,7 @@
 # マスコットの絵の背景を切り抜いて、軽量版（透過 webp）を public/assets/mascot/ に書き出す。
 # 静止画: data/assets-src/mascot/<名前>_<seed>.png（tools/gen-mascot.js）
 # アニメ: data/assets-src/mascot-anim/<名前>_<seed>.mp4（tools/gen-mascot-anim.js）→ 1コマずつ切り抜いて、透過アニメ webp にする
-# 使い方: python tools/cut_mascot.py blue-listen=1 red-chorus=3 ...        （静止画）
+# 使い方: python tools/cut_mascot.py both-idle=2@twins/idle ...        （静止画。@の後は書き出し先 キャラ/場面）
 #         python tools/cut_mascot.py --anim blue-listen=1 red-chorus=2 ...  （アニメ）
 import subprocess
 import sys
@@ -30,16 +30,17 @@ def bbox(im):
     return im.getchannel('A').point(lambda a: 255 if a > 16 else 0).getbbox()
 
 
-def still(name, n):
+def still(name, n, dest=None):
     im = cut(Image.open(SRC / f'{name}_{n}.png'))
     im = im.crop(bbox(im))  # まわりの余白を詰める
     im.thumbnail((HEIGHT * 2, HEIGHT), Image.LANCZOS)
-    dst = OUT / f'{name}.webp'
+    dst = OUT / f'{dest or name}.webp'
+    dst.parent.mkdir(parents=True, exist_ok=True)
     im.save(dst, 'WEBP', quality=88, method=6)
     print(f'書き出し {dst.relative_to(ROOT)} {im.size[0]}x{im.size[1]} {dst.stat().st_size // 1024}KB')
 
 
-def anim(name, n):
+def anim(name, n, dest=None):
     # 切り抜いたコマは取っておく（切り抜きに時間がかかるので、書き出し直しのときに使い回す）
     cache = ANIM / f'{name}_{n}_cut{STEP}'
     if not cache.exists():
@@ -57,7 +58,8 @@ def anim(name, n):
     for f in frames:
         f.thumbnail((ANIM_HEIGHT * 2, ANIM_HEIGHT), Image.LANCZOS)
     frames = frames + frames[-2:0:-1]  # 順再生→逆再生でつなぎ目のないループに
-    dst = OUT / f'{name}.webp'
+    dst = OUT / f'{dest or name}.webp'
+    dst.parent.mkdir(parents=True, exist_ok=True)
     frames[0].save(dst, 'WEBP', save_all=True, append_images=frames[1:], duration=round(1000 * STEP / 24), loop=0,
                    quality=70, alpha_quality=60, method=6, minimize_size=True)
     print(f'書き出し {dst.relative_to(ROOT)} {frames[0].size[0]}x{frames[0].size[1]} {len(frames)}コマ {dst.stat().st_size // 1024}KB')
@@ -67,4 +69,5 @@ args = sys.argv[1:]
 is_anim = '--anim' in args
 for arg in (a for a in args if a != '--anim'):
     name, n = arg.split('=')
-    (anim if is_anim else still)(name, n)
+    n, _, dest = n.partition('@')  # 書き出し先： 名前=番号@キャラ/場面（例 both-idle=2@twins/idle）
+    (anim if is_anim else still)(name, n, dest or None)

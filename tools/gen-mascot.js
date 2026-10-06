@@ -22,6 +22,16 @@ const JOBS = [
   { name: 'red-chorus', w: 768, h: 1024, text: `${RED}, jumping with both arms raised up high, very excited, sparkling eyes, big open smile, small sparkles around her, ${SAME}` },
   { name: 'both-again', w: 1024, h: 768, text: `${BOTH}, both raising one index finger up, winking and encouraging, cheerful, ${SAME}` },
   { name: 'both-ok', w: 1024, h: 768, text: `${BOTH}, giving each other a high five, jumping with joy, big happy smiles, ${SAME}` },
+  // 出題中に左右に分けて立たせる用（1人ずつ）。青＝左、赤＝右
+  { name: 'blue-chorus', w: 768, h: 1024, text: `${BLUE}, excited with sparkling eyes, both fists raised, singing along happily, small music notes around her, ${SAME}` },
+  { name: 'blue-ok', w: 768, h: 1024, text: `${BLUE}, jumping with joy and making a victory peace sign, big happy smile, small sparkles, ${SAME}` },
+  { name: 'blue-ng', w: 768, h: 1024, text: `${BLUE}, pouting sadly with teary eyes, hands clasped, cute disappointed expression, ${SAME}` },
+  { name: 'red-listen', w: 768, h: 1024, text: `${RED}, holding her headphones with both hands, eyes closed, listening happily to music, small floating music notes, ${SAME}` },
+  { name: 'red-ok', w: 768, h: 1024, text: `${RED}, jumping with joy and making a victory peace sign with a wink, big happy smile, small sparkles, ${SAME}` },
+  { name: 'red-ng', w: 768, h: 1024, text: `${RED}, pouting sadly with teary eyes and drooping shoulders, cute disappointed expression, ${SAME}` },
+  { name: 'both-idle', w: 1024, h: 768, text: `${BOTH}, both waving hello cheerfully at the viewer, relaxed happy smiles, standing, ${SAME}` },
+  { name: 'both-celebrate', w: 1024, h: 768, text: `${BOTH}, jumping with joy and holding up a shiny golden trophy together, confetti and sparkles around them, overjoyed big smiles, ${SAME}` },
+  { name: 'both-cutin', w: 1024, h: 768, text: `${BOTH}, dynamic close-up bust shot, leaning toward the viewer and pointing forward energetically, one winking, excited determined expressions, dramatic action pose, ${SAME.replace('full body, ', '')}` },
   { name: 'both-ng', w: 1024, h: 768, text: `${BOTH}, both pouting sadly with teary eyes and drooping shoulders, cute disappointed expression, ${SAME}` },
 ];
 

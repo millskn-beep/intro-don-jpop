@@ -144,9 +144,13 @@ const reqText = (s, n) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim
 function saveRequests() {
   try { fs.writeFileSync(REQUESTS_PATH + '.tmp', JSON.stringify(REQUESTS, null, 1) + '\n'); fs.renameSync(REQUESTS_PATH + '.tmp', REQUESTS_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
 }
-app.get('/api/requests', (req, res) => res.json({ requests: REQUESTS.slice(-500).reverse() }));
+app.get('/api/requests', (req, res) => res.json({
+  requests: REQUESTS.slice(-500).reverse(),
+  genres: GENRE_KEYS.map(k => ({ key: k, label: GENRES[k].label })),
+}));
 app.post('/api/requests', (req, res) => {
   const title = reqText(req.body?.title, 60), work = reqText(req.body?.work, 60), artist = reqText(req.body?.artist, 40), note = reqText(req.body?.note, 80);
+  const genre = GENRE_KEYS.includes(req.body?.genre) ? req.body.genre : ''; // 今あるジャンルから選ぶ（任意）
   if (!title) return res.status(400).json({ error: '曲名を入れてください' });
   const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
   // すでにある曲は知らせるだけ。同じリクエストはまとめる
@@ -158,7 +162,7 @@ app.post('/api/requests', (req, res) => {
   reqLast.set(ip, Date.now());
   if (same) { same.votes = (same.votes || 1) + 1; saveRequests(); return res.json({ ok: true, message: `同じリクエストに1票足しました（${same.votes}票）` }); }
   if (REQUESTS.filter(r => r.status === 'open').length >= REQ_MAX) return res.status(429).json({ error: 'リクエストがいっぱいです。追加されるまでお待ちください' });
-  REQUESTS.push({ id: crypto.randomBytes(4).toString('hex'), title, work, artist, note, at: new Date().toISOString(), status: 'open', votes: 1 });
+  REQUESTS.push({ id: crypto.randomBytes(4).toString('hex'), title, work, artist, genre, note, at: new Date().toISOString(), status: 'open', votes: 1 });
   saveRequests();
   res.json({ ok: true, message: 'リクエストを受け付けました' });
 });

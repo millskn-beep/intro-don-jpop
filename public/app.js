@@ -604,9 +604,16 @@ function setupSongTools(s, r) {
 }
 // ── 曲リクエスト（トップ画面）：だれでも送れて、一覧はみんなに見える ──
 const REQ_LABEL = { open: '受付中', added: '追加済み', notfound: '見つからず' };
-let reqAll = [], reqShown = 20;
+let reqAll = [], reqShown = 20, reqGenres = {};
 async function loadRequests() {
-  try { reqAll = (await fetch('/api/requests').then(r => r.json())).requests || []; } catch (e) { return; }
+  let data;
+  try { data = await fetch('/api/requests').then(r => r.json()); } catch (e) { return; }
+  reqAll = data.requests || [];
+  // ジャンルの選択肢（今あるジャンル）。最初の1回だけ作る
+  if (data.genres && $('reqGenre').options.length <= 1) {
+    reqGenres = Object.fromEntries(data.genres.map(g => [g.key, g.label]));
+    $('reqGenre').insertAdjacentHTML('beforeend', data.genres.map(g => `<option value="${esc(g.key)}">${esc(g.label)}</option>`).join(''));
+  }
   renderRequests();
 }
 function renderRequests() {
@@ -614,7 +621,7 @@ function renderRequests() {
   $('reqCount').textContent = reqAll.length ? `（受付中 ${open}件）` : '';
   $('reqList').innerHTML = reqAll.slice(0, reqShown).map(r => `<li class="req-${r.status}">
     <span class="req-status">${REQ_LABEL[r.status] || ''}</span>
-    <span class="req-body"><b>${esc(r.title)}</b>${r.work ? `<small>${esc(r.work)}</small>` : ''}${r.artist ? `<small>${esc(r.artist)}</small>` : ''}${r.note ? `<em>${esc(r.note)}</em>` : ''}</span>
+    <span class="req-body"><b>${esc(r.title)}</b>${r.work ? `<small>${esc(r.work)}</small>` : ''}${r.artist ? `<small>${esc(r.artist)}</small>` : ''}${r.genre && reqGenres[r.genre] ? `<small class="req-genre">${esc(reqGenres[r.genre])}</small>` : ''}${r.note ? `<em>${esc(r.note)}</em>` : ''}</span>
     ${(r.votes || 1) > 1 ? `<span class="req-votes">${r.votes}票</span>` : ''}</li>`).join('') || '<li class="empty">まだリクエストはありません</li>';
   $('reqMore').hidden = reqAll.length <= reqShown;
 }
@@ -649,7 +656,7 @@ $('candList').onclick = async e => {
 loadCandidates();
 $('reqForm').onsubmit = async e => {
   e.preventDefault();
-  const body = { title: $('reqTitle').value, work: $('reqWork').value, artist: $('reqArtist').value, note: $('reqNote').value };
+  const body = { title: $('reqTitle').value, work: $('reqWork').value, artist: $('reqArtist').value, genre: $('reqGenre').value, note: $('reqNote').value };
   $('reqSend').disabled = true;
   try {
     const res = await fetch('/api/requests', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });

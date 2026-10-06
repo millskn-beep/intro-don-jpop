@@ -146,8 +146,9 @@ button:disabled { cursor: default; }
 .reset-row .btn-sub:disabled { opacity: .4; cursor: default; }
 /* 曲リクエスト */
 .req-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0 12px; }
-.req-form input { margin: 0; }
-.req-form .btn-main { grid-column: 1 / -1; margin: 0; }
+.req-form input, .req-form select { margin: 0; }
+.req-genre { color: var(--accent) !important; }
+.req-form .btn-main, .req-form #reqNote { grid-column: 1 / -1; margin: 0; }
 .req-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .req-list li { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 12px; background: var(--glass-strong); border: 1px solid var(--line); font-size: 13px; }
 .req-list li.empty { color: var(--sub); justify-content: center; }

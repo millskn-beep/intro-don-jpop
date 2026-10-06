@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="mobile.css" media="(max-width: 600px)">
 <link rel="stylesheet" href="layout.css">
 <link rel="stylesheet" href="charfx.css">
+<link rel="stylesheet" href="themes.css">
 </head>
 <body>
 <div class="backdrop" aria-hidden="true"></div>
@@ -29,6 +30,7 @@
   <section id="home" class="panel hero">
     <p class="tagline">イントロが流れたら、誰よりも早く答えよう。</p>
     <label>名前<input id="nameInput" maxlength="12" placeholder="ニックネーム"></label>
+    <label class="char-pick">いっしょに遊ぶキャラ（自分の画面の見た目も変わります）<select class="char-sel" id="charSelHome"><option value="twins">双子</option><option value="rabbit">うさぎ</option><option value="cat">ねこ</option></select></label>
     <div class="create-row">
       <label>部屋名（任意）<input id="roomNameInput" maxlength="20" placeholder="〇〇の部屋"></label>
       <label>パスワード（任意）<input id="roomPassInput" maxlength="32" placeholder="なしなら誰でも入れます" autocomplete="off"></label>
@@ -111,7 +113,8 @@
       <label class="vol" title="音量"><span>音量</span><input type="range" id="volume" min="0" max="100" value="80"></label>
       <label class="vol" title="背景の映像の濃さ（自分の画面だけ）"><span>背景</span><input type="range" id="bgRange" min="0" max="100" value="100"></label>
       <label class="vol" title="エフェクトの輝き（自分の画面だけ。0で消す）"><span>エフェクト</span><input type="range" id="fxRange" min="0" max="100" value="100"></label>
-      <label class="vol chk" title="キャラクター（双子）を表示する（自分の画面だけ）"><span>キャラ</span><input type="checkbox" id="mascotChk" checked></label>
+      <label class="vol chk" title="キャラクターを表示する（自分の画面だけ）"><span>キャラ</span><input type="checkbox" id="mascotChk" checked></label>
+      <label class="vol" title="キャラクターと画面の見た目を選ぶ（自分の画面だけ）"><span>キャラ選択</span><select class="char-sel" id="charSel"><option value="twins">双子</option><option value="rabbit">うさぎ</option><option value="cat">ねこ</option></select></label>
       <div class="game-ctrl" id="gameCtrl" hidden>
         <button class="btn-sub" id="pauseBtn" title="問題を一時停止して設定を変える（次の問題から反映）">⏸ 設定を変える</button>
         <button class="btn-sub" id="abortBtn" title="ゲームをやめて部屋に戻る">ルームに戻る</button>

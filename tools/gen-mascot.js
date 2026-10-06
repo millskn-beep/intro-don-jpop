@@ -2,7 +2,7 @@
 // 元の絵（data/assets-src/mascot/base.png：2人並んだデザイン）を参照させて、同じ見た目のまま表情・ポーズだけ変える。
 // 1つにつき複数の seed で候補を作り（data/assets-src/mascot/<名前>_<seed>.png）、見比べて良いものを選ぶ。
 // 背景の切り抜きと軽量化は tools/cut_mascot.py
-// 使い方: node tools/gen-mascot.js [名前...] [--seeds 3] [--from 1]
+// 使い方: node tools/gen-mascot.js [名前...] [--seeds 3] [--from 1] [--char rabbit|cat]（--char を付けると、うさぎ・ねこの8場面）
 
 const fs = require('fs');
 const path = require('path');
@@ -17,6 +17,22 @@ const RED = 'the girl with red twin tails and magenta headphones from the refere
 const BOTH = 'the two twin girls from the reference image together side by side';
 
 // 場面：イントロ＝青の子、サビ＝赤の子、「もう一回！」・正解・不正解＝2人
+// うさぎ・ねこ（1匹）の場面ごとのポーズ。元の絵は data/assets-src/mascot/<キャラ>/base.png。--char rabbit などで選ぶ
+const ANIMAL_SAME = 'same character design, same face, same fur colors and markings, same headphones and accessories as in the reference image, cute chibi kawaii mascot style, super deformed proportions, clean cel shading, centered, simple flat pure white background, no text, no letters, no logo';
+const ANIMAL_POSES = {
+  idle: 'standing and waving hello cheerfully at the viewer, relaxed happy smile, full body',
+  listen: 'holding its headphones with both paws, eyes closed, listening happily to music, small floating music notes, full body',
+  chorus: 'jumping excitedly with both arms raised high, sparkling eyes, big open smile, small sparkles around, full body',
+  again: 'raising one paw and pointing up, winking and encouraging, cheerful, full body',
+  ok: 'jumping with joy and making a victory pose, big happy smile, small sparkles, full body',
+  ng: 'sad with teary eyes and drooping ears, cute disappointed pouting expression, full body',
+  celebrate: 'jumping with joy holding up a shiny golden trophy, confetti and sparkles around, overjoyed, full body',
+  cutin: 'dynamic close-up bust shot, leaning toward the viewer and pointing forward energetically with a wink, excited determined expression, dramatic action pose',
+};
+const ANIMAL_JOBS = char => Object.entries(ANIMAL_POSES).map(([pose, act]) => ({
+  name: `${char}-${pose}`, w: pose === 'cutin' ? 1024 : 768, h: pose === 'cutin' ? 768 : 1024,
+  text: `the ${char === 'rabbit' ? 'bunny' : 'cat'} mascot from the reference image, alone, ${act}, ${ANIMAL_SAME}`,
+}));
 const JOBS = [
   { name: 'blue-listen', w: 768, h: 1024, text: `${BLUE}, holding her headphones with both hands, eyes closed, listening happily to music, small floating music notes, ${SAME}` },
   { name: 'red-chorus', w: 768, h: 1024, text: `${RED}, jumping with both arms raised up high, very excited, sparkling eyes, big open smile, small sparkles around her, ${SAME}` },
@@ -81,8 +97,10 @@ async function generate(job, seed, image) {
   const opt = (k, d) => { const i = args.indexOf(k); return i >= 0 ? +args[i + 1] : d; };
   const seeds = opt('--seeds', 3), from = opt('--from', 1);
   const names = args.filter((a, i) => !a.startsWith('--') && !(args[i - 1] || '').startsWith('--'));
-  const image = await upload(path.join(DIR, 'base.png'));
-  for (const job of JOBS.filter(j => !names.length || names.includes(j.name))) {
+  const char = args.includes('--char') ? args[args.indexOf('--char') + 1] : 'twins';
+  const image = await upload(char === 'twins' ? path.join(DIR, 'base.png') : path.join(DIR, char, 'base.png'));
+  const jobs = char === 'twins' ? JOBS : ANIMAL_JOBS(char);
+  for (const job of jobs.filter(j => !names.length || names.includes(j.name))) {
     for (let s = from; s < from + seeds; s++) {
       const file = path.join(DIR, `${job.name}_${s}.png`);
       if (fs.existsSync(file)) continue;

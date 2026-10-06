@@ -1,0 +1,57 @@
+/* キャラごとの見た目（自分の画面だけ）。body[data-char] で切り替える。双子はふつうの見た目（ここには何も書かない） */
+
+/* ── うさぎ：パステルピンク・にんじん・うさ耳 ── */
+body[data-char="rabbit"] {
+  --accent: #ffb6dc; --accent2: #ff7fbf; --ok: #8dffc8; --warn: #ffd59e;
+  --grad: linear-gradient(120deg, #ffe0f0, #ffb6dc 50%, #ff7fbf);
+  --line: rgba(255, 196, 228, .38); --line-strong: rgba(255, 214, 236, .7);
+  --glass: rgba(70, 24, 58, .44); --glass-strong: rgba(58, 18, 48, .64); --glass-hi: rgba(255, 220, 238, .14);
+}
+body[data-char="rabbit"] .backdrop::after,
+body[data-char="cat"] .backdrop::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
+body[data-char="rabbit"] .backdrop::after { background: radial-gradient(ellipse at 20% 0%, rgba(255, 150, 200, .28), transparent 60%), radial-gradient(ellipse at 90% 100%, rgba(255, 200, 230, .22), transparent 55%); }
+/* ステージとトップ画面のパネルから、うさ耳がぴょこっと出る */
+body[data-char="rabbit"] .stage, body[data-char="rabbit"] #home,
+body[data-char="cat"] .stage, body[data-char="cat"] #home { position: relative; }
+body[data-char="rabbit"] .stage::before, body[data-char="rabbit"] #home::before,
+body[data-char="cat"] .stage::before, body[data-char="cat"] #home::before {
+  content: ""; position: absolute; top: -44px; left: 26px; width: 74px; height: 56px; pointer-events: none; z-index: 2;
+  background: center bottom / contain no-repeat; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .35)); }
+body[data-char="rabbit"] .stage::before, body[data-char="rabbit"] #home::before { background-image: url("assets/mascot/rabbit/deco-ears.webp"); height: 64px; top: -52px; }
+/* にんじん（ステージの右下・ボタン） */
+body[data-char="rabbit"] .stage::after { content: ""; position: absolute; right: 10px; bottom: -14px; width: 34px; height: 46px; pointer-events: none;
+  background: url("assets/mascot/rabbit/deco-carrot.webp") center / contain no-repeat; transform: rotate(18deg); filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .4)); }
+body[data-char="rabbit"] .choice::before { background: linear-gradient(180deg, #ffd1e8, #ff9fcf); color: #6a1748; border-color: #fff; }
+body[data-char="rabbit"] .btn-main { background: linear-gradient(180deg, rgba(255, 255, 255, .25), rgba(255, 255, 255, .06)), rgba(150, 40, 110, .55); }
+body[data-char="rabbit"] .char-bubble { background: #fff0f8; color: #7a1f55; }
+body[data-char="rabbit"] .char-bubble::after { border-top-color: #fff0f8; }
+body[data-char="rabbit"] .cutin-band { background: linear-gradient(90deg, rgba(255, 140, 200, .94), rgba(255, 200, 230, .94) 50%, rgba(255, 150, 210, .94)); }
+
+/* ── ねこ：ミント×ピーチ・肉球・ねこ耳 ── */
+body[data-char="cat"] {
+  --accent: #8ff0d6; --accent2: #ffae7a; --ok: #9dffc4; --warn: #ffd98a;
+  --grad: linear-gradient(120deg, #c9fff0, #8ff0d6 45%, #ffae7a);
+  --line: rgba(200, 255, 236, .32); --line-strong: rgba(220, 255, 244, .66);
+  --glass: rgba(20, 44, 50, .44); --glass-strong: rgba(16, 36, 42, .64); --glass-hi: rgba(220, 255, 244, .12);
+}
+body[data-char="cat"] .backdrop::after { background: radial-gradient(ellipse at 15% 0%, rgba(140, 240, 214, .24), transparent 60%), radial-gradient(ellipse at 90% 100%, rgba(255, 174, 122, .22), transparent 55%); }
+body[data-char="cat"] .stage::before, body[data-char="cat"] #home::before { background-image: url("assets/mascot/cat/deco-ears.webp"); width: 84px; height: 50px; top: -40px; }
+/* 肉球（ステージの右下と、選択肢のうっすらした模様） */
+body[data-char="cat"] .stage::after { content: ""; position: absolute; right: 12px; bottom: -12px; width: 38px; height: 38px; pointer-events: none;
+  background: url("assets/mascot/cat/deco-paw.webp") center / contain no-repeat; transform: rotate(-16deg); filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .4)); }
+body[data-char="cat"] .choice::after { content: ""; position: absolute; right: 8px; bottom: 6px; width: 26px; height: 26px; pointer-events: none; opacity: .22;
+  background: url("assets/mascot/cat/deco-paw.webp") center / contain no-repeat; transform: rotate(-12deg); }
+body[data-char="cat"] .choice::before { background: linear-gradient(180deg, #d9fff3, #8ff0d6); color: #134b40; border-color: #fff; }
+body[data-char="cat"] .btn-main { background: linear-gradient(180deg, rgba(255, 255, 255, .22), rgba(255, 255, 255, .05)), rgba(30, 110, 96, .55); }
+body[data-char="cat"] .char-bubble { background: #fff8ef; color: #6b3b18; }
+body[data-char="cat"] .char-bubble::after { border-top-color: #fff8ef; }
+body[data-char="cat"] .cutin-band { background: linear-gradient(90deg, rgba(143, 240, 214, .94), rgba(255, 236, 214, .94) 50%, rgba(255, 174, 122, .94)); }
+
+/* レイアウト編集中（部品が箱になる）やスマホでは、はみ出す飾りは控えめに */
+body.layout-on .stage::before, body.layout-on .stage::after { display: none; }
+@media (max-width: 600px) {
+  body[data-char] .stage::before { width: 52px; height: 40px; top: -32px; left: 12px; }
+  body[data-char] #home::before { width: 56px; height: 44px; top: -34px; }
+}
+/* ステージの上にうさ耳・ねこ耳が出るように、上に少しすき間をあける（部屋の画面は上がスクロールで切れるため） */
+body[data-char="rabbit"]:not(.layout-on) .room-main > .stage, body[data-char="cat"]:not(.layout-on) .room-main > .stage { margin-top: 40px; }

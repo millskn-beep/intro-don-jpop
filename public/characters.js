@@ -39,6 +39,35 @@ export const CHARACTERS = {
     },
   },
 };
+// うさぎ・ねこのセリフ：双子のセリフの語尾に「ぴょん」「にゃ」を付けたものに、それぞれの専用セリフを足す
+const flavor = (lines, tail) => Object.fromEntries(Object.entries(lines).map(([k, list]) => [k, list.map(l =>
+  /[！？]$/.test(l) ? l.slice(0, -1) + tail + l.slice(-1) : /[。…]$/.test(l) ? l : l + tail)]));
+const add = (base, extra) => Object.fromEntries(Object.entries(base).map(([k, v]) => [k, [...v, ...(extra[k] || [])]]));
+const ANIMAL_POSES = ['idle', 'listen', 'chorus', 'again', 'ok', 'ng', 'celebrate', 'cutin'];
+CHARACTERS.rabbit = {
+  label: 'うさぎ',
+  poses: ANIMAL_POSES,
+  lines: add(flavor(CHARACTERS.twins.lines, 'ぴょん'), {
+    lobby: ['にんじん食べて待ってるぴょん！', '耳には自信があるぴょん！'],
+    intro: ['うさ耳でよーく聴くぴょん…', 'ぴょこっとわかったら押してね！'],
+    ok: ['ぴょーん！大正解！', 'にんじんあげるぴょん！'],
+    ng: ['しょんぼりぴょん…', '耳がたれちゃうぴょん…'],
+    chorus: ['サビでぴょんぴょん跳ねちゃう！'],
+    win: ['優勝！にんじんパーティーだぴょん！'],
+  }),
+};
+CHARACTERS.cat = {
+  label: 'ねこ',
+  poses: ANIMAL_POSES,
+  lines: add(flavor(CHARACTERS.twins.lines, 'にゃ'), {
+    lobby: ['にゃーん、遊ぼ！', 'ゴロゴロ…準備OKにゃ！'],
+    intro: ['ねこ耳ピーン…！', 'しっぽが反応してるにゃ…！'],
+    ok: ['にゃっ！大正解！', 'ごほうびのおやつにゃ！'],
+    ng: ['にゃーん…', 'しっぽがしょんぼりにゃ…'],
+    chorus: ['サビでテンション上がるにゃ！'],
+    win: ['優勝にゃ！おさかなパーティーにゃ！'],
+  }),
+};
 export const FALLBACK = { idle: 'listen', celebrate: 'ok', cutin: 'ok' };
 // 問題番号を漢数字に（1〜99）
 export function kanjiNum(n) {

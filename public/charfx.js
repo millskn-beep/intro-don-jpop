@@ -55,8 +55,13 @@ export function initCharFx({ $, mascotUrl, assetUrl, charDef, getVars }) {
 
   const pick = a => a[Math.floor(Math.random() * a.length)];
   const fill = (s, v) => s.replace(/\{(\w+)\}/g, (m, k) => v[k] ?? '');
-  let turn = 0;
-  // セリフ：場面のセリフからランダムに1つ。{…} は名前や数字に置きかえる。左右に分けているときは交互にしゃべる
+  // セリフ：場面のセリフからランダムに選ぶ。{…} は名前や数字に置きかえる。
+  // 左右に分けているときは、2人が同時に別々のセリフをしゃべる
+  const show = (d, text) => {
+    d.bubble.textContent = text;
+    d.bubble.hidden = false;
+    d.bubble.classList.remove('pop'); void d.bubble.offsetWidth; d.bubble.classList.add('pop');
+  };
   function say(scene, vars = {}) {
     const lines = charDef().lines[scene];
     if (!lines?.length) return;
@@ -64,13 +69,13 @@ export function initCharFx({ $, mascotUrl, assetUrl, charDef, getVars }) {
     // 埋める値が足りないセリフは使わない
     const ok = lines.filter(l => [...l.matchAll(/\{(\w+)\}/g)].every(m => v[m[1]] !== undefined && v[m[1]] !== ''));
     if (!ok.length) return;
-    const d = split() && (turn++ % 2) ? right : left;
-    const other = d === left ? right : left;
-    other.bubble.hidden = true;
-    d.bubble.textContent = fill(pick(ok), v);
-    d.bubble.hidden = false;
-    d.bubble.classList.remove('pop'); void d.bubble.offsetWidth; d.bubble.classList.add('pop');
-    clearTimeout(say.t); say.t = setTimeout(() => { d.bubble.hidden = true; }, 3200);
+    const first = pick(ok);
+    show(left, fill(first, v));
+    if (split()) {
+      const rest = ok.filter(l => l !== first);
+      show(right, fill(rest.length ? pick(rest) : first, v));
+    } else right.bubble.hidden = true;
+    clearTimeout(say.t); say.t = setTimeout(() => { left.bubble.hidden = true; right.bubble.hidden = true; }, 3200);
   }
   // カットイン：帯が走って、キャラの決めポーズと大きな文字が横切る
   function cutin(title, sub = '', art = 'cutin') {
@@ -93,5 +98,7 @@ export function initCharFx({ $, mascotUrl, assetUrl, charDef, getVars }) {
     tick();
     countdown.t = setInterval(tick, 1000);
   }
-  return { pose, say, cutin, countdown };
+  // キャラを変えたとき：いまの場面の絵を描き直す
+  function refresh() { left.cur = right.cur = null; left.bubble.hidden = right.bubble.hidden = true; pose(lastPose); }
+  return { pose, say, cutin, countdown, refresh };
 }

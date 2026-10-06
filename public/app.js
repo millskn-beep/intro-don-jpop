@@ -566,10 +566,22 @@ const charDef = () => CHARACTERS[charKey];
 // 絵がない場面は近い場面の絵を使う
 const mascotUrl = pose => `/assets/mascot/${charKey}/${charDef().poses.includes(pose) ? pose : FALLBACK[pose] || 'ok'}.webp`;
 document.body.dataset.char = charKey;
+// キャラの切り替え（ステージの「キャラ選択」とトップ画面の2か所。端末に保存）
+function applyChar(key) {
+  if (!CHARACTERS[key]) return;
+  charKey = key; store.set('aq-char', key);
+  document.body.dataset.char = key;
+  document.querySelectorAll('.char-sel').forEach(s => { s.value = key; });
+  preloadMascot.done = false; if (room) preloadMascot();
+  if (typeof charFx !== 'undefined') { charFx.refresh(); charFx.say('lobby'); }
+  if (!$('mascot').hidden) stageMascot(stageMascot.last || null);
+}
+document.querySelectorAll('.char-sel').forEach(s => { s.value = charKey; s.onchange = e => applyChar(e.target.value); });
 const charFx = initCharFx({ $, mascotUrl: p => mascotUrl(p), assetUrl: f => `/assets/mascot/${charKey}/${f}.webp`, charDef: () => charDef(),
   getVars: () => ({ name: room?.players?.find(p => p.id === me)?.name || $('nameInput').value || '' }) }); // 常駐・吹き出し・カットイン・カウントダウン
 // ステージ：場面ごとに小さく出しておく（null で隠す）
 function stageMascot(name) {
+  stageMascot.last = name;
   const m = $('mascot');
   if (!name) { m.hidden = true; return; }
   const url = mascotUrl(name);

@@ -6492,7 +6492,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "水樹奈々公式MV",
-    "intro": 0,
+    "intro": 6.7,
     "chorus": 68,
     "aliases": [],
     "embeddable": null,
@@ -6501,7 +6501,9 @@
     "views": 106768,
     "channel": "水樹奈々",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "fS_6FTN1L34",
@@ -12336,7 +12338,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "水樹奈々公式MV",
-    "intro": 0,
+    "intro": 5.7,
     "chorus": 72,
     "aliases": [],
     "embeddable": null,
@@ -12345,7 +12347,9 @@
     "views": 455421,
     "channel": "水樹奈々",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "sjEFk-eos0o",
@@ -12614,7 +12618,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "angela Official Channel",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 65,
     "aliases": [],
     "embeddable": null,
@@ -12623,7 +12627,9 @@
     "views": 114950,
     "channel": "angela Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "HgGcePdMsDY",
@@ -13228,7 +13234,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "GRANRODEO公式（音源）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 67,
     "aliases": [],
     "embeddable": null,
@@ -13237,7 +13243,9 @@
     "views": 210057,
     "channel": "GRANRODEO",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "-HS1M97Iw9M",
@@ -19083,16 +19091,16 @@
     "fame": "famous"
   },
   {
-    "id": "7EuTPTVpuNI",
+    "id": "eNvD-D6Gw6c",
     "title": "コネクト",
     "work": "魔法少女まどか☆マギカ",
     "artist": "ClariS",
     "year": 2011,
     "type": "OP",
     "confidence": "高",
-    "source": "ClariS公式",
-    "intro": 0.2,
-    "chorus": 62,
+    "source": "ClariS公式MV",
+    "intro": 1,
+    "chorus": 129,
     "aliases": [
       "こねくと",
       "まほうしょうじょまどかまぎか",
@@ -19100,15 +19108,14 @@
       "まどか"
     ],
     "embeddable": true,
-    "checkedAt": "2026-10-03",
-    "checkedOrigin": "localhost:3000",
+    "fame": "top",
     "introMeasured": true,
-    "chorusSource": "heatmap",
     "introMethod": "v2",
-    "views": 15927494,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2458055,
     "channel": "ClariS Official YouTube Channel",
-    "viewsAt": "2026-10-05",
-    "fame": "top"
+    "viewsAt": "2026-10-06"
   },
   {
     "id": "kfC3xjNX_E0",
@@ -24461,7 +24468,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "坂本真綾公式MV",
-    "intro": 0,
+    "intro": 2.5,
     "chorus": 56,
     "aliases": [],
     "embeddable": null,
@@ -24470,7 +24477,9 @@
     "views": 74628,
     "channel": "Maaya Sakamoto",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ZQZRIvbemhw",
@@ -24818,7 +24827,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "fhána公式MV",
-    "intro": 0,
+    "intro": 5.5,
     "chorus": 73,
     "aliases": [],
     "embeddable": null,
@@ -24827,7 +24836,9 @@
     "views": 13196662,
     "channel": "fhána Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "UcoFyrlQev0",
@@ -25379,7 +25390,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "LiSA公式MV",
-    "intro": 0,
+    "intro": 5.7,
     "chorus": 62,
     "aliases": [],
     "embeddable": null,
@@ -25388,7 +25399,9 @@
     "views": 476018,
     "channel": "LiSA Official YouTube",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "hF-YItYEQbU",
@@ -26862,7 +26875,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "Aimer公式チャンネル（音源）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 129,
     "aliases": [],
     "embeddable": null,
@@ -26871,7 +26884,9 @@
     "views": 1090832,
     "channel": "Aimer Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "nWnePUo6c-w",
@@ -28189,7 +28204,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "ClariS公式MV",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 57,
     "aliases": [],
     "embeddable": null,
@@ -28198,7 +28213,9 @@
     "views": 112205,
     "channel": "ClariS Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "v2bFXluDqsc",
@@ -28801,7 +28818,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "FlyingDog公式MV",
-    "intro": 0,
+    "intro": 6.5,
     "chorus": 128,
     "aliases": [],
     "embeddable": null,
@@ -28810,7 +28827,9 @@
     "views": 290471,
     "channel": "FlyingDog",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "p2wIPUQu4JQ",
@@ -29675,7 +29694,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "avex公式",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 79,
     "aliases": [],
     "embeddable": null,
@@ -29684,7 +29703,9 @@
     "views": 836474,
     "channel": "avex",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "59kYlAST7UQ",
@@ -30647,7 +30668,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "fripSide公式MV（short ver.）",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 89,
     "aliases": [],
     "embeddable": null,
@@ -30656,7 +30677,9 @@
     "views": 73596,
     "channel": "fripSide OfficiAL YouTube Channnel",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "BhC50WCgsjs",
@@ -30679,33 +30702,6 @@
     "channel": "MYTH & ROID Official Channel",
     "viewsAt": "2026-10-05",
     "fame": "normal"
-  },
-  {
-    "id": "cREAHvB02RQ",
-    "title": "THERE IS A REASON",
-    "work": "ノーゲーム・ノーライフ ゼロ",
-    "artist": "鈴木このみ",
-    "year": 2016,
-    "type": "主題歌",
-    "confidence": "中",
-    "source": "KADOKAWA公式",
-    "intro": 8,
-    "chorus": 124,
-    "aliases": [
-      "のーげーむのーらいふ",
-      "ノゲノラ"
-    ],
-    "embeddable": true,
-    "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "introMethod": "v2",
-    "chorusSource": "heatmap",
-    "chorusChecked": true,
-    "views": 3190815,
-    "channel": "KADOKAWAanime",
-    "viewsAt": "2026-10-05",
-    "fame": "top"
   },
   {
     "id": "Dw71FNH0InE",
@@ -30871,7 +30867,9 @@
     "views": 449771,
     "channel": "Eir Aoi Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "bPvGOJyxg6E",
@@ -33110,6 +33108,32 @@
     "fame": "minor"
   },
   {
+    "id": "cREAHvB02RQ",
+    "title": "THERE IS A REASON",
+    "work": "ノーゲーム・ノーライフ ゼロ",
+    "artist": "鈴木このみ",
+    "year": 2017,
+    "type": "主題歌",
+    "confidence": "中",
+    "source": "KADOKAWA公式",
+    "intro": 24,
+    "chorus": 124,
+    "aliases": [
+      "のーげーむのーらいふ",
+      "ノゲノラ"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": false,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3190815,
+    "channel": "KADOKAWAanime",
+    "viewsAt": "2026-10-05",
+    "fame": "top"
+  },
+  {
     "id": "Du3tQ2SXezA",
     "title": "TOMORROW",
     "work": "この素晴らしい世界に祝福を!2",
@@ -33961,7 +33985,7 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "EGOIST公式MV",
-    "intro": 0,
+    "intro": 6.2,
     "chorus": 128,
     "aliases": [],
     "embeddable": null,
@@ -33970,7 +33994,9 @@
     "views": 507875,
     "channel": "EGOIST Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "5epjVow18Xc",
@@ -37414,7 +37440,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "ASCA公式MV",
-    "intro": 0,
+    "intro": 6.2,
     "chorus": 53,
     "aliases": [],
     "embeddable": null,
@@ -37423,7 +37449,9 @@
     "views": 588533,
     "channel": "ASCA Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "n269iQ2UTKg",
@@ -37569,7 +37597,9 @@
     "views": 127167,
     "channel": "水樹奈々",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "p6HWwmPJdi4",
@@ -37949,7 +37979,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "水樹奈々公式MV",
-    "intro": 0,
+    "intro": 1.5,
     "chorus": 75,
     "aliases": [],
     "embeddable": null,
@@ -37958,7 +37988,9 @@
     "views": 5134334,
     "channel": "水樹奈々",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "OFwyWrtCHHQ",
@@ -40378,7 +40410,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "sajou no hana公式MV",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 129,
     "aliases": [],
     "embeddable": null,
@@ -40387,7 +40419,9 @@
     "views": 1114539,
     "channel": "sajou no hana Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "jPq5elJBwmo",
@@ -40599,7 +40633,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "藍井エイル公式MV",
-    "intro": 0,
+    "intro": 4.5,
     "chorus": 58,
     "aliases": [],
     "embeddable": null,
@@ -40608,7 +40642,9 @@
     "views": 2108694,
     "channel": "Eir Aoi Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "7ns79MgJJQY",
@@ -41059,7 +41095,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "SAOゲーム公式（ゲームOP映像）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 56,
     "aliases": [],
     "embeddable": null,
@@ -41068,7 +41104,9 @@
     "views": 894654,
     "channel": "SAOゲーム公式チャンネルβeater's cafe",
     "viewsAt": "2026-10-05",
-    "fame": "otaku"
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "qi1J4Lyl8do",
@@ -41225,7 +41263,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "Konomi Suzuki - Topic",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 69,
     "aliases": [],
     "embeddable": null,
@@ -41234,7 +41272,9 @@
     "views": 1668361,
     "channel": "Konomi Suzuki Official",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ZtIaiQlz4lI",
@@ -42647,7 +42687,7 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "ヨルシカ公式MV",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 48,
     "aliases": [],
     "embeddable": null,
@@ -42656,7 +42696,9 @@
     "views": 20598838,
     "channel": "ヨルシカ / n-buna Official",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "nGwvNG_DWE0",
@@ -43603,7 +43645,7 @@
     "views": 5207062,
     "channel": "KING AMUSEMENT CREATIVE official channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "famous"
   },
   {
     "id": "YKF1V9Upu1U",
@@ -58716,7 +58758,7 @@
     "type": "ED",
     "confidence": "高",
     "source": "sajou no hana公式MV",
-    "intro": 0,
+    "intro": 1.2,
     "chorus": 125,
     "aliases": [],
     "embeddable": null,
@@ -58725,7 +58767,9 @@
     "views": 719258,
     "channel": "sajou no hana Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "UpOLIMINs7c",
@@ -58845,7 +58889,9 @@
     "views": 42801,
     "channel": "sajou no hana Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor"
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "j3wz60GbRic",

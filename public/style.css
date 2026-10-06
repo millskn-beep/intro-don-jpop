@@ -159,7 +159,16 @@ button:disabled { cursor: default; }
 .req-body small { color: var(--sub); font-size: 11px; }
 .req-body em { font-style: normal; color: var(--sub); font-size: 11px; width: 100%; }
 .req-votes { flex: none; font-family: var(--font-num); font-size: 12px; color: var(--warn); }
-#reqMore { display: block; margin: 8px auto 0; }
+#reqMore, #candMore { display: block; margin: 8px auto 0; }
+.req-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.req-sub { margin: 0 0 6px; font-size: 13px; color: var(--accent); letter-spacing: .08em; }
+.req-sub span { color: var(--sub); font-weight: 500; letter-spacing: 0; }
+.req-cols .note { margin: 0 0 6px; font-size: 11px; }
+.cand-links { display: flex; flex-wrap: wrap; gap: 4px 10px; width: 100%; font-size: 11px; }
+.cand-links a { color: var(--accent); text-decoration: none; }
+.cand-links a:hover { text-decoration: underline; }
+.cand-vote { flex: none; padding: 4px 10px; font-size: 12px; border-radius: 99px; white-space: nowrap; }
+@media (max-width: 899px) { .req-cols { grid-template-columns: 1fr; } }
 .room-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
 .room-list .empty { grid-column: 1 / -1; text-align: center; color: var(--sub); font-size: 14px; padding: 18px 0; }
 .room-card { background: var(--glass-strong); border: 1px solid var(--line); border-radius: 16px; padding: 13px; display: flex; flex-direction: column; gap: 6px; }
@@ -404,7 +413,7 @@ details.more .settings { margin-top: 6px; }
 /* 背景の映像の濃さ（自分の画面だけ）：スライダーの値を --bgk（0〜1）として掛ける */
 .stage-tools { display: flex; align-items: center; gap: 10px; flex: none; }
 .game-ctrl { display: flex; flex-direction: column; gap: 6px; flex: none; }
-.gear, .sheet-shade, .sheet-close { display: none; } /* スマホ版だけで使う（mobile.css） */
+.gear, .sheet-shade, .sheet-close, .lobby-tabs { display: none; } /* スマホ版だけで使う（mobile.css） */
 .game-ctrl .btn-sub { padding: 6px 12px; font-size: 12px; border-radius: 99px; white-space: nowrap; }
 /* 知名度のチェック（チェックした段階の曲だけを出題） */
 .fame-row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; margin: 10px 0 4px; font-size: 12px; color: var(--sub); font-weight: 700; }

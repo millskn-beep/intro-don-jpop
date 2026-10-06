@@ -166,7 +166,7 @@ socket.on('connect', () => {
   else socket.emit('watchRooms');
 });
 function leaveToHome(msg) {
-  me = null; $('room').hidden = true; $('home').hidden = false; $('roomListPanel').hidden = false; $('requestPanel').hidden = false; loadRequests(); $('roomCode').hidden = true;
+  me = null; $('room').hidden = true; $('home').hidden = false; $('roomListPanel').hidden = false; $('requestPanel').hidden = false; loadRequests(); loadCandidates(); $('roomCode').hidden = true;
   $('homeError').textContent = msg || '';
   socket.emit('watchRooms');
 }
@@ -398,11 +398,19 @@ socket.on('aborted', () => {
 
 // ── 部屋の状態 ──
 socket.on('room', renderRoom);
+// スマホ版のロビーのタブ（参加者・招待／設定）。最初はホストなら「設定」、ほかの人は「参加者・招待」
+let lobbyTabChosen = false;
+function setLobbyTab(tab) {
+  document.body.dataset.ltab = tab;
+  $('lobbyTabs').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
+}
+$('lobbyTabs').onclick = e => { const b = e.target.closest('button[data-tab]'); if (b) { lobbyTabChosen = true; setLobbyTab(b.dataset.tab); } };
 function renderRoom(r) {
   const prevState = room?.state;
   const prevScores = new Map((room?.players || []).map(p => [p.id, p.score]));
   room = r;
   const isHost = r.hostId === me;
+  if (!lobbyTabChosen) setLobbyTab(isHost ? 'settings' : 'members');
   document.querySelectorAll('#settings select').forEach(sel => {
     sel.value = String(r.settings[sel.dataset.key] ?? '');
     sel.disabled = !isHost;
@@ -611,6 +619,34 @@ function renderRequests() {
   $('reqMore').hidden = reqAll.length <= reqShown;
 }
 $('reqMore').onclick = () => { reqShown += 30; renderRequests(); };
+// 追加を検討中の曲：「入れてほしい」を押すと1票（票が入った曲は次の更新で追加）
+let candAll = [], candShown = 15;
+async function loadCandidates() {
+  try { candAll = (await fetch('/api/candidates').then(r => r.json())).candidates || []; } catch (e) { return; }
+  renderCandidates();
+}
+const viewsLabel = v => v >= 1e4 ? `${Math.round(v / 1e4)}万回` : v ? `${v}回` : '';
+function renderCandidates() {
+  $('candCount').textContent = candAll.length ? `（${candAll.length}曲）` : '';
+  $('candList').innerHTML = candAll.slice(0, candShown).map(c => `<li>
+    <span class="req-body"><b>${esc(c.title)}</b><small>${esc(c.work)}${c.type ? `（${esc(c.type)}）` : ''}</small><small>${esc(c.artist)}</small>${c.views ? `<em>再生 ${viewsLabel(c.views)}</em>` : ''}
+      <span class="cand-links">${c.videoId ? `<a href="https://www.youtube.com/watch?v=${encodeURIComponent(c.videoId)}" target="_blank" rel="noopener">▶ YouTubeで試し聴き</a>` : ''}<a href="https://www.google.com/search?q=${encodeURIComponent(`${c.title} ${c.work}`)}" target="_blank" rel="noopener">🔍 Googleで調べる</a></span></span>
+    <button class="btn-sub cand-vote" data-id="${esc(c.id)}">👍 入れてほしい${c.votes ? ` ${c.votes}` : ''}</button></li>`).join('') || '<li class="empty">いまはありません</li>';
+  $('candMore').hidden = candAll.length <= candShown;
+}
+$('candMore').onclick = () => { candShown += 30; renderCandidates(); };
+$('candList').onclick = async e => {
+  const b = e.target.closest('.cand-vote');
+  if (!b) return;
+  b.disabled = true;
+  try {
+    const j = await fetch('/api/candidates/vote', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: b.dataset.id }) }).then(r => r.json());
+    toast(j.message || j.error || '送れませんでした');
+    const c = candAll.find(x => x.id === b.dataset.id);
+    if (c && j.votes) { c.votes = j.votes; renderCandidates(); }
+  } catch (err) { toast('送れませんでした'); b.disabled = false; }
+};
+loadCandidates();
 $('reqForm').onsubmit = async e => {
   e.preventDefault();
   const body = { title: $('reqTitle').value, work: $('reqWork').value, artist: $('reqArtist').value, note: $('reqNote').value };

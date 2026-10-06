@@ -163,6 +163,31 @@ app.post('/api/requests', (req, res) => {
   res.json({ ok: true, message: 'リクエストを受け付けました' });
 });
 
+// ── 追加を検討中の曲（リクエストのまわりで見つけたが、有名曲の基準に届かなかった曲）──
+// トップ画面のリクエストの横に出し、だれでも「入れてほしい」を押せる。票が入った曲は、反映の前に tools/pull-requests.js で取り込んで追加する。
+const CANDIDATES_PATH = path.join(__dirname, 'data', 'candidates.json');
+let CANDIDATES = [];
+try { CANDIDATES = JSON.parse(fs.readFileSync(CANDIDATES_PATH, 'utf8')); } catch (e) { CANDIDATES = []; }
+const voted = new Set(); // IP:曲 → 同じ人が同じ曲に何度も押せないように（再起動で消える）
+function saveCandidates() {
+  try { fs.writeFileSync(CANDIDATES_PATH + '.tmp', JSON.stringify(CANDIDATES, null, 1) + '\n'); fs.renameSync(CANDIDATES_PATH + '.tmp', CANDIDATES_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
+}
+app.get('/api/candidates', (req, res) => res.json({
+  candidates: CANDIDATES.filter(c => c.status === 'pending')
+    .sort((a, b) => (b.votes || 0) - (a.votes || 0) || (b.views || 0) - (a.views || 0))
+    .map(({ id, title, work, artist, year, type, views, votes, reason, videoId }) => ({ id, title, work, artist, year, type, views, votes, reason, videoId })),
+}));
+app.post('/api/candidates/vote', (req, res) => {
+  const c = CANDIDATES.find(x => x.id === String(req.body?.id || '') && x.status === 'pending');
+  if (!c) return res.status(400).json({ error: '曲が見つかりません' });
+  const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
+  if (voted.has(`${ip}:${c.id}`)) return res.json({ ok: true, message: 'この曲にはもう票を入れています' });
+  voted.add(`${ip}:${c.id}`);
+  c.votes = (c.votes || 0) + 1;
+  saveCandidates();
+  res.json({ ok: true, votes: c.votes, message: `「${c.title}」に1票入れました（次の更新で追加します）` });
+});
+
 // ── 収録曲一覧（トップ画面の「収録曲一覧」）と、イントロ・サビ位置の修正の受け付け ──
 // 修正は誰でも送れる。曲データにはすぐ入れず「修正待ち」として溜め、反映の前に tools/pull-fixes.js で取り込む（公開サーバーは再起動でファイルが消えるため）。
 const FIXES_PATH = path.join(__dirname, 'data', 'fixes.json');

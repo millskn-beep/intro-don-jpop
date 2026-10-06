@@ -140,3 +140,13 @@ body.sheet-open .sheet-close { display: block; }
 #over .copy-log { margin-top: 8px; }
 #againBtn:not([hidden]) { position: sticky; bottom: calc(8px + var(--safe-b)); z-index: 6; margin: 10px 0 6px; box-shadow: 0 8px 26px rgba(0, 0, 0, .6); }
 #lobbyBtn:not([hidden]) { margin-bottom: 10px; }
+
+/* ── ロビーのタブ（参加者・招待／設定）── */
+.lobby-tabs { display: flex; gap: 4px; margin-bottom: 8px; padding: 3px; border-radius: 12px; background: rgba(0, 0, 0, .3); }
+.lobby-tabs button { flex: 1; padding: 8px; border: none; border-radius: 9px; background: none; color: var(--sub); font-weight: 700; font-size: 14px; }
+.lobby-tabs button.on { background: var(--glass-strong); color: #fff; box-shadow: 0 0 0 1px var(--accent) inset; }
+body[data-ltab="members"] #lobby #settings { display: none; }
+body[data-ltab="settings"] #lobby .reset-row, body[data-ltab="settings"] #lobby .invite { display: none; }
+/* 参加者タブでは、上のプレイヤーを折り返して全員見えるように */
+body.in-lobby[data-ltab="members"] .room-side .players { flex-wrap: wrap; overflow: visible; }
+body[data-ltab="members"] #lobby .invite { margin-top: 8px; }

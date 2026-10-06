@@ -168,6 +168,8 @@ button:disabled { cursor: default; }
 .cand-links { display: flex; flex-wrap: wrap; gap: 4px 10px; width: 100%; font-size: 11px; }
 .cand-links a { color: var(--accent); text-decoration: none; }
 .cand-links a:hover { text-decoration: underline; }
+.req-near { flex: none; padding: 4px 10px; font-size: 12px; border-radius: 99px; white-space: nowrap; }
+.req-near.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
 .cand-vote { flex: none; padding: 4px 10px; font-size: 12px; border-radius: 99px; white-space: nowrap; }
 @media (max-width: 899px) { .req-cols { grid-template-columns: 1fr; } }
 .room-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }

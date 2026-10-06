@@ -179,7 +179,7 @@ function saveCandidates() {
 app.get('/api/candidates', (req, res) => res.json({
   candidates: CANDIDATES.filter(c => c.status === 'pending')
     .sort((a, b) => (b.votes || 0) - (a.votes || 0) || (b.views || 0) - (a.views || 0))
-    .map(({ id, title, work, artist, year, type, views, votes, reason, videoId }) => ({ id, title, work, artist, year, type, views, votes, reason, videoId })),
+    .map(({ id, title, work, artist, year, type, views, votes, reason, videoId, requestId }) => ({ id, title, work, artist, year, type, views, votes, reason, videoId, requestId })),
 }));
 app.post('/api/candidates/vote', (req, res) => {
   const c = CANDIDATES.find(x => x.id === String(req.body?.id || '') && x.status === 'pending');

@@ -624,24 +624,37 @@ function renderRequests() {
   $('reqList').innerHTML = reqAll.slice(0, reqShown).map(r => `<li class="req-${r.status}">
     <span class="req-status">${REQ_LABEL[r.status] || ''}</span>
     <span class="req-body"><b>${esc(r.title)}</b>${r.work ? `<small>${esc(r.work)}</small>` : ''}${r.artist ? `<small>${esc(r.artist)}</small>` : ''}${r.genre && reqGenres[r.genre] ? `<small class="req-genre">${esc(reqGenres[r.genre])}</small>` : ''}${r.note ? `<em>${esc(r.note)}</em>` : ''}</span>
-    ${(r.votes || 1) > 1 ? `<span class="req-votes">${r.votes}票</span>` : ''}</li>`).join('') || '<li class="empty">まだリクエストはありません</li>';
+    ${(r.votes || 1) > 1 ? `<span class="req-votes">${r.votes}票</span>` : ''}
+    ${candCountOf(r.id) ? `<button class="btn-sub req-near${candFor === r.id ? ' on' : ''}" data-req="${esc(r.id)}">🔎 まわりの曲 ${candCountOf(r.id)}</button>` : ''}</li>`).join('') || '<li class="empty">まだリクエストはありません</li>';
   $('reqMore').hidden = reqAll.length <= reqShown;
 }
 $('reqMore').onclick = () => { reqShown += 30; renderRequests(); };
+// リクエストの「まわりの曲」を押したら、そのリクエストの検討中の曲だけを右側に出す（もう一度押すと閉じる）
+$('reqList').onclick = e => {
+  const b = e.target.closest('.req-near');
+  if (!b) return;
+  candFor = candFor === b.dataset.req ? null : b.dataset.req;
+  candShown = 15; renderRequests(); renderCandidates();
+};
 // 追加を検討中の曲：「入れてほしい」を押すと1票（票が入った曲は次の更新で追加）
-let candAll = [], candShown = 15;
+let candAll = [], candShown = 15, candFor = null; // candFor：いま見ているリクエストのID
+const candCountOf = id => candAll.filter(c => c.requestId === id).length;
 async function loadCandidates() {
   try { candAll = (await fetch('/api/candidates').then(r => r.json())).candidates || []; } catch (e) { return; }
-  renderCandidates();
+  renderCandidates(); renderRequests(); // リクエストの「まわりの曲」の数を出す
 }
 const viewsLabel = v => v >= 1e4 ? `${Math.round(v / 1e4)}万回` : v ? `${v}回` : '';
 function renderCandidates() {
-  $('candCount').textContent = candAll.length ? `（${candAll.length}曲）` : '';
-  $('candList').innerHTML = candAll.slice(0, candShown).map(c => `<li>
+  const req = reqAll.find(r => r.id === candFor);
+  const list = candFor ? candAll.filter(c => c.requestId === candFor) : [];
+  $('candCount').textContent = req ? `：「${req.title}」のまわり（${list.length}曲）` : candAll.length ? `（全 ${candAll.length}曲）` : '';
+  $('candNote').hidden = !!candFor;
+  $('candList').hidden = !candFor;
+  $('candList').innerHTML = list.slice(0, candShown).map(c => `<li>
     <span class="req-body"><b>${esc(c.title)}</b><small>${esc(c.work)}${c.type ? `（${esc(c.type)}）` : ''}</small><small>${esc(c.artist)}</small>${c.views ? `<em>再生 ${viewsLabel(c.views)}</em>` : ''}
       <span class="cand-links">${c.videoId ? `<a href="https://www.youtube.com/watch?v=${encodeURIComponent(c.videoId)}" target="_blank" rel="noopener">▶ YouTubeで試し聴き</a>` : ''}<a href="https://www.google.com/search?q=${encodeURIComponent(`${c.title} ${c.work}`)}" target="_blank" rel="noopener">🔍 Googleで調べる</a></span></span>
     <button class="btn-sub cand-vote" data-id="${esc(c.id)}">👍 入れてほしい${c.votes ? ` ${c.votes}` : ''}</button></li>`).join('') || '<li class="empty">いまはありません</li>';
-  $('candMore').hidden = candAll.length <= candShown;
+  $('candMore').hidden = !candFor || list.length <= candShown;
 }
 $('candMore').onclick = () => { candShown += 30; renderCandidates(); };
 $('candList').onclick = async e => {

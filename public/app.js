@@ -1,5 +1,6 @@
 import { createPlayer } from './player.js';
 import { guessChorus } from './chorus-guess.js';
+import { initLayout } from './layout.js';
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -27,7 +28,7 @@ let me = null, room = null, question = null, myAnswer = null, timerStart = 0, ti
 let myLifelines = null, answering = false; // answering: イントロ/サビ中で、まだ答えられる状態
 
 const player = createPlayer('player', {
-  onReadyToPlay: () => socket.emit('ready'),
+  onReadyToPlay: () => practice ? layoutApi.onReady() : socket.emit('ready'), // テスト1問のときはサーバーに送らない
   onError: code => { toast(`この動画は再生できません（エラー ${code}）`); socket.emit('playerError', { code }); },
 });
 $('volume').value = store.get('aq-vol') || 80;
@@ -249,7 +250,7 @@ document.querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { sendSe
 // リアクションスタンプ
 document.querySelectorAll('[data-react]').forEach(b => b.onclick = () => socket.emit('react', b.dataset.react));
 $('startBtn').onclick = () => socket.emit('start');
-$('nextBtn').onclick = () => socket.emit('next');
+$('nextBtn').onclick = () => practice ? layoutApi.end() : socket.emit('next');
 $('lobbyBtn').onclick = () => socket.emit('backToLobby');
 $('againBtn').onclick = () => socket.emit('start'); // 同じ設定のまま、すぐ次のゲーム
 $('quitBtn').onclick = () => socket.emit('abort');   // 一時停止中：結果発表はせずにロビーへ戻る
@@ -409,6 +410,7 @@ function renderRoom(r) {
   const prevState = room?.state;
   const prevScores = new Map((room?.players || []).map(p => [p.id, p.score]));
   room = r;
+  if (practice) return; // テスト1問の間は画面を切り替えない（終わったら最新の部屋の状態で描き直す）
   const isHost = r.hostId === me;
   if (!lobbyTabChosen) setLobbyTab(isHost ? 'settings' : 'members');
   document.querySelectorAll('#settings select').forEach(sel => {
@@ -667,6 +669,9 @@ $('reqForm').onsubmit = async e => {
   $('reqSend').disabled = false;
 };
 loadRequests();
+// ── レイアウト編集（パソコンだけ・自分の画面だけ）とテスト1問（public/layout.js）──
+let practice = false;
+const layoutApi = initLayout({ socket, player, $, store, toast, getRoom: () => room, getMe: () => me, setPractice: v => { practice = v; } });
 // 最初の問題で前もって読み込んでおく（アニメで少し重いので、出る瞬間に遅れないように）
 function preloadMascot() {
   if (preloadMascot.done || document.body.classList.contains('mascot-off')) return;
@@ -693,7 +698,7 @@ function cue(text, fx) {
 const isInput = () => question?.answerMode === 'input';
 
 socket.on('question', q => {
-  if (q.qNo === 1) playLog = []; // 新しいゲーム
+  if (q.qNo === 1 && !practice) playLog = []; // 新しいゲーム（テスト1問では曲ログを消さない）
   question = q; myAnswer = null; answering = false;
   stopTick();
   showBigChoices(); hintSeen = false; introLeft = 0;
@@ -787,7 +792,7 @@ socket.on('answered', a => markAnswered(a));
 // payload: { index } / { text } / { pass: true }
 function answer(payload) {
   if (myAnswer !== null || !answering) return;
-  socket.emit('answer', payload);
+  if (practice) layoutApi.onAnswer(payload); else socket.emit('answer', payload);
   markAnswered(payload);
 }
 function markAnswered({ index = null, text = null, given = null, pass = false }) {
@@ -877,9 +882,11 @@ socket.on('lifelineResult', r => {
 // ── 答え合わせ ──
 socket.on('reveal', r => {
   stopTick();
-  if (Array.isArray(r.log)) playLog = r.log; // サーバーが持っている「ここまでの曲」
-  if (r.song?.id) rememberIds([r.song.id]);
-  else if (question?.qNo && r.song) playLog[question.qNo - 1] = r.song;
+  if (!practice) { // テスト1問は曲ログ・端末の記録に残さない
+    if (Array.isArray(r.log)) playLog = r.log; // サーバーが持っている「ここまでの曲」
+    if (r.song?.id) rememberIds([r.song.id]);
+    else if (question?.qNo && r.song) playLog[question.qNo - 1] = r.song;
+  }
   answering = false; updateLifelineButtons();
   $('answerInput').disabled = true; $('sendBtn').disabled = true;
   setPhase('reveal', '答え合わせ');

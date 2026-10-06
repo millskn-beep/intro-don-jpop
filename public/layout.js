@@ -1,6 +1,8 @@
 // レイアウト編集（パソコンだけ・自分の画面だけ）とテスト1問
 // ・画面の大きさ（キャンバス）を選び、その中で部品（ステージ・プレイヤー一覧・選択肢・答え合わせ・結果の表）を
 //   ドラッグで移動、右下の角で大きさを変える。実際の画面にはキャンバスごと拡大・縮小して表示する。
+// ・配置は「出題中」と「答え合わせ」で別々に持つ。編集中は見本（選択肢・答え・結果の表）を出して見え方を確かめられる。
+// ・部屋を作る前（トップ画面）からも編集できる（部屋の画面を見本として出す）。
 // ・配置は端末に保存（localStorage）。位置はキャンバスに対する割合で持つので、画面の大きさを変えても形が崩れない。
 // ・テスト1問：サーバーには送らず、本物の出題と同じ合図（question/go/hint/reveal）を手元で順に起こして、自分の画面だけで1問流す。
 //   得点・除外・曲ログ・端末の記録には残らない。
@@ -13,23 +15,34 @@ const PARTS = [
   { key: 'result', label: '答え合わせ', sel: '#result' },
   { key: 'results', label: '結果の表', sel: '#results' },
 ];
-// 初めの配置（キャンバスに対する割合 x, y, 幅, 高さ）
+// 初めの配置（キャンバスに対する割合 x, y, 幅, 高さ）。出題中と答え合わせで別々
 const DEFAULT = {
-  // 答え合わせ中も選択肢は（薄く）出ているので、答え合わせ・結果の表を上、選択肢を下に分けて重ならないようにする
-  side: [0, 0, 0.17, 1], stage: [0.18, 0, 0.82, 0.17],
-  result: [0.18, 0.19, 0.54, 0.38], results: [0.73, 0.19, 0.27, 0.38], quiz: [0.18, 0.59, 0.82, 0.41],
+  // 出題中：選択肢を大きく
+  play: { side: [0, 0, 0.17, 1], stage: [0.18, 0, 0.82, 0.17], quiz: [0.18, 0.19, 0.82, 0.81],
+          result: [0.18, 0.19, 0.54, 0.38], results: [0.73, 0.19, 0.27, 0.38] },
+  // 答え合わせ：選択肢も（薄く）出ているので、答え合わせ・結果の表を上、選択肢を下に分けて重ならないようにする
+  reveal: { side: [0, 0, 0.17, 1], stage: [0.18, 0, 0.82, 0.17], quiz: [0.18, 0.59, 0.82, 0.41],
+            result: [0.18, 0.19, 0.54, 0.38], results: [0.73, 0.19, 0.27, 0.38] },
 };
+const PHASE_LABEL = { play: '出題中', reveal: '答え合わせ' };
 const MIN = { w: 0.08, h: 0.06 };
 const KEY = 'aq-layout';
+// 編集中に出す見本
+const SAMPLE_CHOICES = ['イントロの曲', 'となりの曲', 'あの名曲', '主題歌', 'オープニング', 'エンディング', '挿入歌', '劇場版の曲']
+  .map((t, i) => ({ title: `${t}（見本）`, work: `作品 ${String.fromCharCode(65 + i)}` }));
 
 export function initLayout({ socket, player, $, store, toast, getRoom, getMe, setPractice }) {
   const wide = matchMedia('(min-width: 900px)');
   const load = () => { try { return JSON.parse(store.get(KEY) || 'null') || {}; } catch (e) { return {}; } };
   let cfg = { on: false, preset: '1280x720', rects: {}, ...load() };
+  // 前の形（出題中・答え合わせの区別なし）から移す
+  if (cfg.rects && !cfg.rects.play && !cfg.rects.reveal && Object.keys(cfg.rects).length) cfg.rects = { play: { ...cfg.rects }, reveal: { ...cfg.rects } };
+  cfg.rects = { play: {}, reveal: {}, ...cfg.rects };
   const save = () => store.set(KEY, JSON.stringify(cfg));
-  const rectOf = k => cfg.rects[k] || DEFAULT[k];
-  let editing = false, practicing = false;
+  let editing = false, practicing = false, editPhase = 'play', preview = false;
   const room = $('room'), results = $('results'), resultsHome = results.parentNode, resultsNext = results.nextSibling;
+  const phase = () => (editing && !practicing) ? editPhase : (document.body.classList.contains('revealing') ? 'reveal' : 'play');
+  const rectOf = k => cfg.rects[phase()][k] || DEFAULT[phase()][k];
 
   // ── ツールバー ──
   const bar = document.createElement('div');
@@ -38,22 +51,92 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
     <label><input type="checkbox" id="lyOn"> 自分の配置を使う</label>
     <label>画面の大きさ <select id="lyPreset"><option value="1280x720">1280×720</option><option value="1600x900">1600×900</option><option value="1920x1080">1920×1080</option><option value="window">今のウインドウ</option></select></label>
     <button class="btn-sub" id="lyEdit" type="button">配置を編集</button>
+    <span class="ly-phase" id="lyPhase" hidden><button type="button" data-phase="play">出題中</button><button type="button" data-phase="reveal">答え合わせ</button></span>
     <button class="btn-sub" id="lyTest" type="button">▶ テスト1問</button>
     <button class="btn-sub" id="lyReset" type="button">元に戻す</button>
     <button class="btn-sub" id="lyClose" type="button">閉じる</button>`;
   document.body.appendChild(bar);
-  const openBtn = document.createElement('button');
-  openBtn.className = 'btn-sub layout-open'; openBtn.type = 'button'; openBtn.textContent = '🧩 レイアウト';
-  openBtn.title = '画面の配置を自分用に変える（パソコンだけ）';
-  document.querySelector('.stage-tools').appendChild(openBtn);
-  openBtn.onclick = () => { bar.hidden = !bar.hidden; };
-  $('lyClose').onclick = () => { bar.hidden = true; setEditing(false); };
+  // 開くボタン：部屋のステージと、トップ画面（部屋を作る前）の2か所
+  const addOpen = (parent, where) => {
+    const b = document.createElement('button');
+    b.className = 'btn-sub layout-open'; b.type = 'button'; b.textContent = '🧩 レイアウト';
+    b.title = '画面の配置を自分用に変える（パソコンだけ）';
+    b.onclick = () => openBar(where);
+    parent.appendChild(b);
+  };
+  addOpen(document.querySelector('.stage-tools'), 'room');
+  addOpen(document.querySelector('#roomListPanel .list-head'), 'home');
+  function openBar(where) {
+    if (!bar.hidden) return closeBar();
+    bar.hidden = false;
+    if (where === 'home' && room.hidden) enterPreview();
+  }
+  function closeBar() { bar.hidden = true; if (practicing) endPractice(); setEditing(false); exitPreview(); }
+  $('lyClose').onclick = closeBar;
   $('lyOn').checked = cfg.on; $('lyPreset').value = cfg.preset;
   $('lyOn').onchange = e => { cfg.on = e.target.checked; save(); apply(); };
   $('lyPreset').onchange = e => { cfg.preset = e.target.value; save(); apply(); };
   $('lyEdit').onclick = () => setEditing(!editing);
-  $('lyReset').onclick = () => { if (confirm('配置を初めの状態に戻しますか？')) { cfg.rects = {}; save(); apply(); } };
+  $('lyPhase').onclick = e => { const b = e.target.closest('button[data-phase]'); if (b) { editPhase = b.dataset.phase; samples(); apply(); } };
+  $('lyReset').onclick = () => {
+    if (!confirm(`「${PHASE_LABEL[phase()]}」の配置を初めの状態に戻しますか？`)) return;
+    cfg.rects[phase()] = {}; save(); apply();
+  };
   $('lyTest').onclick = () => practicing ? endPractice() : startPractice();
+
+  // ── 部屋を作る前の見本表示（トップ画面から開いたとき）──
+  const homeParts = ['home', 'roomListPanel', 'requestPanel'];
+  function enterPreview() {
+    if (preview || !room.hidden) return;
+    preview = true;
+    homeParts.forEach(id => { $(id).hidden = true; });
+    room.hidden = false;
+    document.body.classList.add('ly-preview');
+    $('lobby').hidden = true;
+    if (!$('players').children.length) {
+      const name = ($('nameInput').value || store.get('aq-name') || 'あなた').trim();
+      $('players').innerHTML = `<li class="me ly-sample"><span class="pl-name"><b>${name.replace(/[<>&]/g, '')}</b></span><span class="pts">0</span></li>`;
+    }
+  }
+  function exitPreview() {
+    if (!preview) return;
+    preview = false;
+    document.body.classList.remove('ly-preview');
+    $('players').querySelectorAll('.ly-sample').forEach(li => li.remove());
+    room.hidden = true;
+    homeParts.forEach(id => { $(id).hidden = false; });
+  }
+
+  // ── 編集中の見本（選択肢・答え・結果の表）。本物の出題中（テスト1問など）は出さない ──
+  let saved = null;
+  function samples() {
+    if (saved) { // いったん元に戻してから、出すかどうかを決める
+      for (const [id, v] of Object.entries(saved.html)) $(id).innerHTML = v;
+      for (const [id, v] of Object.entries(saved.hidden)) $(id).hidden = v;
+      saved.classes.forEach(c => document.body.classList.remove(c));
+      saved = null;
+    }
+    const b = document.body.classList;
+    // 編集中で、本物の出題・答え合わせ（テスト1問を含む）が出ていないときだけ見本を出す
+    if (!editing || practicing || b.contains('playing') || b.contains('revealing')) return;
+    const ids = ['choices', 'answer', 'results', 'highlights', 'clues', 'phase', 'qno', 'timer'];
+    saved = { html: Object.fromEntries(ids.map(id => [id, $(id).innerHTML])), hidden: { quiz: $('quiz').hidden, result: $('result').hidden, lobby: $('lobby').hidden, over: $('over').hidden }, classes: [] };
+    document.body.classList.add('ly-sample'); saved.classes.push('ly-sample'); // 見本のあいだは背景の動画（空）を隠す
+    $('choices').innerHTML = SAMPLE_CHOICES.map((c, i) => `<button class="choice${editPhase === 'reveal' && i === 2 ? ' correct' : ''}" data-i="${i}" disabled>${c.title}<small>${c.work}</small></button>`).join('');
+    $('quiz').hidden = false; $('lobby').hidden = true; $('over').hidden = true;
+    $('qno').textContent = '見本'; $('timer').textContent = editPhase === 'play' ? '12.3' : '';
+    if (editPhase === 'reveal') {
+      $('phase').textContent = '答え合わせ';
+      $('answer').innerHTML = 'あの名曲（見本）<small>作品 C OP／歌手（2024）</small>';
+      $('results').innerHTML = ['あなた', 'プレイヤー2', 'プレイヤー3'].map((n, i) =>
+        `<tr><td class="who">${n}</td><td class="${i < 2 ? 'ok' : 'ng'}">${i < 2 ? '正解' : '不正解'}</td><td class="num">${(3.2 + i * 1.7).toFixed(2)}秒</td><td class="num">+${[920, 780, 0][i]}</td></tr>`).join('');
+      $('result').hidden = false;
+      for (const c of ['revealing', 'compact']) if (!document.body.classList.contains(c)) { document.body.classList.add(c); saved.classes.push(c); }
+    } else {
+      $('phase').textContent = 'イントロ再生中…（見本）';
+      $('result').hidden = true;
+    }
+  }
 
   // ── 枠（編集中だけ表示。ドラッグで移動、右下の角で大きさ）──
   const frames = PARTS.map(p => {
@@ -68,15 +151,18 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
     if (cfg.preset === 'window') return [Math.round(innerWidth - 32), Math.round(innerHeight - 90)];
     return PRESETS[cfg.preset] || PRESETS['1280x720'];
   }
-  let scale = 1;
+  let scale = 1, lastPhase = null;
   function active() {
     const b = document.body.classList;
     return wide.matches && (editing || (cfg.on && (practicing || b.contains('playing') || b.contains('revealing'))));
   }
   function apply() {
     const on = active();
+    lastPhase = phase();
     document.body.classList.toggle('layout-on', on);
     document.body.classList.toggle('layout-editing', on && editing);
+    $('lyPhase').hidden = !editing;
+    $('lyPhase').querySelectorAll('button').forEach(b => { b.classList.toggle('on', b.dataset.phase === phase()); b.disabled = practicing; });
     // 結果の表は、答え合わせの中から出してキャンバスに直接置く（別々に動かせるように）
     if (on && results.parentNode !== room) room.appendChild(results);
     if (!on && results.parentNode !== resultsHome) resultsHome.insertBefore(results, resultsNext);
@@ -103,22 +189,22 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
     editing = on;
     $('lyEdit').textContent = on ? '編集を終える' : '配置を編集';
     if (on && !cfg.on) { cfg.on = true; $('lyOn').checked = true; save(); }
-    apply();
+    samples(); apply();
   }
-  // 出題・答え合わせ・ロビーの切り替え（body のクラス）に合わせて付け外し
+  // 出題・答え合わせ・ロビーの切り替え（body のクラス）に合わせて付け外し・配置の切り替え
   new MutationObserver(() => {
     const want = active();
-    if (want !== document.body.classList.contains('layout-on')) apply();
+    if (want !== document.body.classList.contains('layout-on') || (want && phase() !== lastPhase)) apply();
   }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
   addEventListener('resize', () => { if (document.body.classList.contains('layout-on')) apply(); });
   wide.addEventListener('change', apply);
 
-  // ドラッグ（移動・大きさ）。キャンバスの縮小ぶん（scale）で割って、割合で保存する
+  // ドラッグ（移動・大きさ）。キャンバスの縮小ぶん（scale）で割って、割合で保存する（いま見ている場面の配置に）
   room.addEventListener('pointerdown', e => {
     const f = e.target.closest('.layout-frame');
     if (!f || !editing) return;
     e.preventDefault();
-    const key = f.dataset.key, resize = e.target.classList.contains('layout-resize');
+    const key = f.dataset.key, resize = e.target.classList.contains('layout-resize'), ph = phase();
     const [W, H] = canvasSize();
     const start = [...rectOf(key)], sx = e.clientX, sy = e.clientY;
     f.setPointerCapture(e.pointerId);
@@ -127,7 +213,7 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
       let [x, y, w, h] = start;
       if (resize) { w = Math.max(MIN.w, Math.min(1 - x, w + dx)); h = Math.max(MIN.h, Math.min(1 - y, h + dy)); }
       else { x = Math.max(0, Math.min(1 - w, x + dx)); y = Math.max(0, Math.min(1 - h, y + dy)); }
-      cfg.rects[key] = [x, y, w, h].map(v => Math.round(v * 1000) / 1000);
+      cfg.rects[ph][key] = [x, y, w, h].map(v => Math.round(v * 1000) / 1000);
       apply();
     };
     const up = () => { f.removeEventListener('pointermove', move); f.removeEventListener('pointerup', up); save(); };
@@ -135,24 +221,26 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
   });
 
   // ── テスト1問（自分の画面だけ）──
-  let timers = [], catalog = null, pq = null;
-  let firing = false;
+  let timers = [], catalog = null, pq = null, firing = false;
   const fire = (ev, data) => { firing = true; try { socket.listeners(ev).forEach(fn => fn(data)); } finally { firing = false; } };
   const later = (fn, ms) => timers.push(setTimeout(fn, ms));
   const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  // 部屋を作る前（見本表示）は、ふつうの設定で流す
+  const BASE_SETTINGS = { introLen: 5, hintAt: 10, chorusLen: 15, introPlays: 1, choices: 8, answerMode: 'choice', clues: true, bonus: true, autoNext: 0 };
   async function startPractice() {
     const r = getRoom();
-    if (!r || r.state !== 'lobby') return toast('テストは部屋の待機中に使えます');
+    if (!preview && (!r || r.state !== 'lobby')) return toast('テストは部屋の待機中か、トップ画面のレイアウトから使えます');
     if (!catalog) { try { catalog = (await fetch('/api/catalog').then(x => x.json())).songs; } catch (e) { return toast('曲を読み込めませんでした'); } }
     const pool = catalog.filter(s => s.chorusKnown && (s.fame === 'top' || s.fame === 'famous'));
     const song = pool[Math.floor(Math.random() * pool.length)];
     const near = shuffle(catalog.filter(s => s.id !== song.id && s.work !== song.work && Math.abs(s.year - song.year) <= 5));
     const choices = shuffle([song, ...near.slice(0, 7)]).map(s => ({ title: s.title, work: s.work }));
-    const S = { ...r.settings, answerMode: 'choice' };
+    const S = { ...BASE_SETTINGS, ...(preview ? {} : r.settings), answerMode: 'choice' };
     const plays = S.introPlays || 1;
     const hintAt = plays <= 1 ? S.hintAt : Math.max(S.hintAt, plays * S.introLen + (plays - 1) + 1.5);
     pq = { song, S, plays, hintAt, total: hintAt + S.chorusLen, correctIndex: choices.findIndex(c => c.title === song.title && c.work === song.work), t0: 0, done: false };
     practicing = true; setPractice(true);
+    samples(); // 見本は外す（本物の表示にする）
     document.body.classList.remove('in-lobby'); // 待機中の表示（ステージの絵・残り時間を隠す）を外す。終わったら部屋の描き直しで戻る
     $('lyTest').textContent = '■ テストを終える';
     fire('question', { qNo: 1, qTotal: 1, videoId: song.id, intro: song.intro, start: song.intro, kind: 'intro', final: false, answerMode: 'choice', choices, settings: S });
@@ -188,20 +276,22 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
       correctIndex,
       song: { id: song.id, title: song.title, work: song.work, artist: song.artist, year: song.year, type: song.type },
       intro: song.intro, chorus: song.chorus, chorusKnown: song.chorusKnown,
-      results: [{ id: getMe(), name: me?.name || 'あなた', avatar: me?.avatar, answered: !!a, index: a?.index ?? null, given: null, pass: !!a?.pass,
+      results: [{ id: getMe(), name: me?.name || ($('nameInput').value || 'あなた'), avatar: me?.avatar, answered: !!a, index: a?.index ?? null, given: null, pass: !!a?.pass,
                   elapsed: a ? a.elapsed : null, correct: a?.index === correctIndex, points: 0, hint: false }],
       highlights: [], last: true, autoNext: 0,
     });
+    if (preview) $('nextBtn').hidden = false; // 見本表示では「結果発表へ」でテストを終える
   }
   function endPractice() {
     timers.forEach(clearTimeout); timers = [];
     pq = null; practicing = false; setPractice(false);
     $('lyTest').textContent = '▶ テスト1問';
     player.stop();
-    document.body.classList.remove('playing', 'revealing', 'fading');
+    document.body.classList.remove('playing', 'revealing', 'fading', 'compact');
     const r = getRoom();
-    if (r) fire('room', r); // 部屋の待機中の表示に戻す
-    apply();
+    if (r && !preview) fire('room', r); // 部屋の待機中の表示に戻す
+    else { $('quiz').hidden = true; $('result').hidden = true; }
+    samples(); apply();
   }
   // 本物の出題が始まったら（ホストが開始した）、テストはやめる。手元で起こした合図（fire）のときは無視
   socket.on('question', () => {

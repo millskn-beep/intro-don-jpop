@@ -30,3 +30,14 @@
   .layout-resize { position: absolute; right: -2px; bottom: -2px; width: 22px; height: 22px; cursor: nwse-resize; border-radius: 6px 0 12px 0;
     background: var(--accent); box-shadow: 0 0 10px rgba(127, 232, 255, .7); }
 }
+@media (min-width: 900px) {
+  /* 場面の切り替え（出題中／答え合わせ）：編集中だけ */
+  .ly-phase:not([hidden]) { display: inline-flex; gap: 2px; padding: 2px; border-radius: 99px; background: rgba(0, 0, 0, .35); }
+  .ly-phase button { padding: 5px 12px; border: none; border-radius: 99px; background: none; color: var(--sub); font-weight: 700; font-size: 13px; cursor: pointer; }
+  .ly-phase button.on { background: var(--glass-strong); color: #fff; box-shadow: 0 0 0 1px var(--accent) inset; }
+  .ly-phase button:disabled { cursor: default; opacity: .6; }
+  /* トップ画面から開いたとき（部屋を作る前の見本）：待機中の画面は出さない */
+  body.ly-preview #lobby { display: none !important; }
+  .list-head .layout-open { margin-left: 6px; }
+}
+body.ly-sample .video-bg { visibility: hidden; }

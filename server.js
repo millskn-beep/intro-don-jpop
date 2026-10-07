@@ -211,7 +211,10 @@ app.get('/api/catalog', (req, res) => {
     fame: FAME.map(([k, label]) => ({ key: k, label })),
     songs: SONGS.map(s => ({ id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type || '',
       genres: genresOf(s), fame: fameOf(s), intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0, fix: FIXES[s.id] || null, warn: flags[s.id] || null,
-      report: REPORTS[s.id] ? { wrong: REPORTS[s.id].wrong || 0, delete: REPORTS[s.id].delete || 0 } : null })),
+      report: REPORTS[s.id] ? { wrong: REPORTS[s.id].wrong || 0, delete: REPORTS[s.id].delete || 0 } : null,
+      // 自動の解析で直した（tools/auto_fix.py）。直す前の値も出して、収録曲一覧で確かめ・戻せるように
+      auto: s.introSource === 'auto' || s.chorusSource === 'audio2'
+        ? { intro: s.introSource === 'auto' ? s.introBefore ?? 0 : null, chorus: s.chorusSource === 'audio2' ? s.chorusBefore ?? null : null } : null })),
   });
 });
 app.get('/api/fixes', (req, res) => res.json({ fixes: FIXES }));

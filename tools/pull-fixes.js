@@ -50,8 +50,8 @@ async function remote(name) {
     if (!s) { console.log(`  （曲が見つからない）${id}`); continue; }
     const before = { intro: s.intro || 0, chorus: s.chorus || 0, introMethod: s.introMethod || null, chorusSource: s.chorusSource || null };
     if (f.intro === before.intro && f.chorus === before.chorus) continue; // 取り込み済み（公開側は再起動まで残る）
-    if (f.intro !== (s.intro || 0)) { s.intro = f.intro; s.introMeasured = false; delete s.introMethod; delete s.introUnsure; } // 手で直した印（チェック画面と同じ）
-    if (f.chorus !== s.chorus) { s.chorus = f.chorus; s.chorusSource = 'manual'; }
+    if (f.intro !== (s.intro || 0)) { s.intro = f.intro; s.introMeasured = false; delete s.introMethod; delete s.introUnsure; delete s.introSource; delete s.introBefore; } // 手で直したら自動の印は外す // 手で直した印（チェック画面と同じ）
+    if (f.chorus !== s.chorus) { s.chorus = f.chorus; s.chorusSource = 'manual'; delete s.chorusBefore; }
     history.push({ id, title: s.title, work: s.work, channel: s.channel || '', at: f.at, before, after: { intro: f.intro, chorus: f.chorus } });
     console.log(`  ${s.title}（${s.work}）: イントロ ${before.intro} / サビ ${before.chorus} → イントロ ${f.intro} / サビ ${f.chorus}${f.count > 1 ? `（${f.count}回送信）` : ''}`);
     n++;

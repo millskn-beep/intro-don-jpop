@@ -62,3 +62,4 @@ body.editing .songs-main { margin-right: 400px; } /* PC：右側に編集パネ�
 .report-actions .btn-sub { font-size: 12px; padding: 5px 12px; border-radius: 99px; }
 .report-form { display: grid; gap: 6px; margin-top: 8px; font-size: 13px; }
 .report-form textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 13px; }
+.sg-tags .auto { color: #8dffc8; border-color: rgba(141, 255, 200, .55); }

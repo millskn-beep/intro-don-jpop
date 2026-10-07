@@ -300,6 +300,8 @@ $('excludeClear').onclick = () => socket.emit('clearExclude');
 $('resetPlayed').onclick = () => {
   if (confirm('このルームで流した曲・貼り付けたログの除外を解除しますか？（前に出た曲もまた出るようになります。この端末の記録は消えません）')) socket.emit('clearExclude');
 };
+// ロビーの一番上：これから遊ぶ曲を除外に追加しない（ホストが切り替え）
+$('noRecordBtn').onclick = () => { if (room) sendSettings({ noRecord: !room.settings.noRecord }); };
 // 除外中の曲（この部屋で出た曲＋貼り付けたログの曲）を全部コピー
 // （スマホではタップの処理の中ですぐコピーしないと失敗するので、一覧は先に受け取っておく）
 let excludedCache = [], excludedCount = -1;
@@ -451,6 +453,11 @@ function renderRoom(r) {
   $('resetInfo').textContent = r.excluded ? `このルームで除外中の曲：${r.excluded}曲` : 'このルームで除外中の曲はありません';
   $('resetPlayed').disabled = !r.excluded;
   $('resetPlayed').hidden = !isHost;
+  const noRec = !!r.settings.noRecord;
+  $('noRecordBtn').textContent = noRec ? '✓ これから遊ぶ曲は除外に追加しない' : '🔁 これから遊ぶ曲は除外に追加しない';
+  $('noRecordBtn').classList.toggle('on', noRec);
+  $('noRecordBtn').disabled = !isHost || (r.state === 'playing' && !r.paused);
+  $('noRecordBtn').hidden = !isHost && !noRec; // 参加者には、オンのときだけ表示
   $('startBtn').hidden = !isHost; $('waitHost').hidden = isHost;
   $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
   $('lobbyBtn').hidden = !isHost; $('againBtn').hidden = !isHost;
@@ -949,7 +956,7 @@ socket.on('reveal', r => {
   stopTick();
   if (!practice) { // テスト1問は曲ログ・端末の記録に残さない
     if (Array.isArray(r.log)) playLog = r.log; // サーバーが持っている「ここまでの曲」
-    if (r.song?.id) rememberIds([r.song.id]);
+    if (r.song?.id && !room?.settings?.noRecord) rememberIds([r.song.id]); // 「除外に追加しない」のときは端末にも記録しない
     else if (question?.qNo && r.song) playLog[question.qNo - 1] = r.song;
   }
   answering = false; updateLifelineButtons();

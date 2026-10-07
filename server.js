@@ -250,12 +250,13 @@ const OPTIONS = {
   topic: ['all', 'series', ...GENRE_KEYS], // お題：全部／作品を選ぶ／ジャンル（data/genres.json）
   introPlays: [1, 2, 3],                 // イントロを流す回数（わからなかったときのため、頭から流し直す）
   noExclude: [false, true],              // 前に出た曲・ログを貼った曲も出す（除外しない。同じゲームの中で重なることはない）
+  noRecord: [false, true],               // これから遊ぶ曲を除外に追加しない（ロビーの一番上のボタン）
 };
 
 const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（public/assets/glass/avatar-1〜12）
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
-                   quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false };
+                   quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false };
 // 新しい部屋で最初から除外しておくジャンル（アニソン以外）
 const DEFAULT_EXCLUDE = ['vocaloid', 'jpop']; // ライフラインは使わない（画面からも外した）
 const LIFELINES = ['fifty', 'audience', 'phone', 'replay']; // 50:50 / オーディエンス / テレフォン / もう一度聴く
@@ -453,7 +454,7 @@ function startGame(room) {
   for (const p of room.players.values()) { p.score = 0; p.streak = 0; p.lifelines = freshLifelines(S); }
   // 曲オブジェクトそのものを持つ（ゲーム中に曲データが保存し直されても影響しないように）
   const order = weightedPick([...fresh.map(s => [s, 1]), ...popular.map(s => [s, POPULAR_REPEAT])], n);
-  order.forEach(s => { room.played.delete(s.id); if (!room.kept?.has(s.id)) room.played.add(s.id); }); // 新しく出た曲ほど後ろ（戻すのは古い順）。「除外しない」にした曲は記録しない
+  if (!S.noRecord) order.forEach(s => { room.played.delete(s.id); if (!room.kept?.has(s.id)) room.played.add(s.id); }); // 新しく出た曲ほど後ろ（戻すのは古い順）。「除外しない」にした曲は記録しない
   room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map() }; // stats: token -> 称号用の成績
   nextQuestion(room);
@@ -863,8 +864,8 @@ function resumeGame(room) {
     const picked = weightedPick([...fresh.map(s => [s, 1]), ...popular.map(s => [s, POPULAR_REPEAT])], Math.max(0, need - keep.length));
     const reuse = shuffle(avail.filter(s => room.played.has(s.id) && !picked.includes(s))); // それでも足りなければ除外中の曲から
     const next = [...keep, ...picked, ...reuse].slice(0, need);
-    rest.forEach(s => { if (!next.includes(s)) room.played.delete(s.id); }); // 出さなくなった曲は除外の記録から外す
-    next.forEach(s => { room.played.delete(s.id); if (!room.kept?.has(s.id)) room.played.add(s.id); });
+    if (!S.noRecord) rest.forEach(s => { if (!next.includes(s)) room.played.delete(s.id); }); // 出さなくなった曲は除外の記録から外す
+    if (!S.noRecord) next.forEach(s => { room.played.delete(s.id); if (!room.kept?.has(s.id)) room.played.add(s.id); });
     g.order = [...done, ...next];
   }
   g.paused = null;
@@ -877,7 +878,7 @@ function abortGame(room) {
   if (room.state !== 'playing' || !g) return;
   clearTimers(room);
   saveHistory(room);
-  g.order.slice(g.qi + 1).forEach(s => room.played.delete(s.id));
+  if (!room.settings.noRecord) g.order.slice(g.qi + 1).forEach(s => room.played.delete(s.id));
   g.q = null; g.paused = null;
   room.state = 'lobby';
   io.to(room.code).emit('aborted');

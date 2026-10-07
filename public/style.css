@@ -243,6 +243,8 @@ body.fx-off .cover-fx, body.fx-off .cue video { display: none; }
 .clues li { background: var(--glass-strong); border: 1px solid rgba(255, 211, 107, .6); border-radius: 99px; padding: 5px 13px; font-size: 13px;
             box-shadow: 0 0 12px rgba(255, 211, 107, .25); animation: pop .35s ease; }
 .clues li b { margin-right: 6px; color: var(--warn); }
+/* 出題中はヒントの1段ぶんを先にあけておく（ヒントが出た瞬間に選択肢が下へずれて、押し間違えないように） */
+#quiz .clues { min-height: 31px; }
 @keyframes pop { from { transform: scale(.6); opacity: 0; } }
 .answer-input { display: flex; gap: 8px; align-items: stretch; }
 .answer-input input { margin: 0; font-size: 18px; }
@@ -416,7 +418,12 @@ details.more .settings { margin-top: 6px; }
 .reactions { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 4px 0 10px; }
 .reactions .btn-sub { padding: 5px 12px; font-size: 13px; border-radius: 99px; }
 /* 背景の映像の濃さ（自分の画面だけ）：スライダーの値を --bgk（0〜1）として掛ける */
-.stage-tools { display: flex; align-items: center; gap: 10px; flex: none; }
+/* 幅が足りないとき（画面の拡大率125%・キャラの表示中など）は、真ん中の状態表示をつぶさず、設定の列を次の段へ回す。
+   状態の文字（イントロ再生中／サビ再生中…）の長さでステージの高さが変わると、下の選択肢の位置が動いてしまうため */
+.stage { flex-wrap: wrap; }
+.stage .status { min-width: 230px; }
+.stage .phase { white-space: nowrap; }
+.stage-tools { display: flex; align-items: center; gap: 10px; flex: none; flex-wrap: wrap; justify-content: flex-end; margin-left: auto; }
 .game-ctrl { display: flex; flex-direction: column; gap: 6px; flex: none; }
 .gear, .sheet-shade, .sheet-close, .lobby-tabs { display: none; } /* スマホ版だけで使う（mobile.css） */
 .game-ctrl .btn-sub { padding: 6px 12px; font-size: 12px; border-radius: 99px; white-space: nowrap; }

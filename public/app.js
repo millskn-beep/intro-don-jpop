@@ -451,7 +451,7 @@ function renderRoom(r) {
   $('shuffleTeams').hidden = !isHost;
   const myTeam = r.players.find(p => p.id === me)?.team;
   $('teamRow').querySelectorAll('[data-team]').forEach(b => { b.disabled = b.dataset.team === myTeam; });
-  $('teamInfo').textContent = teamsOn && r.teams ? r.teams.map(t => `${TEAM_LABEL[t.team]} ${t.members}人・${t.score}点`).join('　') : '';
+  $('teamInfo').textContent = teamsOn && r.teams ? r.teams.map(t => `${TEAM_LABEL[t.team]} ${t.members}人`).join('・') : ''; // 待機中は人数だけ（点数は前のゲームのもの）
   $('presets').hidden = !isHost;
   $('modes').hidden = !isHost;
   const fame = r.settings.fame || [];

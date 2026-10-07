@@ -13,11 +13,14 @@ body.char-split.char-split main:has(#room:not([hidden])) { max-width: min(1280px
 .char-dock.right .char-bubble::after { left: auto; right: 30%; }
 .char-dock.right .char-bubble.pop { animation-name: bubblePopR; }
 @keyframes bubblePopR { from { transform: scale(.4); opacity: 0; } }
-.char-img { display: block; width: 100%; filter: drop-shadow(0 0 16px rgba(182, 155, 255, .55)); animation: charBob 2.6s ease-in-out infinite; transform-origin: 50% 100%; }
+/* ポーズの絵は縦の長さはそろっているが横幅がばらばら（1人の絵・2人の絵）。幅に合わせると絵ごとに大きさが変わって見えるので、
+   決まった枠（幅 × 高さ）に収め、足元をそろえる */
+.char-img { display: block; width: 100%; height: calc(var(--dockw) * 1.3); object-fit: contain; object-position: 50% 100%;
+  filter: drop-shadow(0 0 16px rgba(182, 155, 255, .55)); animation: charBob 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
 .char-img:not([src]) { visibility: hidden; }
-.char-img.hop { animation: charHop .55s cubic-bezier(.3, 1.6, .5, 1), charBob 2.6s ease-in-out .55s infinite; }
-@keyframes charBob { 50% { transform: translateY(-6px) rotate(-1.5deg); } }
-@keyframes charHop { 0% { transform: scale(.7) translateY(18%); opacity: .3; } 60% { transform: scale(1.06) translateY(-5%); opacity: 1; } 100% { transform: none; } }
+.char-img.hop { animation: charHop .4s ease-out, charBob 3.2s ease-in-out .4s infinite; }
+@keyframes charBob { 50% { transform: translateY(-3px); } }
+@keyframes charHop { 0% { transform: translateY(4%); opacity: .6; } 100% { transform: none; opacity: 1; } }
 /* 吹き出し */
 .char-bubble { position: absolute; left: 8px; bottom: calc(100% - 14px); transform: none; max-width: 240px; padding: 8px 14px; border-radius: 16px;
   background: #fff; color: #2a2140; font-weight: 900; font-size: 16px; line-height: 1.35; width: max-content; max-width: 250px; white-space: normal; box-shadow: 0 6px 20px rgba(0, 0, 0, .35); }

@@ -487,7 +487,7 @@ function renderRoom(r) {
   if (r.state === 'lobby' && prevState !== 'lobby') { charFx.pose('idle'); charFx.say('lobby'); }
   // 自分の連続正解が3・5・7…と伸びたら、カットイン
   const myStreak = r.players.find(p => p.id === me)?.streak || 0;
-  if (myStreak > prevMyStreak && myStreak >= 3 && myStreak % 2 === 1) { charFx.cutin(`${myStreak}連続正解!`, '止まらない！'); charFx.say('streak', { streak: myStreak }); }
+  if (myStreak > prevMyStreak && myStreak >= 3 && myStreak % 2 === 1) charFx.say('streak', { streak: myStreak }); // 真ん中のカットインはゲームの始まりと終わりだけ（ゲーム中は左右のキャラのセリフだけ）
   prevMyStreak = myStreak;
   // 待機中のステージは、タイマーの代わりに部屋の情報を出す
   document.body.classList.toggle('in-lobby', r.state === 'lobby');
@@ -517,7 +517,6 @@ function flash(kind, text, sub = '') {
   el.innerHTML = `<span>${icon(kind === 'ok' ? 'ok' : 'ng', 'flash-icon')}${esc(text)}${sub ? `<small>${esc(sub)}</small>` : ''}</span>`;
   el.hidden = false;
   clearTimeout(flash.t); flash.t = setTimeout(() => { el.hidden = true; }, 1400);
-  popMascot(kind === 'ok' ? 'ok' : 'ng', 1400);
   charFx.pose(kind === 'ok' ? 'ok' : 'ng');
 }
 function confetti(count = 80) {
@@ -768,7 +767,7 @@ socket.on('question', q => {
   $('timer').textContent = ''; $('barFill').style.width = '0';
   clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer); fadingOut = false; document.body.classList.remove('fading');
   $('barMark').style.left = (q.settings.hintAt / (q.settings.hintAt + q.settings.chorusLen) * 100) + '%';
-  if (q.final && !practice) { charFx.cutin('最終問題!!', '得点2倍'); charFx.say('final'); }
+  if (q.final && !practice) charFx.say('final');
   else if (q.qNo > 1 && !practice) {
     const left = q.qTotal - q.qNo + 1;
     if (left <= 3) charFx.say('remain', { left });
@@ -843,7 +842,7 @@ socket.on('countdown', ({ sec }) => charFx.countdown(sec));
 socket.on('stopIntro', () => {
   player.stopIntro();
   // 流し直す前の間に「もう一回！」（イントロ→間→「もう一回！」→2回目、の順に見えるように）
-  if (introLeft > 0) { introLeft--; cue('もう一回！', 'fx-replay'); popMascot('again'); stageMascot('again'); charFx.pose('again'); charFx.say('again'); setPhase('intro', 'もう一回！'); }
+  if (introLeft > 0) { introLeft--; cue('もう一回！', 'fx-replay'); stageMascot('again'); charFx.pose('again'); charFx.say('again'); setPhase('intro', 'もう一回！'); }
 });
 // イントロをもう一度頭から（部屋の設定「イントロの回数」）
 socket.on('restartIntro', ({ n, plays }) => {
@@ -855,7 +854,7 @@ socket.on('hint', ({ chorus, known = true, intro = 0, seek = true }) => {
   hintSeen = true;
   if (seek) player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); // サビ前問題は流れのままサビに入る
   cue('サビ！', 'fx-burst');
-  setPhase('chorus', 'サビ再生中 ✨（得点×0.7）'); coverFx('fx-chorus'); popMascot('chorus'); stageMascot('chorus'); charFx.pose('chorus'); charFx.say('chorus');
+  setPhase('chorus', 'サビ再生中 ✨（得点×0.7）'); coverFx('fx-chorus'); stageMascot('chorus'); charFx.pose('chorus'); charFx.say('chorus');
 });
 
 // 再接続したとき、すでに答えていた問題の表示を戻す

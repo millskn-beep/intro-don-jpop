@@ -6,8 +6,8 @@
 #   3. 1 時間ごとに公開サイトから修正を取り込み（tools/pull-fixes.js）、増えた正解で判定の基準（何秒中何秒が音楽以外なら飛ばすか）を合わせ直す
 #
 # 4. Songle（産総研の音楽解析サービス。解析済みの曲だけ）と照合する：
-#    サビは Songle の解析があればそれを使う（chorusSource: 'songle'）。イントロは Songle の最初の拍が「いまの位置で音楽が始まっている」
-#    と言っている曲は自動で直さず一覧に。基準の合わせ直しでは、Songle で「すぐ音楽が始まる」と分かる曲も「遅らせすぎ」の確認に使う
+#    Songle の方が正しいので優先する：解析がある曲は、サビは Songle のサビ（chorusSource: 'songle'）、イントロは Songle の最初の拍
+#    （introSource: 'songle'）にする。手で直した値は触らない。基準の合わせ直しでは、Songle で「すぐ音楽が始まる」と分かる曲も「遅らせすぎ」の確認に使う
 # 直した曲には印（introSource: 'auto' ／ chorusSource: 'audio2'・'songle'）と直す前の値（introBefore ／ chorusBefore）を残す。収録曲一覧に「自動で直した」と出る。
 # 手で直した曲（修正の記録がある曲・introMeasured が false の曲）は触らない。途中で止めても、次は続きから。
 #
@@ -252,31 +252,54 @@ def intro_targets():
     done = {e['id'] for k in ('fixed', 'pending', 'checked') for e in read(LOG_PATH, {}).get(k, []) if e.get('kind', 'intro') in ('intro', 'intro-big', 'ok')}
     words = re.compile(VIDEO_WORDS, re.I)
     ok = [s for s in songs if s.get('embeddable') is not False and not s.get('retired') and s['id'] not in hist and s['id'] not in done
-          and s.get('introMeasured') is not False and s.get('introSource') != 'auto']
+          and s.get('introMeasured') is not False and s.get('introSource') not in ('auto', 'songle')]
     topic = lambda s: (videos.get(s['id'], {}).get('channel') or '').endswith('- Topic')
     mv = lambda s: bool(words.search(videos.get(s['id'], {}).get('title', '')))
     # MV・映画の映像 → ほかの動画 → 公式音源（Topic）の順
     return sorted(ok, key=lambda s: (topic(s), not mv(s)))
 
 
+def songle_chorus(s, sg):
+    """Songle にサビの解析があれば、それを優先する（手で直したサビ・修正の記録がある曲は触らない）"""
+    if s.get('chorusSource') in ('manual', 'songle') or not sg.get('chorus'):
+        return ''
+    intro = s.get('intro', 0) or 0
+    t = next((round(c, 1) for c in sg['chorus'] if c > intro + 10), None)
+    if t is None or abs(t - (s.get('chorus') or 0)) < 1:
+        return ''
+    save_song(s['id'], {'chorus': t, 'chorusSource': 'songle', 'chorusBefore': s.get('chorus')})
+    log_event('fixed', id=s['id'], title=s['title'], work=s['work'], kind='chorus', before=s.get('chorus'), after=t, by='songle')
+    return f'・サビ {s.get("chorus")} → {t} 秒（Songle）'
+
+
 def check_intro(s):
+    intro = s.get('intro', 0) or 0
+    sg = songle(s['id']) or {}
+    note = songle_chorus(s, sg)
+    beat = sg.get('beat')
+    # Songle に解析がある曲は、Songle の最初の拍（音楽の始まり）を優先する
+    if beat is not None:
+        b = round(beat, 1)
+        if abs(b - intro) <= MIN_SHIFT:
+            log_event('checked', id=s['id'], kind='ok')
+            return f'そのまま（いま {intro} 秒・Songle の最初の拍 {b} 秒）' + note
+        if abs(b - intro) > MAX_SHIFT:
+            log_event('pending', id=s['id'], title=s['title'], work=s['work'], kind='intro-big', before=intro, after=b, by='songle')
+            return f'★ 大きく動くので一覧だけ（{intro} → {b} 秒・Songle）' + note
+        save_song(s['id'], {'intro': b, 'introSource': 'songle', 'introBefore': intro})
+        log_event('fixed', id=s['id'], title=s['title'], work=s['work'], kind='intro', before=intro, after=b, by='songle')
+        return f'◎ イントロを直した（{intro} → {b} 秒・Songle）' + note
     lab = lab_arr(get_labels(s['id']))
     start = music_start(lab, RULE['win'], RULE['k'])
-    intro = s.get('intro', 0) or 0
     if start is None or start <= intro + MIN_SHIFT:
         log_event('checked', id=s['id'], kind='ok')
-        return f'そのまま（いま {intro} 秒・音楽の始まり {start} 秒）'
-    sg = songle(s['id']) or {}
-    beat = sg.get('beat')
-    if beat is not None and abs(beat - intro) <= 1.5 and abs(beat - start) > 3:
-        log_event('pending', id=s['id'], title=s['title'], work=s['work'], kind='intro-big', before=intro, after=start, rule=dict(RULE), songleBeat=beat, why='songle')
-        return f'★ Songle は「いまの位置で音楽が始まる」と言うので一覧だけ（{intro} → {start} 秒・Songle の最初の拍 {beat:.1f} 秒）'
+        return f'そのまま（いま {intro} 秒・音楽の始まり {start} 秒）' + note
     if start - intro > MAX_SHIFT:
         log_event('pending', id=s['id'], title=s['title'], work=s['work'], kind='intro-big', before=intro, after=start, rule=dict(RULE))
-        return f'★ 大きく動くので一覧だけ（{intro} → {start} 秒）'
+        return f'★ 大きく動くので一覧だけ（{intro} → {start} 秒）' + note
     save_song(s['id'], {'intro': start, 'introSource': 'auto', 'introBefore': intro})
-    log_event('fixed', id=s['id'], title=s['title'], work=s['work'], kind='intro', before=intro, after=start, rule=dict(RULE), songleBeat=beat)
-    return f'◎ イントロを直した（{intro} → {start} 秒）' + (f'（Songle の最初の拍 {beat:.1f} 秒）' if beat is not None else '')
+    log_event('fixed', id=s['id'], title=s['title'], work=s['work'], kind='intro', before=intro, after=start, rule=dict(RULE))
+    return f'◎ イントロを直した（{intro} → {start} 秒）' + note
 
 
 def main():
@@ -297,7 +320,7 @@ def main():
         if time.time() - last_pull > PULL_EVERY:
             pull(); tune(); last_pull = time.time()
         fresh = next((x for x in read(SONGS_PATH, []) if x['id'] == s['id']), None)
-        if not fresh or fresh.get('introMeasured') is False or fresh.get('introSource') == 'auto':
+        if not fresh or fresh.get('introMeasured') is False or fresh.get('introSource') in ('auto', 'songle'):
             continue  # 取り込んだ修正で手で直された曲は触らない
         try:
             had = s['id'] in LABELS

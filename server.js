@@ -131,6 +131,74 @@ app.post('/api/songs', (req, res) => {
   loadSongs();
   res.json({ ok: true, total: ALL_SONGS.length, playable: SONGS.length, changed });
 });
+// ── 自動の解析で直した曲を、聞きながら確かめる画面（review.html。このPCから開いたときだけ）──
+// 一覧は data/auto-fixes.json（tools/auto_fix.py が書く）。確かめた結果は data/auto-review.json に書き、
+// 「元に戻す」「手で決める」「OK」は正解として data/fix-history.json にも足す（自動の解析が次の合わせ直しで学ぶ）
+const AUTO_LOG_PATH = path.join(__dirname, 'data', 'auto-fixes.json');
+const AUTO_REVIEW_PATH = path.join(__dirname, 'data', 'auto-review.json');
+const readJson = (p, d) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch (e) { return d; } };
+const writeJson = (p, v) => { fs.writeFileSync(p + '.tmp', JSON.stringify(v, null, 1) + '\n'); fs.renameSync(p + '.tmp', p); };
+app.get('/api/review', (req, res) => {
+  if (!canEdit(req)) return res.status(403).json({ error: 'このPCから開いたときだけ使えます' });
+  loadSongs();
+  const byId = new Map(ALL_SONGS.map(s => [s.id, s]));
+  const log = readJson(AUTO_LOG_PATH, {}), reviews = readJson(AUTO_REVIEW_PATH, {});
+  const items = [];
+  for (const [bucket, list] of [['fixed', log.fixed || []], ['pending', log.pending || []]]) {
+    for (const e of list) {
+      const s = byId.get(e.id);
+      if (!s) continue;
+      const kind = e.kind === 'chorus' ? 'chorus' : 'intro';
+      const key = `${kind}:${e.id}`;
+      items.push({ key, id: e.id, kind, bucket, title: s.title, work: s.work, artist: s.artist, year: s.year,
+        before: e.before, after: e.after, now: kind === 'intro' ? s.intro || 0 : s.chorus || 0, intro: s.intro || 0, chorus: s.chorus || 0,
+        by: e.by || null, songleBeat: e.songleBeat ?? null, why: e.why || null, at: e.at, review: reviews[key] || null });
+    }
+  }
+  res.json({ items });
+});
+app.post('/api/review', (req, res) => {
+  if (!canEdit(req)) return res.status(403).json({ error: 'このPCから開いたときだけ使えます' });
+  const { id, kind, action } = req.body || {};
+  const value = Number(req.body?.value);
+  if (!['intro', 'chorus'].includes(kind) || !['ok', 'revert', 'set'].includes(action)) return res.status(400).json({ error: '内容が正しくありません' });
+  if (action === 'set' && !(value >= 0 && value <= 1200)) return res.status(400).json({ error: '秒数が正しくありません' });
+  // 自動の解析も同じファイルを書くので、毎回読み直して1曲だけ書き換える
+  const songs = readJson(SONGS_PATH, []);
+  const s = songs.find(x => x.id === id);
+  if (!s) return res.status(404).json({ error: '曲が見つかりません' });
+  const log = readJson(AUTO_LOG_PATH, {});
+  const entry = [...(log.fixed || []), ...(log.pending || [])].reverse().find(e => e.id === id && (e.kind === 'chorus') === (kind === 'chorus'));
+  const autoValue = entry?.after ?? (kind === 'intro' ? s.intro : s.chorus);
+  const before = { intro: s.intro || 0, chorus: s.chorus || 0 };
+  let final;
+  if (kind === 'intro') {
+    const orig = s.introBefore ?? entry?.before ?? s.intro;
+    final = action === 'ok' ? (entry && !['auto', 'songle'].includes(s.introSource) ? autoValue : s.intro) : action === 'revert' ? orig : value;
+    s.intro = Math.round(final * 10) / 10;
+    delete s.introSource; delete s.introBefore; delete s.introUnsure;
+    if (action !== 'revert') { s.introMeasured = false; delete s.introMethod; } // 耳で確かめた位置＝手で直した扱い
+  } else {
+    const orig = s.chorusBefore ?? entry?.before ?? s.chorus;
+    final = action === 'ok' ? (entry && !['audio2', 'songle'].includes(s.chorusSource) ? autoValue : s.chorus) : action === 'revert' ? orig : value;
+    s.chorus = Math.round(final * 10) / 10;
+    s.chorusSource = action === 'revert' ? 'audio' : 'manual';
+    delete s.chorusBefore;
+  }
+  fs.writeFileSync(SONGS_PATH + '.tmp', JSON.stringify(songs, null, 2) + '\n'); fs.renameSync(SONGS_PATH + '.tmp', SONGS_PATH);
+  loadSongs();
+  const reviews = readJson(AUTO_REVIEW_PATH, {});
+  reviews[`${kind}:${id}`] = { action, value: kind === 'intro' ? s.intro : s.chorus, auto: autoValue, at: new Date().toISOString() };
+  writeJson(AUTO_REVIEW_PATH, reviews);
+  // 正解として学ぶ：直す前（自動の値）→ 耳で決めた値
+  const hist = readJson(path.join(__dirname, 'data', 'fix-history.json'), []);
+  hist.push({ id, title: s.title, work: s.work, channel: s.channel || '', at: new Date().toISOString(), by: 'review',
+              before: { intro: kind === 'intro' ? autoValue : s.intro || 0, chorus: kind === 'chorus' ? autoValue : s.chorus || 0 },
+              after: { intro: s.intro || 0, chorus: s.chorus || 0 } });
+  writeJson(path.join(__dirname, 'data', 'fix-history.json'), hist);
+  res.json({ ok: true, intro: s.intro, chorus: s.chorus, was: before });
+});
+
 // ── 曲リクエスト（トップ画面の「出してほしい曲」）──
 // 公開サーバーは再起動（反映）すると書き込んだファイルが消えるので、反映の前に tools/pull-requests.js で手元に取り込んでから曲を追加する。
 // status: open（受付中）／added（追加済み）／notfound（見つからず）
@@ -213,8 +281,8 @@ app.get('/api/catalog', (req, res) => {
       genres: genresOf(s), fame: fameOf(s), intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0, fix: FIXES[s.id] || null, warn: flags[s.id] || null,
       report: REPORTS[s.id] ? { wrong: REPORTS[s.id].wrong || 0, delete: REPORTS[s.id].delete || 0 } : null,
       // 自動の解析で直した（tools/auto_fix.py）。直す前の値も出して、収録曲一覧で確かめ・戻せるように
-      auto: s.introSource === 'auto' || ['audio2', 'songle'].includes(s.chorusSource)
-        ? { intro: s.introSource === 'auto' ? s.introBefore ?? 0 : null, chorus: ['audio2', 'songle'].includes(s.chorusSource) ? s.chorusBefore ?? null : null } : null })),
+      auto: ['auto', 'songle'].includes(s.introSource) || ['audio2', 'songle'].includes(s.chorusSource)
+        ? { intro: ['auto', 'songle'].includes(s.introSource) ? s.introBefore ?? 0 : null, chorus: ['audio2', 'songle'].includes(s.chorusSource) ? s.chorusBefore ?? null : null } : null })),
   });
 });
 app.get('/api/fixes', (req, res) => res.json({ fixes: FIXES }));

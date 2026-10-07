@@ -136,6 +136,7 @@
       <div class="lobby-tabs" id="lobbyTabs"><button type="button" data-tab="members">参加者・招待</button><button type="button" data-tab="settings">設定</button></div>
       <div class="reset-row" id="resetRow">
         <span id="exSummary"></span>
+        <button class="btn-sub" id="noRecordBtn" type="button" title="オンにすると、これから遊ぶ曲を除外に追加しません（次のゲームでもまた出ることがあります）"></button>
         <button class="btn-sub" id="openExclude" type="button">🚫 除外の設定を開く</button>
       </div>
       <div class="team-row" id="teamRow" hidden><span>チーム戦</span><button class="btn-sub team-red" data-team="red" type="button">赤チームへ</button><button class="btn-sub team-blue" data-team="blue" type="button">青チームへ</button><button class="btn-sub" id="shuffleTeams" type="button">🔀 チームをシャッフル</button><span class="team-score" id="teamInfo"></span></div>
@@ -245,8 +246,7 @@
       <div class="ex-box">
         <h5>これからのゲーム</h5>
         <div class="settings"><label title="オンにすると、前のゲームで出た曲・ログを貼った曲も出ます（同じゲームの中で同じ曲は出ません）">前に出た曲を<select data-key="noExclude"><option value="false">出さない（除外する）</option><option value="true">出す（除外を気にしない）</option></select></label></div>
-        <button class="btn-sub" id="noRecordBtn" type="button"></button>
-        <small class="note">オンにすると、これから遊ぶ曲を除外に追加しません（次のゲームでもまた出ることがあります）。</small>
+        <small class="note">「これから遊ぶ曲は除外に追加しない」ボタンは、ロビーの一番上にあります。オンにすると、これから遊ぶ曲を除外に追加しません（次のゲームでもまた出ることがあります）。</small>
       </div>
       <div class="ex-box">
         <h5>前に遊んだ曲を除外に追加</h5>

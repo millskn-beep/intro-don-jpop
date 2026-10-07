@@ -421,9 +421,13 @@ details.more .settings { margin-top: 6px; }
 /* 幅が足りないとき（画面の拡大率125%・キャラの表示中など）は、真ん中の状態表示をつぶさず、設定の列を次の段へ回す。
    状態の文字（イントロ再生中／サビ再生中…）の長さでステージの高さが変わると、下の選択肢の位置が動いてしまうため */
 .stage { flex-wrap: wrap; }
-.stage .status { min-width: 230px; }
+.stage .status { flex: 1 1 230px; min-width: 230px; }
 .stage .phase { white-space: nowrap; }
-.stage-tools { display: flex; align-items: center; gap: 10px; flex: none; flex-wrap: wrap; justify-content: flex-end; margin-left: auto; }
+/* 設定の列は、状態表示の右の残りの幅に収める（足りなければ列の中で折り返す。スライダーも縮む）。
+   列ごと次の段へ回るとステージが高くなり、部屋の画面全体がスクロールしてしまうため。300px も取れないときだけ次の段へ */
+.stage-tools { display: flex; align-items: center; gap: 8px 10px; flex: 3 1 360px; min-width: 300px; flex-wrap: wrap; justify-content: flex-end; margin-left: auto; }
+.stage-tools .vol:not(.chk) { flex: 0 1 96px; min-width: 64px; }
+.stage-tools .vol:not(.chk) input { width: 100%; }
 .game-ctrl { display: flex; flex-direction: column; gap: 6px; flex: none; }
 .gear, .sheet-shade, .sheet-close, .lobby-tabs { display: none; } /* スマホ版だけで使う（mobile.css） */
 .game-ctrl .btn-sub { padding: 6px 12px; font-size: 12px; border-radius: 99px; white-space: nowrap; }

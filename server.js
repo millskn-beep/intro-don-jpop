@@ -377,6 +377,7 @@ function createRoom({ roomName, password } = {}) {
     state: 'lobby',     // lobby | playing | over
     game: null,
     emptySince: null,
+    createdAt: Date.now(), // 部屋を作った時刻（部屋一覧・部屋の中で表示）
   };
   rooms.set(room.code, room);
   return room;
@@ -398,6 +399,7 @@ function roomList() {
         locked: !!r.passwordHash,
         yearFrom: r.settings.yearFrom, yearTo: r.settings.yearTo,
         answerMode: r.settings.answerMode, mode: r.settings.mode, questions: r.settings.questions,
+        createdAt: r.createdAt,
       };
     })
     .sort((a, b) => (a.state === 'lobby' ? 0 : 1) - (b.state === 'lobby' ? 0 : 1) || b.players - a.players);
@@ -414,6 +416,7 @@ function publicRoom(room) {
   return {
     code: room.code,
     name: room.name,
+    createdAt: room.createdAt,
     locked: !!room.passwordHash,
     hostId: room.hostId,
     settings: room.settings,

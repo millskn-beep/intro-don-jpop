@@ -116,7 +116,7 @@ function renderRoomList() {
     const years = r.yearFrom <= 1980 && r.yearTo >= 2029 ? '全年代' : `${r.yearFrom}〜${Math.min(r.yearTo, new Date().getFullYear())}年`;
     return `<li class="room-card" data-code="${esc(r.code)}">
       <div class="rc-top"><span class="rc-state ${state[0]}">${state[1]}</span><span class="rc-name">${r.locked ? '🔒 ' : ''}${esc(r.name)}</span></div>
-      <div class="rc-meta"><span>👤 ${r.players}/${r.max}</span><span>HOST ${esc(r.host)}</span><span>${r.questions}問</span><span>${ANSWER_LABEL[r.answerMode] || ''}・${MODE_LABEL[r.mode] || ''}</span><span>${years}</span></div>
+      <div class="rc-meta"><span title="部屋を作った時刻">🕒 ${madeAt(r.createdAt)}</span><span>👤 ${r.players}/${r.max}</span><span>HOST ${esc(r.host)}</span><span>${r.questions}問</span><span>${ANSWER_LABEL[r.answerMode] || ''}・${MODE_LABEL[r.mode] || ''}</span><span>${years}</span></div>
       <div class="rc-join"><button class="btn-main" ${full ? 'disabled' : ''}>${r.state === 'playing' ? '途中から参加' : '入る'}</button></div>
       <p class="rc-err"></p>
     </li>`;
@@ -421,6 +421,13 @@ socket.on('aborted', () => {
 
 // ── 部屋の状態 ──
 socket.on('room', renderRoom);
+// 部屋を作った時刻（今日なら 時:分:秒、別の日なら 月/日 時:分:秒）
+function madeAt(ms) {
+  if (!ms) return '';
+  const d = new Date(ms), now = new Date(), p = n => String(n).padStart(2, '0');
+  const hms = `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+  return d.toDateString() === now.toDateString() ? hms : `${d.getMonth() + 1}/${d.getDate()} ${hms}`;
+}
 // チーム戦（赤・青）
 const TEAM_LABEL = { red: '赤', blue: '青' };
 $('teamRow').querySelectorAll('[data-team]').forEach(b => b.onclick = () => socket.emit('setTeam', b.dataset.team));
@@ -536,7 +543,7 @@ function renderRoom(r) {
   document.body.classList.toggle('in-lobby', r.state === 'lobby');
   if (r.state === 'lobby') {
     setPhase('', '待機中');
-    $('qno').textContent = `${r.name ? r.name + '・' : ''}${r.players.filter(p => p.connected !== false).length}人が参加中`;
+    $('qno').textContent = `${r.name ? r.name + '・' : ''}${r.players.filter(p => p.connected !== false).length}人が参加中${r.createdAt ? `・${madeAt(r.createdAt)} 作成` : ''}`;
   }
 
   myLifelines = r.players.find(p => p.id === me)?.lifelines || null;

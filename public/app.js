@@ -500,7 +500,7 @@ function renderRoom(r) {
   if (r.state === 'lobby') { show('lobby'); document.body.classList.remove('revealing', 'playing', 'fading'); reloadIfPending(); }
   else if (r.state === 'playing' && prevState !== 'playing' && !question) {
     // 途中参加：次の問題から
-    show('quiz'); $('choices').innerHTML = ''; $('quizNote').textContent = '次の問題から参加します';
+    show('quiz'); $('choices').innerHTML = ''; $('quizNote').textContent = amOut() ? '脱落しました（観戦中）' : '次の問題から参加します';
   }
   if (r.state === 'lobby' && prevState !== 'lobby') { charFx.pose('idle'); charFx.say('lobby'); }
   // 自分の連続正解が3・5・7…と伸びたら、カットイン

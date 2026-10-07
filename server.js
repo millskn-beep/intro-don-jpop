@@ -921,7 +921,8 @@ function reveal(room) {
                correct: !!a?.correct, points: a ? a.points : 0, hint: !!a?.hint, diff: a?.diff ?? null, miss: !!a?.miss,
                lives: p.lives ?? null, out: !!p.out, team: S.teams ? p.team : null };
     })
-    .sort((a, b) => (b.correct - a.correct) || (b.points - a.points) || ((a.elapsed ?? 99) - (b.elapsed ?? 99)));
+    // 正解した人が上（同じなら速い順）。年代当ては点数（近さ）の順
+    .sort((a, b) => (q.years ? (b.points - a.points) : (b.correct - a.correct)) || ((a.elapsed ?? 99) - (b.elapsed ?? 99)));
   const last = room.game.qi + 1 >= room.game.order.length || survivalOver(room);
   io.to(room.code).emit('reveal', {
     eliminated,

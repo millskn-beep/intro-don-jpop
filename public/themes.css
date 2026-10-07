@@ -4,12 +4,13 @@
 body[data-char="rabbit"] {
   --accent: #ffb6dc; --accent2: #ff7fbf; --ok: #8dffc8; --warn: #ffd59e;
   --grad: linear-gradient(120deg, #ffe0f0, #ffb6dc 50%, #ff7fbf);
-  --line: rgba(255, 196, 228, .38); --line-strong: rgba(255, 214, 236, .7);
-  --glass: rgba(70, 24, 58, .44); --glass-strong: rgba(58, 18, 48, .64); --glass-hi: rgba(255, 220, 238, .14);
+  /* パネルはふつうの暗い色のまま（ほんの少しだけ温かく）。ピンクは枠・ボタン・文字の差し色だけにして、全体がにじんで見えないように */
+  --line: rgba(255, 196, 228, .30); --line-strong: rgba(255, 214, 236, .62);
+  --glass: rgba(18, 12, 28, .46); --glass-strong: rgba(14, 10, 24, .66); --glass-hi: rgba(255, 255, 255, .10);
 }
 body[data-char="rabbit"] .backdrop::after,
 body[data-char="cat"] .backdrop::after { content: ""; position: absolute; inset: 0; pointer-events: none; }
-body[data-char="rabbit"] .backdrop::after { background: radial-gradient(ellipse at 20% 0%, rgba(255, 150, 200, .28), transparent 60%), radial-gradient(ellipse at 90% 100%, rgba(255, 200, 230, .22), transparent 55%); }
+body[data-char="rabbit"] .backdrop::after { background: radial-gradient(ellipse at 8% 0%, rgba(255, 150, 200, .12), transparent 38%), radial-gradient(ellipse at 96% 100%, rgba(255, 200, 230, .10), transparent 35%); }
 /* ステージとトップ画面のパネルから、うさ耳がぴょこっと出る */
 body[data-char="rabbit"] .stage, body[data-char="rabbit"] #home,
 body[data-char="cat"] .stage, body[data-char="cat"] #home { position: relative; }
@@ -22,7 +23,7 @@ body[data-char="rabbit"] .stage::before, body[data-char="rabbit"] #home::before 
 body[data-char="rabbit"] .stage::after { content: ""; position: absolute; right: 10px; bottom: -14px; width: 34px; height: 46px; pointer-events: none;
   background: url("assets/mascot/rabbit/deco-carrot.webp") center / contain no-repeat; transform: rotate(18deg); filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .4)); }
 body[data-char="rabbit"] .choice::before { background: linear-gradient(180deg, #ffd1e8, #ff9fcf); color: #6a1748; border-color: #fff; }
-body[data-char="rabbit"] .btn-main { background: linear-gradient(180deg, rgba(255, 255, 255, .25), rgba(255, 255, 255, .06)), rgba(150, 40, 110, .55); }
+body[data-char="rabbit"] .btn-main { background: linear-gradient(180deg, rgba(255, 255, 255, .22), rgba(255, 255, 255, .04)), rgba(200, 50, 130, .62); }
 body[data-char="rabbit"] .char-bubble { background: #fff0f8; color: #7a1f55; }
 body[data-char="rabbit"] .char-bubble::after { border-top-color: #fff0f8; }
 body[data-char="rabbit"] .cutin-band { background: linear-gradient(90deg, rgba(255, 140, 200, .94), rgba(255, 200, 230, .94) 50%, rgba(255, 150, 210, .94)); }

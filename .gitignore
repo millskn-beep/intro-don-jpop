@@ -6,3 +6,7 @@ node_modules/
 data/assets-src/
 data/songs.backup.json
 data/songs.json.tmp
+# EmbeddingGemma 2 の試験用（Python 環境と音のキャッシュ）
+.venv-embed/
+data/audio-cache/
+data/embed-trial-*.json

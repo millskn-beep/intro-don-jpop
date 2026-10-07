@@ -39,7 +39,7 @@ function sorted(list) {
 }
 const row = s => `<li data-id="${s.id}" class="${selected?.id === s.id ? 'on' : ''}">
   <span class="sg-main"><b>${esc(s.title)}</b><small>${esc(s.work)}${s.type ? `（${esc(s.type)}）` : ''}／${esc(s.artist)}</small></span>
-  <span class="sg-tags">${s.year ? `<i>${s.year}</i>` : ''}${genreOf(s) ? `<i>${esc(genreOf(s))}</i>` : ''}<i class="fame-${s.fame}">${esc(fameLabel[s.fame] || '')}</i>${s.fix ? '<i class="pending">修正待ち</i>' : ''}${s.warn && !s.fix ? '<i class="warn">要確認</i>' : ''}</span>
+  <span class="sg-tags">${s.year ? `<i>${s.year}</i>` : ''}${genreOf(s) ? `<i>${esc(genreOf(s))}</i>` : ''}<i class="fame-${s.fame}">${esc(fameLabel[s.fame] || '')}</i>${s.fix ? '<i class="pending">修正待ち</i>' : ''}${s.warn && !s.fix ? '<i class="warn">要確認</i>' : ''}${s.report ? '<i class="reported">報告あり</i>' : ''}</span>
   <span class="sg-sec">イントロ ${s.fix ? s.fix.intro : s.intro}秒<br>サビ ${s.fix ? s.fix.chorus : s.chorus}秒${!s.chorusKnown && !s.fix ? '（仮）' : ''}</span></li>`;
 
 function render() {
@@ -104,6 +104,7 @@ function openEditor(s) {
   $('editor').hidden = false; document.body.classList.add('editing');
   if (ytReady) yt.cueVideoById({ videoId: s.id, startSeconds: pos.intro });
   showPos();
+  $('repForm').hidden = true; showReportInfo();
   document.querySelectorAll('.sg-rows li.on').forEach(li => li.classList.remove('on'));
   document.querySelector(`.sg-rows li[data-id="${s.id}"]`)?.classList.add('on');
 }
@@ -121,6 +122,41 @@ $('edSend').onclick = async () => {
     if (res.ok) { selected.fix = { intro: pos.intro, chorus: pos.chorus, at: new Date().toISOString() }; openEditor(selected); render(); return; }
   } catch (e) { toast('送れませんでした'); }
   showPos();
+};
+
+// ── 曲が違う（探し直す）／削除を依頼：一言（任意）を添えて送る。次の更新で、探し直す・出題から外す ──
+let repKind = null;
+const REP = {
+  wrong: { title: '🔁 曲が違う（探し直す）', ph: '任意：正しい曲名や、動画の URL など' },
+  delete: { title: '🗑 削除を依頼', ph: '任意：理由（アニソンではない・重複している など）' },
+};
+function showReportInfo() {
+  const r = selected?.report;
+  $('repInfo').textContent = r ? `報告が届いています：${[r.wrong ? `曲が違う ${r.wrong}件` : '', r.delete ? `削除の依頼 ${r.delete}件` : ''].filter(Boolean).join('・')}（次の更新で対応します）` : '';
+}
+function openReport(kind) {
+  repKind = kind;
+  $('repTitle').textContent = REP[kind].title;
+  $('repNote').placeholder = REP[kind].ph; $('repNote').value = '';
+  $('repForm').hidden = false; $('repNote').focus();
+}
+$('repWrong').onclick = () => openReport('wrong');
+$('repDelete').onclick = () => openReport('delete');
+$('repCancel').onclick = () => { $('repForm').hidden = true; };
+$('repSend').onclick = async () => {
+  $('repSend').disabled = true;
+  try {
+    const res = await fetch('/api/reports', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: selected.id, kind: repKind, note: $('repNote').value }) });
+    const j = await res.json();
+    toast(j.message || j.error || '送れませんでした');
+    if (res.ok) {
+      const r = selected.report || { wrong: 0, delete: 0 };
+      r[repKind]++; selected.report = r;
+      $('repForm').hidden = true; showReportInfo(); render();
+    }
+  } catch (e) { toast('送れませんでした'); }
+  $('repSend').disabled = false;
 };
 
 load().catch(() => { $('list').innerHTML = '<p class="note">読み込めませんでした</p>'; });

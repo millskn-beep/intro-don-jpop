@@ -19,7 +19,7 @@ const DECOYS = require('./data/decoys.json');
 let ALL_SONGS = [], SONGS = [];
 function loadSongs() {
   ALL_SONGS = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
-  SONGS = ALL_SONGS.filter(s => s.id && s.embeddable !== false);
+  SONGS = ALL_SONGS.filter(s => s.id && s.embeddable !== false && !s.retired); // retired：収録曲一覧の「削除を依頼」で出題から外した曲（データは残す）
   buildSeries();
 }
 
@@ -210,7 +210,8 @@ app.get('/api/catalog', (req, res) => {
     genres: GENRE_KEYS.map(k => ({ key: k, label: GENRES[k].label })),
     fame: FAME.map(([k, label]) => ({ key: k, label })),
     songs: SONGS.map(s => ({ id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type || '',
-      genres: genresOf(s), fame: fameOf(s), intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0, fix: FIXES[s.id] || null, warn: flags[s.id] || null })),
+      genres: genresOf(s), fame: fameOf(s), intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0, fix: FIXES[s.id] || null, warn: flags[s.id] || null,
+      report: REPORTS[s.id] ? { wrong: REPORTS[s.id].wrong || 0, delete: REPORTS[s.id].delete || 0 } : null })),
   });
 });
 app.get('/api/fixes', (req, res) => res.json({ fixes: FIXES }));
@@ -227,6 +228,32 @@ app.post('/api/fixes', (req, res) => {
   FIXES[id] = { intro: r(intro), chorus: r(chorus), at: new Date().toISOString(), count: (FIXES[id]?.count || 0) + 1, title: song.title };
   saveFixes();
   res.json({ ok: true, message: `「${song.title}」の修正を受け付けました（次の更新で反映されます）` });
+});
+
+// 収録曲一覧の「曲が違う（探し直す）」「削除を依頼」。誰でも送れる。反映の前に tools/pull-fixes.js で修正と一緒に取り込む
+// 曲が違う → 反映のときに正しい動画を探して差し替える／削除 → 消さずに出題から外す（retired）
+const REPORTS_PATH = path.join(__dirname, 'data', 'reports.json');
+let REPORTS = {};
+try { REPORTS = JSON.parse(fs.readFileSync(REPORTS_PATH, 'utf8')); } catch (e) { REPORTS = {}; }
+const reportLast = new Map();
+app.get('/api/reports', (req, res) => res.json({ reports: REPORTS }));
+app.post('/api/reports', (req, res) => {
+  const id = String(req.body?.id || ''), kind = String(req.body?.kind || '');
+  const note = String(req.body?.note || '').replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, 200);
+  const song = ALL_SONGS.find(s => s.id === id);
+  if (!song) return res.status(400).json({ error: '曲が見つかりません' });
+  if (!['wrong', 'delete'].includes(kind)) return res.status(400).json({ error: '種類が正しくありません' });
+  const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
+  const recent = (reportLast.get(ip) || []).filter(t => Date.now() - t < 60 * 1000);
+  if (recent.length >= 5) return res.status(429).json({ error: '少し時間をおいてから送ってください（1分に5件まで）' });
+  reportLast.set(ip, [...recent, Date.now()]);
+  const r = REPORTS[id] || { title: song.title, work: song.work, wrong: 0, delete: 0, notes: [] };
+  r[kind] = (r[kind] || 0) + 1;
+  r.notes = [...(r.notes || []), { kind, note, at: new Date().toISOString() }].slice(-20);
+  REPORTS[id] = r;
+  try { fs.writeFileSync(REPORTS_PATH + '.tmp', JSON.stringify(REPORTS, null, 1) + '\n'); fs.renameSync(REPORTS_PATH + '.tmp', REPORTS_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
+  res.json({ ok: true, message: kind === 'wrong' ? `「${song.title}」を「曲が違う」として受け付けました（次の更新で探し直します）`
+    : `「${song.title}」の削除の依頼を受け付けました（次の更新で出題から外します）` });
 });
 
 const server = http.createServer(app);

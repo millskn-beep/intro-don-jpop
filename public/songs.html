@@ -64,6 +64,16 @@
     <span class="fix-btns"><button class="btn-sub" data-k="chorus" data-d="-1">−1</button><button class="btn-sub" data-k="chorus" data-d="-0.1">−0.1</button><button class="btn-sub" data-k="chorus" data-d="0.1">+0.1</button><button class="btn-sub" data-k="chorus" data-d="1">+1</button><button class="btn-sub" data-now="chorus">今の位置</button><button class="btn-sub" data-play="chorus">▶ 聴く</button></span></div>
   <p class="note" id="edNote"></p>
   <div class="fix-actions"><button class="btn-main" id="edSend" type="button">この位置で送る</button><button class="btn-sub" id="edReset" type="button">元に戻す</button></div>
+  <div class="report-actions">
+    <button class="btn-sub" id="repWrong" type="button" title="動画の曲が違う（別の曲・別の歌手など）。次の更新で正しい動画を探し直します">🔁 曲が違う（探し直す）</button>
+    <button class="btn-sub" id="repDelete" type="button" title="この曲を出題から外してほしい">🗑 削除を依頼</button>
+  </div>
+  <div class="report-form" id="repForm" hidden>
+    <b id="repTitle"></b>
+    <textarea id="repNote" rows="2" maxlength="200"></textarea>
+    <div class="fix-actions"><button class="btn-main" id="repSend" type="button">送る</button><button class="btn-sub" id="repCancel" type="button">やめる</button></div>
+  </div>
+  <p class="note" id="repInfo"></p>
 </aside>
 <div class="toast" id="toast" hidden></div>
 <script type="module" src="songs.js"></script>

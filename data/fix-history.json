@@ -1,0 +1,733 @@
+[
+ {
+  "id": "lHWVOfC41L4",
+  "title": "風になる",
+  "work": "猫の恩返し",
+  "channel": "つじあやの",
+  "at": "2026-10-07",
+  "before": {
+   "intro": 0,
+   "chorus": 44,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 19.6,
+   "chorus": 88.2
+  }
+ },
+ {
+  "id": "tDHcemDdDYw",
+  "title": "Love wing bell",
+  "work": "ラブライブ! 2期",
+  "channel": "Rin Hoshizora (CV: Riho Iida) - Topic",
+  "at": "2026-10-07",
+  "before": {
+   "intro": 5.7,
+   "chorus": 81.1,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 67.8
+  }
+ },
+ {
+  "id": "av0KHu7a9QE",
+  "title": "RAGE OF DUST",
+  "work": "機動戦士ガンダム 鉄血のオルフェンズ 第2期",
+  "channel": "ガンダムチャンネル",
+  "at": "2026-10-07",
+  "before": {
+   "intro": 0.2,
+   "chorus": 44,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 51.7
+  }
+ },
+ {
+  "id": "fhrzfWdKExw",
+  "title": "HAPPY PARTY TRAIN",
+  "work": "ラブライブ!サンシャイン!!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07",
+  "before": {
+   "intro": 7.2,
+   "chorus": 46,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 7.2,
+   "chorus": 82
+  }
+ },
+ {
+  "id": "-6j8kizolIc",
+  "title": "Brightest Melody",
+  "work": "ラブライブ!サンシャイン!! The School Idol Movie Over the Rainbow",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07",
+  "before": {
+   "intro": 0.5,
+   "chorus": 53,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 4,
+   "chorus": 63.1
+  }
+ },
+ {
+  "id": "B3JAxDoYOs4",
+  "title": "DAISUKI FULL POWER",
+  "work": "ラブライブ!スーパースター!! 2期",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07",
+  "before": {
+   "intro": 7,
+   "chorus": 55,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 15.2,
+   "chorus": 58.8
+  }
+ },
+ {
+  "id": "mZVgLZsRQsY",
+  "title": "I'm Still...",
+  "work": "ラブライブ!虹ヶ咲学園スクールアイドル同好会 2期",
+  "channel": "Mia Taylor (CV: Shu Uchida) - Topic",
+  "at": "2026-10-07",
+  "before": {
+   "intro": 0.2,
+   "chorus": 60.1,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 41.5
+  }
+ },
+ {
+  "id": "CbH2F0kXgTY",
+  "title": "ミックスナッツ",
+  "work": "SPY×FAMILY",
+  "channel": "OFFICIAL HIGE DANDISM",
+  "at": "2026-10-07",
+  "before": {
+   "intro": 0.7,
+   "chorus": 64,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 9,
+   "chorus": 65.6
+  }
+ },
+ {
+  "id": "iz8q6NmU7xU",
+  "title": "Music S.T.A.R.T!!",
+  "work": "ラブライブ!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:02:53.242Z",
+  "before": {
+   "intro": 2.7,
+   "chorus": 49,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2.7,
+   "chorus": 69.1
+  }
+ },
+ {
+  "id": "_7uLfiTtQeY",
+  "title": "NEO SKY，NEO MAP!",
+  "work": "ラブライブ!虹ヶ咲学園スクールアイドル同好会 2期",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:03:17.652Z",
+  "before": {
+   "intro": 1.2,
+   "chorus": 55,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.2,
+   "chorus": 57
+  }
+ },
+ {
+  "id": "naMHtah5Gz8",
+  "title": "No brand girls",
+  "work": "ラブライブ! 2期",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:03:38.522Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 55,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.7,
+   "chorus": 57
+  }
+ },
+ {
+  "id": "vJ3jNTH2QL0",
+  "title": "Snow halation",
+  "work": "ラブライブ! 2期",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:05:02.330Z",
+  "before": {
+   "intro": 12.2,
+   "chorus": 113,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 66.6,
+   "chorus": 115.7
+  }
+ },
+ {
+  "id": "9JmH8LsodvQ",
+  "title": "START:DASH!!",
+  "work": "ラブライブ!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:05:46.113Z",
+  "before": {
+   "intro": 5,
+   "chorus": 40,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2,
+   "chorus": 64.3
+  }
+ },
+ {
+  "id": "HGkoec4genw",
+  "title": "START!! True dreams",
+  "work": "ラブライブ!スーパースター!!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:12:09.145Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 57,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 61
+  }
+ },
+ {
+  "id": "03K1vrdhxT8",
+  "title": "Tiny Stars",
+  "work": "ラブライブ!スーパースター!!",
+  "channel": "Kanon Shibuya (CV: Sayuri Date) - Topic",
+  "at": "2026-10-07T10:12:28.215Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 77,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 75
+  }
+ },
+ {
+  "id": "OV9HvOKP_k8",
+  "title": "WATER BLUE NEW WORLD",
+  "work": "ラブライブ!サンシャイン!! 2期",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:13:01.675Z",
+  "before": {
+   "intro": 0,
+   "chorus": 68,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 71.1
+  }
+ },
+ {
+  "id": "3WOzeKu2hjw",
+  "title": "Wonderful Rush",
+  "work": "ラブライブ!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:13:55.555Z",
+  "before": {
+   "intro": 14.2,
+   "chorus": 72,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 63.2,
+   "chorus": 117.2
+  }
+ },
+ {
+  "id": "qK36YQGHWUs",
+  "title": "きっと青春が聞こえる",
+  "work": "ラブライブ!",
+  "channel": "ラブライブ!",
+  "at": "2026-10-07T10:14:07.646Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 54,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 61
+  }
+ },
+ {
+  "id": "L1iGuhoSUjg",
+  "title": "ススメ→トゥモロウ",
+  "work": "ラブライブ!",
+  "channel": "Honoka Kosaka (CV: Emi Nitta) - Topic",
+  "at": "2026-10-07T10:14:32.876Z",
+  "before": {
+   "intro": 4,
+   "chorus": 77,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 4,
+   "chorus": 81
+  }
+ },
+ {
+  "id": "j2ztNLvSMno",
+  "title": "それは僕たちの奇跡",
+  "work": "ラブライブ! 2期",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:15:16.542Z",
+  "before": {
+   "intro": 2.7,
+   "chorus": 54,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2.7,
+   "chorus": 58.8
+  }
+ },
+ {
+  "id": "vnhQwxGvS3s",
+  "title": "ユメノトビラ",
+  "work": "ラブライブ! 2期",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:15:46.969Z",
+  "before": {
+   "intro": 3.2,
+   "chorus": 101,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 3.2,
+   "chorus": 68.4
+  }
+ },
+ {
+  "id": "1j-u11dHWnI",
+  "title": "夏色えがおで1,2,Jump!",
+  "work": "ラブライブ!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:16:23.301Z",
+  "before": {
+   "intro": 11.7,
+   "chorus": 77,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 27.8,
+   "chorus": 93.3
+  }
+ },
+ {
+  "id": "mO20a-BFIbA",
+  "title": "青空Jumping Heart",
+  "work": "ラブライブ!サンシャイン!!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:16:52.391Z",
+  "before": {
+   "intro": 3.5,
+   "chorus": 50,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 3.5,
+   "chorus": 52.2
+  }
+ },
+ {
+  "id": "7QDolsGBfMs",
+  "title": "想いよひとつになれ",
+  "work": "ラブライブ!サンシャイン!!",
+  "channel": "Chika Takami (CV: Anju Inami) - Topic",
+  "at": "2026-10-07T10:17:04.723Z",
+  "before": {
+   "intro": 1,
+   "chorus": 71,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 72
+  }
+ },
+ {
+  "id": "1DK_oVU9X1M",
+  "title": "追いかける夢の先で",
+  "work": "ラブライブ!スーパースター!!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:17:49.719Z",
+  "before": {
+   "intro": 0,
+   "chorus": 83,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 20.7,
+   "chorus": 70.1
+  }
+ },
+ {
+  "id": "mefHQA2fGzg",
+  "title": "虹色Passions!",
+  "work": "ラブライブ!虹ヶ咲学園スクールアイドル同好会",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:18:10.982Z",
+  "before": {
+   "intro": 1,
+   "chorus": 59,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 51.5
+  }
+ },
+ {
+  "id": "1bC5CNDk_mw",
+  "title": "僕たちはひとつの光",
+  "work": "ラブライブ!The School Idol Movie",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:18:32.893Z",
+  "before": {
+   "intro": 4,
+   "chorus": 73,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 75.4
+  }
+ },
+ {
+  "id": "YIgoFjO9Mg4",
+  "title": "僕らのLIVE 君とのLIFE",
+  "work": "ラブライブ!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:19:09.306Z",
+  "before": {
+   "intro": 5.5,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 55.7,
+   "chorus": 130.8
+  }
+ },
+ {
+  "id": "vQuP_HWH4Vg",
+  "title": "僕らは今のなかで",
+  "work": "ラブライブ!",
+  "channel": "ラブライブ!",
+  "at": "2026-10-07T10:19:26.871Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 55,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 61
+  }
+ },
+ {
+  "id": "AstXx7hOPvU",
+  "title": "未来の僕らは知ってるよ",
+  "work": "ラブライブ!サンシャイン!! 2期",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:19:56.769Z",
+  "before": {
+   "intro": 2,
+   "chorus": 51,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2,
+   "chorus": 59.4
+  }
+ },
+ {
+  "id": "A1bleJVhZeY",
+  "title": "未来は風のように",
+  "work": "ラブライブ!スーパースター!!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:20:41.248Z",
+  "before": {
+   "intro": 3,
+   "chorus": 85,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 26.5,
+   "chorus": 85
+  }
+ },
+ {
+  "id": "ONrdzBsOgEw",
+  "title": "恋になりたいAQUARIUM",
+  "work": "ラブライブ!サンシャイン!!",
+  "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
+  "at": "2026-10-07T10:22:30.341Z",
+  "before": {
+   "intro": 2,
+   "chorus": 44,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.5,
+   "chorus": 61.4
+  }
+ },
+ {
+  "id": "-VZjNpstO1o",
+  "title": "sakura",
+  "work": "交響詩篇エウレカセブン",
+  "channel": "Sony Music Japan",
+  "at": "2026-10-07T10:23:38.292Z",
+  "before": {
+   "intro": 7,
+   "chorus": 128,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 7,
+   "chorus": 68.2
+  }
+ },
+ {
+  "id": "8MWWCndfRQE",
+  "title": "STORYWRITER",
+  "work": "交響詩篇エウレカセブン",
+  "channel": "SUPERCAR Official YouTube Channel",
+  "at": "2026-10-07T10:25:28.840Z",
+  "before": {
+   "intro": 0,
+   "chorus": 67,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 35.6,
+   "chorus": 90.9
+  }
+ },
+ {
+  "id": "Zw60p6DvzYE",
+  "title": "ブレイブルー",
+  "work": "エウレカセブンAO",
+  "channel": "FLOW Official YouTube Channel",
+  "at": "2026-10-07T10:25:52.211Z",
+  "before": {
+   "intro": 6.2,
+   "chorus": 58,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 6.2,
+   "chorus": 55.5
+  }
+ },
+ {
+  "id": "235s_Kkp0gc",
+  "title": "少年ハート",
+  "work": "交響詩篇エウレカセブン",
+  "channel": "HOME MADE 家族 Official",
+  "at": "2026-10-07T10:26:30.578Z",
+  "before": {
+   "intro": 4.7,
+   "chorus": 108,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 4.7,
+   "chorus": 136
+  }
+ },
+ {
+  "id": "Sh8qvnqQ4Zk",
+  "title": "太陽の真ん中へ",
+  "work": "交響詩篇エウレカセブン",
+  "channel": "AnimeSongs Official",
+  "at": "2026-10-07T10:26:51.795Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 47.4,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 56.2
+  }
+ },
+ {
+  "id": "fsPGyJio38s",
+  "title": "秘密基地",
+  "work": "交響詩篇エウレカセブン",
+  "channel": "MUSIC Liverary",
+  "at": "2026-10-07T10:27:09.980Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 89,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 88.6
+  }
+ },
+ {
+  "id": "ZQZRIvbemhw",
+  "title": "believe",
+  "work": "Fate/stay night [Unlimited Blade Works]",
+  "channel": "Kalafina Official YouTube Channel",
+  "at": "2026-10-07T10:27:56.947Z",
+  "before": {
+   "intro": 2.5,
+   "chorus": 76,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2.5,
+   "chorus": 74.5
+  }
+ },
+ {
+  "id": "32JTFI0alPk",
+  "title": "Butter-Fly",
+  "work": "デジモンアドベンチャー",
+  "channel": "Digimon Official Channel",
+  "at": "2026-10-07T10:28:16.533Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 52,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 55
+  }
+ },
+ {
+  "id": "6gpcPYDkPdg",
+  "title": "Catch You Catch Me",
+  "work": "カードキャプターさくら",
+  "channel": "Gumi - Topic",
+  "at": "2026-10-07T10:28:43.029Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 66,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 52.9
+  }
+ },
+ {
+  "id": "5CSNv9MNEC4",
+  "title": "Don't say lazy",
+  "work": "けいおん!",
+  "channel": "Release - Topic",
+  "at": "2026-10-07T10:29:36.125Z",
+  "before": {
+   "intro": 0,
+   "chorus": 55,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 75.9
+  }
+ },
+ {
+  "id": "v5JjlzWbkNQ",
+  "title": "Get Over",
+  "work": "ヒカルの碁",
+  "channel": "Dream - Topic",
+  "at": "2026-10-07T10:31:08.264Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 44,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 82
+  }
+ }
+]

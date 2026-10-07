@@ -106,8 +106,95 @@ def evaluate(rows):
                   ' / '.join(f"{r['title'][:8]}→{pred(r, method, k)}" for r in rows if r['kind'] == 'pos'))
 
 
+# ── 候補探し（--scan）：MV・映画の映像など、頭に効果音・環境音が入りやすい動画だけを調べる ──
+# 1 秒ごとに「楽器」「歌声」「話し声」「歓声」「環境音・効果音」のどれに近いかを見て、
+# 楽器か歌声が 3 秒続いた最初の位置を「音楽の始まり」とする（試験：ふつうの曲 37 曲で遅らせすぎ 0 曲、ミックスナッツ 9 秒ぴったり）。
+# いまのイントロより 1.5 秒以上遅いものだけを候補にする（早める方向は誤検出が多いので出さない）。
+# 結果は data/intro-cheer-scan.json（途中で止めても次は続きから）。曲データは変えない。
+SCAN_PATH = ROOT / 'data' / 'intro-cheer-scan.json'
+SCAN_LABELS = {
+    'inst': 'instrumental music, band playing guitar drums and synthesizer',
+    'sing': 'a singer singing a song with music',
+    'speech': 'people talking in a conversation without music',
+    'cheer': 'crowd cheering and applause',
+    'sfx': 'ambient environmental sounds, wind, birds, footsteps, sound effects, no music',
+}
+VIDEO_WORDS = r'\bMV\b|Music ?Video|Official ?Video|Music ?Clip|ミュージック ?ビデオ|映画|劇場'
+
+
+def load_head(vid, sec=HEAD):
+    """頭の sec 秒だけ、16kHz モノラルで読む（キャッシュしない）"""
+    import os
+    import subprocess
+    import tempfile
+    import estimate_chorus_audio as ec
+    with tempfile.TemporaryDirectory() as tmp:
+        wav = os.path.join(tmp, 'a.wav')
+        yt = subprocess.Popen([sys.executable, '-m', 'yt_dlp', *ec.YTDLP_OPTS, '-f', 'bestaudio[ext=webm]/bestaudio[ext=m4a]/bestaudio',
+                               '-o', '-', '--no-warnings', '--no-part', '-q', f'https://www.youtube.com/watch?v={vid}'],
+                              stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        ff = subprocess.run(['ffmpeg', '-v', 'error', '-i', 'pipe:0', '-t', str(sec), '-ac', '1', '-ar', '16000', '-y', wav],
+                            stdin=yt.stdout, capture_output=True)
+        yt.stdout.close()
+        err = yt.stderr.read().decode('utf8', 'replace').strip()
+        yt.kill()
+        if ff.returncode != 0 or not os.path.exists(wav) or os.path.getsize(wav) < 10000:
+            raise RuntimeError((err.splitlines() or ['音声を読み込めない'])[-1][:160])
+        import soundfile as sf
+        y, _ = sf.read(wav, dtype='float32')
+    return y
+
+
+def scan():
+    import re
+    import time
+    songs = json.loads(SONGS_PATH.read_text(encoding='utf8'))
+    videos = json.loads((ROOT / 'data' / 'scan-videos.json').read_text(encoding='utf8'))
+    words = re.compile(VIDEO_WORDS, re.I)
+    targets = [s for s in songs if s.get('embeddable') is not False and s['id'] in videos
+               and not (videos[s['id']].get('channel') or '').endswith('- Topic') and words.search(videos[s['id']].get('title', ''))]
+    done = json.loads(SCAN_PATH.read_text(encoding='utf8')) if SCAN_PATH.exists() else {}
+    todo = [s for s in targets if s['id'] not in done or done[s['id']].get('error')]
+    print(f'対象 {len(targets)} 曲／残り {len(todo)} 曲', flush=True)
+    model = load_model()
+    T = np.stack([np.asarray(model.encode(v, prompt_name='SearchQuery', normalize_embeddings=True), dtype=np.float32).reshape(-1)
+                  for v in SCAN_LABELS.values()])
+    fails = 0
+    for n, s in enumerate(todo, 1):
+        label = f"[{n}/{len(todo)}] {s['title']}（{s['work']}）"
+        try:
+            y = load_head(s['id'])
+            fails = 0
+        except Exception as e:
+            done[s['id']] = {'title': s['title'], 'error': str(e)}
+            print(f'{label} → 失敗: {e}', flush=True)
+            fails += 1
+            if fails >= 5:
+                print('5 回続けて失敗したので止めます（YouTube に止められている可能性）', flush=True)
+                break
+            time.sleep(10)
+            continue
+        st = np.arange(0, max(0, len(y) / 16000 - 1), 1.0)
+        S = emb(model, [y[int(t * 16000):int((t + 1) * 16000)] for t in st]) @ T.T
+        lab = np.argmax(S, 1)
+        music = lab <= 1
+        start = next((float(t) for i, t in enumerate(st[:-2]) if music[i:i + 3].all()), None)
+        intro = s.get('intro', 0) or 0
+        cand = start is not None and start > intro + 1.5
+        done[s['id']] = {'title': s['title'], 'work': s['work'], 'intro': intro, 'start': start, 'candidate': cand,
+                         'labels': ''.join('IVSCE'[i] for i in lab)}
+        print(f"{label} → いま {intro} 秒 / 音楽の始まり {start} 秒{'  ★候補' if cand else ''}", flush=True)
+        SCAN_PATH.write_text(json.dumps(done, ensure_ascii=False, indent=1), encoding='utf8')
+        time.sleep(2)
+    SCAN_PATH.write_text(json.dumps(done, ensure_ascii=False, indent=1), encoding='utf8')
+    c = [v for v in done.values() if v.get('candidate')]
+    print(f'終わり：候補 {len(c)} 曲（{SCAN_PATH}）')
+
+
 if __name__ == '__main__':
-    if '--eval' in sys.argv:
+    if '--scan' in sys.argv:
+        scan()
+    elif '--eval' in sys.argv:
         evaluate(json.loads(OUT_PATH.read_text(encoding='utf8')))
     else:
         main()

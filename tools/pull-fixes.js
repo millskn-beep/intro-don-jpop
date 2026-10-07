@@ -1,6 +1,11 @@
-// 収録曲一覧から送られた「イントロ・サビ位置の修正」を公開サイトから取り込み、曲データ（data/songs.json）に入れる。
-// 反映（再起動）の前に必ず行う。再起動すると公開側の修正待ちは消えるため。取り込んだら data/fixes.json は空に戻す。
+// 収録曲一覧から送られた「イントロ・サビ位置の修正」と「曲が違う／削除を依頼」の報告を公開サイトから取り込む。
+// 反映（再起動）の前に必ず行う。再起動すると公開側の受付分は消えるため。
+//   修正 → 曲データ（data/songs.json）に入れ、data/fixes.json は空に戻す。
+//          直す前と後の位置は data/fix-history.json に残す（自動計測の答え合わせ・調整に使う）
+//   削除を依頼 → 消さずに出題から外す（retired: true。戻すときは retired を消す）
+//   曲が違う → data/reports.json に残す。正しい動画を探して差し替えたら --done <id> で消す
 // 使い方: node tools/pull-fixes.js [--dry-run]
+//         node tools/pull-fixes.js --done <id>   （「曲が違う」を対応済みにする）
 
 const fs = require('fs');
 const path = require('path');
@@ -8,32 +13,82 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const SONGS_PATH = path.join(ROOT, 'data', 'songs.json');
 const FIXES_PATH = path.join(ROOT, 'data', 'fixes.json');
+const REPORTS_PATH = path.join(ROOT, 'data', 'reports.json');
+const HISTORY_PATH = path.join(ROOT, 'data', 'fix-history.json');
 const SITE = 'https://anison-intro-vs.onrender.com';
 const DRY = process.argv.includes('--dry-run');
+const readJson = (p, d) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch (e) { return d; } };
+const writeJson = (p, v) => { fs.writeFileSync(p + '.tmp', JSON.stringify(v, null, 1) + '\n'); fs.renameSync(p + '.tmp', p); };
+
+async function remote(name) {
+  const res = await fetch(`${SITE}/api/${name}`);
+  return (res.headers.get('content-type') || '').includes('json') ? (await res.json())[name] || {} : null;
+}
 
 (async () => {
-  let fixes = {};
-  try { fixes = JSON.parse(fs.readFileSync(FIXES_PATH, 'utf8')); } catch (e) { fixes = {}; }
-  const res = await fetch(`${SITE}/api/fixes`);
-  if ((res.headers.get('content-type') || '').includes('json')) {
-    const remote = (await res.json()).fixes || {};
-    for (const [id, f] of Object.entries(remote)) if (!fixes[id] || fixes[id].at < f.at) fixes[id] = f; // 新しい方を使う
+  const doneIdx = process.argv.indexOf('--done');
+  if (doneIdx > 0) {
+    const id = process.argv[doneIdx + 1], reports = readJson(REPORTS_PATH, {});
+    if (!reports[id]) return console.log(`報告がありません: ${id}`);
+    console.log(`対応済みにしました: ${reports[id].title}`);
+    delete reports[id]; writeJson(REPORTS_PATH, reports);
+    return;
+  }
+
+  // ── イントロ・サビ位置の修正 ──
+  const fixes = readJson(FIXES_PATH, {});
+  const rf = await remote('fixes');
+  if (rf) {
+    for (const [id, f] of Object.entries(rf)) if (!fixes[id] || fixes[id].at < f.at) fixes[id] = f; // 新しい方を使う
   } else console.log('公開サイトにはまだ修正の受け付けがありません');
   const songs = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
   const byId = new Map(songs.map(s => [s.id, s]));
+  const history = readJson(HISTORY_PATH, []);
   let n = 0;
   for (const [id, f] of Object.entries(fixes)) {
     const s = byId.get(id);
     if (!s) { console.log(`  （曲が見つからない）${id}`); continue; }
-    const before = `イントロ ${s.intro || 0} / サビ ${s.chorus || 0}`;
+    const before = { intro: s.intro || 0, chorus: s.chorus || 0, introMethod: s.introMethod || null, chorusSource: s.chorusSource || null };
+    if (f.intro === before.intro && f.chorus === before.chorus) continue; // 取り込み済み（公開側は再起動まで残る）
     if (f.intro !== (s.intro || 0)) { s.intro = f.intro; s.introMeasured = false; delete s.introMethod; delete s.introUnsure; } // 手で直した印（チェック画面と同じ）
     if (f.chorus !== s.chorus) { s.chorus = f.chorus; s.chorusSource = 'manual'; }
-    console.log(`  ${s.title}（${s.work}）: ${before} → イントロ ${f.intro} / サビ ${f.chorus}${f.count > 1 ? `（${f.count}回送信）` : ''}`);
+    history.push({ id, title: s.title, work: s.work, channel: s.channel || '', at: f.at, before, after: { intro: f.intro, chorus: f.chorus } });
+    console.log(`  ${s.title}（${s.work}）: イントロ ${before.intro} / サビ ${before.chorus} → イントロ ${f.intro} / サビ ${f.chorus}${f.count > 1 ? `（${f.count}回送信）` : ''}`);
     n++;
   }
   console.log(`修正 ${n} 曲${DRY ? '（保存しない）' : ''}`);
-  if (DRY || !n) return;
-  fs.writeFileSync(SONGS_PATH + '.tmp', JSON.stringify(songs, null, 2) + '\n'); fs.renameSync(SONGS_PATH + '.tmp', SONGS_PATH);
-  fs.writeFileSync(FIXES_PATH, '{}\n');
-  console.log('songs.json に入れて、修正待ちを空にしました');
+
+  // ── 曲が違う／削除を依頼 ──
+  const reports = readJson(REPORTS_PATH, {});
+  const rr = await remote('reports');
+  for (const [id, r] of Object.entries(rr || {})) {
+    const cur = reports[id] || { title: r.title, work: r.work, wrong: 0, delete: 0, notes: [] };
+    const seen = new Set(cur.notes.map(x => x.at));
+    for (const x of r.notes || []) if (!seen.has(x.at)) { cur.notes.push(x); cur[x.kind] = (cur[x.kind] || 0) + 1; }
+    reports[id] = cur;
+  }
+  let retired = 0;
+  for (const [id, r] of Object.entries(reports)) {
+    const s = byId.get(id);
+    if (r.delete > 0) {
+      if (s && !s.retired) {
+        s.retired = true; s.retiredNote = r.notes.filter(x => x.kind === 'delete').map(x => x.note).filter(Boolean).join(' / ');
+        retired++;
+        console.log(`  出題から外す：${s.title}（${s.work}）${s.retiredNote ? ` …${s.retiredNote}` : ''}`);
+      }
+      r.delete = 0; r.notes = r.notes.filter(x => x.kind !== 'delete');
+    }
+    if (!(r.wrong > 0)) delete reports[id];
+  }
+  const wrong = Object.entries(reports);
+  if (wrong.length) {
+    console.log(`曲が違う（探し直す）${wrong.length} 曲：`);
+    for (const [id, r] of wrong) console.log(`  ${id} ${r.title}（${r.work}）${r.notes.filter(x => x.note).map(x => ` …${x.note}`).join('')}`);
+  }
+  console.log(`出題から外す ${retired} 曲`);
+
+  if (DRY) return;
+  if (n || retired) { fs.writeFileSync(SONGS_PATH + '.tmp', JSON.stringify(songs, null, 2) + '\n'); fs.renameSync(SONGS_PATH + '.tmp', SONGS_PATH); }
+  if (n) { writeJson(HISTORY_PATH, history); fs.writeFileSync(FIXES_PATH, '{}\n'); console.log('修正を songs.json に入れて、修正待ちを空にしました（直す前後は fix-history.json）'); }
+  writeJson(REPORTS_PATH, reports);
 })().catch(e => { console.error('取り込めませんでした:', e.message); process.exit(1); });

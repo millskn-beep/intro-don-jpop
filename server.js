@@ -778,7 +778,7 @@ function clueList(song, target = 'song') {
 function resendQuestion(room, socket, token) {
   const q = room.game?.q;
   if (q?.phase === 'picking') return socket.emit('picking', pickingPayload(room));
-  if (!q || !q.participants.has(token) || q.phase === 'reveal') return;
+  if (!q || (!q.participants.has(token) && q.picker !== token) || q.phase === 'reveal') return; // 出題者は答えないが、問題は見られるように送り直す
   const S = room.settings;
   socket.emit('question', questionPayload(room));
   if (q.phase === 'intro' || q.phase === 'chorus') {

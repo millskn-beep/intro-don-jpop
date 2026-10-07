@@ -523,7 +523,7 @@ function renderRoom(r) {
   }
 
   if (r.state === 'lobby') { show('lobby'); document.body.classList.remove('revealing', 'playing', 'fading'); reloadIfPending(); }
-  else if (r.state === 'playing' && prevState !== 'playing' && !question) {
+  else if (r.state === 'playing' && prevState !== 'playing' && !question && r.phase !== 'picking') {
     // 途中参加：次の問題から
     show('quiz'); $('choices').innerHTML = ''; $('quizNote').textContent = amOut() ? '脱落しました（観戦中）' : '次の問題から参加します';
   }

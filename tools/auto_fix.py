@@ -153,45 +153,87 @@ def lab_arr(s):
     return np.array(['IVSCE'.index(c) for c in s])
 
 # ── 基準の合わせ直し：直してもらったイントロ（正解）で、いちばん当たって、ふつうの曲を遅らせすぎない基準を選ぶ ──
-RULE = {'win': 20, 'k': 8}
+RULE = {'win': 20, 'k': 8, 'run': 3}
 
 
 def tune():
+    """基準の合わせ直し（学習）。正解は「手で直したイントロ（修正の記録）」と「Songle の最初の拍（音楽の始まり）」。
+    いちばん正解に近く、しかも「遅らせすぎ」（本当はすぐ始まるのに飛ばしてしまう）がほとんどない基準を選ぶ"""
     hist = read(HISTORY_PATH, [])
     songs = {s['id']: s for s in read(SONGS_PATH, [])}
-    pos = {h['id']: h['after']['intro'] for h in hist if abs(h['after']['intro'] - h['before']['intro']) > 0.3}
-    neg = {h['id']: h['after']['intro'] for h in hist if abs(h['after']['intro'] - h['before']['intro']) <= 0.3}
+    truth = {}  # 曲 → (正解の秒数, 出どころ)
+    for h in hist:
+        truth[h['id']] = (h['after']['intro'], 'fix')
     for it in labeled():
         if it['kind'] in ('topic', 'swapped-new') and it['id'] in songs:
-            neg.setdefault(it['id'], songs[it['id']].get('intro', 0) or 0)
-    # Songle の最初の拍が、いまのイントロの位置とほぼ同じ曲（自動の計測と Songle が一致＝頭から音楽）も「遅らせてはいけない曲」に
-    n_sg = 0
+            truth.setdefault(it['id'], (songs[it['id']].get('intro', 0) or 0, 'fix'))
     for vid, sg in SONGLE.items():
-        s = songs.get(vid)
-        if s and vid in LABELS and sg.get('beat') is not None and s.get('introMethod') == 'v2' and abs(sg['beat'] - (s.get('intro') or 0)) <= 1.5:
-            neg.setdefault(vid, s.get('intro') or 0); n_sg += 1
+        if sg.get('beat') is not None and vid in LABELS:
+            truth.setdefault(vid, (sg['beat'], 'songle'))
     labs = {}
-    for vid in list(pos) + list(neg):
+    for vid, (_, src) in truth.items():
+        if src == 'songle' and vid not in LABELS:
+            continue
         try:
             labs[vid] = lab_arr(get_labels(vid))
         except Exception as e:
             say('正解の曲の音を取れない', vid, str(e)[:80])
+    items = [(v, t_, src) for v, (t_, src) in truth.items() if v in labs]
     best = None
-    for win, k in [(10, 4), (10, 5), (15, 5), (15, 7), (20, 8), (20, 10), (30, 12)]:
-        hit = sum(1 for v, t in pos.items() if v in labs and (p := music_start(labs[v], win, k)) is not None and abs(p - t) <= 2)
-        late = sum(1 for v, t in neg.items() if v in labs and ((p := music_start(labs[v], win, k)) is None or p > t + 2))
-        score = (late == 0, hit, -late)
-        if best is None or score > best[0]:
-            best = (score, win, k, hit, late)
-    _, win, k, hit, late = best
-    changed = (win, k) != (RULE['win'], RULE['k'])
-    RULE.update(win=win, k=k)
-    npos = sum(1 for v in pos if v in labs)
-    nneg = sum(1 for v in neg if v in labs)
-    say(f'基準：{win} 秒のうち {k} 秒以上が音楽以外なら飛ばす（正解 {hit}/{npos}・遅らせすぎ {late}/{nneg}）{"（変更）" if changed else ""}')
-    log_event('tuning', win=win, k=k, hit=hit, positives=npos, late=late, negatives=nneg, songleNegatives=n_sg)
-    if n_sg:
-        say(f'  （うち Songle で頭から音楽と分かる曲 {n_sg} 曲）')
+    for win in (10, 15, 20, 25, 30):
+        for frac in (0.3, 0.4, 0.5):
+            k = max(2, round(win * frac))
+            for run in (2, 3, 5):
+                ok = late = ok_sg = n_sg = 0
+                for v, t_, src in items:
+                    p_ = music_start(labs[v], win, k, run)
+                    good = p_ is not None and abs(p_ - t_) <= 2
+                    ok += good
+                    late += p_ is None or p_ > t_ + 2
+                    if src == 'songle':
+                        n_sg += 1; ok_sg += good
+                score = (ok - 2 * late, ok)  # 遅らせすぎ（すぐ始まる曲を飛ばす）は正解2つぶんのマイナスにする
+                if best is None or score > best[0]:
+                    best = (score, win, k, run, ok, late, ok_sg, n_sg)
+    _, win, k, run, ok, late, ok_sg, n_sg = best
+    changed = (win, k, run) != (RULE['win'], RULE['k'], RULE.get('run', 3))
+    RULE.update(win=win, k=k, run=run)
+    say(f'学習：{win} 秒のうち {k} 秒以上が音楽以外なら飛ばす・音楽が {run} 秒続いたら始まり'
+        f'（正解に近い {ok}/{len(items)}・遅らせすぎ {late}・Songle と一致 {ok_sg}/{n_sg}）{"（変更）" if changed else ""}')
+    log_event('tuning', win=win, k=k, run=run, ok=ok, total=len(items), late=late, songleOk=ok_sg, songleTotal=n_sg)
+    return changed
+
+
+def reapply():
+    """ローテーション：合わせ直した基準で、これまで調べた曲（判定は残してある）をもう一度判定する。
+    自動で直した曲は新しい値に（直す必要がなくなれば元に戻す）、そのままだった曲も新しい基準で直す必要があれば直す。
+    耳で確かめた曲・手で直した曲・Songle の値にした曲は触らない"""
+    songs = read(SONGS_PATH, [])
+    hist = {h['id'] for h in read(HISTORY_PATH, [])}
+    n_up = n_back = n_new = 0
+    for s in songs:
+        vid = s['id']
+        if vid not in LABELS or vid in hist or s.get('introMeasured') is False or s.get('introSource') == 'songle':
+            continue
+        if (SONGLE.get(vid) or {}).get('beat') is not None:
+            continue  # Songle の値を優先する曲
+        auto = s.get('introSource') == 'auto'
+        base = s.get('introBefore', 0) if auto else (s.get('intro', 0) or 0)
+        new = music_start(lab_arr(LABELS[vid]), RULE['win'], RULE['k'], RULE.get('run', 3))
+        need = new is not None and base + MIN_SHIFT < new <= base + MAX_SHIFT
+        if auto and not need:
+            save_song(vid, {'intro': base, 'introSource': None, 'introBefore': None})
+            log_event('reapplied', id=vid, title=s['title'], before=s.get('intro'), after=base, why='元に戻す')
+            n_back += 1
+        elif auto and abs(new - s.get('intro', 0)) >= 0.5:
+            save_song(vid, {'intro': new})
+            log_event('reapplied', id=vid, title=s['title'], before=s.get('intro'), after=new, why='新しい基準')
+            n_up += 1
+        elif not auto and need:
+            save_song(vid, {'intro': new, 'introSource': 'auto', 'introBefore': base})
+            log_event('fixed', id=vid, title=s['title'], work=s['work'], kind='intro', before=base, after=new, rule=dict(RULE), why='新しい基準')
+            n_new += 1
+    say(f'ローテーション：新しい基準で直し直し {n_up} 曲・元に戻した {n_back} 曲・新しく直した {n_new} 曲')
 
 
 def pull():
@@ -279,6 +321,10 @@ def check_intro(s):
     beat = sg.get('beat')
     # Songle に解析がある曲は、Songle の最初の拍（音楽の始まり）を優先する
     if beat is not None:
+        try:
+            get_labels(s['id'])  # 学習用（Songle の拍と自分の判定を照らし合わせる）
+        except Exception:
+            pass
         b = round(beat, 1)
         if abs(b - intro) <= MIN_SHIFT:
             log_event('checked', id=s['id'], kind='ok')
@@ -290,7 +336,7 @@ def check_intro(s):
         log_event('fixed', id=s['id'], title=s['title'], work=s['work'], kind='intro', before=intro, after=b, by='songle')
         return f'◎ イントロを直した（{intro} → {b} 秒・Songle）' + note
     lab = lab_arr(get_labels(s['id']))
-    start = music_start(lab, RULE['win'], RULE['k'])
+    start = music_start(lab, RULE['win'], RULE['k'], RULE.get('run', 3))
     if start is None or start <= intro + MIN_SHIFT:
         log_event('checked', id=s['id'], kind='ok')
         return f'そのまま（いま {intro} 秒・音楽の始まり {start} 秒）' + note
@@ -307,6 +353,7 @@ def main():
     say(f'開始：{HOURS} 時間で止まります{"（試し・保存しない）" if DRY else ""}')
     pull()
     tune()
+    reapply()
     last_pull = time.time()
     if not NO_CHORUS:
         redo_chorus()
@@ -318,7 +365,7 @@ def main():
             say('時間になったので止めます（次は続きから）')
             break
         if time.time() - last_pull > PULL_EVERY:
-            pull(); tune(); last_pull = time.time()
+            pull(); tune(); reapply(); last_pull = time.time()
         fresh = next((x for x in read(SONGS_PATH, []) if x['id'] == s['id']), None)
         if not fresh or fresh.get('introMeasured') is False or fresh.get('introSource') in ('auto', 'songle'):
             continue  # 取り込んだ修正で手で直された曲は触らない

@@ -203,7 +203,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -296,9 +296,27 @@ $('excludeBtn').onclick = () => {
   socket.emit('exclude', ids); rememberIds(ids); $('excludeInput').value = '';
 };
 $('excludeClear').onclick = () => socket.emit('clearExclude');
-// ロビーの一番上：この部屋で遊んだ曲・貼り付けたログの除外をまとめてリセット（ホスト）
+// 除外：このルームで流した曲だけを除外から外す（前から除外していた曲は残す）。全部リセットは別のボタン
 $('resetPlayed').onclick = () => {
-  if (confirm('このルームで流した曲・貼り付けたログの除外を解除しますか？（前に出た曲もまた出るようになります。この端末の記録は消えません）')) socket.emit('clearExclude');
+  if (confirm('このルームで流した曲の除外を解除しますか？（前から除外していた曲・貼り付けたログの曲はそのまま残ります）')) socket.emit('clearPlayedHere');
+};
+// 設定のタブ（曲の範囲・遊び方・出題のしかた・答え方・除外）。選んだタブはこの端末に覚えておく
+function setSettingsTab(sec) {
+  $('setTabs').querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.sec === sec));
+  document.querySelectorAll('#settings .set-group').forEach(g => { g.hidden = g.dataset.sec !== sec; });
+  store.set('aq-settab', sec);
+}
+$('setTabs').onclick = e => { const b = e.target.closest('button[data-sec]'); if (b) setSettingsTab(b.dataset.sec); };
+setSettingsTab(store.get('aq-settab') || 'range');
+$('openExclude').onclick = () => { setLobbyTab('settings'); lobbyTabChosen = true; setSettingsTab('exclude'); $('settings').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+// 遊び方の説明（選んだ遊び方のルールを一言で）
+const PLAY_DESC = {
+  normal: '全員が同時に答えます。速く正解するほど高得点。',
+  buzzer: '曲が流れている間に「押す！」を押した人だけが答えられます。間違えると −200点で、ほかの人が押せます。',
+  survival: '間違える・時間切れ・パスでライフが減り、0で脱落。最後まで残った人の勝ち（問題数は最大50問）。',
+  picker: '1問ごとに順番で1人が出題者になり、収録曲から曲を選びます。答える人の半分くらいが正解すると、出題者に最高1000点。2人以上で遊べます。',
+  coop: '全員の正解数の合計で、目標（問題数×人数×目標%）をめざします。',
+  bingo: '一人ひとりに作品名の4×4カードを配ります。正解した曲の作品のマスが開き、縦・横・斜めのどれかがそろったら BINGO！（20問以上がおすすめ）',
 };
 // ロビーの一番上：これから遊ぶ曲を除外に追加しない（ホストが切り替え）
 $('noRecordBtn').onclick = () => { if (room) sendSettings({ noRecord: !room.settings.noRecord }); };
@@ -441,10 +459,12 @@ function renderRoom(r) {
   $('seriesLabel').hidden = r.settings.topic !== 'series';
   // 新しいモードの設定：サバイバルはライフ（問題数の代わりに終わるまで）、早押しは採点の欄を使わない。できない組み合わせは選べなくする
   $('livesLabel').hidden = r.settings.play !== 'survival';
+  $('coopGoalLabel').hidden = r.settings.play !== 'coop';
+  $('playDesc').textContent = PLAY_DESC[r.settings.play] || '';
   $('questionsLabel').hidden = r.settings.play === 'survival';
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year';
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
-  document.querySelector('[data-key="teams"] option[value="true"]').disabled = r.settings.play === 'survival';
+  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
@@ -463,13 +483,18 @@ function renderRoom(r) {
   $('poolInfo').textContent = `${topicLabel(r.settings)}${r.settings.topic === 'all' && exLabels.length ? `（${exLabels.join('・')}を除く）` : ''}・${r.settings.yearFrom}〜${r.settings.yearTo}年：出題できる曲 ${r.poolSize} 曲` +
     (r.poolSize < r.settings.questions ? `（${r.settings.questions}問に足りないので ${r.poolSize} 問で出題します）` : '');
   $('startBtn').disabled = r.poolSize === 0;
-  $('excludeCount').textContent = r.excluded ? `（除外中 ${r.excluded}曲）` : '';
+  // 除外：全部の数と、「このルームで流した曲」「前から除外していた曲」の内訳
+  const exHere = r.excludedHere || 0, exBefore = Math.max(0, (r.excluded || 0) - exHere);
+  $('excludeCount').textContent = `（合計 ${r.excluded || 0}曲）`;
+  $('excludeTabCount').textContent = r.excluded ? `(${r.excluded})` : '';
+  $('beforeInfo').textContent = `${exBefore}曲`;
+  $('exSummary').textContent = r.excluded ? `除外中 ${r.excluded}曲（このルームで流した曲 ${exHere}・前から ${exBefore}）` : '除外中の曲はありません';
   if (r.excluded !== excludedCount) { excludedCount = r.excluded; refreshExcluded(); }
   $('excludeCopy').hidden = !r.excluded;
   $('excludeClear').hidden = !(isHost && r.excluded);
   // いつも出しておく（除外中が0曲のときはボタンを押せない）。解除できるのはホスト
-  $('resetInfo').textContent = r.excluded ? `このルームで除外中の曲：${r.excluded}曲` : 'このルームで除外中の曲はありません';
-  $('resetPlayed').disabled = !r.excluded;
+  $('resetInfo').textContent = `${exHere}曲`;
+  $('resetPlayed').disabled = !exHere;
   $('resetPlayed').hidden = !isHost;
   const noRec = !!r.settings.noRecord;
   $('noRecordBtn').textContent = noRec ? '✓ これから遊ぶ曲は除外に追加しない' : '🔁 これから遊ぶ曲は除外に追加しない';
@@ -519,11 +544,14 @@ function renderRoom(r) {
 
   // 得点が一番の人（0点より上）に王冠をつける
   const top = Math.max(0, ...r.players.map(p => p.score));
+  renderBingo(); renderCoop();
   // サバイバルのライフ（♥）・脱落、チームの色、早押しでいま答えている人
   const survival = r.settings.play === 'survival' && r.state !== 'lobby';
   const extraTags = p => (p.team ? `<span class="team-tag team-${p.team}">${TEAM_LABEL[p.team]}</span>` : '')
     + (survival && p.out ? '<span class="out">脱落</span>' : survival && p.lives != null ? `<span class="lives" title="ライフ">${'♥'.repeat(p.lives)}</span>` : '')
-    + (p.buzzing ? '<span class="buzzing">回答中</span>' : '');
+    + (p.buzzing ? '<span class="buzzing">回答中</span>' : '')
+    + (p.picker ? '<span class="buzzing">出題者</span>' : '')
+    + (p.card ? `<span class="bingo-tag${p.bingo ? ' done' : ''}">${p.bingo ? 'BINGO!' : `${p.card.filter(c => c.open && c.w !== 'FREE').length}マス`}</span>` : '');
   $('players').innerHTML = r.players.map(p => `
     <li data-id="${p.id}" class="${p.answered ? 'answered' : ''} ${p.connected ? '' : 'off'} ${p.id === me ? 'me' : ''} ${p.team ? 'team-' + p.team : ''} ${survival && p.out ? 'is-out' : ''} ${p.buzzing ? 'is-buzzing' : ''}">
       <span class="pl-face">${avatarImg(p.avatar)}${top > 0 && p.score === top ? icon('crown', 'crown') : ''}</span>
@@ -799,7 +827,9 @@ socket.on('question', q => {
   }
   $('qno').innerHTML = (q.play === 'survival' ? `第 ${q.qNo} 問（サバイバル）` : `第 ${q.qNo} / ${q.qTotal} 問`)
     + (q.kind === 'sabimae' ? '（サビ前問題）' : q.kind === 'random' ? '（どこから？）' : '')
-    + (q.target === 'work' ? '・作品を当てよう' : q.target === 'year' ? '・何年の曲？' : '')
+    + (q.target === 'work' ? '・作品を当てよう' : q.target === 'year' ? '・何年の曲？' : q.target === 'artist' ? '・歌っているのは？' : '')
+    + (q.speed && q.speed !== 1 ? ` <b class="speed">${q.speed}倍速</b>` : '')
+    + (q.pickerName ? ` ・出題：${esc(q.pickerName)}` : '')
     + (q.final ? ' <b class="final">最終問題・得点2倍</b>' : '');
   $('cover').innerHTML = '<span>?</span>'; stageMascot(null); preloadMascot();
   document.body.classList.remove('revealing', 'playing'); // 背景の映像を隠す
@@ -819,6 +849,9 @@ socket.on('question', q => {
   // 早押し：押すボタン（押した人だけが答えられる）
   $('buzzRow').hidden = q.play !== 'buzzer'; $('buzzBtn').disabled = true; $('buzzInfo').textContent = ''; buzzHolder = null;
   if (amOut()) $('quizNote').textContent = '脱落しました。最後まで見て応援しよう！';
+  $('pickPanel').hidden = true; clearInterval(pickTick);
+  if (q.pickerId === me) $('quizNote').textContent = 'あなたが出題した曲です。みんなが答えるのを見守ろう！';
+  renderBingo(); renderCoop();
   $('lifelines').hidden = false;
   updateLifelineButtons();
   show('quiz');
@@ -829,7 +862,8 @@ socket.on('question', q => {
 // offset は曲が流れ始めてからの経過秒。マイナスのときは、選択肢を見せてからその秒数待って流す（最初の1秒の待ち）。
 // 途中から戻ってきた人はプラスの経過秒が届く
 let goTimer = null;
-socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introLen, plays = 1, gap = 1 }) => {
+socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introLen, plays = 1, gap = 1, speed = 1 }) => {
+  player.setRate(speed); // 倍速・スロー（問題の間ずっと。答え合わせでふつうに戻す）
   document.body.classList.add('playing'); // 背景に Ambient light 風のぼかし映像
   clearTimeout(goTimer);
   stopTick();
@@ -838,10 +872,10 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
   const wait = Math.max(0, -offset), off = Math.max(0, offset);
   if (wait > 0) setPhase('ready', 'まもなく…');
   goTimer = setTimeout(() => {
-    if (kind === 'sabimae' || kind === 'random') {
-      // サビ前・どこから問題：止めずに流し続ける。戻ってきた人も経過秒ぶん先から
+    if (kind === 'sabimae' || kind === 'random' || kind === 'outro') {
+      // サビ前・どこから・アウトロ問題：止めずに流し続ける。戻ってきた人も経過秒ぶん先から
       player.start(start + off);
-      setPhase('intro', kind === 'random' ? '曲のどこかを再生中…（わかるかな？）' : 'サビ前を再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen'); charFx.say('intro');
+      setPhase('intro', kind === 'random' ? '曲のどこかを再生中…（わかるかな？）' : kind === 'outro' ? 'アウトロを再生中…（わかるかな？）' : 'サビ前を再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen'); charFx.say('intro');
     } else {
       // 戻ってきた人は、いま何回目のイントロのどこかを計算して、その位置から
       const cycle = introLen + gap, k = Math.floor(off / cycle), within = off - k * cycle;
@@ -852,7 +886,7 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
       introLeft = Math.max(0, plays - nth);
       setPhase('intro', nth > 1 ? `イントロ再生中…（${nth}回目！）` : 'イントロ再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen'); if (!off) charFx.say('intro');
     }
-    if (myAnswer === null && !amOut()) {
+    if (myAnswer === null && !amOut() && question?.pickerId !== me) {
       if (question?.play === 'buzzer') {
         // 早押し：押した人だけが答えられる。まずは押すボタンだけ
         buzzOpen = !buzzHolder; $('buzzBtn').disabled = !buzzOpen;
@@ -936,6 +970,52 @@ socket.on('buzzEnd', () => {
   updateLifelineButtons();
   setPhase(hintSeen ? 'chorus' : 'intro', hintSeen ? 'サビ再生中 ✨（得点×0.7）' : '再開！ わかったら押そう');
 });
+
+// ── 出題者モード：順番に1人が収録曲から曲を選ぶ（ほかの人は待つ） ──
+let pickTick = null, pickCatalog = null;
+socket.on('picking', async ({ id, name, sec, qNo, qTotal }) => {
+  question = null; myAnswer = null; answering = false; stopTick();
+  document.body.classList.remove('revealing', 'playing');
+  show('quiz');
+  $('choices').innerHTML = ''; $('clues').innerHTML = ''; $('inputForm').hidden = true; $('buzzRow').hidden = true; $('lifelines').hidden = true;
+  $('quizNote').textContent = '';
+  $('qno').textContent = `第 ${qNo} / ${qTotal} 問`; $('timer').textContent = ''; $('barFill').style.width = '0';
+  const mine = id === me, until = performance.now() + sec * 1000;
+  setPhase('ready', mine ? 'あなたが出題者！ 曲を選んでね' : `${name} さんが曲を選んでいます…`);
+  $('pickPanel').hidden = false; $('pickSearch').hidden = !mine;
+  const tickHead = () => { $('pickHead').textContent = `${mine ? 'みんなが「分かりそうで分からない」曲を選ぼう（半分くらい正解で最高点）' : `${name} さんが出題する曲を選んでいます`}… 残り ${Math.max(0, Math.ceil((until - performance.now()) / 1000))} 秒`; };
+  clearInterval(pickTick); tickHead(); pickTick = setInterval(tickHead, 250);
+  if (mine) {
+    if (!pickCatalog) { try { pickCatalog = (await fetch('/api/catalog').then(x => x.json())).songs; } catch (e) { pickCatalog = []; } }
+    $('pickInput').value = ''; renderPickList(); $('pickInput').focus();
+  }
+  renderBingo(); renderCoop();
+});
+function renderPickList() {
+  const q = $('pickInput').value.trim().toLowerCase();
+  const list = (pickCatalog || []).filter(s => !q || `${s.title} ${s.work} ${s.artist}`.toLowerCase().includes(q)).slice(0, 40);
+  $('pickList').innerHTML = list.map(s => `<li><button class="btn-sub" type="button" data-id="${esc(s.id)}"><b>${esc(s.title)}</b><small>${esc(s.work)}／${esc(s.artist)}（${s.year}）</small></button></li>`).join('')
+    || '<li class="note">見つかりませんでした</li>';
+}
+$('pickInput').oninput = () => { clearTimeout(renderPickList.t); renderPickList.t = setTimeout(renderPickList, 150); };
+$('pickList').onclick = e => { const b = e.target.closest('button[data-id]'); if (b) { socket.emit('pickSong', b.dataset.id); $('pickSearch').hidden = true; $('pickHead').textContent = '選びました！'; } };
+$('pickRandom').onclick = () => { socket.emit('pickSong', null); $('pickSearch').hidden = true; };
+
+// ── ビンゴ：自分のカード（4×4）。開いたマスは色がつく ──
+function renderBingo() {
+  const mineCard = room?.settings?.play === 'bingo' && room.state === 'playing' ? room.players.find(p => p.id === me)?.card : null;
+  $('bingoBox').hidden = !mineCard;
+  if (!mineCard) return;
+  $('bingoCard').innerHTML = mineCard.map(c => `<span class="${c.open ? 'open' : ''}${c.w === 'FREE' ? ' free' : ''}">${esc(c.w)}</span>`).join('');
+}
+// ── 協力：みんなの正解数と目標 ──
+function renderCoop() {
+  const c = room?.state === 'playing' ? room.coop : null;
+  $('coopBar').hidden = !c;
+  if (!c) return;
+  $('coopText').textContent = `みんなの正解 ${c.count} ／ 目標 ${c.goal}${c.count >= c.goal ? '　達成！' : ''}`;
+  $('coopFill').style.width = Math.min(100, c.count / c.goal * 100) + '%';
+}
 
 // 再接続したとき、すでに答えていた問題の表示を戻す
 socket.on('answered', a => markAnswered(a));
@@ -1032,6 +1112,7 @@ socket.on('lifelineResult', r => {
 
 // ── 答え合わせ ──
 socket.on('reveal', r => {
+  player.setRate(1);
   stopTick(); if (clearBuzz()) player.resume(); buzzOpen = false; $('buzzBtn').disabled = true;
   if (!practice) { // テスト1問は曲ログ・端末の記録に残さない
     if (Array.isArray(r.log)) playLog = r.log; // サーバーが持っている「ここまでの曲」
@@ -1094,6 +1175,9 @@ socket.on('reveal', r => {
   else if (mine?.correct && mine.elapsed != null && mine.elapsed < 3) charFx.say('fast', { sec: mine.elapsed.toFixed(1) });
   else if (mine) charFx.say(mine.correct ? 'ok' : mine.pass ? 'pass' : !mine.answered ? 'timeout' : 'ng');
   if (!practice) setTimeout(talkRanking, 2600);
+  // ビンゴ：そろった人がいたらカットイン
+  if ((r.bingo || []).length) setTimeout(() => charFx.cutin('BINGO!', r.bingo.join('・'), 'celebrate'), 600);
+  if (r.picker?.id === me) flash('ok', '出題者ボーナス', `+${r.picker.points}（${r.picker.of}人中 ${r.picker.correct}人正解）`);
   $('nextBtn').textContent = r.last ? '結果発表へ' : '次の問題へ';
   $('highlights').innerHTML = (r.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');
   // 自動で次へ進むまでのカウント（ホストは「次へ」で早送りできる）
@@ -1130,7 +1214,8 @@ socket.on('react', ({ id, name, kind }) => {
   setTimeout(() => el.remove(), 2600);
 });
 
-socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, survival }) => {
+socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, survival, coop, bingo }) => {
+  $('pickPanel').hidden = true; clearInterval(pickTick); $('coopBar').hidden = true; $('bingoBox').hidden = true;
   if (Array.isArray(log)) playLog = log;
   if (Array.isArray(rl)) roomLog = rl;
   clearInterval(nextTick); $('nextCount').textContent = ''; // 「結果発表まで」のカウントを止める
@@ -1143,7 +1228,9 @@ socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, s
   setPhase('', '終了');
   // 上位3人は表彰台に、全員の順位は下の一覧に
   // チーム戦：勝ったチーム（合計点）を表彰台の上に
-  $('teamResult').hidden = !teams;
+  $('teamResult').hidden = !teams && !coop;
+  if (coop) $('teamResult').innerHTML = coop.done ? `<b class="team-red">協力 達成！</b><span>みんなの正解 ${coop.count} ／ 目標 ${coop.goal}</span>`
+    : `<b>あと ${coop.goal - coop.count}問…</b><span>みんなの正解 ${coop.count} ／ 目標 ${coop.goal}</span>`;
   if (teams) {
     const draw = teams.length > 1 && teams[0].score === teams[1].score;
     $('teamResult').innerHTML = (draw ? '<b>引き分け！</b>' : `<b class="team-${teams[0].team}">${TEAM_LABEL[teams[0].team]}チームの勝ち！</b>`)
@@ -1154,6 +1241,7 @@ socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, s
   // ふりかえり：正解数・正解したときの平均タイム・いちばん長い連続正解
   const recap = p => [
     survival && (p.out ? `${p.survived}問目で脱落` : `最後まで残った（${p.survived}問）`),
+    bingo && p.bingoAt && `${p.bingoAt}問目で BINGO!`,
     p.team && `${TEAM_LABEL[p.team]}チーム`,
     p.correct !== undefined && `正解 ${p.correct}${total ? ` / ${total}` : ''}問`,
     p.avg != null && `平均 ${p.avg.toFixed(2)}秒`,

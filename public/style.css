@@ -574,3 +574,35 @@ body.in-lobby .qno { font-size: 14px; color: var(--text); font-weight: 700; }
 .team-result { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin: 0 0 12px; font-weight: 800; }
 .team-result b { font-size: 24px; padding: 4px 18px; border-radius: 99px; }
 .team-result span { padding: 3px 12px; border-radius: 99px; }
+/* ── 設定のタブ ── */
+.set-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
+.set-tabs button { padding: 7px 14px; border-radius: 99px; border: 1px solid var(--line); background: var(--glass-strong); color: var(--sub); font: inherit; font-size: 13px; font-weight: 800; cursor: pointer; }
+.set-tabs button.on { color: #fff; border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset, 0 0 12px rgba(127, 232, 255, .25); }
+.set-desc { margin: 0 0 10px; font-size: 13px; color: var(--sub); }
+.mode-desc { margin: 6px 0 10px; padding: 8px 12px; border-radius: 12px; background: rgba(255, 255, 255, .05); }
+.ex-box { margin: 0 0 12px; padding: 10px 14px; border-radius: 14px; border: 1px solid var(--line); background: rgba(0, 0, 0, .18); }
+.ex-box h5 { margin: 0 0 8px; font-size: 14px; }
+.ex-box small { display: block; color: var(--sub); font-size: 12px; margin-top: 4px; }
+.ex-list { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 10px; font-size: 13px; }
+.ex-list .btn-sub { margin-left: 8px; padding: 4px 12px; font-size: 12px; border-radius: 99px; }
+.ex-list .btn-sub:disabled { opacity: .4; }
+/* ── 出題者・協力・ビンゴ ── */
+.pick-panel { margin-bottom: 10px; }
+.pick-head { font-weight: 800; color: var(--warn); margin-bottom: 8px; }
+.pick-search input { width: 100%; box-sizing: border-box; margin-bottom: 8px; }
+.pick-list { list-style: none; margin: 0 0 8px; padding: 0; max-height: 300px; overflow-y: auto; display: grid; gap: 4px; }
+.pick-list .btn-sub { width: 100%; text-align: left; display: flex; flex-direction: column; padding: 6px 12px; border-radius: 10px; }
+.pick-list small { color: var(--sub); font-size: 11px; }
+.coop-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-weight: 800; }
+.coop-bar i { flex: 1; height: 10px; border-radius: 99px; background: rgba(255, 255, 255, .1); overflow: hidden; }
+.coop-bar b { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), var(--ok)); transition: width .4s ease; }
+.bingo { margin-top: 12px; }
+.bingo-title { font-size: 13px; color: var(--warn); }
+.bingo-card { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 6px; }
+.bingo-card span { min-height: 38px; padding: 4px; border-radius: 8px; border: 1px solid var(--line); background: rgba(0, 0, 0, .25); font-size: 11px; font-weight: 700;
+  display: grid; place-items: center; text-align: center; line-height: 1.2; overflow: hidden; word-break: break-all; }
+.bingo-card span.open { background: linear-gradient(180deg, rgba(255, 211, 107, .55), rgba(255, 150, 80, .45)); color: #fff; border-color: var(--warn); }
+.bingo-card span.free { color: var(--warn); }
+.bingo-tag { font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 99px; background: rgba(255, 255, 255, .12); }
+.bingo-tag.done { background: var(--warn); color: #222; }
+.qno .speed { color: var(--warn); }

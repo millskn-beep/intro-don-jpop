@@ -243,7 +243,7 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
     const near = shuffle(catalog.filter(s => s.id !== song.id && s.work !== song.work && Math.abs(s.year - song.year) <= 5));
     const choices = shuffle([song, ...near.slice(0, 7)]).map(s => ({ title: s.title, work: s.work }));
     // テスト1問は、部屋の遊び方（早押し・サバイバル・作品／年代当てなど）にかかわらず、いつもの1問
-    const S = { ...BASE_SETTINGS, ...(preview ? {} : r.settings), answerMode: 'choice', play: 'normal', target: 'song' };
+    const S = { ...BASE_SETTINGS, ...(preview ? {} : r.settings), answerMode: 'choice', play: 'normal', target: 'song', speed: '1' };
     const plays = S.introPlays || 1;
     const hintAt = plays <= 1 ? S.hintAt : Math.max(S.hintAt, plays * S.introLen + (plays - 1) + 1.5);
     pq = { song, S, plays, hintAt, total: hintAt + S.chorusLen, correctIndex: choices.findIndex(c => c.title === song.title && c.work === song.work), t0: 0, done: false };

@@ -115,6 +115,8 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     time() { return apiReady && yt.getCurrentTime ? yt.getCurrentTime() : 0; },
     playFrom(t) { clear(); run(() => { yt.seekTo(t, true); yt.unMute(); yt.setVolume(volume); yt.playVideo(); }); },
     setVolume(v) { volume = v; run(() => yt.setVolume(v)); },
+    // 再生速度（倍速・スロー）。YouTube は 0.25〜2 倍
+    setRate(r) { run(() => { if (yt.setPlaybackRate) yt.setPlaybackRate(r || 1); }); },
     // スマホ（特にiPhone）は、タップの処理の中で一度再生しておかないと、後から音が出ないことがある。
     // ボタンのクリック処理から同期的に呼ぶこと。
     prime(videoId) {

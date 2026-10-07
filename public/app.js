@@ -551,7 +551,7 @@ function renderRoom(r) {
     + (survival && p.out ? '<span class="out">脱落</span>' : survival && p.lives != null ? `<span class="lives" title="ライフ">${'♥'.repeat(p.lives)}</span>` : '')
     + (p.buzzing ? '<span class="buzzing">回答中</span>' : '')
     + (p.picker ? '<span class="buzzing">出題者</span>' : '')
-    + (p.card ? `<span class="bingo-tag${p.bingo ? ' done' : ''}">${p.bingo ? 'BINGO!' : `${p.card.filter(c => c.open && c.w !== 'FREE').length}マス`}</span>` : '');
+    + (p.card && r.state === 'playing' ? `<span class="bingo-tag${p.bingo ? ' done' : ''}">${p.bingo ? 'BINGO!' : `${p.card.filter(c => c.open && c.w !== 'FREE').length}マス`}</span>` : '');
   $('players').innerHTML = r.players.map(p => `
     <li data-id="${p.id}" class="${p.answered ? 'answered' : ''} ${p.connected ? '' : 'off'} ${p.id === me ? 'me' : ''} ${p.team ? 'team-' + p.team : ''} ${survival && p.out ? 'is-out' : ''} ${p.buzzing ? 'is-buzzing' : ''}">
       <span class="pl-face">${avatarImg(p.avatar)}${top > 0 && p.score === top ? icon('crown', 'crown') : ''}</span>

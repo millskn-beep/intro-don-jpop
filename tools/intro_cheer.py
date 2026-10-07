@@ -119,6 +119,27 @@ SCAN_LABELS = {
     'cheer': 'crowd cheering and applause',
     'sfx': 'ambient environmental sounds, wind, birds, footsteps, sound effects, no music',
 }
+SCAN_HEAD = 120  # 頭から調べる秒数（アニメのドラマが1分ほど入る動画もあるため）
+RULE = 2         # 判定のきまりの版。古い版で調べた曲は調べ直す
+SP_WIN, SP_K = 20, 8  # 「音楽以外が濃い」：20 秒のうち 8 秒以上が話し声・歓声・環境音
+
+
+def music_start(lab, win=SP_WIN, k=SP_K, run=3):
+    """1 秒ごとの判定（0 楽器・1 歌声・2 話し声・3 歓声・4 環境音）から、音楽の始まり（秒）。
+    音楽以外が濃い区間の最後より後で、楽器か歌声が run 秒続いた最初の位置。
+    （直してもらったイントロ 15 曲で 9 曲正解、ふつうの曲 64 曲で遅らせすぎ 0 曲。2026-10-08）"""
+    sp = lab >= 2
+    last = -1
+    for t in range(len(lab)):
+        if sp[t] and sp[max(0, t - win + 1):t + 1].sum() >= k:
+            last = t
+    mus = lab <= 1
+    for t in range(last + 1, len(lab) - run + 1):
+        if mus[t:t + run].all():
+            return float(t)
+    return None
+
+
 VIDEO_WORDS = r'\bMV\b|Music ?Video|Official ?Video|Music ?Clip|ミュージック ?ビデオ|映画|劇場'
 
 
@@ -154,7 +175,7 @@ def scan():
     targets = [s for s in songs if s.get('embeddable') is not False and s['id'] in videos
                and not (videos[s['id']].get('channel') or '').endswith('- Topic') and words.search(videos[s['id']].get('title', ''))]
     done = json.loads(SCAN_PATH.read_text(encoding='utf8')) if SCAN_PATH.exists() else {}
-    todo = [s for s in targets if s['id'] not in done or done[s['id']].get('error')]
+    todo = [s for s in targets if s['id'] not in done or done[s['id']].get('error') or done[s['id']].get('rule') != RULE]
     print(f'対象 {len(targets)} 曲／残り {len(todo)} 曲', flush=True)
     model = load_model()
     T = np.stack([np.asarray(model.encode(v, prompt_name='SearchQuery', normalize_embeddings=True), dtype=np.float32).reshape(-1)
@@ -163,7 +184,7 @@ def scan():
     for n, s in enumerate(todo, 1):
         label = f"[{n}/{len(todo)}] {s['title']}（{s['work']}）"
         try:
-            y = load_head(s['id'])
+            y = load_head(s['id'], SCAN_HEAD)
             fails = 0
         except Exception as e:
             done[s['id']] = {'title': s['title'], 'error': str(e)}
@@ -177,11 +198,10 @@ def scan():
         st = np.arange(0, max(0, len(y) / 16000 - 1), 1.0)
         S = emb(model, [y[int(t * 16000):int((t + 1) * 16000)] for t in st]) @ T.T
         lab = np.argmax(S, 1)
-        music = lab <= 1
-        start = next((float(t) for i, t in enumerate(st[:-2]) if music[i:i + 3].all()), None)
+        start = music_start(lab)
         intro = s.get('intro', 0) or 0
         cand = start is not None and start > intro + 1.5
-        done[s['id']] = {'title': s['title'], 'work': s['work'], 'intro': intro, 'start': start, 'candidate': cand,
+        done[s['id']] = {'title': s['title'], 'work': s['work'], 'intro': intro, 'start': start, 'candidate': cand, 'rule': RULE,
                          'labels': ''.join('IVSCE'[i] for i in lab)}
         print(f"{label} → いま {intro} 秒 / 音楽の始まり {start} 秒{'  ★候補' if cand else ''}", flush=True)
         SCAN_PATH.write_text(json.dumps(done, ensure_ascii=False, indent=1), encoding='utf8')

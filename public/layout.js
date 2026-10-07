@@ -156,7 +156,9 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
   function active() {
     const b = document.body.classList;
     const edited = Object.keys(cfg.rects.play).length + Object.keys(cfg.rects.reveal).length > 0;
-    return wide.matches && (editing || (cfg.on && (edited || practicing) && (practicing || b.contains('playing') || b.contains('revealing'))));
+    // ゲーム中ずっと（読み込み中・まもなく… の間も）。playing/revealing だけで見ると、曲の読み込み中はふつうの画面に戻ってしまい、流れ始めた瞬間に配置が跳ぶ
+    const inGame = b.contains('playing') || b.contains('revealing') || (getRoom()?.state === 'playing' && !getRoom()?.paused && !b.contains('in-lobby'));
+    return wide.matches && (editing || (cfg.on && (edited || practicing) && (practicing || inGame)));
   }
   function apply() {
     const on = active();

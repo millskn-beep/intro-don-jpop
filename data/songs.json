@@ -7417,8 +7417,8 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "つじあやの公式",
-    "intro": 0,
-    "chorus": 44,
+    "intro": 19.6,
+    "chorus": 88.2,
     "aliases": [
       "かぜになる",
       "ねこのおんがえし"
@@ -7426,10 +7426,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "chorusSource": "heatmap",
-    "introMethod": "v2",
-    "introUnsure": true,
+    "introMeasured": false,
+    "chorusSource": "manual",
     "views": 15457192,
     "channel": "つじあやの",
     "viewsAt": "2026-10-05",
@@ -24724,22 +24722,21 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "Topic",
-    "intro": 5.7,
-    "chorus": 81.1,
+    "intro": 0,
+    "chorus": 67.8,
     "aliases": [
       "らぶらいぶ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusChecked": true,
     "views": 31052,
     "channel": "Rin Hoshizora (CV: Riho Iida) - Topic",
     "viewsAt": "2026-10-05",
     "fame": "minor",
-    "chorusSource": "audio"
+    "chorusSource": "manual"
   },
   {
     "id": "VNnciosQYVA",
@@ -29654,7 +29651,7 @@
     "confidence": "中",
     "source": "ガンダムチャンネル（TVサイズ）",
     "intro": 0.2,
-    "chorus": 44,
+    "chorus": 51.7,
     "aliases": [
       "きどうせんしがんだむ",
       "ガンダム"
@@ -29662,7 +29659,7 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMeasured": true,
     "introMethod": "v2",
     "views": 697378,
@@ -31895,7 +31892,7 @@
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
     "intro": 7.2,
-    "chorus": 46,
+    "chorus": 82,
     "aliases": [
       "らぶらいぶさんしゃいん",
       "サンシャイン"
@@ -31910,7 +31907,7 @@
     "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
     "viewsAt": "2026-10-05",
     "fame": "minor",
-    "chorusSource": "audio"
+    "chorusSource": "manual"
   },
   {
     "id": "EQNE-VwOl04",
@@ -33989,8 +33986,8 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
-    "intro": 0.5,
-    "chorus": 53,
+    "intro": 4,
+    "chorus": 63.1,
     "aliases": [
       "らぶらいぶさんしゃいん",
       "サンシャイン"
@@ -33998,9 +33995,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "chorusSource": "manual",
+    "introMeasured": false,
     "views": 1349146,
     "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
     "viewsAt": "2026-10-05",
@@ -44808,17 +44804,16 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
-    "intro": 7,
-    "chorus": 55,
+    "intro": 15.2,
+    "chorus": 58.8,
     "aliases": [
       "らぶらいぶ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "chorusSource": "manual",
+    "introMeasured": false,
     "views": 513549,
     "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
     "viewsAt": "2026-10-05",
@@ -45193,7 +45188,7 @@
     "confidence": "高",
     "source": "Topic",
     "intro": 0.2,
-    "chorus": 60.1,
+    "chorus": 41.5,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -45203,7 +45198,7 @@
     "channel": "Mia Taylor (CV: Shu Uchida) - Topic",
     "viewsAt": "2026-10-05",
     "fame": "otaku",
-    "chorusSource": "audio"
+    "chorusSource": "manual"
   },
   {
     "id": "-7zYPOvPABo",
@@ -46754,16 +46749,15 @@
     "artist": "Official髭男dism",
     "year": 2022,
     "type": "OP",
-    "intro": 0.7,
-    "chorus": 64,
+    "intro": 9,
+    "chorus": 65.6,
     "aliases": [
       "スパイファミリー",
       "みっくすなっつ"
     ],
     "embeddable": true,
-    "introMeasured": true,
-    "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "introMeasured": false,
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 150337161,
     "channel": "OFFICIAL HIGE DANDISM",

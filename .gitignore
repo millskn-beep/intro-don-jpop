@@ -10,3 +10,4 @@ data/songs.json.tmp
 .venv-embed/
 data/audio-cache/
 data/embed-trial-*.json
+data/intro-cheer.json

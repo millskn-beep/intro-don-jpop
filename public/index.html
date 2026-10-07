@@ -139,6 +139,7 @@
         <button class="btn-sub" id="noRecordBtn" type="button" title="オンにすると、これから遊ぶ曲を除外に追加しません（次のゲームでもまた出ることがあります）"></button>
         <button class="btn-sub" id="resetPlayed" type="button">このルームで流した曲の除外を解除</button>
       </div>
+      <div class="team-row" id="teamRow" hidden><span>チーム戦</span><button class="btn-sub team-red" data-team="red" type="button">赤チームへ</button><button class="btn-sub team-blue" data-team="blue" type="button">青チームへ</button><button class="btn-sub" id="shuffleTeams" type="button">🔀 チームをシャッフル</button><span class="team-score" id="teamInfo"></span></div>
       <div class="invite">
         <span>招待リンク</span>
         <input id="inviteUrl" readonly>
@@ -174,8 +175,12 @@
       <section class="set-group">
       <h4>ルール</h4>
       <div class="settings">
-        <label>出題タイプ<select data-key="quizType"><option value="intro">イントロ</option><option value="sabimae">サビ前</option><option value="mix">イントロ＋サビ前（ランダム）</option></select></label>
-        <label>問題数<select data-key="questions"></select></label>
+        <label>出題タイプ<select data-key="quizType"><option value="intro">イントロ</option><option value="sabimae">サビ前</option><option value="mix">イントロ＋サビ前（ランダム）</option><option value="random">どこから？（曲の途中から）</option></select></label>
+        <label title="早押し：押した人だけが答えられる（お手つきは −200点）／サバイバル：間違えるとライフが減り、なくなったら脱落">遊び方<select data-key="play"><option value="normal">ふつう</option><option value="buzzer">早押し</option><option value="survival">サバイバル</option></select></label>
+        <label>答えるもの<select data-key="target"><option value="song">曲名</option><option value="work">作品</option><option value="year">年（近いほど高得点）</option></select></label>
+        <label id="livesLabel" hidden>ライフ<select data-key="lives"><option value="1">1（1回で脱落）</option><option value="2">2</option><option value="3">3</option></select></label>
+        <label title="赤・青の2チームに分かれて、合計点で競う">チーム戦<select data-key="teams"><option value="false">なし</option><option value="true">2チーム（赤・青）</option></select></label>
+        <label id="questionsLabel">問題数<select data-key="questions"></select></label>
       </div>
       <div class="modes" id="modes">
         <span>おまかせ設定</span>
@@ -192,7 +197,7 @@
         <label>回答方法<select data-key="answerMode"><option value="choice">選択肢から選ぶ</option><option value="input">曲名・作品名を入力</option></select></label>
         <label>時間で出るヒント<select data-key="clues"><option value="true">あり</option><option value="false">なし</option></select></label>
         <label>入力：ヒント3のあとの時間<select data-key="typingExtra"></select></label>
-        <label>採点<select data-key="mode"><option value="score">スコア制（速いほど高得点）</option><option value="buzz">早押し制（最速の正解者のみ）</option></select></label>
+        <label id="modeLabel">採点<select data-key="mode"><option value="score">スコア制（速いほど高得点）</option><option value="buzz">早押し制（最速の正解者のみ）</option></select></label>
         <label>選択肢<select data-key="choices"></select></label>
         <label>イントロの長さ<select data-key="introLen"></select></label>
         <label>サビに移るまで<select data-key="hintAt"></select></label>
@@ -211,6 +216,7 @@
 
     <!-- 出題中 -->
     <div id="quiz" class="panel" hidden>
+      <div class="buzz-row" id="buzzRow" hidden><button class="buzz-btn" id="buzzBtn" type="button">押す！<small>スペースキーでも</small></button><span class="buzz-info" id="buzzInfo"></span></div>
       <ul class="clues" id="clues"></ul>
       <div class="choices" id="choices"></div>
       <form class="answer-input" id="inputForm" hidden autocomplete="off">
@@ -243,6 +249,7 @@
       <ul class="titles" id="titles"></ul>
       <div class="podium" id="podium">
         <img id="podiumImg" src="assets/glass/podium.webp" alt="">
+        <div class="team-result" id="teamResult" hidden></div>
         <div class="places" id="places"></div>
       </div>
       <ol class="ranking" id="ranking"></ol>

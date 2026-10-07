@@ -542,3 +542,35 @@ body.in-lobby .qno { font-size: 14px; color: var(--text); font-weight: 700; }
 .ranking li .rk-name small { color: var(--sub); font-size: 11px; font-weight: 500; }
 .btn-sub.back-lobby { display: block; margin: 10px auto 0; padding: 8px 20px; font-size: 13px; border-radius: 99px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+/* ── 新しいモード ── */
+/* 早押し：大きな「押す！」ボタン */
+.buzz-row { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.buzz-btn { flex: none; padding: 14px 34px; border-radius: 99px; border: 2px solid #fff; cursor: pointer; font: inherit; font-size: 22px; font-weight: 900; color: #fff;
+  background: radial-gradient(circle at 50% 30%, #ff7a9a, #e0245e 70%); box-shadow: 0 6px 0 #8c1238, 0 0 24px rgba(255, 80, 130, .55); display: flex; flex-direction: column; align-items: center; line-height: 1.1; }
+.buzz-btn small { font-size: 10px; font-weight: 700; opacity: .85; }
+.buzz-btn:active:not(:disabled) { transform: translateY(4px); box-shadow: 0 2px 0 #8c1238, 0 0 24px rgba(255, 80, 130, .55); }
+.buzz-btn:disabled { filter: grayscale(.85) brightness(.6); cursor: default; box-shadow: 0 3px 0 #333; }
+.buzz-info { font-weight: 800; color: var(--warn); }
+/* 年代当て：年のボタンを細かく並べる */
+.choices.years { grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)) !important; gap: 6px; }
+.choices.years .choice { min-height: 40px; padding: 6px; justify-content: center; text-align: center; font-size: 15px; font-family: var(--font-num); }
+.choices.years .choice::before { display: none; }
+/* チーム・ライフ・脱落・回答中 */
+.team-tag, .lives, .out, .buzzing { font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 99px; }
+.team-tag.team-red, .team-result .team-red { color: #fff; background: rgba(255, 80, 110, .75); }
+.team-tag.team-blue, .team-result .team-blue { color: #fff; background: rgba(70, 140, 255, .75); }
+.players li.team-red { box-shadow: inset 4px 0 0 rgba(255, 80, 110, .8); }
+.players li.team-blue { box-shadow: inset 4px 0 0 rgba(70, 140, 255, .8); }
+.lives { color: #ff6b8b; letter-spacing: 1px; }
+.out { background: rgba(120, 120, 140, .6); color: #fff; }
+.players li.is-out { opacity: .5; }
+.buzzing { background: var(--warn); color: #222; }
+.players li.is-buzzing { outline: 2px solid var(--warn); }
+.team-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; font-size: 13px; font-weight: 700; }
+.team-row .btn-sub { padding: 5px 12px; font-size: 12px; border-radius: 99px; }
+.team-row .team-red { border-color: rgba(255, 80, 110, .8); }
+.team-row .team-blue { border-color: rgba(70, 140, 255, .8); }
+.team-row .team-score { color: var(--sub); }
+.team-result { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin: 0 0 12px; font-weight: 800; }
+.team-result b { font-size: 24px; padding: 4px 18px; border-radius: 99px; }
+.team-result span { padding: 3px 12px; border-radius: 99px; }

@@ -201,6 +201,9 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
     if (want !== document.body.classList.contains('layout-on') || (want && phase() !== lastPhase)) apply();
   }).observe(document.body, { attributes: true, attributeFilter: ['class'] });
   addEventListener('resize', () => { if (document.body.classList.contains('layout-on')) apply(); });
+  // 真ん中の画面の幅が変わったら（双子が左右に分かれて狭くなる・戻るなど）、キャンバスの大きさと位置を計算し直す。
+  // ウインドウの大きさは変わらないので resize だけでは気づけず、広いままの計算で右にはみ出していた
+  new ResizeObserver(() => { if (document.body.classList.contains('layout-on')) apply(); }).observe(document.querySelector('main'));
   wide.addEventListener('change', apply);
 
   // ドラッグ（移動・大きさ）。キャンバスの縮小ぶん（scale）で割って、割合で保存する（いま見ている場面の配置に）

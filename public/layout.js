@@ -34,7 +34,8 @@ const SAMPLE_CHOICES = ['イントロの曲', 'となりの曲', 'あの名曲',
 export function initLayout({ socket, player, $, store, toast, getRoom, getMe, setPractice }) {
   const wide = matchMedia('(min-width: 900px)');
   const load = () => { try { return JSON.parse(store.get(KEY) || 'null') || {}; } catch (e) { return {}; } };
-  let cfg = { on: false, preset: '1280x720', rects: {}, ...load() };
+  // 「自分の配置を使う」は最初からオン。ただし配置を一度も編集していなければ、ふつうの画面のまま（edited で判断）
+  let cfg = { on: true, preset: '1280x720', rects: {}, ...load() };
   // 前の形（出題中・答え合わせの区別なし）から移す
   if (cfg.rects && !cfg.rects.play && !cfg.rects.reveal && Object.keys(cfg.rects).length) cfg.rects = { play: { ...cfg.rects }, reveal: { ...cfg.rects } };
   cfg.rects = { play: {}, reveal: {}, ...cfg.rects };
@@ -154,7 +155,8 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
   let scale = 1, lastPhase = null;
   function active() {
     const b = document.body.classList;
-    return wide.matches && (editing || (cfg.on && (practicing || b.contains('playing') || b.contains('revealing'))));
+    const edited = Object.keys(cfg.rects.play).length + Object.keys(cfg.rects.reveal).length > 0;
+    return wide.matches && (editing || (cfg.on && (edited || practicing) && (practicing || b.contains('playing') || b.contains('revealing'))));
   }
   function apply() {
     const on = active();

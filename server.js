@@ -614,7 +614,8 @@ function go(room) {
     q.countdownDone = true;
     q.phase = 'countdown'; // カウントダウン中は「準備できた」の合図などで先に進まないように
     io.to(room.code).emit('countdown', { sec: COUNTDOWN });
-    later(room, () => { if (q.phase === 'countdown') { q.phase = 'loading'; go(room); } }, COUNTDOWN * 1000);
+    // ここで later を使うと、この関数の下で宣言している別の later（LEAD_MS 足し）より前なのでエラーになり、サーバーが落ちる。外側の laterAt を使う
+    laterAt(room, () => { if (q.phase === 'countdown') { q.phase = 'loading'; go(room); } }, COUNTDOWN * 1000);
     return;
   }
   const S = room.settings;

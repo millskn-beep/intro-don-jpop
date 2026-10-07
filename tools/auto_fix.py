@@ -97,6 +97,7 @@ def songle(vid):
     if vid in SONGLE:
         return SONGLE[vid]
     import urllib.request
+    import urllib.error
     out = {}
     try:
         for kind in ('chorus', 'beat'):
@@ -110,7 +111,11 @@ def songle(vid):
             time.sleep(1)
             if kind == 'chorus' and not out:
                 break  # 解析がない曲は拍もない
-    except Exception as e:
+    except urllib.error.HTTPError as e:
+        if e.code != 404:
+            return None  # 混んでいるなど：記録しない（次にまた聞く）
+        # 404 は「Songle にまだ解析がない曲」。取れたところまでを記録する
+    except Exception:
         return None  # つながらないときは記録しない（次にまた聞く）
     SONGLE[vid] = out
     write(SONGLE_PATH, SONGLE, indent=0)

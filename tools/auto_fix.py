@@ -5,7 +5,10 @@
 #      いまのイントロより 1.5 秒以上遅ければ直す。40 秒より大きく動くものは直さず一覧（data/auto-fixes.json の pending）にだけ出す
 #   3. 1 時間ごとに公開サイトから修正を取り込み（tools/pull-fixes.js）、増えた正解で判定の基準（何秒中何秒が音楽以外なら飛ばすか）を合わせ直す
 #
-# 直した曲には印（introSource: 'auto' ／ chorusSource: 'audio2'）と直す前の値（introBefore ／ chorusBefore）を残す。収録曲一覧に「自動で直した」と出る。
+# 4. Songle（産総研の音楽解析サービス。解析済みの曲だけ）と照合する：
+#    サビは Songle の解析があればそれを使う（chorusSource: 'songle'）。イントロは Songle の最初の拍が「いまの位置で音楽が始まっている」
+#    と言っている曲は自動で直さず一覧に。基準の合わせ直しでは、Songle で「すぐ音楽が始まる」と分かる曲も「遅らせすぎ」の確認に使う
+# 直した曲には印（introSource: 'auto' ／ chorusSource: 'audio2'・'songle'）と直す前の値（introBefore ／ chorusBefore）を残す。収録曲一覧に「自動で直した」と出る。
 # 手で直した曲（修正の記録がある曲・introMeasured が false の曲）は触らない。途中で止めても、次は続きから。
 #
 # 使い方（専用の環境）: .venv-embed/Scripts/python tools/auto_fix.py --hours 10 [--limit N] [--dry-run]
@@ -85,6 +88,35 @@ def log_event(bucket, **kw):
         write(LOG_PATH, log)
 
 
+# ── Songle（https://songle.jp）の解析：サビ（くり返しの始まり）と最初の拍。1 秒に 1 回まで、結果は data/songle.json に残す ──
+SONGLE_PATH = ROOT / 'data' / 'songle.json'
+SONGLE = read(SONGLE_PATH, {})
+
+
+def songle(vid):
+    if vid in SONGLE:
+        return SONGLE[vid]
+    import urllib.request
+    out = {}
+    try:
+        for kind in ('chorus', 'beat'):
+            url = f'https://widget.songle.jp/api/v1/song/{kind}.json?url=www.youtube.com/watch?v={vid}'
+            with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'anison-intro-vs'}), timeout=15) as r:
+                d = json.loads(r.read().decode('utf8') or '{}')
+            if kind == 'chorus' and d.get('chorusSegments'):
+                out['chorus'] = sorted(x['start'] / 1000 for x in d['chorusSegments'][0]['repeats'])
+            if kind == 'beat' and d.get('beats'):
+                out['beat'] = d['beats'][0]['start'] / 1000
+            time.sleep(1)
+            if kind == 'chorus' and not out:
+                break  # 解析がない曲は拍もない
+    except Exception as e:
+        return None  # つながらないときは記録しない（次にまた聞く）
+    SONGLE[vid] = out
+    write(SONGLE_PATH, SONGLE, indent=0)
+    return out
+
+
 # ── 1 秒ごとの判定 ──
 model = load_model()
 T = np.stack([np.asarray(model.encode(v, prompt_name='SearchQuery', normalize_embeddings=True), dtype=np.float32).reshape(-1)
@@ -127,6 +159,12 @@ def tune():
     for it in labeled():
         if it['kind'] in ('topic', 'swapped-new') and it['id'] in songs:
             neg.setdefault(it['id'], songs[it['id']].get('intro', 0) or 0)
+    # Songle の最初の拍が、いまのイントロの位置とほぼ同じ曲（自動の計測と Songle が一致＝頭から音楽）も「遅らせてはいけない曲」に
+    n_sg = 0
+    for vid, sg in SONGLE.items():
+        s = songs.get(vid)
+        if s and vid in LABELS and sg.get('beat') is not None and s.get('introMethod') == 'v2' and abs(sg['beat'] - (s.get('intro') or 0)) <= 1.5:
+            neg.setdefault(vid, s.get('intro') or 0); n_sg += 1
     labs = {}
     for vid in list(pos) + list(neg):
         try:
@@ -146,7 +184,9 @@ def tune():
     npos = sum(1 for v in pos if v in labs)
     nneg = sum(1 for v in neg if v in labs)
     say(f'基準：{win} 秒のうち {k} 秒以上が音楽以外なら飛ばす（正解 {hit}/{npos}・遅らせすぎ {late}/{nneg}）{"（変更）" if changed else ""}')
-    log_event('tuning', win=win, k=k, hit=hit, positives=npos, late=late, negatives=nneg)
+    log_event('tuning', win=win, k=k, hit=hit, positives=npos, late=late, negatives=nneg, songleNegatives=n_sg)
+    if n_sg:
+        say(f'  （うち Songle で頭から音楽と分かる曲 {n_sg} 曲）')
 
 
 def pull():
@@ -162,11 +202,25 @@ def pull():
 def redo_chorus():
     songs = read(SONGS_PATH, [])
     hist = {h['id'] for h in read(HISTORY_PATH, [])}
-    targets = [s for s in songs if s.get('chorusSource') == 'audio' and s.get('embeddable') is not False and s['id'] not in hist]
+    seen = {e['id'] for e in read(LOG_PATH, {}).get('checked', []) if e.get('kind') == 'chorus-ok'}
+    targets = [s for s in songs if s.get('chorusSource') == 'audio' and s.get('embeddable') is not False and s['id'] not in hist and s['id'] not in seen]
     say(f'サビの推定し直し：{len(targets)} 曲')
     for n, s in enumerate(targets, 1):
         if time.time() > DEADLINE:
             return
+        sg = songle(s['id']) or {}
+        intro = s.get('intro', 0) or 0
+        sg_ch = next((c for c in sg.get('chorus', []) if c > intro + 10), None)
+        if sg_ch is not None:
+            t = round(sg_ch, 1)
+            if abs(t - (s.get('chorus') or 0)) >= 1:
+                save_song(s['id'], {'chorus': t, 'chorusSource': 'songle', 'chorusBefore': s.get('chorus')})
+                log_event('fixed', id=s['id'], title=s['title'], work=s['work'], kind='chorus', before=s.get('chorus'), after=t, by='songle')
+                say(f'  [{n}] {s["title"]} → サビ {s.get("chorus")} → {t} 秒（Songle）')
+            else:
+                log_event('checked', id=s['id'], kind='chorus-ok')
+                say(f'  [{n}] {s["title"]} → そのまま（Songle と一致 {t} 秒）')
+            continue
         try:
             y = ec.load_audio(s['id'])
             t = ec.estimate(y, s.get('intro', 0) or 0)
@@ -175,6 +229,7 @@ def redo_chorus():
             time.sleep(10)
             continue
         if t is None or abs(t - (s.get('chorus') or 0)) < 1:
+            log_event('checked', id=s['id'], kind='chorus-ok')
             say(f'  [{n}] {s["title"]} → そのまま（{s.get("chorus")} 秒）')
         else:
             save_song(s['id'], {'chorus': t, 'chorusSource': 'audio2', 'chorusBefore': s.get('chorus')})
@@ -206,12 +261,17 @@ def check_intro(s):
     if start is None or start <= intro + MIN_SHIFT:
         log_event('checked', id=s['id'], kind='ok')
         return f'そのまま（いま {intro} 秒・音楽の始まり {start} 秒）'
+    sg = songle(s['id']) or {}
+    beat = sg.get('beat')
+    if beat is not None and abs(beat - intro) <= 1.5 and abs(beat - start) > 3:
+        log_event('pending', id=s['id'], title=s['title'], work=s['work'], kind='intro-big', before=intro, after=start, rule=dict(RULE), songleBeat=beat, why='songle')
+        return f'★ Songle は「いまの位置で音楽が始まる」と言うので一覧だけ（{intro} → {start} 秒・Songle の最初の拍 {beat:.1f} 秒）'
     if start - intro > MAX_SHIFT:
         log_event('pending', id=s['id'], title=s['title'], work=s['work'], kind='intro-big', before=intro, after=start, rule=dict(RULE))
         return f'★ 大きく動くので一覧だけ（{intro} → {start} 秒）'
     save_song(s['id'], {'intro': start, 'introSource': 'auto', 'introBefore': intro})
-    log_event('fixed', id=s['id'], title=s['title'], work=s['work'], kind='intro', before=intro, after=start, rule=dict(RULE))
-    return f'◎ イントロを直した（{intro} → {start} 秒）'
+    log_event('fixed', id=s['id'], title=s['title'], work=s['work'], kind='intro', before=intro, after=start, rule=dict(RULE), songleBeat=beat)
+    return f'◎ イントロを直した（{intro} → {start} 秒）' + (f'（Songle の最初の拍 {beat:.1f} 秒）' if beat is not None else '')
 
 
 def main():

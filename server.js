@@ -400,7 +400,7 @@ function sanitizeSettings(input, base) {
   if (s.yearFrom > s.yearTo) [s.yearFrom, s.yearTo] = [s.yearTo, s.yearFrom];
   // できない組み合わせ：年代当て＋早押し、サバイバル＋チーム戦
   if (s.target === 'year' && s.play === 'buzzer') s.play = 'normal';
-  if (['survival', 'coop', 'bingo', 'fill'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない
+  if (['survival', 'coop', 'bingo'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
   return s;
 }
 
@@ -813,8 +813,9 @@ function buildFill(song, pool) {
 // 画面に出す枠（正解の番号は出さない）
 function fillPublic(room, q) {
   if (!q?.fill) return null;
-  return q.fill.map(f => ({ key: f.key, label: f.label, choices: f.choices.map(c => c.title), peeked: !!f.peeked,
-                            by: f.by ? room.players.get(f.by)?.name || '' : null, given: f.given }));
+  return q.fill.map(f => ({ key: f.key, label: f.label, choices: f.choices.map(c => c.title), peeked: !!f.peeked, removed: [...(f.removed || [])],
+                            by: f.by ? room.players.get(f.by)?.name || '' : null, given: f.given,
+                            team: f.by && room.settings.teams ? room.players.get(f.by)?.team || null : null })); // チーム戦：埋めたチームの色
 }
 // 曲が終わるまでの秒数（サビへ移動してから最後まで）。長さが分からない曲は 3 分
 function fillTotal(q, hintAt) {
@@ -1011,7 +1012,8 @@ function go(room) {
     broadcastRoom(room);
   }, hintAt * 1000);
   if (S.clues && !q.fill) { // 3つ埋めバトルは、ヒント（年・歌手・作品の頭文字）が枠の答えになるので出さない
-    clueList(q.song, S.target).forEach((c, i) => later(room, () => {
+    // ビンゴは頭文字のヒント（「〇」から始まる作品）を出さない（カードのマスがすぐ分かってしまうので）
+    clueList(q.song, S.target).filter(c => !(S.play === 'bingo' && c.label === '作品')).forEach((c, i) => later(room, () => {
       if (q.phase !== 'intro' && q.phase !== 'chorus') return;
       q.clues.push(c);
       io.to(room.code).emit('clue', c);
@@ -1162,9 +1164,10 @@ function onFillAnswer(room, player, payload) {
     if (!slot) return;
     if (Number.isInteger(payload?.index)) {
       const c = slot.choices[payload.index];
-      if (!c) return;
+      if (!c || slot.removed?.has(payload.index)) return; // お手つきで消えた選択肢は選べない
       choice = true; given = c.title;
       correct = payload.index === slot.correctIndex || (slot.key === 'vocal' && (song.vocal || []).includes(c.title));
+      if (!correct) (slot.removed = slot.removed || new Set()).add(payload.index); // 間違えた選択肢は、その枠の10択から消す（全員）
     } else {
       if (typeof payload?.text !== 'string' || slot.peeked) return; // 10択が出た枠は手で打てない
       given = payload.text.trim().slice(0, 50);
@@ -1202,9 +1205,13 @@ function onFillAnswer(room, player, payload) {
   } else {
     if (slot || payload?.timeout || payload?.pass) statsOf(room, player).miss++;
     points = -BUZZ_MISS; // お手つき：減点＋しばらく押せない
-    q.fillLock.set(player.token, Date.now() + (S.lockSec || FILL_LOCK_SEC) * 1000);
-    if (S.noRepeat) q.fillWait.add(player.token); // 連続解答なし：ほかの人が押すまで待つ
-    io.to(player.socketId).emit('fillLock', { sec: S.lockSec || FILL_LOCK_SEC, wait: !!S.noRepeat });
+    // チーム戦はお手つきをチームで共有（同じチームの全員が押せない・待つ）
+    const mates = S.teams && player.team ? [...room.players.values()].filter(p => p.team === player.team) : [player];
+    for (const m of mates) {
+      q.fillLock.set(m.token, Date.now() + (S.lockSec || FILL_LOCK_SEC) * 1000);
+      if (S.noRepeat) q.fillWait.add(m.token); // 連続解答なし：ほかの人（チーム戦はほかのチーム）が押すまで待つ
+      if (m.connected) io.to(m.socketId).emit('fillLock', { sec: S.lockSec || FILL_LOCK_SEC, wait: !!S.noRepeat, by: m === player ? null : player.name });
+    }
   }
   player.score += points;
   q.fillLog.push({ token: player.token, slot: slot?.key || null, label: slot?.label || null, given, correct, choice, points, elapsed, hint });
@@ -1224,37 +1231,66 @@ function onFillPass(room, player, on) {
   if (!q?.fill || (q.phase !== 'intro' && q.phase !== 'chorus') || room.game.paused || !q.participants.has(player.token)) return;
   if (q.buzz?.token === player.token) return; // 答えている最中はパスにしない（「わからない」で）
   if (on && !q.fillPass.has(player.token)) statsOf(room, player).pass++;
+  if (on && q.buzzQueue) q.buzzQueue = q.buzzQueue.filter(e => e.token !== player.token); // パスしたら順番待ちからも外す
   if (on) q.fillPass.add(player.token); else q.fillPass.delete(player.token);
   if (!q.buzz && fillAllPassed(room, q)) return reveal(room);
   broadcastRoom(room);
 }
 
 // ── 早押し：押した人がいたら、全員の曲と進行（イントロを止める・サビ・ヒント・時間切れ）を止めて、その人だけ答えられる ──
+// 3つ埋めバトル：いま押せるか（間違えたあとの秒数・連続解答なし）
+function fillCanBuzz(room, q, player) {
+  if ((q.fillLock.get(player.token) || 0) > Date.now()) return false; // 間違えてから少しの間は押せない
+  // 連続解答なし：間違えた人は、ほかの人が押すまで押せない（ほかに押せる人がいない＝全員パス・1人だけのときは押せる）
+  // （チーム戦は同じチームの全員が待つので、「ほかに押せる人」は待っていない人＝ほかのチーム）
+  return !(q.fillWait.has(player.token) &&
+    [...q.participants].some(t => !q.fillWait.has(t) && room.players.get(t)?.connected && !q.fillPass.has(t)));
+}
+const queueNames = (room, q) => (q.buzzQueue || []).map(e => room.players.get(e.token)?.name).filter(Boolean);
 function onBuzz(room, player) {
   const g = room.game, q = g?.q;
-  if (!q || !['buzzer', 'fill'].includes(room.settings.play) || g.paused || q.buzz) return;
+  if (!q || !['buzzer', 'fill'].includes(room.settings.play) || g.paused) return;
   if (q.phase !== 'intro' && q.phase !== 'chorus') return;
   if (!q.participants.has(player.token) || q.answers.has(player.token) || Date.now() < q.t0) return;
-  if (q.fill && (q.fillLock.get(player.token) || 0) > Date.now()) return; // 3つ埋めバトル：間違えてから少しの間は押せない
-  // 連続解答なし：間違えた人は、ほかの人が押すまで押せない（ほかに押せる人がいない＝全員パス・1人だけのときは押せる）
-  if (q.fill && q.fillWait.has(player.token) &&
-      [...q.participants].some(t => t !== player.token && room.players.get(t)?.connected && !q.fillPass.has(t))) return;
-  if (q.fill) { for (const t of q.fillWait) if (t !== player.token) { q.fillWait.delete(t); io.to(room.players.get(t)?.socketId).emit('fillWaitEnd'); } q.fillWait.delete(player.token); }
+  if (q.fill && !fillCanBuzz(room, q, player)) return;
+  if (q.buzz) {
+    // 3つ埋めバトルは早押しの順番待ち：答えている人のあとに、押した順に答える（正解でもお手つきでも次の人へ）
+    if (!q.fill || q.buzz.token === player.token) return;
+    q.buzzQueue = q.buzzQueue || [];
+    if (q.buzzQueue.some(e => e.token === player.token)) return;
+    q.buzzQueue.push({ token: player.token, at: Date.now() });
+    q.fillPass.delete(player.token);
+    io.to(room.code).emit('buzzQueue', { ids: q.buzzQueue.map(e => room.players.get(e.token)?.id), names: queueNames(room, q) });
+    return broadcastRoom(room);
+  }
+  startBuzz(room, player, Date.now());
+}
+// 押した人の番を始める（at：押した時刻。早いほど高い点）
+function startBuzz(room, player, at) {
+  const q = room.game.q;
+  if (q.fill && !q.fillWait.has(player.token)) { for (const t of q.fillWait) io.to(room.players.get(t)?.socketId).emit('fillWaitEnd'); q.fillWait.clear(); }
+  else if (q.fill) q.fillWait.delete(player.token);
   const now = Date.now(), sec = q.fill ? FILL_BUZZ_SEC : BUZZ_SEC;
   if (q.fill) q.fillPass.delete(player.token); // 押したらパスは取り消し
   // 押しても曲と進行（サビへ・時間切れ）は止めない。時間切れが答えている最中に来たら、答え終わってから答え合わせ（endBuzz）
-  q.buzz ={ token: player.token, elapsed: (now - q.t0) / 1000, at: now, until: now + sec * 1000 };
+  q.buzz = { token: player.token, elapsed: (at - q.t0) / 1000, at: now, until: now + sec * 1000 };
   q.buzz.timer = setTimeout(() => { if (room.game?.q === q && q.buzz?.token === player.token) onAnswer(room, player, { timeout: true }); }, sec * 1000);
-  io.to(room.code).emit('buzz', { id: player.id, name: player.name, sec });
+  io.to(room.code).emit('buzz', { id: player.id, name: player.name, sec, queue: queueNames(room, q) });
   broadcastRoom(room);
 }
-// 答える人の番が終わった（間違い・時間切れ・抜けた）：また誰でも押せる。曲は流れたまま（止めていない）
+// 答える人の番が終わった（間違い・時間切れ・抜けた）：順番待ちがいれば次の人へ、いなければ、また誰でも押せる。曲は流れたまま
 function endBuzz(room) {
   const g = room.game, q = g?.q, b = q?.buzz;
   if (!b) return;
   clearTimeout(b.timer); q.buzz = null;
   io.to(room.code).emit('buzzEnd', { ms: 0 });
-  if (q.revealPending) setImmediate(() => { if (room.game?.q === q && q.phase !== 'reveal') reveal(room); }); // 答えている間に時間切れになっていた
+  if (q.revealPending) return setImmediate(() => { if (room.game?.q === q && q.phase !== 'reveal') reveal(room); }); // 答えている間に時間切れになっていた
+  // 3つ埋めバトル：押した順の次の人（抜けた人・その間にお手つきで押せなくなった人は飛ばす）
+  while (q.fill && q.buzzQueue?.length) {
+    const e = q.buzzQueue.shift(), p = room.players.get(e.token);
+    if (!p?.connected || !fillCanBuzz(room, q, p)) { if (p?.connected) io.to(p.socketId).emit('notice', 'お手つきの間だったので、順番を飛ばしました'); continue; }
+    return startBuzz(room, p, e.at);
+  }
 }
 
 // ライフラインの効果。使った本人にだけ返す内容を作る

@@ -488,7 +488,7 @@ function renderRoom(r) {
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
-  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'fill'].includes(r.settings.play);
+  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
@@ -569,7 +569,7 @@ function renderRoom(r) {
   // 得点が一番の人（0点より上）に王冠をつける
   const top = Math.max(0, ...r.players.map(p => p.score));
   renderBingo(); renderCoop();
-  if (r.fill && question?.fill && r.phase !== 'reveal') renderFill(r.fill); // 3つ埋めバトル：埋まった枠を全員の画面に
+  if (r.fill && question?.fill && r.phase !== 'reveal') { renderFill(r.fill); renderQlog(); } // 3つ埋めバトル：埋まった枠・消えた選択肢を全員の画面に
   // サバイバルのライフ（♥）・脱落、チームの色、早押しでいま答えている人
   const survival = r.settings.play === 'survival' && r.state !== 'lobby';
   const extraTags = p => (p.team ? `<span class="team-tag team-${p.team}">${TEAM_LABEL[p.team]}</span>` : '')
@@ -577,11 +577,15 @@ function renderRoom(r) {
     + (p.buzzing ? '<span class="buzzing">回答中</span>' : '')
     + (p.picker ? '<span class="buzzing">出題者</span>' : '')
     + (p.passed ? '<span class="passed">パス</span>' : '')
-    + (p.card && r.state === 'playing' ? `<span class="bingo-tag${p.bingo ? ' done' : ''}">${p.bingo ? 'BINGO!' : `${p.card.filter(c => c.open && c.w !== 'FREE').length}マス`}</span>` : '');
+    + (p.card && r.state === 'playing' && p.bingo ? '<span class="bingo-tag done">BINGO!</span>' : '');
+  // ビンゴ：名前の下に、その人のカードの埋まり具合を小さな4×4で（開いたマスに色）
+  const miniCard = p => (p.card && r.state === 'playing'
+    ? `<span class="mini-bingo${p.bingo ? ' done' : ''}" title="${p.card.filter(c => c.open && c.w !== 'FREE').length}マス開いた">${p.card.map(c =>
+      `<i class="${c.w === 'FREE' ? 'free' : c.open ? 'open' : ''}"></i>`).join('')}</span>` : '');
   $('players').innerHTML = r.players.map(p => `
     <li data-id="${p.id}" class="${p.answered ? 'answered' : ''} ${p.connected ? '' : 'off'} ${p.id === me ? 'me' : ''} ${p.team ? 'team-' + p.team : ''} ${survival && p.out ? 'is-out' : ''} ${p.buzzing ? 'is-buzzing' : ''}">
       <span class="pl-face">${avatarImg(p.avatar)}${top > 0 && p.score === top ? icon('crown', 'crown') : ''}</span>
-      <span class="pl-name"><b>${esc(p.name)}</b>${p.id === r.hostId || p.id === me || p.streak >= 2 || extraTags(p) ? `<span class="tags">${p.id === r.hostId ? '<span class="host">HOST</span>' : ''}${p.id === me ? '<span class="you">YOU</span>' : ''}${p.streak >= 2 ? `<span class="streak" title="連続正解">${p.streak}連</span>` : ''}${extraTags(p)}</span>` : ''}</span>
+      <span class="pl-name"><b>${esc(p.name)}</b>${p.id === r.hostId || p.id === me || p.streak >= 2 || extraTags(p) ? `<span class="tags">${p.id === r.hostId ? '<span class="host">HOST</span>' : ''}${p.id === me ? '<span class="you">YOU</span>' : ''}${p.streak >= 2 ? `<span class="streak" title="連続正解">${p.streak}連</span>` : ''}${extraTags(p)}</span>` : ''}${miniCard(p)}</span>
       <span class="pts${prevScores.has(p.id) && p.score > prevScores.get(p.id) ? ' bump' : ''}">${p.score}</span>
       ${p.answered ? '<span class="pl-check" title="回答済み"></span>' : ''}
     </li>`).join('');
@@ -876,7 +880,7 @@ socket.on('question', q => {
   $('buzzRow').hidden = q.play !== 'buzzer' && q.play !== 'fill'; $('buzzBtn').disabled = true; $('buzzInfo').textContent = ''; buzzHolder = null;
   // 3つ埋めバトル：選択肢・入力の欄の代わりに枠を出す
   if (q.fill) { $('choices').hidden = true; $('inputForm').hidden = true; }
-  fillLockUntil = 0; fillWaiting = false; fillSlot = null; $('fillAnswer').hidden = true; renderFill(q.fill);
+  fillLockUntil = 0; fillWaiting = false; fillSlot = null; buzzQueueIds = []; buzzQueueNames = []; $('fillAnswer').hidden = true; renderFill(q.fill);
   qlogEntries = []; renderQlog(); // パスの下の記録はこの問題の分だけ
   if (amOut()) $('quizNote').textContent = '脱落しました。最後まで見て応援しよう！';
   $('pickPanel').hidden = true; clearInterval(pickTick);
@@ -976,10 +980,23 @@ function clearBuzz() {
   if (buzzPausedAt) { pausedNow = false; timerStart += performance.now() - buzzPausedAt; buzzPausedAt = 0; return true; }
   return false;
 }
-socket.on('buzz', ({ id, name, sec }) => {
-  buzzHolder = id; buzzOpen = false; $('buzzBtn').disabled = true; // 押しても曲と残り時間は止めない（流れたまま答える）
+// 3つ埋めバトルの順番待ち（押した順）。自分が並んでいる間は押せない
+let buzzQueueIds = [], buzzQueueNames = [];
+socket.on('buzzQueue', ({ ids = [], names = [] }) => {
+  buzzQueueIds = ids; buzzQueueNames = names;
+  if (ids.includes(me)) { buzzOpen = false; $('buzzBtn').disabled = true; }
+});
+socket.on('buzz', ({ id, name, sec, queue = null }) => {
+  buzzHolder = id; // 押しても曲と残り時間は止めない（流れたまま答える）
+  if (queue) { buzzQueueNames = queue; buzzQueueIds = buzzQueueIds.filter(x => x !== id); }
+  // 3つ埋めバトルは、ほかの人が答えている間も押せる（押した順に並ぶ）
+  buzzOpen = !!question?.fill && id !== me && !buzzQueueIds.includes(me) && myAnswer === null && !amOut();
+  $('buzzBtn').disabled = !buzzOpen || fillLocked();
   const mine = id === me, until = performance.now() + sec * 1000;
-  const show = () => { $('buzzInfo').textContent = `${mine ? 'あなた' : name + ' さん'}が回答中… 残り ${Math.max(0, (until - performance.now()) / 1000).toFixed(1)} 秒`; };
+  const show = () => {
+    const next = question?.fill && buzzQueueNames.length ? `　次：${buzzQueueNames.join(' → ')}` : '';
+    $('buzzInfo').textContent = `${mine ? 'あなた' : name + ' さん'}が回答中… 残り ${Math.max(0, (until - performance.now()) / 1000).toFixed(1)} 秒${next}`;
+  };
   clearInterval(buzzTick); show(); buzzTick = setInterval(show, 100);
   cue(mine ? 'あなたの番！' : `${name}！`, 'fx-burst');
   setPhase('ready', mine ? 'あなたの番！ 答えて！' : `${name} さんが回答中…`);
@@ -997,7 +1014,8 @@ socket.on('buzzEnd', () => {
   if (clearBuzz()) player.resume();
   if (question?.fill) { $('fillAnswer').hidden = true; fillSlot = null; } // 3つ埋めバトルは何度でも押せる（間違えた人は少しの間だけ押せない）
   else if (wasMine && myAnswer === null) markAnswered({ given: '時間切れ' }); // 時間切れ（サーバーではお手つき）
-  if (myAnswer === null && !amOut()) { buzzOpen = true; $('buzzBtn').disabled = fillLocked(); }
+  // 順番待ちが残っていれば、すぐ次の人の番（'buzz'）が来る。自分が並んでいる間は押せない
+  if (myAnswer === null && !amOut() && !buzzQueueIds.includes(me)) { buzzOpen = true; $('buzzBtn').disabled = fillLocked(); }
   updateLifelineButtons();
   setPhase(hintSeen ? 'chorus' : 'intro', hintSeen ? 'サビ再生中 ✨（得点×0.7）' : '再開！ わかったら押そう');
 });
@@ -1005,6 +1023,8 @@ socket.on('buzzEnd', () => {
 // ── 出題中の記録（パスの下）：左に出た選択肢、右に選んだ・入力した答え ──
 let qlogEntries = [];
 const QLOG_MARK = { ok: '○', ng: '×', almost: '惜しい', pass: '' }; // パスは本文に「パス」と出るので印はなし
+// 3つ埋めバトル：お手つきで消えた10択（記録では打ち消し線）
+const removedOf = l => new Set((l.base ? [] : (room?.fill || question?.fill || []).find(f => f.label === l.label)?.removed) || []);
 function renderQlog() {
   const base = question?.choices?.length ? [{ type: 'choices', label: '選択肢', choices: question.choices.map(c => c.title), base: true }]
     : question?.years ? [] : [];
@@ -1014,7 +1034,7 @@ function renderQlog() {
   $('qlog').hidden = !question || room?.settings?.play === 'bingo' || (!lists.length && !answers.length);
   $('qlogChoices').hidden = !lists.length;
   $('qlogChoices').innerHTML = lists.map(l => `<div class="qlog-list"><b>${esc(l.label)}${l.name && !l.base ? `<small>（${esc(l.name)} が開いた10択）</small>` : ''}</b>
-    <ol>${l.choices.map(c => `<li>${esc(c)}</li>`).join('')}</ol></div>`).join('');
+    <ol>${l.choices.map((c, i) => `<li${removedOf(l).has(i) ? ' class="gone"' : ''}>${esc(c)}</li>`).join('')}</ol></div>`).join('');
   $('qlogInputs').innerHTML = answers.map(e => `<li class="${e.result || ''}${e.id === me ? ' me' : ''}"><span class="who">${esc(e.name)}</span>`
     + `${e.label ? `<span class="slot">${esc(e.label)}</span>` : ''}<span class="how">${e.how === 'choice' ? '選択' : e.how === 'pass' ? '' : '入力'}</span>`
     + `<span class="txt">${esc(e.text ?? '')}</span>${e.result ? `<span class="res">${QLOG_MARK[e.result] || ''}</span>` : ''}</li>`).join('') || '<li class="empty">まだ回答はありません</li>';
@@ -1025,14 +1045,18 @@ socket.on('qlog', e => { qlogEntries.push(e); renderQlog(); });
 // ── 3つ埋めバトル：枠の表示・押した人の回答（枠を選ぶ → 書く／10択）・間違えたあと押せない時間・パス ──
 let fillLockUntil = 0, fillSlot = null, fillLockTick = null, fillWaiting = false;
 // 連続解答なし：ほかに押せる人（つながっていて、パスしていない人）がいる間は待つ
-const othersCanBuzz = () => (room?.players || []).some(p => p.id !== me && p.connected && p.inGame && !p.passed);
+// （チーム戦は、お手つきをチームで共有するので、同じチームの人は数えない）
+const othersCanBuzz = () => {
+  const myTeam = room?.settings?.teams ? room.players.find(p => p.id === me)?.team : null;
+  return (room?.players || []).some(p => p.id !== me && p.connected && p.inGame && !p.passed && (!myTeam || p.team !== myTeam));
+};
 const fillLocked = () => !!question?.fill && (performance.now() < fillLockUntil || (fillWaiting && othersCanBuzz()));
 function renderFill(slots) {
   $('fillBox').hidden = !slots;
   if (!slots) return;
   const holderMine = buzzHolder === me && !$('fillAnswer').hidden;
   $('fillSlots').innerHTML = slots.map(f => `<button type="button" class="fill-slot${f.by != null ? ' done' : ''}${fillSlot === f.key ? ' on' : ''}" data-slot="${f.key}"
-    ${holderMine && f.by == null ? '' : 'disabled'}><small>${esc(f.label)}${f.peeked && f.by == null ? '<i class="fill-peeked">10択のみ</i>' : ''}</small><b>${f.by != null ? esc(f.given) : '？'}</b>${f.by != null ? `<em>${esc(f.by)}</em>` : ''}</button>`).join('');
+    ${holderMine && f.by == null ? '' : 'disabled'}><small>${esc(f.label)}${f.peeked && f.by == null ? '<i class="fill-peeked">10択のみ</i>' : ''}</small><b>${f.by != null ? esc(f.given) : '？'}</b>${f.by != null ? `<em>${f.team ? `<span class="team-tag team-${f.team}">${TEAM_LABEL[f.team]}</span> ` : ''}${esc(f.by)}</em>` : ''}</button>`).join('');
 }
 const fillSlots = () => room?.fill || question?.fill || [];
 function openFillAnswer() {
@@ -1057,7 +1081,8 @@ function chooseFillSlot(key) {
 function showFillChoices(f) {
   $('fillForm').hidden = true; $('fillChoiceBtn').hidden = true;
   $('fillHead').textContent = `「${f.label}」を10択で選ぼう（点数は半分・もう手では打てません）`;
-  $('fillChoices').innerHTML = f.choices.map((c, i) => `<button class="choice" type="button" data-i="${i}">${esc(c)}</button>`).join('');
+  const removed = new Set(f.removed || []); // お手つきで消えた選択肢は出さない（番号はそのまま）
+  $('fillChoices').innerHTML = f.choices.map((c, i) => removed.has(i) ? '' : `<button class="choice" type="button" data-i="${i}">${esc(c)}</button>`).join('');
 }
 $('fillSlots').onclick = e => { const b = e.target.closest('button[data-slot]'); if (b && !b.disabled) chooseFillSlot(b.dataset.slot); };
 $('fillChoiceBtn').onclick = () => {
@@ -1093,8 +1118,9 @@ socket.on('fillResult', ({ id, name, label, given, correct, choice, points }) =>
   else cue(`${name}：お手つき`, 'fx-burst');
 });
 // 自分が間違えた：少しの間だけ押せない
-socket.on('fillLock', ({ sec, wait = false }) => {
+socket.on('fillLock', ({ sec, wait = false, by = null }) => {
   fillLockUntil = performance.now() + sec * 1000; fillWaiting = wait;
+  if (by) cue(`${by}：チームのお手つき`, 'fx-burst'); // チーム戦：仲間が間違えたので自分も押せない
   $('buzzBtn').disabled = true;
   clearInterval(fillLockTick);
   fillLockTick = setInterval(() => {
@@ -1102,7 +1128,8 @@ socket.on('fillLock', ({ sec, wait = false }) => {
     if (!question?.fill) { clearInterval(fillLockTick); return; }
     if (!fillLocked()) { clearInterval(fillLockTick); if (buzzOpen) $('buzzBtn').disabled = false; if (!buzzHolder) $('buzzInfo').textContent = ''; return; }
     $('buzzBtn').disabled = true;
-    if (!buzzHolder) $('buzzInfo').textContent = left > 0 ? `お手つき：あと ${left.toFixed(1)} 秒押せません${fillWaiting ? '（そのあとも、ほかの人が押すまで待ち）' : ''}` : 'お手つき：ほかの人が押すまで押せません';
+    const others = room?.settings?.teams ? 'ほかのチーム' : 'ほかの人';
+    if (!buzzHolder) $('buzzInfo').textContent = left > 0 ? `お手つき：あと ${left.toFixed(1)} 秒押せません${fillWaiting ? `（そのあとも、${others}が押すまで待ち）` : ''}` : `お手つき：${others}が押すまで押せません`;
   }, 100);
 });
 // 連続解答なし：ほかの人が押したので、また押せる（秒数の制限が残っていればそれまで）

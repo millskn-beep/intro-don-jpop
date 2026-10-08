@@ -592,6 +592,7 @@ button.fill-slot.on { background: var(--glass-strong); border-color: var(--warn)
 .qlog-list b { display: block; font-size: 11px; color: var(--sub); margin-bottom: 2px; }
 .qlog-list b small { font-weight: 600; margin-left: 4px; }
 .qlog-list ol { margin: 0; padding-left: 18px; line-height: 1.5; }
+.qlog-list li.gone { text-decoration: line-through; opacity: .45; } /* お手つきで消えた選択肢 */
 .qlog-right { display: flex; flex-direction: column; min-width: 0; padding: 8px 10px; border-radius: 12px; background: rgba(0, 0, 0, .25); border: 1px solid var(--line); }
 .qlog-head { font-size: 11px; color: var(--sub); margin-bottom: 4px; }
 .qlog-inputs { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; max-height: 236px; overflow-y: auto; }
@@ -645,4 +646,11 @@ button.fill-slot.on { background: var(--glass-strong); border-color: var(--warn)
 .bingo-card span.free { color: var(--warn); }
 .bingo-tag { font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 99px; background: rgba(255, 255, 255, .12); }
 .bingo-tag.done { background: var(--warn); color: #222; }
+/* プレイヤー一覧：名前の下のミニビンゴカード（4×4。開いたマスに色、FREE は金色） */
+.mini-bingo { display: grid; grid-template-columns: repeat(4, 7px); grid-auto-rows: 7px; gap: 2px; width: max-content; margin-top: 3px;
+  padding: 2px; border-radius: 4px; background: rgba(0, 0, 0, .3); }
+.mini-bingo i { display: block; border-radius: 2px; background: rgba(255, 255, 255, .12); }
+.mini-bingo i.open { background: var(--accent); box-shadow: 0 0 4px var(--accent); }
+.mini-bingo i.free { background: rgba(214, 170, 90, .75); }
+.mini-bingo.done { outline: 1px solid var(--warn); box-shadow: 0 0 8px rgba(255, 200, 80, .6); }
 .qno .speed { color: var(--warn); }

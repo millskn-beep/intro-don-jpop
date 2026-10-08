@@ -22,6 +22,12 @@
   body.layout-on #results { display: block; padding: 10px 12px; border-radius: 18px; background: rgba(8, 8, 20, .55); border: 1px solid rgba(255, 255, 255, .1); }
   body.layout-on:not(.revealing) #results { display: none; }
   body.layout-on #results tbody { display: table; width: 100%; border-collapse: collapse; }
+  /* 「今のウインドウ」：選択肢を真ん中の枠いっぱいに広げる（枠が大きくなれば選択肢も大きく） */
+  body.layout-win #quiz:not([hidden]) { display: flex; flex-direction: column; }
+  body.layout-win #quiz .choices:not([hidden]) { flex: 1 1 auto; min-height: 0; grid-auto-rows: 1fr; align-content: stretch; }
+  body.layout-win #quiz .choices:empty { display: none; }
+  body.layout-win #quiz .choice { font-size: 18px; }
+  body.layout-win #quiz .choice small { font-size: 13px; }
   /* 編集中は待機中・最終結果の画面を隠して、枠だけを見せる */
   body.layout-editing #lobby, body.layout-editing #over { display: none !important; }
   body.layout-editing .layout-frame { display: grid; place-items: center; position: absolute; z-index: 20; box-sizing: border-box; cursor: move;

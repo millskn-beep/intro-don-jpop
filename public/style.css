@@ -583,6 +583,27 @@ button.fill-slot.on { background: var(--glass-strong); border-color: var(--warn)
 .fill-answer { margin-top: 10px; display: grid; gap: 8px; }
 .fill-head { margin: 0; font-weight: 800; color: var(--warn); }
 .fill-choice-btn { justify-self: start; width: auto; margin: 0; }
+/* 出題中の記録（パスの下）：左に出た選択肢（小さく固定）、右に回答の記録 */
+.qlog { display: grid; grid-template-columns: minmax(150px, 34%) 1fr; gap: 10px; margin-top: 12px; font-size: 12px; }
+.qlog-choices { display: grid; gap: 8px; align-content: start; max-height: 260px; overflow-y: auto; padding: 8px 10px; border-radius: 12px; background: rgba(0, 0, 0, .25); border: 1px solid var(--line); }
+.qlog-choices[hidden] + .qlog-right { grid-column: 1 / -1; }
+.qlog-list b { display: block; font-size: 11px; color: var(--sub); margin-bottom: 2px; }
+.qlog-list b small { font-weight: 600; margin-left: 4px; }
+.qlog-list ol { margin: 0; padding-left: 18px; line-height: 1.5; }
+.qlog-right { display: flex; flex-direction: column; min-width: 0; padding: 8px 10px; border-radius: 12px; background: rgba(0, 0, 0, .25); border: 1px solid var(--line); }
+.qlog-head { font-size: 11px; color: var(--sub); margin-bottom: 4px; }
+.qlog-inputs { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; max-height: 236px; overflow-y: auto; }
+.qlog-inputs li { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.qlog-inputs li.empty { color: var(--sub); }
+.qlog-inputs .who { font-weight: 800; }
+.qlog-inputs li.me .who { color: var(--accent); }
+.qlog-inputs .slot, .qlog-inputs .how { font-size: 10px; padding: 0 6px; border-radius: 99px; background: rgba(255, 255, 255, .1); color: var(--sub); }
+.qlog-inputs .how:empty { display: none; }
+.qlog-inputs .txt { overflow-wrap: anywhere; }
+.qlog-inputs .res { font-weight: 900; }
+.qlog-inputs li.ok .res { color: var(--ok); }
+.qlog-inputs li.ng .res { color: var(--warn); }
+.qlog-inputs li.almost .res, .qlog-inputs li.pass .res { color: var(--sub); }
 .team-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; font-size: 13px; font-weight: 700; }
 .team-row .btn-sub { padding: 5px 12px; font-size: 12px; border-radius: 99px; }
 .team-row .team-red { border-color: rgba(255, 80, 110, .8); }

@@ -24,6 +24,11 @@ const DEFAULT = {
   reveal: { side: [0, 0, 0.17, 1], stage: [0.18, 0, 0.82, 0.17], quiz: [0.18, 0.59, 0.82, 0.41],
             result: [0.18, 0.19, 0.54, 0.38], results: [0.73, 0.19, 0.27, 0.38] },
 };
+// 「今のウインドウ」の初めの配置：選択肢を真ん中に、左にプレイヤー一覧、上にステージ、右に答え合わせ（上）と結果の表（下）
+const WIN_RECTS = { side: [0, 0, 0.2, 1], stage: [0.215, 0, 0.57, 0.22], quiz: [0.215, 0.235, 0.57, 0.765],
+                    result: [0.8, 0, 0.2, 0.6], results: [0.8, 0.615, 0.2, 0.385] };
+const DEFAULT_WIN = { play: WIN_RECTS, reveal: WIN_RECTS };
+const BASE = [1280, 720]; // 「今のウインドウ」は、この大きさを基準に中身（文字・ボタン）ごと拡大・縮小する
 const PHASE_LABEL = { play: '出題中', reveal: '答え合わせ' };
 const MIN = { w: 0.08, h: 0.06 };
 const KEY = 'aq-layout';
@@ -39,11 +44,14 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
   // 前の形（出題中・答え合わせの区別なし）から移す
   if (cfg.rects && !cfg.rects.play && !cfg.rects.reveal && Object.keys(cfg.rects).length) cfg.rects = { play: { ...cfg.rects }, reveal: { ...cfg.rects } };
   cfg.rects = { play: {}, reveal: {}, ...cfg.rects };
+  cfg.rectsWin = { play: {}, reveal: {}, ...cfg.rectsWin }; // 「今のウインドウ」で編集した配置（ほかの大きさとは別に持つ）
   const save = () => store.set(KEY, JSON.stringify(cfg));
   let editing = false, practicing = false, editPhase = 'play', preview = false;
   const room = $('room'), results = $('results'), resultsHome = results.parentNode, resultsNext = results.nextSibling;
   const phase = () => (editing && !practicing) ? editPhase : (document.body.classList.contains('revealing') ? 'reveal' : 'play');
-  const rectOf = k => cfg.rects[phase()][k] || DEFAULT[phase()][k];
+  const isWin = () => cfg.preset === 'window';
+  const myRects = () => (isWin() ? cfg.rectsWin : cfg.rects); // いまの大きさで使う・保存する配置
+  const rectOf = k => myRects()[phase()][k] || (isWin() ? DEFAULT_WIN : DEFAULT)[phase()][k];
 
   // ── ツールバー ──
   const bar = document.createElement('div');
@@ -81,7 +89,7 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
   $('lyPhase').onclick = e => { const b = e.target.closest('button[data-phase]'); if (b) { editPhase = b.dataset.phase; samples(); apply(); } };
   $('lyReset').onclick = () => {
     if (!confirm(`「${PHASE_LABEL[phase()]}」の配置を初めの状態に戻しますか？`)) return;
-    cfg.rects[phase()] = {}; save(); apply();
+    myRects()[phase()] = {}; save(); apply();
   };
   $('lyTest').onclick = () => practicing ? endPractice() : startPractice();
 
@@ -148,14 +156,22 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
     return f;
   });
 
+  // 表示できる広さ（真ん中の画面の幅 × 上のバーより下の高さ）
+  function avail() {
+    const top = document.querySelector('main > .top');
+    return [document.querySelector('main').clientWidth - 32, innerHeight - (top ? top.getBoundingClientRect().bottom : 0) - 20];
+  }
+  // 「今のウインドウ」：広さいっぱいのキャンバス。中身は 1280×720 を基準にした倍率で拡大・縮小する（大きい画面ほど文字・ボタンも大きく）
+  function winScale() { const [aw, ah] = avail(); return Math.max(0.5, Math.min(aw / BASE[0], ah / BASE[1])); }
   function canvasSize() {
-    if (cfg.preset === 'window') return [Math.round(innerWidth - 32), Math.round(innerHeight - 90)];
+    if (isWin()) { const [aw, ah] = avail(), s = winScale(); return [Math.round(aw / s), Math.round(ah / s)]; }
     return PRESETS[cfg.preset] || PRESETS['1280x720'];
   }
   let scale = 1, lastPhase = null;
   function active() {
     const b = document.body.classList;
-    const edited = Object.keys(cfg.rects.play).length + Object.keys(cfg.rects.reveal).length > 0;
+    // 編集した配置がある、または「今のウインドウ」（選択肢を真ん中にした初めの配置をそのまま使う）
+    const edited = isWin() || Object.keys(cfg.rects.play).length + Object.keys(cfg.rects.reveal).length > 0;
     // ゲーム中ずっと（読み込み中・まもなく… の間も）。playing/revealing だけで見ると、曲の読み込み中はふつうの画面に戻ってしまい、流れ始めた瞬間に配置が跳ぶ
     const inGame = b.contains('playing') || b.contains('revealing') || (getRoom()?.state === 'playing' && !getRoom()?.paused && !b.contains('in-lobby'));
     return wide.matches && (editing || (cfg.on && (edited || practicing) && (practicing || inGame)));
@@ -165,6 +181,7 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
     lastPhase = phase();
     document.body.classList.toggle('layout-on', on);
     document.body.classList.toggle('layout-editing', on && editing);
+    document.body.classList.toggle('layout-win', on && isWin()); // 選択肢を枠いっぱいに（layout.css）
     $('lyPhase').hidden = !editing;
     $('lyPhase').querySelectorAll('button').forEach(b => { b.classList.toggle('on', b.dataset.phase === phase()); b.disabled = practicing; });
     // 結果の表は、答え合わせの中から出してキャンバスに直接置く（別々に動かせるように）
@@ -176,10 +193,8 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
       return;
     }
     const [W, H] = canvasSize();
-    const top = document.querySelector('main > .top');
-    const availW = document.querySelector('main').clientWidth - 32;
-    const availH = innerHeight - (top ? top.getBoundingClientRect().bottom : 0) - 20;
-    scale = Math.min(availW / W, availH / H, 4);
+    const [availW, availH] = avail();
+    scale = isWin() ? winScale() : Math.min(availW / W, availH / H, 4);
     room.style.cssText = `width:${W}px;height:${H}px;transform:scale(${scale});margin-left:${Math.max(0, (availW - W * scale) / 2)}px;`;
     for (const p of PARTS) {
       const [x, y, w, h] = rectOf(p.key);
@@ -220,7 +235,7 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
       let [x, y, w, h] = start;
       if (resize) { w = Math.max(MIN.w, Math.min(1 - x, w + dx)); h = Math.max(MIN.h, Math.min(1 - y, h + dy)); }
       else { x = Math.max(0, Math.min(1 - w, x + dx)); y = Math.max(0, Math.min(1 - h, y + dy)); }
-      cfg.rects[ph][key] = [x, y, w, h].map(v => Math.round(v * 1000) / 1000);
+      myRects()[ph][key] = [x, y, w, h].map(v => Math.round(v * 1000) / 1000);
       apply();
     };
     const up = () => { f.removeEventListener('pointermove', move); f.removeEventListener('pointerup', up); save(); };

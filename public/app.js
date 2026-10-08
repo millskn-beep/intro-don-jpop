@@ -317,7 +317,7 @@ const PLAY_DESC = {
   picker: '1問ごとに順番で1人が出題者になり、収録曲から曲を選びます。答える人の半分くらいが正解すると、出題者に最高1000点。2人以上で遊べます。',
   coop: '全員の正解数の合計で、目標（問題数×人数×目標%）をめざします。',
   bingo: '一人ひとりに作品名の4×4カードを配ります。正解した曲の作品のマスが開き、縦・横・斜めのどれかがそろったら BINGO！（20問以上がおすすめ）',
-  fill: '1曲ごとに「曲名・アニメ名・アーティスト」の3つの枠を早押しで埋めます（ボカロは「曲名・作者・VOCALOID」）。押した人が空いている枠を選んで答え、書けば早いほど高得点・10択なら半分。間違えると −200点で5秒押せません。全部埋まるか、全員がパスしたら次の曲へ。LoL の曲は出ません。',
+  fill: '1曲ごとに「曲名・アニメ名・アーティスト」の3つの枠を早押しで埋めます（ボカロは「曲名・作者・VOCALOID」）。押した人が空いている枠を選んで答え、書けば早いほど高得点・10択なら半分。間違えると −200点で、しばらく押せません（秒数は「お手つき後に押せない秒数」で変えられます。初めは15秒）。全部埋まるか、全員がパスしたら次の曲へ。LoL の曲は出ません。',
 };
 // ロビーの一番上：これから遊ぶ曲を除外に追加しない（ホストが切り替え）
 $('noRecordBtn').onclick = () => { if (room) sendSettings({ noRecord: !room.settings.noRecord }); };
@@ -468,6 +468,7 @@ function renderRoom(r) {
   // 新しいモードの設定：サバイバルはライフ（問題数の代わりに終わるまで）、早押しは採点の欄を使わない。できない組み合わせは選べなくする
   $('livesLabel').hidden = r.settings.play !== 'survival';
   $('coopGoalLabel').hidden = r.settings.play !== 'coop';
+  $('lockSecLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えたあと押せない秒数
   $('playDesc').textContent = PLAY_DESC[r.settings.play] || '';
   $('questionsLabel').hidden = r.settings.play === 'survival';
   const fillMode = r.settings.play === 'fill'; // 3つ埋めバトルは、答えるもの・回答方法・採点・ヒントを使わない（枠ごとに書くか10択）
@@ -863,6 +864,7 @@ socket.on('question', q => {
   // 3つ埋めバトル：選択肢・入力の欄の代わりに枠を出す
   if (q.fill) { $('choices').hidden = true; $('inputForm').hidden = true; }
   fillLockUntil = 0; fillSlot = null; $('fillAnswer').hidden = true; renderFill(q.fill);
+  qlogEntries = []; renderQlog(); // パスの下の記録はこの問題の分だけ
   if (amOut()) $('quizNote').textContent = '脱落しました。最後まで見て応援しよう！';
   $('pickPanel').hidden = true; clearInterval(pickTick);
   if (q.pickerId === me) $('quizNote').textContent = 'あなたが出題した曲です。みんなが答えるのを見守ろう！';
@@ -988,6 +990,25 @@ socket.on('buzzEnd', () => {
   setPhase(hintSeen ? 'chorus' : 'intro', hintSeen ? 'サビ再生中 ✨（得点×0.7）' : '再開！ わかったら押そう');
 });
 
+// ── 出題中の記録（パスの下）：左に出た選択肢、右に選んだ・入力した答え ──
+let qlogEntries = [];
+const QLOG_MARK = { ok: '○', ng: '×', almost: '惜しい', pass: '' }; // パスは本文に「パス」と出るので印はなし
+function renderQlog() {
+  const base = question?.choices?.length ? [{ type: 'choices', label: '選択肢', choices: question.choices.map(c => c.title), base: true }]
+    : question?.years ? [] : [];
+  const lists = [...base, ...qlogEntries.filter(e => e.type === 'choices')];
+  const answers = qlogEntries.filter(e => e.type === 'answer');
+  $('qlog').hidden = !question || (!lists.length && !answers.length);
+  $('qlogChoices').hidden = !lists.length;
+  $('qlogChoices').innerHTML = lists.map(l => `<div class="qlog-list"><b>${esc(l.label)}${l.name && !l.base ? `<small>（${esc(l.name)} が開いた10択）</small>` : ''}</b>
+    <ol>${l.choices.map(c => `<li>${esc(c)}</li>`).join('')}</ol></div>`).join('');
+  $('qlogInputs').innerHTML = answers.map(e => `<li class="${e.result || ''}${e.id === me ? ' me' : ''}"><span class="who">${esc(e.name)}</span>`
+    + `${e.label ? `<span class="slot">${esc(e.label)}</span>` : ''}<span class="how">${e.how === 'choice' ? '選択' : e.how === 'pass' ? '' : '入力'}</span>`
+    + `<span class="txt">${esc(e.text ?? '')}</span>${e.result ? `<span class="res">${QLOG_MARK[e.result] || ''}</span>` : ''}</li>`).join('') || '<li class="empty">まだ回答はありません</li>';
+  $('qlogInputs').scrollTop = $('qlogInputs').scrollHeight;
+}
+socket.on('qlog', e => { qlogEntries.push(e); renderQlog(); });
+
 // ── 3つ埋めバトル：枠の表示・押した人の回答（枠を選ぶ → 書く／10択）・間違えたあと押せない時間・パス ──
 let fillLockUntil = 0, fillSlot = null, fillLockTick = null;
 const fillLocked = () => !!question?.fill && performance.now() < fillLockUntil;
@@ -1021,6 +1042,7 @@ $('fillChoiceBtn').onclick = () => {
   const f = fillSlots().find(x => x.key === fillSlot);
   if (!f) return;
   $('fillChoiceBtn').hidden = true;
+  socket.emit('fillChoices', f.key); // 出た10択を記録（パスの下の左側）
   $('fillChoices').innerHTML = f.choices.map((c, i) => `<button class="choice" type="button" data-i="${i}">${esc(c)}</button>`).join('');
 };
 $('fillChoices').onclick = e => {
@@ -1068,6 +1090,7 @@ socket.on('picking', async ({ id, name, sec, qNo, qTotal }) => {
   document.body.classList.remove('revealing', 'playing');
   show('quiz');
   $('choices').innerHTML = ''; $('clues').innerHTML = ''; $('inputForm').hidden = true; $('buzzRow').hidden = true; $('lifelines').hidden = true;
+  $('qlog').hidden = true; $('fillBox').hidden = true;
   $('quizNote').textContent = '';
   $('qno').textContent = `第 ${qNo} / ${qTotal} 問`; $('timer').textContent = ''; $('barFill').style.width = '0';
   const mine = id === me, until = performance.now() + sec * 1000;
@@ -1248,6 +1271,7 @@ socket.on('reveal', r => {
         `<span class="picker${x.id === me ? ' me' : ''}">${avatarImg(x.avatar, 'avatar xs')}${esc(x.name)}</span>`).join('')}</span>`);
     }
   });
+  if (Array.isArray(r.qlog)) { qlogEntries = r.qlog; renderQlog(); } // 答え合わせ：全員の答えと正解かどうか
   if (r.fill) { // 3つ埋めバトル：枠ごとの正解と、埋めた人
     $('fillAnswer').hidden = true; fillSlot = null;
     $('fillSlots').innerHTML = r.fill.map(f => `<div class="fill-slot ${f.by != null ? 'done' : 'missed'}"><small>${esc(f.label)}</small><b>${esc(f.answer)}</b><em>${f.by != null ? esc(f.by) : '誰も埋められず'}</em></div>`).join('');

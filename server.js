@@ -347,6 +347,7 @@ const OPTIONS = {
   target: ['song', 'work', 'year', 'artist'], // 答えるもの：曲名／作品／年／歌手
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
+  lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
   lives: [1, 2, 3],                       // サバイバルのライフ
   teams: [false, true],                   // チーム戦（赤・青の2チーム。合計点で競う）
   leadSec: [3, 5, 10],                   // サビ前：サビの何秒前から流すか
@@ -362,7 +363,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70 };
+                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15 };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -921,6 +922,9 @@ function resendQuestion(room, socket, token) {
     if (q.phase === 'chorus') socket.emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' });
   }
   q.clues.forEach(c => socket.emit('clue', c));
+  // パスの下の記録（全員に見せたもの＋自分の答え。ふつうは正解かどうかを伏せたまま）
+  (q.qlog || []).filter(e => !e.token || e.token === token)
+    .forEach(({ token: t, ...e }) => socket.emit('qlog', t && e.result !== 'almost' ? { ...e, result: null } : e));
   (q.lifelineResults.get(token) || []).forEach(r => socket.emit('lifelineResult', r));
   const a = q.answers.get(token);
   if (a) socket.emit('answered', { index: a.index, given: a.given, pass: a.pass });
@@ -1030,6 +1034,7 @@ function onAnswer(room, player, payload) {
       if (n < 2) {
         q.almost.set(player.token, n + 1);
         io.to(player.socketId).emit('almost', { text: given, left: 1 - n });
+        qlog(room, player, { type: 'answer', how: 'text', text: given, result: 'almost' });
         return;
       }
     }
@@ -1039,6 +1044,11 @@ function onAnswer(room, player, payload) {
     correct = index === q.correctIndex;
   }
   if (buzzer && holder && !correct && !pass) miss = true;
+  if (Date.now() >= q.t0 && !(pass && payload?.drop)) {
+    const how = pass ? 'pass' : index !== null ? 'choice' : 'text';
+    qlog(room, player, { type: 'answer', how, result: pass ? 'pass' : correct ? 'ok' : 'ng',
+                         text: pass ? 'パス' : index !== null ? (q.years ? `${q.years[index]}年` : q.choices[index]?.title) : given });
+  }
 
   if (Date.now() < q.t0) return; // 曲が流れる前の回答は受け付けない
   // 早押しは押した時点の速さで点数を決める
@@ -1093,6 +1103,19 @@ function onAnswer(room, player, payload) {
   else broadcastRoom(room);
 }
 
+// ── 出題中の記録（パスの下）：出た選択肢（左）と、選んだ・入力した答え（右） ──
+// 早押し・3つ埋めバトルは順番に答えるので全員に見せる。ふつう（同時に答える）は答え合わせまで本人だけ（ほかの人の答えが見えないように）
+function qlog(room, player, entry) {
+  const q = room.game?.q;
+  if (!q) return;
+  const e = { ...entry, id: player.id, name: player.name };
+  const open = ['buzzer', 'fill'].includes(room.settings.play) || entry.type === 'choices';
+  q.qlog = q.qlog || [];
+  q.qlog.push({ ...e, token: open ? null : player.token });
+  // ふつうは、正解かどうかも答え合わせまで出さない（答え合わせで全員分をまとめて送る）
+  if (open) io.to(room.code).emit('qlog', e); else io.to(player.socketId).emit('qlog', { ...e, result: e.result === 'almost' ? 'almost' : null });
+}
+
 // 3つ埋めバトルの回答：押した人が { slot, text } か { slot, index }（10択・点数半分）。{ pass } は押してから「やめる」（お手つき）
 function onFillAnswer(room, player, payload) {
   const q = room.game.q, S = room.settings;
@@ -1120,10 +1143,12 @@ function onFillAnswer(room, player, payload) {
       if (!correct && isAlmostText(given, song, slot.target) && (q.buzz.almost || 0) < 2) {
         q.buzz.almost = (q.buzz.almost || 0) + 1;
         io.to(player.socketId).emit('almost', { text: given, left: 2 - q.buzz.almost, slot: slot.key });
+        qlog(room, player, { type: 'answer', label: slot.label, how: 'text', text: given, result: 'almost' });
         return;
       }
     }
   }
+  qlog(room, player, { type: 'answer', label: slot?.label || null, how: choice ? 'choice' : slot ? 'text' : 'pass', text: given, result: correct ? 'ok' : 'ng' });
   const elapsed = q.buzz.elapsed;
   const hint = elapsed >= (q.hintAt || S.hintAt);
   let points;
@@ -1142,8 +1167,8 @@ function onFillAnswer(room, player, payload) {
     for (const k of genresOf(song)) st.genres[k] = (st.genres[k] || 0) + 1;
   } else {
     points = -BUZZ_MISS; // お手つき：減点＋しばらく押せない
-    q.fillLock.set(player.token, Date.now() + FILL_LOCK_SEC * 1000);
-    io.to(player.socketId).emit('fillLock', { sec: FILL_LOCK_SEC });
+    q.fillLock.set(player.token, Date.now() + (S.lockSec || FILL_LOCK_SEC) * 1000);
+    io.to(player.socketId).emit('fillLock', { sec: S.lockSec || FILL_LOCK_SEC });
   }
   player.score += points;
   q.fillLog.push({ token: player.token, slot: slot?.key || null, label: slot?.label || null, given, correct, choice, points, elapsed, hint });
@@ -1283,6 +1308,7 @@ function reveal(room) {
   io.to(room.code).emit('reveal', {
     eliminated, picker, bingo, coop: room.game.coop || null,
     correctIndex: q.correctIndex,
+    qlog: (q.qlog || []).map(({ token, ...e }) => e), // 出題中の記録（全員分。パスの下）
     // 3つ埋めバトル：枠ごとの正解・埋めた人・10択の正解の番号
     fill: q.fill ? q.fill.map(f => ({ key: f.key, label: f.label, by: f.by ? room.players.get(f.by)?.name || '' : null, given: f.given,
                                        answer: f.key === 'title' ? s.title : f.key === 'work' ? s.work : f.key === 'artist' ? s.artist
@@ -1655,6 +1681,12 @@ io.on('connection', socket => {
     if (room && player) onAnswer(room, player, { index: payload?.index, text: payload?.text, year: payload?.year, pass: payload?.pass, slot: payload?.slot });
   });
   socket.on('fillPass', on => { if (room && player) onFillPass(room, player, on === true); });
+  // 3つ埋めバトル：押した人が「10択で選ぶ」を開いた → 出た選択肢を記録（パスの下の左側）
+  socket.on('fillChoices', key => {
+    const q = room?.game?.q, f = q?.fill?.find(x => x.key === key && !x.by);
+    if (!f || q.buzz?.token !== player?.token) return;
+    qlog(room, player, { type: 'choices', label: f.label, choices: f.choices.map(c => c.title) });
+  });
 
   // ライフライン。結果は使った本人にだけ返す
   socket.on('lifeline', ({ type } = {}) => {

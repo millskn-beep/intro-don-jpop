@@ -190,6 +190,7 @@
         <label>答えるもの<select data-key="target"><option value="song">曲名</option><option value="work">作品</option><option value="artist">歌手</option><option value="year">年（近いほど高得点）</option></select></label>
         <label id="questionsLabel">問題数<select data-key="questions"></select></label>
         <label id="livesLabel" hidden>ライフ<select data-key="lives"><option value="1">1（1回で脱落）</option><option value="2">2</option><option value="3">3</option></select></label>
+        <label id="lockSecLabel" hidden>お手つき後に押せない秒数<select data-key="lockSec"><option value="3">3秒</option><option value="5">5秒</option><option value="10">10秒</option><option value="15">15秒</option><option value="20">20秒</option><option value="30">30秒</option></select></label>
         <label id="coopGoalLabel" hidden>協力の目標<select data-key="coopGoal"><option value="50">50%（やさしい）</option><option value="70">70%</option><option value="90">90%（むずかしい）</option></select></label>
         <label>チーム戦<select data-key="teams"><option value="false">なし</option><option value="true">2チーム（赤・青）</option></select></label>
         <label>定員<select data-key="maxPlayers"></select></label>
@@ -299,6 +300,11 @@
         <button class="btn-sub skip" id="passBtn"><img class="icon" src="assets/glass/icon-skip.webp" alt="">わからない（パス）</button>
       </div>
       <ul class="life-results" id="lifeResults" hidden></ul>
+      <!-- 出題中の記録：出た選択肢（左・小さく固定）と、選んだ・入力した答え（右） -->
+      <div class="qlog" id="qlog" hidden>
+        <div class="qlog-choices" id="qlogChoices"></div>
+        <div class="qlog-right"><b class="qlog-head">回答の記録</b><ul class="qlog-inputs" id="qlogInputs"></ul></div>
+      </div>
       <div class="bingo" id="bingoBox" hidden><b class="bingo-title">BINGO カード</b><div class="bingo-card" id="bingoCard"></div></div>
       <p class="note" id="quizNote"></p>
     </div>

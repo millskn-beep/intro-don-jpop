@@ -1,54 +1,84 @@
-// data/readings.json の読みがな・略称を data/songs.json の aliases に取り込む。
-// 取り込んだあと、1つの答えが「別の作品」の曲でも正解になってしまう組み合わせを報告し、
-// 確認用に data/aliases.csv を書き出す。
+// data/readings.json の読みがな・略称を曲データに取り込む（ひらがな・カタカナ・略称でも正解にするため）。
+//   曲名 → aliases（手で足した別名もここ）／作品名 → workAliases／歌手名 → artistAliases
+// 取り込むとき、ほかの曲・作品・歌手の名前や別名と同じになってしまう略称は外して報告する
+// （「〇〇の曲なのに別の曲の名前を書いても正解」にならないように）。確認用に data/aliases.csv を書き出す。
 // 使い方: node tools/apply-readings.js
 
 const fs = require('fs');
 const path = require('path');
-const { normalize, acceptedAnswers } = require('../lib/normalize');
+const { normalize, shortForm } = require('../lib/normalize');
 
 const ROOT = path.join(__dirname, '..');
 const SONGS_PATH = path.join(ROOT, 'data', 'songs.json');
-const { titles, works } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'readings.json'), 'utf8'));
+const { titles = {}, works = {}, artists = {} } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'readings.json'), 'utf8'));
 const songs = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
 
 const stripPrefix = w => String(w).normalize('NFKC').replace(/^(劇場版|映画)\s*/, '');
 // 作品名に一番長く一致するキーを使う（「ドラゴンボールZ」は「ドラゴンボール」より優先）
 const workKeys = Object.keys(works).sort((a, b) => b.length - a.length);
 const workKeyOf = song => workKeys.find(k => stripPrefix(song.work).startsWith(k.normalize('NFKC')));
+const ok = a => [...normalize(a)].length >= 2;
 
-let added = 0, noTitle = 0;
+// ── 名前そのもの（そろえた形）→ 持ち主。略称がほかの持ち主の名前と同じなら外す ──
+const owner = { title: new Map(), work: new Map(), artist: new Map() };
+const own = (kind, name, who) => { const n = normalize(name); if (n && !owner[kind].has(n)) owner[kind].set(n, who); };
 for (const s of songs) {
-  const before = new Set((s.aliases || []).map(normalize));
-  const extra = [...(titles[s.title] || []), ...(works[workKeyOf(s)] || [])];
-  if (!titles[s.title]) noTitle++;
-  const list = [...(s.aliases || [])];
-  for (const a of extra) {
+  own('title', s.title, s.title); own('title', shortForm(s.title), s.title);
+  own('work', s.work, workKeyOf(s) || s.work); own('work', shortForm(stripPrefix(s.work)), workKeyOf(s) || s.work);
+  own('artist', s.artist, s.artist);
+}
+const dropped = [];
+// 別名のうち、ほかの持ち主の名前と同じもの・同じ種類のほかの持ち主の別名と重なるものを外す
+const aliasOwners = { title: new Map(), work: new Map(), artist: new Map() };
+function claim(kind, list, who) {
+  for (const a of list) {
     const n = normalize(a);
-    if ([...n].length < 2 || before.has(n)) continue;
-    before.add(n); list.push(a); added++;
+    if (!aliasOwners[kind].has(n)) aliasOwners[kind].set(n, new Set());
+    aliasOwners[kind].get(n).add(who);
   }
-  s.aliases = list;
+}
+for (const s of songs) {
+  const workAl = works[workKeyOf(s)] || [];
+  claim('title', [...(titles[s.title] || [])], s.title);
+  claim('work', workAl, workKeyOf(s) || s.work);
+  claim('artist', artists[s.artist] || [], s.artist);
+}
+function clean(kind, list, who, label) {
+  const out = [], seen = new Set();
+  for (const a of list) {
+    const n = normalize(a);
+    if (!ok(a) || seen.has(n)) continue;
+    // 答えはいま流れている曲とだけ比べるので、ほかの曲・作品・歌手と読みが重なっても外さない（数だけ報告する）。
+    // 同じシリーズ・同じ人（ドラえもん／STAND BY ME ドラえもん、荒井由実／松任谷由実）や、同じ読みの別の曲（Hibana／ヒバナ）は重なるのがふつう
+    const other = owner[kind].get(n);
+    if (other && other !== who && !dropped.includes(`${label}「${who}」の「${a}」（「${other}」と同じ読み）`)) dropped.push(`${label}「${who}」の「${a}」（「${other}」と同じ読み）`);
+    seen.add(n); out.push(a);
+  }
+  return out;
+}
+
+let titleN = 0, workN = 0, artistN = 0;
+for (const s of songs) {
+  const workAl = clean('work', works[workKeyOf(s)] || [], workKeyOf(s) || s.work, '作品');
+  const workSet = new Set((works[workKeyOf(s)] || []).map(normalize));
+  // 前の形では作品名の読みも aliases に入っていたので、作品の分は workAliases へ移す（手で足した曲名の別名は残す）
+  const manual = (s.aliases || []).filter(a => !workSet.has(normalize(a)) && !(titles[s.title] || []).some(t => normalize(t) === normalize(a)));
+  s.aliases = [...manual, ...clean('title', titles[s.title] || [], s.title, '曲名')]
+    .filter((a, i, arr) => arr.findIndex(b => normalize(b) === normalize(a)) === i);
+  s.workAliases = workAl;
+  s.artistAliases = clean('artist', artists[s.artist] || [], s.artist, '歌手');
+  if (!s.workAliases.length) delete s.workAliases;
+  if (!s.artistAliases.length) delete s.artistAliases;
+  titleN += s.aliases.length; workN += (s.workAliases || []).length; artistN += (s.artistAliases || []).length;
 }
 fs.writeFileSync(SONGS_PATH, JSON.stringify(songs, null, 2) + '\n');
 
-// 衝突チェック：同じ答えで、作品のちがう曲が両方正解になるもの
-const playable = songs.filter(s => s.embeddable !== false);
-const owners = new Map();
-for (const s of playable) {
-  for (const a of acceptedAnswers(s)) {
-    if (!owners.has(a)) owners.set(a, new Set());
-    owners.get(a).add(workKeyOf(s) || s.work);
-  }
-}
-const collisions = [...owners].filter(([, w]) => w.size > 1).map(([a, w]) => `${a} → ${[...w].join(' / ')}`);
-
 // 確認用CSV（Excelで開けるようにBOM付き）
 const q = v => /[",\n]/.test(v) ? `"${String(v).replace(/"/g, '""')}"` : v;
-const rows = ['year,title,work,aliases', ...playable.map(s => [s.year, s.title, s.work, (s.aliases || []).join(' / ')].map(q).join(','))];
+const rows = ['year,title,title_aliases,work,work_aliases,artist,artist_aliases', ...songs.map(s =>
+  [s.year, s.title, (s.aliases || []).join(' / '), s.work, (s.workAliases || []).join(' / '), s.artist, (s.artistAliases || []).join(' / ')].map(q).join(','))];
 fs.writeFileSync(path.join(ROOT, 'data', 'aliases.csv'), '﻿' + rows.join('\n') + '\n');
 
-const noWork = playable.filter(s => !workKeyOf(s)).map(s => s.work);
-console.log(`別名を ${added} 件追加（曲名の読み未登録 ${noTitle} 曲）`);
-console.log(`作品名の読み未登録: ${noWork.length ? [...new Set(noWork)].join(' / ') : 'なし'}`);
-console.log(`別作品と重なる答え: ${collisions.length ? '\n  ' + collisions.join('\n  ') : 'なし'}`);
+const noTitle = songs.filter(s => !titles[s.title]).length, noWork = songs.filter(s => !workKeyOf(s)).length, noArtist = songs.filter(s => !artists[s.artist]).length;
+console.log(`別名：曲名 ${titleN}・作品名 ${workN}・歌手名 ${artistN}（読みの未登録：曲名 ${noTitle} 曲・作品名 ${noWork} 曲・歌手名 ${noArtist} 曲）`);
+console.log(`ほかの曲・作品・歌手と同じ読みの別名 ${dropped.length} 件（外していない。確認用）`);

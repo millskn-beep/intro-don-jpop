@@ -670,15 +670,24 @@ function buildWorkChoices(song, count, pool) {
 }
 // 歌手当ての選択肢：「LiSA」と「LiSA × Uru」のように最初の名前が同じ歌手は並べない
 const artistKey = a => String(a || '').normalize('NFKC').split(/\s*(?:×|&|＆|feat\.?|ft\.|、|,|\/)\s*/i)[0].toLowerCase().replace(/\s+/g, '');
+// 歌手の声（data/artist-gender.json：f 女性・m 男性・mix 男女）。選択肢は正解と同じ声の歌手から選ぶ（声で消去法ができないように）。
+// 分からない歌手・足りないときは、ほかの歌手でうめる
+let GENDER = new Map();
+try { GENDER = new Map(Object.entries(require('./data/artist-gender.json')).map(([a, v]) => [a, Array.isArray(v) ? v[0] : v])); } catch (e) { /* なくても動く */ }
+const sameVoiceFirst = (artist, list) => {
+  const g = GENDER.get(artist);
+  if (!g) return list;
+  return [...list.filter(a => GENDER.get(a) === g), ...list.filter(a => GENDER.get(a) !== g)];
+};
 function buildArtistChoices(song, count, pool) {
   const near = s => Math.abs(s.year - song.year) <= NEAR_YEARS;
   const seen = new Set([artistKey(song.artist)]);
   const picks = [];
-  const candidates = [
+  const candidates = sameVoiceFirst(song.artist, [
     ...shuffle(pool.filter(s => near(s))).map(s => s.artist),
     ...shuffle(pool.filter(s => !near(s))).map(s => s.artist),
     ...shuffle(SONGS.filter(s => !pool.includes(s))).map(s => s.artist),
-  ];
+  ]);
   for (const a of candidates) {
     if (picks.length >= count - 1) break;
     if (!a || seen.has(artistKey(a))) continue;
@@ -803,7 +812,7 @@ function buildFill(song, pool) {
       slots.push(slot('vocal', 'VOCALOID', 'vocal', ch));
     } else if (song.singer?.length) {
       // 本人が歌っている動画（米津玄師・Eve など）は、3つ目の枠を「歌手」にする
-      const ch = fillChoices(song.singer[0], shuffle([...new Set(SONGS.filter(s => s !== song).map(s => s.artist))]), FILL_CHOICES);
+      const ch = fillChoices(song.singer[0], sameVoiceFirst(song.singer[0], shuffle([...new Set(SONGS.filter(s => s !== song).map(s => s.artist))])), FILL_CHOICES);
       slots.push(slot('singer', '歌手', 'singer', ch));
     }
     return slots;
@@ -944,7 +953,8 @@ function resendQuestion(room, socket, token) {
     const offset = (Date.now() - q.t0) / 1000;
     socket.emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt: q.hintAt || S.hintAt,
                         total: q.total || questionTotal(S), offset, introLen: S.introLen, plays: q.plays || 1, gap: INTRO_GAP, speed: q.speed || 1 });
-    if (q.phase === 'chorus') socket.emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' });
+    if (q.phase === 'chorus' && !q.flowOn) socket.emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' });
+    if (q.flowOn) socket.emit('flowOn', { total: q.total }); // イントロ中に押されて流し続けになっている
   }
   q.clues.forEach(c => socket.emit('clue', c));
   // パスの下の記録（全員に見せたもの＋自分の答え。ふつうは正解かどうかを伏せたまま）
@@ -1004,13 +1014,14 @@ function go(room) {
   if (!sabimae) {
     for (let i = 0; i < plays; i++) {
       const at = i * (S.introLen + INTRO_GAP);
-      if (i > 0) later(room, () => { if (q.phase === 'intro') io.to(room.code).emit('restartIntro', { n: i + 1, plays }); }, at * 1000);
-      if (at + S.introLen < hintAt) later(room, () => { if (q.phase === 'intro') io.to(room.code).emit('stopIntro'); }, (at + S.introLen) * 1000);
+      if (i > 0) later(room, () => { if (q.phase === 'intro' && !q.flowOn) io.to(room.code).emit('restartIntro', { n: i + 1, plays }); }, at * 1000);
+      if (at + S.introLen < hintAt) later(room, () => { if (q.phase === 'intro' && !q.flowOn) io.to(room.code).emit('stopIntro'); }, (at + S.introLen) * 1000);
     }
   }
   later(room, () => {
     if (q.phase !== 'intro') return;
     q.phase = 'chorus';
+    if (q.flowOn) return broadcastRoom(room); // 3つ埋めバトル：イントロ中に押されたら、サビへ飛ばずに流し続ける（点数はサビ扱い）
     io.to(room.code).emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' }); // どこから問題はサビへ移動する
     broadcastRoom(room);
   }, hintAt * 1000);
@@ -1022,7 +1033,7 @@ function go(room) {
       io.to(room.code).emit('clue', c);
     }, (hintAt + S.chorusLen * i / 3) * 1000));
   }
-  later(room, () => { if (q.buzz) q.revealPending = true; else reveal(room); }, q.total * 1000); // 押して答えている最中なら、答え終わるまで待つ
+  later(room, () => revealAtEnd(room, q), q.total * 1000); // 押して答えている最中なら、答え終わるまで待つ
   broadcastRoom(room);
 }
 
@@ -1280,9 +1291,23 @@ function onBuzz(room, player) {
   }
   startBuzz(room, player, Date.now());
 }
+// 時間切れ（3つ埋めバトルは曲の終わり）。流し続けにして終わりが延びたときは、延びた時刻に改めて
+function revealAtEnd(room, q) {
+  if (room.game?.q !== q || q.phase === 'reveal') return;
+  const left = q.t0 + q.total * 1000 - Date.now();
+  if (left > 200) return later(room, () => revealAtEnd(room, q), left);
+  if (q.buzz) q.revealPending = true; else reveal(room); // 押して答えている最中なら、答え終わるまで待つ
+}
 // 押した人の番を始める（at：押した時刻。早いほど高い点）
 function startBuzz(room, player, at) {
   const q = room.game.q;
+  // 3つ埋めバトル：イントロ中に押されたら、サビへ飛ばずにそのまま流し続ける（イントロで止めない）。曲の終わりも合わせて延ばす
+  if (q.fill && q.phase === 'intro' && !q.flowOn && q.kind !== 'sabimae') {
+    q.flowOn = true;
+    const dur = DURATIONS.get(q.song.id);
+    if (dur) q.total = Math.max(q.total, (dur - q.start) / (q.speed || 1));
+    io.to(room.code).emit('flowOn', { total: q.total });
+  }
   if (q.fill && !q.fillWait.has(player.token)) { for (const t of q.fillWait) io.to(room.players.get(t)?.socketId).emit('fillWaitEnd'); q.fillWait.clear(); }
   else if (q.fill) q.fillWait.delete(player.token);
   const now = Date.now(), sec = q.fill ? FILL_BUZZ_SEC : BUZZ_SEC;

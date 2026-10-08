@@ -1,0 +1,4111 @@
+{
+ "164": [
+  "f",
+  "unsure"
+ ],
+ "5050": [
+  "f",
+  "unsure"
+ ],
+ "_説明": "歌手の声（f 女性・m 男性・mix 男女）と確かさ（sure/unsure）。選択肢を正解と同じ声の歌手から選ぶのに使う（2026-10-08 AIで作成。unsure は data/artist-gender-unsure.csv で確認）",
+ "ささきいさお": [
+  "m",
+  "sure"
+ ],
+ "ボビー": [
+  "m",
+  "unsure"
+ ],
+ "加橋かつみ": [
+  "m",
+  "sure"
+ ],
+ "大山のぶ代": [
+  "f",
+  "sure"
+ ],
+ "おぼたけし": [
+  "m",
+  "sure"
+ ],
+ "松田聖子": [
+  "f",
+  "sure"
+ ],
+ "たいらいさお": [
+  "m",
+  "sure"
+ ],
+ "薬師丸ひろ子": [
+  "f",
+  "sure"
+ ],
+ "松谷祐子": [
+  "f",
+  "sure"
+ ],
+ "寺尾聰": [
+  "m",
+  "sure"
+ ],
+ "水森亜土・こおろぎ'73": [
+  "mix",
+  "unsure"
+ ],
+ "井上大輔": [
+  "m",
+  "sure"
+ ],
+ "松任谷由実": [
+  "f",
+  "sure"
+ ],
+ "前野曜子": [
+  "f",
+  "sure"
+ ],
+ "藤原誠": [
+  "m",
+  "sure"
+ ],
+ "小田桐アキ": [
+  "m",
+  "unsure"
+ ],
+ "飯島真理": [
+  "f",
+  "sure"
+ ],
+ "串田アキラ": [
+  "m",
+  "sure"
+ ],
+ "中森明菜": [
+  "f",
+  "sure"
+ ],
+ "あみん": [
+  "f",
+  "sure"
+ ],
+ "伊藤さやか": [
+  "f",
+  "sure"
+ ],
+ "杏里": [
+  "f",
+  "sure"
+ ],
+ "チェッカーズ": [
+  "m",
+  "sure"
+ ],
+ "MIO": [
+  "f",
+  "sure"
+ ],
+ "太田貴子": [
+  "f",
+  "sure"
+ ],
+ "MIQ": [
+  "f",
+  "sure"
+ ],
+ "TETSU": [
+  "m",
+  "unsure"
+ ],
+ "ヴァージンVS": [
+  "m",
+  "sure"
+ ],
+ "H2O": [
+  "m",
+  "sure"
+ ],
+ "沖田浩之": [
+  "m",
+  "sure"
+ ],
+ "大沢誉志幸": [
+  "m",
+  "sure"
+ ],
+ "竹内まりや": [
+  "f",
+  "sure"
+ ],
+ "クリスタルキング": [
+  "m",
+  "sure"
+ ],
+ "ダ・カーポ": [
+  "mix",
+  "sure"
+ ],
+ "鮎川麻弥": [
+  "f",
+  "sure"
+ ],
+ "安田成美": [
+  "f",
+  "sure"
+ ],
+ "アン・ルイス": [
+  "f",
+  "sure"
+ ],
+ "うしろゆびさされ組": [
+  "f",
+  "sure"
+ ],
+ "吉幾三": [
+  "m",
+  "sure"
+ ],
+ "岩崎良美": [
+  "f",
+  "sure"
+ ],
+ "荻野目洋子": [
+  "f",
+  "sure"
+ ],
+ "AURA": [
+  "m",
+  "unsure"
+ ],
+ "少年隊": [
+  "m",
+  "sure"
+ ],
+ "武田鉄矢": [
+  "m",
+  "sure"
+ ],
+ "森口博子": [
+  "f",
+  "sure"
+ ],
+ "尾崎豊": [
+  "m",
+  "sure"
+ ],
+ "爆風スランプ": [
+  "m",
+  "sure"
+ ],
+ "小林明子": [
+  "f",
+  "sure"
+ ],
+ "KODOMO BAND": [
+  "m",
+  "sure"
+ ],
+ "TOM★CAT": [
+  "m",
+  "sure"
+ ],
+ "新井正人": [
+  "m",
+  "sure"
+ ],
+ "MAKE-UP": [
+  "m",
+  "sure"
+ ],
+ "橋本潮": [
+  "f",
+  "sure"
+ ],
+ "井上あずみ": [
+  "f",
+  "sure"
+ ],
+ "斉藤由貴": [
+  "f",
+  "sure"
+ ],
+ "高橋洋樹": [
+  "m",
+  "sure"
+ ],
+ "小比類巻かほる": [
+  "f",
+  "sure"
+ ],
+ "TM NETWORK": [
+  "m",
+  "sure"
+ ],
+ "池田政典": [
+  "m",
+  "sure"
+ ],
+ "光GENJI": [
+  "m",
+  "sure"
+ ],
+ "THE BLUE HEARTS": [
+  "m",
+  "sure"
+ ],
+ "岡村孝子": [
+  "f",
+  "sure"
+ ],
+ "村下孝蔵": [
+  "m",
+  "sure"
+ ],
+ "ドリーミング": [
+  "f",
+  "unsure"
+ ],
+ "YUKA": [
+  "f",
+  "sure"
+ ],
+ "ひろえ純": [
+  "f",
+  "sure"
+ ],
+ "Wink": [
+  "f",
+  "sure"
+ ],
+ "影山ヒロノブ": [
+  "f",
+  "sure"
+ ],
+ "プリンセス プリンセス": [
+  "m",
+  "sure"
+ ],
+ "小室哲哉": [
+  "f",
+  "sure"
+ ],
+ "西尾えつ子": [
+  "f",
+  "sure"
+ ],
+ "MANNA": [
+  "f",
+  "sure"
+ ],
+ "荒井由実": [
+  "f",
+  "sure"
+ ],
+ "今井美樹": [
+  "f",
+  "sure"
+ ],
+ "DREAMS COME TRUE": [
+  "f",
+  "sure"
+ ],
+ "B.B.クィーンズ": [
+  "mix",
+  "sure"
+ ],
+ "藤田淑子": [
+  "f",
+  "sure"
+ ],
+ "あんしんパパ": [
+  "m",
+  "sure"
+ ],
+ "森川美穂": [
+  "f",
+  "sure"
+ ],
+ "関ゆみ子": [
+  "f",
+  "sure"
+ ],
+ "JITTERIN'JINN": [
+  "f",
+  "sure"
+ ],
+ "徳永英明": [
+  "m",
+  "sure"
+ ],
+ "米米CLUB": [
+  "m",
+  "sure"
+ ],
+ "CHAGE&ASKA": [
+  "m",
+  "sure"
+ ],
+ "大事MANブラザーズバンド": [
+  "m",
+  "sure"
+ ],
+ "槇原敬之": [
+  "m",
+  "sure"
+ ],
+ "小田和正": [
+  "m",
+  "sure"
+ ],
+ "都はるみ": [
+  "f",
+  "sure"
+ ],
+ "のはらしんのすけ": [
+  "f",
+  "sure"
+ ],
+ "山野さと子": [
+  "f",
+  "sure"
+ ],
+ "馬渡松子": [
+  "f",
+  "sure"
+ ],
+ "DALI": [
+  "f",
+  "sure"
+ ],
+ "加藤登紀子": [
+  "f",
+  "sure"
+ ],
+ "SMAP": [
+  "m",
+  "sure"
+ ],
+ "中山美穂&WANDS": [
+  "mix",
+  "sure"
+ ],
+ "THE BOOM": [
+  "m",
+  "sure"
+ ],
+ "大黒摩季": [
+  "f",
+  "sure"
+ ],
+ "高橋ひろ": [
+  "m",
+  "sure"
+ ],
+ "広瀬香美": [
+  "f",
+  "sure"
+ ],
+ "B'z": [
+  "m",
+  "sure"
+ ],
+ "石田よう子": [
+  "f",
+  "sure"
+ ],
+ "BAAD": [
+  "m",
+  "sure"
+ ],
+ "ZARD": [
+  "f",
+  "sure"
+ ],
+ "鵜島仁文": [
+  "m",
+  "sure"
+ ],
+ "Mr.Children": [
+  "m",
+  "sure"
+ ],
+ "Fire Bomber": [
+  "mix",
+  "sure"
+ ],
+ "ZYYG": [
+  "m",
+  "sure"
+ ],
+ "田村直美": [
+  "f",
+  "sure"
+ ],
+ "スピッツ": [
+  "m",
+  "sure"
+ ],
+ "濱田理恵": [
+  "f",
+  "sure"
+ ],
+ "WANDS": [
+  "m",
+  "sure"
+ ],
+ "奥井亜紀": [
+  "f",
+  "sure"
+ ],
+ "篠原涼子 with t.komuro": [
+  "f",
+  "sure"
+ ],
+ "CLAIRE": [
+  "f",
+  "sure"
+ ],
+ "林原めぐみ&奥井雅美": [
+  "f",
+  "sure"
+ ],
+ "TWO-MIX": [
+  "f",
+  "sure"
+ ],
+ "JUDY AND MARY": [
+  "f",
+  "sure"
+ ],
+ "H Jungle with t": [
+  "m",
+  "sure"
+ ],
+ "渡辺満里奈": [
+  "f",
+  "sure"
+ ],
+ "本名陽子": [
+  "f",
+  "sure"
+ ],
+ "鈴木結女": [
+  "f",
+  "sure"
+ ],
+ "高橋洋子": [
+  "f",
+  "sure"
+ ],
+ "川本真琴": [
+  "f",
+  "sure"
+ ],
+ "米倉千尋": [
+  "f",
+  "sure"
+ ],
+ "FIELD OF VIEW": [
+  "m",
+  "sure"
+ ],
+ "globe": [
+  "f",
+  "sure"
+ ],
+ "林原めぐみ": [
+  "f",
+  "sure"
+ ],
+ "BONNIE PINK": [
+  "f",
+  "sure"
+ ],
+ "久保田利伸": [
+  "m",
+  "sure"
+ ],
+ "THE YELLOW MONKEY": [
+  "m",
+  "sure"
+ ],
+ "L'Arc〜en〜Ciel": [
+  "m",
+  "sure"
+ ],
+ "松澤由美": [
+  "f",
+  "sure"
+ ],
+ "坂本真綾": [
+  "f",
+  "sure"
+ ],
+ "ザ・ハイロウズ": [
+  "m",
+  "sure"
+ ],
+ "真宮寺さくら（横山智佐）・帝国歌劇団": [
+  "f",
+  "sure"
+ ],
+ "SIAM SHADE": [
+  "m",
+  "sure"
+ ],
+ "安室奈美恵": [
+  "f",
+  "sure"
+ ],
+ "T.M.Revolution": [
+  "m",
+  "sure"
+ ],
+ "GLAY": [
+  "m",
+  "sure"
+ ],
+ "PENPALS": [
+  "m",
+  "sure"
+ ],
+ "倉木麻衣": [
+  "f",
+  "sure"
+ ],
+ "伊織": [
+  "f",
+  "unsure"
+ ],
+ "石塚運昇・ポケモンキッズ": [
+  "m",
+  "unsure"
+ ],
+ "松本梨香": [
+  "f",
+  "sure"
+ ],
+ "米良美一": [
+  "m",
+  "sure"
+ ],
+ "小松未歩": [
+  "f",
+  "sure"
+ ],
+ "DEEN": [
+  "m",
+  "sure"
+ ],
+ "KinKi Kids": [
+  "m",
+  "sure"
+ ],
+ "遠藤正明": [
+  "m",
+  "sure"
+ ],
+ "奥井雅美": [
+  "f",
+  "sure"
+ ],
+ "宇多田ヒカル": [
+  "f",
+  "sure"
+ ],
+ "グミ": [
+  "f",
+  "unsure"
+ ],
+ "BOA": [
+  "f",
+  "sure"
+ ],
+ "SEATBELTS": [
+  "f",
+  "unsure"
+ ],
+ "山根麻以": [
+  "f",
+  "sure"
+ ],
+ "Every Little Thing": [
+  "f",
+  "sure"
+ ],
+ "犬山イヌコ": [
+  "f",
+  "sure"
+ ],
+ "さち&じゅり": [
+  "f",
+  "sure"
+ ],
+ "北島三郎": [
+  "m",
+  "sure"
+ ],
+ "中島みゆき": [
+  "f",
+  "sure"
+ ],
+ "Kiroro": [
+  "f",
+  "sure"
+ ],
+ "小林幸子": [
+  "f",
+  "sure"
+ ],
+ "宮崎歩": [
+  "m",
+  "sure"
+ ],
+ "和田光司": [
+  "m",
+  "sure"
+ ],
+ "L'Arc~en~Ciel": [
+  "m",
+  "sure"
+ ],
+ "AiM": [
+  "f",
+  "sure"
+ ],
+ "モーニング娘。": [
+  "f",
+  "sure"
+ ],
+ "大槻真希": [
+  "f",
+  "sure"
+ ],
+ "ちびまる子ちゃんwith爆チュー問題": [
+  "mix",
+  "sure"
+ ],
+ "きただにひろし": [
+  "m",
+  "sure"
+ ],
+ "MAHO堂": [
+  "f",
+  "sure"
+ ],
+ "西城秀樹": [
+  "m",
+  "sure"
+ ],
+ "飯塚雅弓": [
+  "f",
+  "sure"
+ ],
+ "GARNET CROW": [
+  "f",
+  "sure"
+ ],
+ "堂島孝平": [
+  "m",
+  "sure"
+ ],
+ "竹内順子": [
+  "f",
+  "sure"
+ ],
+ "Folder5": [
+  "f",
+  "sure"
+ ],
+ "V6": [
+  "m",
+  "sure"
+ ],
+ "MISIA": [
+  "f",
+  "sure"
+ ],
+ "the pillows": [
+  "m",
+  "sure"
+ ],
+ "dream": [
+  "f",
+  "sure"
+ ],
+ "大槻マキ": [
+  "f",
+  "sure"
+ ],
+ "浜崎あゆみ": [
+  "f",
+  "sure"
+ ],
+ "サザンオールスターズ": [
+  "m",
+  "sure"
+ ],
+ "キリンジ": [
+  "m",
+  "sure"
+ ],
+ "椎名林檎": [
+  "f",
+  "sure"
+ ],
+ "ハムちゃんず": [
+  "mix",
+  "unsure"
+ ],
+ "VISUAL ARTS / Key（作曲：麻枝准）": [
+  "f",
+  "unsure"
+ ],
+ "福山雅治": [
+  "m",
+  "sure"
+ ],
+ "上原あずみ": [
+  "f",
+  "sure"
+ ],
+ "岡崎律子": [
+  "f",
+  "sure"
+ ],
+ "水樹奈々": [
+  "f",
+  "sure"
+ ],
+ "100s": [
+  "m",
+  "sure"
+ ],
+ "CHEMISTRY": [
+  "m",
+  "sure"
+ ],
+ "Ready Go!": [
+  "m",
+  "unsure"
+ ],
+ "ポルノグラフィティ": [
+  "m",
+  "sure"
+ ],
+ "木村弓": [
+  "f",
+  "sure"
+ ],
+ "うえだゆうじ": [
+  "m",
+  "sure"
+ ],
+ "the babystars": [
+  "f",
+  "unsure"
+ ],
+ "岩崎宏美": [
+  "f",
+  "sure"
+ ],
+ "ミニモニ。": [
+  "f",
+  "sure"
+ ],
+ "MONGOL800": [
+  "m",
+  "sure"
+ ],
+ "Do As Infinity": [
+  "f",
+  "sure"
+ ],
+ "BUMP OF CHICKEN": [
+  "m",
+  "sure"
+ ],
+ "夏川りみ": [
+  "f",
+  "sure"
+ ],
+ "愛内里菜": [
+  "f",
+  "sure"
+ ],
+ "BoA": [
+  "f",
+  "sure"
+ ],
+ "Origa": [
+  "f",
+  "sure"
+ ],
+ "ROUND TABLE featuring Nino": [
+  "f",
+  "sure"
+ ],
+ "Akeboshi": [
+  "m",
+  "sure"
+ ],
+ "GARDEN": [
+  "f",
+  "unsure"
+ ],
+ "See-Saw": [
+  "f",
+  "sure"
+ ],
+ "江崎とし子": [
+  "f",
+  "sure"
+ ],
+ "可名": [
+  "f",
+  "sure"
+ ],
+ "大阪・榊・ちよ・暦・神楽・智": [
+  "f",
+  "sure"
+ ],
+ "林原めぐみ・三木眞一郎・犬山イヌコ": [
+  "mix",
+  "sure"
+ ],
+ "little by little": [
+  "f",
+  "sure"
+ ],
+ "つじあやの": [
+  "f",
+  "sure"
+ ],
+ "玉置成実": [
+  "f",
+  "sure"
+ ],
+ "BON-BON BLANCO": [
+  "f",
+  "sure"
+ ],
+ "D-51": [
+  "m",
+  "sure"
+ ],
+ "平原綾香": [
+  "f",
+  "sure"
+ ],
+ "Kimeru": [
+  "m",
+  "sure"
+ ],
+ "千綿ヒデノリ": [
+  "m",
+  "sure"
+ ],
+ "BOYSTYLE": [
+  "f",
+  "sure"
+ ],
+ "森山直太朗": [
+  "m",
+  "sure"
+ ],
+ "大塚愛": [
+  "f",
+  "sure"
+ ],
+ "犬山イヌコ・ノルソル合唱団": [
+  "f",
+  "unsure"
+ ],
+ "FictionJunction YUUKA": [
+  "f",
+  "sure"
+ ],
+ "北出菜奈": [
+  "f",
+  "sure"
+ ],
+ "ラクス・クライン(田中理恵)": [
+  "f",
+  "sure"
+ ],
+ "サンボマスター": [
+  "m",
+  "sure"
+ ],
+ "中島美嘉": [
+  "f",
+  "sure"
+ ],
+ "angela": [
+  "f",
+  "sure"
+ ],
+ "ASIAN KUNG-FU GENERATION": [
+  "m",
+  "sure"
+ ],
+ "ORANGE RANGE": [
+  "m",
+  "sure"
+ ],
+ "Nujabes feat. Shing02": [
+  "m",
+  "sure"
+ ],
+ "五條真由美": [
+  "f",
+  "sure"
+ ],
+ "FLOW": [
+  "m",
+  "sure"
+ ],
+ "BEAT CRUSADERS": [
+  "m",
+  "sure"
+ ],
+ "Rie fu": [
+  "f",
+  "sure"
+ ],
+ "小西香葉・近藤由紀夫": [
+  "mix",
+  "sure"
+ ],
+ "COOL JOKE": [
+  "m",
+  "sure"
+ ],
+ "島谷ひとみ": [
+  "f",
+  "sure"
+ ],
+ "田村直美・ヒマワリ合唱団": [
+  "f",
+  "sure"
+ ],
+ "ケロロ小隊": [
+  "mix",
+  "sure"
+ ],
+ "nobodyknows+": [
+  "m",
+  "sure"
+ ],
+ "堀江由衣 with UNSCANDAL": [
+  "f",
+  "sure"
+ ],
+ "一青窈": [
+  "f",
+  "sure"
+ ],
+ "ALI PROJECT": [
+  "f",
+  "sure"
+ ],
+ "Janne Da Arc": [
+  "m",
+  "sure"
+ ],
+ "MINMI": [
+  "f",
+  "sure"
+ ],
+ "ロードオブメジャー": [
+  "m",
+  "sure"
+ ],
+ "スキマスイッチ": [
+  "m",
+  "sure"
+ ],
+ "平井堅": [
+  "m",
+  "sure"
+ ],
+ "UVERworld": [
+  "m",
+  "sure"
+ ],
+ "GRANRODEO": [
+  "m",
+  "sure"
+ ],
+ "YUI": [
+  "f",
+  "sure"
+ ],
+ "有坂美香": [
+  "f",
+  "sure"
+ ],
+ "HIGH and MIGHTY COLOR": [
+  "f",
+  "sure"
+ ],
+ "AI": [
+  "f",
+  "sure"
+ ],
+ "SUPERCAR": [
+  "mix",
+  "unsure"
+ ],
+ "HOME MADE 家族": [
+  "m",
+  "sure"
+ ],
+ "麻帆良学園中等部2-A": [
+  "f",
+  "sure"
+ ],
+ "髙屋亜希那": [
+  "f",
+  "sure"
+ ],
+ "スネオヘアー": [
+  "m",
+  "sure"
+ ],
+ "陰陽座": [
+  "mix",
+  "sure"
+ ],
+ "高橋瞳": [
+  "f",
+  "sure"
+ ],
+ "AKINO": [
+  "f",
+  "sure"
+ ],
+ "Bivattchee": [
+  "m",
+  "sure"
+ ],
+ "Lia": [
+  "f",
+  "sure"
+ ],
+ "高田梢枝": [
+  "f",
+  "sure"
+ ],
+ "川田まみ": [
+  "f",
+  "sure"
+ ],
+ "レミオロメン": [
+  "m",
+  "sure"
+ ],
+ "OLIVIA inspi' REIRA(TRAPNEST)": [
+  "f",
+  "sure"
+ ],
+ "Aqua Timez": [
+  "m",
+  "sure"
+ ],
+ "タイナカサチ": [
+  "f",
+  "sure"
+ ],
+ "SPLAY": [
+  "m",
+  "unsure"
+ ],
+ "ICHIKO": [
+  "f",
+  "sure"
+ ],
+ "涼宮ハルヒ(平野綾)": [
+  "f",
+  "sure"
+ ],
+ "abingdon boys school": [
+  "m",
+  "sure"
+ ],
+ "彩菜": [
+  "f",
+  "sure"
+ ],
+ "Tommy heavenly6": [
+  "f",
+  "sure"
+ ],
+ "MELL": [
+  "f",
+  "sure"
+ ],
+ "ANNA inspi' NANA(BLACK STONES)": [
+  "f",
+  "sure"
+ ],
+ "NIRGILIS": [
+  "f",
+  "sure"
+ ],
+ "ナイトメア": [
+  "m",
+  "sure"
+ ],
+ "あきよしふみえ": [
+  "f",
+  "sure"
+ ],
+ "マキシマム ザ ホルモン": [
+  "m",
+  "sure"
+ ],
+ "片霧烈火": [
+  "f",
+  "sure"
+ ],
+ "dai": [
+  "m",
+  "unsure"
+ ],
+ "奥華子": [
+  "f",
+  "sure"
+ ],
+ "チャットモンチー": [
+  "f",
+  "sure"
+ ],
+ "手嶌葵": [
+  "f",
+  "sure"
+ ],
+ "月島きらり starring 久住小春(モーニング娘。)": [
+  "f",
+  "sure"
+ ],
+ "平野綾・茅原実里・後藤邑子": [
+  "f",
+  "sure"
+ ],
+ "島みやえい子": [
+  "f",
+  "sure"
+ ],
+ "YUKI": [
+  "f",
+  "sure"
+ ],
+ "ユンナ": [
+  "f",
+  "sure"
+ ],
+ "SunSet Swish": [
+  "m",
+  "sure"
+ ],
+ "グリン": [
+  "f",
+  "unsure"
+ ],
+ "河辺千恵子": [
+  "f",
+  "sure"
+ ],
+ "絢香": [
+  "f",
+  "sure"
+ ],
+ "福山芳樹": [
+  "m",
+  "sure"
+ ],
+ "平野綾": [
+  "f",
+  "sure"
+ ],
+ "Girls Dead Monster": [
+  "f",
+  "sure"
+ ],
+ "高槻やよいほか": [
+  "f",
+  "sure"
+ ],
+ "嵐": [
+  "m",
+  "sure"
+ ],
+ "山崎まさよし": [
+  "m",
+  "sure"
+ ],
+ "石川智晶": [
+  "f",
+  "sure"
+ ],
+ "Buono!": [
+  "f",
+  "sure"
+ ],
+ "ひだまり荘の住人": [
+  "f",
+  "sure"
+ ],
+ "茶太": [
+  "f",
+  "sure"
+ ],
+ "LONG SHOT PARTY": [
+  "m",
+  "sure"
+ ],
+ "Base Ball Bear": [
+  "m",
+  "sure"
+ ],
+ "松本梨香・豊口めぐみ": [
+  "f",
+  "sure"
+ ],
+ "malo": [
+  "f",
+  "unsure"
+ ],
+ "KOTOKO": [
+  "f",
+  "sure"
+ ],
+ "Perfume": [
+  "f",
+  "sure"
+ ],
+ "ika": [
+  "f",
+  "unsure"
+ ],
+ "eufonius（riya）": [
+  "f",
+  "sure"
+ ],
+ "supercell": [
+  "f",
+  "sure"
+ ],
+ "泉こなた(平野綾)・柊かがみ(加藤英美里)・柊つかさ(福原香織)・高良みゆき(遠藤綾)": [
+  "f",
+  "sure"
+ ],
+ "ジン": [
+  "f",
+  "unsure"
+ ],
+ "中川翔子": [
+  "f",
+  "sure"
+ ],
+ "Kalafina": [
+  "f",
+  "sure"
+ ],
+ "南春香・南夏奈・南千秋": [
+  "f",
+  "sure"
+ ],
+ "DOES": [
+  "m",
+  "sure"
+ ],
+ "大槻ケンヂと絶望少女達": [
+  "mix",
+  "sure"
+ ],
+ "水橋舞": [
+  "f",
+  "sure"
+ ],
+ "mao": [
+  "f",
+  "sure"
+ ],
+ "OSTER project": [
+  "f",
+  "unsure"
+ ],
+ "コブクロ": [
+  "m",
+  "sure"
+ ],
+ "the brilliant green": [
+  "f",
+  "sure"
+ ],
+ "井上ジョー": [
+  "m",
+  "sure"
+ ],
+ "NICO Touches the Walls": [
+  "m",
+  "sure"
+ ],
+ "いとうかなこ": [
+  "f",
+  "sure"
+ ],
+ "THYME": [
+  "f",
+  "unsure"
+ ],
+ "いきものがかり": [
+  "f",
+  "sure"
+ ],
+ "戸松遥": [
+  "f",
+  "sure"
+ ],
+ "TOMMY heavenly6": [
+  "f",
+  "sure"
+ ],
+ "茅原実里": [
+  "f",
+  "sure"
+ ],
+ "IKU": [
+  "f",
+  "sure"
+ ],
+ "辻詩音": [
+  "f",
+  "sure"
+ ],
+ "石田燿子": [
+  "f",
+  "sure"
+ ],
+ "シェリル・ノーム starring May'n": [
+  "f",
+  "sure"
+ ],
+ "ランカ・リー=中島愛": [
+  "f",
+  "sure"
+ ],
+ "歌奈子": [
+  "f",
+  "unsure"
+ ],
+ "GReeeeN": [
+  "m",
+  "sure"
+ ],
+ "トラボルタ": [
+  "f",
+  "unsure"
+ ],
+ "青山テルマ feat.SoulJa": [
+  "mix",
+  "sure"
+ ],
+ "May'n": [
+  "f",
+  "sure"
+ ],
+ "ステレオポニー": [
+  "f",
+  "sure"
+ ],
+ "逢坂大河(釘宮理恵)・櫛枝実乃梨(堀江由衣)・川嶋亜美(喜多村英梨)": [
+  "f",
+  "sure"
+ ],
+ "ステファニー": [
+  "f",
+  "sure"
+ ],
+ "ラマーズP": [
+  "f",
+  "unsure"
+ ],
+ "SID": [
+  "m",
+  "sure"
+ ],
+ "電気グルーヴ": [
+  "m",
+  "sure"
+ ],
+ "ET-KING": [
+  "m",
+  "sure"
+ ],
+ "May'n/中島愛": [
+  "f",
+  "sure"
+ ],
+ "Superfly": [
+  "f",
+  "sure"
+ ],
+ "mothy": [
+  "f",
+  "unsure"
+ ],
+ "中孝介": [
+  "m",
+  "sure"
+ ],
+ "doriko": [
+  "f",
+  "unsure"
+ ],
+ "藤岡藤巻と大橋のぞみ": [
+  "mix",
+  "sure"
+ ],
+ "halyosy": [
+  "m",
+  "unsure"
+ ],
+ "アンジェラ・アキ": [
+  "f",
+  "sure"
+ ],
+ "cosMo@暴走P": [
+  "f",
+  "unsure"
+ ],
+ "riya": [
+  "f",
+  "sure"
+ ],
+ "ランカ・リー＝中島愛": [
+  "f",
+  "sure"
+ ],
+ "twe'lv": [
+  "m",
+  "unsure"
+ ],
+ "T-Pistonz": [
+  "m",
+  "sure"
+ ],
+ "清浦夏実": [
+  "f",
+  "sure"
+ ],
+ "iroha(sasaki)": [
+  "f",
+  "unsure"
+ ],
+ "神原駿河(沢城みゆき)": [
+  "f",
+  "sure"
+ ],
+ "LM.C": [
+  "m",
+  "sure"
+ ],
+ "桜高軽音部": [
+  "f",
+  "sure"
+ ],
+ "Kelun": [
+  "m",
+  "unsure"
+ ],
+ "谷本貴義": [
+  "m",
+  "sure"
+ ],
+ "ジミーサムP": [
+  "f",
+  "unsure"
+ ],
+ "Dixie Flatline": [
+  "f",
+  "unsure"
+ ],
+ "流星P": [
+  "f",
+  "unsure"
+ ],
+ "タカチャ": [
+  "f",
+  "unsure"
+ ],
+ "fripSide": [
+  "f",
+  "sure"
+ ],
+ "東方神起": [
+  "m",
+  "sure"
+ ],
+ "堀江由衣": [
+  "f",
+  "sure"
+ ],
+ "戦場ヶ原ひたぎ(CV:斎藤千和)": [
+  "f",
+  "sure"
+ ],
+ "志方あきこ": [
+  "f",
+  "sure"
+ ],
+ "Lil'B": [
+  "f",
+  "sure"
+ ],
+ "放課後ティータイム": [
+  "f",
+  "sure"
+ ],
+ "タニザワトモフミ": [
+  "m",
+  "sure"
+ ],
+ "アゴアニキ": [
+  "f",
+  "unsure"
+ ],
+ "T-Pistonz+KMC": [
+  "m",
+  "sure"
+ ],
+ "ナノウ": [
+  "f",
+  "unsure"
+ ],
+ "samfree": [
+  "f",
+  "unsure"
+ ],
+ "DECO*27": [
+  "f",
+  "unsure"
+ ],
+ "のりP": [
+  "f",
+  "unsure"
+ ],
+ "シド": [
+  "m",
+  "sure"
+ ],
+ "ゴールデンボンバー": [
+  "m",
+  "sure"
+ ],
+ "Berryz工房": [
+  "f",
+  "sure"
+ ],
+ "秦基博": [
+  "m",
+  "sure"
+ ],
+ "wowaka": [
+  "f",
+  "unsure"
+ ],
+ "千石撫子(花澤香菜)": [
+  "f",
+  "sure"
+ ],
+ "池田彩": [
+  "f",
+  "sure"
+ ],
+ "セシル・コルベル": [
+  "f",
+  "sure"
+ ],
+ "多田葵": [
+  "f",
+  "sure"
+ ],
+ "miwa": [
+  "f",
+  "sure"
+ ],
+ "Oratorio The World God Only Knows": [
+  "f",
+  "sure"
+ ],
+ "ClariS": [
+  "f",
+  "sure"
+ ],
+ "UNISON SQUARE GARDEN": [
+  "m",
+  "sure"
+ ],
+ "福原美穂": [
+  "f",
+  "sure"
+ ],
+ "浅井健一": [
+  "m",
+  "sure"
+ ],
+ "黒崎真音": [
+  "f",
+  "sure"
+ ],
+ "tacica": [
+  "m",
+  "sure"
+ ],
+ "麻生夏子": [
+  "f",
+  "sure"
+ ],
+ "ELISA": [
+  "f",
+  "sure"
+ ],
+ "the GazettE": [
+  "m",
+  "sure"
+ ],
+ "松下優也": [
+  "m",
+  "sure"
+ ],
+ "ROOKiEZ is PUNK'D": [
+  "m",
+  "sure"
+ ],
+ "SPYAIR": [
+  "m",
+  "sure"
+ ],
+ "40mP": [
+  "f",
+  "unsure"
+ ],
+ "工藤真由": [
+  "f",
+  "sure"
+ ],
+ "EasyPop": [
+  "f",
+  "unsure"
+ ],
+ "UNLIMITS": [
+  "f",
+  "sure"
+ ],
+ "AKB48": [
+  "f",
+  "sure"
+ ],
+ "つるの剛士": [
+  "m",
+  "sure"
+ ],
+ "ハチ": [
+  "f",
+  "unsure"
+ ],
+ "Junky": [
+  "f",
+  "unsure"
+ ],
+ "LiSA": [
+  "f",
+  "sure"
+ ],
+ "Galileo Galilei": [
+  "m",
+  "sure"
+ ],
+ "rea（原曲：はな）": [
+  "f",
+  "unsure"
+ ],
+ "SCANDAL": [
+  "f",
+  "sure"
+ ],
+ "ULTRA-PRISM": [
+  "m",
+  "sure"
+ ],
+ "ゆうゆ": [
+  "f",
+  "unsure"
+ ],
+ "yanagiP": [
+  "f",
+  "unsure"
+ ],
+ "μ's": [
+  "f",
+  "sure"
+ ],
+ "THEATRE BROOK": [
+  "m",
+  "sure"
+ ],
+ "T-POCKET": [
+  "m",
+  "unsure"
+ ],
+ "ViViD": [
+  "m",
+  "sure"
+ ],
+ "真理絵": [
+  "f",
+  "sure"
+ ],
+ "小野正利": [
+  "m",
+  "sure"
+ ],
+ "EGOIST": [
+  "f",
+  "sure"
+ ],
+ "空野葵(北原沙弥香)": [
+  "f",
+  "sure"
+ ],
+ "藍井エイル": [
+  "f",
+  "sure"
+ ],
+ "The ROOTLESS": [
+  "m",
+  "sure"
+ ],
+ "エリオをかまってちゃん": [
+  "m",
+  "sure"
+ ],
+ "Aimer": [
+  "f",
+  "sure"
+ ],
+ "765PRO ALLSTARS": [
+  "f",
+  "sure"
+ ],
+ "本間芽衣子(茅野愛衣)、安城鳴子(戸松遥)、鶴見知利子(早見沙織)": [
+  "f",
+  "sure"
+ ],
+ "栗林みな実": [
+  "f",
+  "sure"
+ ],
+ "関ジャニ∞": [
+  "m",
+  "sure"
+ ],
+ "99RadioService": [
+  "m",
+  "sure"
+ ],
+ "佐咲紗花": [
+  "f",
+  "sure"
+ ],
+ "じん": [
+  "f",
+  "unsure"
+ ],
+ "クラムボン": [
+  "f",
+  "sure"
+ ],
+ "nano.RIPE": [
+  "f",
+  "sure"
+ ],
+ "ヒャダイン": [
+  "m",
+  "sure"
+ ],
+ "イナズマオールスターズ": [
+  "mix",
+  "unsure"
+ ],
+ "ももいろクローバーZ": [
+  "f",
+  "sure"
+ ],
+ "七森中☆ごらく部": [
+  "f",
+  "sure"
+ ],
+ "妖精帝國": [
+  "f",
+  "sure"
+ ],
+ "BREAKERZ": [
+  "m",
+  "sure"
+ ],
+ "隣人部": [
+  "f",
+  "sure"
+ ],
+ "やくしまるえつこメトロオーケストラ": [
+  "f",
+  "sure"
+ ],
+ "黒うさP": [
+  "f",
+  "unsure"
+ ],
+ "Neru": [
+  "f",
+  "unsure"
+ ],
+ "れるりり": [
+  "f",
+  "unsure"
+ ],
+ "凛として時雨": [
+  "mix",
+  "sure"
+ ],
+ "VALSHE": [
+  "f",
+  "sure"
+ ],
+ "鈴木このみ": [
+  "f",
+  "sure"
+ ],
+ "ChouCho": [
+  "f",
+  "sure"
+ ],
+ "GENERATIONS from EXILE TRIBE": [
+  "m",
+  "sure"
+ ],
+ "GALNERYUS": [
+  "m",
+  "sure"
+ ],
+ "Black Raison d'etre": [
+  "f",
+  "sure"
+ ],
+ "Rita": [
+  "f",
+  "sure"
+ ],
+ "春奈るな": [
+  "f",
+  "sure"
+ ],
+ "わか・ふうり・すなお from STAR☆ANIS": [
+  "f",
+  "sure"
+ ],
+ "ZAQ": [
+  "f",
+  "sure"
+ ],
+ "livetune": [
+  "f",
+  "unsure"
+ ],
+ "みきとP": [
+  "f",
+  "unsure"
+ ],
+ "わか・ふうり・すなお・りすこ from STAR☆ANIS": [
+  "f",
+  "sure"
+ ],
+ "きゃりーぱみゅぱみゅ": [
+  "f",
+  "sure"
+ ],
+ "メレンゲ": [
+  "m",
+  "sure"
+ ],
+ "私立恵比寿中学": [
+  "f",
+  "sure"
+ ],
+ "富永TOMMY弘明": [
+  "m",
+  "sure"
+ ],
+ "じーざすP": [
+  "f",
+  "unsure"
+ ],
+ "Ray": [
+  "f",
+  "sure"
+ ],
+ "Linked Horizon": [
+  "m",
+  "sure"
+ ],
+ "亜沙": [
+  "m",
+  "unsure"
+ ],
+ "ツヴァイウィング": [
+  "f",
+  "sure"
+ ],
+ "松風天馬ほか": [
+  "mix",
+  "unsure"
+ ],
+ "kemu": [
+  "f",
+  "unsure"
+ ],
+ "後ろから這いより隊G": [
+  "f",
+  "sure"
+ ],
+ "MARETU": [
+  "f",
+  "unsure"
+ ],
+ "阿良々木月火(井口裕香)": [
+  "f",
+  "sure"
+ ],
+ "イナズマイレブンGOオールスターズ": [
+  "mix",
+  "unsure"
+ ],
+ "こだまさおり": [
+  "f",
+  "sure"
+ ],
+ "Coda": [
+  "m",
+  "sure"
+ ],
+ "STEREO DIVE FOUNDATION": [
+  "m",
+  "sure"
+ ],
+ "MAN WITH A MISSION feat. TAKUMA": [
+  "m",
+  "sure"
+ ],
+ "Tom-H@ck featuring 大石昌良": [
+  "m",
+  "sure"
+ ],
+ "cinema staff": [
+  "m",
+  "sure"
+ ],
+ "黒沢ともよ": [
+  "f",
+  "sure"
+ ],
+ "Rhodanthe*": [
+  "f",
+  "sure"
+ ],
+ "Fear, and Loathing in Las Vegas": [
+  "m",
+  "sure"
+ ],
+ "Nothing's Carved In Stone": [
+  "m",
+  "sure"
+ ],
+ "T.M.Revolution×水樹奈々": [
+  "mix",
+  "sure"
+ ],
+ "OLDCODEX": [
+  "m",
+  "sure"
+ ],
+ "SEKAI NO OWARI": [
+  "m",
+  "sure"
+ ],
+ "ナノ feat. MY FIRST STORY": [
+  "mix",
+  "sure"
+ ],
+ "日笠陽子": [
+  "f",
+  "sure"
+ ],
+ "STAR☆ANIS": [
+  "f",
+  "sure"
+ ],
+ "STYLE FIVE": [
+  "m",
+  "sure"
+ ],
+ "fhána": [
+  "f",
+  "sure"
+ ],
+ "遊助": [
+  "m",
+  "sure"
+ ],
+ "AAA": [
+  "mix",
+  "sure"
+ ],
+ "J☆Dee'Z": [
+  "f",
+  "sure"
+ ],
+ "雪ノ下雪乃(早見沙織)・由比ヶ浜結衣(東山奈央)": [
+  "f",
+  "sure"
+ ],
+ "高坂穂乃果・園田海未・南ことり": [
+  "f",
+  "sure"
+ ],
+ "情報処理部": [
+  "f",
+  "unsure"
+ ],
+ "北白川たまこ(洲崎綾)": [
+  "f",
+  "sure"
+ ],
+ "BACK-ON": [
+  "m",
+  "sure"
+ ],
+ "宮内れんげ・一条蛍・越谷夏海・越谷小鞠": [
+  "f",
+  "sure"
+ ],
+ "COLORS": [
+  "m",
+  "unsure"
+ ],
+ "ST☆RISH": [
+  "m",
+  "sure"
+ ],
+ "やなぎなぎ": [
+  "f",
+  "sure"
+ ],
+ "梅とら": [
+  "f",
+  "unsure"
+ ],
+ "ダイスケ": [
+  "m",
+  "sure"
+ ],
+ "歌組雪月花": [
+  "f",
+  "sure"
+ ],
+ "トーマ": [
+  "f",
+  "unsure"
+ ],
+ "水樹奈々×T.M.Revolution": [
+  "mix",
+  "sure"
+ ],
+ "back number": [
+  "m",
+  "sure"
+ ],
+ "ゆず": [
+  "m",
+  "sure"
+ ],
+ "風鳴翼×マリア（水樹奈々・日笠陽子）": [
+  "f",
+  "sure"
+ ],
+ "FLOW×GRANRODEO": [
+  "m",
+  "sure"
+ ],
+ "Wake Up, Girls!": [
+  "f",
+  "sure"
+ ],
+ "SawanoHiroyuki[nZk]:mizuki": [
+  "f",
+  "sure"
+ ],
+ "GARNiDELiA": [
+  "f",
+  "sure"
+ ],
+ "チーム総北": [
+  "m",
+  "sure"
+ ],
+ "Petit Rabbit's": [
+  "f",
+  "sure"
+ ],
+ "じん ft. メイリア from GARNiDELiA": [
+  "f",
+  "sure"
+ ],
+ "Pentakill": [
+  "m",
+  "sure"
+ ],
+ "LASTGASP": [
+  "m",
+  "unsure"
+ ],
+ "Crusher-P": [
+  "f",
+  "unsure"
+ ],
+ "綾野ましろ": [
+  "f",
+  "sure"
+ ],
+ "分島花音": [
+  "f",
+  "sure"
+ ],
+ "真山りか": [
+  "f",
+  "sure"
+ ],
+ "星空凛ほか": [
+  "f",
+  "sure"
+ ],
+ "i☆Ris": [
+  "f",
+  "sure"
+ ],
+ "安田レイ": [
+  "f",
+  "sure"
+ ],
+ "雨宮天": [
+  "f",
+  "sure"
+ ],
+ "橋本仁": [
+  "m",
+  "sure"
+ ],
+ "TRUE": [
+  "f",
+  "sure"
+ ],
+ "TK from 凛として時雨": [
+  "m",
+  "sure"
+ ],
+ "Imagine Dragons": [
+  "m",
+  "sure"
+ ],
+ "米津玄師": [
+  "m",
+  "sure"
+ ],
+ "Orangestar": [
+  "f",
+  "sure"
+ ],
+ "斧乃木余接(早見沙織)": [
+  "f",
+  "sure"
+ ],
+ "wacci": [
+  "m",
+  "sure"
+ ],
+ "佐香智久": [
+  "m",
+  "sure"
+ ],
+ "キング・クリームソーダ": [
+  "mix",
+  "unsure"
+ ],
+ "KANA-BOON": [
+  "m",
+  "sure"
+ ],
+ "Tia": [
+  "f",
+  "sure"
+ ],
+ "仲谷明香": [
+  "f",
+  "sure"
+ ],
+ "チマメ隊": [
+  "f",
+  "sure"
+ ],
+ "みかくにんぐッ!": [
+  "f",
+  "sure"
+ ],
+ "Dream5": [
+  "mix",
+  "unsure"
+ ],
+ "7!!": [
+  "f",
+  "sure"
+ ],
+ "きくお": [
+  "f",
+  "sure"
+ ],
+ "amazarashi": [
+  "m",
+  "sure"
+ ],
+ "オーイシマサヨシ": [
+  "m",
+  "sure"
+ ],
+ "Hello Sleepwalkers": [
+  "m",
+  "sure"
+ ],
+ "Goose house": [
+  "mix",
+  "sure"
+ ],
+ "DIRTY OLD MEN": [
+  "m",
+  "sure"
+ ],
+ "昆夏美": [
+  "f",
+  "sure"
+ ],
+ "蝶々P": [
+  "f",
+  "unsure"
+ ],
+ "CHiCO with HoneyWorks": [
+  "f",
+  "sure"
+ ],
+ "奏英学園軽音楽部": [
+  "f",
+  "unsure"
+ ],
+ "TOKOTOKO": [
+  "m",
+  "unsure"
+ ],
+ "OxT": [
+  "m",
+  "sure"
+ ],
+ "BRADIO": [
+  "m",
+  "sure"
+ ],
+ "TRUSTRICK": [
+  "f",
+  "sure"
+ ],
+ "岸田教団&THE明星ロケッツ": [
+  "f",
+  "sure"
+ ],
+ "井口裕香": [
+  "f",
+  "sure"
+ ],
+ "MYTH & ROID": [
+  "f",
+  "sure"
+ ],
+ "礒部花凜": [
+  "f",
+  "sure"
+ ],
+ "MAN WITH A MISSION": [
+  "m",
+  "sure"
+ ],
+ "rea": [
+  "f",
+  "unsure"
+ ],
+ "佐々木恵梨": [
+  "f",
+  "sure"
+ ],
+ "CINDERELLA PROJECT": [
+  "f",
+  "sure"
+ ],
+ "AIKATSU☆STARS!": [
+  "f",
+  "sure"
+ ],
+ "星野源": [
+  "m",
+  "sure"
+ ],
+ "JAM Project": [
+  "m",
+  "sure"
+ ],
+ "Nicki Taylor": [
+  "f",
+  "unsure"
+ ],
+ "SawanoHiroyuki[nZk]:Gemie": [
+  "f",
+  "sure"
+ ],
+ "宮内れんげ(CV:小岩井ことり)ほか": [
+  "f",
+  "sure"
+ ],
+ "Little Glee Monster": [
+  "f",
+  "sure"
+ ],
+ "土間うまる(田中あいみ)": [
+  "f",
+  "sure"
+ ],
+ "WEAVER": [
+  "m",
+  "sure"
+ ],
+ "JO☆STARS": [
+  "m",
+  "sure"
+ ],
+ "北宇治カルテット": [
+  "f",
+  "sure"
+ ],
+ "A応P": [
+  "f",
+  "sure"
+ ],
+ "浦島太郎(桐谷健太)": [
+  "m",
+  "sure"
+ ],
+ "AKINO from bless4": [
+  "f",
+  "sure"
+ ],
+ "THE ORAL CIGARETTES": [
+  "m",
+  "sure"
+ ],
+ "ミーア・パピ・セントレア・スー・メロ・ラクネラ": [
+  "f",
+  "sure"
+ ],
+ "KEYTALK": [
+  "m",
+  "sure"
+ ],
+ "コアラモード.": [
+  "f",
+  "sure"
+ ],
+ "サカナクション": [
+  "m",
+  "sure"
+ ],
+ "3年E組うた担": [
+  "mix",
+  "sure"
+ ],
+ "吉井和哉": [
+  "m",
+  "sure"
+ ],
+ "österreich": [
+  "m",
+  "unsure"
+ ],
+ "MOB CHOIR": [
+  "m",
+  "unsure"
+ ],
+ "batta": [
+  "m",
+  "sure"
+ ],
+ "ClariS×GARNiDELiA": [
+  "f",
+  "sure"
+ ],
+ "THE DU": [
+  "m",
+  "unsure"
+ ],
+ "Machico": [
+  "f",
+  "sure"
+ ],
+ "BURNOUT SYNDROMES": [
+  "m",
+  "sure"
+ ],
+ "Brian the Sun": [
+  "m",
+  "sure"
+ ],
+ "TrySail": [
+  "f",
+  "sure"
+ ],
+ "DEAN FUJIOKA": [
+  "m",
+  "sure"
+ ],
+ "SawanoHiroyuki[nZk]:Tielle": [
+  "f",
+  "sure"
+ ],
+ "Aimer with chelly(EGOIST)": [
+  "f",
+  "sure"
+ ],
+ "水谷瑠奈": [
+  "f",
+  "sure"
+ ],
+ "SCREEN mode": [
+  "m",
+  "sure"
+ ],
+ "fourfolium": [
+  "f",
+  "sure"
+ ],
+ "エミリア(CV:高橋李依)": [
+  "f",
+  "sure"
+ ],
+ "BLUE ENCOUNT": [
+  "m",
+  "sure"
+ ],
+ "fripSide×angela": [
+  "f",
+  "sure"
+ ],
+ "レム(水瀬いのり)": [
+  "f",
+  "sure"
+ ],
+ "Poppin'Party": [
+  "f",
+  "sure"
+ ],
+ "YURI!!! on ICE feat. w.hatano": [
+  "m",
+  "sure"
+ ],
+ "松本梨香・大谷育江": [
+  "f",
+  "sure"
+ ],
+ "Daito Music": [
+  "m",
+  "unsure"
+ ],
+ "ナユタン星人": [
+  "f",
+  "sure"
+ ],
+ "欅坂46": [
+  "f",
+  "sure"
+ ],
+ "バルーン": [
+  "f",
+  "unsure"
+ ],
+ "RADWIMPS": [
+  "m",
+  "sure"
+ ],
+ "Heavenz": [
+  "f",
+  "unsure"
+ ],
+ "アクア(雨宮天)・めぐみん(高橋李依)・ダクネス(茅野愛衣)": [
+  "f",
+  "sure"
+ ],
+ "岡崎体育": [
+  "m",
+  "sure"
+ ],
+ "ワルキューレ": [
+  "f",
+  "sure"
+ ],
+ "沼倉愛美": [
+  "f",
+  "sure"
+ ],
+ "でんぱ組.inc": [
+  "f",
+  "sure"
+ ],
+ "ゲスの極み乙女。": [
+  "m",
+  "sure"
+ ],
+ "筋肉少女帯": [
+  "m",
+  "sure"
+ ],
+ "木須実怜花": [
+  "f",
+  "unsure"
+ ],
+ "Aqours": [
+  "f",
+  "sure"
+ ],
+ "花江夏樹": [
+  "m",
+  "sure"
+ ],
+ "GLIM SPANKY": [
+  "f",
+  "sure"
+ ],
+ "コトリンゴ": [
+  "f",
+  "sure"
+ ],
+ "ラックライフ": [
+  "m",
+  "sure"
+ ],
+ "angela×fripSide": [
+  "f",
+  "sure"
+ ],
+ "aiko": [
+  "f",
+  "sure"
+ ],
+ "ビッケブランカ": [
+  "m",
+  "sure"
+ ],
+ "Roselia": [
+  "f",
+  "sure"
+ ],
+ "田所あずさ": [
+  "f",
+  "sure"
+ ],
+ "リコ(富田美憂)&レグ(伊瀬茉莉也)": [
+  "f",
+  "sure"
+ ],
+ "SawanoHiroyuki[nZk]:Tielle & Gemie": [
+  "f",
+  "sure"
+ ],
+ "JUNNA": [
+  "f",
+  "sure"
+ ],
+ "ASCA": [
+  "f",
+  "sure"
+ ],
+ "Against The Current": [
+  "f",
+  "sure"
+ ],
+ "ターニャ・デグレチャフ(悠木碧)": [
+  "f",
+  "sure"
+ ],
+ "チト(水瀬いのり)・ユーリ(久保ユリカ)": [
+  "f",
+  "sure"
+ ],
+ "ちょろゴンず": [
+  "f",
+  "sure"
+ ],
+ "アクア・めぐみん・ダクネス": [
+  "f",
+  "sure"
+ ],
+ "天真=ガヴリール=ホワイト・月乃瀬=ヴィネット=エイプリル・胡桃沢=サタニキア=マクドウェル・白羽=ラフィエル=エインズワース": [
+  "f",
+  "sure"
+ ],
+ "夏代孝明": [
+  "m",
+  "sure"
+ ],
+ "9mm Parabellum Bullet": [
+  "m",
+  "sure"
+ ],
+ "DAOKO×岡村靖幸": [
+  "mix",
+  "sure"
+ ],
+ "Eve": [
+  "m",
+  "sure"
+ ],
+ "佐伯ユウスケ": [
+  "m",
+  "sure"
+ ],
+ "感覚ピエロ": [
+  "m",
+  "sure"
+ ],
+ "Uru": [
+  "f",
+  "sure"
+ ],
+ "かいりきベア": [
+  "f",
+  "unsure"
+ ],
+ "スーパーちょろゴンず": [
+  "f",
+  "sure"
+ ],
+ "どうぶつビスケッツ×PPP": [
+  "f",
+  "sure"
+ ],
+ "YURiKA": [
+  "f",
+  "sure"
+ ],
+ "氷川きよし": [
+  "m",
+  "sure"
+ ],
+ "エルゼ・リンゼ・八重・ユミナ・スゥシィ・リーン": [
+  "f",
+  "sure"
+ ],
+ "DAOKO×米津玄師": [
+  "mix",
+  "sure"
+ ],
+ "水瀬いのり・久保ユリカ": [
+  "f",
+  "sure"
+ ],
+ "さユり": [
+  "f",
+  "sure"
+ ],
+ "カンザキイオリ": [
+  "m",
+  "unsure"
+ ],
+ "神聖かまってちゃん": [
+  "m",
+  "sure"
+ ],
+ "高木さん(高橋李依)": [
+  "f",
+  "sure"
+ ],
+ "Cö shu Nie": [
+  "f",
+  "sure"
+ ],
+ "THE HIGH CADENCE": [
+  "m",
+  "unsure"
+ ],
+ "Survive Said The Prophet": [
+  "m",
+  "sure"
+ ],
+ "ウマ娘": [
+  "f",
+  "sure"
+ ],
+ "女王蜂": [
+  "f",
+  "unsure"
+ ],
+ "THE SIXTH LIE": [
+  "m",
+  "sure"
+ ],
+ "スペシャルウィーク・サイレンススズカ・トウカイテイオー": [
+  "f",
+  "sure"
+ ],
+ "Lenny code fiction": [
+  "m",
+  "sure"
+ ],
+ "寺島拓篤": [
+  "m",
+  "sure"
+ ],
+ "BiSH": [
+  "f",
+  "sure"
+ ],
+ "上坂すみれ": [
+  "f",
+  "sure"
+ ],
+ "K/DA（Madison Beer, (G)I-DLE, Jaira Burns）": [
+  "f",
+  "sure"
+ ],
+ "King Gnu": [
+  "m",
+  "sure"
+ ],
+ "YOSHIKI feat. HYDE": [
+  "m",
+  "sure"
+ ],
+ "Mili": [
+  "f",
+  "sure"
+ ],
+ "The Glitch Mob, Mako, The Word Alive": [
+  "m",
+  "sure"
+ ],
+ "亜咲花": [
+  "f",
+  "sure"
+ ],
+ "ReoNa": [
+  "f",
+  "sure"
+ ],
+ "saya": [
+  "f",
+  "unsure"
+ ],
+ "DA PUMP": [
+  "m",
+  "sure"
+ ],
+ "宮本佳那子": [
+  "f",
+  "sure"
+ ],
+ "内田真礼": [
+  "f",
+  "sure"
+ ],
+ "邪神★ガールズ": [
+  "f",
+  "sure"
+ ],
+ "Shiggy Jr.": [
+  "f",
+  "sure"
+ ],
+ "玉木マリ・小淵沢報瀬・三宅日向・白石結月": [
+  "f",
+  "sure"
+ ],
+ "ヨルシカ": [
+  "f",
+  "sure"
+ ],
+ "XX:me": [
+  "f",
+  "unsure"
+ ],
+ "Foorin": [
+  "mix",
+  "sure"
+ ],
+ "syudou": [
+  "m",
+  "unsure"
+ ],
+ "sumika": [
+  "m",
+  "sure"
+ ],
+ "高橋優": [
+  "m",
+  "sure"
+ ],
+ "あいみょん": [
+  "f",
+  "sure"
+ ],
+ "赤血球(花澤香菜)・白血球(前野智昭)ほか": [
+  "mix",
+  "sure"
+ ],
+ "山下達郎": [
+  "m",
+  "sure"
+ ],
+ "はるまきごはん": [
+  "f",
+  "unsure"
+ ],
+ "さユり×MY FIRST STORY": [
+  "mix",
+  "sure"
+ ],
+ "THE CHARM PARK": [
+  "m",
+  "sure"
+ ],
+ "安月名莉子": [
+  "f",
+  "sure"
+ ],
+ "the peggies": [
+  "f",
+  "sure"
+ ],
+ "大原ゆい子": [
+  "f",
+  "sure"
+ ],
+ "スタァライト九九組": [
+  "f",
+  "sure"
+ ],
+ "sajou no hana": [
+  "f",
+  "sure"
+ ],
+ "Mrs. GREEN APPLE": [
+  "m",
+  "sure"
+ ],
+ "フランシュシュ": [
+  "f",
+  "sure"
+ ],
+ "桜島麻衣(瀬戸麻沙美)": [
+  "f",
+  "sure"
+ ],
+ "Rhythmic Toy World": [
+  "m",
+  "sure"
+ ],
+ "ЯeaL": [
+  "f",
+  "sure"
+ ],
+ "Giga": [
+  "f",
+  "unsure"
+ ],
+ "サトシ&ゴウ(松本梨香・山下大輝)": [
+  "mix",
+  "sure"
+ ],
+ "Study": [
+  "f",
+  "unsure"
+ ],
+ "MADKID": [
+  "m",
+  "sure"
+ ],
+ "FictionJunction feat. LiSA": [
+  "f",
+  "sure"
+ ],
+ "True Damage（Becky G, Keke Palmer, SOYEON, DUCKWRTH, Thutmose）": [
+  "mix",
+  "sure"
+ ],
+ "WANIMA": [
+  "m",
+  "sure"
+ ],
+ "Rude-α": [
+  "m",
+  "sure"
+ ],
+ "Cailin Russo, Chrissy Costanza": [
+  "f",
+  "sure"
+ ],
+ "Official髭男dism": [
+  "m",
+  "sure"
+ ],
+ "Vaundy": [
+  "m",
+  "sure"
+ ],
+ "ALI": [
+  "m",
+  "sure"
+ ],
+ "milet": [
+  "f",
+  "sure"
+ ],
+ "藤川千愛": [
+  "f",
+  "sure"
+ ],
+ "紗倉ひびき(ファイルーズあい)&街雄鳴造(石川界人)": [
+  "mix",
+  "sure"
+ ],
+ "美波": [
+  "f",
+  "sure"
+ ],
+ "RADWIMPS feat.三浦透子": [
+  "mix",
+  "sure"
+ ],
+ "halca": [
+  "f",
+  "sure"
+ ],
+ "藤原千花(小原好美)": [
+  "f",
+  "sure"
+ ],
+ "藤原千花(CV:小原好美)": [
+  "f",
+  "sure"
+ ],
+ "すりぃ": [
+  "m",
+  "unsure"
+ ],
+ "ポケモン音楽クラブ": [
+  "mix",
+  "unsure"
+ ],
+ "鈴木雅之": [
+  "m",
+  "sure"
+ ],
+ "わたてん☆5": [
+  "f",
+  "sure"
+ ],
+ "中野家の五つ子": [
+  "f",
+  "sure"
+ ],
+ "瑛人": [
+  "m",
+  "sure"
+ ],
+ "PELICAN FANCLUB": [
+  "m",
+  "sure"
+ ],
+ "古川慎": [
+  "m",
+  "sure"
+ ],
+ "みゆな": [
+  "f",
+  "sure"
+ ],
+ "YOASOBI": [
+  "f",
+  "sure"
+ ],
+ "ハセガワダイスケ": [
+  "m",
+  "sure"
+ ],
+ "椎名豪 featuring 中川奈美": [
+  "f",
+  "sure"
+ ],
+ "Da-iCE": [
+  "m",
+  "sure"
+ ],
+ "waterweed": [
+  "m",
+  "unsure"
+ ],
+ "上原歩夢(CV:大西亜玖璃)": [
+  "f",
+  "sure"
+ ],
+ "K/DA（Aluna, Wolftyla, Bekuh BOOM）": [
+  "f",
+  "sure"
+ ],
+ "chelmico": [
+  "f",
+  "sure"
+ ],
+ "Snow Man": [
+  "m",
+  "sure"
+ ],
+ "FOMARE": [
+  "m",
+  "sure"
+ ],
+ "K/DA（TWICE, Bekuh BOOM, Annika Wells）": [
+  "f",
+  "sure"
+ ],
+ "Kanaria": [
+  "f",
+  "unsure"
+ ],
+ "Baby Canta": [
+  "f",
+  "unsure"
+ ],
+ "nonoc": [
+  "f",
+  "sure"
+ ],
+ "K/DA（Madison Beer, (G)I-DLE, Lexie Liu, Jaira Burns, Seraphine）": [
+  "f",
+  "sure"
+ ],
+ "SixTONES": [
+  "m",
+  "sure"
+ ],
+ "Shin Sakiura feat. AAAMYYY": [
+  "f",
+  "sure"
+ ],
+ "地縛少年バンド": [
+  "mix",
+  "sure"
+ ],
+ "SUPER★DRAGON": [
+  "m",
+  "sure"
+ ],
+ "影森みちる(諸星すみれ)": [
+  "f",
+  "sure"
+ ],
+ "緑黄色社会": [
+  "f",
+  "sure"
+ ],
+ "(K)NoW_NAME": [
+  "f",
+  "sure"
+ ],
+ "Jeremy McKinnon, MAX, Henry": [
+  "m",
+  "sure"
+ ],
+ "K/DA（(G)I-DLE, Bea Miller, Wolftyla）": [
+  "f",
+  "sure"
+ ],
+ "K/DA（Madison Beer, Kim Petras）": [
+  "f",
+  "sure"
+ ],
+ "てにをは": [
+  "f",
+  "unsure"
+ ],
+ "Ado": [
+  "f",
+  "sure"
+ ],
+ "ロザリーナ": [
+  "f",
+  "sure"
+ ],
+ "Chinozo": [
+  "f",
+  "unsure"
+ ],
+ "wotaku": [
+  "f",
+  "unsure"
+ ],
+ "flumpool": [
+  "m",
+  "sure"
+ ],
+ "優里": [
+  "m",
+  "sure"
+ ],
+ "北川理恵": [
+  "f",
+  "sure"
+ ],
+ "トータス松本": [
+  "m",
+  "sure"
+ ],
+ "上田麗奈": [
+  "f",
+  "sure"
+ ],
+ "大滝詠一": [
+  "m",
+  "sure"
+ ],
+ "yama": [
+  "f",
+  "unsure"
+ ],
+ "SUPER BEAVER": [
+  "m",
+  "sure"
+ ],
+ "菅田将暉": [
+  "m",
+  "sure"
+ ],
+ "虹ヶ咲学園スクールアイドル同好会": [
+  "f",
+  "sure"
+ ],
+ "DISH//": [
+  "m",
+  "sure"
+ ],
+ "福原遥": [
+  "f",
+  "sure"
+ ],
+ "佐藤ミキ": [
+  "f",
+  "sure"
+ ],
+ "三月のパンタシア": [
+  "f",
+  "sure"
+ ],
+ "ヒトリエ": [
+  "m",
+  "sure"
+ ],
+ "彩音": [
+  "f",
+  "sure"
+ ],
+ "PVRIS": [
+  "f",
+  "sure"
+ ],
+ "Bones UK": [
+  "f",
+  "sure"
+ ],
+ "Denzel Curry, Gizzle, Bren Joy": [
+  "mix",
+  "sure"
+ ],
+ "Imagine Dragons, JID": [
+  "m",
+  "sure"
+ ],
+ "Omoinotake": [
+  "m",
+  "sure"
+ ],
+ "Ramsey": [
+  "f",
+  "sure"
+ ],
+ "Woodkid": [
+  "m",
+  "sure"
+ ],
+ "MindaRyn": [
+  "f",
+  "sure"
+ ],
+ "前島麻由": [
+  "f",
+  "sure"
+ ],
+ "Pusha T, Mako": [
+  "m",
+  "sure"
+ ],
+ "スカートとPUNPEE": [
+  "m",
+  "sure"
+ ],
+ "Curtis Harding, Jazmine Sullivan": [
+  "mix",
+  "sure"
+ ],
+ "Bea Miller": [
+  "f",
+  "sure"
+ ],
+ "ヴィヴィ(八木海莉)": [
+  "f",
+  "sure"
+ ],
+ "MIYAVI, PVRIS": [
+  "mix",
+  "sure"
+ ],
+ "Liella!": [
+  "f",
+  "sure"
+ ],
+ "ichigo from 岸田教団&THE明星ロケッツ": [
+  "f",
+  "sure"
+ ],
+ "澁谷かのん(CV:伊達さゆり)・唐可可(CV:Liyuu)": [
+  "f",
+  "sure"
+ ],
+ "millennium parade × Belle": [
+  "f",
+  "sure"
+ ],
+ "吉武千颯": [
+  "f",
+  "sure"
+ ],
+ "Who-ya Extended": [
+  "m",
+  "sure"
+ ],
+ "Tani Yuuki": [
+  "m",
+  "sure"
+ ],
+ "Sting, Ray Chen": [
+  "m",
+  "sure"
+ ],
+ "秋山黄色": [
+  "m",
+  "sure"
+ ],
+ "小野大輔": [
+  "m",
+  "sure"
+ ],
+ "eill": [
+  "f",
+  "sure"
+ ],
+ "Saucy Dog": [
+  "m",
+  "sure"
+ ],
+ "ツミキ": [
+  "f",
+  "unsure"
+ ],
+ "Fujifabric": [
+  "m",
+  "sure"
+ ],
+ "安藤裕子": [
+  "f",
+  "sure"
+ ],
+ "神山羊": [
+  "m",
+  "sure"
+ ],
+ "ピノキオピー": [
+  "f",
+  "unsure"
+ ],
+ "saji": [
+  "m",
+  "sure"
+ ],
+ "[Alexandros]": [
+  "m",
+  "sure"
+ ],
+ "jon-YAKITORY feat. Ado": [
+  "f",
+  "sure"
+ ],
+ "明日小路(村上まなつ)": [
+  "f",
+  "sure"
+ ],
+ "結束バンド": [
+  "f",
+  "sure"
+ ],
+ "PEOPLE 1": [
+  "m",
+  "sure"
+ ],
+ "zonji": [
+  "m",
+  "unsure"
+ ],
+ "鈴木雅之 feat. すぅ": [
+  "mix",
+  "sure"
+ ],
+ "ミア・テイラー(CV:内田秀)": [
+  "f",
+  "sure"
+ ],
+ "The Birthday": [
+  "m",
+  "sure"
+ ],
+ "四宮かぐや(古賀葵)": [
+  "f",
+  "sure"
+ ],
+ "imase": [
+  "m",
+  "sure"
+ ],
+ "なとり": [
+  "m",
+  "sure"
+ ],
+ "Lil Nas X": [
+  "m",
+  "sure"
+ ],
+ "SiM": [
+  "m",
+  "sure"
+ ],
+ "仲村宗悟": [
+  "m",
+  "sure"
+ ],
+ "MAISONdes": [
+  "f",
+  "unsure"
+ ],
+ "キタニタツヤ": [
+  "m",
+  "sure"
+ ],
+ "GRANRODEO feat.小野賢章": [
+  "m",
+  "sure"
+ ],
+ "QUEENDOM": [
+  "f",
+  "unsure"
+ ],
+ "ano": [
+  "f",
+  "sure"
+ ],
+ "FLOW×ORANGE RANGE": [
+  "m",
+  "sure"
+ ],
+ "なきそ": [
+  "f",
+  "unsure"
+ ],
+ "鈴木愛理": [
+  "f",
+  "sure"
+ ],
+ "蠟梅学園中等部1年3組": [
+  "mix",
+  "unsure"
+ ],
+ "Creepy Nuts": [
+  "m",
+  "sure"
+ ],
+ "ヒグチアイ": [
+  "f",
+  "sure"
+ ],
+ "HoneyWorks feat.かぴ": [
+  "f",
+  "sure"
+ ],
+ "ずっと真夜中でいいのに。": [
+  "f",
+  "sure"
+ ],
+ "英子(CV:本渡楓)": [
+  "f",
+  "sure"
+ ],
+ "スピラ・スピカ": [
+  "f",
+  "sure"
+ ],
+ "コーロまちカド": [
+  "f",
+  "sure"
+ ],
+ "TOOBOE": [
+  "m",
+  "sure"
+ ],
+ "マカロニえんぴつ": [
+  "m",
+  "sure"
+ ],
+ "10-FEET": [
+  "m",
+  "sure"
+ ],
+ "SUIREN": [
+  "f",
+  "sure"
+ ],
+ "キングヘイロー(CV:佐伯伊織)": [
+  "f",
+  "sure"
+ ],
+ "MOONCHILD": [
+  "m",
+  "sure"
+ ],
+ "NewJeans": [
+  "f",
+  "sure"
+ ],
+ "早見沙織": [
+  "f",
+  "sure"
+ ],
+ "La prière": [
+  "f",
+  "sure"
+ ],
+ "ASH DA HERO": [
+  "m",
+  "sure"
+ ],
+ "八木海莉": [
+  "f",
+  "sure"
+ ],
+ "羊文学": [
+  "f",
+  "sure"
+ ],
+ "HEARTSTEEL（BAEKHYUN, tobi lou, ØZI, Cal Scruby）": [
+  "m",
+  "sure"
+ ],
+ "B小町": [
+  "f",
+  "sure"
+ ],
+ "アイナ・ジ・エンド": [
+  "f",
+  "sure"
+ ],
+ "鈴木みのり・寺崎裕香": [
+  "f",
+  "sure"
+ ],
+ "HEY-SMITH": [
+  "m",
+  "sure"
+ ],
+ "LONGMAN": [
+  "mix",
+  "sure"
+ ],
+ "Kvi Baba": [
+  "m",
+  "sure"
+ ],
+ "millennium parade × 椎名林檎": [
+  "f",
+  "unsure"
+ ],
+ "milet×MAN WITH A MISSION": [
+  "mix",
+  "sure"
+ ],
+ "フィロソフィーのダンス": [
+  "f",
+  "sure"
+ ],
+ "岬なこ": [
+  "f",
+  "sure"
+ ],
+ "THE SPELLBOUND": [
+  "m",
+  "sure"
+ ],
+ "DECO*27×ピノキオピー": [
+  "f",
+  "unsure"
+ ],
+ "asmi feat. Chinozo": [
+  "f",
+  "sure"
+ ],
+ "シユイ": [
+  "f",
+  "sure"
+ ],
+ "石井あみ・吉武千颯": [
+  "f",
+  "sure"
+ ],
+ "石井あみ": [
+  "f",
+  "sure"
+ ],
+ "須田景凪": [
+  "m",
+  "sure"
+ ],
+ "石崎ひゅーい": [
+  "m",
+  "sure"
+ ],
+ "ゆこぴ": [
+  "f",
+  "unsure"
+ ],
+ "SIX LOUNGE": [
+  "m",
+  "sure"
+ ],
+ "MyGO!!!!!": [
+  "f",
+  "sure"
+ ],
+ "こはならむ": [
+  "f",
+  "sure"
+ ],
+ "花園羽香里・院田唐音・好本静・栄逢凪乃・薬膳楠莉": [
+  "f",
+  "sure"
+ ],
+ "崎山蒼志": [
+  "m",
+  "sure"
+ ],
+ "Es": [
+  "f",
+  "unsure"
+ ],
+ "tuki.": [
+  "f",
+  "sure"
+ ],
+ "MAN WITH A MISSION×milet": [
+  "mix",
+  "sure"
+ ],
+ "あたらよ": [
+  "f",
+  "sure"
+ ],
+ "アーリャ(上坂すみれ)": [
+  "f",
+  "sure"
+ ],
+ "YUNGBLUD": [
+  "m",
+  "sure"
+ ],
+ "柏木ひなた": [
+  "f",
+  "sure"
+ ],
+ "Sheryl Lee Ralph": [
+  "f",
+  "sure"
+ ],
+ "Stray Kids, Young Miko, Tom Morello": [
+  "mix",
+  "sure"
+ ],
+ "King Princess": [
+  "f",
+  "sure"
+ ],
+ "PENGUIN RESEARCH": [
+  "m",
+  "sure"
+ ],
+ "Linkin Park": [
+  "mix",
+  "unsure"
+ ],
+ "Fever 333": [
+  "m",
+  "sure"
+ ],
+ "Eason Chan": [
+  "m",
+  "sure"
+ ],
+ "9Lana": [
+  "f",
+  "sure"
+ ],
+ "SawanoHiroyuki[nZk]:TOMORROW X TOGETHER": [
+  "m",
+  "sure"
+ ],
+ "Stromae, Pomme": [
+  "mix",
+  "sure"
+ ],
+ "OneRepublic": [
+  "m",
+  "sure"
+ ],
+ "梅田サイファー": [
+  "m",
+  "sure"
+ ],
+ "神崎エルザ starring ReoNa": [
+  "f",
+  "sure"
+ ],
+ "Ashnikko": [
+  "f",
+  "sure"
+ ],
+ "Stefflon Don, Raja Kumari, Jarina De Marco": [
+  "f",
+  "sure"
+ ],
+ "krage": [
+  "f",
+  "sure"
+ ],
+ "Novel Core": [
+  "m",
+  "sure"
+ ],
+ "BE:FIRST": [
+  "m",
+  "sure"
+ ],
+ "fripSide feat. Yoshino Nanjo": [
+  "f",
+  "sure"
+ ],
+ "Mick Wingert": [
+  "m",
+  "sure"
+ ],
+ "w.o.d.": [
+  "m",
+  "sure"
+ ],
+ "Marcus King": [
+  "m",
+  "sure"
+ ],
+ "Twenty One Pilots": [
+  "m",
+  "sure"
+ ],
+ "Royal & the Serpent": [
+  "f",
+  "sure"
+ ],
+ "IVE": [
+  "f",
+  "sure"
+ ],
+ "JO1": [
+  "m",
+  "sure"
+ ],
+ "りりあ。": [
+  "f",
+  "sure"
+ ],
+ "カノエラナ": [
+  "f",
+  "sure"
+ ],
+ "リーガルリリー": [
+  "f",
+  "sure"
+ ],
+ "近藤利樹": [
+  "m",
+  "sure"
+ ],
+ "ぼっちぼろまる feat. もっさ": [
+  "mix",
+  "sure"
+ ],
+ "吉乃": [
+  "f",
+  "sure"
+ ],
+ "FRUITS ZIPPER": [
+  "f",
+  "sure"
+ ],
+ "yama × ぼっちぼろまる": [
+  "mix",
+  "unsure"
+ ],
+ "GEMN": [
+  "m",
+  "sure"
+ ],
+ "サツキ": [
+  "f",
+  "unsure"
+ ],
+ "キミのね": [
+  "f",
+  "unsure"
+ ],
+ "HYDE×MY FIRST STORY": [
+  "m",
+  "sure"
+ ],
+ "ぼっちぼろまる": [
+  "m",
+  "sure"
+ ],
+ "nana hatori": [
+  "f",
+  "sure"
+ ],
+ "羽前京香(CV:鬼頭明里)": [
+  "f",
+  "sure"
+ ],
+ "DeNeel": [
+  "m",
+  "unsure"
+ ],
+ "ざきのすけ。": [
+  "m",
+  "unsure"
+ ],
+ "SARD UNDERGROUND": [
+  "f",
+  "sure"
+ ],
+ "鬼頭明里": [
+  "f",
+  "sure"
+ ],
+ "MY FIRST STORY×HYDE": [
+  "m",
+  "sure"
+ ],
+ "Young Kee": [
+  "m",
+  "sure"
+ ],
+ "ざらめ": [
+  "f",
+  "unsure"
+ ],
+ "オグリキャップ(高柳知葉)": [
+  "f",
+  "sure"
+ ],
+ "幾田りら": [
+  "f",
+  "sure"
+ ],
+ "Rainy。": [
+  "f",
+  "sure"
+ ],
+ "JAM Project feat. BABYMETAL": [
+  "mix",
+  "sure"
+ ],
+ "西川貴教": [
+  "m",
+  "sure"
+ ],
+ "Paledusk": [
+  "m",
+  "sure"
+ ],
+ "米津玄師・宇多田ヒカル": [
+  "mix",
+  "sure"
+ ],
+ "PiKi": [
+  "f",
+  "sure"
+ ],
+ "Ave Mujica": [
+  "f",
+  "sure"
+ ],
+ "Mori Calliope": [
+  "f",
+  "sure"
+ ],
+ "HEARTSTEEL（Anderson .Paak, BAEKHYUN, Connor Price, Nic D）": [
+  "m",
+  "sure"
+ ],
+ "Kroi": [
+  "m",
+  "sure"
+ ],
+ "あみゅり": [
+  "f",
+  "unsure"
+ ],
+ "SawanoHiroyuki[nZk]:Jean-Ken Johnny": [
+  "m",
+  "sure"
+ ],
+ "Chilli Beans.": [
+  "f",
+  "sure"
+ ],
+ "BREIMEN": [
+  "m",
+  "sure"
+ ],
+ "G.E.M.": [
+  "f",
+  "sure"
+ ],
+ "Jax Jones・Ado": [
+  "f",
+  "unsure"
+ ],
+ "muque": [
+  "m",
+  "sure"
+ ],
+ "原賀胡桃・銘戸芽衣・須藤育・美杉美々美・華暮愛々": [
+  "f",
+  "sure"
+ ],
+ "ゴスペラーズ": [
+  "m",
+  "sure"
+ ],
+ "ONE OR EIGHT": [
+  "m",
+  "sure"
+ ],
+ "AURORA": [
+  "f",
+  "sure"
+ ],
+ "Hana Hope": [
+  "f",
+  "sure"
+ ],
+ "ねぐせ。": [
+  "m",
+  "sure"
+ ],
+ "恋太郎ファミリー": [
+  "mix",
+  "unsure"
+ ],
+ "水曜日のカンパネラ": [
+  "f",
+  "sure"
+ ],
+ "Tele": [
+  "m",
+  "sure"
+ ],
+ "キミとアイドルプリキュア♪": [
+  "f",
+  "sure"
+ ],
+ "こっちのけんと": [
+  "m",
+  "sure"
+ ],
+ "NEE": [
+  "m",
+  "sure"
+ ],
+ "TOMOO": [
+  "f",
+  "sure"
+ ],
+ "前橋ウィッチーズ": [
+  "f",
+  "sure"
+ ],
+ "Conton Candy": [
+  "f",
+  "sure"
+ ],
+ "yutori": [
+  "f",
+  "sure"
+ ],
+ "go!go!vanillas": [
+  "m",
+  "sure"
+ ],
+ "WurtS": [
+  "m",
+  "sure"
+ ],
+ "はしメロ": [
+  "f",
+  "unsure"
+ ],
+ "オグリキャップ(高柳知葉)・タマモクロス(大空直美)": [
+  "f",
+  "sure"
+ ],
+ "星街すいせい": [
+  "f",
+  "sure"
+ ],
+ "鈴木このみ・伊東歌詞太郎": [
+  "mix",
+  "sure"
+ ],
+ "平井大": [
+  "m",
+  "sure"
+ ],
+ "GRe4N BOYZ": [
+  "m",
+  "sure"
+ ],
+ "DUSTCELL": [
+  "m",
+  "sure"
+ ],
+ "カラノア": [
+  "f",
+  "unsure"
+ ],
+ "Aooo": [
+  "f",
+  "sure"
+ ],
+ "友成空": [
+  "m",
+  "sure"
+ ],
+ "HANA": [
+  "f",
+  "sure"
+ ],
+ "MYTH & ROID feat. TK": [
+  "mix",
+  "sure"
+ ],
+ "鈴木このみ feat. Ashnikko": [
+  "f",
+  "sure"
+ ],
+ "ちゃんみな": [
+  "f",
+  "sure"
+ ],
+ "Ken Yokoyama": [
+  "m",
+  "sure"
+ ],
+ "ユニコーン": [
+  "m",
+  "sure"
+ ],
+ "時速36km": [
+  "m",
+  "sure"
+ ],
+ "名探偵プリキュア!": [
+  "f",
+  "sure"
+ ],
+ "シャイトープ": [
+  "m",
+  "sure"
+ ],
+ "jo0ji": [
+  "m",
+  "sure"
+ ],
+ "新浜レオン": [
+  "m",
+  "sure"
+ ],
+ "Awich × ALI": [
+  "mix",
+  "sure"
+ ],
+ "千葉雄喜": [
+  "m",
+  "sure"
+ ],
+ "FictionJunction": [
+  "f",
+  "sure"
+ ]
+}

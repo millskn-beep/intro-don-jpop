@@ -935,16 +935,24 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
     }
     updateLifelineButtons();
     timerStart = performance.now() - off * 1000;
+    goTotal = total;
     tick = setInterval(() => {
       if (pausedNow) return; // 一時停止中は進めない
       const t = (performance.now() - timerStart) / 1000;
-      $('timer').textContent = Math.max(0, total - t).toFixed(1); // 残り時間
-      $('barFill').style.width = Math.min(100, t / total * 100) + '%';
+      $('timer').textContent = Math.max(0, goTotal - t).toFixed(1); // 残り時間（3つ埋めバトルで流し続けになると延びる）
+      $('barFill').style.width = Math.min(100, t / goTotal * 100) + '%';
       $('barFill').style.background = t >= hintAt ? 'var(--warn)' : 'var(--accent2)';
     }, 50);
   }, wait * 1000);
 });
 let introLeft = 0; // この問題で、あと何回イントロを流し直すか
+let goTotal = 0;   // この問題の制限時間（秒）
+// 3つ埋めバトル：イントロ中に誰かが押した → サビへ飛ばずに、そのまま流し続ける（止まっていたらその位置から）
+socket.on('flowOn', ({ total }) => {
+  if (total) goTotal = total;
+  introLeft = 0;
+  player.flow();
+});
 // ゲームの最初の問題：3・2・1・START!
 socket.on('countdown', ({ sec }) => charFx.countdown(sec));
 socket.on('stopIntro', () => {

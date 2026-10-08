@@ -108,6 +108,11 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     // 一時停止（ホストが設定を変えている間）／再開
     pause() { run(() => { this.wasPlaying = yt.getPlayerState() === YT.PlayerState.PLAYING; yt.pauseVideo(); }); },
     resume() { run(() => { if (this.wasPlaying) yt.playVideo(); }); },
+    // 3つ埋めバトル：イントロ中に誰かが押したら、サビへ飛ばずにそのまま流し続ける（止まっていたらその位置から再開）
+    flow() {
+      clear();
+      run(() => { clearInterval(fadeTimer); yt.unMute(); if (yt.getPlayerState() !== YT.PlayerState.PLAYING) yt.playVideo(); fade(yt.getVolume(), volume, 400); });
+    },
     // 答え合わせの終わりに、サビをフェードアウトする／延長されたら戻す
     fadeOut(ms = 1500) { run(() => fade(yt.getVolume(), 0, ms)); },
     fadeBack() { run(() => fade(yt.getVolume(), volume, 500)); },

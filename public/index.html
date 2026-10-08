@@ -185,6 +185,7 @@
           <option value="picker">出題者（順番に1人が曲を選ぶ）</option>
           <option value="coop">協力（全員の正解数で目標をめざす）</option>
           <option value="bingo">ビンゴ（作品名のカードをそろえる）</option>
+          <option value="fill">3つ埋めバトル（曲名・アニメ・アーティストを早押しで埋める）</option>
         </select></label>
         <label>答えるもの<select data-key="target"><option value="song">曲名</option><option value="work">作品</option><option value="artist">歌手</option><option value="year">年（近いほど高得点）</option></select></label>
         <label id="questionsLabel">問題数<select data-key="questions"></select></label>
@@ -275,6 +276,19 @@
         </div>
       </div>
       <div class="buzz-row" id="buzzRow" hidden><button class="buzz-btn" id="buzzBtn" type="button">押す！<small>スペースキーでも</small></button><span class="buzz-info" id="buzzInfo"></span></div>
+      <!-- 3つ埋めバトル：枠（押した人は空いている枠を選んで、書くか10択で答える） -->
+      <div class="fill-box" id="fillBox" hidden>
+        <div class="fill-slots" id="fillSlots"></div>
+        <div class="fill-answer" id="fillAnswer" hidden>
+          <p class="fill-head" id="fillHead"></p>
+          <form class="answer-input" id="fillForm" autocomplete="off" hidden>
+            <input id="fillInput" maxlength="50" enterkeyhint="send">
+            <button class="btn-main" type="submit">回答</button>
+          </form>
+          <button class="btn-sub fill-choice-btn" id="fillChoiceBtn" type="button" hidden>10択で選ぶ（点数は半分）</button>
+          <div class="choices fill-choices" id="fillChoices"></div>
+        </div>
+      </div>
       <ul class="clues" id="clues"></ul>
       <div class="choices" id="choices"></div>
       <form class="answer-input" id="inputForm" hidden autocomplete="off">

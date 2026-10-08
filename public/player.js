@@ -3,6 +3,7 @@
 
 const VOL_DEFAULT = 80, FADE_OUT = 800, FADE_IN = 1000;
 const HINT_WAIT = 1500; // イントロ→サビの間の待ち
+const CHORUS_LEAD = 0.3; // サビは少し前から流す（頭が切れないように）
 
 export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
   let yt = null, apiReady = false, pending = [];
@@ -67,7 +68,7 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     // サビへ（ヒント）
     hint(chorus) {
       run(() => {
-        const go = () => { yt.seekTo(chorus, true); yt.unMute(); yt.playVideo(); fade(0, volume, FADE_IN); };
+        const go = () => { yt.seekTo(Math.max(0, chorus - CHORUS_LEAD), true); yt.unMute(); yt.playVideo(); fade(0, volume, FADE_IN); };
         // イントロが鳴っていたら、フェードアウトして HINT_WAIT ミリ秒待ってからサビへ（いきなり切り替わらないように）
         if (yt.getPlayerState() === YT.PlayerState.PLAYING) fade(volume, 0, FADE_OUT, () => later(go, HINT_WAIT)); else go();
       });
@@ -81,12 +82,12 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
         const st = yt.getPlayerState();
         yt.unMute();
         if (jump) {
-          const go = () => { yt.seekTo(chorus, true); yt.playVideo(); fade(0, volume, FADE_IN); };
+          const go = () => { yt.seekTo(Math.max(0, chorus - CHORUS_LEAD), true); yt.playVideo(); fade(0, volume, FADE_IN); };
           if (st === YT.PlayerState.PLAYING) fade(yt.getVolume(), 0, FADE_OUT / 2, go); else go();
           return;
         }
         if (st === YT.PlayerState.PLAYING) { fade(yt.getVolume(), volume, 300); return; }
-        if (st !== YT.PlayerState.PAUSED) yt.seekTo(chorus, true);
+        if (st !== YT.PlayerState.PAUSED) yt.seekTo(Math.max(0, chorus - CHORUS_LEAD), true);
         yt.playVideo(); fade(0, volume, FADE_IN);
       });
     },

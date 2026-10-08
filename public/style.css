@@ -566,6 +566,23 @@ body.in-lobby .qno { font-size: 14px; color: var(--text); font-weight: 700; }
 .players li.is-out { opacity: .5; }
 .buzzing { background: var(--warn); color: #222; }
 .players li.is-buzzing { outline: 2px solid var(--warn); }
+/* 3つ埋めバトル：枠（埋まると名前つきで色がつく）と、押した人の回答欄 */
+.passed { font-size: 10px; font-weight: 800; padding: 1px 6px; border-radius: 99px; background: rgba(160, 160, 180, .5); color: #fff; }
+.fill-box { margin-bottom: 10px; }
+.fill-slots { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.fill-slot { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-height: 64px; padding: 8px 12px; border-radius: 14px; text-align: left;
+  border: 1px dashed var(--line); background: var(--glass); color: var(--text); font: inherit; }
+.fill-slot small { font-size: 11px; font-weight: 800; color: var(--sub); }
+.fill-slot b { font-size: 16px; font-weight: 900; overflow-wrap: anywhere; }
+.fill-slot em { font-style: normal; font-size: 11px; font-weight: 700; color: var(--ok); }
+.fill-slot.done { border-style: solid; border-color: var(--ok); background: rgba(80, 220, 160, .12); }
+.fill-slot.missed { border-style: solid; border-color: var(--warn); }
+.fill-slot.missed em { color: var(--warn); }
+button.fill-slot:not(:disabled) { cursor: pointer; border: 2px solid var(--accent); box-shadow: 0 0 14px rgba(255, 255, 255, .15); }
+button.fill-slot.on { background: var(--glass-strong); border-color: var(--warn); }
+.fill-answer { margin-top: 10px; display: grid; gap: 8px; }
+.fill-head { margin: 0; font-weight: 800; color: var(--warn); }
+.fill-choice-btn { justify-self: start; width: auto; margin: 0; }
 .team-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; font-size: 13px; font-weight: 700; }
 .team-row .btn-sub { padding: 5px 12px; font-size: 12px; border-radius: 99px; }
 .team-row .team-red { border-color: rgba(255, 80, 110, .8); }

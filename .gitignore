@@ -17,3 +17,6 @@ data/auto-labels.json
 data/auto-fix.log
 data/auto-fix.err
 data/intro-cheer-scan.log
+data/chorus-feat/
+data/chorus-feat.log
+data/chorus-feat.err

@@ -343,7 +343,7 @@ const OPTIONS = {
   lifelines: [true, false],
   quizType: ['intro', 'sabimae', 'mix', 'random', 'outro'], // イントロ／サビ前／1問ごとにランダム／どこから（曲の途中）／アウトロ（曲の終わり）
   // 遊び方：ふつう／早押し（押した人だけ答える）／サバイバル（ライフがなくなったら脱落）／出題者（順番に1人が曲を選ぶ）／協力（全員の正解数で目標）／ビンゴ
-  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo'],
+  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill'], // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
   target: ['song', 'work', 'year', 'artist'], // 答えるもの：曲名／作品／年／歌手
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
@@ -398,7 +398,7 @@ function sanitizeSettings(input, base) {
   if (s.yearFrom > s.yearTo) [s.yearFrom, s.yearTo] = [s.yearTo, s.yearFrom];
   // できない組み合わせ：年代当て＋早押し、サバイバル＋チーム戦
   if (s.target === 'year' && s.play === 'buzzer') s.play = 'normal';
-  if (['survival', 'coop', 'bingo'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない
+  if (['survival', 'coop', 'bingo', 'fill'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない
   return s;
 }
 
@@ -406,7 +406,8 @@ function sanitizeSettings(input, base) {
 function poolFor(settings) {
   // 知名度はお題に関係なく、チェックした段階の曲だけにする（難しさの調整）
   const fame = Array.isArray(settings.fame) && settings.fame.length ? settings.fame : FAME_KEYS;
-  return SONGS.filter(s => s.year >= settings.yearFrom && s.year <= settings.yearTo && inTopic(s, settings) && fame.includes(fameOf(s)));
+  return SONGS.filter(s => s.year >= settings.yearFrom && s.year <= settings.yearTo && inTopic(s, settings) && fame.includes(fameOf(s))
+    && !(settings.play === 'fill' && genresOf(s).includes('lol'))); // 3つ埋めバトルに LoL の曲は出さない
 }
 
 const cleanName = n => String(n || '').replace(/[\u0000-\u001f]/g, '').trim().slice(0, 12) || 'ゲスト';
@@ -507,7 +508,9 @@ function publicRoom(room) {
       buzzing: q?.buzz?.token === p.token, // 早押しでいま答えている人
       card: room.settings.play === 'bingo' && p.card ? p.card.map(c => ({ w: c.w, open: c.open })) : null, bingo: !!p.bingoAt,
       picker: q?.picker === p.token,
+      passed: !!q?.fillPass?.has(p.token), // 3つ埋めバトルでパスした人
     })),
+    fill: fillPublic(room, q),
     teams: teamScores(room),
     coop: room.game?.coop || null,
   };
@@ -622,7 +625,7 @@ function startGame(room) {
 
 // ライフラインは1ゲームにつき各1回（部屋設定で無しにもできる）
 function freshLifelines(settings) {
-  return Object.fromEntries(LIFELINES.map(k => [k, settings.lifelines ? 1 : 0]));
+  return Object.fromEntries(LIFELINES.map(k => [k, settings.lifelines && settings.play !== 'fill' ? 1 : 0])); // 3つ埋めバトルは答えが出てしまうので使わない
 }
 
 // ── チーム戦（赤・青）。入った順に人数の少ないほうへ。待機中は自分で切り替えられる ──
@@ -746,6 +749,58 @@ function buildChoices(song, count, pool) {
   return { choices, correctIndex: choices.findIndex(c => c.title === song.title) };
 }
 
+// ── 3つ埋めバトル：1曲ごとに「曲名・アニメ名・アーティスト」（ボカロは「曲名・作者・VOCALOID」）の枠を、早押しで埋める ──
+const FILL_CHOICES = 10;   // 10択で答えるときの選択肢の数（10択は点数が半分）
+const FILL_BUZZ_SEC = 20;  // 押した人が枠を選んで答えられる秒数
+const FILL_LOCK_SEC = 5;   // 間違えた人が押せない秒数
+const VOCALS = ['初音ミク', '鏡音リン', '鏡音レン', '巡音ルカ', 'GUMI', 'IA', 'v flower', 'KAITO', 'MEIKO', '歌愛ユキ', '重音テト', '可不'];
+const authorOf = s => String(s.work || '').normalize('NFKC').match(/^ボカロ\((.+)\)$/)?.[1] || s.artist;
+// 選択肢を作る：正解 + ほかの候補から重ならないものを count-1 個
+function fillChoices(correct, candidates, count, key = x => String(x).normalize('NFKC').toLowerCase()) {
+  const seen = new Set([key(correct)]), picks = [];
+  for (const c of candidates) {
+    if (picks.length >= count - 1) break;
+    if (!c || seen.has(key(c))) continue;
+    seen.add(key(c)); picks.push(c);
+  }
+  const choices = shuffle([correct, ...picks]).map(t => ({ title: t, work: '' }));
+  return { choices, correctIndex: choices.findIndex(c => c.title === correct) };
+}
+function buildFill(song, pool) {
+  const title = buildChoices(song, FILL_CHOICES, pool);
+  title.choices = title.choices.map(c => ({ title: c.title, work: '' })); // 作品名を出すとアニメ名の枠の答えになるので、曲名だけ
+  const slot = (key, label, target, ch) => ({ key, label, target, choices: ch.choices, correctIndex: ch.correctIndex, by: null, given: null });
+  if (song.type === 'ボカロ') {
+    const vocaloids = SONGS.filter(s => s.type === 'ボカロ' && s !== song);
+    const slots = [slot('title', '曲名', 'title', title),
+      slot('author', '作者', 'author', fillChoices(authorOf(song), shuffle(vocaloids.map(authorOf)), FILL_CHOICES))];
+    if (song.vocal?.length) {
+      const ch = fillChoices(song.vocal[0], shuffle(VOCALS.filter(v => !song.vocal.includes(v))), FILL_CHOICES);
+      slots.push(slot('vocal', 'VOCALOID', 'vocal', ch));
+    } else if (song.singer?.length) {
+      // 本人が歌っている動画（米津玄師・Eve など）は、3つ目の枠を「歌手」にする
+      const ch = fillChoices(song.singer[0], shuffle([...new Set(SONGS.filter(s => s !== song).map(s => s.artist))]), FILL_CHOICES);
+      slots.push(slot('singer', '歌手', 'singer', ch));
+    }
+    return slots;
+  }
+  return [slot('title', '曲名', 'title', title),
+    slot('work', 'アニメ名', 'work', buildWorkChoices(song, FILL_CHOICES, pool)),
+    slot('artist', 'アーティスト', 'artist', buildArtistChoices(song, FILL_CHOICES, pool))];
+}
+// 画面に出す枠（正解の番号は出さない）
+function fillPublic(room, q) {
+  if (!q?.fill) return null;
+  return q.fill.map(f => ({ key: f.key, label: f.label, choices: f.choices.map(c => c.title),
+                            by: f.by ? room.players.get(f.by)?.name || '' : null, given: f.given }));
+}
+// 曲が終わるまでの秒数（サビへ移動してから最後まで）。長さが分からない曲は 3 分
+function fillTotal(q, hintAt) {
+  const dur = DURATIONS.get(q.song.id);
+  const sec = !dur ? 180 : q.kind === 'sabimae' ? dur - q.start : hintAt + (dur - chorusOf(q.song));
+  return Math.max(hintAt + 20, sec / (q.speed || 1));
+}
+
 function nextQuestion(room) {
   clearTimers(room);
   const g = room.game;
@@ -799,7 +854,8 @@ function startQuestion(room, song, picker = null) {
   // 答えるもの：年 → 年を選ぶ／作品 → 作品名の選択肢（入力なら作品名だけ正解）／曲名 → いつもの選択肢
   const years = S.target === 'year' ? yearRange(S, song) : null;
   const input = S.answerMode === 'input' && !years;
-  const { choices, correctIndex } = years ? { choices: null, correctIndex: years.indexOf(song.year) }
+  const { choices, correctIndex } = S.play === 'fill' ? { choices: null, correctIndex: null } // 3つ埋めバトルは枠ごとの選択肢（buildFill）
+    : years ? { choices: null, correctIndex: years.indexOf(song.year) }
     : input ? { choices: null, correctIndex: null }
     : S.target === 'work' ? buildWorkChoices(song, S.choices, g.pool)
     : S.target === 'artist' ? buildArtistChoices(song, S.choices, g.pool)
@@ -816,6 +872,8 @@ function startQuestion(room, song, picker = null) {
     winner: null,
     clues: [],          // 出したヒント（再接続した人に送り直す）
     lifelineResults: new Map(), // token -> [{ type, ... }]（再接続した人に送り直す）
+    // 3つ埋めバトル：枠・答えた記録・間違えて押せない人（token → いつまで）・パスした人
+    fill: S.play === 'fill' ? buildFill(song, g.pool) : null, fillLog: [], fillLock: new Map(), fillPass: new Set(),
   };
   // 途中参加した人にもライフラインを持たせる
   for (const p of room.players.values()) if (!p.lifelines) p.lifelines = freshLifelines(room.settings);
@@ -834,6 +892,7 @@ function questionPayload(room) {
     choices: q.choices, years: q.years, settings: room.settings,
     play: room.settings.play, target: room.settings.target, speed: q.speed || 1,
     pickerId: q.picker ? room.players.get(q.picker)?.id : null, pickerName: q.picker ? room.players.get(q.picker)?.name : null,
+    fill: fillPublic(room, q),
   };
 }
 
@@ -906,7 +965,7 @@ function go(room) {
   q.t0 = Date.now() + LEAD_MS;
   // 途中で設定が変わっても、この問題は始めた時の設定で進める
   const plays = introPlaysOf(S, q.kind), hintAt = hintAtOf(S, q.kind);
-  q.hintAt = hintAt; q.plays = plays; q.total = questionTotal(S, hintAt);
+  q.hintAt = hintAt; q.plays = plays; q.total = q.fill ? fillTotal(q, hintAt) : questionTotal(S, hintAt); // 3つ埋めバトルは曲が終わるまで
   const sabimae = flowing(q.kind);
   io.to(room.code).emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt, total: q.total, offset: -LEAD_MS / 1000,
                                 introLen: S.introLen, plays, gap: INTRO_GAP, speed: q.speed || 1 });
@@ -925,7 +984,7 @@ function go(room) {
     io.to(room.code).emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' }); // どこから問題はサビへ移動する
     broadcastRoom(room);
   }, hintAt * 1000);
-  if (S.clues) {
+  if (S.clues && !q.fill) { // 3つ埋めバトルは、ヒント（年・歌手・作品の頭文字）が枠の答えになるので出さない
     clueList(q.song, S.target).forEach((c, i) => later(room, () => {
       if (q.phase !== 'intro' && q.phase !== 'chorus') return;
       q.clues.push(c);
@@ -941,6 +1000,7 @@ function go(room) {
 function onAnswer(room, player, payload) {
   const q = room.game?.q;
   if (!q || (q.phase !== 'intro' && q.phase !== 'chorus') || room.game.paused) return;
+  if (q.fill) return onFillAnswer(room, player, payload);
   if (!q.participants.has(player.token) || q.answers.has(player.token)) return;
 
   const S = room.settings;
@@ -1033,17 +1093,93 @@ function onAnswer(room, player, payload) {
   else broadcastRoom(room);
 }
 
+// 3つ埋めバトルの回答：押した人が { slot, text } か { slot, index }（10択・点数半分）。{ pass } は押してから「やめる」（お手つき）
+function onFillAnswer(room, player, payload) {
+  const q = room.game.q, S = room.settings;
+  if (q.buzz?.token !== player.token) return; // 押した人だけ
+  const song = q.song;
+  let slot = null, given = null, correct = false, choice = false;
+  if (payload?.timeout === true || payload?.pass === true) {
+    given = payload?.timeout ? '時間切れ' : 'わからない';
+  } else if (payload?.drop === true) {
+    endBuzz(room); return broadcastRoom(room); // 抜けた：減点なし
+  } else {
+    slot = q.fill.find(f => f.key === payload?.slot && !f.by);
+    if (!slot) return;
+    if (Number.isInteger(payload?.index)) {
+      const c = slot.choices[payload.index];
+      if (!c) return;
+      choice = true; given = c.title;
+      correct = payload.index === slot.correctIndex || (slot.key === 'vocal' && (song.vocal || []).includes(c.title));
+    } else {
+      if (typeof payload?.text !== 'string') return;
+      given = payload.text.trim().slice(0, 50);
+      if (!given) return;
+      correct = isCorrectText(given, song, slot.target);
+      // 惜しい（1文字ちがいなど）ときは回答にせず、本人にだけ知らせて打ち直してもらう（1つの押しで2回まで）
+      if (!correct && isAlmostText(given, song, slot.target) && (q.buzz.almost || 0) < 2) {
+        q.buzz.almost = (q.buzz.almost || 0) + 1;
+        io.to(player.socketId).emit('almost', { text: given, left: 2 - q.buzz.almost, slot: slot.key });
+        return;
+      }
+    }
+  }
+  const elapsed = q.buzz.elapsed;
+  const hint = elapsed >= (q.hintAt || S.hintAt);
+  let points;
+  if (correct) {
+    // 早いほど高い（500〜1000点。サビまでの時間＋サビの長さで下がりきる）。サビに入ってからは ×0.7、10択は半分
+    const span = (q.hintAt || S.hintAt) + S.chorusLen;
+    points = Math.round(500 + 500 * Math.max(0, 1 - elapsed / span));
+    if (hint) points = Math.round(points * 0.7);
+    if (choice) points = Math.round(points / 2);
+    if (S.bonus && isFinalQuestion(room)) points *= 2;
+    slot.by = player.token; slot.given = given;
+    const st = statsOf(room, player);
+    st.correct++; st.time += elapsed;
+    if (hint) st.chorus++;
+    if (song.year < 2000) st.retro++;
+    for (const k of genresOf(song)) st.genres[k] = (st.genres[k] || 0) + 1;
+  } else {
+    points = -BUZZ_MISS; // お手つき：減点＋しばらく押せない
+    q.fillLock.set(player.token, Date.now() + FILL_LOCK_SEC * 1000);
+    io.to(player.socketId).emit('fillLock', { sec: FILL_LOCK_SEC });
+  }
+  player.score += points;
+  q.fillLog.push({ token: player.token, slot: slot?.key || null, label: slot?.label || null, given, correct, choice, points, elapsed, hint });
+  io.to(room.code).emit('fillResult', { id: player.id, name: player.name, slot: slot?.key || null, label: slot?.label || null,
+                                        given, correct, choice, points });
+  if (q.fill.every(f => f.by)) return reveal(room); // 全部埋まった
+  endBuzz(room); // 曲を再開して、また誰でも押せる
+  broadcastRoom(room);
+}
+// 3つ埋めバトル：全員（つながっている答える人）がパスしたら答え合わせ
+function fillAllPassed(room, q) {
+  const ps = [...q.participants].filter(t => room.players.get(t)?.connected);
+  return ps.length > 0 && ps.every(t => q.fillPass.has(t));
+}
+function onFillPass(room, player, on) {
+  const q = room.game?.q;
+  if (!q?.fill || (q.phase !== 'intro' && q.phase !== 'chorus') || room.game.paused || !q.participants.has(player.token)) return;
+  if (q.buzz?.token === player.token) return; // 答えている最中はパスにしない（「わからない」で）
+  if (on) q.fillPass.add(player.token); else q.fillPass.delete(player.token);
+  if (!q.buzz && fillAllPassed(room, q)) return reveal(room);
+  broadcastRoom(room);
+}
+
 // ── 早押し：押した人がいたら、全員の曲と進行（イントロを止める・サビ・ヒント・時間切れ）を止めて、その人だけ答えられる ──
 function onBuzz(room, player) {
   const g = room.game, q = g?.q;
-  if (!q || room.settings.play !== 'buzzer' || g.paused || q.buzz) return;
+  if (!q || !['buzzer', 'fill'].includes(room.settings.play) || g.paused || q.buzz) return;
   if (q.phase !== 'intro' && q.phase !== 'chorus') return;
   if (!q.participants.has(player.token) || q.answers.has(player.token) || Date.now() < q.t0) return;
-  const now = Date.now();
+  if (q.fill && (q.fillLock.get(player.token) || 0) > Date.now()) return; // 3つ埋めバトル：間違えてから少しの間は押せない
+  const now = Date.now(), sec = q.fill ? FILL_BUZZ_SEC : BUZZ_SEC;
+  if (q.fill) q.fillPass.delete(player.token); // 押したらパスは取り消し
   for (const t of g.timers) if (!t.done) { clearTimeout(t.h); t.left = Math.max(0, t.due - now); }
-  q.buzz = { token: player.token, elapsed: (now - q.t0) / 1000, at: now, until: now + BUZZ_SEC * 1000 };
-  q.buzz.timer = setTimeout(() => { if (room.game?.q === q && q.buzz?.token === player.token) onAnswer(room, player, { timeout: true }); }, BUZZ_SEC * 1000);
-  io.to(room.code).emit('buzz', { id: player.id, name: player.name, sec: BUZZ_SEC });
+  q.buzz = { token: player.token, elapsed: (now - q.t0) / 1000, at: now, until: now + sec * 1000 };
+  q.buzz.timer = setTimeout(() => { if (room.game?.q === q && q.buzz?.token === player.token) onAnswer(room, player, { timeout: true }); }, sec * 1000);
+  io.to(room.code).emit('buzz', { id: player.id, name: player.name, sec });
   broadcastRoom(room);
 }
 // 答える人の番が終わった（間違い・時間切れ・抜けた）：止めていたぶん時刻をずらして、進行を再開する
@@ -1099,6 +1235,17 @@ function reveal(room) {
   q.phase = 'reveal';
   const s = q.song;
   const S = room.settings;
+  // 3つ埋めバトル：一人ひとりの「この曲で答えたもの」をまとめて、ふつうの結果の形にする（点数は答えたときに足し済み）
+  if (q.fill) {
+    for (const t of q.participants) {
+      const mine = q.fillLog.filter(l => l.token === t);
+      if (!mine.length) { if (q.fillPass.has(t)) q.answers.set(t, { pass: true, points: 0, elapsed: null }); continue; }
+      const ok = mine.filter(l => l.correct);
+      q.answers.set(t, { index: null, pass: false, correct: ok.length > 0, miss: mine.some(l => !l.correct), hint: ok.some(l => l.hint),
+                         points: mine.reduce((a, l) => a + l.points, 0), elapsed: ok.length ? Math.min(...ok.map(l => l.elapsed)) : null,
+                         given: mine.map(l => l.correct ? `${l.label}：${l.given}${l.choice ? '（10択）' : ''}` : `×${l.label ? `${l.label}：` : ''}${l.given}`).join('／') });
+    }
+  }
   // 答えなかった人は連続正解が途切れる
   for (const t of q.participants) if (!q.answers.has(t)) { const p = room.players.get(t); if (p) p.streak = 0; }
   // サバイバル：正解しなかった人（年代当ては2年以内なら助かる）はライフが減り、0で脱落
@@ -1121,7 +1268,7 @@ function reveal(room) {
                lives: p.lives ?? null, out: !!p.out, team: S.teams ? p.team : null };
     })
     // 正解した人が上（同じなら速い順）。年代当ては点数（近さ）の順
-    .sort((a, b) => (q.years ? (b.points - a.points) : (b.correct - a.correct)) || ((a.elapsed ?? 99) - (b.elapsed ?? 99)));
+    .sort((a, b) => (q.years || q.fill ? (b.points - a.points) : (b.correct - a.correct)) || ((a.elapsed ?? 99) - (b.elapsed ?? 99)));
   // 出題者：答える人の半分くらいが正解で最高点（全員正解・全員不正解は0点）
   let picker = null;
   if (q.picker) {
@@ -1136,6 +1283,11 @@ function reveal(room) {
   io.to(room.code).emit('reveal', {
     eliminated, picker, bingo, coop: room.game.coop || null,
     correctIndex: q.correctIndex,
+    // 3つ埋めバトル：枠ごとの正解・埋めた人・10択の正解の番号
+    fill: q.fill ? q.fill.map(f => ({ key: f.key, label: f.label, by: f.by ? room.players.get(f.by)?.name || '' : null, given: f.given,
+                                       answer: f.key === 'title' ? s.title : f.key === 'work' ? s.work : f.key === 'artist' ? s.artist
+                                         : f.key === 'author' ? authorOf(s) : f.key === 'singer' ? s.singer[0] : (s.vocal || []).join('・'),
+                                       correctIndex: f.correctIndex })) : null,
     song: { id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type },
     log: playedLog(room), // ここまでに出た曲（ページを読み込み直した人も曲ログをコピーできるように）
     intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0,
@@ -1500,8 +1652,9 @@ io.on('connection', socket => {
   });
   socket.on('answer', (payload = {}) => {
     // timeout・drop はサーバーの中だけで使う（画面から送られても無視）
-    if (room && player) onAnswer(room, player, { index: payload?.index, text: payload?.text, year: payload?.year, pass: payload?.pass });
+    if (room && player) onAnswer(room, player, { index: payload?.index, text: payload?.text, year: payload?.year, pass: payload?.pass, slot: payload?.slot });
   });
+  socket.on('fillPass', on => { if (room && player) onFillPass(room, player, on === true); });
 
   // ライフライン。結果は使った本人にだけ返す
   socket.on('lifeline', ({ type } = {}) => {
@@ -1558,8 +1711,8 @@ io.on('connection', socket => {
       const q = room.game.q;
       // 抜けた人を待たない
       if (q.phase === 'loading' && [...q.participants].every(t => !room.players.get(t)?.connected || q.ready.has(t))) go(room);
-      else if ((q.phase === 'intro' || q.phase === 'chorus') &&
-               [...q.participants].every(t => !room.players.get(t)?.connected || q.answers.has(t))) reveal(room);
+      else if ((q.phase === 'intro' || q.phase === 'chorus') && (q.fill ? !q.buzz && fillAllPassed(room, q) :
+               [...q.participants].every(t => !room.players.get(t)?.connected || q.answers.has(t)))) reveal(room);
     }
     broadcastRoom(room);
   });

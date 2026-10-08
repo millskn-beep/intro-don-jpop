@@ -317,6 +317,7 @@ const PLAY_DESC = {
   picker: '1問ごとに順番で1人が出題者になり、収録曲から曲を選びます。答える人の半分くらいが正解すると、出題者に最高1000点。2人以上で遊べます。',
   coop: '全員の正解数の合計で、目標（問題数×人数×目標%）をめざします。',
   bingo: '一人ひとりに作品名の4×4カードを配ります。正解した曲の作品のマスが開き、縦・横・斜めのどれかがそろったら BINGO！（20問以上がおすすめ）',
+  fill: '1曲ごとに「曲名・アニメ名・アーティスト」の3つの枠を早押しで埋めます（ボカロは「曲名・作者・VOCALOID」）。押した人が空いている枠を選んで答え、書けば早いほど高得点・10択なら半分。間違えると −200点で5秒押せません。全部埋まるか、全員がパスしたら次の曲へ。LoL の曲は出ません。',
 };
 // ロビーの一番上：これから遊ぶ曲を除外に追加しない（ホストが切り替え）
 $('noRecordBtn').onclick = () => { if (room) sendSettings({ noRecord: !room.settings.noRecord }); };
@@ -469,9 +470,11 @@ function renderRoom(r) {
   $('coopGoalLabel').hidden = r.settings.play !== 'coop';
   $('playDesc').textContent = PLAY_DESC[r.settings.play] || '';
   $('questionsLabel').hidden = r.settings.play === 'survival';
-  $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year';
+  const fillMode = r.settings.play === 'fill'; // 3つ埋めバトルは、答えるもの・回答方法・採点・ヒントを使わない（枠ごとに書くか10択）
+  $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
+  for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
-  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo'].includes(r.settings.play);
+  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'fill'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
@@ -552,12 +555,14 @@ function renderRoom(r) {
   // 得点が一番の人（0点より上）に王冠をつける
   const top = Math.max(0, ...r.players.map(p => p.score));
   renderBingo(); renderCoop();
+  if (r.fill && question?.fill && r.phase !== 'reveal') renderFill(r.fill); // 3つ埋めバトル：埋まった枠を全員の画面に
   // サバイバルのライフ（♥）・脱落、チームの色、早押しでいま答えている人
   const survival = r.settings.play === 'survival' && r.state !== 'lobby';
   const extraTags = p => (p.team ? `<span class="team-tag team-${p.team}">${TEAM_LABEL[p.team]}</span>` : '')
     + (survival && p.out ? '<span class="out">脱落</span>' : survival && p.lives != null ? `<span class="lives" title="ライフ">${'♥'.repeat(p.lives)}</span>` : '')
     + (p.buzzing ? '<span class="buzzing">回答中</span>' : '')
     + (p.picker ? '<span class="buzzing">出題者</span>' : '')
+    + (p.passed ? '<span class="passed">パス</span>' : '')
     + (p.card && r.state === 'playing' ? `<span class="bingo-tag${p.bingo ? ' done' : ''}">${p.bingo ? 'BINGO!' : `${p.card.filter(c => c.open && c.w !== 'FREE').length}マス`}</span>` : '');
   $('players').innerHTML = r.players.map(p => `
     <li data-id="${p.id}" class="${p.answered ? 'answered' : ''} ${p.connected ? '' : 'off'} ${p.id === me ? 'me' : ''} ${p.team ? 'team-' + p.team : ''} ${survival && p.out ? 'is-out' : ''} ${p.buzzing ? 'is-buzzing' : ''}">
@@ -848,13 +853,16 @@ socket.on('question', q => {
   $('answerInput').placeholder = q.target === 'work' ? '作品名を入力' : '曲名か作品名を入力';
   // 年代当て：年のボタンを並べる（選択肢と同じ見た目・同じ答え合わせの表示）
   $('choices').classList.toggle('years', q.answerMode === 'year');
-  $('choices').innerHTML = isInput() ? '' : q.answerMode === 'year'
+  $('choices').innerHTML = isInput() || q.fill ? '' : q.answerMode === 'year'
     ? q.years.map((y, i) => `<button class="choice year" data-i="${i}" disabled>${y}</button>`).join('')
     : q.choices.map((c, i) => `<button class="choice" data-i="${i}" disabled>${esc(c.title)}${c.work ? `<small>${esc(c.work)}</small>` : ''}</button>`).join('');
   $('choices').querySelectorAll('.choice').forEach(b => b.onclick = () =>
     answer(q.answerMode === 'year' ? { year: q.years[+b.dataset.i], index: +b.dataset.i } : { index: +b.dataset.i }));
   // 早押し：押すボタン（押した人だけが答えられる）
-  $('buzzRow').hidden = q.play !== 'buzzer'; $('buzzBtn').disabled = true; $('buzzInfo').textContent = ''; buzzHolder = null;
+  $('buzzRow').hidden = q.play !== 'buzzer' && q.play !== 'fill'; $('buzzBtn').disabled = true; $('buzzInfo').textContent = ''; buzzHolder = null;
+  // 3つ埋めバトル：選択肢・入力の欄の代わりに枠を出す
+  if (q.fill) { $('choices').hidden = true; $('inputForm').hidden = true; }
+  fillLockUntil = 0; fillSlot = null; $('fillAnswer').hidden = true; renderFill(q.fill);
   if (amOut()) $('quizNote').textContent = '脱落しました。最後まで見て応援しよう！';
   $('pickPanel').hidden = true; clearInterval(pickTick);
   if (q.pickerId === me) $('quizNote').textContent = 'あなたが出題した曲です。みんなが答えるのを見守ろう！';
@@ -894,9 +902,9 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
       setPhase('intro', nth > 1 ? `イントロ再生中…（${nth}回目！）` : 'イントロ再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen'); if (!off) charFx.say('intro');
     }
     if (myAnswer === null && !amOut() && question?.pickerId !== me) {
-      if (question?.play === 'buzzer') {
+      if (question?.play === 'buzzer' || question?.play === 'fill') {
         // 早押し：押した人だけが答えられる。まずは押すボタンだけ
-        buzzOpen = !buzzHolder; $('buzzBtn').disabled = !buzzOpen;
+        buzzOpen = !buzzHolder; $('buzzBtn').disabled = !buzzOpen || fillLocked();
       } else {
         answering = true;
         $('choices').querySelectorAll('.choice:not(.gone)').forEach(b => b.disabled = false);
@@ -939,13 +947,13 @@ socket.on('hint', ({ chorus, known = true, intro = 0, seek = true }) => {
 // ── 早押し：押した人がいたら全員の曲と残り時間が止まり、その人だけが答えられる。間違えたら再開 ──
 let buzzOpen = false, buzzHolder = null, buzzTick = null, buzzPausedAt = 0;
 function tryBuzz() {
-  if (!buzzOpen || myAnswer !== null || practice) return;
+  if (!buzzOpen || myAnswer !== null || practice || fillLocked()) return;
   buzzOpen = false; $('buzzBtn').disabled = true;
   socket.emit('buzz');
 }
 $('buzzBtn').onclick = tryBuzz;
 addEventListener('keydown', e => {
-  if (e.code !== 'Space' || question?.play !== 'buzzer' || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return;
+  if (e.code !== 'Space' || !['buzzer', 'fill'].includes(question?.play) || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return;
   e.preventDefault(); tryBuzz();
 });
 function clearBuzz() {
@@ -961,6 +969,7 @@ socket.on('buzz', ({ id, name, sec }) => {
   clearInterval(buzzTick); show(); buzzTick = setInterval(show, 100);
   cue(mine ? 'あなたの番！' : `${name}！`, 'fx-burst');
   setPhase('ready', mine ? 'あなたの番！ 答えて！' : `${name} さんが回答中…`);
+  if (question?.fill) { if (mine) openFillAnswer(); updateLifelineButtons(); return; } // 3つ埋めバトル：枠を選んで答える
   if (mine && myAnswer === null) {
     answering = true;
     $('choices').querySelectorAll('.choice:not(.gone)').forEach(b => b.disabled = false);
@@ -972,10 +981,84 @@ socket.on('buzz', ({ id, name, sec }) => {
 socket.on('buzzEnd', () => {
   const wasMine = buzzHolder === me;
   if (clearBuzz()) player.resume();
-  if (wasMine && myAnswer === null) markAnswered({ given: '時間切れ' }); // 時間切れ（サーバーではお手つき）
-  if (myAnswer === null && !amOut()) { buzzOpen = true; $('buzzBtn').disabled = false; }
+  if (question?.fill) { $('fillAnswer').hidden = true; fillSlot = null; } // 3つ埋めバトルは何度でも押せる（間違えた人は少しの間だけ押せない）
+  else if (wasMine && myAnswer === null) markAnswered({ given: '時間切れ' }); // 時間切れ（サーバーではお手つき）
+  if (myAnswer === null && !amOut()) { buzzOpen = true; $('buzzBtn').disabled = fillLocked(); }
   updateLifelineButtons();
   setPhase(hintSeen ? 'chorus' : 'intro', hintSeen ? 'サビ再生中 ✨（得点×0.7）' : '再開！ わかったら押そう');
+});
+
+// ── 3つ埋めバトル：枠の表示・押した人の回答（枠を選ぶ → 書く／10択）・間違えたあと押せない時間・パス ──
+let fillLockUntil = 0, fillSlot = null, fillLockTick = null;
+const fillLocked = () => !!question?.fill && performance.now() < fillLockUntil;
+function renderFill(slots) {
+  $('fillBox').hidden = !slots;
+  if (!slots) return;
+  const holderMine = buzzHolder === me && !$('fillAnswer').hidden;
+  $('fillSlots').innerHTML = slots.map(f => `<button type="button" class="fill-slot${f.by != null ? ' done' : ''}${fillSlot === f.key ? ' on' : ''}" data-slot="${f.key}"
+    ${holderMine && f.by == null ? '' : 'disabled'}><small>${esc(f.label)}</small><b>${f.by != null ? esc(f.given) : '？'}</b>${f.by != null ? `<em>${esc(f.by)}</em>` : ''}</button>`).join('');
+}
+const fillSlots = () => room?.fill || question?.fill || [];
+function openFillAnswer() {
+  fillSlot = null;
+  $('fillAnswer').hidden = false; $('fillForm').hidden = true; $('fillChoiceBtn').hidden = true; $('fillChoices').innerHTML = '';
+  const open = fillSlots().filter(f => f.by == null);
+  $('fillHead').textContent = 'どの枠に答える？（下の枠を選んでね）';
+  renderFill(fillSlots());
+  if (open.length === 1) chooseFillSlot(open[0].key); // 残り1つなら選ぶ手間を省く
+}
+function chooseFillSlot(key) {
+  const f = fillSlots().find(x => x.key === key);
+  if (!f || f.by != null) return;
+  fillSlot = key;
+  $('fillHead').textContent = `「${f.label}」を書いて答えよう`;
+  $('fillForm').hidden = false; $('fillInput').value = ''; $('fillInput').placeholder = `${f.label}を入力`; $('fillInput').focus();
+  $('fillChoiceBtn').hidden = false; $('fillChoices').innerHTML = '';
+  renderFill(fillSlots());
+}
+$('fillSlots').onclick = e => { const b = e.target.closest('button[data-slot]'); if (b && !b.disabled) chooseFillSlot(b.dataset.slot); };
+$('fillChoiceBtn').onclick = () => {
+  const f = fillSlots().find(x => x.key === fillSlot);
+  if (!f) return;
+  $('fillChoiceBtn').hidden = true;
+  $('fillChoices').innerHTML = f.choices.map((c, i) => `<button class="choice" type="button" data-i="${i}">${esc(c)}</button>`).join('');
+};
+$('fillChoices').onclick = e => {
+  const b = e.target.closest('button[data-i]');
+  if (!b || !fillSlot) return;
+  socket.emit('answer', { slot: fillSlot, index: +b.dataset.i });
+  $('fillAnswer').hidden = true;
+};
+let fillComposing = false, fillComposeEnd = 0;
+$('fillInput').addEventListener('compositionstart', () => { fillComposing = true; });
+$('fillInput').addEventListener('compositionend', () => { fillComposing = false; fillComposeEnd = performance.now(); });
+$('fillForm').onsubmit = e => {
+  e.preventDefault();
+  if (fillComposing || performance.now() - fillComposeEnd < 80) return; // 日本語変換の確定で送らない
+  const text = $('fillInput').value.trim();
+  if (!text || !fillSlot) return;
+  socket.emit('answer', { slot: fillSlot, text });
+  $('fillForm').hidden = true;
+};
+// 誰かが答えた（正解・お手つき）
+socket.on('fillResult', ({ id, name, label, given, correct, choice, points }) => {
+  const mine = id === me;
+  if (correct) {
+    cue(`${mine ? 'あなた' : name}：${label} 正解！`, 'fx-burst');
+    if (mine) { flash('ok', `${label} 正解！`, `+${points}${choice ? '（10択）' : ''}`); confetti(20); }
+  } else if (mine) flash('ng', 'お手つき', `${points}`);
+  else cue(`${name}：お手つき`, 'fx-burst');
+});
+// 自分が間違えた：少しの間だけ押せない
+socket.on('fillLock', ({ sec }) => {
+  fillLockUntil = performance.now() + sec * 1000;
+  $('buzzBtn').disabled = true;
+  clearInterval(fillLockTick);
+  fillLockTick = setInterval(() => {
+    const left = (fillLockUntil - performance.now()) / 1000;
+    if (left <= 0 || !question) { clearInterval(fillLockTick); if (question?.fill && buzzOpen) $('buzzBtn').disabled = false; if (!buzzHolder) $('buzzInfo').textContent = ''; return; }
+    if (!buzzHolder) $('buzzInfo').textContent = `お手つき：あと ${left.toFixed(1)} 秒押せません`;
+  }, 100);
 });
 
 // ── 出題者モード：順番に1人が収録曲から曲を選ぶ（ほかの人は待つ） ──
@@ -1057,7 +1140,13 @@ $('inputForm').onsubmit = e => {
   if (!text) return;
   answer({ text });
 };
-$('passBtn').onclick = () => answer({ pass: true });
+$('passBtn').onclick = () => {
+  if (!question?.fill) return answer({ pass: true });
+  // 3つ埋めバトル：押して答えている最中は「わからない」（お手つき）。それ以外は「もう終わってOK」の合図（押せば取り消し）
+  if (buzzHolder === me) { socket.emit('answer', { pass: true }); $('fillAnswer').hidden = true; return; }
+  const passed = room?.players?.find(p => p.id === me)?.passed;
+  socket.emit('fillPass', !passed);
+};
 
 // ── 時間で増えるヒント ──
 socket.on('clue', c => {
@@ -1082,6 +1171,13 @@ function updateLifelineButtons() {
     b.hidden = !room?.settings.lifelines;
   });
   $('passBtn').disabled = !(answering || buzzOpen);
+  if (question?.fill) {
+    // 3つ埋めバトル：曲が流れている間はいつでもパス（取り消し）できる
+    const passed = room?.players?.find(p => p.id === me)?.passed;
+    const playing = ['intro', 'chorus'].includes(room?.phase) && !amOut();
+    $('passBtn').disabled = !playing || (!!buzzHolder && buzzHolder !== me);
+    $('passBtn').lastChild.textContent = buzzHolder === me ? 'わからない（−200）' : passed ? 'パスを取り消す' : 'パス（全員パスで次へ）';
+  } else if ($('passBtn').lastChild.textContent !== 'わからない（パス）') $('passBtn').lastChild.textContent = 'わからない（パス）';
 }
 socket.on('lifelineResult', r => {
   let text = '';
@@ -1152,8 +1248,12 @@ socket.on('reveal', r => {
         `<span class="picker${x.id === me ? ' me' : ''}">${avatarImg(x.avatar, 'avatar xs')}${esc(x.name)}</span>`).join('')}</span>`);
     }
   });
+  if (r.fill) { // 3つ埋めバトル：枠ごとの正解と、埋めた人
+    $('fillAnswer').hidden = true; fillSlot = null;
+    $('fillSlots').innerHTML = r.fill.map(f => `<div class="fill-slot ${f.by != null ? 'done' : 'missed'}"><small>${esc(f.label)}</small><b>${esc(f.answer)}</b><em>${f.by != null ? esc(f.by) : '誰も埋められず'}</em></div>`).join('');
+  }
   const s = r.song;
-  $('answer').innerHTML = `${esc(s.title)}<small>${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}（${s.year}）</small>`
+  $('answer').innerHTML =`${esc(s.title)}<small>${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}（${s.year}）</small>`
     + (s.id ? `<div class="song-tools"><button class="btn-sub" id="copySongBtn">📋 この曲をコピー</button>`
       + `<button class="btn-sub" id="keepSongBtn">${keptIds().has(s.id) ? '✓ 除外しない曲' : '🔁 この曲は除外しない'}</button>`
       + `<button class="btn-sub" id="fixToggle">⏱ 位置を直す${fixes()[s.id] ? '（直し済み）' : ''}</button></div><div class="fix-panel" id="fixPanel" hidden></div>` : '');
@@ -1196,7 +1296,12 @@ socket.on('reveal', r => {
 });
 
 // 惜しい：回答にはならないので、打ち直せるように戻す
-socket.on('almost', ({ text, left }) => {
+socket.on('almost', ({ text, left, slot }) => {
+  if (question?.fill) { // 3つ埋めバトル：同じ枠でもう一度書ける
+    fillSlot = slot; $('fillForm').hidden = false; $('fillInput').value = text; $('fillInput').select();
+    $('fillHead').textContent = `惜しい！ もう一度（あと${left + 1}回まで）`; flash('ng', '惜しい！');
+    return;
+  }
   myAnswer = null; answering = true;
   $('answerInput').disabled = false; $('sendBtn').disabled = false;
   $('answerInput').value = text; $('answerInput').select();

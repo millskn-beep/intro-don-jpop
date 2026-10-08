@@ -61,7 +61,7 @@ def read(p, d):
 
 def write(p, v, indent=1):
     tmp = p.with_suffix(p.suffix + '.tmp')
-    tmp.write_text(json.dumps(v, ensure_ascii=False, indent=indent) + '\n', encoding='utf8')
+    tmp.write_text(json.dumps(v, ensure_ascii=False, indent=indent) + '\n', encoding='utf8', newline='\n')
     tmp.replace(p)
 
 
@@ -76,7 +76,7 @@ def save_song(song_id, fields):
         return False
     if not DRY:
         tmp = SONGS_PATH.with_suffix('.json.tmp')
-        tmp.write_text(json.dumps(songs, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
+        tmp.write_text(json.dumps(songs, ensure_ascii=False, indent=2) + '\n', encoding='utf8', newline='\n')
         tmp.replace(SONGS_PATH)
     return True
 

@@ -328,7 +328,7 @@ const PLAY_DESC = {
   survival: '間違える・時間切れ・パスでライフが減り、0で脱落。最後まで残った人の勝ち（問題数は最大50問）。',
   picker: '1問ごとに順番で1人が出題者になり、収録曲から曲を選びます。答える人の半分くらいが正解すると、出題者に最高1000点。2人以上で遊べます。',
   coop: '全員の正解数の合計で、目標（問題数×人数×目標%）をめざします。',
-  bingo: '一人ひとりに作品名の4×4カードを配ります。正解した曲の作品のマスが開き、縦・横・斜めのどれかがそろったら BINGO！（20問以上がおすすめ）',
+  bingo: '一人ひとりに4×4のカードを配ります（答えるものに合わせて、曲名・作品・歌手・年のマス）。正解するとそのマスが開き、縦・横・斜めのどれかがそろったら BINGO！で +3000点（そのあと列が増えるたびに +1000点）。ゲームは問題数まで続き、イントロの点数とボーナスの合計で競います（20問以上がおすすめ）',
   fill: '1曲ごとに「曲名・アニメ名・アーティスト」の3つの枠を早押しで埋めます（ボカロは「曲名・作者・VOCALOID」）。押した人が空いている枠を選んで答え、書けば早いほど高得点・10択なら半分。間違えると −200点で、しばらく押せません（秒数は「お手つき後に押せない秒数」で変えられます。初めは15秒）。全部埋まるか、全員がパスしたら次の曲へ。LoL の曲は出ません。',
 };
 // ロビーの一番上：これから遊ぶ曲を除外に追加しない（ホストが切り替え）
@@ -445,6 +445,7 @@ function madeAt(ms) {
 const TEAM_LABEL = { red: '赤', blue: '青' };
 $('teamRow').querySelectorAll('[data-team]').forEach(b => b.onclick = () => socket.emit('setTeam', b.dataset.team));
 $('shuffleTeams').onclick = () => socket.emit('shuffleTeams');
+$('teamRandomBtn').onclick = () => { socket.emit('shuffleTeams'); toast('チームをランダムに分けました'); }; // 設定のチーム戦の横（ホスト）
 const amOut = () => !!room?.players?.find(p => p.id === me)?.out; // サバイバルで脱落して、見ているだけ
 // スマホ版のロビーのタブ（参加者・招待／設定）。最初はホストなら「設定」、ほかの人は「参加者・招待」
 let lobbyTabChosen = false, prevMyStreak = 0, prevMyRank = 0;
@@ -493,6 +494,7 @@ function renderRoom(r) {
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
   $('shuffleTeams').hidden = !isHost;
+  $('teamRandomBtn').hidden = !isHost || !teamsOn || r.state === 'playing';
   const myTeam = r.players.find(p => p.id === me)?.team;
   $('teamRow').querySelectorAll('[data-team]').forEach(b => { b.disabled = b.dataset.team === myTeam; });
   $('teamInfo').textContent = teamsOn && r.teams ? r.teams.map(t => `${TEAM_LABEL[t.team]} ${t.members}人`).join('・') : ''; // 待機中は人数だけ（点数は前のゲームのもの）
@@ -984,7 +986,9 @@ function clearBuzz() {
 let buzzQueueIds = [], buzzQueueNames = [];
 socket.on('buzzQueue', ({ ids = [], names = [] }) => {
   buzzQueueIds = ids; buzzQueueNames = names;
-  if (ids.includes(me)) { buzzOpen = false; $('buzzBtn').disabled = true; }
+  if (ids.includes(me)) { buzzOpen = false; $('buzzBtn').disabled = true; return; }
+  // 列から外れた（飛ばされた・パスした）：答えている人がいてもいなくても、また押せる（お手つきの秒数が残っていればそれまで）
+  if (question?.fill && buzzHolder !== me && myAnswer === null && !amOut()) { buzzOpen = true; $('buzzBtn').disabled = fillLocked(); }
 });
 socket.on('buzz', ({ id, name, sec, queue = null }) => {
   buzzHolder = id; // 押しても曲と残り時間は止めない（流れたまま答える）
@@ -1359,7 +1363,7 @@ socket.on('reveal', r => {
   else if (mine) charFx.say(mine.correct ? 'ok' : mine.pass ? 'pass' : !mine.answered ? 'timeout' : 'ng');
   if (!practice) setTimeout(talkRanking, 2600);
   // ビンゴ：そろった人がいたらカットイン
-  if ((r.bingo || []).length) setTimeout(() => charFx.cutin('BINGO!', r.bingo.join('・'), 'celebrate'), 600);
+  if ((r.bingoBonus || []).length) setTimeout(() => charFx.cutin(r.bingoBonus.some(b => b.first) ? 'BINGO!' : 'もう1列！', r.bingoBonus.map(b => `${b.name} +${b.bonus}点`).join('・'), 'celebrate'), 600);
   else if ((r.reach || []).length) setTimeout(() => charFx.cutin('リーチ！', r.reach.join('・'), 'cutin'), 600); // あと1マスでそろう列ができた
   if (r.picker?.id === me) flash('ok', '出題者ボーナス', `+${r.picker.points}（${r.picker.of}人中 ${r.picker.correct}人正解）`);
   $('nextBtn').textContent = r.last ? '結果発表へ' : '次の問題へ';

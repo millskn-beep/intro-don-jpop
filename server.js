@@ -621,7 +621,7 @@ function startGame(room) {
   // 協力：目標は「問題数 × 人数 × 目標%」をゲーム開始時に決める（途中で人数が変わっても変えない）
   if (S.play === 'coop') room.game.coop = { goal: Math.max(1, Math.ceil(order.length * connectedPlayers(room).length * S.coopGoal / 100)), count: 0 };
   // ビンゴ：一人ひとりにカードを配る（途中から入った人には入ったときに配る）
-  for (const p of room.players.values()) { p.card = S.play === 'bingo' ? bingoCard(order, pool, S.target) : null; p.bingoAt = 0; p.reachN = 0; }
+  for (const p of room.players.values()) { p.card = S.play === 'bingo' ? bingoCard(order, pool, S.target) : null; p.bingoAt = 0; p.reachN = 0; p.bingoLinesN = 0; }
   nextQuestion(room);
   return true;
 }
@@ -699,6 +699,8 @@ const speedOf = S => (S.speed === 'random' ? SPEEDS[crypto.randomInt(SPEEDS.leng
 
 // ── ビンゴ：4×4 の作品名カード。このゲームで出る作品を中心に入れる（足りないぶんは FREE を最大4つ、残りはほかの作品） ──
 const BINGO_N = 4;
+const BINGO_BONUS = 3000;      // 最初にそろったときのボーナス
+const BINGO_LINE_BONUS = 1000; // そのあと、そろった列が増えるたびのボーナス
 // シリーズ（data/franchises.json）があれば、ビンゴのマスはシリーズ名でまとめる（「機動武闘伝Gガンダム」も「∀ガンダム」も「ガンダム」のマス）
 let FRANCHISE_OF = new Map();
 try { for (const [name, f] of Object.entries(require('./data/franchises.json'))) for (const w of f.works || []) if (!FRANCHISE_OF.has(w)) FRANCHISE_OF.set(w, name); } catch (e) { /* なくても動く */ }
@@ -828,7 +830,7 @@ function nextQuestion(room) {
   clearTimers(room);
   const g = room.game;
   // 終わり：全部出した、またはサバイバルで残りがいなくなった（qi は最後に出した問題のまま）
-  if (g.qi + 1 >= g.order.length || survivalOver(room) || g.bingoDone) return endGame(room);
+  if (g.qi + 1 >= g.order.length || survivalOver(room)) return endGame(room); // ビンゴも問題数まで（そろったらボーナス点）
   g.qi++;
   if (room.settings.play === 'picker') return startPicking(room);
   startQuestion(room, g.order[g.qi]);
@@ -952,6 +954,7 @@ function resendQuestion(room, socket, token) {
   const a = q.answers.get(token);
   if (a) socket.emit('answered', { index: a.index, given: a.given, pass: a.pass });
   if (q.buzz) { const b = room.players.get(q.buzz.token); socket.emit('buzz', { id: b?.id, name: b?.name, sec: Math.max(0, (q.buzz.until - Date.now()) / 1000) }); }
+  if (q.buzzQueue?.length) socket.emit('buzzQueue', { ids: q.buzzQueue.map(e => room.players.get(e.token)?.id), names: queueNames(room, q) });
 }
 
 // 1問の制限時間（秒）。入力で答えるときは、ヒント3が出てから最低 typingExtra 秒は答えられるよう延ばす
@@ -1107,10 +1110,20 @@ function onAnswer(room, player, payload) {
   if (correct && player.card) {
     const k = bingoCell(q.song, room.game.bingoTarget).k; // 答えるものに合わせたマス
     for (const c of player.card) if (c.k && c.k === k) c.open = true;
-    if (!player.bingoAt && bingoLines(player.card) > 0) { player.bingoAt = room.game.qi + 1; room.game.bingoDone = true; }
+    // BINGO：ゲームは問題数まで続けて、そろったらボーナス点（最初のBINGOは BINGO_BONUS、そのあと列が増えるたびに BINGO_LINE_BONUS）
+    const lines = bingoLines(player.card);
+    if (lines > (player.bingoLinesN || 0)) {
+      const more = lines - (player.bingoLinesN || 0);
+      const bonus = player.bingoAt ? BINGO_LINE_BONUS * more : BINGO_BONUS + BINGO_LINE_BONUS * (more - 1);
+      if (!player.bingoAt) player.bingoAt = room.game.qi + 1;
+      player.score += bonus;
+      const a = q.answers.get(player.token); if (a) a.points += bonus;
+      (q.bingoBonus = q.bingoBonus || []).push({ name: player.name, bonus, first: player.bingoAt === room.game.qi + 1 && more === lines });
+    }
+    player.bingoLinesN = lines;
     // リーチ：あと1マスの列が増えたら、答え合わせでカットイン
     const reach = bingoReach(player.card);
-    if (!player.bingoAt && reach > (player.reachN || 0)) (q.reach = q.reach || []).push(player.name);
+    if (reach > (player.reachN || 0)) (q.reach = q.reach || []).push(player.name);
     player.reachN = reach;
   }
   if (correct) {
@@ -1231,7 +1244,7 @@ function onFillPass(room, player, on) {
   if (!q?.fill || (q.phase !== 'intro' && q.phase !== 'chorus') || room.game.paused || !q.participants.has(player.token)) return;
   if (q.buzz?.token === player.token) return; // 答えている最中はパスにしない（「わからない」で）
   if (on && !q.fillPass.has(player.token)) statsOf(room, player).pass++;
-  if (on && q.buzzQueue) q.buzzQueue = q.buzzQueue.filter(e => e.token !== player.token); // パスしたら順番待ちからも外す
+  if (on && q.buzzQueue?.some(e => e.token === player.token)) { q.buzzQueue = q.buzzQueue.filter(e => e.token !== player.token); emitQueue(room, q); } // パスしたら順番待ちからも外す
   if (on) q.fillPass.add(player.token); else q.fillPass.delete(player.token);
   if (!q.buzz && fillAllPassed(room, q)) return reveal(room);
   broadcastRoom(room);
@@ -1247,6 +1260,8 @@ function fillCanBuzz(room, q, player) {
     [...q.participants].some(t => !q.fillWait.has(t) && room.players.get(t)?.connected && !q.fillPass.has(t)));
 }
 const queueNames = (room, q) => (q.buzzQueue || []).map(e => room.players.get(e.token)?.name).filter(Boolean);
+// 順番待ちが変わるたびに全員へ送る（画面の「並んでいるので押せない」をサーバーの列と必ずそろえる）
+const emitQueue = (room, q) => io.to(room.code).emit('buzzQueue', { ids: (q.buzzQueue || []).map(e => room.players.get(e.token)?.id), names: queueNames(room, q) });
 function onBuzz(room, player) {
   const g = room.game, q = g?.q;
   if (!q || !['buzzer', 'fill'].includes(room.settings.play) || g.paused) return;
@@ -1260,7 +1275,7 @@ function onBuzz(room, player) {
     if (q.buzzQueue.some(e => e.token === player.token)) return;
     q.buzzQueue.push({ token: player.token, at: Date.now() });
     q.fillPass.delete(player.token);
-    io.to(room.code).emit('buzzQueue', { ids: q.buzzQueue.map(e => room.players.get(e.token)?.id), names: queueNames(room, q) });
+    emitQueue(room, q);
     return broadcastRoom(room);
   }
   startBuzz(room, player, Date.now());
@@ -1289,8 +1304,10 @@ function endBuzz(room) {
   while (q.fill && q.buzzQueue?.length) {
     const e = q.buzzQueue.shift(), p = room.players.get(e.token);
     if (!p?.connected || !fillCanBuzz(room, q, p)) { if (p?.connected) io.to(p.socketId).emit('notice', 'お手つきの間だったので、順番を飛ばしました'); continue; }
+    emitQueue(room, q);
     return startBuzz(room, p, e.at);
   }
+  if (q.fill) emitQueue(room, q); // 飛ばした人も、また押せるように（列が空になったことを知らせる）
 }
 
 // ライフラインの効果。使った本人にだけ返す内容を作る
@@ -1377,10 +1394,11 @@ function reveal(room) {
     if (pp) { pp.score += pts; picker = { id: pp.id, name: pp.name, points: pts, correct: c, of: n }; }
   }
   // ビンゴ：この問題でそろった人
-  const bingo = [...room.players.values()].filter(p => p.bingoAt === room.game.qi + 1).map(p => p.name);
-  const last = room.game.qi + 1 >= room.game.order.length || survivalOver(room) || !!room.game.bingoDone;
+  const bingoBonus = q.bingoBonus || []; // この問題でそろった人とボーナス
+  const bingo = bingoBonus.map(b => b.name);
+  const last = room.game.qi + 1 >= room.game.order.length || survivalOver(room);
   io.to(room.code).emit('reveal', {
-    eliminated, picker, bingo, coop: room.game.coop || null, reach: (q.reach || []).filter(n => !bingo.includes(n)),
+    eliminated, picker, bingo, bingoBonus, coop: room.game.coop || null, reach: (q.reach || []).filter(n => !bingo.includes(n)),
     correctIndex: q.correctIndex,
     qlog: (q.qlog || []).map(({ token, ...e }) => e), // 出題中の記録（全員分。パスの下）
     // 3つ埋めバトル：枠ごとの正解・埋めた人・10択の正解の番号
@@ -1392,7 +1410,7 @@ function reveal(room) {
     log: playedLog(room), // ここまでに出た曲（ページを読み込み直した人も曲ログをコピーできるように）
     intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0,
     results,
-    highlights: [...highlightsOf(room, results), ...eliminated.map(n => `${n} 脱落…`), ...bingo.map(n => `${n} BINGO!`),
+    highlights: [...highlightsOf(room, results), ...eliminated.map(n => `${n} 脱落…`), ...bingoBonus.map(b => `${b.name} ${b.first ? 'BINGO!' : 'もう1列そろった！'} +${b.bonus}点`),
                  ...(picker ? [`出題者 ${picker.name} +${picker.points}（${picker.of}人中 ${picker.correct}人正解）`] : [])],
     last,
     autoNext: S.autoNext, // 0 なら自動では進まない
@@ -1577,7 +1595,7 @@ function endGame(room) {
     })
     // サバイバルは長く残った順（最後まで残った人が上）、ビンゴはそろえた人が上、同じなら得点の順
     .sort((a, b) => (survival ? (b.out === a.out ? b.survived - a.survived : a.out - b.out) : 0)
-      || ((a.bingoAt ? 0 : 1) - (b.bingoAt ? 0 : 1)) || (a.bingoAt && b.bingoAt ? a.bingoAt - b.bingoAt : 0) || b.score - a.score);
+      || b.score - a.score); // ビンゴも得点で競う（BINGO はボーナス点として入っている）
   const teams = teamScores(room)?.sort((a, b) => b.score - a.score) || null;
   const coop = room.game.coop ? { ...room.game.coop, done: room.game.coop.count >= room.game.coop.goal } : null;
   io.to(room.code).emit('gameover', { total: played, ranking, teams, survival, coop, bingo: room.settings.play === 'bingo', titles: titlesOf(room), log: playedLog(room), roomLog: room.history });
@@ -1600,7 +1618,7 @@ io.on('connection', socket => {
       r.players.set(token, p);
       if (r.settings.teams) assignTeams(r);
       if (r.state === 'playing' && r.settings.play === 'survival') { p.out = true; p.lives = 0; }
-      if (r.state === 'playing' && r.settings.play === 'bingo' && r.game) { p.card = bingoCard(r.game.order, r.game.pool, r.game.bingoTarget); p.bingoAt = 0; }
+      if (r.state === 'playing' && r.settings.play === 'bingo' && r.game) { p.card = bingoCard(r.game.order, r.game.pool, r.game.bingoTarget); p.bingoAt = 0; p.reachN = 0; p.bingoLinesN = 0; }
     }
     p.name = name; p.connected = true; p.socketId = socket.id;
     r.emptySince = null;

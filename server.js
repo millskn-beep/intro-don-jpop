@@ -616,11 +616,12 @@ function startGame(room) {
   if (!S.noRecord) order.forEach(s => recordPlayed(room, s));
   room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map(), // stats: token -> 称号用の成績
+                bingoTarget: S.target, // ビンゴのマスの種類（ゲームの途中で答えるものを変えても、配ったカードのまま）
                 solo: connectedPlayers(room).length <= 1 }; // サバイバル：1人で遊ぶときはライフがなくなるまで、2人以上なら残り1人まで
   // 協力：目標は「問題数 × 人数 × 目標%」をゲーム開始時に決める（途中で人数が変わっても変えない）
   if (S.play === 'coop') room.game.coop = { goal: Math.max(1, Math.ceil(order.length * connectedPlayers(room).length * S.coopGoal / 100)), count: 0 };
   // ビンゴ：一人ひとりにカードを配る（途中から入った人には入ったときに配る）
-  for (const p of room.players.values()) { p.card = S.play === 'bingo' ? bingoCard(order, pool) : null; p.bingoAt = 0; }
+  for (const p of room.players.values()) { p.card = S.play === 'bingo' ? bingoCard(order, pool, S.target) : null; p.bingoAt = 0; p.reachN = 0; }
   nextQuestion(room);
   return true;
 }
@@ -698,15 +699,34 @@ const speedOf = S => (S.speed === 'random' ? SPEEDS[crypto.randomInt(SPEEDS.leng
 
 // ── ビンゴ：4×4 の作品名カード。このゲームで出る作品を中心に入れる（足りないぶんは FREE を最大4つ、残りはほかの作品） ──
 const BINGO_N = 4;
-const workKey = w => seriesKey(seriesName(w));
-function bingoCard(order, pool) {
-  const uniq = (list, seen) => list.filter(w => { const k = workKey(w); if (!w || seen.has(k)) return false; seen.add(k); return true; });
+// シリーズ（data/franchises.json）があれば、ビンゴのマスはシリーズ名でまとめる（「機動武闘伝Gガンダム」も「∀ガンダム」も「ガンダム」のマス）
+let FRANCHISE_OF = new Map();
+try { for (const [name, f] of Object.entries(require('./data/franchises.json'))) for (const w of f.works || []) if (!FRANCHISE_OF.has(w)) FRANCHISE_OF.set(w, name); } catch (e) { /* なくても動く */ }
+const workKey = w => (FRANCHISE_OF.has(w) ? 'fr:' + FRANCHISE_OF.get(w) : seriesKey(seriesName(w)));
+const bingoLabel = w => FRANCHISE_OF.get(w) || seriesName(w);
+// リーチ：あと1マスでそろう列の数
+function bingoReach(card) {
+  const N = BINGO_N, o = i => card[i].open, lines = [];
+  for (let r = 0; r < N; r++) lines.push([...Array(N).keys()].map(c => r * N + c));
+  for (let c = 0; c < N; c++) lines.push([...Array(N).keys()].map(r => r * N + c));
+  lines.push([...Array(N).keys()].map(i => i * N + i), [...Array(N).keys()].map(i => i * N + N - 1 - i));
+  return lines.filter(l => l.filter(o).length === N - 1).length;
+}
+// ビンゴのマス：答えるものに合わせる（曲名 → 曲名のマス、作品 → シリーズ名のマス、歌手 → 歌手名のマス、年 → 年のマス）
+function bingoCell(song, target) {
+  if (target === 'song') return { w: song.title, k: 's:' + seriesKey(song.title) };
+  if (target === 'artist') return { w: song.artist, k: 'a:' + artistKey(song.artist) };
+  if (target === 'year') return { w: `${song.year}年`, k: 'y:' + song.year };
+  return { w: bingoLabel(song.work), k: workKey(song.work) };
+}
+function bingoCard(order, pool, target = 'work') {
+  const uniq = (list, seen) => list.map(s => bingoCell(s, target)).filter(c => { if (!c.w || seen.has(c.k)) return false; seen.add(c.k); return true; });
   const seen = new Set();
-  const real = uniq(shuffle(order.map(s => s.work)), seen).slice(0, BINGO_N * BINGO_N - 2);
+  const real = uniq(shuffle([...order]), seen).slice(0, BINGO_N * BINGO_N - 2);
   const free = Math.min(4, BINGO_N * BINGO_N - real.length);
-  const others = uniq(shuffle(pool.map(s => s.work)), seen).slice(0, BINGO_N * BINGO_N - real.length - free);
-  const cells = [...real.map(w => ({ w, k: workKey(w), open: false })), ...others.map(w => ({ w, k: workKey(w), open: false })),
-                 ...Array.from({ length: free }, () => ({ w: 'FREE', k: '', open: true }))];
+  const others = uniq(shuffle([...pool]), seen).slice(0, BINGO_N * BINGO_N - real.length - free);
+  const cells = [...real, ...others].map(c => ({ ...c, open: false }))
+    .concat(Array.from({ length: free }, () => ({ w: 'FREE', k: '', open: true })));
   while (cells.length < BINGO_N * BINGO_N) cells.push({ w: 'FREE', k: '', open: true });
   // 配った時点でそろっている列がないように並べ直す
   for (let i = 0; i < 50; i++) { shuffle(cells); if (bingoLines(cells) === 0) break; }
@@ -1083,9 +1103,13 @@ function onAnswer(room, player, payload) {
   const st = statsOf(room, player);
   if (correct && room.game.coop) room.game.coop.count++;
   if (correct && player.card) {
-    const k = workKey(q.song.work);
+    const k = bingoCell(q.song, room.game.bingoTarget).k; // 答えるものに合わせたマス
     for (const c of player.card) if (c.k && c.k === k) c.open = true;
     if (!player.bingoAt && bingoLines(player.card) > 0) { player.bingoAt = room.game.qi + 1; room.game.bingoDone = true; }
+    // リーチ：あと1マスの列が増えたら、答え合わせでカットイン
+    const reach = bingoReach(player.card);
+    if (!player.bingoAt && reach > (player.reachN || 0)) (q.reach = q.reach || []).push(player.name);
+    player.reachN = reach;
   }
   if (correct) {
     st.correct++; st.time += elapsed;
@@ -1320,7 +1344,7 @@ function reveal(room) {
   const bingo = [...room.players.values()].filter(p => p.bingoAt === room.game.qi + 1).map(p => p.name);
   const last = room.game.qi + 1 >= room.game.order.length || survivalOver(room) || !!room.game.bingoDone;
   io.to(room.code).emit('reveal', {
-    eliminated, picker, bingo, coop: room.game.coop || null,
+    eliminated, picker, bingo, coop: room.game.coop || null, reach: (q.reach || []).filter(n => !bingo.includes(n)),
     correctIndex: q.correctIndex,
     qlog: (q.qlog || []).map(({ token, ...e }) => e), // 出題中の記録（全員分。パスの下）
     // 3つ埋めバトル：枠ごとの正解・埋めた人・10択の正解の番号
@@ -1540,7 +1564,7 @@ io.on('connection', socket => {
       r.players.set(token, p);
       if (r.settings.teams) assignTeams(r);
       if (r.state === 'playing' && r.settings.play === 'survival') { p.out = true; p.lives = 0; }
-      if (r.state === 'playing' && r.settings.play === 'bingo' && r.game) { p.card = bingoCard(r.game.order, r.game.pool); p.bingoAt = 0; }
+      if (r.state === 'playing' && r.settings.play === 'bingo' && r.game) { p.card = bingoCard(r.game.order, r.game.pool, r.game.bingoTarget); p.bingoAt = 0; }
     }
     p.name = name; p.connected = true; p.socketId = socket.id;
     r.emptySince = null;
@@ -1749,6 +1773,21 @@ io.on('connection', socket => {
     if (!isHost() || room.state === 'playing') return;
     room.state = 'lobby';
     broadcastRoom(room);
+  });
+
+  // 部屋から出る（ロビーで。ゲーム中は出ない）：席ごと消す。ホストだったら、残った人の誰かがホストになる
+  socket.on('leaveRoom', (_, ack) => {
+    const done = typeof ack === 'function' ? ack : () => {};
+    if (!room || !player) return done({ ok: true });
+    if (room.state === 'playing') return done({ ok: false, error: 'ゲーム中は出られません' });
+    const r = room;
+    r.players.delete(player.token);
+    socket.leave(r.code);
+    room = null; player = null;
+    if (connectedPlayers(r).length === 0) r.emptySince = Date.now();
+    else ensureHost(r);
+    broadcastRoom(r);
+    done({ ok: true });
   });
 
   socket.on('disconnect', () => {

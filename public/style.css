@@ -430,6 +430,7 @@ details.more .settings { margin-top: 6px; }
 .stage-tools .vol:not(.chk) input { width: 100%; }
 .game-ctrl { display: flex; flex-direction: column; gap: 6px; flex: none; }
 .gear, .sheet-shade, .sheet-close, .lobby-tabs { display: none; } /* スマホ版だけで使う（mobile.css） */
+.leave-btn { margin-left: auto; } /* ロビーの一番上の列の右端 */
 .game-ctrl .btn-sub { padding: 6px 12px; font-size: 12px; border-radius: 99px; white-space: nowrap; }
 /* 知名度のチェック（チェックした段階の曲だけを出題） */
 .fame-row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; margin: 10px 0 4px; font-size: 12px; color: var(--sub); font-weight: 700; }

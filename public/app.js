@@ -174,6 +174,18 @@ function leaveToHome(msg) {
   socket.emit('watchRooms');
 }
 
+// 部屋から出る（ロビーで）：席を消して最初の画面へ。前の部屋に自動で戻らないよう、覚えていた部屋も消す
+$('leaveBtn').onclick = () => {
+  if (!confirm('この部屋から出ますか？')) return;
+  socket.emit('leaveRoom', null, res => {
+    if (res && res.ok === false) return toast(res.error || '出られませんでした');
+    store.set('aq-room', '');
+    history.replaceState(null, '', location.pathname);
+    room = null;
+    leaveToHome('');
+  });
+};
+
 $('copyBtn').onclick = async () => {
   try { await navigator.clipboard.writeText($('inviteUrl').value); toast('コピーしました'); }
   catch (e) { $('inviteUrl').select(); }
@@ -998,7 +1010,8 @@ function renderQlog() {
     : question?.years ? [] : [];
   const lists = [...base, ...qlogEntries.filter(e => e.type === 'choices')];
   const answers = qlogEntries.filter(e => e.type === 'answer');
-  $('qlog').hidden = !question || (!lists.length && !answers.length);
+  // ビンゴのときは出さない（ビンゴカードだけ見せる）
+  $('qlog').hidden = !question || room?.settings?.play === 'bingo' || (!lists.length && !answers.length);
   $('qlogChoices').hidden = !lists.length;
   $('qlogChoices').innerHTML = lists.map(l => `<div class="qlog-list"><b>${esc(l.label)}${l.name && !l.base ? `<small>（${esc(l.name)} が開いた10択）</small>` : ''}</b>
     <ol>${l.choices.map(c => `<li>${esc(c)}</li>`).join('')}</ol></div>`).join('');
@@ -1320,6 +1333,7 @@ socket.on('reveal', r => {
   if (!practice) setTimeout(talkRanking, 2600);
   // ビンゴ：そろった人がいたらカットイン
   if ((r.bingo || []).length) setTimeout(() => charFx.cutin('BINGO!', r.bingo.join('・'), 'celebrate'), 600);
+  else if ((r.reach || []).length) setTimeout(() => charFx.cutin('リーチ！', r.reach.join('・'), 'cutin'), 600); // あと1マスでそろう列ができた
   if (r.picker?.id === me) flash('ok', '出題者ボーナス', `+${r.picker.points}（${r.picker.of}人中 ${r.picker.correct}人正解）`);
   $('nextBtn').textContent = r.last ? '結果発表へ' : '次の問題へ';
   $('highlights').innerHTML = (r.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');

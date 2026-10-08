@@ -573,6 +573,7 @@ body.in-lobby .qno { font-size: 14px; color: var(--text); font-weight: 700; }
 .fill-slot { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-height: 64px; padding: 8px 12px; border-radius: 14px; text-align: left;
   border: 1px dashed var(--line); background: var(--glass); color: var(--text); font: inherit; }
 .fill-slot small { font-size: 11px; font-weight: 800; color: var(--sub); }
+.fill-peeked { font-style: normal; margin-left: 6px; padding: 0 6px; border-radius: 99px; background: rgba(255, 200, 80, .2); color: var(--warn); }
 .fill-slot b { font-size: 16px; font-weight: 900; overflow-wrap: anywhere; }
 .fill-slot em { font-style: normal; font-size: 11px; font-weight: 700; color: var(--ok); }
 .fill-slot.done { border-style: solid; border-color: var(--ok); background: rgba(80, 220, 160, .12); }

@@ -12,6 +12,11 @@ const ROOT = path.join(__dirname, '..');
 const SONGS_PATH = path.join(ROOT, 'data', 'songs.json');
 const { titles = {}, works = {}, artists = {} } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'readings.json'), 'utf8'));
 const songs = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
+// シリーズ名（data/franchises.json）：「ラブライブ」だけでサンシャイン!!・虹ヶ咲も、「ガンダム」だけでSEED・∀なども正解に
+const FR_PATH = path.join(ROOT, 'data', 'franchises.json');
+const franchises = fs.existsSync(FR_PATH) ? JSON.parse(fs.readFileSync(FR_PATH, 'utf8')) : {};
+const franchiseOf = new Map(); // 作品名 → シリーズの別名
+for (const [, f] of Object.entries(franchises)) for (const w of f.works || []) franchiseOf.set(w, [...(franchiseOf.get(w) || []), ...(f.aliases || [])]);
 
 const stripPrefix = w => String(w).normalize('NFKC').replace(/^(劇場版|映画)\s*/, '');
 // 作品名に一番長く一致するキーを使う（「ドラゴンボールZ」は「ドラゴンボール」より優先）
@@ -59,7 +64,7 @@ function clean(kind, list, who, label) {
 
 let titleN = 0, workN = 0, artistN = 0;
 for (const s of songs) {
-  const workAl = clean('work', works[workKeyOf(s)] || [], workKeyOf(s) || s.work, '作品');
+  const workAl = clean('work', [...(works[workKeyOf(s)] || []), ...(franchiseOf.get(s.work) || [])], workKeyOf(s) || s.work, '作品');
   const workSet = new Set((works[workKeyOf(s)] || []).map(normalize));
   // 前の形では作品名の読みも aliases に入っていたので、作品の分は workAliases へ移す（手で足した曲名の別名は残す）
   const manual = (s.aliases || []).filter(a => !workSet.has(normalize(a)) && !(titles[s.title] || []).some(t => normalize(t) === normalize(a)));

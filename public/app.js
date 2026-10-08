@@ -203,7 +203,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -469,6 +469,7 @@ function renderRoom(r) {
   $('livesLabel').hidden = r.settings.play !== 'survival';
   $('coopGoalLabel').hidden = r.settings.play !== 'coop';
   $('lockSecLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えたあと押せない秒数
+  $('noRepeatLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない
   $('playDesc').textContent = PLAY_DESC[r.settings.play] || '';
   $('questionsLabel').hidden = r.settings.play === 'survival';
   const fillMode = r.settings.play === 'fill'; // 3つ埋めバトルは、答えるもの・回答方法・採点・ヒントを使わない（枠ごとに書くか10択）
@@ -863,7 +864,7 @@ socket.on('question', q => {
   $('buzzRow').hidden = q.play !== 'buzzer' && q.play !== 'fill'; $('buzzBtn').disabled = true; $('buzzInfo').textContent = ''; buzzHolder = null;
   // 3つ埋めバトル：選択肢・入力の欄の代わりに枠を出す
   if (q.fill) { $('choices').hidden = true; $('inputForm').hidden = true; }
-  fillLockUntil = 0; fillSlot = null; $('fillAnswer').hidden = true; renderFill(q.fill);
+  fillLockUntil = 0; fillWaiting = false; fillSlot = null; $('fillAnswer').hidden = true; renderFill(q.fill);
   qlogEntries = []; renderQlog(); // パスの下の記録はこの問題の分だけ
   if (amOut()) $('quizNote').textContent = '脱落しました。最後まで見て応援しよう！';
   $('pickPanel').hidden = true; clearInterval(pickTick);
@@ -946,7 +947,7 @@ socket.on('hint', ({ chorus, known = true, intro = 0, seek = true }) => {
   setPhase('chorus', 'サビ再生中 ✨（得点×0.7）'); coverFx('fx-chorus'); stageMascot('chorus'); charFx.pose('chorus'); charFx.say('chorus');
 });
 
-// ── 早押し：押した人がいたら全員の曲と残り時間が止まり、その人だけが答えられる。間違えたら再開 ──
+// ── 早押し：押した人だけが答えられる（曲と残り時間は止めない）。間違えたら、また誰でも押せる ──
 let buzzOpen = false, buzzHolder = null, buzzTick = null, buzzPausedAt = 0;
 function tryBuzz() {
   if (!buzzOpen || myAnswer !== null || practice || fillLocked()) return;
@@ -964,8 +965,7 @@ function clearBuzz() {
   return false;
 }
 socket.on('buzz', ({ id, name, sec }) => {
-  buzzHolder = id; buzzOpen = false; $('buzzBtn').disabled = true;
-  if (!buzzPausedAt) { pausedNow = true; buzzPausedAt = performance.now(); player.pause(); }
+  buzzHolder = id; buzzOpen = false; $('buzzBtn').disabled = true; // 押しても曲と残り時間は止めない（流れたまま答える）
   const mine = id === me, until = performance.now() + sec * 1000;
   const show = () => { $('buzzInfo').textContent = `${mine ? 'あなた' : name + ' さん'}が回答中… 残り ${Math.max(0, (until - performance.now()) / 1000).toFixed(1)} 秒`; };
   clearInterval(buzzTick); show(); buzzTick = setInterval(show, 100);
@@ -1010,14 +1010,16 @@ function renderQlog() {
 socket.on('qlog', e => { qlogEntries.push(e); renderQlog(); });
 
 // ── 3つ埋めバトル：枠の表示・押した人の回答（枠を選ぶ → 書く／10択）・間違えたあと押せない時間・パス ──
-let fillLockUntil = 0, fillSlot = null, fillLockTick = null;
-const fillLocked = () => !!question?.fill && performance.now() < fillLockUntil;
+let fillLockUntil = 0, fillSlot = null, fillLockTick = null, fillWaiting = false;
+// 連続解答なし：ほかに押せる人（つながっていて、パスしていない人）がいる間は待つ
+const othersCanBuzz = () => (room?.players || []).some(p => p.id !== me && p.connected && p.inGame && !p.passed);
+const fillLocked = () => !!question?.fill && (performance.now() < fillLockUntil || (fillWaiting && othersCanBuzz()));
 function renderFill(slots) {
   $('fillBox').hidden = !slots;
   if (!slots) return;
   const holderMine = buzzHolder === me && !$('fillAnswer').hidden;
   $('fillSlots').innerHTML = slots.map(f => `<button type="button" class="fill-slot${f.by != null ? ' done' : ''}${fillSlot === f.key ? ' on' : ''}" data-slot="${f.key}"
-    ${holderMine && f.by == null ? '' : 'disabled'}><small>${esc(f.label)}</small><b>${f.by != null ? esc(f.given) : '？'}</b>${f.by != null ? `<em>${esc(f.by)}</em>` : ''}</button>`).join('');
+    ${holderMine && f.by == null ? '' : 'disabled'}><small>${esc(f.label)}${f.peeked && f.by == null ? '<i class="fill-peeked">10択のみ</i>' : ''}</small><b>${f.by != null ? esc(f.given) : '？'}</b>${f.by != null ? `<em>${esc(f.by)}</em>` : ''}</button>`).join('');
 }
 const fillSlots = () => room?.fill || question?.fill || [];
 function openFillAnswer() {
@@ -1032,18 +1034,24 @@ function chooseFillSlot(key) {
   const f = fillSlots().find(x => x.key === key);
   if (!f || f.by != null) return;
   fillSlot = key;
+  renderFill(fillSlots());
+  if (f.peeked) return showFillChoices(f); // 10択がもう出た枠は、手で打てない（10択だけ）
   $('fillHead').textContent = `「${f.label}」を書いて答えよう`;
   $('fillForm').hidden = false; $('fillInput').value = ''; $('fillInput').placeholder = `${f.label}を入力`; $('fillInput').focus();
   $('fillChoiceBtn').hidden = false; $('fillChoices').innerHTML = '';
-  renderFill(fillSlots());
+}
+// 10択を出す。出したら、その枠はもう手で打てない（自分もほかの人も）
+function showFillChoices(f) {
+  $('fillForm').hidden = true; $('fillChoiceBtn').hidden = true;
+  $('fillHead').textContent = `「${f.label}」を10択で選ぼう（点数は半分・もう手では打てません）`;
+  $('fillChoices').innerHTML = f.choices.map((c, i) => `<button class="choice" type="button" data-i="${i}">${esc(c)}</button>`).join('');
 }
 $('fillSlots').onclick = e => { const b = e.target.closest('button[data-slot]'); if (b && !b.disabled) chooseFillSlot(b.dataset.slot); };
 $('fillChoiceBtn').onclick = () => {
   const f = fillSlots().find(x => x.key === fillSlot);
   if (!f) return;
-  $('fillChoiceBtn').hidden = true;
-  socket.emit('fillChoices', f.key); // 出た10択を記録（パスの下の左側）
-  $('fillChoices').innerHTML = f.choices.map((c, i) => `<button class="choice" type="button" data-i="${i}">${esc(c)}</button>`).join('');
+  socket.emit('fillChoices', f.key); // 出た10択を記録（パスの下の左側）。この枠はもう手で打てなくなる
+  showFillChoices(f);
 };
 $('fillChoices').onclick = e => {
   const b = e.target.closest('button[data-i]');
@@ -1072,16 +1080,20 @@ socket.on('fillResult', ({ id, name, label, given, correct, choice, points }) =>
   else cue(`${name}：お手つき`, 'fx-burst');
 });
 // 自分が間違えた：少しの間だけ押せない
-socket.on('fillLock', ({ sec }) => {
-  fillLockUntil = performance.now() + sec * 1000;
+socket.on('fillLock', ({ sec, wait = false }) => {
+  fillLockUntil = performance.now() + sec * 1000; fillWaiting = wait;
   $('buzzBtn').disabled = true;
   clearInterval(fillLockTick);
   fillLockTick = setInterval(() => {
     const left = (fillLockUntil - performance.now()) / 1000;
-    if (left <= 0 || !question) { clearInterval(fillLockTick); if (question?.fill && buzzOpen) $('buzzBtn').disabled = false; if (!buzzHolder) $('buzzInfo').textContent = ''; return; }
-    if (!buzzHolder) $('buzzInfo').textContent = `お手つき：あと ${left.toFixed(1)} 秒押せません`;
+    if (!question?.fill) { clearInterval(fillLockTick); return; }
+    if (!fillLocked()) { clearInterval(fillLockTick); if (buzzOpen) $('buzzBtn').disabled = false; if (!buzzHolder) $('buzzInfo').textContent = ''; return; }
+    $('buzzBtn').disabled = true;
+    if (!buzzHolder) $('buzzInfo').textContent = left > 0 ? `お手つき：あと ${left.toFixed(1)} 秒押せません${fillWaiting ? '（そのあとも、ほかの人が押すまで待ち）' : ''}` : 'お手つき：ほかの人が押すまで押せません';
   }, 100);
 });
+// 連続解答なし：ほかの人が押したので、また押せる（秒数の制限が残っていればそれまで）
+socket.on('fillWaitEnd', () => { fillWaiting = false; });
 
 // ── 出題者モード：順番に1人が収録曲から曲を選ぶ（ほかの人は待つ） ──
 let pickTick = null, pickCatalog = null;

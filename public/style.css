@@ -146,6 +146,8 @@ button:disabled { cursor: default; }
 .reset-row .btn-sub:disabled { opacity: .4; cursor: default; }
 .reset-row #noRecordBtn.on { border-color: var(--ok); background: rgba(141, 255, 200, .18); }
 .reset-row #noRecordBtn:disabled.on { opacity: 1; }
+.reset-row #noExcludeBtn.on { border-color: var(--warn); background: rgba(255, 200, 80, .16); }
+.reset-row #noExcludeBtn:disabled.on { opacity: 1; }
 /* 曲リクエスト */
 .req-form { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0 12px; }
 .req-form input, .req-form select { margin: 0; }

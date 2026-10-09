@@ -28,7 +28,9 @@ export function initCharFx({ $, mascotUrl, assetUrl, charDef, getVars }) {
   const wide = matchMedia('(min-width: 900px)');
   const split = () => {
     const b = document.body.classList;
-    return !!charDef().split && wide.matches && !b.contains('mascot-off') && (b.contains('playing') || b.contains('revealing'));
+    // game-started：ゲームの1問目の曲が流れ始めてから終わるまで。問題の間の「読み込み中」も左右のままにする
+    // （読み込み中だけ真ん中に戻すと、真ん中の画面の幅が変わって、自分の配置の画面が拡大・縮小してしまう）
+    return !!charDef().split && wide.matches && !b.contains('mascot-off') && (b.contains('playing') || b.contains('revealing') || b.contains('game-started'));
   };
   let lastPose = 'idle';
   const setImg = (d, url) => {

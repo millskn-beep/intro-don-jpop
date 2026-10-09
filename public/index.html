@@ -137,6 +137,7 @@
       <div class="reset-row" id="resetRow">
         <span id="exSummary"></span>
         <button class="btn-sub" id="noRecordBtn" type="button" title="オンにすると、これから遊ぶ曲を除外に追加しません（次のゲームでもまた出ることがあります）"></button>
+        <button class="btn-sub" id="noExcludeBtn" type="button" title="オンにしている間は、この部屋で除外している曲（前に出た曲・ログを貼った曲）も出します。除外の一覧は消えないので、オフに戻せば元どおり除外されます"></button>
         <button class="btn-sub" id="openExclude" type="button">🚫 除外の設定を開く</button>
         <button class="btn-sub leave-btn" id="leaveBtn" type="button" title="この部屋から出て、最初の画面に戻ります">🚪 部屋から出る</button>
       </div>
@@ -193,6 +194,7 @@
         <label id="livesLabel" hidden>ライフ<select data-key="lives"><option value="1">1（1回で脱落）</option><option value="2">2</option><option value="3">3</option></select></label>
         <label id="lockSecLabel" hidden>お手つき後に押せない秒数<select data-key="lockSec"><option value="3">3秒</option><option value="5">5秒</option><option value="10">10秒</option><option value="15">15秒</option><option value="20">20秒</option><option value="30">30秒</option></select></label>
         <label id="noRepeatLabel" hidden>お手つきのあとの連続解答<select data-key="noRepeat"><option value="false">できる</option><option value="true">できない（ほかの人が押すまで待つ）</option></select></label>
+        <label id="bingoEndLabel" hidden>ビンゴの終わり<select data-key="bingoEnd"><option value="p1">1人がBINGOしたら</option><option value="p2">2人がBINGOしたら</option><option value="p3">3人がBINGOしたら</option><option value="l2">だれかが2ビンゴしたら</option><option value="l3">だれかが3ビンゴしたら</option><option value="all">問題数まで</option></select></label>
         <label id="coopGoalLabel" hidden>協力の目標<select data-key="coopGoal"><option value="50">50%（やさしい）</option><option value="70">70%</option><option value="90">90%（むずかしい）</option></select></label>
         <label>チーム戦<select data-key="teams"><option value="false">なし</option><option value="true">2チーム（赤・青）</option></select></label>
         <button class="btn-sub team-random" id="teamRandomBtn" type="button" hidden title="今いる人を、赤・青にランダムで分け直します">🎲 チームをランダムに分ける</button>

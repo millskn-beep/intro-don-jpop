@@ -215,7 +215,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -328,11 +328,13 @@ const PLAY_DESC = {
   survival: '間違える・時間切れ・パスでライフが減り、0で脱落。最後まで残った人の勝ち（問題数は最大50問）。',
   picker: '1問ごとに順番で1人が出題者になり、収録曲から曲を選びます。答える人の半分くらいが正解すると、出題者に最高1000点。2人以上で遊べます。',
   coop: '全員の正解数の合計で、目標（問題数×人数×目標%）をめざします。',
-  bingo: '一人ひとりに4×4のカードを配ります（答えるものに合わせて、曲名・作品・歌手・年のマス）。正解するとそのマスが開き、縦・横・斜めのどれかがそろったら BINGO！で +3000点（そのあと列が増えるたびに +1000点）。ゲームは問題数まで続き、イントロの点数とボーナスの合計で競います（20問以上がおすすめ）',
+  bingo: '一人ひとりに4×4のカードを配ります（答えるものに合わせて、曲名・作品・歌手・年のマス）。正解するとそのマスが開き、縦・横・斜めのどれかがそろったら BINGO！で +3000点（そのあと列が増えるたびに +1000点）。「ビンゴの終わり」で決めた人数・ビンゴ数に届いたらゲーム終了（問題数までも選べます）。イントロの点数とボーナスの合計で競います（20問以上がおすすめ）',
   fill: '1曲ごとに「曲名・アニメ名・アーティスト」の3つの枠を早押しで埋めます（ボカロは「曲名・作者・VOCALOID」）。押した人が空いている枠を選んで答え、書けば早いほど高得点・10択なら半分。間違えると −200点で、しばらく押せません（秒数は「お手つき後に押せない秒数」で変えられます。初めは15秒）。全部埋まるか、全員がパスしたら次の曲へ。LoL の曲は出ません。',
 };
 // ロビーの一番上：これから遊ぶ曲を除外に追加しない（ホストが切り替え）
 $('noRecordBtn').onclick = () => { if (room) sendSettings({ noRecord: !room.settings.noRecord }); };
+// 除外を一時的に解除（除外の一覧は残したまま、オンの間だけ除外している曲も出す。設定の「前に出た曲を：出す」と同じ）
+$('noExcludeBtn').onclick = () => { if (room) sendSettings({ noExclude: !room.settings.noExclude }); };
 // 除外中の曲（この部屋で出た曲＋貼り付けたログの曲）を全部コピー
 // （スマホではタップの処理の中ですぐコピーしないと失敗するので、一覧は先に受け取っておく）
 let excludedCache = [], excludedCount = -1;
@@ -482,6 +484,7 @@ function renderRoom(r) {
   $('livesLabel').hidden = r.settings.play !== 'survival';
   $('coopGoalLabel').hidden = r.settings.play !== 'coop';
   $('lockSecLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えたあと押せない秒数
+  $('bingoEndLabel').hidden = r.settings.play !== 'bingo'; // ビンゴ：何人・何ビンゴで終わるか
   $('noRepeatLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない
   $('playDesc').textContent = PLAY_DESC[r.settings.play] || '';
   $('questionsLabel').hidden = r.settings.play === 'survival';
@@ -527,6 +530,11 @@ function renderRoom(r) {
   $('noRecordBtn').classList.toggle('on', noRec);
   $('noRecordBtn').disabled = !isHost || (r.state === 'playing' && !r.paused);
   $('noRecordBtn').hidden = !isHost && !noRec; // 参加者には、オンのときだけ表示
+  const noEx = !!r.settings.noExclude;
+  $('noExcludeBtn').textContent = noEx ? '✓ 除外を一時的に解除中（前に出た曲も出る）' : '🔓 除外を一時的に解除';
+  $('noExcludeBtn').classList.toggle('on', noEx);
+  $('noExcludeBtn').disabled = !isHost || (r.state === 'playing' && !r.paused);
+  $('noExcludeBtn').hidden = !isHost && !noEx;
   $('startBtn').hidden = !isHost; $('waitHost').hidden = isHost;
   $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
   $('lobbyBtn').hidden = !isHost; $('againBtn').hidden = !isHost;
@@ -560,6 +568,7 @@ function renderRoom(r) {
   prevMyStreak = myStreak;
   // 待機中のステージは、タイマーの代わりに部屋の情報を出す
   document.body.classList.toggle('in-lobby', r.state === 'lobby');
+  if (r.state !== 'playing') document.body.classList.remove('game-started'); // ゲームが終わったら、キャラを真ん中に戻す
   if (r.state === 'lobby') {
     setPhase('', '待機中');
     $('qno').textContent = `${r.name ? r.name + '・' : ''}${r.players.filter(p => p.connected !== false).length}人が参加中${r.createdAt ? `・${madeAt(r.createdAt)} 作成` : ''}`;
@@ -901,6 +910,7 @@ let goTimer = null;
 socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introLen, plays = 1, gap = 1, speed = 1 }) => {
   player.setRate(speed); // 倍速・スロー（問題の間ずっと。答え合わせでふつうに戻す）
   document.body.classList.add('playing'); // 背景に Ambient light 風のぼかし映像
+  if (!practice) document.body.classList.add('game-started'); // ここからゲームの終わりまで、キャラは左右のまま（問題の間の読み込み中も）
   clearTimeout(goTimer);
   stopTick();
   $('barMark').style.left = (hintAt / total * 100) + '%';
@@ -1043,7 +1053,8 @@ function renderQlog() {
   const lists = [...base, ...qlogEntries.filter(e => e.type === 'choices')];
   const answers = qlogEntries.filter(e => e.type === 'answer');
   // ビンゴのときは出さない（ビンゴカードだけ見せる）
-  $('qlog').hidden = !question || room?.settings?.play === 'bingo' || (!lists.length && !answers.length);
+  // 出すのは早押しと3つ埋めバトルだけ（ふつう・サバイバル・ビンゴなどでは出さない）
+  $('qlog').hidden = !question || !['buzzer', 'fill'].includes(room?.settings?.play) || (!lists.length && !answers.length);
   $('qlogChoices').hidden = !lists.length;
   $('qlogChoices').innerHTML = lists.map(l => `<div class="qlog-list"><b>${esc(l.label)}${l.name && !l.base ? `<small>（${esc(l.name)} が開いた10択）</small>` : ''}</b>
     <ol>${l.choices.map((c, i) => `<li${removedOf(l).has(i) ? ' class="gone"' : ''}>${esc(c)}</li>`).join('')}</ol></div>`).join('');

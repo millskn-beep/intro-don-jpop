@@ -26,7 +26,12 @@ function loadSongs() {
 // ── お題：ジャンル（data/genres.json）と作品（シリーズ）──
 const GENRES = Object.fromEntries(Object.entries(require('./data/genres.json')).filter(([k]) => !k.startsWith('_')));
 const GENRE_KEYS = Object.keys(GENRES);
-const genresOf = song => GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => String(song.work).includes(w)));
+// 作品ごとのジャンル（data/work-genres.json。作品の中身で付けたタグ）があればそれを使う。
+// ない作品（ボカロ・J-POP・新しく足した曲など）は、作品名に含まれる言葉（genres.json の keywords）で決める
+let WORK_GENRES = new Map();
+try { WORK_GENRES = new Map(Object.entries(require('./data/work-genres.json')).filter(([k]) => !k.startsWith('_'))); } catch (e) { /* なくても動く */ }
+const genresOf = song => (WORK_GENRES.has(song.work) ? WORK_GENRES.get(song.work).filter(k => GENRES[k])
+  : GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => String(song.work).includes(w))));
 // 知名度（ジャンルとは別の分類）。曲データの fame。未設定の曲は「普通」
 const FAME = [['top', '超有名'], ['famous', '有名'], ['normal', '普通'], ['minor', 'マイナー'], ['otaku', 'オタク']];
 const FAME_KEYS = FAME.map(([k]) => k);
@@ -349,6 +354,7 @@ const OPTIONS = {
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
   lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
+  bingoEnd: ['p1', 'p2', 'p3', 'l2', 'l3', 'all'], // ビンゴの終わり：p〇＝〇人がBINGO／l〇＝だれかが〇ビンゴ／all＝問題数まで
   lives: [1, 2, 3],                       // サバイバルのライフ
   teams: [false, true],                   // チーム戦（赤・青の2チーム。合計点で競う）
   leadSec: [3, 5, 10],                   // サビ前：サビの何秒前から流すか
@@ -364,7 +370,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false };
+                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1' };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -657,8 +663,8 @@ function buildWorkChoices(song, count, pool) {
   const candidates = [
     ...shuffle(pool.filter(s => near(s))).map(s => s.work),
     ...shuffle(pool.filter(s => !near(s))).map(s => s.work),
-    ...shuffle(SONGS.filter(s => !pool.includes(s))).map(s => s.work),
-    ...shuffle(DECOYS.map(([, work]) => work)),
+    ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s))).map(s => s.work)), // ジャンル・作品のお題では、そのお題の曲だけ
+    ...(pool.strict ? [] : shuffle(DECOYS.map(([, work]) => work))),
   ];
   for (const w of candidates) {
     if (picks.length >= count - 1) break;
@@ -686,7 +692,7 @@ function buildArtistChoices(song, count, pool) {
   const candidates = sameVoiceFirst(song.artist, [
     ...shuffle(pool.filter(s => near(s))).map(s => s.artist),
     ...shuffle(pool.filter(s => !near(s))).map(s => s.artist),
-    ...shuffle(SONGS.filter(s => !pool.includes(s))).map(s => s.artist),
+    ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s))).map(s => s.artist)), // ジャンル・作品のお題では、そのお題の曲だけ
   ]);
   for (const a of candidates) {
     if (picks.length >= count - 1) break;
@@ -715,6 +721,14 @@ let FRANCHISE_OF = new Map();
 try { for (const [name, f] of Object.entries(require('./data/franchises.json'))) for (const w of f.works || []) if (!FRANCHISE_OF.has(w)) FRANCHISE_OF.set(w, name); } catch (e) { /* なくても動く */ }
 const workKey = w => (FRANCHISE_OF.has(w) ? 'fr:' + FRANCHISE_OF.get(w) : seriesKey(seriesName(w)));
 const bingoLabel = w => FRANCHISE_OF.get(w) || seriesName(w);
+// ビンゴの終わり（設定 bingoEnd）：p〇＝〇人がBINGOした／l〇＝だれかが〇ビンゴ（そろった列の数）／all＝問題数まで
+function bingoOver(room) {
+  const e = room.settings.bingoEnd || 'p1', n = Number(e.slice(1));
+  const ps = [...room.players.values()];
+  if (e[0] === 'p') return ps.filter(p => p.bingoAt).length >= n;
+  if (e[0] === 'l') return ps.some(p => (p.bingoLinesN || 0) >= n);
+  return false;
+}
 // リーチ：あと1マスでそろう列の数
 function bingoReach(card) {
   const N = BINGO_N, o = i => card[i].open, lines = [];
@@ -768,8 +782,8 @@ function buildChoices(song, count, pool) {
   const candidates = [
     ...shuffle(pool.filter(s => s !== song && near(s))).map(toChoice),
     ...shuffle(pool.filter(s => s !== song && !near(s))).map(toChoice),
-    ...shuffle(others.filter(s => !pool.includes(s))).map(toChoice),
-    ...shuffle(DECOYS.map(([title, work]) => ({ title, work }))),
+    ...(pool.strict ? [] : shuffle(others.filter(s => !pool.includes(s))).map(toChoice)), // ジャンル・作品のお題では、そのお題の曲だけ
+    ...(pool.strict ? [] : shuffle(DECOYS.map(([title, work]) => ({ title, work })))),
   ];
   const seen = new Set([song.title]);
   const picks = [];
@@ -804,7 +818,7 @@ function buildFill(song, pool) {
   title.choices = title.choices.map(c => ({ title: c.title, work: '' })); // 作品名を出すとアニメ名の枠の答えになるので、曲名だけ
   const slot = (key, label, target, ch) => ({ key, label, target, choices: ch.choices, correctIndex: ch.correctIndex, by: null, given: null });
   if (song.type === 'ボカロ') {
-    const vocaloids = SONGS.filter(s => s.type === 'ボカロ' && s !== song);
+    const vocaloids = (pool.strict ? pool : SONGS).filter(s => s.type === 'ボカロ' && s !== song);
     const slots = [slot('title', '曲名', 'title', title),
       slot('author', '作者', 'author', fillChoices(authorOf(song), shuffle(vocaloids.map(authorOf)), FILL_CHOICES))];
     if (song.vocal?.length) {
@@ -812,7 +826,7 @@ function buildFill(song, pool) {
       slots.push(slot('vocal', 'VOCALOID', 'vocal', ch));
     } else if (song.singer?.length) {
       // 本人が歌っている動画（米津玄師・Eve など）は、3つ目の枠を「歌手」にする
-      const ch = fillChoices(song.singer[0], sameVoiceFirst(song.singer[0], shuffle([...new Set(SONGS.filter(s => s !== song).map(s => s.artist))])), FILL_CHOICES);
+      const ch = fillChoices(song.singer[0], sameVoiceFirst(song.singer[0], shuffle([...new Set((pool.strict ? pool : SONGS).filter(s => s !== song).map(s => s.artist))])), FILL_CHOICES);
       slots.push(slot('singer', '歌手', 'singer', ch));
     }
     return slots;
@@ -839,7 +853,7 @@ function nextQuestion(room) {
   clearTimers(room);
   const g = room.game;
   // 終わり：全部出した、またはサバイバルで残りがいなくなった（qi は最後に出した問題のまま）
-  if (g.qi + 1 >= g.order.length || survivalOver(room)) return endGame(room); // ビンゴも問題数まで（そろったらボーナス点）
+  if (g.qi + 1 >= g.order.length || survivalOver(room) || g.bingoDone) return endGame(room); // ビンゴは設定した人数・ビンゴ数で終わり（問題数までも選べる）
   g.qi++;
   if (room.settings.play === 'picker') return startPicking(room);
   startQuestion(room, g.order[g.qi]);
@@ -887,6 +901,7 @@ function startQuestion(room, song, picker = null) {
               : kind === 'random' ? randomStart(song) : kind === 'outro' ? outroStart(song, S.hintAt) : (song.intro || 0);
   // 答えるもの：年 → 年を選ぶ／作品 → 作品名の選択肢（入力なら作品名だけ正解）／曲名 → いつもの選択肢
   const years = S.target === 'year' ? yearRange(S, song) : null;
+  g.pool.strict = (S.topic || 'all') !== 'all'; // ジャンル・作品のお題では、選択肢もそのお題の曲だけから作る
   const input = S.answerMode === 'input' && !years;
   const { choices, correctIndex } = S.play === 'fill' ? { choices: null, correctIndex: null } // 3つ埋めバトルは枠ごとの選択肢（buildFill）
     : years ? { choices: null, correctIndex: years.indexOf(song.year) }
@@ -1421,7 +1436,8 @@ function reveal(room) {
   // ビンゴ：この問題でそろった人
   const bingoBonus = q.bingoBonus || []; // この問題でそろった人とボーナス
   const bingo = bingoBonus.map(b => b.name);
-  const last = room.game.qi + 1 >= room.game.order.length || survivalOver(room);
+  if (S.play === 'bingo' && bingoOver(room)) room.game.bingoDone = true; // 設定した人数・ビンゴ数に届いたら、この問題で終わり
+  const last = room.game.qi + 1 >= room.game.order.length || survivalOver(room) || !!room.game.bingoDone;
   io.to(room.code).emit('reveal', {
     eliminated, picker, bingo, bingoBonus, coop: room.game.coop || null, reach: (q.reach || []).filter(n => !bingo.includes(n)),
     correctIndex: q.correctIndex,

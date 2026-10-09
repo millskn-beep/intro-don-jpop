@@ -30,8 +30,14 @@ const GENRE_KEYS = Object.keys(GENRES);
 // ない作品（ボカロ・J-POP・新しく足した曲など）は、作品名に含まれる言葉（genres.json の keywords）で決める
 let WORK_GENRES = new Map();
 try { WORK_GENRES = new Map(Object.entries(require('./data/work-genres.json')).filter(([k]) => !k.startsWith('_'))); } catch (e) { /* なくても動く */ }
-const genresOf = song => (WORK_GENRES.has(song.work) ? WORK_GENRES.get(song.work).filter(k => GENRES[k])
-  : GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => String(song.work).includes(w))));
+// ただし「パチスロで有名」は、genres.json に並べた作品（keywords）だけで決める（作品の中身では決まらないので、手で決めた一覧どおり）
+const KEYWORD_ONLY = ['pachislot'];
+const byKeywords = song => GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => String(song.work).includes(w)));
+const genresOf = song => {
+  if (!WORK_GENRES.has(song.work)) return byKeywords(song);
+  const kw = byKeywords(song).filter(k => KEYWORD_ONLY.includes(k));
+  return [...WORK_GENRES.get(song.work).filter(k => GENRES[k] && !KEYWORD_ONLY.includes(k)), ...kw];
+};
 // 知名度（ジャンルとは別の分類）。曲データの fame。未設定の曲は「普通」
 const FAME = [['top', '超有名'], ['famous', '有名'], ['normal', '普通'], ['minor', 'マイナー'], ['otaku', 'オタク']];
 const FAME_KEYS = FAME.map(([k]) => k);

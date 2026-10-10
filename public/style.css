@@ -587,6 +587,26 @@ button.fill-slot.on { background: var(--glass-strong); border-color: var(--warn)
 .fill-answer { margin-top: 10px; display: grid; gap: 8px; }
 .fill-head { margin: 0; font-weight: 800; color: var(--warn); }
 .fill-choice-btn { justify-self: start; width: auto; margin: 0; }
+/* アニソン激アツRUSH：保留ランプ（いまの色と先の4つ）、RUSH中の表示、リーチの光 */
+.rush-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; padding: 8px 12px; border-radius: 14px; border: 1px solid var(--line); background: var(--glass); }
+.rush-now { padding: 4px 14px; border-radius: 99px; font-weight: 900; color: #fff; text-shadow: 0 1px 2px rgba(0, 0, 0, .5); box-shadow: 0 0 14px var(--rc, #4a7bff); background: var(--rc, #4a7bff); }
+.rush-now[data-color="blue"], .rush-next i[data-color="blue"] { --rc: #4a7bff; }
+.rush-now[data-color="green"], .rush-next i[data-color="green"] { --rc: #2fd47a; }
+.rush-now[data-color="red"], .rush-next i[data-color="red"] { --rc: #ff4a5e; }
+.rush-now[data-color="gold"], .rush-next i[data-color="gold"] { --rc: #ffc93a; }
+.rush-now[data-color="rainbow"], .rush-next i[data-color="rainbow"] { --rc: #c05bff; background: linear-gradient(90deg, #ff4a5e, #ffc93a, #2fd47a, #4a7bff, #c05bff); animation: rush-rainbow 1.2s linear infinite; background-size: 200% 100%; }
+.rush-now[data-color="gold"] { color: #4a3300; text-shadow: none; }
+.rush-next { display: inline-flex; gap: 6px; }
+.rush-next i { display: block; width: 16px; height: 16px; border-radius: 50%; background: var(--rc, #4a7bff); box-shadow: 0 0 8px var(--rc, #4a7bff); }
+.rush-next i[data-color="rainbow"] { background: linear-gradient(135deg, #ff4a5e, #ffc93a, #2fd47a, #4a7bff, #c05bff); }
+.rush-me { margin-left: auto; font-weight: 900; color: #ffb347; animation: rush-pulse 1s ease-in-out infinite; }
+.rush-tag { font-size: 10px; font-weight: 900; padding: 1px 6px; border-radius: 99px; color: #fff; background: linear-gradient(90deg, #ff5a1f, #ffb347); }
+.rush-x { margin-left: 6px; font-size: 10px; font-weight: 900; color: #ffb347; }
+body.rush-on { box-shadow: inset 0 0 90px rgba(255, 110, 30, .35); }
+body.rush-reach #quiz { animation: rush-pulse-red 0.9s ease-in-out infinite; }
+@keyframes rush-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .6; } }
+@keyframes rush-pulse-red { 0%, 100% { box-shadow: 0 0 0 rgba(255, 74, 94, 0); } 50% { box-shadow: 0 0 40px rgba(255, 74, 94, .75); } }
+@keyframes rush-rainbow { to { background-position: 200% 0; } }
 /* 出題中の記録（パスの下）：左に出た選択肢（小さく固定）、右に回答の記録 */
 .qlog { display: grid; grid-template-columns: minmax(150px, 34%) 1fr; gap: 10px; margin-top: 12px; font-size: 12px; }
 .qlog-choices { display: grid; gap: 8px; align-content: start; max-height: 260px; overflow-y: auto; padding: 8px 10px; border-radius: 12px; background: rgba(0, 0, 0, .25); border: 1px solid var(--line); }

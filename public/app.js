@@ -215,7 +215,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -329,6 +329,7 @@ const PLAY_DESC = {
   picker: '1問ごとに順番で1人が出題者になり、収録曲から曲を選びます。答える人の半分くらいが正解すると、出題者に最高1000点。2人以上で遊べます。',
   coop: '全員の正解数の合計で、目標（問題数×人数×目標%）をめざします。',
   bingo: '一人ひとりに4×4のカードを配ります（答えるものに合わせて、曲名・作品・歌手・年のマス）。正解するとそのマスが開き、縦・横・斜めのどれかがそろったら BINGO！で +3000点（そのあと列が増えるたびに +1000点）。「ビンゴの終わり」で決めた人数・ビンゴ数に届いたらゲーム終了（問題数までも選べます）。イントロの点数とボーナスの合計で競います（20問以上がおすすめ）',
+  rush: '全員が同じ問題に答えます。問題の前に「保留ランプ」の色（青・緑・赤・金・虹）で、その問題の当たりやすさが分かります。当たりの問題はサビで「リーチ！」。パチスロの曲に正解すると「大当たり！」で +2000点、そのあと RUSH（確変）に入り、連続で正解するほど点数が ×2〜×4 に。間違えるか答えないとRUSH終了。得点の合計で競います（20問くらいがおすすめ）',
   fill: '1曲ごとに「曲名・アニメ名・アーティスト」の3つの枠を早押しで埋めます（ボカロは「曲名・作者・VOCALOID」）。押した人が空いている枠を選んで答え、書けば早いほど高得点・10択なら半分。間違えると −200点で、しばらく押せません（秒数は「お手つき後に押せない秒数」で変えられます。初めは15秒）。全部埋まるか、全員がパスしたら次の曲へ。LoL の曲は出ません。',
 };
 // ロビーの一番上：これから遊ぶ曲を除外に追加しない（ホストが切り替え）
@@ -483,6 +484,7 @@ function renderRoom(r) {
   // 新しいモードの設定：サバイバルはライフ（問題数の代わりに終わるまで）、早押しは採点の欄を使わない。できない組み合わせは選べなくする
   $('livesLabel').hidden = r.settings.play !== 'survival';
   $('coopGoalLabel').hidden = r.settings.play !== 'coop';
+  $('rushRateLabel').hidden = r.settings.play !== 'rush'; // アニソン激アツRUSH：当たりやすさ
   $('lockSecLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えたあと押せない秒数
   $('bingoEndLabel').hidden = r.settings.play !== 'bingo'; // ビンゴ：何人・何ビンゴで終わるか
   $('noRepeatLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない
@@ -492,7 +494,7 @@ function renderRoom(r) {
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
-  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo'].includes(r.settings.play);
+  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
@@ -588,7 +590,9 @@ function renderRoom(r) {
     + (p.buzzing ? '<span class="buzzing">回答中</span>' : '')
     + (p.picker ? '<span class="buzzing">出題者</span>' : '')
     + (p.passed ? '<span class="passed">パス</span>' : '')
-    + (p.card && r.state === 'playing' && p.bingo ? '<span class="bingo-tag done">BINGO!</span>' : '');
+    + (p.card && r.state === 'playing' && p.bingo ? '<span class="bingo-tag done">BINGO!</span>' : '')
+    + (p.rush ? `<span class="rush-tag" title="RUSH中（連チャン ${p.rush.chain}・あと${p.rush.left}問）">🔥×${p.rush.mult}</span>` : '');
+  renderRush(r, r.players.find(p => p.id === me));
   // ビンゴ：名前の下に、その人のカードの埋まり具合を小さな4×4で（開いたマスに色）
   const miniCard = p => (p.card && r.state === 'playing'
     ? `<span class="mini-bingo${p.bingo ? ' done' : ''}" title="${p.card.filter(c => c.open && c.w !== 'FREE').length}マス開いた">${p.card.map(c =>
@@ -856,6 +860,7 @@ socket.on('question', q => {
   question = q; myAnswer = null; answering = false;
   stopTick();
   showBigChoices(); hintSeen = false; introLeft = 0;
+  document.body.classList.remove('rush-reach'); // 激アツRUSH：前の問題のリーチの光を消す
   $('timer').textContent = ''; $('barFill').style.width = '0';
   clearInterval(nextTick); $('nextCount').textContent = ''; clearTimeout(goTimer); fadingOut = false; document.body.classList.remove('fading');
   $('barMark').style.left = (q.settings.hintAt / (q.settings.hintAt + q.settings.chorusLen) * 100) + '%';
@@ -1064,6 +1069,25 @@ function renderQlog() {
   $('qlogInputs').scrollTop = $('qlogInputs').scrollHeight;
 }
 socket.on('qlog', e => { qlogEntries.push(e); renderQlog(); });
+
+// ── アニソン激アツRUSH：保留ランプ・自分のRUSH・リーチ・大当たり ──
+const RUSH_LABEL = { blue: '青', green: '緑', red: '赤', gold: '金', rainbow: '虹' };
+function renderRush(r, mine) {
+  const on = r.settings?.play === 'rush' && r.state === 'playing' && !!r.rush;
+  $('rushBar').hidden = !on;
+  document.body.classList.toggle('rush-on', !!(on && mine?.rush)); // 自分がRUSH中は画面が燃える
+  if (!on) return;
+  $('rushNow').dataset.color = r.rush.color || 'blue';
+  $('rushNow').textContent = `保留 ${RUSH_LABEL[r.rush.color] || ''}`;
+  $('rushNext').innerHTML = (r.rush.next || []).map(c => `<i data-color="${c}" title="${RUSH_LABEL[c]}"></i>`).join('');
+  $('rushMe').hidden = !mine?.rush;
+  if (mine?.rush) $('rushMe').textContent = `🔥 RUSH中 ×${mine.rush.mult}（あと${mine.rush.left}問）`;
+}
+// リーチ：当たりの問題は、サビに入るところで知らされる
+socket.on('rushReach', ({ color, again }) => {
+  document.body.classList.add('rush-reach');
+  if (!again) { charFx.cutin('リーチ！', color === 'rainbow' ? '全回転！ 当てれば大当たり' : 'ここで当てれば大当たり！', 'cutin'); charFx.say('chorus'); }
+});
 
 // ── 3つ埋めバトル：枠の表示・押した人の回答（枠を選ぶ → 書く／10択）・間違えたあと押せない時間・パス ──
 let fillLockUntil = 0, fillSlot = null, fillLockTick = null, fillWaiting = false;
@@ -1362,7 +1386,7 @@ socket.on('reveal', r => {
       <td class="who">${avatarImg(x.avatar, 'avatar sm')}${esc(x.name)}</td>
       <td class="${x.correct || x.points > 0 ? 'ok' : 'ng'}">${!x.answered ? '未回答' : x.pass ? 'スキップ' : x.correct ? '正解' + (x.hint ? '（サビ）' : '') : x.miss ? 'お手つき' : x.diff != null ? `${x.diff}年ずれ` : '不正解'}${x.out && (r.eliminated || []).includes(x.name) ? '<small>脱落</small>' : x.lives != null && !x.out ? `<small>${'♥'.repeat(x.lives)}</small>` : ''}${x.given ? `<small>「${esc(x.given)}」</small>` : ''}${!x.correct && Number.isInteger(x.index) && question?.choices?.[x.index] ? `<small>「${esc(question.choices[x.index].title)}」を選択</small>` : ''}</td>
       <td class="num">${x.elapsed === null ? '' : x.elapsed.toFixed(2) + '秒'}</td>
-      <td class="num">${x.points < 0 ? x.points : '+' + x.points}</td>
+      <td class="num">${x.points < 0 ? x.points : '+' + x.points}${x.rush?.mult > 1 ? `<small class="rush-x">×${x.rush.mult}</small>` : ''}${x.rush?.jackpot ? '<small class="rush-x">大当たり</small>' : ''}</td>
     </tr>`).join('');
   // 自分の結果を大きく表示
   const mine = r.results.find(x => x.id === me);
@@ -1384,6 +1408,11 @@ socket.on('reveal', r => {
   // ビンゴ：そろった人がいたらカットイン
   if ((r.bingoBonus || []).length) setTimeout(() => charFx.cutin(r.bingoBonus.some(b => b.first) ? 'BINGO!' : 'もう1列！', r.bingoBonus.map(b => `${b.name} +${b.bonus}点`).join('・'), 'celebrate'), 600);
   else if ((r.reach || []).length) setTimeout(() => charFx.cutin('リーチ！', r.reach.join('・'), 'cutin'), 600); // あと1マスでそろう列ができた
+  document.body.classList.remove('rush-reach');
+  // 激アツRUSH：大当たり・RUSH終了
+  if (r.rush?.jackpot?.length) setTimeout(() => { charFx.cutin('大当たり！', r.rush.jackpot.join('・') + ' +2000点', 'celebrate'); confetti(60); }, 500);
+  else if (r.rush?.hit) setTimeout(() => flash('ng', 'ハズレ…', '当たりの問題でした'), 400);
+  for (const e of r.rush?.ended || []) if (e.name === room?.players?.find(p => p.id === me)?.name) setTimeout(() => flash(e.done ? 'ok' : 'ng', e.done ? 'RUSH完走！' : 'RUSH終了', `連チャン・点`), 1400);
   if (r.picker?.id === me) flash('ok', '出題者ボーナス', `+${r.picker.points}（${r.picker.of}人中 ${r.picker.correct}人正解）`);
   $('nextBtn').textContent = r.last ? '結果発表へ' : '次の問題へ';
   $('highlights').innerHTML = (r.highlights || []).map(h => `<li>${esc(h)}</li>`).join('');
@@ -1455,6 +1484,7 @@ socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, s
     survival && (p.out ? `${p.survived}問目で脱落` : `最後まで残った（${p.survived}問）`),
     bingo && p.bingoAt && `${p.bingoAt}問目で BINGO!`,
     p.team && `${TEAM_LABEL[p.team]}チーム`,
+    p.jackpots > 0 && `大当たり ${p.jackpots}回・最長 ${p.rushMax}連チャン`,
     p.correct !== undefined && `正解 ${p.correct}${total ? ` / ${total}` : ''}問`,
     p.avg != null && `平均 ${p.avg.toFixed(2)}秒`,
     p.maxStreak >= 2 && `最長 ${p.maxStreak}連続`,

@@ -1,5 +1,207 @@
 [
   {
+    "id": "E7fXql_kOx4",
+    "title": "クールな恋",
+    "work": "巨人の星",
+    "artist": "ザ・ゴールデン・カップス",
+    "year": 1968,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "ザ・ゴールデン・カップス（Topic）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "chorusChecked": true,
+    "views": 45085,
+    "channel": "The Golden Cups - Topic",
+    "viewsAt": "2026-10-10",
+    "fame": "minor",
+    "workAliases": [
+      "きょじんのほし"
+    ]
+  },
+  {
+    "id": "hsQTrgfdqRM",
+    "title": "ゆけゆけ飛雄馬",
+    "work": "巨人の星",
+    "artist": "アンサンブル・ボッカ",
+    "year": 1968,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Anime Kids Papas & Mamas（Topic）",
+    "intro": 0.2,
+    "chorus": 45,
+    "aliases": [
+      "ゆけゆけひゅうま"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "fame": "minor",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 164578,
+    "channel": "Anime Kids Papas & Mamas - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "きょじんのほし"
+    ]
+  },
+  {
+    "id": "g247VBpYKho",
+    "title": "天才バカボン",
+    "work": "天才バカボン",
+    "artist": "アイドル・フォー",
+    "year": 1971,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Idol Four（Topic）",
+    "intro": 0.2,
+    "chorus": 27,
+    "aliases": [
+      "てんさいばかぼん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "fame": "normal",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 370003,
+    "channel": "Idol Four - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "てんさいばかぼん",
+      "バカボン"
+    ]
+  },
+  {
+    "id": "WkAf1A8UiqM",
+    "title": "ガッチャマンの歌",
+    "work": "科学忍者隊ガッチャマン",
+    "artist": "子門真人",
+    "year": 1972,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Release（Topic）",
+    "intro": 0.2,
+    "chorus": 35,
+    "aliases": [
+      "がっちゃまんのうた"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "fame": "normal",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1317381,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "かがくにんじゃたいがっちゃまん",
+      "ガッチャマン"
+    ],
+    "artistAliases": [
+      "しもんまさと",
+      "子門",
+      "しもん"
+    ]
+  },
+  {
+    "id": "t0UYZkWeERk",
+    "title": "デビルマンのうた",
+    "work": "デビルマン",
+    "artist": "十田敬三・ボーカル・ショップ",
+    "year": 1972,
+    "type": "OP",
+    "confidence": "低",
+    "source": "Kimee",
+    "intro": 0.2,
+    "chorus": 76,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2246625,
+    "channel": "KIMEE",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "artistAliases": [
+      "とだけいぞうぼーかるしょっぷ",
+      "十田敬三",
+      "とだけいぞう",
+      "十田",
+      "とだ"
+    ]
+  },
+  {
+    "id": "ePj6ctaXquI",
+    "title": "ど根性ガエル",
+    "work": "ど根性ガエル",
+    "artist": "石川進",
+    "year": 1972,
+    "type": "OP",
+    "confidence": "中",
+    "source": "TMSアニメ公式チャンネル",
+    "intro": 2.2,
+    "chorus": 48,
+    "aliases": [
+      "どこんじょうがえる"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "fame": "normal",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 938893,
+    "channel": "TMSアニメ公式チャンネル",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "どこんじょうがえる"
+    ],
+    "artistAliases": [
+      "いしかわすすむ",
+      "石川",
+      "いしかわ"
+    ]
+  },
+  {
+    "id": "W7dhEbvR7Pw",
+    "title": "ど根性でヤンス",
+    "work": "ど根性ガエル",
+    "artist": "石川進",
+    "year": 1972,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Susumu Ishikawa（Topic）",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "どこんじょうでやんす"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 16427,
+    "channel": "Susumu Ishikawa - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "どこんじょうがえる"
+    ],
+    "artistAliases": [
+      "いしかわすすむ",
+      "石川",
+      "いしかわ"
+    ]
+  },
+  {
     "id": "lCQ392MwsYo",
     "title": "宇宙戦艦ヤマト",
     "work": "宇宙戦艦ヤマト",
@@ -33,6 +235,144 @@
     ]
   },
   {
+    "id": "XiesKX8NyUs",
+    "title": "タリラリランのコニャニャチワ",
+    "work": "元祖天才バカボン",
+    "artist": "コロムビアゆりかご会グリンピース、雨森雅司",
+    "year": 1975,
+    "type": "OP",
+    "confidence": "中",
+    "source": "COLUMBIA YURIKAGOKAI（Topic）",
+    "intro": 0.2,
+    "chorus": 50,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 145150,
+    "channel": "COLUMBIA YURIKAGOKAI - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "がんそてんさいばかぼん",
+      "天才バカボン",
+      "てんさいばかぼん",
+      "バカボン"
+    ],
+    "artistAliases": [
+      "ころむびあゆりかごかいぐりんぴーす",
+      "コロムビアゆりかご会",
+      "ゆりかご会",
+      "グリンピース",
+      "雨森雅司",
+      "あめのもりまさし",
+      "雨森",
+      "あめのもり"
+    ]
+  },
+  {
+    "id": "WTwdil-yaEE",
+    "title": "銀河鉄道999",
+    "work": "銀河鉄道999",
+    "artist": "ささきいさお・杉並児童合唱団",
+    "year": 1978,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Isao Sasaki（Topic）",
+    "intro": 0.2,
+    "chorus": 55,
+    "aliases": [
+      "ぎんがてつどうすりーないん",
+      "ぎんがてつどう999"
+    ],
+    "embeddable": null,
+    "fame": "top",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 469812,
+    "channel": "Isao Sasaki - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "ぎんがてつどうすりーないん",
+      "ぎんがてつどう999",
+      "スリーナイン"
+    ],
+    "artistAliases": [
+      "ささきいさお",
+      "杉並児童合唱団",
+      "すぎなみじどうがっしょうだん"
+    ]
+  },
+  {
+    "id": "dbNLQ-5acxo",
+    "title": "青い地球",
+    "work": "銀河鉄道999",
+    "artist": "ささきいさお・杉並児童合唱団",
+    "year": 1978,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Isao Sasaki（Topic）",
+    "intro": 0.5,
+    "chorus": 72,
+    "aliases": [
+      "あおいちきゅう"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 127964,
+    "channel": "Isao Sasaki - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "ぎんがてつどうすりーないん",
+      "ぎんがてつどう999",
+      "スリーナイン"
+    ],
+    "artistAliases": [
+      "ささきいさお",
+      "杉並児童合唱団",
+      "すぎなみじどうがっしょうだん"
+    ]
+  },
+  {
+    "id": "K003bl7d4wU",
+    "title": "Taking off!",
+    "work": "銀河鉄道999（劇場版）",
+    "artist": "ゴダイゴ",
+    "year": 1979,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Godiego（Topic）",
+    "intro": 0.2,
+    "chorus": 116,
+    "aliases": [
+      "テイキングオフ"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 361683,
+    "channel": "Godiego - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "げきじょうばんぎんがてつどうすりーないん",
+      "銀河鉄道999",
+      "ぎんがてつどうすりーないん",
+      "ぎんがてつどう999",
+      "スリーナイン"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "5dzhgOxlr-U",
     "title": "炎のたからもの",
     "work": "ルパン三世 カリオストロの城",
@@ -62,6 +402,38 @@
       "るぱんさんせい",
       "ルパン三世",
       "ルパン"
+    ]
+  },
+  {
+    "id": "uTqUiqszKAg",
+    "title": "銀河鉄道999",
+    "work": "銀河鉄道999（劇場版）",
+    "artist": "ゴダイゴ",
+    "year": 1979,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "Godiego（Topic）",
+    "intro": 0.2,
+    "chorus": 50,
+    "aliases": [
+      "ぎんがてつどうすりーないん",
+      "ぎんがてつどう999"
+    ],
+    "embeddable": null,
+    "fame": "top",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 45999369,
+    "channel": "Godiego - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "げきじょうばんぎんがてつどうすりーないん",
+      "銀河鉄道999",
+      "ぎんがてつどうすりーないん",
+      "ぎんがてつどう999",
+      "スリーナイン"
     ]
   },
   {
@@ -1342,7 +1714,7 @@
     "views": 941690,
     "channel": "Mami Ayukawa - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "じゅうせんきえるがいむ",
       "エルガイム"
@@ -1790,7 +2162,7 @@
     "views": 915116,
     "channel": "Mami Ayukawa - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "きどうせんしぜーたがんだむ",
       "Zガンダム",
@@ -3222,6 +3594,39 @@
     ]
   },
   {
+    "id": "gQxQYfFWlPA",
+    "title": "タリラリラーンロックンロール",
+    "work": "平成天才バカボン",
+    "artist": "嘉門達夫",
+    "year": 1990,
+    "type": "OP",
+    "confidence": "中",
+    "source": "嘉門タツオ 公式チャンネル",
+    "intro": 2.2,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 61444,
+    "channel": "嘉門タツオ 公式チャンネル",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "へいせいてんさいばかぼん",
+      "天才バカボン",
+      "てんさいばかぼん",
+      "バカボン"
+    ],
+    "artistAliases": [
+      "かもんたつお",
+      "嘉門",
+      "かもん"
+    ]
+  },
+  {
     "id": "n4Thmqon6tA",
     "title": "ねぇ!ムーミン",
     "work": "楽しいムーミン一家",
@@ -3304,7 +3709,7 @@
     "views": 981590,
     "channel": "MIHO MORIKAWA - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "top",
     "workAliases": [
       "ふしぎのうみのなでぃあ",
       "ナディア"
@@ -4111,7 +4516,7 @@
     "views": 2148119,
     "channel": "Matsuko Mawatari - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ゆうゆうはくしょ",
       "幽遊白書"
@@ -4703,7 +5108,7 @@
     "views": 2041033,
     "channel": "FIRE BOMBER - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "まくろすせぶん",
       "マクロス",
@@ -6538,6 +6943,40 @@
     ]
   },
   {
+    "id": "bqV5-IHnMWw",
+    "title": "around the world",
+    "work": "頭文字D",
+    "artist": "m.o.v.e",
+    "year": 1998,
+    "type": "OP",
+    "confidence": "中",
+    "source": "m.o.v.e（Topic）",
+    "intro": 0,
+    "chorus": 116,
+    "aliases": [
+      "アラウンドザワールド"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 598199,
+    "channel": "m.o.v.e - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "いにしゃるでぃー",
+      "イニD",
+      "いにでぃー"
+    ],
+    "artistAliases": [
+      "ムーヴ",
+      "むーぶ",
+      "move"
+    ]
+  },
+  {
     "id": "-9DxpPiE458",
     "title": "Automatic",
     "work": "J-POP（宇多田ヒカル）",
@@ -6568,6 +7007,44 @@
     ]
   },
   {
+    "id": "VB5zWhugKYc",
+    "title": "Brave Love",
+    "work": "銀河鉄道999 エターナル・ファンタジー",
+    "artist": "THE ALFEE",
+    "year": 1998,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "The Alfee（Topic）",
+    "intro": 0.2,
+    "chorus": 80,
+    "aliases": [
+      "ブレイブラブ"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1394517,
+    "channel": "The Alfee - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "ぎんがてつどうすりーないんえたーなるふぁんたじー",
+      "銀河鉄道999",
+      "ぎんがてつどうすりーないん",
+      "ぎんがてつどう999",
+      "スリーナイン",
+      "エターナルファンタジー"
+    ],
+    "artistAliases": [
+      "ジアルフィー",
+      "ザアルフィー",
+      "アルフィー",
+      "ALFEE"
+    ]
+  },
+  {
     "id": "6gpcPYDkPdg",
     "title": "Catch You Catch Me",
     "work": "カードキャプターさくら",
@@ -6594,6 +7071,38 @@
     "workAliases": [
       "かーどきゃぷたーさくら",
       "CCさくら"
+    ]
+  },
+  {
+    "id": "gzY8VH7eb8Y",
+    "title": "DANCING",
+    "work": "頭文字D",
+    "artist": "VICKY VALE",
+    "year": 1998,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Euromania",
+    "intro": 1.7,
+    "chorus": 0,
+    "aliases": [
+      "ダンシング"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 4263841,
+    "channel": "Euromania",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "いにしゃるでぃー",
+      "イニD",
+      "いにでぃー"
+    ],
+    "artistAliases": [
+      "ヴィッキーヴェイル",
+      "ビッキーベイル"
     ]
   },
   {
@@ -6654,6 +7163,107 @@
       "ラルクアンシエル",
       "ラルク"
     ]
+  },
+  {
+    "id": "7BTWpImCDq4",
+    "title": "NIGHT OF FIRE",
+    "work": "頭文字D",
+    "artist": "NIKO",
+    "year": 1998,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "NIKO（Topic）",
+    "intro": 1.2,
+    "chorus": 41,
+    "aliases": [
+      "ナイトオブファイア",
+      "ナイトオブファイヤー"
+    ],
+    "embeddable": null,
+    "fame": "top",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 14270071,
+    "channel": "NIKO - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "いにしゃるでぃー",
+      "イニD",
+      "いにでぃー"
+    ],
+    "artistAliases": [
+      "ニコ"
+    ]
+  },
+  {
+    "id": "ECwKc39xj5k",
+    "title": "Rage your dream",
+    "work": "頭文字D",
+    "artist": "m.o.v.e",
+    "year": 1998,
+    "type": "ED",
+    "confidence": "中",
+    "source": "m.o.v.e（Topic）",
+    "intro": 0.5,
+    "chorus": 22,
+    "aliases": [
+      "レイジユアドリーム"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 462710,
+    "channel": "m.o.v.e - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "いにしゃるでぃー",
+      "イニD",
+      "いにでぃー"
+    ],
+    "artistAliases": [
+      "ムーヴ",
+      "むーぶ",
+      "move"
+    ]
+  },
+  {
+    "id": "_Fxil2QY0wE",
+    "title": "RUNNING IN THE 90'S",
+    "work": "頭文字D",
+    "artist": "MAX COVERI",
+    "year": 1998,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "MAX COVERI（Topic）",
+    "intro": 0.2,
+    "chorus": 23,
+    "aliases": [
+      "ランニングインザナインティーズ",
+      "ランニングインザ90s"
+    ],
+    "embeddable": null,
+    "fame": "top",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 19568009,
+    "channel": "MAX COVERI - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "いにしゃるでぃー",
+      "イニD",
+      "いにでぃー"
+    ],
+    "artistAliases": [
+      "マックスコヴェリ",
+      "マックスコベリ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "-mWglCLEZus",
@@ -8535,6 +9145,43 @@
     ]
   },
   {
+    "id": "LqsL2OqPOZc",
+    "title": "Gamble Rumble",
+    "work": "頭文字D Third Stage",
+    "artist": "m.o.v.e",
+    "year": 2001,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "m.o.v.e（Topic）",
+    "intro": 0.7,
+    "chorus": 66,
+    "aliases": [
+      "ギャンブルランブル"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 948895,
+    "channel": "m.o.v.e - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "いにしゃるでぃーさーどすてーじ",
+      "頭文字D",
+      "いにしゃるでぃー",
+      "イニD",
+      "いにでぃー",
+      "サードステージ"
+    ],
+    "artistAliases": [
+      "ムーヴ",
+      "むーぶ",
+      "move"
+    ]
+  },
+  {
     "id": "v5JjlzWbkNQ",
     "title": "Get Over",
     "work": "ヒカルの碁",
@@ -10321,6 +10968,68 @@
     ]
   },
   {
+    "id": "noe9z8baceg",
+    "title": "そこにあるかも知れない…",
+    "work": "吉宗（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2003,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.2,
+    "chorus": 127,
+    "aliases": [
+      "そこにあるかもしれない"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 8352175,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "よしむね",
+      "吉宗"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ]
+  },
+  {
+    "id": "0RAxyRoFasE",
+    "title": "フラウエム",
+    "work": "吉宗（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2003,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 228352,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "よしむね",
+      "吉宗"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ]
+  },
+  {
     "id": "dZdI0kFTwAM",
     "title": "ポルカ・オ・ドルカ",
     "work": "ポケットモンスター アドバンスジェネレーション",
@@ -10627,6 +11336,38 @@
       "なかしまみか",
       "中島",
       "なかじま"
+    ]
+  },
+  {
+    "id": "_4wiRX17N9U",
+    "title": "大盤振舞じゃ！",
+    "work": "吉宗（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2003,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6,
+    "chorus": 96,
+    "aliases": [
+      "おおばんぶるまいじゃ"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 612593,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "よしむね",
+      "吉宗"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
     ]
   },
   {
@@ -11479,6 +12220,32 @@
     ]
   },
   {
+    "id": "CJ8u-QTgMsY",
+    "title": "ココロが止まらない",
+    "work": "モンキーターン",
+    "artist": "JEWELRY",
+    "year": 2004,
+    "type": "OP",
+    "confidence": "低",
+    "source": "coffeejapan",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "こころがとまらない"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 5338798,
+    "channel": "coffeejapan",
+    "viewsAt": "2026-10-10",
+    "fame": "famous",
+    "artistAliases": [
+      "ジュエリー"
+    ]
+  },
+  {
     "id": "fKE4uRsBA2Y",
     "title": "スクランブル",
     "work": "スクールランブル",
@@ -11667,6 +12434,37 @@
     "introBefore": null,
     "artistAliases": [
       "オレンジレンジ"
+    ]
+  },
+  {
+    "id": "Z_lEqfnWvYI",
+    "title": "胸いっぱいのこの愛を 誰より君に",
+    "work": "モンキーターンV",
+    "artist": "JEWELRY",
+    "year": 2004,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Jewelry（Topic）",
+    "intro": 0.7,
+    "chorus": 76,
+    "aliases": [
+      "むねいっぱいのこのあいをだれよりきみに"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 454278,
+    "channel": "Jewelry - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "もんきーたーんふぁいぶ",
+      "モンキーターン"
+    ],
+    "artistAliases": [
+      "ジュエリー"
     ]
   },
   {
@@ -11978,6 +12776,37 @@
     "artistAliases": [
       "フロウ"
     ]
+  },
+  {
+    "id": "ZbQ3QK2pcto",
+    "title": "Distance",
+    "work": "押忍！番長（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2005,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.2,
+    "chorus": 59,
+    "aliases": [
+      "ディスタンス"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 9703846,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "おすばんちょう"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "QSETkbXV4Qs",
@@ -12674,6 +13503,36 @@
     ]
   },
   {
+    "id": "mZreB40oP24",
+    "title": "逆さまの蝶",
+    "work": "地獄少女",
+    "artist": "SNoW",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "低",
+    "source": "Elyas E",
+    "intro": 7.2,
+    "chorus": 0,
+    "aliases": [
+      "さかさまのちょう"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 54009,
+    "channel": "Elyas E",
+    "viewsAt": "2026-10-10",
+    "fame": "minor",
+    "workAliases": [
+      "じごくしょうじょ"
+    ],
+    "artistAliases": [
+      "スノウ",
+      "スノー"
+    ]
+  },
+  {
     "id": "cpAz9KI6-3s",
     "title": "君は僕に似ている",
     "work": "機動戦士ガンダムSEED DESTINY",
@@ -12738,6 +13597,38 @@
     ],
     "artistAliases": [
       "おんみょうざ"
+    ]
+  },
+  {
+    "id": "d5NoHlzOzB8",
+    "title": "轟けDREAM",
+    "work": "押忍！番長（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2005,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.2,
+    "chorus": 129,
+    "aliases": [
+      "とどろけどりーむ",
+      "轟けドリーム"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3237056,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "おすばんちょう"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
     ]
   },
   {
@@ -12830,7 +13721,7 @@
     "views": 2068798,
     "channel": "Hitomi Takahashi - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぶらっどぷらす"
     ],
@@ -12905,6 +13796,37 @@
     ],
     "artistAliases": [
       "ビバッチー"
+    ]
+  },
+  {
+    "id": "a4UPURZwO-k",
+    "title": "男の花道",
+    "work": "押忍！番長（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2005,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6,
+    "chorus": 128,
+    "aliases": [
+      "おとこのはなみち"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 104870,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "おすばんちょう"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
     ]
   },
   {
@@ -13410,6 +14332,39 @@
     ]
   },
   {
+    "id": "sCyrxrPelhk",
+    "title": "I Love You Baby",
+    "work": "SHAKE（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2006,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 0,
+    "chorus": 130,
+    "aliases": [
+      "アイラブユーベイビー",
+      "アイラブユーベイベー"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 870210,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "SHAKE",
+      "シェイク"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ]
+  },
+  {
     "id": "TM7oDItP200",
     "title": "Infinite Love",
     "work": "恋する天使アンジェリーク〜心のめざめる時〜",
@@ -13579,6 +14534,40 @@
     ]
   },
   {
+    "id": "pZRQlnA0AjI",
+    "title": "NightmaRe",
+    "work": "地獄少女 二籠",
+    "artist": "SNoW",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "低",
+    "source": "jia.t.w",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "ナイトメア"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 514542,
+    "channel": "jia.t.w",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "workAliases": [
+      "じごくしょうじょふたこもり",
+      "地獄少女",
+      "じごくしょうじょ",
+      "二籠",
+      "ふたこもり"
+    ],
+    "artistAliases": [
+      "スノウ",
+      "スノー"
+    ]
+  },
+  {
     "id": "1eDwwHZXHN8",
     "title": "pray",
     "work": "銀魂",
@@ -13601,7 +14590,7 @@
     "views": 1535155,
     "channel": "SHONEN JUMP CHANNEL OFFICIAL",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "ぎんたま",
       "銀魂"
@@ -13744,6 +14733,9 @@
     "fame": "famous",
     "workAliases": [
       "ですのーと"
+    ],
+    "artistAliases": [
+      "NIGHTMARE"
     ]
   },
   {
@@ -13900,6 +14892,9 @@
     "fame": "famous",
     "workAliases": [
       "ですのーと"
+    ],
+    "artistAliases": [
+      "NIGHTMARE"
     ]
   },
   {
@@ -14081,7 +15076,7 @@
     "views": 923348,
     "channel": "Aya Hirano - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "すずみやはるひのゆううつ",
       "ハルヒ"
@@ -15318,6 +16313,35 @@
     ]
   },
   {
+    "id": "9Ps-Nc9-3bc",
+    "title": "ツキノキオク",
+    "work": "マジカルハロウィン（パチスロ）",
+    "artist": "Sana",
+    "year": 2007,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "コナミアミューズメント公式",
+    "intro": 6.2,
+    "chorus": 80,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 71959,
+    "channel": "コナミアミューズメント パチンコ・パチスロch",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "まじかるはろうぃん",
+      "マジハロ"
+    ],
+    "artistAliases": [
+      "サナ"
+    ]
+  },
+  {
     "id": "N3ODu-rX1yg",
     "title": "ディスタンス",
     "work": "NARUTO -ナルト- 疾風伝",
@@ -15557,6 +16581,36 @@
     ]
   },
   {
+    "id": "uXgkFqgUB3k",
+    "title": "ミラクル・ハイテンション",
+    "work": "秘宝伝（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2007,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.2,
+    "chorus": 127,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 569347,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "ひほうでん",
+      "秘宝伝"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ]
+  },
+  {
     "id": "tCV7yyImQFk",
     "title": "メグメル",
     "work": "CLANNAD",
@@ -15764,6 +16818,42 @@
     ]
   },
   {
+    "id": "8aGWKO7V9aI",
+    "title": "傾奇者恋歌",
+    "work": "花の慶次（パチンコ）",
+    "artist": "角田信朗",
+    "year": 2007,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Nobuaki Kakuda（Topic）",
+    "intro": 0.7,
+    "chorus": 50,
+    "aliases": [
+      "かぶきものれんか",
+      "かぶきものこいうた"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 568922,
+    "channel": "Nobuaki Kakuda - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はなのけいじ",
+      "花の慶次",
+      "慶次",
+      "けいじ"
+    ],
+    "artistAliases": [
+      "かくだのぶあき",
+      "角田",
+      "かくだ"
+    ]
+  },
+  {
     "id": "0LmXvL47AkY",
     "title": "経験値上昇中☆",
     "work": "みなみけ",
@@ -15933,6 +17023,40 @@
       "みずはしまい",
       "水橋",
       "みずはし"
+    ]
+  },
+  {
+    "id": "1fLgoIz66Xk",
+    "title": "未来は僕等の手の中",
+    "work": "逆境無頼カイジ Ultimate Survivor",
+    "artist": "カイジwithレッどぼんチリーず",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Release（Topic）",
+    "intro": 0,
+    "chorus": 94,
+    "aliases": [
+      "みらいはぼくらのてのなか"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1310343,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "ぎゃっきょうぶらいかいじあるてぃめっとさばいばー",
+      "逆境無頼カイジ",
+      "ぎゃっきょうぶらいかいじ",
+      "カイジ"
+    ],
+    "artistAliases": [
+      "かいじうぃずれっどぼんちりーず",
+      "レッどぼんチリーず"
     ]
   },
   {
@@ -16444,6 +17568,37 @@
     ],
     "artistAliases": [
       "カラフィナ"
+    ]
+  },
+  {
+    "id": "Ij6EeV9SUAo",
+    "title": "flower of bravery",
+    "work": "恋姫†無双",
+    "artist": "fripSide",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "低",
+    "source": "zoeyichigo1",
+    "intro": 13,
+    "chorus": 0,
+    "aliases": [
+      "フラワーオブブレイバリー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 1513474,
+    "channel": "zoeyichigo1",
+    "viewsAt": "2026-10-10",
+    "fame": "otaku",
+    "workAliases": [
+      "こいひめむそう",
+      "恋姫",
+      "こいひめ"
+    ],
+    "artistAliases": [
+      "フリップサイド"
     ]
   },
   {
@@ -17301,7 +18456,7 @@
     "views": 60489882,
     "channel": "BUMP OF CHICKEN",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "top",
     "workAliases": [
       "ているずおぶじあびす",
       "アビス",
@@ -17837,6 +18992,39 @@
     ]
   },
   {
+    "id": "MnaHHthb7XQ",
+    "title": "やっぱり世界はあたし☆れじぇんど!!",
+    "work": "恋姫†無双",
+    "artist": "fripSide NAO project!",
+    "year": 2008,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Release（Topic）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "やっぱりせかいはあたしれじぇんど"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 7916,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "こいひめむそう",
+      "恋姫",
+      "こいひめ"
+    ],
+    "artistAliases": [
+      "ふりっぷさいどなおぷろじぇくと",
+      "fripSide",
+      "フリップサイド"
+    ]
+  },
+  {
     "id": "fGGTf044UPI",
     "title": "ライオン",
     "work": "マクロスF",
@@ -18160,6 +19348,114 @@
     ],
     "artistAliases": [
       "サンボ"
+    ]
+  },
+  {
+    "id": "EtV3LeVAJk8",
+    "title": "月華-tsukihana-",
+    "work": "地獄少女 三鼎",
+    "artist": "北出菜奈",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Topic",
+    "intro": 0.7,
+    "chorus": 67,
+    "aliases": [
+      "つきはな",
+      "月華"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 89715,
+    "channel": "Nana Kitade / Loveless - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "じごくしょうじょみつがなえ",
+      "地獄少女",
+      "じごくしょうじょ"
+    ],
+    "artistAliases": [
+      "きたでなな",
+      "北出",
+      "きたで"
+    ]
+  },
+  {
+    "id": "Tz42IfhTDiU",
+    "title": "剣戟乱舞",
+    "work": "戦国乙女（パチンコ）",
+    "artist": "徳川家康（CV:千葉紗子）",
+    "year": 2008,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "QUEN MUSIC by HEIWA（Topic）",
+    "intro": 0.5,
+    "chorus": 55,
+    "aliases": [
+      "けんげきらんぶ"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 129364,
+    "channel": "QUEN MUSIC by HEIWA - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "せんごくおとめ",
+      "戦国乙女"
+    ],
+    "artistAliases": [
+      "とくがわいえやす",
+      "徳川家康",
+      "家康",
+      "いえやす",
+      "千葉紗子",
+      "ちばさえこ",
+      "千葉",
+      "ちば"
+    ]
+  },
+  {
+    "id": "WyBq_jdE1Pc",
+    "title": "見果てぬ夢",
+    "work": "戦国乙女（パチンコ）",
+    "artist": "織田信長（CV:田村ゆかり）",
+    "year": 2008,
+    "type": "イメージソング",
+    "confidence": "低",
+    "source": "田中太郎",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "みはてぬゆめ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 36866,
+    "channel": "田中太郎",
+    "viewsAt": "2026-10-10",
+    "fame": "otaku",
+    "workAliases": [
+      "せんごくおとめ",
+      "戦国乙女"
+    ],
+    "artistAliases": [
+      "田村ゆかり",
+      "たむらゆかり",
+      "田村",
+      "たむら",
+      "織田信長",
+      "おだのぶなが"
     ]
   },
   {
@@ -18509,6 +19805,44 @@
     ],
     "artistAliases": [
       "アクアタイムズ"
+    ]
+  },
+  {
+    "id": "0IIaLwACmSg",
+    "title": "戦国乙女",
+    "work": "戦国乙女（パチンコ）",
+    "artist": "徳川家康（CV:千葉紗子）",
+    "year": 2008,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "QUEN MUSIC by HEIWA（Topic）",
+    "intro": 0.5,
+    "chorus": 128,
+    "aliases": [
+      "せんごくおとめ"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 151505,
+    "channel": "QUEN MUSIC by HEIWA - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "せんごくおとめ",
+      "戦国乙女"
+    ],
+    "artistAliases": [
+      "とくがわいえやす",
+      "徳川家康",
+      "家康",
+      "いえやす",
+      "千葉紗子",
+      "ちばさえこ",
+      "千葉",
+      "ちば"
     ]
   },
   {
@@ -18920,6 +20254,35 @@
     ]
   },
   {
+    "id": "VICt-vGWPeQ",
+    "title": "bloooomin'",
+    "work": "咲-Saki-",
+    "artist": "Little Non",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "低",
+    "source": "MayoiKoneko",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "ブルーミン"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 692581,
+    "channel": "MayoiKoneko",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "workAliases": [
+      "さき"
+    ],
+    "artistAliases": [
+      "リトルノン"
+    ]
+  },
+  {
     "id": "YBVQcTE2Z08",
     "title": "BOYS＆GIRLS",
     "work": "家庭教師ヒットマンREBORN!",
@@ -19112,6 +20475,73 @@
     "artistAliases": [
       "ジミーサム",
       "じみーさむぴー"
+    ]
+  },
+  {
+    "id": "V4v6DTphwLo",
+    "title": "Get the Door",
+    "work": "クイーンズブレイド 流浪の戦士",
+    "artist": "大橋利恵",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "低",
+    "source": "Sierra118Production",
+    "intro": 2,
+    "chorus": 0,
+    "aliases": [
+      "ゲットザドア"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 532160,
+    "channel": "Sierra118Production",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "workAliases": [
+      "くいーんずぶれいどるろうのせんし",
+      "クイーンズブレイド",
+      "流浪の戦士",
+      "るろうのせんし"
+    ],
+    "artistAliases": [
+      "おおはしりえ",
+      "大橋",
+      "おおはし"
+    ]
+  },
+  {
+    "id": "s3_jpPKEQxE",
+    "title": "Glossy:MMM",
+    "work": "咲-Saki-",
+    "artist": "橋本みゆき",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "中",
+    "source": "橋本みゆき Official Channel",
+    "intro": 1.2,
+    "chorus": 56,
+    "aliases": [
+      "グロッシーエムエムエム",
+      "グロッシーMMM"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 262530,
+    "channel": "橋本みゆき Official Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "さき"
+    ],
+    "artistAliases": [
+      "はしもとみゆき",
+      "橋本",
+      "はしもと"
     ]
   },
   {
@@ -19947,7 +21377,7 @@
     "views": 2031617,
     "channel": "Fumie Akiyoshi - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぽけっともんすたー",
       "ポケモン",
@@ -20322,6 +21752,41 @@
     ]
   },
   {
+    "id": "N55nx8yx-eg",
+    "title": "よっしゃあ漢唄",
+    "work": "花の慶次（パチンコ）",
+    "artist": "角田信朗",
+    "year": 2009,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Nobuaki Kakuda（Topic）",
+    "intro": 0.2,
+    "chorus": 104,
+    "aliases": [
+      "よっしゃあおとこうた"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3077070,
+    "channel": "Nobuaki Kakuda - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はなのけいじ",
+      "花の慶次",
+      "慶次",
+      "けいじ"
+    ],
+    "artistAliases": [
+      "かくだのぶあき",
+      "角田",
+      "かくだ"
+    ]
+  },
+  {
     "id": "dvsPRlm4I_A",
     "title": "ルカルカ★ナイトフィーバー",
     "work": "ボカロ（samfree）",
@@ -20500,6 +21965,43 @@
       "はがねのれんきんじゅつし",
       "ハガレン",
       "鋼の錬金術師"
+    ]
+  },
+  {
+    "id": "SVWD6xYUBBA",
+    "title": "帰り道",
+    "work": "化物語",
+    "artist": "八九寺真宵（加藤英美里）",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "低",
+    "source": "frogy P",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "かえりみち"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 988964,
+    "channel": "frogy P",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "workAliases": [
+      "ばけものがたり",
+      "物語シリーズ",
+      "ものがたりしりーず",
+      "化物語"
+    ],
+    "artistAliases": [
+      "加藤英美里",
+      "かとうえみり",
+      "加藤",
+      "かとう",
+      "八九寺真宵",
+      "はちくじまよい"
     ]
   },
   {
@@ -20701,6 +22203,38 @@
     "artistAliases": [
       "ベリーズこうぼう",
       "ベリーズ"
+    ]
+  },
+  {
+    "id": "5ert8vW9L70",
+    "title": "墜ちない空",
+    "work": "クイーンズブレイド 玉座を継ぐ者",
+    "artist": "ENA",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "低",
+    "source": "SilverNightx1",
+    "intro": 1.2,
+    "chorus": 0,
+    "aliases": [
+      "おちないそら"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 205683,
+    "channel": "SilverNightx1",
+    "viewsAt": "2026-10-10",
+    "fame": "minor",
+    "workAliases": [
+      "くいーんずぶれいどぎょくざをつぐもの",
+      "クイーンズブレイド",
+      "玉座を継ぐ者",
+      "ぎょくざをつぐもの"
+    ],
+    "artistAliases": [
+      "エナ"
     ]
   },
   {
@@ -20965,6 +22499,38 @@
     ]
   },
   {
+    "id": "ltaEHdoPuf4",
+    "title": "刹那のアケルナル",
+    "work": "吉宗（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2009,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.2,
+    "chorus": 100,
+    "aliases": [
+      "せつなのあけるなる"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 116586,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "よしむね",
+      "吉宗"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ]
+  },
+  {
     "id": "8ld4Mj1EkqU",
     "title": "Alchemy",
     "work": "Angel Beats!",
@@ -21201,6 +22767,74 @@
     ]
   },
   {
+    "id": "YnGCLnfNApc",
+    "title": "Fly High",
+    "work": "忍魂（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2010,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.2,
+    "chorus": 85,
+    "aliases": [
+      "フライハイ"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 312679,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "しのびだましい",
+      "忍魂"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "Vr4Tw5ZG7II",
+    "title": "fuss fuzz",
+    "work": "学園黙示録 HIGHSCHOOL OF THE DEAD",
+    "artist": "黒崎真音",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "中",
+    "source": "黒崎真音 Official YouTube Channel",
+    "intro": 0.2,
+    "chorus": 69,
+    "aliases": [
+      "ファスファズ"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 216553,
+    "channel": "黒崎真音 Official YouTube Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "がくえんもくしろくはいすくーるおぶざでっど",
+      "学園黙示録",
+      "がくえんもくしろく",
+      "ハイスクールオブザデッド",
+      "HOTD"
+    ],
+    "artistAliases": [
+      "くろさきまおん",
+      "黒崎",
+      "くろさき"
+    ]
+  },
+  {
     "id": "L5zaLbzarz4",
     "title": "future gazer",
     "work": "とある科学の超電磁砲",
@@ -21328,6 +22962,42 @@
     "artistAliases": [
       "ティーピストンズ",
       "ケーエムシー"
+    ]
+  },
+  {
+    "id": "M8tRBup0j9E",
+    "title": "HIGHSCHOOL OF THE DEAD",
+    "work": "学園黙示録 HIGHSCHOOL OF THE DEAD",
+    "artist": "岸田教団&THE明星ロケッツ",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Kisidakyoudan & the Akebosi rockets official",
+    "intro": 0.2,
+    "chorus": 57,
+    "aliases": [
+      "ハイスクールオブザデッド"
+    ],
+    "embeddable": null,
+    "fame": "famous",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 7287219,
+    "channel": "Kisidakyoudan & the Akebosi rockets official",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "がくえんもくしろくはいすくーるおぶざでっど",
+      "学園黙示録",
+      "がくえんもくしろく",
+      "ハイスクールオブザデッド",
+      "HOTD"
+    ],
+    "artistAliases": [
+      "きしだきょうだん",
+      "あけぼしロケッツ",
+      "岸田教団"
     ]
   },
   {
@@ -22736,7 +24406,7 @@
     "views": 2181590,
     "channel": "Rica Matsumoto - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぽけっともんすたー",
       "ポケモン",
@@ -22838,6 +24508,10 @@
     "vocal": [
       "初音ミク",
       "GUMI"
+    ],
+    "artistAliases": [
+      "米津玄師",
+      "よねづけんし"
     ]
   },
   {
@@ -23186,6 +24860,42 @@
     ]
   },
   {
+    "id": "9z8wDkSz-tY",
+    "title": "君と太陽が死んだ日",
+    "work": "学園黙示録 HIGHSCHOOL OF THE DEAD",
+    "artist": "黒崎真音",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "中",
+    "source": "黒崎真音 Official YouTube Channel",
+    "intro": 6.7,
+    "chorus": 121,
+    "aliases": [
+      "きみとたいようがしんだひ"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 423550,
+    "channel": "黒崎真音 Official YouTube Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "がくえんもくしろくはいすくーるおぶざでっど",
+      "学園黙示録",
+      "がくえんもくしろく",
+      "ハイスクールオブザデッド",
+      "HOTD"
+    ],
+    "artistAliases": [
+      "くろさきまおん",
+      "黒崎",
+      "くろさき"
+    ]
+  },
+  {
     "id": "AKffZySqQts",
     "title": "結ンデ開イテ羅刹ト骸",
     "work": "ボカロ（ハチ）",
@@ -23209,6 +24919,10 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "米津玄師",
+      "よねづけんし"
     ]
   },
   {
@@ -23241,6 +24955,41 @@
     ],
     "artistAliases": [
       "カラフィナ"
+    ]
+  },
+  {
+    "id": "jfy8qMRkpLM",
+    "title": "修羅の果てまでも",
+    "work": "花の慶次（パチンコ）",
+    "artist": "角田信朗",
+    "year": 2010,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Nobuaki Kakuda（Topic）",
+    "intro": 0.5,
+    "chorus": 102,
+    "aliases": [
+      "しゅらのはてまでも"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 418643,
+    "channel": "Nobuaki Kakuda - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はなのけいじ",
+      "花の慶次",
+      "慶次",
+      "けいじ"
+    ],
+    "artistAliases": [
+      "かくだのぶあき",
+      "角田",
+      "かくだ"
     ]
   },
   {
@@ -23591,6 +25340,38 @@
     ]
   },
   {
+    "id": "8O7oDQVBcT4",
+    "title": "楓",
+    "work": "忍魂（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2010,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.5,
+    "chorus": 126,
+    "aliases": [
+      "かえで"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1184301,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "しのびだましい",
+      "忍魂"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ]
+  },
+  {
     "id": "YIgoFjO9Mg4",
     "title": "僕らのLIVE 君とのLIFE",
     "work": "ラブライブ!",
@@ -23874,6 +25655,40 @@
       "さかもとまあや",
       "坂本",
       "さかもと"
+    ]
+  },
+  {
+    "id": "b_spgGhy02U",
+    "title": "Chase the Light!",
+    "work": "逆境無頼カイジ 破戒録篇",
+    "artist": "Fear, and Loathing in Las Vegas",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Fear, and Loathing in Las Vegas公式（TVサイズ）",
+    "intro": 0,
+    "chorus": 41,
+    "aliases": [
+      "チェイスザライト"
+    ],
+    "embeddable": null,
+    "viewsAt": "2026-10-09",
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "workAliases": [
+      "ぎゃっきょうぶらいかいじはかいろくへん",
+      "逆境無頼カイジ",
+      "ぎゃっきょうぶらいかいじ",
+      "カイジ",
+      "破戒録篇",
+      "はかいろくへん"
+    ],
+    "artistAliases": [
+      "フィアーアンドローシングインラスベガス",
+      "ベガス"
     ]
   },
   {
@@ -24477,6 +26292,36 @@
     ]
   },
   {
+    "id": "n9XNZ6eS4-A",
+    "title": "One Reason",
+    "work": "デッドマン・ワンダーランド",
+    "artist": "DWB feat. fade",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "中",
+    "source": "DWB（Topic）",
+    "intro": 9,
+    "chorus": 92,
+    "aliases": [
+      "ワンリーズン"
+    ],
+    "embeddable": null,
+    "fame": "famous",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2967388,
+    "channel": "DWB - Topic",
+    "viewsAt": "2026-10-09",
+    "artistAliases": [
+      "ディーダブリュービー",
+      "DWB",
+      "フェイド",
+      "fade"
+    ]
+  },
+  {
     "id": "RbVHTZ6nBWk",
     "title": "Os-宇宙人",
     "work": "電波女と青春男",
@@ -24499,7 +26344,7 @@
     "views": 2049845,
     "channel": "Erio wo Kamattechan - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "でんぱおんなとせいしゅんおとこ",
       "電波女"
@@ -24728,6 +26573,35 @@
     ]
   },
   {
+    "id": "44F_pl-JUtg",
+    "title": "SHINY SHINY",
+    "work": "デッドマン・ワンダーランド",
+    "artist": "DWB feat. ニルギリス",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "中",
+    "source": "DWB（Topic）",
+    "intro": 0.2,
+    "chorus": 122,
+    "aliases": [
+      "シャイニーシャイニー"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 498598,
+    "channel": "DWB - Topic",
+    "viewsAt": "2026-10-09",
+    "artistAliases": [
+      "ディーダブリュービー",
+      "DWB",
+      "ニルギリス"
+    ]
+  },
+  {
     "id": "nWZj5GpiK0k",
     "title": "snow falling",
     "work": "劇場版 空の境界",
@@ -24782,7 +26656,7 @@
     "views": 2242234,
     "channel": "Minami Kuribayashi - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "いんふぃにっとすとらとす",
       "IS"
@@ -24957,6 +26831,38 @@
     ]
   },
   {
+    "id": "LsiFNVE1tRQ",
+    "title": "いくぜ!豪傑POWER!",
+    "work": "押忍！番長（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2011,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.2,
+    "chorus": 67,
+    "aliases": [
+      "いくぜごうけつぱわー",
+      "いくぜ豪傑パワー"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 849522,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "おすばんちょう"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ]
+  },
+  {
     "id": "IgEuCx2hYso",
     "title": "ウィーゴー!",
     "work": "ONE PIECE",
@@ -24987,6 +26893,35 @@
     ],
     "artistAliases": [
       "きただに"
+    ]
+  },
+  {
+    "id": "ru_j8d-oZ4g",
+    "title": "エンブレム",
+    "work": "押忍！番長（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2011,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.5,
+    "chorus": 91,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 5776343,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "おすばんちょう"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
     ]
   },
   {
@@ -25288,6 +27223,10 @@
     "fame": "famous",
     "vocal": [
       "GUMI"
+    ],
+    "artistAliases": [
+      "米津玄師",
+      "よねづけんし"
     ]
   },
   {
@@ -25638,6 +27577,38 @@
     ]
   },
   {
+    "id": "W02_pAiqsk8",
+    "title": "君のWIND SONG",
+    "work": "押忍！番長（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2011,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6,
+    "chorus": 86,
+    "aliases": [
+      "きみのうぃんどそんぐ",
+      "君のウィンドソング"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2209805,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "おすばんちょう"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "A02UniwCM9w",
     "title": "光",
     "work": "名探偵コナン",
@@ -25895,6 +27866,41 @@
     ]
   },
   {
+    "id": "BroTIRHz6FQ",
+    "title": "戦ノ道",
+    "work": "花の慶次（パチンコ）",
+    "artist": "角田信朗",
+    "year": 2011,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Nobuaki Kakuda（Topic）",
+    "intro": 0.5,
+    "chorus": 107,
+    "aliases": [
+      "いくさのみち"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 130491,
+    "channel": "Nobuaki Kakuda - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はなのけいじ",
+      "花の慶次",
+      "慶次",
+      "けいじ"
+    ],
+    "artistAliases": [
+      "かくだのぶあき",
+      "角田",
+      "かくだ"
+    ]
+  },
+  {
     "id": "2-zPY0vrpjQ",
     "title": "天ノ弱",
     "work": "ボカロ（164）",
@@ -25946,7 +27952,7 @@
     "views": 207309,
     "channel": "pugcat's - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "いなずまいれぶんごー",
       "いなずまいれぶん",
@@ -26041,6 +28047,41 @@
     "artistAliases": [
       "ティーピストンズ",
       "ケーエムシー"
+    ]
+  },
+  {
+    "id": "_qLhYVOAM70",
+    "title": "陽炎-kagerou-",
+    "work": "戦国乙女～桃色パラドックス～",
+    "artist": "天下取り隊",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "中",
+    "source": "天下取り隊（Topic）",
+    "intro": 1,
+    "chorus": 65,
+    "aliases": [
+      "かげろう",
+      "陽炎"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 251156,
+    "channel": "天下取り隊 - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "せんごくおとめももいろぱらどっくす",
+      "戦国乙女",
+      "せんごくおとめ",
+      "桃色パラドックス",
+      "ももいろぱらどっくす"
+    ],
+    "artistAliases": [
+      "てんかとりたい"
     ]
   },
   {
@@ -26474,6 +28515,38 @@
     ]
   },
   {
+    "id": "ypdfRodp1yY",
+    "title": "future is serious",
+    "work": "クイーンズブレイド リベリオン",
+    "artist": "小林愛香",
+    "year": 2012,
+    "type": "ED",
+    "confidence": "低",
+    "source": "sola0051",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "フューチャーイズシリアス"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 253815,
+    "channel": "sola0051",
+    "viewsAt": "2026-10-10",
+    "fame": "minor",
+    "workAliases": [
+      "クイーンズブレイド"
+    ],
+    "artistAliases": [
+      "こばやしあいか",
+      "小林",
+      "こばやし",
+      "あいきゃん"
+    ]
+  },
+  {
     "id": "6eHuPYOJ2ZE",
     "title": "Hard Knock Days",
     "work": "ONE PIECE",
@@ -26506,6 +28579,40 @@
       "ジェネレーションズ",
       "ジェネ",
       "GENERATIONS"
+    ]
+  },
+  {
+    "id": "tVmyuR_KYIQ",
+    "title": "Hello!",
+    "work": "輪廻のラグランジェ",
+    "artist": "中島愛",
+    "year": 2012,
+    "type": "ED",
+    "confidence": "中",
+    "source": "中島愛公式",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ハロー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 48092,
+    "channel": "中島愛",
+    "viewsAt": "2026-10-10",
+    "fame": "minor",
+    "workAliases": [
+      "りんねのらぐらんじぇ",
+      "ラグランジェ",
+      "ラグりん"
+    ],
+    "artistAliases": [
+      "なかじまめぐみ",
+      "中島",
+      "なかじま",
+      "まめぐ"
     ]
   },
   {
@@ -26772,6 +28879,45 @@
     ]
   },
   {
+    "id": "0XQ2ISpKnkY",
+    "title": "marshmallow justice",
+    "work": "偽物語",
+    "artist": "阿良々木火憐（喜多村英梨）",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "低",
+    "source": "StiylMagnus",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "マシュマロジャスティス"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 399697,
+    "channel": "StiylMagnus",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "workAliases": [
+      "にせものがたり",
+      "物語シリーズ",
+      "ものがたりしりーず",
+      "化物語",
+      "ばけものがたり"
+    ],
+    "artistAliases": [
+      "喜多村英梨",
+      "きたむらえり",
+      "喜多村",
+      "きたむら",
+      "キタエリ",
+      "阿良々木火憐",
+      "あららぎかれん"
+    ]
+  },
+  {
     "id": "38__UrxhvzY",
     "title": "METRO BAROQUE",
     "work": "劇場版 BLOOD-C The Last Dark",
@@ -26802,6 +28948,39 @@
       "水樹",
       "みずき"
     ]
+  },
+  {
+    "id": "Z5gleFoidrY",
+    "title": "MIRACLE RUSH",
+    "work": "咲-Saki- 阿知賀編 episode of side-A",
+    "artist": "StylipS",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "中",
+    "source": "StylipS（Topic）",
+    "intro": 3.5,
+    "chorus": 72,
+    "aliases": [
+      "ミラクルラッシュ"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 66834,
+    "channel": "StylipS - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "さきあちがへん",
+      "さき",
+      "阿知賀編",
+      "あちがへん"
+    ],
+    "artistAliases": [
+      "スタイリップス"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "iz8q6NmU7xU",
@@ -26905,6 +29084,47 @@
     ]
   },
   {
+    "id": "QkipWXIcb-o",
+    "title": "perfect slumbers",
+    "work": "猫物語（黒）",
+    "artist": "羽川翼（堀江由衣）",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "低",
+    "source": "oreomonogatari",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "パーフェクトスランバーズ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 2480611,
+    "channel": "oreomonogatari",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "workAliases": [
+      "ねこものがたりくろ",
+      "猫物語",
+      "ねこものがたり",
+      "物語シリーズ",
+      "ものがたりしりーず",
+      "化物語",
+      "ばけものがたり"
+    ],
+    "artistAliases": [
+      "堀江由衣",
+      "ほりえゆい",
+      "堀江",
+      "ほりえ",
+      "ほっちゃん",
+      "羽川翼",
+      "はねかわつばさ"
+    ]
+  },
+  {
     "id": "q2dbhaEEpiw",
     "title": "Planetes",
     "work": "ギルティクラウン ロストクリスマス",
@@ -26958,7 +29178,7 @@
     "views": 228329,
     "channel": "Haruka Tomatsu - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "となりのかいぶつくん"
     ],
@@ -27105,6 +29325,37 @@
     ]
   },
   {
+    "id": "8HmyWJXohv0",
+    "title": "STUDY×STUDY",
+    "work": "ハイスクールD×D",
+    "artist": "StylipS",
+    "year": 2012,
+    "type": "ED",
+    "confidence": "中",
+    "source": "StylipS（Topic）",
+    "intro": 0,
+    "chorus": 56,
+    "aliases": [
+      "スタディスタディ"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 223701,
+    "channel": "StylipS - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はいすくーるでぃーでぃー",
+      "ハイスクールDD"
+    ],
+    "artistAliases": [
+      "スタイリップス"
+    ]
+  },
+  {
     "id": "5aOLQQ9kPdk",
     "title": "sugar sweet nightmare",
     "work": "偽物語",
@@ -27165,7 +29416,7 @@
     "views": 5272094,
     "channel": "水樹奈々",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "せんきぜっしょうしんふぉぎあ",
       "しんふぉぎあ",
@@ -27273,6 +29524,73 @@
     ],
     "artistAliases": [
       "カラフィナ"
+    ]
+  },
+  {
+    "id": "PXTVdbYq18Y",
+    "title": "Trip -innocent of D-",
+    "work": "ハイスクールD×D",
+    "artist": "Larval Stage Planning",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Larval Stage Planning公式",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "トリップイノセントオブディー",
+      "トリップ"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 123225,
+    "channel": "Larval Stage Planning",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はいすくーるでぃーでぃー",
+      "ハイスクールDD"
+    ],
+    "artistAliases": [
+      "ラーヴァルステージプランニング",
+      "ラーバルステージプランニング"
+    ]
+  },
+  {
+    "id": "2CwPXJGRJIM",
+    "title": "TRY UNITE!",
+    "work": "輪廻のラグランジェ",
+    "artist": "中島愛",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "中",
+    "source": "中島愛",
+    "intro": 5.7,
+    "chorus": 64,
+    "aliases": [
+      "トライユナイト"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 283598,
+    "channel": "中島愛",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "りんねのらぐらんじぇ",
+      "ラグランジェ",
+      "ラグりん"
+    ],
+    "artistAliases": [
+      "なかじまめぐみ",
+      "中島",
+      "なかじま",
+      "まめぐ"
     ]
   },
   {
@@ -27579,6 +29897,10 @@
     "singer": [
       "米津玄師",
       "ハチ"
+    ],
+    "artistAliases": [
+      "米津玄師",
+      "よねづけんし"
     ]
   },
   {
@@ -27804,6 +30126,41 @@
     "artistAliases": [
       "フロウ"
     ]
+  },
+  {
+    "id": "AnAghUtXXjQ",
+    "title": "マーブル",
+    "work": "輪廻のラグランジェ season2",
+    "artist": "中島愛",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "中",
+    "source": "FlyingDog公式",
+    "intro": 4.2,
+    "chorus": 98,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "normal",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 370362,
+    "channel": "FlyingDog",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "りんねのらぐらんじぇしーずんつー",
+      "輪廻のラグランジェ",
+      "りんねのらぐらんじぇ",
+      "ラグランジェ",
+      "ラグりん"
+    ],
+    "artistAliases": [
+      "なかじまめぐみ",
+      "中島",
+      "なかじま",
+      "まめぐ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "MLbQKMblcsw",
@@ -28206,6 +30563,9 @@
       "せんきぜっしょうしんふぉぎあ",
       "しんふぉぎあ",
       "戦姫絶唱シンフォギア"
+    ],
+    "artistAliases": [
+      "つばいうぃんぐ"
     ]
   },
   {
@@ -28415,6 +30775,41 @@
     ]
   },
   {
+    "id": "nwu8W0P8JHY",
+    "title": "重力シンパシー",
+    "work": "AKB48（パチンコ）",
+    "artist": "AKB48 チームサプライズ",
+    "year": 2012,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "AKB48公式",
+    "intro": 0,
+    "chorus": 25,
+    "aliases": [
+      "じゅうりょくしんぱしー"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1539035,
+    "channel": "AKB48",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "えーけーびーふぉーてぃーえいと",
+      "AKB48",
+      "AKB"
+    ],
+    "artistAliases": [
+      "えーけーびーふぉーてぃーえいとちーむさぷらいず",
+      "チームサプライズ",
+      "AKB48",
+      "AKB"
+    ]
+  },
+  {
     "id": "6yAebPF-Fsw",
     "title": "初心をKEEP ON!",
     "work": "イナズマイレブンGO クロノ・ストーン",
@@ -28445,6 +30840,43 @@
       "ティーピストンズ",
       "ケーエムシー"
     ]
+  },
+  {
+    "id": "NsZ_rmKRYBI",
+    "title": "消えるdaydream",
+    "work": "猫物語（黒）",
+    "artist": "河野マリナ",
+    "year": 2012,
+    "type": "ED",
+    "confidence": "低",
+    "source": "oreomonogatari",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "きえるでいどりーむ"
+    ],
+    "embeddable": null,
+    "chorusChecked": true,
+    "views": 405000,
+    "channel": "oreomonogatari",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "workAliases": [
+      "ねこものがたりくろ",
+      "猫物語",
+      "ねこものがたり",
+      "物語シリーズ",
+      "ものがたりしりーず",
+      "化物語",
+      "ばけものがたり"
+    ],
+    "artistAliases": [
+      "こうのまりな",
+      "河野",
+      "こうの"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "MaD5yUjgGl8",
@@ -28577,6 +31009,45 @@
     ]
   },
   {
+    "id": "NQJz2HUk-us",
+    "title": "二言目",
+    "work": "偽物語",
+    "artist": "戦場ヶ原ひたぎ（斎藤千和）",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "低",
+    "source": "T4keSy",
+    "intro": 0.2,
+    "chorus": 69,
+    "aliases": [
+      "ふたことめ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 480268,
+    "channel": "T4keSy",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "workAliases": [
+      "にせものがたり",
+      "物語シリーズ",
+      "ものがたりしりーず",
+      "化物語",
+      "ばけものがたり"
+    ],
+    "artistAliases": [
+      "斎藤千和",
+      "さいとうちわ",
+      "斎藤",
+      "さいとう",
+      "戦場ヶ原ひたぎ",
+      "せんじょうがはらひたぎ"
+    ]
+  },
+  {
     "id": "HjcWqtbpWR8",
     "title": "如月アテンション",
     "work": "ボカロ（じん）",
@@ -28667,6 +31138,42 @@
       "いぐちゆか",
       "井口",
       "いぐち"
+    ]
+  },
+  {
+    "id": "0ncQk9A9G9U",
+    "title": "武士ノ花",
+    "work": "花の慶次（パチンコ）",
+    "artist": "角田信朗",
+    "year": 2012,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "KING RECORDS",
+    "intro": 16.5,
+    "chorus": 86,
+    "aliases": [
+      "もののふのはな",
+      "ぶしのはな"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 838484,
+    "channel": "KING RECORDS",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はなのけいじ",
+      "花の慶次",
+      "慶次",
+      "けいじ"
+    ],
+    "artistAliases": [
+      "かくだのぶあき",
+      "角田",
+      "かくだ"
     ]
   },
   {
@@ -28831,6 +31338,67 @@
     ],
     "artistAliases": [
       "エゴイスト"
+    ]
+  },
+  {
+    "id": "kORWyMf2r3U",
+    "title": "命のうたが聞こえる",
+    "work": "クイーンズブレイド リベリオン",
+    "artist": "田村直美",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "低",
+    "source": "sola0051",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "いのちのうたがきこえる"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 376154,
+    "channel": "sola0051",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "workAliases": [
+      "クイーンズブレイド"
+    ],
+    "artistAliases": [
+      "たむらなおみ",
+      "田村",
+      "たむら"
+    ]
+  },
+  {
+    "id": "asCFzN3HXZU",
+    "title": "夜明けの風",
+    "work": "必殺仕事人（パチンコ）",
+    "artist": "ジェロ",
+    "year": 2012,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Victor Entertainment",
+    "intro": 0.7,
+    "chorus": 54,
+    "aliases": [
+      "よあけのかぜ"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 166999,
+    "channel": "Victor Entertainment",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "ひっさつしごとにん",
+      "必殺仕事人",
+      "仕事人",
+      "しごとにん"
     ]
   },
   {
@@ -29088,6 +31656,45 @@
     ]
   },
   {
+    "id": "xhZQ46ZRzq0",
+    "title": "chocolate insomnia",
+    "work": "〈物語〉シリーズ セカンドシーズン",
+    "artist": "羽川翼（堀江由衣）",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "低",
+    "source": "T4keSy",
+    "intro": 0.5,
+    "chorus": 58,
+    "aliases": [
+      "チョコレートインソムニア"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 941594,
+    "channel": "T4keSy",
+    "viewsAt": "2026-10-10",
+    "fame": "normal",
+    "workAliases": [
+      "ものがたりしりーず",
+      "物語シリーズ",
+      "化物語",
+      "ばけものがたり"
+    ],
+    "artistAliases": [
+      "堀江由衣",
+      "ほりえゆい",
+      "堀江",
+      "ほりえ",
+      "ほっちゃん",
+      "羽川翼",
+      "はねかわつばさ"
+    ]
+  },
+  {
     "id": "pgCNibhSYsY",
     "title": "Daisy",
     "work": "境界の彼方",
@@ -29188,6 +31795,37 @@
     ],
     "artistAliases": [
       "フリップサイド"
+    ]
+  },
+  {
+    "id": "Zrfh9fYYxKw",
+    "title": "Fan Fanfare!!!",
+    "work": "世界でいちばん強くなりたい!",
+    "artist": "Sweet Diva",
+    "year": 2013,
+    "type": "ED",
+    "confidence": "中",
+    "source": "Sweet Diva(萩原さくら(CV:竹達彩奈) 宮澤エレナ(CV:阿澄佳奈) 菅野七海(CV:大坪由佳) 望月悠歩(CV:伊藤美来) ...（Topic）",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "ファンファンファーレ"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 29379,
+    "channel": "Sweet Diva(萩原さくら(CV:竹達彩奈) 宮澤エレナ(CV:阿澄佳奈) 菅野七海(CV:大坪由佳) 望月悠歩(CV:伊藤美来) ... - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "せかいでいちばんつよくなりたい",
+      "せかつよ"
+    ],
+    "artistAliases": [
+      "スウィートディーヴァ",
+      "スイートディーバ"
     ]
   },
   {
@@ -29293,6 +31931,44 @@
     ],
     "artistAliases": [
       "シネマスタッフ"
+    ]
+  },
+  {
+    "id": "UeSpuMQm5KY",
+    "title": "happy bite",
+    "work": "〈物語〉シリーズ セカンドシーズン",
+    "artist": "八九寺真宵（加藤英美里）",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "低",
+    "source": "夜空の想い",
+    "intro": 0.2,
+    "chorus": 79,
+    "aliases": [
+      "ハッピーバイト"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 152824,
+    "channel": "夜空の想い",
+    "viewsAt": "2026-10-10",
+    "fame": "minor",
+    "workAliases": [
+      "ものがたりしりーず",
+      "物語シリーズ",
+      "化物語",
+      "ばけものがたり"
+    ],
+    "artistAliases": [
+      "加藤英美里",
+      "かとうえみり",
+      "加藤",
+      "かとう",
+      "八九寺真宵",
+      "はちくじまよい"
     ]
   },
   {
@@ -29488,7 +32164,7 @@
     "views": 5284219,
     "channel": "SPYAIR Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "さむらいふらめんこ",
       "サムメン"
@@ -29530,6 +32206,37 @@
     ],
     "artistAliases": [
       "レイ"
+    ]
+  },
+  {
+    "id": "b6jmLm830ps",
+    "title": "Miracle Halloween",
+    "work": "マジカルハロウィン（パチスロ）",
+    "artist": "Sana",
+    "year": 2013,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "SANA公式",
+    "intro": 0,
+    "chorus": 81,
+    "aliases": [
+      "ミラクルハロウィン"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 375496,
+    "channel": "SANA",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "まじかるはろうぃん",
+      "マジハロ"
+    ],
+    "artistAliases": [
+      "サナ"
     ]
   },
   {
@@ -30036,7 +32743,7 @@
     "views": 273067,
     "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "らぶらいぶ",
       "Love Live",
@@ -30044,6 +32751,77 @@
     ],
     "artistAliases": [
       "ミューズ"
+    ]
+  },
+  {
+    "id": "35Jm2WNMCFE",
+    "title": "Surely",
+    "work": "化物語",
+    "artist": "ClariS",
+    "year": 2013,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "ClariS公式",
+    "intro": 0,
+    "chorus": 73,
+    "aliases": [
+      "シュアリー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 619443,
+    "channel": "ClariS Official YouTube Channel",
+    "viewsAt": "2026-10-10",
+    "fame": "otaku",
+    "workAliases": [
+      "ばけものがたり",
+      "物語シリーズ",
+      "ものがたりしりーず",
+      "化物語"
+    ],
+    "artistAliases": [
+      "クラリス"
+    ]
+  },
+  {
+    "id": "QODokSjb48g",
+    "title": "the last day of my adolescence",
+    "work": "〈物語〉シリーズ セカンドシーズン",
+    "artist": "神原駿河（沢城みゆき）",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "低",
+    "source": "Iván Monroy",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [
+      "ザラストデイオブマイアドレセンス"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 42521,
+    "channel": "Iván Monroy",
+    "viewsAt": "2026-10-10",
+    "fame": "minor",
+    "workAliases": [
+      "ものがたりしりーず",
+      "物語シリーズ",
+      "化物語",
+      "ばけものがたり"
+    ],
+    "artistAliases": [
+      "沢城みゆき",
+      "さわしろみゆき",
+      "沢城",
+      "さわしろ",
+      "みゆきち",
+      "神原駿河",
+      "かんばるするが"
     ]
   },
   {
@@ -30913,6 +33691,10 @@
     "chorusBefore": 68,
     "vocal": [
       "GUMI"
+    ],
+    "artistAliases": [
+      "米津玄師",
+      "よねづけんし"
     ]
   },
   {
@@ -31117,6 +33899,37 @@
       "ユーミン",
       "荒井",
       "あらい"
+    ]
+  },
+  {
+    "id": "7d4yNWjkJ_E",
+    "title": "ビューティフル・ドリーマー",
+    "work": "世界でいちばん強くなりたい!",
+    "artist": "鳴海杏子",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "中",
+    "source": "鳴海杏子（Topic）",
+    "intro": 0.2,
+    "chorus": 129,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 82151,
+    "channel": "鳴海杏子 - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "せかいでいちばんつよくなりたい",
+      "せかつよ"
+    ],
+    "artistAliases": [
+      "なるみきょうこ",
+      "鳴海",
+      "なるみ"
     ]
   },
   {
@@ -31612,6 +34425,38 @@
     ],
     "artistAliases": [
       "カラフィナ"
+    ]
+  },
+  {
+    "id": "MvMjAGCuVoI",
+    "title": "激情論",
+    "work": "ハイスクールD×D NEW",
+    "artist": "ZAQ",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ZAQ Official Channel",
+    "intro": 0.5,
+    "chorus": 80,
+    "aliases": [
+      "げきじょうろん"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1275772,
+    "channel": "ZAQ Official Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はいすくーるでぃーでぃーにゅー",
+      "ハイスクールD×D",
+      "はいすくーるでぃーでぃー"
+    ],
+    "artistAliases": [
+      "ザック"
     ]
   },
   {
@@ -32135,6 +34980,45 @@
       "すずきこのみ",
       "鈴木",
       "すずき"
+    ]
+  },
+  {
+    "id": "zVVtRi570jg",
+    "title": "木枯らしセンティメント",
+    "work": "〈物語〉シリーズ セカンドシーズン",
+    "artist": "戦場ヶ原ひたぎ・貝木泥舟",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "低",
+    "source": "mojr",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "こがらしせんてぃめんと"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 106283,
+    "channel": "mojr",
+    "viewsAt": "2026-10-10",
+    "fame": "minor",
+    "workAliases": [
+      "ものがたりしりーず",
+      "物語シリーズ",
+      "化物語",
+      "ばけものがたり"
+    ],
+    "artistAliases": [
+      "斎藤千和",
+      "さいとうちわ",
+      "三木眞一郎",
+      "みきしんいちろう",
+      "戦場ヶ原ひたぎ",
+      "せんじょうがはらひたぎ",
+      "貝木泥舟",
+      "かいきでいしゅう"
     ]
   },
   {
@@ -33450,7 +36334,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "Topic",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 67.8,
     "aliases": [
       "ラブウィングベル"
@@ -33458,7 +36342,7 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": false,
+    "introMeasured": true,
     "chorusChecked": true,
     "views": 31052,
     "channel": "Rin Hoshizora (CV: Riho Iida) - Topic",
@@ -33473,7 +36357,8 @@
     ],
     "artistAliases": [
       "ほしぞらりん"
-    ]
+    ],
+    "introMethod": "v2"
   },
   {
     "id": "VNnciosQYVA",
@@ -33653,6 +36538,41 @@
     "artistAliases": [
       "ももいろくろーばーぜっと",
       "ももクロ"
+    ]
+  },
+  {
+    "id": "zvuUgPLcivE",
+    "title": "New SPARKS!",
+    "work": "咲-Saki- 全国編",
+    "artist": "橋本みゆき",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Lantis Channel",
+    "intro": 2,
+    "chorus": 68,
+    "aliases": [
+      "ニュースパークス"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 133324,
+    "channel": "Lantis Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "さきぜんこくへん",
+      "さき",
+      "全国編",
+      "ぜんこくへん"
+    ],
+    "artistAliases": [
+      "はしもとみゆき",
+      "橋本",
+      "はしもと"
     ]
   },
   {
@@ -34862,6 +37782,40 @@
     ]
   },
   {
+    "id": "uPiFFE1tXeg",
+    "title": "プレジデント",
+    "work": "押忍！サラリーマン番長（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2014,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.2,
+    "chorus": 82,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2973699,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "おすさらりーまんばんちょう",
+      "押忍！サラリーマン番長",
+      "サラリーマン番長",
+      "さらりーまんばんちょう",
+      "サラ番",
+      "さらばん"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ]
+  },
+  {
     "id": "ef__ONqSlUU",
     "title": "ホシノカケラ",
     "work": "天体のメソッド",
@@ -34948,6 +37902,70 @@
     ],
     "artistAliases": [
       "みかくにんぐ"
+    ]
+  },
+  {
+    "id": "A5-xU-Rv6IE",
+    "title": "ミーモ・ダンシング",
+    "work": "押忍！サラリーマン番長（パチスロ）",
+    "artist": "Daito Music",
+    "year": 2014,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Daito Music OFFCIAL",
+    "intro": 6.2,
+    "chorus": 71,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 8210393,
+    "channel": "Daito Music OFFCIAL",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "おすさらりーまんばんちょう",
+      "押忍！サラリーマン番長",
+      "サラリーマン番長",
+      "さらりーまんばんちょう",
+      "サラ番",
+      "さらばん"
+    ],
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ]
+  },
+  {
+    "id": "kYEIzzRXfag",
+    "title": "もっともっとくじらっきー",
+    "work": "海物語（パチンコ）",
+    "artist": "吉木りさ",
+    "year": 2014,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Risa Yoshiki（Topic）",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 4082,
+    "channel": "Risa Yoshiki - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "うみものがたり",
+      "海物語"
+    ],
+    "artistAliases": [
+      "よしきりさ",
+      "吉木",
+      "よしき"
     ]
   },
   {
@@ -35233,7 +38251,7 @@
     "views": 5134739,
     "channel": "THE FIRST TAKE",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "げっかんしょうじょのざきくん",
       "野崎くん"
@@ -35307,6 +38325,39 @@
     ],
     "artistAliases": [
       "グースハウス"
+    ]
+  },
+  {
+    "id": "8Fka2V30FK4",
+    "title": "紅い実",
+    "work": "地獄少女（パチンコ）",
+    "artist": "佐藤聡美",
+    "year": 2014,
+    "type": "イメージソング",
+    "confidence": "低",
+    "source": "soborodesaido",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "あかいみ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 640641,
+    "channel": "soborodesaido",
+    "viewsAt": "2026-10-10",
+    "fame": "otaku",
+    "workAliases": [
+      "地獄少女",
+      "じごくしょうじょ"
+    ],
+    "artistAliases": [
+      "さとうさとみ",
+      "佐藤",
+      "さとう",
+      "しゅがりん"
     ]
   },
   {
@@ -35491,7 +38542,7 @@
     "views": 207466,
     "channel": "Natsumi Kon - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "ぎんがきこうたいまじぇすてぃっくぷりんす",
       "まじぇすてぃっくぷりんす"
@@ -35584,7 +38635,7 @@
     "views": 5414099,
     "channel": "fhána Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "そらのめそっど",
       "天メソ",
@@ -35841,6 +38892,41 @@
     ]
   },
   {
+    "id": "w9s8LXvhAu8",
+    "title": "恋も喧嘩も華と咲け",
+    "work": "花の慶次（パチンコ）",
+    "artist": "角田信朗",
+    "year": 2014,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Nobuaki Kakuda（Topic）",
+    "intro": 0.7,
+    "chorus": 78,
+    "aliases": [
+      "こいもけんかもはなとさけ"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 247733,
+    "channel": "Nobuaki Kakuda - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はなのけいじ",
+      "花の慶次",
+      "慶次",
+      "けいじ"
+    ],
+    "artistAliases": [
+      "かくだのぶあき",
+      "角田",
+      "かくだ"
+    ]
+  },
+  {
     "id": "uIrI4M8ia2E",
     "title": "&Z",
     "work": "アルドノア・ゼロ 2期",
@@ -35972,6 +39058,38 @@
       "みずきなな",
       "水樹",
       "みずき"
+    ]
+  },
+  {
+    "id": "OsunNN02t4Y",
+    "title": "BLESS YoUr NAME",
+    "work": "ハイスクールD×D BorN",
+    "artist": "ChouCho",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Lantis Channel",
+    "intro": 5.2,
+    "chorus": 71,
+    "aliases": [
+      "ブレスユアネーム"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 229793,
+    "channel": "Lantis Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はいすくーるでぃーでぃーぼーん",
+      "ハイスクールD×D",
+      "はいすくーるでぃーでぃー"
+    ],
+    "artistAliases": [
+      "ちょうちょ"
     ]
   },
   {
@@ -36623,7 +39741,7 @@
     "views": 218591,
     "channel": "OxT - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "だいやのえーす",
       "ダイヤのA"
@@ -36723,7 +39841,7 @@
     "views": 1938015,
     "channel": "Isobe Karin - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ごーぷりんせすぷりきゅあ",
       "プリキュア",
@@ -37625,7 +40743,7 @@
     "views": 275959,
     "channel": "日本コロムビア 公式YouTubeチャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "あいどるますたーしんでれらがーるず",
       "デレマス",
@@ -38019,7 +41137,7 @@
     "views": 198455,
     "channel": "KITAUJI QUARTET - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "ひびけゆーふぉにあむ",
       "ユーフォ",
@@ -38268,7 +41386,7 @@
     "views": 290471,
     "channel": "FlyingDog",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "introMeasured": true,
     "introMethod": "v2",
     "introSource": null,
@@ -38312,6 +41430,43 @@
       "あおいえいる",
       "藍井",
       "あおい"
+    ]
+  },
+  {
+    "id": "X2wMD6CDZ9g",
+    "title": "リザレクション",
+    "work": "新劇場版 頭文字D Legend2 -闘走-",
+    "artist": "BACK-ON",
+    "year": 2015,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "avex",
+    "intro": 11.5,
+    "chorus": 40,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2012505,
+    "channel": "avex",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "しんげきじょうばんいにしゃるでぃーれじぇんどつーとうそう",
+      "頭文字D",
+      "いにしゃるでぃー",
+      "イニD",
+      "いにでぃー",
+      "頭文字D Legend2",
+      "いにしゃるでぃーれじぇんど2",
+      "いにしゃるでぃーれじぇんどつー",
+      "闘走",
+      "とうそう"
+    ],
+    "artistAliases": [
+      "バックオン"
     ]
   },
   {
@@ -38508,6 +41663,41 @@
     "artistAliases": [
       "オーラルシガレッツ",
       "オーラル"
+    ]
+  },
+  {
+    "id": "zoWVDqU5zZI",
+    "title": "空へ",
+    "work": "花の慶次（パチンコ）",
+    "artist": "角田信朗",
+    "year": 2015,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Nobuaki Kakuda（Topic）",
+    "intro": 1.5,
+    "chorus": 77,
+    "aliases": [
+      "そらへ"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 419484,
+    "channel": "Nobuaki Kakuda - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はなのけいじ",
+      "花の慶次",
+      "慶次",
+      "けいじ"
+    ],
+    "artistAliases": [
+      "かくだのぶあき",
+      "角田",
+      "かくだ"
     ]
   },
   {
@@ -38973,6 +42163,35 @@
     ]
   },
   {
+    "id": "0wR5ckTUONQ",
+    "title": "青春はNon-Stop!",
+    "work": "SHOW BY ROCK!!",
+    "artist": "プラズマジカ",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Ayane Sakura（Topic）",
+    "intro": 1.7,
+    "chorus": 70,
+    "aliases": [
+      "せいしゅんはのんすとっぷ",
+      "青春はノンストップ"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 118023,
+    "channel": "Ayane Sakura - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "しょうばいろっく",
+      "SB69"
+    ]
+  },
+  {
     "id": "saVHURi1uhU",
     "title": "青春は花火のように",
     "work": "進撃!巨人中学校",
@@ -39042,6 +42261,38 @@
     ]
   },
   {
+    "id": "g9iEdgyutPs",
+    "title": "走るぜ獣王",
+    "work": "獣王（パチンコ）",
+    "artist": "影山ヒロノブ",
+    "year": 2015,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "影山ヒロノブ公式",
+    "intro": 1,
+    "chorus": 0,
+    "aliases": [
+      "はしるぜじゅうおう"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 3880,
+    "channel": "Kageyama Hironobu Official YouTube Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "じゅうおう",
+      "獣王"
+    ],
+    "artistAliases": [
+      "かげやまひろのぶ",
+      "影山",
+      "かげやま"
+    ]
+  },
+  {
     "id": "uO5TYG4BBOk",
     "title": "超絶☆ダイナミック!",
     "work": "ドラゴンボール超",
@@ -39107,6 +42358,71 @@
     ]
   },
   {
+    "id": "fdtVgT8-83k",
+    "title": "天かける星",
+    "work": "うたわれるもの 偽りの仮面",
+    "artist": "Suara",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Suara（Topic）",
+    "intro": 0.7,
+    "chorus": 0,
+    "aliases": [
+      "あまかけるほし"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 16071,
+    "channel": "Suara - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "うたわれるものいつわりのかめん",
+      "うたわれるもの",
+      "うたわれ",
+      "偽りの仮面",
+      "いつわりのかめん"
+    ],
+    "artistAliases": [
+      "スアラ"
+    ]
+  },
+  {
+    "id": "IYks_f2OYJQ",
+    "title": "闘いの詩",
+    "work": "聖戦士ダンバイン（パチンコ）",
+    "artist": "THE NEUTRAL",
+    "year": 2015,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "THE NEUTRAL（Topic）",
+    "intro": 2.7,
+    "chorus": 69,
+    "aliases": [
+      "たたかいのうた"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 798258,
+    "channel": "THE NEUTRAL - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "せいせんしだんばいん",
+      "ダンバイン"
+    ],
+    "artistAliases": [
+      "ザニュートラル",
+      "ニュートラル"
+    ]
+  },
+  {
     "id": "JFFiJ_eJSP0",
     "title": "虹の空",
     "work": "NARUTO -ナルト- 疾風伝",
@@ -39138,6 +42454,40 @@
     ]
   },
   {
+    "id": "hJ-7PGyXDyA",
+    "title": "不安定な神様",
+    "work": "うたわれるもの 偽りの仮面",
+    "artist": "Suara",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Suara（Topic）",
+    "intro": 1.2,
+    "chorus": 65,
+    "aliases": [
+      "ふあんていなかみさま"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 90980,
+    "channel": "Suara - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "うたわれるものいつわりのかめん",
+      "うたわれるもの",
+      "うたわれ",
+      "偽りの仮面",
+      "いつわりのかめん"
+    ],
+    "artistAliases": [
+      "スアラ"
+    ]
+  },
+  {
     "id": "1bC5CNDk_mw",
     "title": "僕たちはひとつの光",
     "work": "ラブライブ!The School Idol Movie",
@@ -39146,7 +42496,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "ラブライブ!シリーズ公式",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 75.4,
     "aliases": [
       "ぼくたちはひとつのひかり"
@@ -39154,7 +42504,7 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": false,
+    "introMeasured": true,
     "chorusSource": "manual",
     "views": 222141,
     "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
@@ -39167,7 +42517,8 @@
     ],
     "artistAliases": [
       "ミューズ"
-    ]
+    ],
+    "introMethod": "v2"
   },
   {
     "id": "en8jbz3aVJE",
@@ -39688,6 +43039,37 @@
     ],
     "artistAliases": [
       "トゥルー"
+    ]
+  },
+  {
+    "id": "J4rXpIfGVYE",
+    "title": "étoile et toi",
+    "work": "傷物語",
+    "artist": "クレモンティーヌ",
+    "year": 2016,
+    "type": "ED",
+    "confidence": "中",
+    "source": "MONOGATARI Series（Topic）",
+    "intro": 0.2,
+    "chorus": 110,
+    "aliases": [
+      "エトワールエトワ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 93021,
+    "channel": "MONOGATARI Series - Topic",
+    "viewsAt": "2026-10-10",
+    "fame": "minor",
+    "workAliases": [
+      "きずものがたり",
+      "物語シリーズ",
+      "ものがたりしりーず",
+      "化物語",
+      "ばけものがたり"
     ]
   },
   {
@@ -41083,6 +44465,41 @@
     ]
   },
   {
+    "id": "DyhO3wy1Kzo",
+    "title": "いくさで咲くは花の慶次",
+    "work": "花の慶次（パチンコ）",
+    "artist": "小林幸子",
+    "year": 2016,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Kobayashi Sachiko（Topic）",
+    "intro": 1.2,
+    "chorus": 86,
+    "aliases": [
+      "いくさでさくははなのけいじ"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 129742,
+    "channel": "Kobayashi Sachiko - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はなのけいじ",
+      "花の慶次",
+      "慶次",
+      "けいじ"
+    ],
+    "artistAliases": [
+      "こばやしさちこ",
+      "小林",
+      "こばやし"
+    ]
+  },
+  {
     "id": "AK3GGK_d0t4",
     "title": "エアキャッチボール",
     "work": "押忍！番長（パチスロ）",
@@ -41107,7 +44524,8 @@
       "おすばんちょう"
     ],
     "artistAliases": [
-      "ダイトミュージック"
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
     ]
   },
   {
@@ -42230,7 +45648,7 @@
     "views": 5412123,
     "channel": "fhána Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "chorusBefore": 51,
     "workAliases": [
       "はるちかはるたとちかはせいしゅんする",
@@ -45430,6 +48848,40 @@
     ]
   },
   {
+    "id": "n0drd2hxstk",
+    "title": "傾奇狂い歌",
+    "work": "花の慶次（パチンコ）",
+    "artist": "角田信朗",
+    "year": 2017,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "ニューギンチャンネル",
+    "intro": 6.5,
+    "chorus": 0,
+    "aliases": [
+      "かぶきくるいうた"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 8228,
+    "channel": "ニューギンチャンネル",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はなのけいじ",
+      "花の慶次",
+      "慶次",
+      "けいじ"
+    ],
+    "artistAliases": [
+      "かくだのぶあき",
+      "角田",
+      "かくだ"
+    ]
+  },
+  {
     "id": "S7QsHpLU1Sw",
     "title": "限界突破×サバイバー",
     "work": "ドラゴンボール超",
@@ -45490,6 +48942,10 @@
     "introBefore": 2.7,
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "米津玄師",
+      "よねづけんし"
     ]
   },
   {
@@ -45587,7 +49043,7 @@
     "views": 61713391,
     "channel": "fhána Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "top",
     "workAliases": [
       "こばやしさんちのめいどらごん",
       "メイドラゴン",
@@ -46322,7 +49778,7 @@
     "views": 280791,
     "channel": "Maaya Sakamoto",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "かーどきゃぷたーさくら",
       "CCさくら"
@@ -46828,7 +50284,7 @@
     "views": 5302095,
     "channel": "KADOKAWAanime",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "おーばーろーど",
       "OVERLORD"
@@ -47279,6 +50735,30 @@
       "ウーバーワールド",
       "ウーバー"
     ]
+  },
+  {
+    "id": "dW5qjRvmVNw",
+    "title": "Over me",
+    "work": "からくりサーカス",
+    "artist": "ロザリーナ",
+    "year": 2018,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ロザリーナ OFFICIAL CHANNEL",
+    "intro": 5.5,
+    "chorus": 129,
+    "aliases": [
+      "オーバーミー"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1076902,
+    "channel": "ロザリーナ OFFICIAL CHANNEL",
+    "viewsAt": "2026-10-09"
   },
   {
     "id": "OaXiTwgkDAw",
@@ -48480,6 +51960,31 @@
     ]
   },
   {
+    "id": "vNVlpyJAbx4",
+    "title": "ハグルマ",
+    "work": "からくりサーカス",
+    "artist": "KANA-BOON",
+    "year": 2018,
+    "type": "OP",
+    "confidence": "中",
+    "source": "KANA-BOON Official YouTube Channel",
+    "intro": 2,
+    "chorus": 54,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "normal",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2567204,
+    "channel": "KANA-BOON Official YouTube Channel",
+    "viewsAt": "2026-10-09",
+    "artistAliases": [
+      "カナブーン"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
     "id": "rWTjsCjH2kM",
     "title": "パプリカ",
     "work": "J-POP（Foorin）",
@@ -48731,16 +52236,39 @@
     "type": "",
     "confidence": "中",
     "source": "あいみょん",
-    "intro": 0,
+    "intro": 2.5,
     "chorus": 66,
     "aliases": [],
     "embeddable": null,
     "chorusSource": "manual",
-    "introMeasured": false,
+    "introMeasured": true,
     "views": 391095667,
     "channel": "あいみょん",
     "viewsAt": "2026-10-05",
-    "fame": "top"
+    "fame": "top",
+    "introMethod": "v2"
+  },
+  {
+    "id": "FWQGzF99kO0",
+    "title": "マリオネット",
+    "work": "からくりサーカス",
+    "artist": "ロザリーナ",
+    "year": 2018,
+    "type": "ED",
+    "confidence": "中",
+    "source": "ロザリーナ OFFICIAL CHANNEL",
+    "intro": 3.2,
+    "chorus": 63,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1555504,
+    "channel": "ロザリーナ OFFICIAL CHANNEL",
+    "viewsAt": "2026-10-09"
   },
   {
     "id": "UKU4B05fPck",
@@ -49960,7 +53488,7 @@
     "views": 5285030,
     "channel": "Sony Music Japan",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "chorusSource": "manual",
     "workAliases": [
       "ぽけっともんすたー",
@@ -50633,7 +54161,7 @@
     "views": 5134334,
     "channel": "水樹奈々",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "introMeasured": true,
     "introMethod": "v2",
     "introSource": "auto",
@@ -54684,6 +58212,40 @@
     ]
   },
   {
+    "id": "jrZcI3k_3u8",
+    "title": "Play the world",
+    "work": "痛いのは嫌なので防御力に極振りしたいと思います。",
+    "artist": "佐々木李子",
+    "year": 2020,
+    "type": "ED",
+    "confidence": "中",
+    "source": "AniTone Music Channel",
+    "intro": 2,
+    "chorus": 83,
+    "aliases": [
+      "プレイザワールド"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 368305,
+    "channel": "AniTone Music Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "いたいのはいやなのでぼうぎょりょくにきょくふりしたいとおもいます",
+      "防振り",
+      "ぼうふり"
+    ],
+    "artistAliases": [
+      "ささきりこ",
+      "佐々木",
+      "ささき"
+    ]
+  },
+  {
     "id": "5qftJ2P3lrQ",
     "title": "Prover",
     "work": "Fate/Grand Order -絶対魔獣戦線バビロニア-",
@@ -55867,6 +59429,33 @@
     ]
   },
   {
+    "id": "m-9WQ-Uv8BY",
+    "title": "ふたりの海物語",
+    "work": "海物語（パチンコ）",
+    "artist": "ワリン",
+    "year": 2020,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "SANYO MUSIC（Topic）",
+    "intro": 0.5,
+    "chorus": 0,
+    "aliases": [
+      "ふたりのうみものがたり"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 28331,
+    "channel": "SANYO MUSIC - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "うみものがたり",
+      "海物語"
+    ]
+  },
+  {
     "id": "tCiIq8-rKrw",
     "title": "ラストページ",
     "work": "その他（THE SIXTH LIE）",
@@ -56108,6 +59697,39 @@
     ]
   },
   {
+    "id": "6izatLNDE8s",
+    "title": "究極アンバランス！",
+    "work": "痛いのは嫌なので防御力に極振りしたいと思います。",
+    "artist": "純情のアフィリア",
+    "year": 2020,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Junjo no Afilia（Topic）",
+    "intro": 0.2,
+    "chorus": 67,
+    "aliases": [
+      "きゅうきょくあんばらんす"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 435254,
+    "channel": "Junjo no Afilia - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "いたいのはいやなのでぼうぎょりょくにきょくふりしたいとおもいます",
+      "防振り",
+      "ぼうふり"
+    ],
+    "artistAliases": [
+      "じゅんじょうのあふぃりあ",
+      "アフィリア"
+    ]
+  },
+  {
     "id": "xrCDTSsuRCM",
     "title": "極夜",
     "work": "ダンジョンに出会いを求めるのは間違っているだろうか 〜メモリア・フレーゼ〜",
@@ -56230,6 +59852,41 @@
       "チコ",
       "ハニーワークス",
       "ハニワ"
+    ]
+  },
+  {
+    "id": "ussB-gbgIug",
+    "title": "最期の一花",
+    "work": "花の慶次（パチンコ）",
+    "artist": "角田信朗",
+    "year": 2020,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Nobuaki Kakuda（Topic）",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [
+      "さいごのひとはな"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 212897,
+    "channel": "Nobuaki Kakuda - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "はなのけいじ",
+      "花の慶次",
+      "慶次",
+      "けいじ"
+    ],
+    "artistAliases": [
+      "かくだのぶあき",
+      "角田",
+      "かくだ"
     ]
   },
   {
@@ -57121,7 +60778,7 @@
     "views": 5211076,
     "channel": "EGOIST Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "びるでぃばいどこーどぶらっく",
       "びるでぃばいど"
@@ -57303,6 +60960,38 @@
       "ひげだん",
       "髭男"
     ]
+  },
+  {
+    "id": "CL8ihD3rPC4",
+    "title": "Dark seeks light",
+    "work": "世界最高の暗殺者、異世界貴族に転生する",
+    "artist": "ニノミヤユイ",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Lantis Channel",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [
+      "ダークシークスライト"
+    ],
+    "embeddable": null,
+    "fame": "famous",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 12933702,
+    "channel": "Lantis Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "せかいさいこうのあんさつしゃいせかいきぞくにてんせいする",
+      "暗殺貴族",
+      "あんさつきぞく"
+    ],
+    "artistAliases": [
+      "ニノミヤ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "9JUVJLF6XWI",
@@ -58226,7 +61915,7 @@
     "views": 5207062,
     "channel": "KING AMUSEMENT CREATIVE official channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "しゃーまんきんぐ",
       "SHAMAN KING"
@@ -58410,6 +62099,40 @@
     ],
     "artistAliases": [
       "トゥルー"
+    ]
+  },
+  {
+    "id": "J0vfz-EG3-s",
+    "title": "SYMPHONIA",
+    "work": "takt op.Destiny",
+    "artist": "中島美嘉",
+    "year": 2021,
+    "type": "ED",
+    "confidence": "中",
+    "source": "中島美嘉 Official YouTube Channel",
+    "intro": 11.5,
+    "chorus": 129,
+    "aliases": [
+      "シンフォニア"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 652341,
+    "channel": "中島美嘉 Official YouTube Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "たくとおーぱすですてぃにー",
+      "takt",
+      "タクト"
+    ],
+    "artistAliases": [
+      "なかしまみか",
+      "中島",
+      "なかじま"
     ]
   },
   {
@@ -59051,6 +62774,42 @@
     "artistAliases": [
       "サウシードッグ",
       "サウシー"
+    ]
+  },
+  {
+    "id": "bsFepb5o2x4",
+    "title": "タクト",
+    "work": "takt op.Destiny",
+    "artist": "ryo(supercell) feat. まふまふ & gaku",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "中",
+    "source": "ryo (supercell)公式",
+    "intro": 5.2,
+    "chorus": 64,
+    "aliases": [],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3893692,
+    "channel": "ryo (supercell)",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "たくとおーぱすですてぃにー",
+      "takt",
+      "タクト"
+    ],
+    "artistAliases": [
+      "りょう",
+      "ryo",
+      "supercell",
+      "スーパーセル",
+      "まふまふ",
+      "gaku",
+      "がく"
     ]
   },
   {
@@ -64016,6 +67775,40 @@
     ]
   },
   {
+    "id": "EM73yFQpiEY",
+    "title": "終結のはじまり",
+    "work": "エヴァンゲリオン（パチンコ）",
+    "artist": "林原めぐみ",
+    "year": 2022,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "Megumi Hayashibara（Topic）",
+    "intro": 0.7,
+    "chorus": 128,
+    "aliases": [
+      "しゅうけつのはじまり"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 189009,
+    "channel": "Megumi Hayashibara - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "エヴァンゲリオン",
+      "えばんげりおん",
+      "エヴァ"
+    ],
+    "artistAliases": [
+      "はやしばらめぐみ",
+      "林原",
+      "はやしばら"
+    ]
+  },
+  {
     "id": "aU8ruUe7UlE",
     "title": "祝福",
     "work": "機動戦士ガンダム 水星の魔女",
@@ -64280,6 +68073,39 @@
     ],
     "artistAliases": [
       "アド"
+    ]
+  },
+  {
+    "id": "mLiAjV8f0Ss",
+    "title": "人なんだ",
+    "work": "うたわれるもの 二人の白皇",
+    "artist": "Suara",
+    "year": 2022,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Suara（Topic）",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ひとなんだ"
+    ],
+    "embeddable": null,
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 28272,
+    "channel": "Suara - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "うたわれるものふたりのはくおう",
+      "うたわれるもの",
+      "うたわれ",
+      "二人の白皇",
+      "ふたりのはくおう"
+    ],
+    "artistAliases": [
+      "スアラ"
     ]
   },
   {
@@ -65533,7 +69359,7 @@
     "views": 61547842,
     "channel": "Anime　【OSHI NO KO】　Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "top",
     "workAliases": [
       "おしのこ",
       "推しの子"
@@ -66566,6 +70392,43 @@
     ]
   },
   {
+    "id": "VseSvbvxHh0",
+    "title": "この盾に、隠れます。",
+    "work": "痛いのは嫌なので防御力に極振りしたいと思います。2",
+    "artist": "純情のアフィリア",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "中",
+    "source": "Junjo no Afilia（Topic）",
+    "intro": 0.5,
+    "chorus": 57,
+    "aliases": [
+      "このたてにかくれます"
+    ],
+    "embeddable": null,
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 264229,
+    "channel": "Junjo no Afilia - Topic",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "いたいのはいやなのでぼうぎょりょくにきょくふりしたいとおもいますつー",
+      "痛いのは嫌なので防御力に極振りしたいと思います。",
+      "いたいのはいやなのでぼうぎょりょくにきょくふりしたいとおもいます",
+      "防振り",
+      "ぼうふり",
+      "防振り2",
+      "ぼうふり2"
+    ],
+    "artistAliases": [
+      "じゅんじょうのあふぃりあ",
+      "アフィリア"
+    ]
+  },
+  {
     "id": "q90SFMi8aUg",
     "title": "ザムザ",
     "work": "ボカロ（てにをは）",
@@ -67594,7 +71457,7 @@
     "views": 5232932,
     "channel": "ヨルシカ / n-buna Official",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "おおゆきうみのかいなほしのけんじゃ",
       "おおゆきうみのかいな",
@@ -73086,6 +76949,38 @@
     ]
   },
   {
+    "id": "sKXQ-ZyWU3w",
+    "title": "Check Make Mate",
+    "work": "ガールズ＆パンツァー（パチンコ）",
+    "artist": "佐咲紗花",
+    "year": 2025,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "佐咲紗花 Official Channel",
+    "intro": 0.7,
+    "chorus": 0,
+    "aliases": [
+      "チェックメイクメイト"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 22542,
+    "channel": "佐咲紗花 Official Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "がーるずあんどぱんつぁー",
+      "ガルパン"
+    ],
+    "artistAliases": [
+      "ささきさやか",
+      "佐咲",
+      "ささき"
+    ]
+  },
+  {
     "id": "PEP7a_FoIi4",
     "title": "Drops",
     "work": "ある魔女が死ぬまで",
@@ -74238,7 +78133,7 @@
     "views": 287089,
     "channel": "sajou no hana Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "いしゅら",
       "異修羅",
@@ -76741,6 +80636,37 @@
     ]
   },
   {
+    "id": "AD7BcZesnAY",
+    "title": "有彩コンチェルト",
+    "work": "ガールズ＆パンツァー（パチンコ）",
+    "artist": "ChouCho",
+    "year": 2025,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "ChouCho公式",
+    "intro": 3.2,
+    "chorus": 35,
+    "aliases": [
+      "うさいこんちぇると"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 65291,
+    "channel": "ChouCho Official Channel",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "がーるずあんどぱんつぁー",
+      "ガルパン"
+    ],
+    "artistAliases": [
+      "ちょうちょ"
+    ]
+  },
+  {
     "id": "bmvbiNk_vXE",
     "title": "涙のパレード",
     "work": "映画 小林さんちのメイドラゴン さみしがりやの竜",
@@ -77278,6 +81204,35 @@
       "ミスアンドロイド",
       "ティーケー"
     ]
+  },
+  {
+    "id": "EBKkbSNLXDU",
+    "title": "Fly me to the エンド！☆",
+    "work": "アクセル・ワールド（パチンコ）",
+    "artist": "May'n",
+    "year": 2026,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "May'n公式",
+    "intro": 0,
+    "chorus": 0,
+    "aliases": [
+      "ふらいみーとぅーざえんど"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "chorusChecked": true,
+    "views": 82894,
+    "channel": "May'n",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "あくせるわーるど"
+    ],
+    "artistAliases": [
+      "メイン"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "PmkN1iH4Ci4",
@@ -78069,7 +82024,7 @@
     "views": 5239822,
     "channel": "ずっと真夜中でいいのに。 ZUTOMAYO",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "すーぱーのうらでやにすうふたり",
       "ヤニ吸う"
@@ -78535,7 +82490,7 @@
     "views": 275669,
     "channel": "TRUE Lantis Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "てんせいしたらすらいむだったけん",
       "転スラ",
@@ -79340,6 +83295,40 @@
     ],
     "artistAliases": [
       "れんたろうファミリー"
+    ]
+  },
+  {
+    "id": "VxXXGpWsJ4o",
+    "title": "燐光 feat. Eliana",
+    "work": "甲鉄城のカバネリ（パチンコ）",
+    "artist": "KOHTA YAMAMOTO",
+    "year": 2026,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "KOHTA YAMAMOTO official",
+    "intro": 0,
+    "chorus": 65,
+    "aliases": [
+      "りんこう",
+      "燐光"
+    ],
+    "embeddable": null,
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 51608,
+    "channel": "KOHTA YAMAMOTO official",
+    "viewsAt": "2026-10-09",
+    "workAliases": [
+      "こうてつじょうのかばねり",
+      "カバネリ"
+    ],
+    "artistAliases": [
+      "こうたやまもと",
+      "やまもとこうた",
+      "やまもと"
     ]
   }
 ]

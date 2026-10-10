@@ -271,6 +271,9 @@ app.post('/api/candidates/vote', (req, res) => {
   res.json({ ok: true, votes: c.votes, message: `「${c.title}」に1票入れました（次の更新で追加します）` });
 });
 
+// ── 追加プレビュー画面（preview.html。このPCから開いたときだけ）──
+require('./lib/preview')(app, { canEdit, root: __dirname, loadSongs, candidates: () => CANDIDATES, saveCandidates });
+
 // ── 収録曲一覧（トップ画面の「収録曲一覧」）と、イントロ・サビ位置の修正の受け付け ──
 // 修正は誰でも送れる。曲データにはすぐ入れず「修正待ち」として溜め、反映の前に tools/pull-fixes.js で取り込む（公開サーバーは再起動でファイルが消えるため）。
 const FIXES_PATH = path.join(__dirname, 'data', 'fixes.json');
@@ -354,12 +357,13 @@ const OPTIONS = {
   lifelines: [true, false],
   quizType: ['intro', 'sabimae', 'mix', 'random', 'outro'], // イントロ／サビ前／1問ごとにランダム／どこから（曲の途中）／アウトロ（曲の終わり）
   // 遊び方：ふつう／早押し（押した人だけ答える）／サバイバル（ライフがなくなったら脱落）／出題者（順番に1人が曲を選ぶ）／協力（全員の正解数で目標）／ビンゴ
-  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill'], // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
+  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush'], // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
   target: ['song', 'work', 'year', 'artist'], // 答えるもの：曲名／作品／年／歌手
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
   lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
+  rushRate: ['normal', 'high', 'low'],     // アニソン激アツRUSH：当たりやすさ（ふつう／出やすい×1.5／出にくい×0.6）
   bingoEnd: ['p1', 'p2', 'p3', 'l2', 'l3', 'all'], // ビンゴの終わり：p〇＝〇人がBINGO／l〇＝だれかが〇ビンゴ／all＝問題数まで
   lives: [1, 2, 3],                       // サバイバルのライフ
   teams: [false, true],                   // チーム戦（赤・青の2チーム。合計点で競う）
@@ -376,7 +380,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1' };
+                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal' };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -412,7 +416,7 @@ function sanitizeSettings(input, base) {
   if (s.yearFrom > s.yearTo) [s.yearFrom, s.yearTo] = [s.yearTo, s.yearFrom];
   // できない組み合わせ：年代当て＋早押し、サバイバル＋チーム戦
   if (s.target === 'year' && s.play === 'buzzer') s.play = 'normal';
-  if (['survival', 'coop', 'bingo'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
+  if (['survival', 'coop', 'bingo', 'rush'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
   return s;
 }
 
@@ -522,11 +526,15 @@ function publicRoom(room) {
       buzzing: q?.buzz?.token === p.token, // 早押しでいま答えている人
       card: room.settings.play === 'bingo' && p.card ? p.card.map(c => ({ w: c.w, open: c.open })) : null, bingo: !!p.bingoAt,
       picker: q?.picker === p.token,
+      rush: room.settings.play === 'rush' && p.rush?.left > 0 ? { chain: p.rush.chain, left: p.rush.left, mult: RUSH_MULT[Math.min(p.rush.chain + 1, RUSH_MULT.length) - 1] } : null,
       passed: !!q?.fillPass?.has(p.token), // 3つ埋めバトルでパスした人
     })),
     fill: fillPublic(room, q),
     teams: teamScores(room),
     coop: room.game?.coop || null,
+    // 激アツRUSH：保留ランプ（いまの問題の色と、先の4問の色）。当たりかどうかは入れない
+    rush: room.settings.play === 'rush' && room.game?.rushPlan && room.state === 'playing'
+      ? { color: room.game.rushPlan[room.game.qi]?.color || null, next: room.game.rushPlan.slice(room.game.qi + 1, room.game.qi + 5).map(x => x.color) } : null,
   };
 }
 const broadcastRoom = room => { io.to(room.code).emit('room', publicRoom(room)); pushRoomList(); };
@@ -625,17 +633,75 @@ function startGame(room) {
   if (S.teams) assignTeams(room);
   // 曲オブジェクトそのものを持つ（ゲーム中に曲データが保存し直されても影響しないように）
   const order = weightedPick([...fresh.map(s => [s, 1]), ...popular.map(s => [s, POPULAR_REPEAT])], n);
+  // アニソン激アツRUSH：全問の色と当たりをここで決める（当たりの問題には、パチスロで有名な曲を入れる）
+  const rushPlan = S.play === 'rush' ? buildRushPlan(order, fresh.length ? fresh : candidates, S) : null;
   if (!S.noRecord) order.forEach(s => recordPlayed(room, s));
   room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map(), // stats: token -> 称号用の成績
+                rushPlan, // 激アツRUSH：問題ごとの { color, hit }
                 bingoTarget: S.target, // ビンゴのマスの種類（ゲームの途中で答えるものを変えても、配ったカードのまま）
                 solo: connectedPlayers(room).length <= 1 }; // サバイバル：1人で遊ぶときはライフがなくなるまで、2人以上なら残り1人まで
   // 協力：目標は「問題数 × 人数 × 目標%」をゲーム開始時に決める（途中で人数が変わっても変えない）
   if (S.play === 'coop') room.game.coop = { goal: Math.max(1, Math.ceil(order.length * connectedPlayers(room).length * S.coopGoal / 100)), count: 0 };
   // ビンゴ：一人ひとりにカードを配る（途中から入った人には入ったときに配る）
-  for (const p of room.players.values()) { p.card = S.play === 'bingo' ? bingoCard(order, pool, S.target) : null; p.bingoAt = 0; p.reachN = 0; p.bingoLinesN = 0; }
+  for (const p of room.players.values()) { p.rush = freshRush(); p.card = S.play === 'bingo' ? bingoCard(order, pool, S.target) : null; p.bingoAt = 0; p.reachN = 0; p.bingoLinesN = 0; }
   nextQuestion(room);
   return true;
+}
+
+// ── アニソン激アツRUSH：保留の色 → 当たり → 大当たり → RUSH（確変）。仕様は docs/rush-spec.md ──
+const RUSH_COLORS = ['blue', 'green', 'red', 'gold', 'rainbow']; // 青・緑・赤・金・虹
+const RUSH_WEIGHT = [66, 20, 9, 4, 1];                             // 色が出る重み（%）
+const RUSH_HIT = [0.05, 0.15, 0.40, 0.75, 1];                      // 色ごとの当たりやすさ
+const RUSH_RATE = { normal: 1, high: 1.5, low: 0.6 };              // 設定「当たりやすさ」
+const RUSH_BONUS = 2000;                                           // 大当たりのボーナス点
+const RUSH_MULT = [2, 2.5, 3, 3.5, 4];                             // 連チャンごとの倍率（上限 ×4）
+const RUSH_MAX = 10;                                               // RUSH は最大この問題数（当たりでまた10に戻る）
+const freshRush = () => ({ left: 0, chain: 0, earned: 0, jackpots: 0, maxChain: 0, rainbow: 0 });
+function buildRushPlan(order, source, S) {
+  const rate = RUSH_RATE[S.rushRate] || 1, force = process.env.RUSH_FORCE === 'hit'; // RUSH_FORCE=hit：テスト用（全問を当たりにする。本番では使わない）
+  const used = new Set(order.map(s => s.id));
+  const spare = shuffle(source.filter(s => genresOf(s).includes('pachislot') && !used.has(s.id)));
+  const plan = [];
+  for (let i = 0; i < order.length; i++) {
+    let r = crypto.randomInt(100), ci = 0;
+    for (; ci < RUSH_WEIGHT.length - 1; ci++) { if (r < RUSH_WEIGHT[ci]) break; r -= RUSH_WEIGHT[ci]; }
+    let hit = force || Math.random() < Math.min(1, RUSH_HIT[ci] * rate) || ci === RUSH_COLORS.length - 1;
+    if (hit) {
+      // もともとパチスロの曲ならそのまま。そうでなければ、パチスロの曲に入れ替える（足りなければ当たりにしない）
+      if (!genresOf(order[i]).includes('pachislot')) {
+        const next = spare.pop();
+        if (next) { used.add(next.id); order[i] = next; } else hit = false;
+      }
+    }
+    plan.push({ color: RUSH_COLORS[ci], hit });
+  }
+  return plan;
+}
+// 答えたとき：RUSH中なら倍率、当たりの問題に正解なら大当たり（ボーナス＋RUSH開始・延長）。間違い・パスならRUSH終了
+function rushApply(room, q, player, correct, points) {
+  const r = player.rush || (player.rush = freshRush()), st = statsOf(room, player);
+  const was = r.left > 0; // この問題の前から RUSH 中か
+  const info = { mult: 1, bonus: 0, jackpot: false, ended: false, done: false, chain: r.chain, earned: r.earned };
+  if (!correct) {
+    if (r.left > 0) { info.ended = true; info.chain = r.chain; info.earned = r.earned; r.left = 0; r.chain = 0; r.earned = 0; }
+    return { points, info };
+  }
+  if (r.left > 0) { // RUSH中の正解：連チャンが1つ増えて、倍率がかかる
+    r.chain++; st.maxChain = Math.max(st.maxChain || 0, r.chain);
+    info.mult = RUSH_MULT[Math.min(r.chain, RUSH_MULT.length) - 1];
+    points = Math.round(points * info.mult);
+    r.left--; r.earned += points;
+  }
+  if (q.rush?.hit) { // 大当たり
+    info.jackpot = true; info.bonus = RUSH_BONUS; points += RUSH_BONUS;
+    r.jackpots++; st.jackpots = (st.jackpots || 0) + 1;
+    if (q.rush.color === 'rainbow') { r.rainbow++; st.rainbow = (st.rainbow || 0) + 1; }
+    if (!was) { r.chain = 0; r.earned = 0; }
+    r.left = RUSH_MAX; // RUSH開始（すでにRUSH中なら延長）。連チャンはそのまま
+  } else if (info.mult > 1 && r.left === 0) { info.done = true; r.chain = 0; } // 10問走りきった
+  info.chain = r.chain; info.earned = r.earned; info.left = r.left;
+  return { points, info };
 }
 
 // ライフラインは1ゲームにつき各1回（部屋設定で無しにもできる）
@@ -918,6 +984,7 @@ function startQuestion(room, song, picker = null) {
   g.q = {
     song, choices, correctIndex, kind, start, years,
     phase: 'loading', t0: 0,
+    rush: g.rushPlan?.[g.qi] || null, // 激アツRUSH：この問題の保留の色と当たり
     ready: new Set(),
     answers: new Map(), // token -> { index, given, pass, elapsed, correct, points, hint }
     participants: new Set(connectedPlayers(room).filter(p => !p.out && p.token !== picker).map(p => p.token)), // 脱落した人・出題者は見ているだけ
@@ -949,6 +1016,7 @@ function questionPayload(room) {
     play: room.settings.play, target: room.settings.target, speed: q.speed || 1,
     pickerId: q.picker ? room.players.get(q.picker)?.id : null, pickerName: q.picker ? room.players.get(q.picker)?.name : null,
     fill: fillPublic(room, q),
+    rush: q.rush ? { color: q.rush.color } : null, // 当たりかどうかは、リーチ（サビ）まで伏せる
   };
 }
 
@@ -975,6 +1043,7 @@ function resendQuestion(room, socket, token) {
     socket.emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt: q.hintAt || S.hintAt,
                         total: q.total || questionTotal(S), offset, introLen: S.introLen, plays: q.plays || 1, gap: INTRO_GAP, speed: q.speed || 1 });
     if (q.phase === 'chorus' && !q.flowOn) socket.emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' });
+    if (q.phase === 'chorus' && q.rush?.hit) socket.emit('rushReach', { color: q.rush.color, again: true });
     if (q.flowOn) socket.emit('flowOn', { total: q.total }); // イントロ中に押されて流し続けになっている
   }
   q.clues.forEach(c => socket.emit('clue', c));
@@ -1044,6 +1113,7 @@ function go(room) {
     q.phase = 'chorus';
     if (q.flowOn) return broadcastRoom(room); // 3つ埋めバトル：イントロ中に押されたら、サビへ飛ばずに流し続ける（点数はサビ扱い）
     io.to(room.code).emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' }); // どこから問題はサビへ移動する
+    if (q.rush?.hit) io.to(room.code).emit('rushReach', { color: q.rush.color }); // 激アツRUSH：当たりの問題は「リーチ！」
     broadcastRoom(room);
   }, hintAt * 1000);
   if (S.clues && !q.fill) { // 3つ埋めバトルは、ヒント（年・歌手・作品の頭文字）が枠の答えになるので出さない
@@ -1115,7 +1185,7 @@ function onAnswer(room, player, payload) {
   const hint = q.phase === 'chorus';
   let points = 0;
   player.streak = correct ? (player.streak || 0) + 1 : 0;
-  const streakBonus = p => (S.bonus ? Math.round(p * (player.streak >= 3 ? 1.5 : player.streak === 2 ? 1.2 : 1)) : p);
+  const streakBonus = p => (S.bonus && !(S.play === 'rush' && player.rush?.left > 0) ? Math.round(p * (player.streak >= 3 ? 1.5 : player.streak === 2 ? 1.2 : 1)) : p);
   if (q.years && diff !== null) {
     // 年代当て：近いほど高い（ぴったり1000、1年ずれ800…5年まで）。サビが流れてからは ×0.7
     points = YEAR_POINTS[diff] ?? 0;
@@ -1135,8 +1205,10 @@ function onAnswer(room, player, payload) {
   } else if (miss) {
     points = -BUZZ_MISS; // 早押しのお手つき
   }
+  let rushInfo = null;
+  if (S.play === 'rush' && q.rush) { const o = rushApply(room, q, player, correct && !pass, points); points = o.points; rushInfo = o.info; (q.rushEvents = q.rushEvents || new Map()).set(player.token, rushInfo); }
   player.score += points;
-  q.answers.set(player.token, { index, given, pass, elapsed, correct, points, hint, diff, miss });
+  q.answers.set(player.token, { index, given, pass, elapsed, correct, points, hint, diff, miss, rush: rushInfo });
   const st = statsOf(room, player);
   if (correct && room.game.coop) room.game.coop.count++;
   if (correct && player.card) {
@@ -1408,8 +1480,11 @@ function reveal(room) {
                          given: mine.map(l => l.correct ? `${l.label}：${l.given}${l.choice ? '（10択）' : ''}` : `×${l.label ? `${l.label}：` : ''}${l.given}`).join('／') });
     }
   }
-  // 答えなかった人は連続正解が途切れる
-  for (const t of q.participants) if (!q.answers.has(t)) { const p = room.players.get(t); if (p) p.streak = 0; }
+  // 答えなかった人は連続正解が途切れる（激アツRUSHでは、RUSH中ならそこで終わり）
+  for (const t of q.participants) if (!q.answers.has(t)) {
+    const p = room.players.get(t); if (p) p.streak = 0;
+    if (p && S.play === 'rush' && q.rush && p.rush?.left > 0) (q.rushEvents = q.rushEvents || new Map()).set(t, rushApply(room, q, p, false, 0).info);
+  }
   // サバイバル：正解しなかった人（年代当ては2年以内なら助かる）はライフが減り、0で脱落
   const eliminated = [];
   if (S.play === 'survival') {
@@ -1427,7 +1502,7 @@ function reveal(room) {
       return { id: p.id, name: p.name, avatar: p.avatar, answered: !!a, index: a ? a.index : null, given: a?.given ?? null,
                pass: !!a?.pass, elapsed: a ? a.elapsed : null,
                correct: !!a?.correct, points: a ? a.points : 0, hint: !!a?.hint, diff: a?.diff ?? null, miss: !!a?.miss,
-               lives: p.lives ?? null, out: !!p.out, team: S.teams ? p.team : null };
+               lives: p.lives ?? null, out: !!p.out, team: S.teams ? p.team : null, rush: q.rushEvents?.get(p.token) || null };
     })
     // 正解した人が上（同じなら速い順）。年代当ては点数（近さ）の順
     .sort((a, b) => (q.years || q.fill ? (b.points - a.points) : (b.correct - a.correct)) || ((a.elapsed ?? 99) - (b.elapsed ?? 99)));
@@ -1444,7 +1519,11 @@ function reveal(room) {
   const bingo = bingoBonus.map(b => b.name);
   if (S.play === 'bingo' && bingoOver(room)) room.game.bingoDone = true; // 設定した人数・ビンゴ数に届いたら、この問題で終わり
   const last = room.game.qi + 1 >= room.game.order.length || survivalOver(room) || !!room.game.bingoDone;
+  // 激アツRUSH：この問題の結果（色・当たり）と、大当たり・RUSH終了の人
+  const rushEv = [...(q.rushEvents || new Map())].map(([t, e]) => ({ ...e, name: room.players.get(t)?.name })).filter(e => e.name);
+  const rush = q.rush ? { color: q.rush.color, hit: q.rush.hit, jackpot: rushEv.filter(e => e.jackpot).map(e => e.name), ended: rushEv.filter(e => e.ended || e.done) } : null;
   io.to(room.code).emit('reveal', {
+    rush,
     eliminated, picker, bingo, bingoBonus, coop: room.game.coop || null, reach: (q.reach || []).filter(n => !bingo.includes(n)),
     correctIndex: q.correctIndex,
     qlog: (q.qlog || []).map(({ token, ...e }) => e), // 出題中の記録（全員分。パスの下）
@@ -1458,6 +1537,8 @@ function reveal(room) {
     intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0,
     results,
     highlights: [...highlightsOf(room, results), ...eliminated.map(n => `${n} 脱落…`), ...bingoBonus.map(b => `${b.name} ${b.first ? 'BINGO!' : 'もう1列そろった！'} +${b.bonus}点`),
+                 ...rushEv.filter(e => e.jackpot).map(e => `${e.name} 大当たり！ +${e.bonus}点${e.mult > 1 ? `（RUSH中 ×${e.mult}）` : '（RUSH突入）'}`),
+                 ...rushEv.filter(e => e.ended || e.done).map(e => `${e.name} RUSH${e.done ? '完走' : '終了'}：${e.chain}連チャン・${e.earned}点`),
                  ...(picker ? [`出題者 ${picker.name} +${picker.points}（${picker.of}人中 ${picker.correct}人正解）`] : [])],
     last,
     autoNext: S.autoNext, // 0 なら自動では進まない
@@ -1505,6 +1586,9 @@ function titlesOf(room) {
     top(s => s.reiwa, 2, '令和マスター', s => `2019年以降の曲を ${s.reiwa}問正解`),
     top(s => s.miss, 3, 'お手つき大王', s => `お手つき ${s.miss}回（攻めた証）`),
     top(s => s.pass, 3, '見送りの達人', s => `パス ${s.pass}回`),
+    top(s => s.maxChain || 0, 3, 'RUSH王', s => `RUSHで ${s.maxChain}連チャン`),
+    top(s => s.jackpots || 0, 2, '引き強', s => `大当たり ${s.jackpots}回`),
+    top(s => s.rainbow || 0, 1, '全回転', s => `虹（全回転）で ${s.rainbow}回当てた`),
     ...genreTitles,
   ].filter(Boolean);
 }
@@ -1576,7 +1660,7 @@ function resumeGame(room) {
   }
   // お題・年代・問題数が変わったら、残りの問題を入れ替える（今の問題はそのまま）
   const S = room.settings, poolChanged = poolKey(S) !== g.paused.poolKey;
-  if ((poolChanged || S.questions !== g.paused.questions) && !['picker', 'bingo'].includes(S.play)) {
+  if ((poolChanged || S.questions !== g.paused.questions) && !['picker', 'bingo', 'rush'].includes(S.play)) {
     const done = g.order.slice(0, g.qi + 1), rest = g.order.slice(g.qi + 1);
     const pool = poolChanged ? poolFor(S) : g.pool;
     if (pool.length) g.pool = pool;
@@ -1638,7 +1722,7 @@ function endGame(room) {
                correct: s?.correct || 0, avg: s?.correct ? Math.round(s.time / s.correct * 100) / 100 : null, maxStreak: s?.maxStreak || 0,
                team: room.settings.teams ? p.team : null,
                survived: survival ? (p.out ? p.outAt : played) : null, out: survival ? !!p.out : null,
-               bingoAt: p.bingoAt || 0 };
+               bingoAt: p.bingoAt || 0, jackpots: s?.jackpots || 0, rushMax: s?.maxChain || 0 };
     })
     // サバイバルは長く残った順（最後まで残った人が上）、ビンゴはそろえた人が上、同じなら得点の順
     .sort((a, b) => (survival ? (b.out === a.out ? b.survived - a.survived : a.out - b.out) : 0)

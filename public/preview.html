@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>曲の追加プレビュー｜アニソンイントロ対戦</title>
+<link rel="icon" href="icons/favicon-32.png">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="songs.css">
+<style>
+  body { background: #05060f; }
+  .pv { max-width: 1100px; margin: 0 auto; padding: 16px; padding-right: 400px; }
+  .pv .panel { margin-bottom: 14px; }
+  .pv .sg-rows li { grid-template-columns: 1fr auto; cursor: pointer; }
+  .pv .sg-rows li.done { opacity: .45; }
+  .pv .sg-tags .yt-no { color: #ff9a8a; border-color: rgba(255, 154, 138, .6); }
+  .pv .sg-tags .yt-ok { color: #8dffc8; border-color: rgba(141, 255, 200, .55); }
+  .pv-bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 8px 0; font-size: 13px; }
+  .pv-log { white-space: pre-wrap; font-size: 11px; color: var(--sub); max-height: 140px; overflow: auto; margin: 6px 0 0; }
+  .pv-ed { position: fixed; top: 16px; right: 16px; bottom: 16px; width: 370px; z-index: 30; overflow-y: auto; padding: 14px; border-radius: 16px; border: 1px solid var(--line); background: var(--glass-strong); }
+  .pv-ed label { display: block; font-size: 12px; color: var(--sub); margin-top: 6px; }
+  .pv-ed input[type=text], .pv-ed input[type=number] { width: 100%; box-sizing: border-box; margin: 2px 0 0; }
+  .pv-ed .two { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .pv-vids { list-style: none; margin: 6px 0; padding: 0; display: grid; gap: 4px; }
+  .pv-vids li { display: grid; grid-template-columns: auto 1fr auto; gap: 6px; align-items: center; padding: 5px 8px; border-radius: 10px; border: 1px solid var(--line); font-size: 12px; }
+  .pv-vids li.on { border-color: var(--accent); }
+  .pv-vids li.bad { opacity: .55; }
+  .pv-vids small { display: block; color: var(--sub); }
+  .pv-vids button { padding: 3px 9px; font-size: 12px; margin: 0; width: auto; }
+  .pv-pos { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; margin-top: 4px; }
+  .pv-pos .btn-sub { padding: 4px 9px; font-size: 12px; margin: 0; width: auto; }
+  .pv-pos input { width: 70px !important; }
+  .pv-acts { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .pv-acts .btn-main, .pv-acts .btn-sub { width: auto; margin: 0; }
+  .pv-msg { font-size: 12px; margin-top: 8px; color: var(--accent); }
+  .pv-none { padding: 8px; border-radius: 10px; border: 1px dashed rgba(255, 154, 138, .6); color: #ff9a8a; font-size: 12px; margin: 6px 0; }
+  @media (max-width: 900px) { .pv { padding-right: 16px; } .pv-ed { position: static; width: auto; margin-top: 12px; } }
+</style>
+</head>
+<body class="songs-page">
+<main class="pv">
+  <a class="btn-sub songs-link" href="songs.html">← 収録曲一覧</a>
+
+  <section class="panel">
+    <h2 class="songs-title">追加を検討している曲 <span id="candCount"></span></h2>
+    <div class="songs-tools">
+      <input id="cq" type="search" placeholder="曲名・作品名・歌手で探す" autocomplete="off">
+      <select id="cstate"><option value="todo">未追加だけ</option><option value="added">追加済み</option><option value="skipped">見送り</option><option value="all">すべて</option></select>
+      <button class="btn-sub" id="newCand" type="button">＋ 曲を足して検討する</button>
+    </div>
+    <p class="note">みんなのリクエスト・投票で集まった曲と、ここで足した曲です。曲を選ぶと、試し聴き・直す・「追加」までできます。</p>
+    <ul id="candList" class="sg-rows"><li>読み込み中…</li></ul>
+  </section>
+
+  <section class="panel">
+    <h2 class="songs-title">プレイリストにあって、まだ入っていない曲 <span id="count"></span></h2>
+    <div class="songs-tools">
+      <input id="q" type="search" placeholder="曲名・歌手・アルバムで探す" autocomplete="off">
+      <select id="state"><option value="todo">未追加だけ</option><option value="added">追加済み</option><option value="skipped">見送り</option><option value="all">すべて</option></select>
+      <select id="ytf"><option value="">YouTube：すべて</option><option value="yes">あり</option><option value="no">見つからない</option></select>
+      <select id="sort"><option value="views">YouTube再生回数順</option><option value="plays">あなたの再生回数順</option><option value="title">曲名順</option><option value="year">年順</option></select>
+      <label class="fix-only" title="CMなど短い曲・リミックス・コンピレーションは、初めは隠しています"><input type="checkbox" id="noise"> 全部見る（ノイズも）</label>
+    </div>
+    <p class="note">有名度は「いちばん上の動画の再生回数が、いまの収録曲の中でどのへんか」を当てはめた<b>目安</b>です。</p>
+    <ul id="list" class="sg-rows"><li>読み込み中…</li></ul>
+    <button class="btn-sub" id="more" type="button" hidden>もっと見る</button>
+  </section>
+
+  <section class="panel">
+    <h2 class="songs-title">追加した曲の測定 <span id="mCount"></span></h2>
+    <p class="note">追加した曲のうち、イントロ・サビが空のものを測ります（イントロ・サビ・再生回数・知名度・動画の確認）。読みがなとジャンルのタグは、あとで別にまとめて付けます。</p>
+    <div class="pv-bar"><button class="btn-main" id="measureBtn" type="button" style="width:auto;margin:0">測定を実行</button><span id="mState"></span></div>
+    <pre class="pv-log" id="mLog" hidden></pre>
+  </section>
+</main>
+
+<aside class="pv-ed" id="ed" hidden>
+  <button class="btn-sub ed-close" id="edClose" type="button">閉じる</button>
+  <b id="edHead"></b><br><small id="edSub" style="color:var(--sub)"></small>
+  <div class="ed-player"><div id="player"></div></div>
+  <div id="edNone" class="pv-none" hidden>YouTube が見つかりません。下の「YouTubeを検索」で探すか、URL を貼ってください。</div>
+  <ul class="pv-vids" id="vids"></ul>
+  <label>YouTube を探す（検索の言葉）</label>
+  <div class="pv-pos"><input type="text" id="sq" style="flex:1;width:auto !important"><button class="btn-sub" id="sBtn" type="button">YouTubeを検索</button></div>
+  <label>または URL を貼る</label>
+  <div class="pv-pos"><input type="text" id="urlIn" placeholder="https://www.youtube.com/watch?v=…" style="flex:1;width:auto !important"><button class="btn-sub" id="urlBtn" type="button">使う</button></div>
+  <label>動画ID（選んだ動画）</label><input type="text" id="fId" readonly>
+  <div class="two"><div><label>曲名</label><input type="text" id="fTitle"></div><div><label>歌手</label><input type="text" id="fArtist"></div></div>
+  <div class="two"><div><label>作品（空なら「その他」）</label><input type="text" id="fWork"></div><div><label>年</label><input type="number" id="fYear"></div></div>
+  <label>種類（OP・ED・挿入歌・主題歌など）</label><input type="text" id="fType" list="types">
+  <datalist id="types"><option value="OP"><option value="ED"><option value="挿入歌"><option value="主題歌"><option value="イメージソング"><option value="キャラソン"><option value="その他"></datalist>
+  <label>イントロ（曲の頭から、声や楽器が入る前までの秒。空なら自動で測る）</label>
+  <div class="pv-pos"><input type="number" step="0.1" id="fIntro"><button class="btn-sub" data-set="fIntro" type="button">今の位置</button><button class="btn-sub" data-play="fIntro" type="button">▶</button></div>
+  <label>サビ（サビが始まる秒。空なら自動で推定）</label>
+  <div class="pv-pos"><input type="number" step="0.1" id="fChorus"><button class="btn-sub" data-set="fChorus" type="button">今の位置</button><button class="btn-sub" data-play="fChorus" type="button">▶</button></div>
+  <div class="pv-acts"><button class="btn-main" id="addBtn" type="button">追加</button><button class="btn-sub" id="candBtn" type="button" hidden>検討中に入れる</button><button class="btn-sub" id="skipBtn" type="button">見送り</button><button class="btn-sub" id="undoBtn" type="button" hidden>見送りを戻す</button></div>
+  <div class="pv-msg" id="msg"></div>
+</aside>
+<script type="module" src="preview.js"></script>
+</body>
+</html>

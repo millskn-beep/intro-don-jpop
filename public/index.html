@@ -188,10 +188,12 @@
           <option value="coop">協力（全員の正解数で目標をめざす）</option>
           <option value="bingo">ビンゴ（作品名のカードをそろえる）</option>
           <option value="fill">3つ埋めバトル（曲名・アニメ・アーティストを早押しで埋める）</option>
+          <option value="rush">アニソン激アツRUSH（保留・リーチ・大当たり・確変）</option>
         </select></label>
         <label>答えるもの<select data-key="target"><option value="song">曲名</option><option value="work">作品</option><option value="artist">歌手</option><option value="year">年（近いほど高得点）</option></select></label>
         <label id="questionsLabel">問題数<select data-key="questions"></select></label>
         <label id="livesLabel" hidden>ライフ<select data-key="lives"><option value="1">1（1回で脱落）</option><option value="2">2</option><option value="3">3</option></select></label>
+        <label id="rushRateLabel" hidden>当たりやすさ<select data-key="rushRate"><option value="normal">ふつう</option><option value="high">出やすい（×1.5）</option><option value="low">出にくい（×0.6）</option></select></label>
         <label id="lockSecLabel" hidden>お手つき後に押せない秒数<select data-key="lockSec"><option value="3">3秒</option><option value="5">5秒</option><option value="10">10秒</option><option value="15">15秒</option><option value="20">20秒</option><option value="30">30秒</option></select></label>
         <label id="noRepeatLabel" hidden>お手つきのあとの連続解答<select data-key="noRepeat"><option value="false">できる</option><option value="true">できない（ほかの人が押すまで待つ）</option></select></label>
         <label id="bingoEndLabel" hidden>ビンゴの終わり<select data-key="bingoEnd"><option value="p1">1人がBINGOしたら</option><option value="p2">2人がBINGOしたら</option><option value="p3">3人がBINGOしたら</option><option value="l2">だれかが2ビンゴしたら</option><option value="l3">だれかが3ビンゴしたら</option><option value="all">問題数まで</option></select></label>
@@ -280,6 +282,12 @@
           <ul class="pick-list" id="pickList"></ul>
           <button class="btn-sub" id="pickRandom" type="button">🎲 おまかせ（ランダム）</button>
         </div>
+      </div>
+      <!-- アニソン激アツRUSH：保留ランプ（左が いまの問題。右は先の問題）と、自分のRUSH -->
+      <div class="rush-bar" id="rushBar" hidden>
+        <span class="rush-now" id="rushNow" data-color="blue">保留</span>
+        <span class="rush-next" id="rushNext"></span>
+        <span class="rush-me" id="rushMe" hidden></span>
       </div>
       <div class="buzz-row" id="buzzRow" hidden><button class="buzz-btn" id="buzzBtn" type="button">押す！<small>スペースキーでも</small></button><span class="buzz-info" id="buzzInfo"></span></div>
       <!-- 3つ埋めバトル：枠（押した人は空いている枠を選んで、書くか10択で答える） -->

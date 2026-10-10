@@ -476,10 +476,11 @@ function renderRoom(r) {
   room = r;
   if (practice) return; // テスト1問の間は画面を切り替えない（終わったら最新の部屋の状態で描き直す）
   const isHost = r.hostId === me;
+  const canSet = !(r.state === 'playing' && !r.paused); // 設定はだれでも変えられる（ゲーム中は一時停止のときだけ）
   if (!lobbyTabChosen) setLobbyTab(isHost ? 'settings' : 'members');
   document.querySelectorAll('#settings select').forEach(sel => {
     sel.value = String(r.settings[sel.dataset.key] ?? '');
-    sel.disabled = !isHost;
+    sel.disabled = !canSet;
   });
   $('seriesLabel').hidden = r.settings.topic !== 'series';
   // 新しいモードの設定：サバイバルはライフ（問題数の代わりに終わるまで）、早押しは採点の欄を使わない。できない組み合わせは選べなくする
@@ -499,15 +500,15 @@ function renderRoom(r) {
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
-  $('shuffleTeams').hidden = !isHost;
-  $('teamRandomBtn').hidden = !isHost || !teamsOn || r.state === 'playing';
+  $('shuffleTeams').hidden = false;
+  $('teamRandomBtn').hidden = !teamsOn || r.state === 'playing';
   const myTeam = r.players.find(p => p.id === me)?.team;
   $('teamRow').querySelectorAll('[data-team]').forEach(b => { b.disabled = b.dataset.team === myTeam; });
   $('teamInfo').textContent = teamsOn && r.teams ? r.teams.map(t => `${TEAM_LABEL[t.team]} ${t.members}人`).join('・') : ''; // 待機中は人数だけ（点数は前のゲームのもの）
-  $('presets').hidden = !isHost;
-  $('modes').hidden = !isHost;
+  $('presets').hidden = false;
+  $('modes').hidden = false;
   const fame = r.settings.fame || [];
-  $('fameList').querySelectorAll('input').forEach(cb => { cb.checked = !fame.length || fame.includes(cb.value); cb.disabled = !isHost; });
+  $('fameList').querySelectorAll('input').forEach(cb => { cb.checked = !fame.length || fame.includes(cb.value); cb.disabled = !canSet; });
   const ex = r.settings.excludeGenres || [];
   $('genreExList').querySelectorAll('input').forEach(cb => { cb.checked = ex.includes(cb.value); cb.disabled = r.state === 'playing' && !r.paused; });
   const exLabels = ex.map(k => TOPIC_DATA.genres.find(g => g.key === k)?.label || k);
@@ -523,21 +524,21 @@ function renderRoom(r) {
   $('exSummary').textContent = r.excluded ? `除外中 ${r.excluded}曲（このルームで流した曲 ${exHere}・前から ${exBefore}）` : '除外中の曲はありません';
   if (r.excluded !== excludedCount) { excludedCount = r.excluded; refreshExcluded(); }
   $('excludeCopy').hidden = !r.excluded;
-  $('excludeClear').hidden = !(isHost && r.excluded);
+  $('excludeClear').hidden = !r.excluded;
   // いつも出しておく（除外中が0曲のときはボタンを押せない）。解除できるのはホスト
   $('resetInfo').textContent = `${exHere}曲`;
   $('resetPlayed').disabled = !exHere;
-  $('resetPlayed').hidden = !isHost;
+  $('resetPlayed').hidden = false;
   const noRec = !!r.settings.noRecord;
   $('noRecordBtn').textContent = noRec ? '✓ これから遊ぶ曲は除外に追加しない' : '🔁 これから遊ぶ曲は除外に追加しない';
   $('noRecordBtn').classList.toggle('on', noRec);
-  $('noRecordBtn').disabled = !isHost || (r.state === 'playing' && !r.paused);
-  $('noRecordBtn').hidden = !isHost && !noRec; // 参加者には、オンのときだけ表示
+  $('noRecordBtn').disabled = !canSet;
+  $('noRecordBtn').hidden = false;
   const noEx = !!r.settings.noExclude;
   $('noExcludeBtn').textContent = noEx ? '✓ 除外を一時的に解除中（前に出た曲も出る）' : '🔓 除外を一時的に解除';
   $('noExcludeBtn').classList.toggle('on', noEx);
-  $('noExcludeBtn').disabled = !isHost || (r.state === 'playing' && !r.paused);
-  $('noExcludeBtn').hidden = !isHost && !noEx;
+  $('noExcludeBtn').disabled = !canSet;
+  $('noExcludeBtn').hidden = false;
   $('startBtn').hidden = !isHost; $('waitHost').hidden = isHost;
   $('nextBtn').hidden = !isHost; $('waitNext').hidden = isHost || r.settings.autoNext > 0; // 自動で進むときは待ちの文言を出さない
   $('lobbyBtn').hidden = !isHost; $('againBtn').hidden = !isHost;

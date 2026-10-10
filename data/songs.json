@@ -7512,7 +7512,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "Euromania",
-    "intro": 14.0,
+    "intro": 14,
     "chorus": 0,
     "aliases": [
       "ダンシング"
@@ -9813,7 +9813,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 20.0,
+    "intro": 20,
     "chorus": 93,
     "aliases": [
       "インマイドリーム"
@@ -10413,7 +10413,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 64.0,
+    "chorus": 64,
     "aliases": [
       "レゾリューション"
     ],
@@ -12023,7 +12023,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 2.0,
+    "intro": 2,
     "chorus": 130,
     "aliases": [
       "あいのりんかく"
@@ -12379,7 +12379,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 2.0,
+    "intro": 2,
     "chorus": 83,
     "aliases": [
       "きみじゃなきゃだめみたい"
@@ -13086,7 +13086,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 5.0,
+    "intro": 5,
     "chorus": 0,
     "aliases": [
       "かぜのねむるしま"
@@ -13185,7 +13185,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 2.0,
+    "intro": 2,
     "chorus": 0,
     "aliases": [
       "ぼくらのすてき"
@@ -16928,7 +16928,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 2.0,
+    "intro": 2,
     "chorus": 34,
     "aliases": [
       "けろっとまーち"
@@ -23418,8 +23418,8 @@
     "type": "ED",
     "confidence": "中",
     "source": "NBCユニバーサル公式（TVサイズ）",
-    "intro": 1.7,
-    "chorus": 37,
+    "intro": 0,
+    "chorus": 40.8,
     "aliases": [
       "リムレス",
       "りむれすふちなしのせかい"
@@ -23427,9 +23427,8 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "chorusSource": "manual",
+    "introMeasured": false,
     "views": 180010,
     "channel": "NBCUniversal Anime/Music",
     "viewsAt": "2026-10-05",
@@ -25705,7 +25704,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 4.0,
+    "intro": 4,
     "chorus": 55,
     "aliases": [
       "ブレイズ"
@@ -26543,7 +26542,7 @@
     "type": "",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 3.0,
+    "intro": 3,
     "chorus": 0,
     "aliases": [
       "ノータイムトゥーレスト"
@@ -26973,7 +26972,7 @@
     "type": "",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 3.0,
+    "intro": 3,
     "chorus": 0,
     "aliases": [
       "ザレガシー",
@@ -28977,7 +28976,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 3.0,
+    "intro": 3,
     "chorus": 35,
     "aliases": [
       "クロウソング"
@@ -29828,17 +29827,16 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "LiSA公式",
-    "intro": 4.7,
-    "chorus": 65,
+    "intro": 0.7,
+    "chorus": 74.8,
     "aliases": [
       "マイソング"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "chorusSource": "manual",
+    "introMeasured": false,
     "views": 107959,
     "channel": "LiSA Official YouTube",
     "viewsAt": "2026-10-05",
@@ -29861,7 +29859,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 74.8,
     "aliases": [
       "マイソング"
     ],
@@ -29878,7 +29876,8 @@
     "views": 2900,
     "channel": "Marina - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "manual"
   },
   {
     "id": "al6Z7Z_fN-k",
@@ -30299,7 +30298,7 @@
     "confidence": "中",
     "source": "名探偵コナン公式（TVサイズ）",
     "intro": 0.5,
-    "chorus": 61,
+    "chorus": 62,
     "aliases": [
       "サワゲライフ"
     ],
@@ -30308,7 +30307,7 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 167128,
     "channel": "【アニメ】名探偵コナン公式",
@@ -33054,7 +33053,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "Fear, and Loathing in Las Vegas公式（TVサイズ）",
-    "intro": 0,
+    "intro": 4,
     "chorus": 41,
     "aliases": [
       "チェイスザライト"
@@ -33077,7 +33076,9 @@
     "artistAliases": [
       "フィアーアンドローシングインラスベガス",
       "ベガス"
-    ]
+    ],
+    "introSource": "auto",
+    "introBefore": 0
   },
   {
     "id": "0mBRKUnBtH8",
@@ -33966,7 +33967,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.2,
-    "chorus": 128,
+    "chorus": 51,
     "aliases": [
       "マギア"
     ],
@@ -33980,12 +33981,13 @@
       "まどか☆マギカ",
       "魔法少女まどか☆マギカ"
     ],
-    "chorusSource": "heatmap",
+    "chorusSource": "songle",
     "chorusChecked": true,
     "views": 21162664,
     "channel": "Kalafina Official YouTube Channel",
     "viewsAt": "2026-10-10",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusBefore": 128
   },
   {
     "id": "LnMA-BrpDCg",
@@ -34095,7 +34097,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 76,
+    "chorus": 73,
     "aliases": [
       "ネクサス"
     ],
@@ -34111,7 +34113,7 @@
     "artistAliases": [
       "クラリス"
     ],
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 138560,
     "channel": "ClariS Official YouTube Channel",
@@ -34287,7 +34289,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 8.7,
-    "chorus": 86,
+    "chorus": 82.9,
     "aliases": [
       "プレゼンター"
     ],
@@ -34304,12 +34306,13 @@
       "堀江",
       "ほりえ"
     ],
-    "chorusSource": "heatmap",
+    "chorusSource": "songle",
     "chorusChecked": true,
     "views": 266918,
     "channel": "堀江由衣 Official Channel",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusBefore": 86
   },
   {
     "id": "O63cbh6EyQ8",
@@ -34393,7 +34396,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 64,
+    "chorus": 58.8,
     "aliases": [
       "レディ"
     ],
@@ -34411,12 +34414,13 @@
       "765プロ",
       "765プロオールスターズ"
     ],
-    "chorusSource": "heatmap",
+    "chorusSource": "songle",
     "chorusChecked": true,
     "views": 901633,
     "channel": "日本コロムビア 公式YouTubeチャンネル",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusBefore": 64
   },
   {
     "id": "UQuJvuTqimE",
@@ -34535,7 +34539,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 68,
+    "chorus": 56.5,
     "aliases": [
       "スカーレットバレエ"
     ],
@@ -34545,7 +34549,7 @@
     "workAliases": [
       "ひだんのありあ"
     ],
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 157310,
     "channel": "Rena Studio",
@@ -34561,7 +34565,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "水樹奈々",
-    "intro": 11.0,
+    "intro": 11,
     "chorus": 93,
     "aliases": [
       "スカーレットナイト"
@@ -35196,7 +35200,7 @@
     "type": "キャラソン",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 0.2,
+    "intro": 2,
     "chorus": 0,
     "aliases": [
       "わぐなりあさんか",
@@ -35219,7 +35223,9 @@
     "views": 454,
     "channel": "AnimeMusic OST",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "introSource": "auto",
+    "introBefore": 0.2
   },
   {
     "id": "EzA3SWkeYd8",
@@ -35510,7 +35516,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.2,
-    "chorus": 63,
+    "chorus": 51.3,
     "aliases": [
       "いんもらりすと"
     ],
@@ -35521,12 +35527,13 @@
       "どらごんくらいしす",
       "ドラクラ"
     ],
-    "chorusSource": "heatmap",
+    "chorusSource": "songle",
     "chorusChecked": true,
     "views": 978002,
     "channel": "堀江由衣 Official Channel",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusBefore": 63
   },
   {
     "id": "IgEuCx2hYso",
@@ -35603,7 +35610,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 2.2,
+    "intro": 5,
     "chorus": 130,
     "aliases": [
       "えうてるぺ"
@@ -35623,7 +35630,9 @@
     "views": 322007,
     "channel": "DAZBEE official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "introSource": "auto",
+    "introBefore": 2.2
   },
   {
     "id": "ru_j8d-oZ4g",
@@ -35921,7 +35930,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 66.0,
+    "chorus": 66,
     "aliases": [
       "こねくと"
     ],
@@ -48036,7 +48045,7 @@
     "confidence": "中",
     "source": "Lantis Channel",
     "intro": 2,
-    "chorus": 68,
+    "chorus": 66,
     "aliases": [
       "ニュースパークス"
     ],
@@ -48044,7 +48053,7 @@
     "fame": "minor",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 133324,
     "channel": "Lantis Channel",
@@ -50872,7 +50881,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "水樹奈々公式MV",
-    "intro": 34.0,
+    "intro": 34,
     "chorus": 89,
     "aliases": [
       "エンジェルブロッサム"
@@ -62075,7 +62084,7 @@
     "type": "イメージソング",
     "confidence": "中",
     "source": "ニューギンチャンネル",
-    "intro": 43.0,
+    "intro": 43,
     "chorus": 0,
     "aliases": [
       "かぶきくるいうた"
@@ -68508,7 +68517,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "追加プレビュー",
-    "intro": 2.0,
+    "intro": 2,
     "chorus": 70,
     "aliases": [
       "ザビヨンド"

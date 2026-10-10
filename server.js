@@ -44,6 +44,44 @@ const genresOf = song => {
 const FAME = [['top', '超有名'], ['famous', '有名'], ['normal', '普通'], ['minor', 'マイナー'], ['otaku', 'オタク']];
 const FAME_KEYS = FAME.map(([k]) => k);
 const fameOf = song => (FAME_KEYS.includes(song.fame) ? song.fame : 'normal');
+// 知名度が「普通」以下（普通・マイナー・オタク）の曲は、できるだけ続けて出さない。超有名・有名は続いてもよい（並べられなければ、そのまま）
+const LOW_FAME = new Set(['normal', 'minor', 'otaku']);
+// 普通以下の曲が半分を超えると、続けずに並べられない。超有名・有名の曲が選べるなら、超えた分をそれらに差し替える
+function capLowFame(order, pools, from = 0) {
+  const low = s => LOW_FAME.has(fameOf(s));
+  const limit = Math.ceil(order.length / 2);
+  const idx = order.map((s, i) => (i >= from && low(s) ? i : -1)).filter(i => i >= 0);
+  let extra = idx.length - limit - order.slice(0, from).filter(low).length;
+  if (extra <= 0) return order;
+  const used = new Set(order.map(s => s.id));
+  const highs = shuffle([...new Set(pools.flat())].filter(s => !low(s) && !used.has(s.id)));
+  for (const i of shuffle(idx)) {
+    if (extra <= 0 || !highs.length) break;
+    order[i] = highs.pop(); extra--;
+  }
+  return order;
+}
+function spreadLowFame(order, from = 1) {
+  const low = s => !!s && LOW_FAME.has(fameOf(s));
+  const pairBad = k => k >= 1 && k < order.length && low(order[k]) && low(order[k - 1]);
+  const countBad = () => { let c = 0; for (let k = Math.max(1, from); k < order.length; k++) if (pairBad(k)) c++; return c; };
+  // 続いている所を減らす入れ替えを、減らなくなるまで繰り返す（普通以上の曲と入れ替える。並びの総数は変えない）
+  for (let round = 0; round < 6 && countBad() > 0; round++) {
+    let improved = false;
+    for (let i = Math.max(1, from); i < order.length; i++) {
+      if (!pairBad(i)) continue;
+      const before = countBad();
+      for (let j = Math.max(1, from) - 1 < 0 ? 0 : Math.max(0, from); j < order.length; j++) {
+        if (j === i || j === i - 1 || low(order[j])) continue;
+        [order[i], order[j]] = [order[j], order[i]];
+        if (countBad() < before) { improved = true; break; }
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+    }
+    if (!improved) break;
+  }
+  return order;
+}
 const inTopic = (song, S) => {
   const topic = S.topic || 'all';
   if (topic === 'all') { // 「全部」のときだけ、除外にチェックしたジャンルの曲を外す（お題で選んだときはそのまま）
@@ -642,7 +680,7 @@ function startGame(room) {
   }
   if (S.teams) assignTeams(room);
   // 曲オブジェクトそのものを持つ（ゲーム中に曲データが保存し直されても影響しないように）
-  const order = weightedPick([...fresh.map(s => [s, 1]), ...popular.map(s => [s, POPULAR_REPEAT])], n);
+  const order = spreadLowFame(capLowFame(weightedPick([...fresh.map(s => [s, 1]), ...popular.map(s => [s, POPULAR_REPEAT])], n), [fresh, candidates]));
   // アニソン激アツRUSH：全問の色と当たりをここで決める（当たりの問題には、パチスロで有名な曲を入れる）
   const rushPlan = S.play === 'rush' ? buildRushPlan(order, fresh.length ? fresh : candidates, S) : null;
   if (!S.noRecord) order.forEach(s => recordPlayed(room, s));
@@ -1738,7 +1776,7 @@ function resumeGame(room) {
     const next = [...keep, ...picked, ...reuse].slice(0, need);
     if (!S.noRecord) rest.forEach(s => { if (!next.includes(s)) unrecordPlayed(room, s); }); // 出さなくなった曲は除外の記録から外す
     if (!S.noRecord) next.forEach(s => recordPlayed(room, s));
-    g.order = [...done, ...next];
+    g.order = spreadLowFame(capLowFame([...done, ...next], [avail], done.length), Math.max(1, done.length));
   }
   g.paused = null;
   io.to(room.code).emit('resumed', { ms: d, qTotal: g.order.length });
@@ -1861,9 +1899,10 @@ io.on('connection', socket => {
   socket.on('unwatchRooms', () => socket.leave('home'));
 
   const isHost = () => room && player && room.hostId === player.id;
+  const canConfig = () => !!(room && player); // 設定（曲・お題・年代・除外など）は、部屋のだれでも変えられる。開始・一時停止・中止・次の問題などはホストだけ
 
   socket.on('settings', input => {
-    if (!isHost() || (room.state === 'playing' && !room.game?.paused)) return;
+    if (!canConfig() || (room.state === 'playing' && !room.game?.paused)) return;
     room.settings = sanitizeSettings(input, room.settings);
     if (room.settings.teams) assignTeams(room);
     broadcastRoom(room);
@@ -1903,13 +1942,13 @@ io.on('connection', socket => {
       .map(s => ({ id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type })));
   });
   socket.on('clearExclude', () => {
-    if (!isHost() || room.state === 'playing') return;
+    if (!canConfig() || room.state === 'playing') return;
     room.played = new Set(); room.playedHere = new Set();
     broadcastRoom(room);
   });
   // ロビーの「このルームで流した曲の除外を解除」：この部屋で流した曲だけ除外から外す（前から除外していた曲・貼り付けたログの曲は残す）
   socket.on('clearPlayedHere', () => {
-    if (!isHost() || room.state === 'playing') return;
+    if (!canConfig() || room.state === 'playing') return;
     for (const id of room.playedHere || []) room.played.delete(id);
     room.playedHere = new Set();
     broadcastRoom(room);
@@ -1966,7 +2005,7 @@ io.on('connection', socket => {
     player.team = team; broadcastRoom(room);
   });
   socket.on('shuffleTeams', () => {
-    if (!isHost() || !room.settings.teams || room.state === 'playing') return;
+    if (!canConfig() || !room.settings.teams || room.state === 'playing') return;
     const ps = shuffle([...room.players.values()]);
     ps.forEach((p, i) => { p.team = TEAMS[i % 2]; });
     broadcastRoom(room);

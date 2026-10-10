@@ -8281,5 +8281,124 @@
    "intro": 0.5,
    "chorus": 50.8
   }
+ },
+ {
+  "id": "AhPAnNzp_AM",
+  "title": "My Song",
+  "work": "Angel Beats!",
+  "channel": "LiSA Official YouTube",
+  "at": "2026-10-10T13:23:56.236Z",
+  "before": {
+   "intro": 4.7,
+   "chorus": 65,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 74.8
+  }
+ },
+ {
+  "id": "lBXCP_Vm5cc",
+  "title": "My Song",
+  "work": "Angel Beats!",
+  "channel": "Marina - Topic",
+  "at": "2026-10-10T13:24:27.342Z",
+  "before": {
+   "intro": 0,
+   "chorus": 0,
+   "introMethod": "v2",
+   "chorusSource": null
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 74.8
+  }
+ },
+ {
+  "id": "zvuUgPLcivE",
+  "title": "New SPARKS!",
+  "work": "咲-Saki- 全国編",
+  "channel": "Lantis Channel",
+  "at": "2026-10-10T13:24:52.879Z",
+  "before": {
+   "intro": 2,
+   "chorus": 68,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2,
+   "chorus": 66
+  }
+ },
+ {
+  "id": "E5_sb2SJ54g",
+  "title": "nexus",
+  "work": "俺の妹がこんなに可愛いわけがない ポータブルが続くわけがない",
+  "channel": "ClariS Official YouTube Channel",
+  "at": "2026-10-10T13:25:05.551Z",
+  "before": {
+   "intro": 0,
+   "chorus": 76,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 73
+  }
+ },
+ {
+  "id": "XS-2I4a8hJU",
+  "title": "Rimless〜フチナシノセカイ〜",
+  "work": "とある魔術の禁書目録",
+  "channel": "NBCUniversal Anime/Music",
+  "at": "2026-10-10T13:26:16.420Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 37,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 40.8
+  }
+ },
+ {
+  "id": "T2n3R6fxFeo",
+  "title": "SAWAGE☆LIFE",
+  "work": "名探偵コナン",
+  "channel": "【アニメ】名探偵コナン公式",
+  "at": "2026-10-10T13:26:29.264Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 61,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 62
+  }
+ },
+ {
+  "id": "KevrFFnWurw",
+  "title": "SCARLET BALLET (オープニング/緋弾のアリア(TBS系アニメ))",
+  "work": "緋弾のアリア",
+  "channel": "Rena Studio",
+  "at": "2026-10-10T13:26:52.848Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 68,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 56.5
+  }
  }
 ]

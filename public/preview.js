@@ -22,6 +22,7 @@ const tags = (x, kind) => {
   if (x.fame) t.push(`<i class="fame-${x.fame.key}" title="再生回数が収録曲の上位${100 - x.fame.pct}%（目安）">${x.fame.label}（目安）</i>`);
   if (kind === 'row') {
     const top = x.yt?.find(v => !v.bad && !v.inCatalog) || x.yt?.[0];
+    if (x.stagedId && stateOf(x) === 'todo') t.push('<i class="auto">お試し中（オンラインで遊べる）</i>');
     if (!x.searched) t.push('<i>検索待ち</i>');
     else if (!top) t.push('<i class="yt-no">YouTube なし</i>');
     else t.push(`<i class="yt-ok">YouTube ${fmtV(top.views)}${top.official ? '・公式' : ''}</i>`);
@@ -77,12 +78,17 @@ function open(k) {
   $('sq').value = x ? `${x.title} ${x.artist || x.album || ''}` : '';
   vids = isCand ? (x.videoId ? [{ id: x.videoId, ch: x.source || '', title: x.title, views: x.views || 0 }] : []) : (x?.yt || []).slice();
   $('edNone').hidden = !!vids.length;
-  if (vids.length) pick((vids.find(v => !v.bad && !v.inCatalog) || vids[0]).id, false);
+  if (x?.stagedSong) { // お試し中の曲：入っている動画・測った位置を出す。「追加」で本採用になる
+    pick(x.stagedSong.id, false);
+    $('fIntro').value = x.stagedSong.intro || ''; $('fChorus').value = x.stagedSong.chorus || '';
+    if (x.stagedSong.work && x.stagedSong.work !== 'その他') $('fWork').value = x.stagedSong.work; $('fType').value = x.stagedSong.type || '';
+  } else if (vids.length) pick((vids.find(v => !v.bad && !v.inCatalog) || vids[0]).id, false);
   else { $('fId').value = ''; }
   renderVids();
   const st = x ? stateOf(x) : 'todo';
   $('addBtn').hidden = st === 'added'; $('skipBtn').hidden = !x || st !== 'todo'; $('undoBtn').hidden = st !== 'skipped';
   $('candBtn').hidden = !cur.isNew;
+  $('addBtn').textContent = x?.stagedSong ? '本採用にする（ゲームデータに入れる）' : '追加';
   render();
 }
 function renderVids() {

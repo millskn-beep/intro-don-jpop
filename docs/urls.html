@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>アニソンイントロ対戦 URL一覧</title>
+<style>body{font-family:sans-serif;max-width:760px;margin:24px auto;padding:0 16px;line-height:1.7}h2{margin-top:28px}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #ccc;padding:6px 8px;text-align:left;font-size:14px}</style></head>
+<body>
+<h1>アニソンイントロ対戦 URL一覧</h1>
+<p>「このPC」は手元のサーバー（<code>node server.js</code>）が動いているときだけ開けます。テスト用は3001番、ふだんの測定用は3000番。</p>
+<h2>遊ぶ・見る（誰でも）</h2>
+<table><tr><th>画面</th><th>本番</th><th>このPC（3001）</th></tr>
+<tr><td>トップ（ゲーム）</td><td><a href="https://anison-intro-vs.onrender.com/">本番</a></td><td><a href="http://localhost:3001/">開く</a></td></tr>
+<tr><td>収録曲一覧（試し聴き・位置の修正の送信）</td><td><a href="https://anison-intro-vs.onrender.com/songs.html">本番</a></td><td><a href="http://localhost:3001/songs.html">開く</a></td></tr>
+<tr><td>曲チェック</td><td><a href="https://anison-intro-vs.onrender.com/check.html">本番</a></td><td><a href="http://localhost:3001/check.html">開く</a></td></tr></table>
+<h2>このPCだけ（本番では使えません）</h2>
+<table><tr><th>画面</th><th>URL</th><th>用途</th></tr>
+<tr><td>曲の追加プレビュー</td><td><a href="http://localhost:3001/preview.html">localhost:3001/preview.html</a></td><td>検討中・未収録の曲を試し聴きして追加／見送り、測定</td></tr>
+<tr><td>自動で直した曲の確認</td><td><a href="http://localhost:3001/review.html">localhost:3001/review.html</a></td><td>自動解析で直したイントロ・サビを聴き比べて OK／戻す</td></tr></table>
+<p>※ <code>file:///…/review.html</code> のように直接ファイルを開いても動きません。必ずサーバー経由（上のURL）で開いてください。</p>
+</body></html>

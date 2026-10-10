@@ -56,7 +56,7 @@ for (const r of merged.values()) {
   const same = m && r.artist && m.some(s => norm(s.artist).includes(norm(r.artist).slice(0, 4)) || norm(r.artist).includes(norm(s.artist).slice(0, 4)));
   if (m && (same || !r.artist)) continue;
   const noise = r.sec && r.sec < 60 ? 'CMなど短い曲' : /remix|リミックス|instrumental|karaoke|カラオケ|off vocal|director'?s/i.test(r.title) ? 'リミックス・別バージョン' : /babypod|ベスト|best|コンピ|hits/i.test(r.album) && !r.artist ? 'コンピレーション' : '';
-  rows.push({ key: norm(r.title) + '|' + norm(r.artist || r.album).slice(0, 8), title: r.title, artist: r.artist || '', album: r.album, work: r.work, year: r.year, sec: r.sec, plays: r.plays,
+  rows.push({ genre: r.genre, key: norm(r.title) + '|' + norm(r.artist || r.album).slice(0, 8), title: r.title, artist: r.artist || '', album: r.album, work: r.work, year: r.year, sec: r.sec, plays: r.plays,
     src: r.src, noise, similar: m ? m.slice(0, 2).map(s => `${s.title}／${s.artist}（${s.work}）`) : [] });
 }
 console.log(`書き出し ${merged.size} 曲 → カタログにない ${rows.length} 曲（ノイズ扱い ${rows.filter(r => r.noise).length}）`);

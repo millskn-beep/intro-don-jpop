@@ -676,3 +676,7 @@ body.rush-reach #quiz { animation: rush-pulse-red 0.9s ease-in-out infinite; }
 .mini-bingo i.free { background: rgba(214, 170, 90, .75); }
 .mini-bingo.done { outline: 1px solid var(--warn); box-shadow: 0 0 8px rgba(255, 200, 80, .6); }
 .qno .speed { color: var(--warn); }
+
+/* お試しの曲（プレイリスト）の答え合わせ：「ゲームデータに入れる」を大きく */
+.promote-btn { display: block; width: 100%; margin: 10px 0 2px; padding: 14px 16px; font-size: 18px; font-weight: 800; border-radius: 14px; }
+.promote-note { display: block; text-align: center; margin-bottom: 6px; }

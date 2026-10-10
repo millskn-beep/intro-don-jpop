@@ -16,10 +16,12 @@ const SONGS_PATH = path.join(__dirname, 'data', 'songs.json');
 const DECOYS = require('./data/decoys.json');
 
 // 出題に使う曲（再生できないと分かった曲は除く）。曲チェック画面で保存すると読み直す
-let ALL_SONGS = [], SONGS = [];
+let ALL_SONGS = [], SONGS = [], STAGED = [];
 function loadSongs() {
   ALL_SONGS = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
-  SONGS = ALL_SONGS.filter(s => s.id && s.embeddable !== false && !s.retired); // retired：収録曲一覧の「削除を依頼」で出題から外した曲（データは残す）
+  const playable = ALL_SONGS.filter(s => s.id && s.embeddable !== false && !s.retired);
+  SONGS = playable.filter(s => !s.staged); // staged：プレイリストからの「お試し」の曲。ふだんの出題・選択肢には出さず、お題「プレイリスト」でだけ出す
+  STAGED = playable.filter(s => s.staged); // retired：収録曲一覧の「削除を依頼」で出題から外した曲（データは残す）
   buildSeries();
 }
 
@@ -113,6 +115,7 @@ app.get('/api/topics', (req, res) => res.json({
   genres: GENRE_KEYS.map(k => ({ key: k, label: GENRES[k].label, count: SONGS.filter(s => genresOf(s).includes(k)).length })),
   series: SERIES_LIST,
   fame: FAME.map(([k, label]) => ({ key: k, label, count: SONGS.filter(s => fameOf(s) === k).length })),
+  playlist: STAGED.length,
 }));
 app.get('/api/songs', (req, res) => { loadSongs(); res.json({ songs: ALL_SONGS, canEdit: canEdit(req) }); });
 app.post('/api/songs', (req, res) => {
@@ -271,6 +274,13 @@ app.post('/api/candidates/vote', (req, res) => {
   res.json({ ok: true, votes: c.votes, message: `「${c.title}」に1票入れました（次の更新で追加します）` });
 });
 
+// ── お試しの曲を「ゲームデータに入れる」が押された記録（公開サーバーは再起動で消えるので、反映の前に pull-promotes.js で取り込む）──
+const PROMOTES_PATH = path.join(__dirname, 'data', 'promotes.json');
+let PROMOTES = {};
+try { PROMOTES = JSON.parse(fs.readFileSync(PROMOTES_PATH, 'utf8')); } catch (e) { PROMOTES = {}; }
+function savePromotes() { try { fs.writeFileSync(PROMOTES_PATH + '.tmp', JSON.stringify(PROMOTES, null, 1) + '\n'); fs.renameSync(PROMOTES_PATH + '.tmp', PROMOTES_PATH); } catch (e) { /* 保存できなくても続ける */ } }
+app.get('/api/promotes', (req, res) => res.json({ promotes: Object.fromEntries(Object.entries(PROMOTES).map(([id, e]) => [id, { title: e.title, votes: e.votes.length, at: e.at }])) }));
+
 // ── 追加プレビュー画面（preview.html。このPCから開いたときだけ）──
 require('./lib/preview')(app, { canEdit, root: __dirname, loadSongs, candidates: () => CANDIDATES, saveCandidates });
 
@@ -370,7 +380,7 @@ const OPTIONS = {
   leadSec: [3, 5, 10],                   // サビ前：サビの何秒前から流すか
   autoNext: [8, 12, 0],                  // 答え合わせから自動で次へ進むまでの秒数（0 は自動で進まない）
   bonus: [true, false],                  // 連続正解ボーナス・最終問題2倍
-  topic: ['all', 'series', ...GENRE_KEYS], // お題：全部／作品を選ぶ／ジャンル（data/genres.json）
+  topic: ['all', 'series', 'playlist', ...GENRE_KEYS], // お題：全部／作品を選ぶ／ジャンル（data/genres.json）
   introPlays: [1, 2, 3],                 // イントロを流す回数（わからなかったときのため、頭から流し直す）
   noExclude: [false, true],              // 前に出た曲・ログを貼った曲も出す（除外しない。同じゲームの中で重なることはない）
   noRecord: [false, true],               // これから遊ぶ曲を除外に追加しない（ロビーの一番上のボタン）
@@ -424,7 +434,7 @@ function sanitizeSettings(input, base) {
 function poolFor(settings) {
   // 知名度はお題に関係なく、チェックした段階の曲だけにする（難しさの調整）
   const fame = Array.isArray(settings.fame) && settings.fame.length ? settings.fame : FAME_KEYS;
-  return SONGS.filter(s => s.year >= settings.yearFrom && s.year <= settings.yearTo && inTopic(s, settings) && fame.includes(fameOf(s))
+  return (settings.topic === 'playlist' ? STAGED : SONGS).filter(s => s.year >= settings.yearFrom && s.year <= settings.yearTo && inTopic(s, settings) && fame.includes(fameOf(s))
     && !(settings.play === 'fill' && genresOf(s).includes('lol'))); // 3つ埋めバトルに LoL の曲は出さない
 }
 
@@ -951,7 +961,7 @@ function finishPick(room, id) {
   if (!q || q.phase !== 'picking') return;
   clearTimers(room);
   const done = new Set(g.order.slice(0, g.qi).map(s => s.id));
-  const chosen = typeof id === 'string' ? SONGS.find(s => s.id === id && !done.has(s.id)) : null;
+  const chosen = typeof id === 'string' ? [...SONGS, ...STAGED].find(s => s.id === id && !done.has(s.id)) : null;
   const drawn = g.order[g.qi];
   if (chosen && chosen !== drawn) {
     const later_ = g.order.indexOf(chosen); // 後で出す予定だった曲を選んだら、その枠と入れ替える
@@ -1532,7 +1542,7 @@ function reveal(room) {
                                        answer: f.key === 'title' ? s.title : f.key === 'work' ? s.work : f.key === 'artist' ? s.artist
                                          : f.key === 'author' ? authorOf(s) : f.key === 'singer' ? s.singer[0] : (s.vocal || []).join('・'),
                                        correctIndex: f.correctIndex })) : null,
-    song: { id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type },
+    song: { id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type, staged: !!s.staged },
     log: playedLog(room), // ここまでに出た曲（ページを読み込み直した人も曲ログをコピーできるように）
     intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0,
     results,
@@ -1875,12 +1885,13 @@ io.on('connection', socket => {
     if (!q || !player || room.state !== 'playing' || room.game.paused || q.phase !== 'reveal' || !q.nextAt) return;
     q.listens = q.listens || new Map();
     const n = q.listens.get(player.token) || 0;
-    if (n >= LISTEN_PER_PLAYER) { socket.emit('listenLeft', 0); return socket.emit('notice', 'サビを聞くのは1問2回までです'); }
-    const limit = q.revealAt + (room.settings.autoNext + LISTEN_MAX_EXTRA) * 1000;
+    const free = !!q.song.staged; // お試しの曲（プレイリスト）は、何回でも・いくらでも延ばせる
+    if (!free && n >= LISTEN_PER_PLAYER) { socket.emit('listenLeft', 0); return socket.emit('notice', 'サビを聞くのは1問2回までです'); }
+    const limit = free ? Infinity : q.revealAt + (room.settings.autoNext + LISTEN_MAX_EXTRA) * 1000;
     const at = Math.min(limit, Math.max(q.nextAt, Date.now()) + LISTEN_SEC * 1000);
     if (at <= q.nextAt) { socket.emit('listenLeft', 0); return socket.emit('notice', 'これ以上は延ばせません'); }
     q.listens.set(player.token, n + 1);
-    socket.emit('listenLeft', LISTEN_PER_PLAYER - n - 1);
+    socket.emit('listenLeft', free ? -1 : LISTEN_PER_PLAYER - n - 1); // -1：回数の上限なし
     scheduleNext(room, q, at);
     io.to(room.code).emit('nextAt', { seconds: (at - Date.now()) / 1000, by: player.name });
   });
@@ -1909,6 +1920,15 @@ io.on('connection', socket => {
   socket.on('answer', (payload = {}) => {
     // timeout・drop はサーバーの中だけで使う（画面から送られても無視）
     if (room && player) onAnswer(room, player, { index: payload?.index, text: payload?.text, year: payload?.year, pass: payload?.pass, slot: payload?.slot });
+  });
+  // お試しの曲（staged）を「ゲームデータに入れる」：押された曲を記録（反映の前に tools/pull-promotes.js で本採用にする）
+  socket.on('promote', id => {
+    const s = typeof id === 'string' ? ALL_SONGS.find(x => x.id === id && x.staged) : null;
+    if (!s || !room || !player) return;
+    const who = player.token || player.id;
+    const e = PROMOTES[id] || (PROMOTES[id] = { title: s.title, votes: [], at: new Date().toISOString() });
+    if (!e.votes.includes(who)) { e.votes.push(who); savePromotes(); }
+    io.to(room.code).emit('promoted', { id, title: s.title, by: player.name, votes: e.votes.length });
   });
   socket.on('fillPass', on => { if (room && player) onFillPass(room, player, on === true); });
   // 3つ埋めバトル：押した人が「10択で選ぶ」を開いた → 出た選択肢を記録（パスの下の左側）

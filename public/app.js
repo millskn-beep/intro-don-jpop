@@ -235,10 +235,11 @@ $('presets').querySelectorAll('button').forEach(b => b.onclick = () => {
 });
 // お題の選択肢（ジャンルと作品）をサーバーから読み込む
 let TOPIC_DATA = { genres: [], series: [] };
-const topicLabel = S => S.topic === 'series' ? (S.series || '作品') : S.topic === 'all' ? '全部' : (TOPIC_DATA.genres.find(g => g.key === S.topic)?.label || 'お題');
+const topicLabel = S => S.topic === 'series' ? (S.series || '作品') : S.topic === 'all' ? '全部' : S.topic === 'playlist' ? 'プレイリスト（お試し）' : (TOPIC_DATA.genres.find(g => g.key === S.topic)?.label || 'お題');
 fetch('/api/topics').then(r => r.json()).then(d => {
   TOPIC_DATA = d;
   const tp = document.querySelector('[data-key="topic"]');
+  if (d.playlist > 0) tp.add(new Option(`プレイリスト（お試し・${d.playlist}曲）`, 'playlist'));
   d.genres.forEach(g => tp.add(new Option(`${g.label}（${g.count}曲）`, g.key)));
   const se = document.querySelector('[data-key="series"]');
   d.series.forEach(s => se.add(new Option(`${s.name}（${s.count}曲）`, s.name)));
@@ -1336,6 +1337,8 @@ socket.on('lifelineResult', r => {
 });
 
 // ── 答え合わせ ──
+socket.on('promoted', p => toast(`${p.by}さんが「${p.title}」をゲームデータに入れる候補にしました（${p.votes}人）`));
+
 socket.on('reveal', r => {
   player.setRate(1);
   stopTick(); if (clearBuzz()) player.resume(); buzzOpen = false; $('buzzBtn').disabled = true;
@@ -1377,10 +1380,12 @@ socket.on('reveal', r => {
   }
   const s = r.song;
   $('answer').innerHTML =`${esc(s.title)}<small>${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}（${s.year}）</small>`
+    + (s.staged ? '<button class="btn-main promote-btn" id="promoteBtn" type="button">✅ これはゲームデータに入れる</button><small class="promote-note">お試し中の曲です。押すと、ふだんの出題に入れる候補になります</small>' : '')
     + (s.id ? `<div class="song-tools"><button class="btn-sub" id="copySongBtn">📋 この曲をコピー</button>`
       + `<button class="btn-sub" id="keepSongBtn">${keptIds().has(s.id) ? '✓ 除外しない曲' : '🔁 この曲は除外しない'}</button>`
       + `<button class="btn-sub" id="fixToggle">⏱ 位置を直す${fixes()[s.id] ? '（直し済み）' : ''}</button></div><div class="fix-panel" id="fixPanel" hidden></div>` : '');
   if (s.id) setupSongTools(s, r);
+  if (s.staged) $('promoteBtn').onclick = () => { socket.emit('promote', s.id); $('promoteBtn').disabled = true; $('promoteBtn').textContent = '✅ 入れる候補にしました'; };
   $('results').innerHTML = r.results.map(x => `
     <tr>
       <td class="who">${avatarImg(x.avatar, 'avatar sm')}${esc(x.name)}</td>
@@ -1536,8 +1541,8 @@ socket.on('nextAt', ({ seconds, by }) => { listenBy = by; startNextCount(seconds
 $('listenBtn').onclick = () => { socket.emit('listen'); $('listenBtn').disabled = true; };
 // 押した後は「もっと聞く」に変わる。回数を使い切ったら押せない
 socket.on('listenLeft', left => {
-  $('listenBtn').textContent = left > 0 ? `♪ ＋10秒 もっと聞く（あと${left}回）` : '♪ もう延ばせません';
-  if (left > 0) setTimeout(() => { $('listenBtn').disabled = false; }, 1000);
+  $('listenBtn').textContent = left < 0 ? '♪ ＋10秒 もっと聞く' : left > 0 ? `♪ ＋10秒 もっと聞く（あと${left}回）` : '♪ もう延ばせません';
+  if (left !== 0) setTimeout(() => { $('listenBtn').disabled = false; }, 1000);
 });
 
 let toastTimer = null;

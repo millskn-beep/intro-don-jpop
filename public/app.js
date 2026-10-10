@@ -26,6 +26,7 @@ const icon = (name, cls = 'icon') => `<img class="${cls}" src="${ASSET}icon-${na
 
 const WARMUP_VIDEO = 'o6wtDPVkKqI';
 const socket = io();
+socket.on('pingc', ack => { if (typeof ack === 'function') ack(); }); // サーバーが回線の遅れを測るための合図（早押しの補正に使う）
 let me = null, room = null, question = null, myAnswer = null, timerStart = 0, tick = null;
 let myLifelines = null, answering = false; // answering: イントロ/サビ中で、まだ答えられる状態
 

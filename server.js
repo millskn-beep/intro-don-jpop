@@ -1468,6 +1468,23 @@ function fillCanBuzz(room, q, player) {
 const queueNames = (room, q) => (q.buzzQueue || []).map(e => room.players.get(e.token)?.name).filter(Boolean);
 // 順番待ちが変わるたびに全員へ送る（画面の「並んでいるので押せない」をサーバーの列と必ずそろえる）
 const emitQueue = (room, q) => io.to(room.code).emit('buzzQueue', { ids: (q.buzzQueue || []).map(e => room.players.get(e.token)?.id), names: queueNames(room, q) });
+// 早押しの回線補正：押した合図が届くまでの遅れ（往復の半分）を引いて、「押した時刻」を比べる。引きすぎないよう上限あり。
+// 最初の合図が届いてから短い時間（BUZZ_WINDOW_MS）だけ待って、補正した時刻がいちばん早い人を先にする
+const BUZZ_COMP_MAX = 120, BUZZ_WINDOW_MS = 100;
+const buzzComp = p => Math.min(BUZZ_COMP_MAX, Math.max(0, (p.rtt || 0) / 2));
+function settleBuzz(room, q) {
+  const list = q.buzzPending || []; q.buzzPending = null;
+  if (room.game?.q !== q || q.buzz || q.phase === 'reveal' || room.game.paused) return;
+  list.sort((a, b) => a.at - b.at);
+  let started = false;
+  for (const e of list) {
+    const p = room.players.get(e.token);
+    if (!p?.connected || q.answers.has(e.token) || (q.fill && !fillCanBuzz(room, q, p))) continue;
+    if (!started) { startBuzz(room, p, e.at); started = true; continue; }
+    if (q.fill) { (q.buzzQueue = q.buzzQueue || []).push({ token: e.token, at: e.at }); q.fillPass.delete(e.token); } // 早押しクイズは、後の人は間に合わなかった
+  }
+  if (q.fill) { q.buzzQueue?.sort((a, b) => a.at - b.at); emitQueue(room, q); broadcastRoom(room); }
+}
 function onBuzz(room, player) {
   const g = room.game, q = g?.q;
   if (!q || !['buzzer', 'fill'].includes(room.settings.play) || g.paused) return;
@@ -1479,12 +1496,16 @@ function onBuzz(room, player) {
     if (!q.fill || q.buzz.token === player.token) return;
     q.buzzQueue = q.buzzQueue || [];
     if (q.buzzQueue.some(e => e.token === player.token)) return;
-    q.buzzQueue.push({ token: player.token, at: Date.now() });
+    q.buzzQueue.push({ token: player.token, at: Math.max(q.t0, Date.now() - buzzComp(player)) });
+    q.buzzQueue.sort((a, b) => a.at - b.at); // 回線の遅れを引いた時刻の順
     q.fillPass.delete(player.token);
     emitQueue(room, q);
     return broadcastRoom(room);
   }
-  startBuzz(room, player, Date.now());
+  // まだだれも押していない：ごく短く待って、補正した時刻がいちばん早い人を先にする
+  if (!q.buzzPending) { q.buzzPending = []; addTimer(room, () => settleBuzz(room, q), BUZZ_WINDOW_MS); }
+  if (q.buzzPending.some(e => e.token === player.token)) return;
+  q.buzzPending.push({ token: player.token, at: Math.max(q.t0, Date.now() - buzzComp(player)) });
 }
 // 時間切れ（3つ埋めバトルは曲の終わり）。流し続けにして終わりが延びたときは、延びた時刻に改めて
 function revealAtEnd(room, q) {
@@ -1840,6 +1861,12 @@ function endGame(room) {
 const APP_VERSION = process.env.RENDER_GIT_COMMIT || String(Date.now());
 
 io.on('connection', socket => {
+  const rtts = [];
+  const pinger = setInterval(() => {
+    const t0 = Date.now();
+    socket.timeout(3000).emit('pingc', err => { if (err) return; rtts.push(Date.now() - t0); if (rtts.length > 8) rtts.shift(); if (player) player.rtt = Math.min(...rtts); });
+  }, 4000);
+  socket.on('disconnect', () => clearInterval(pinger));
   socket.emit('version', APP_VERSION);
   let room = null, player = null;
 

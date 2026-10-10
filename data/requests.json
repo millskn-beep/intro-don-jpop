@@ -35,5 +35,31 @@
   "votes": 1,
   "songId": "99H-7oojA34",
   "doneAt": "2026-10-10T15:36:33.465Z"
+ },
+ {
+  "id": "89aa3ac1",
+  "title": "ノイズ",
+  "work": "地獄少女",
+  "artist": "",
+  "genre": "pachislot",
+  "note": "",
+  "at": "2026-10-10T15:57:12.057Z",
+  "status": "added",
+  "votes": 1,
+  "songId": "J1DlQX1CBgs",
+  "doneAt": "2026-10-10T15:59:37.674Z"
+ },
+ {
+  "id": "8fe2c51d",
+  "title": "願いの灯 祈りの音",
+  "work": "地獄少女",
+  "artist": "",
+  "genre": "pachislot",
+  "note": "",
+  "at": "2026-10-10T15:58:23.725Z",
+  "status": "added",
+  "votes": 1,
+  "songId": "_PHHQoJBp4c",
+  "doneAt": "2026-10-10T15:59:37.827Z"
  }
 ]

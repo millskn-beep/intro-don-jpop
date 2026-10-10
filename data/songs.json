@@ -4161,7 +4161,9 @@
     "views": 273341,
     "channel": "MINT 505",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "gQxQYfFWlPA",
@@ -5632,7 +5634,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "リクエスト",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 47,
     "aliases": [
       "だいなまいとえくすぷろーじょん",
@@ -5654,7 +5656,9 @@
     "artistAliases": [
       "ふぁいあーぼんばー",
       "ふぁいやーぼんばー"
-    ]
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "kSk33GyJyII",
@@ -9293,7 +9297,7 @@
       "ダンシング"
     ],
     "embeddable": null,
-    "fame": "famous",
+    "fame": "normal",
     "introMeasured": true,
     "introMethod": "v2",
     "chorusChecked": true,
@@ -11618,7 +11622,9 @@
     "views": 414875,
     "channel": "cyandic",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "xRyL5BPOWfE",
@@ -18118,7 +18124,7 @@
     "confidence": "低",
     "source": "Elyas E",
     "intro": 7.2,
-    "chorus": 0,
+    "chorus": 60,
     "aliases": [
       "さかさまのちょう"
     ],
@@ -18136,7 +18142,8 @@
     "artistAliases": [
       "スノウ",
       "スノー"
-    ]
+    ],
+    "chorusSource": "manual"
   },
   {
     "id": "cpAz9KI6-3s",
@@ -19210,7 +19217,7 @@
     "confidence": "低",
     "source": "jia.t.w",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 74.4,
     "aliases": [
       "ナイトメア"
     ],
@@ -19232,7 +19239,8 @@
     "artistAliases": [
       "スノウ",
       "スノー"
-    ]
+    ],
+    "chorusSource": "manual"
   },
   {
     "id": "1eDwwHZXHN8",
@@ -24504,7 +24512,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 0.7,
-    "chorus": 67,
+    "chorus": 65,
     "aliases": [
       "つきはな",
       "月華"
@@ -24513,7 +24521,7 @@
     "fame": "minor",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 89715,
     "channel": "Nana Kitade / Loveless - Topic",
@@ -35602,7 +35610,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 0,
+    "intro": 10.2,
     "chorus": 96,
     "aliases": [
       "おるふぇ"
@@ -35626,7 +35634,9 @@
     "views": 659585,
     "channel": "宮野 真守",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "QBzPTVFXD64",
@@ -35807,7 +35817,9 @@
     "views": 26767,
     "channel": "Galileo Galilei Official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "kfC3xjNX_E0",
@@ -36974,7 +36986,9 @@
     "channel": "Iori Nomizu - Topic",
     "viewsAt": "2026-10-10",
     "fame": "normal",
-    "retired": true
+    "retired": true,
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "Z_LP-v2YcEQ",
@@ -45544,6 +45558,33 @@
     "fame": "famous"
   },
   {
+    "id": "_PHHQoJBp4c",
+    "title": "願いの灯 祈りの音",
+    "work": "地獄少女",
+    "artist": "地獄少女（パチンコ曲）",
+    "year": 2013,
+    "type": "イメージソング",
+    "confidence": "中",
+    "source": "リクエスト",
+    "intro": 0.2,
+    "chorus": 0,
+    "aliases": [
+      "ねがいのひいのりのおと",
+      "ねがいのひ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 119946,
+    "channel": "Bちゃん",
+    "viewsAt": "2026-10-10",
+    "fame": "otaku",
+    "workAliases": [
+      "じごくしょうじょ"
+    ]
+  },
+  {
     "id": "Ztt4JKdbygw",
     "title": "境界の彼方",
     "work": "境界の彼方",
@@ -50114,7 +50155,7 @@
     "confidence": "低",
     "source": "soborodesaido",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 53.5,
     "aliases": [
       "あかいみ"
     ],
@@ -50135,7 +50176,8 @@
       "佐藤",
       "さとう",
       "しゅがりん"
-    ]
+    ],
+    "chorusSource": "manual"
   },
   {
     "id": "T5vVKFfrgkk",
@@ -51110,14 +51152,14 @@
     "confidence": "高",
     "source": "angela Official Channel（Music Clip）",
     "intro": 14.7,
-    "chorus": 77,
+    "chorus": 75.1,
     "aliases": [
       "デッドオアアライブ"
     ],
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 509751,
     "channel": "angela Official Channel",
@@ -61254,6 +61296,40 @@
     ]
   },
   {
+    "id": "J1DlQX1CBgs",
+    "title": "ノイズ",
+    "work": "地獄少女 宵伽",
+    "artist": "ミオヤマザキ",
+    "year": 2017,
+    "type": "OP",
+    "confidence": "中",
+    "source": "リクエスト",
+    "intro": 0.2,
+    "chorus": 130,
+    "aliases": [
+      "のいず"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 6572681,
+    "channel": "MIOYAMZAKI",
+    "viewsAt": "2026-10-10",
+    "fame": "famous",
+    "workAliases": [
+      "じごくしょうじょよいのとぎ",
+      "宵伽",
+      "よいのとぎ",
+      "地獄少女"
+    ],
+    "artistAliases": [
+      "みおやまざき",
+      "ミオ"
+    ]
+  },
+  {
     "id": "4DbM_WD0kl8",
     "title": "ハイスペックニート",
     "work": "ボカロ（40mP）",
@@ -66297,7 +66373,7 @@
       "内田",
       "うちだ"
     ],
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 56,
     "embeddable": null,
     "chorusSource": "heatmap",
@@ -66305,7 +66381,9 @@
     "views": 71202,
     "channel": "内田真礼（UCHIDA MAAYA）Official Channel",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "X5kQR92kYn0",
@@ -68949,7 +69027,9 @@
     "views": 168070,
     "channel": "KING AMUSEMENT CREATIVE official channel",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "2pECnr5MNuU",
@@ -71131,7 +71211,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 0,
+    "intro": 0.7,
     "chorus": 130,
     "aliases": [
       "げきていこくかげきだんしんしょう",
@@ -71155,7 +71235,9 @@
     "views": 4791861,
     "channel": "Release - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "famous"
+    "fame": "famous",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "ckGTdMYV6Xg",
@@ -80379,7 +80461,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 70,
     "aliases": [
       "オーバー"
@@ -80401,7 +80483,9 @@
     "views": 148373,
     "channel": "富田美憂 Miyu Tomita -Music Channel-",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "H08YWE4CIFQ",
@@ -96962,7 +97046,7 @@
     "views": 216526,
     "channel": "MYTH & ROID Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "introSource": "auto",
     "introBefore": 0.5,
     "workAliases": [

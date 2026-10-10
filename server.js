@@ -257,7 +257,7 @@ app.post('/api/review', (req, res) => {
 const REQUESTS_PATH = path.join(__dirname, 'data', 'requests.json');
 let REQUESTS = [];
 try { REQUESTS = JSON.parse(fs.readFileSync(REQUESTS_PATH, 'utf8')); } catch (e) { REQUESTS = []; }
-const REQ_MAX = 300, REQ_INTERVAL = 60 * 1000; // 受付中は最大300件、同じ人（IP）からは1分に1件
+const REQ_MAX = 300, REQ_INTERVAL = 5 * 1000; // 受付中は最大300件、同じ人（IP）からは5秒に1件
 const reqLast = new Map();
 const reqNorm = s => String(s || '').normalize('NFKC').toLowerCase().replace(/[\s!！?？・〜~～()（）\-♪.。,、'"「」『』]/g, '');
 const reqText = (s, n) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, n);
@@ -277,7 +277,7 @@ app.post('/api/requests', (req, res) => {
   const key = reqNorm(title), wkey = reqNorm(work);
   const have = ALL_SONGS.find(s => reqNorm(s.title) === key && (!wkey || reqNorm(s.work).includes(wkey) || wkey.includes(reqNorm(s.work))));
   if (have) return res.json({ ok: true, exists: true, message: `「${have.title}」（${have.work}）はもう入っています` });
-  if (Date.now() - (reqLast.get(ip) || 0) < REQ_INTERVAL) return res.status(429).json({ error: '少し時間をおいてから送ってください（1分に1件まで）' });
+  if (Date.now() - (reqLast.get(ip) || 0) < REQ_INTERVAL) return res.status(429).json({ error: '少し時間をおいてから送ってください（5秒に1件まで）' });
   const same = REQUESTS.find(r => reqNorm(r.title) === key && (!wkey || !r.work || reqNorm(r.work) === wkey));
   reqLast.set(ip, Date.now());
   if (same) { same.votes = (same.votes || 1) + 1; saveRequests(); return res.json({ ok: true, message: `同じリクエストに1票足しました（${same.votes}票）` }); }

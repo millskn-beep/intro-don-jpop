@@ -8400,5 +8400,90 @@
    "intro": 0.5,
    "chorus": 56.5
   }
+ },
+ {
+  "id": "EtV3LeVAJk8",
+  "title": "月華-tsukihana-",
+  "work": "地獄少女 三鼎",
+  "channel": "Nana Kitade / Loveless - Topic",
+  "at": "2026-10-10T15:55:20.977Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 67,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 65
+  }
+ },
+ {
+  "id": "8Fka2V30FK4",
+  "title": "紅い実",
+  "work": "地獄少女（パチンコ）",
+  "channel": "soborodesaido",
+  "at": "2026-10-10T15:54:46.286Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 0,
+   "introMethod": "v2",
+   "chorusSource": null
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 53.5
+  }
+ },
+ {
+  "id": "mZreB40oP24",
+  "title": "逆さまの蝶",
+  "work": "地獄少女",
+  "channel": "Elyas E",
+  "at": "2026-10-10T15:55:49.232Z",
+  "before": {
+   "intro": 7.2,
+   "chorus": 0,
+   "introMethod": "v2",
+   "chorusSource": null
+  },
+  "after": {
+   "intro": 7.2,
+   "chorus": 60
+  }
+ },
+ {
+  "id": "pZRQlnA0AjI",
+  "title": "NightmaRe",
+  "work": "地獄少女 二籠",
+  "channel": "jia.t.w",
+  "at": "2026-10-10T15:55:48.024Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 0,
+   "introMethod": "v2",
+   "chorusSource": null
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 74.4
+  }
+ },
+ {
+  "id": "bHYf8dKQfsY",
+  "title": "DEAD OR ALIVE",
+  "work": "蒼穹のファフナー EXODUS",
+  "channel": "angela Official Channel",
+  "at": "2026-10-10T15:58:45.602Z",
+  "before": {
+   "intro": 14.7,
+   "chorus": 77,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 14.7,
+   "chorus": 75.1
+  }
  }
 ]

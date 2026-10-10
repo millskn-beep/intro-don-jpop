@@ -26037,5 +26037,18 @@
  },
  "pxD7ZmV7mdk": {
   "error": "ERROR: unable to download video data: HTTP Error 403: Forbidden"
+ },
+ "_PHHQoJBp4c": {
+  "error": "ERROR: unable to download video data: HTTP Error 403: Forbidden"
+ },
+ "J1DlQX1CBgs": {
+  "dur": 172.2,
+  "chorusRank": 0.97,
+  "chorusGaps": 0.0,
+  "introGaps": 0.07,
+  "earlyGaps": 0.02,
+  "est": 54.9,
+  "title": "ミオヤマザキ 『ノイズ』（TVアニメ「地獄少女 宵伽」オープニングテーマ）",
+  "channel": "MIOYAMZAKI"
  }
 }

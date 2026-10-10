@@ -680,3 +680,131 @@ body.rush-reach #quiz { animation: rush-pulse-red 0.9s ease-in-out infinite; }
 /* お試しの曲（プレイリスト）の答え合わせ：「ゲームデータに入れる」を大きく */
 .promote-btn { display: block; width: 100%; margin: 10px 0 2px; padding: 14px 16px; font-size: 18px; font-weight: 800; border-radius: 14px; }
 .promote-note { display: block; text-align: center; margin-bottom: 6px; }
+
+/* ── アニソン激アツRUSH：専用の台の見た目（背景はモードで変わる・ネオンの枠・大きな保留ランプ）── */
+.rush-bg { position: fixed; inset: 0; z-index: -1; opacity: 0; transition: opacity .8s ease, background-image .8s ease; background: #05060f center / cover no-repeat; pointer-events: none; }
+body.rush-machine .rush-bg { opacity: 1; background-image: url(assets/rush/bg-normal.webp); }
+body.rush-machine[data-rush-mode="rush"] .rush-bg { background-image: url(assets/rush/bg-rush.webp); }
+body.rush-machine.rush-reach .rush-bg { background-image: url(assets/rush/bg-chance.webp); }
+body.rush-machine[data-rush-mode="super"] .rush-bg { background-image: url(assets/rush/bg-super.webp); }
+body.rush-machine[data-rush-mode="heaven"] .rush-bg { background-image: url(assets/rush/bg-heaven.webp); }
+@media (max-width: 700px) {
+  body.rush-machine .rush-bg { background-image: url(assets/rush/bg-normal-s.webp); }
+  body.rush-machine[data-rush-mode="rush"] .rush-bg { background-image: url(assets/rush/bg-rush-s.webp); }
+  body.rush-machine.rush-reach .rush-bg { background-image: url(assets/rush/bg-chance-s.webp); }
+  body.rush-machine[data-rush-mode="super"] .rush-bg { background-image: url(assets/rush/bg-super-s.webp); }
+  body.rush-machine[data-rush-mode="heaven"] .rush-bg { background-image: url(assets/rush/bg-heaven-s.webp); }
+}
+body.rush-machine .backdrop { opacity: 0 !important; }
+/* 筐体：金の縁＋ローズピンクの電飾 */
+body.rush-machine #quiz { position: relative; border: 3px solid transparent; border-radius: 22px; padding-top: 14px;
+  background: linear-gradient(rgba(8, 6, 20, .72), rgba(8, 6, 20, .72)) padding-box, linear-gradient(135deg, #ffe08a, #b8892b 40%, #ffe08a 60%, #8a5f14) border-box;
+  box-shadow: 0 0 0 2px rgba(255, 79, 163, .35), 0 0 28px rgba(255, 79, 163, .45), inset 0 0 40px rgba(255, 79, 163, .12); }
+body.rush-machine #quiz::before, body.rush-machine #quiz::after { content: ''; position: absolute; top: 56px; bottom: 56px; width: 7px; border-radius: 6px; pointer-events: none;
+  background: repeating-linear-gradient(180deg, #ff4fa3 0 14px, #ffd36b 14px 20px, #7fe8ff 20px 34px, transparent 34px 40px); background-size: 100% 80px; box-shadow: 0 0 12px #ff4fa3; animation: rush-strip 1.2s linear infinite; }
+body.rush-machine #quiz::before { left: -12px; }
+body.rush-machine #quiz::after { right: -12px; animation-direction: reverse; }
+@keyframes rush-strip { to { background-position: 0 80px; } }
+body.rush-machine[data-rush-mode="rush"] #quiz { box-shadow: 0 0 0 2px rgba(255, 140, 40, .5), 0 0 36px rgba(255, 140, 40, .65), inset 0 0 50px rgba(255, 120, 30, .2); }
+/* 上のマーキー（いまのモード） */
+.rush-marquee { display: flex; align-items: baseline; justify-content: center; gap: 12px; margin: 0 0 10px; padding: 6px 14px; border-radius: 12px;
+  background: linear-gradient(90deg, rgba(255, 79, 163, .0), rgba(255, 79, 163, .35), rgba(255, 79, 163, .0)); }
+.rush-marquee b { font-family: var(--font-num, 'Outfit', sans-serif); font-size: 26px; letter-spacing: .22em; color: #fff; text-shadow: 0 0 10px #ff4fa3, 0 0 22px #ff4fa3; }
+.rush-marquee small { font-size: 12px; color: #ffd9ec; }
+body.rush-machine[data-rush-mode="rush"] .rush-marquee b { color: #ffe08a; text-shadow: 0 0 10px #ff8a1f, 0 0 24px #ff5a00; animation: rush-flash .7s ease-in-out infinite; }
+@keyframes rush-flash { 50% { opacity: .55; } }
+/* 保留ランプ：台のランプらしく大きな丸 */
+body.rush-machine .rush-bar { justify-content: center; gap: 18px; padding: 10px 14px; border-radius: 40px; background: rgba(0, 0, 0, .45); border: 2px solid rgba(255, 224, 138, .5); box-shadow: inset 0 0 14px rgba(0, 0, 0, .8); }
+body.rush-machine .rush-now { padding: 6px 18px; font-size: 14px; letter-spacing: .1em; box-shadow: 0 0 14px var(--rc, #4a7bff), inset 0 0 8px rgba(255, 255, 255, .5); }
+body.rush-machine .rush-next i { width: 26px; height: 26px; border: 2px solid rgba(255, 255, 255, .55); box-shadow: 0 0 14px var(--rc, #4a7bff), inset 0 -4px 8px rgba(0, 0, 0, .35), inset 0 3px 6px rgba(255, 255, 255, .55); animation: rush-lamp 1.6s ease-in-out infinite; }
+body.rush-machine .rush-next i:nth-child(2) { animation-delay: .2s; } body.rush-machine .rush-next i:nth-child(3) { animation-delay: .4s; } body.rush-machine .rush-next i:nth-child(4) { animation-delay: .6s; }
+@keyframes rush-lamp { 50% { filter: brightness(1.5); transform: scale(1.08); } }
+
+/* ── RUSH：予兆（あたるかも？）と、モードごとの色 ── */
+#omenFx { position: fixed; inset: 0; z-index: 40; pointer-events: none; }
+#omenFx.omen { animation: omen-fade 1.5s ease-out forwards; }
+#omenFx.omen-flash { background: radial-gradient(circle at 50% 45%, rgba(255, 255, 255, .55), rgba(255, 79, 163, .25) 55%, transparent 75%); }
+#omenFx.omen-flash.omen-lv2 { background: radial-gradient(circle at 50% 45%, rgba(255, 240, 180, .7), rgba(255, 190, 60, .35) 55%, transparent 75%); }
+#omenFx.omen-ripple { background: radial-gradient(circle at 50% 50%, transparent 20%, rgba(127, 232, 255, .5) 24%, transparent 30%, rgba(127, 232, 255, .3) 40%, transparent 48%); animation: omen-ripple 1.3s ease-out forwards; }
+#omenFx.omen-redout { background: radial-gradient(ellipse at center, transparent 30%, rgba(255, 30, 60, .55) 100%); animation: omen-red 1.6s ease-in-out forwards; }
+#omenFx.omen-lightning { background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, .95) 47%, rgba(180, 220, 255, .8) 50%, transparent 56%), rgba(255, 255, 255, .25); animation: omen-bolt .9s ease-out forwards; }
+#omenFx.omen-group { background: repeating-linear-gradient(100deg, rgba(255, 79, 163, .35) 0 40px, rgba(127, 232, 255, .3) 40px 80px, rgba(255, 224, 138, .35) 80px 120px); animation: omen-slide 1.6s linear forwards; }
+#omenFx.omen-rainbow { background: linear-gradient(90deg, rgba(255, 74, 94, .5), rgba(255, 201, 58, .5), rgba(47, 212, 122, .5), rgba(74, 123, 255, .5), rgba(192, 91, 255, .5)); background-size: 200% 100%; animation: omen-rainbow 1.6s linear forwards; }
+#omenFx.omen-step { background: linear-gradient(to top, rgba(255, 224, 138, .4), transparent 60%); }
+#omenFx.omen-step.omen-lv2 { background: linear-gradient(to top, rgba(255, 224, 138, .6), rgba(255, 79, 163, .25) 70%, transparent); }
+#omenFx.omen-step.omen-lv3 { background: linear-gradient(to top, rgba(255, 255, 255, .8), rgba(255, 79, 163, .4) 70%, transparent); }
+@keyframes omen-fade { 0% { opacity: 0; } 15% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes omen-ripple { 0% { opacity: 0; transform: scale(.4); } 30% { opacity: 1; } 100% { opacity: 0; transform: scale(1.6); } }
+@keyframes omen-red { 0%, 100% { opacity: 0; } 30%, 70% { opacity: 1; } }
+@keyframes omen-bolt { 0% { opacity: 0; } 10% { opacity: 1; } 25% { opacity: .2; } 35% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes omen-slide { 0% { opacity: 0; background-position: 0 0; } 20% { opacity: 1; } 100% { opacity: 0; background-position: 480px 0; } }
+@keyframes omen-rainbow { 0% { opacity: 0; background-position: 0 0; } 25% { opacity: 1; } 100% { opacity: 0; background-position: 200% 0; } }
+#quiz.omen-shake { animation: omen-shake .7s ease-in-out; }
+@keyframes omen-shake { 0%, 100% { transform: translate(0); } 15% { transform: translate(-7px, 3px); } 30% { transform: translate(6px, -4px); } 45% { transform: translate(-5px, -2px); } 60% { transform: translate(4px, 4px); } 80% { transform: translate(-2px, 1px); } }
+.omen-text { text-align: center; font-weight: 900; font-size: 20px; letter-spacing: .08em; color: #fff; text-shadow: 0 0 10px #ff4fa3, 0 0 20px #ff4fa3; margin: -4px 0 8px; animation: omen-pop .5s ease-out; }
+.omen-text[data-lv="2"] { color: #ffe08a; text-shadow: 0 0 10px #ff8a1f, 0 0 20px #ff5a00; font-size: 24px; }
+.omen-text[data-lv="3"] { color: #fff; font-size: 30px; text-shadow: 0 0 12px #7fe8ff, 0 0 26px #c05bff, 0 0 40px #ff4a5e; }
+@keyframes omen-pop { 0% { transform: scale(.4); opacity: 0; } 60% { transform: scale(1.2); } 100% { transform: scale(1); opacity: 1; } }
+/* モードごとの背景・電飾 */
+body.rush-machine[data-rush-mode="chance"] .rush-bg { background-image: url(assets/rush/bg-chance.webp); }
+body.rush-machine[data-rush-mode="chance"] #quiz { box-shadow: 0 0 0 2px rgba(127, 232, 255, .5), 0 0 34px rgba(127, 232, 255, .55), inset 0 0 44px rgba(127, 232, 255, .15); }
+body.rush-machine[data-rush-mode="chance"] .rush-marquee b { color: #cfeeff; text-shadow: 0 0 10px #7fe8ff, 0 0 24px #4a7bff; }
+body.rush-machine[data-rush-mode="super"] #quiz { box-shadow: 0 0 0 3px rgba(192, 91, 255, .6), 0 0 44px rgba(255, 224, 138, .75), inset 0 0 60px rgba(192, 91, 255, .25); animation: rush-flash-box 1.2s ease-in-out infinite; }
+body.rush-machine[data-rush-mode="super"] .rush-marquee b { color: #fff; font-size: 30px; text-shadow: 0 0 10px #c05bff, 0 0 26px #ffe08a, 0 0 44px #ff4a5e; animation: rush-flash .5s ease-in-out infinite; }
+body.rush-machine[data-rush-mode="heaven"] #quiz { box-shadow: 0 0 0 2px rgba(255, 183, 213, .6), 0 0 34px rgba(255, 255, 255, .6), inset 0 0 44px rgba(255, 183, 213, .22); }
+body.rush-machine[data-rush-mode="heaven"] .rush-marquee b { color: #fff; text-shadow: 0 0 10px #ffb7d5, 0 0 24px #fff; }
+@keyframes rush-flash-box { 50% { filter: brightness(1.25); } }
+@media (max-width: 700px) {
+  body.rush-machine[data-rush-mode="chance"] .rush-bg { background-image: url(assets/rush/bg-chance-s.webp); }
+}
+
+/* ── RUSH：選択肢は、かならず画面の中に収める（残りの高さに合わせて選択肢が縮む）── */
+body.rush-machine:not(.revealing) main:has(#room:not([hidden])) { height: 100dvh; max-height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+body.rush-machine:not(.revealing) #room:not([hidden]) { flex: 1 1 0; min-height: 0; }
+body.rush-machine:not(.revealing) .room-main { overflow: hidden; min-height: 0; max-height: 100%; }
+body.rush-machine:not(.revealing) .room-main > .stage { padding: 6px 12px; gap: 10px; }
+body.rush-machine:not(.revealing) .room-main .timer { font-size: clamp(22px, 4.4vh, 38px); }
+body.rush-machine:not(.revealing) .room-main .cover { width: clamp(40px, 7vh, 64px); height: clamp(40px, 7vh, 64px); }
+body.rush-machine:not(.revealing) #quiz:not([hidden]) { flex: 1 1 0; min-height: 0; display: flex; flex-direction: column; padding: 8px 14px; margin: 0; }
+body.rush-machine:not(.revealing) #quiz > * { flex: none; }
+body.rush-machine:not(.revealing) .rush-marquee { margin: 0 0 4px; padding: 2px 10px; }
+body.rush-machine:not(.revealing) .rush-marquee b { font-size: clamp(16px, 3.2vh, 26px); }
+body.rush-machine:not(.revealing) .rush-bar { margin-bottom: 6px; padding: 4px 10px; }
+body.rush-machine:not(.revealing) .rush-next i { width: clamp(16px, 2.8vh, 26px); height: clamp(16px, 2.8vh, 26px); }
+body.rush-machine:not(.revealing) #quiz #choices, body.rush-machine:not(.revealing) #quiz .choices { flex: 1 1 0; min-height: 0; grid-template-columns: repeat(2, 1fr); grid-auto-rows: minmax(0, 1fr); gap: 6px; }
+body.rush-machine:not(.revealing) #quiz .choice { min-height: 0; padding: 4px 10px 4px 44px; font-size: clamp(11px, 2.1vh, 16px); line-height: 1.25; overflow: hidden; }
+body.rush-machine:not(.revealing) #quiz .choice small { font-size: clamp(9px, 1.5vh, 12px); margin-top: 0; }
+@media (min-width: 900px) { body.rush-machine:not(.revealing) #quiz .choices { grid-template-columns: repeat(4, 1fr); } }
+/* RUSH：上の操作欄は1行に縮める（選択肢に高さを回す） */
+body.rush-machine:not(.revealing) .stage { flex-wrap: nowrap; align-items: center; }
+body.rush-machine:not(.revealing) .stage .status { flex: 0 1 260px; min-width: 150px; }
+body.rush-machine:not(.revealing) .stage-tools { flex: 1 1 0; min-width: 0; flex-wrap: nowrap; gap: 6px; overflow: hidden; margin-left: 0; justify-content: flex-end; }
+body.rush-machine:not(.revealing) .stage-tools .vol > span { display: none; }
+body.rush-machine:not(.revealing) .stage-tools .vol:not(.chk) { flex: 0 1 64px; min-width: 36px; }
+body.rush-machine:not(.revealing) .stage-tools select, body.rush-machine:not(.revealing) .stage-tools .btn-sub { padding: 3px 8px; font-size: 11px; white-space: nowrap; margin: 0; width: auto; }
+body.rush-machine:not(.revealing) .stage-tools .game-ctrl { display: flex; gap: 4px; flex-wrap: nowrap; }
+body.rush-machine:not(.revealing) #room:not([hidden]) { align-items: stretch; }
+body.rush-machine:not(.revealing) .room-main { height: 100%; }
+
+/* ── RUSH専用キャラ：プレイヤー欄の下に、いまのモードの担当キャラ ── */
+.rush-chara { position: relative; margin-top: 10px; display: none; text-align: center; }
+body.rush-machine .rush-chara:not([hidden]) { display: block; }
+.rush-chara img { width: 100%; max-width: 210px; aspect-ratio: 520 / 760; object-fit: cover; border-radius: 16px; border: 2px solid transparent;
+  background: linear-gradient(#000, #000) padding-box, linear-gradient(135deg, #ffe08a, #b8892b 45%, #ffe08a 70%, #8a5f14) border-box; box-shadow: 0 0 18px rgba(255, 79, 163, .45); }
+.rush-chara.swap img { animation: chara-swap .7s ease-out; }
+@keyframes chara-swap { 0% { opacity: 0; transform: scale(.85) rotate(-3deg); filter: brightness(2.2); } 100% { opacity: 1; transform: none; filter: none; } }
+.rush-chara b { display: block; margin-top: 4px; font-size: 12px; letter-spacing: .2em; color: #ffe08a; text-shadow: 0 0 8px #ff4fa3; }
+.rush-say { position: absolute; left: 50%; top: 8px; transform: translateX(-50%); z-index: 2; max-width: 92%; padding: 6px 12px; border-radius: 14px; background: rgba(255, 255, 255, .95); color: #2a1030;
+  font-weight: 800; font-size: 13px; line-height: 1.3; box-shadow: 0 2px 10px rgba(0, 0, 0, .5); animation: omen-pop .35s ease-out; }
+.rush-say::after { content: ''; position: absolute; left: 50%; bottom: -7px; transform: translateX(-50%); border: 7px solid transparent; border-top-color: rgba(255, 255, 255, .95); border-bottom: 0; }
+body.rush-machine[data-rush-mode="super"] .rush-chara img { box-shadow: 0 0 26px #c05bff, 0 0 40px rgba(255, 224, 138, .8); }
+@media (max-width: 899px) { body.rush-machine .rush-chara:not([hidden]) { display: none; } }
+@media (max-height: 640px) { .rush-chara img { max-width: 120px; } }
+body.rush-machine .char-dock { display: none !important; } /* RUSH は専用キャラを使う */
+/* 衣装が変わる（モードが進んだとき）：光って入れ替わる */
+.rush-chara.outfit img { animation: outfit-change .9s ease-out; }
+@keyframes outfit-change { 0% { filter: brightness(3) saturate(.3); transform: scale(1.04); } 40% { filter: brightness(2) saturate(.6); } 100% { filter: none; transform: none; } }
+.rush-say { display: flex; align-items: center; gap: 8px; }
+.rush-say img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid #ff4fa3; }
+.rush-say span { text-align: left; }
+.rush-say[hidden] { display: none; }

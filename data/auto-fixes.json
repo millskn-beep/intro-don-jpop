@@ -6636,6 +6636,25 @@
     "k": 15,
     "run": 2
    }
+  },
+  {
+   "at": "2026-10-10 20:55:12",
+   "id": "73i8kJb_muU",
+   "title": "HOME",
+   "work": "Phantom in the Twilight",
+   "kind": "chorus",
+   "before": 94.1,
+   "after": 182.5
+  },
+  {
+   "at": "2026-10-10 20:56:14",
+   "id": "mPauNZw0tqs",
+   "title": "my graduation",
+   "work": "J-POP（SPEED）",
+   "kind": "chorus",
+   "before": 62,
+   "after": 59.7,
+   "by": "songle"
   }
  ],
  "pending": [
@@ -6983,6 +7002,17 @@
    "late": 28,
    "songleOk": 258,
    "songleTotal": 368
+  },
+  {
+   "at": "2026-10-10 20:54:52",
+   "win": 30,
+   "k": 15,
+   "run": 2,
+   "ok": 413,
+   "total": 590,
+   "late": 30,
+   "songleOk": 56,
+   "songleTotal": 78
   }
  ],
  "checked": [
@@ -17294,6 +17324,31 @@
   {
    "at": "2026-10-08 13:09:22",
    "id": "O0knOzGvZng",
+   "kind": "ok"
+  },
+  {
+   "at": "2026-10-10 20:55:08",
+   "id": "9yWrOmJBjfA",
+   "kind": "chorus-ok"
+  },
+  {
+   "at": "2026-10-10 20:55:54",
+   "id": "xm8Hyk3oGS4",
+   "kind": "ok"
+  },
+  {
+   "at": "2026-10-10 20:56:10",
+   "id": "xdnDrHWmiic",
+   "kind": "ok"
+  },
+  {
+   "at": "2026-10-10 20:56:25",
+   "id": "mPauNZw0tqs",
+   "kind": "ok"
+  },
+  {
+   "at": "2026-10-10 20:56:40",
+   "id": "oYsVodViGdw",
    "kind": "ok"
   }
  ],

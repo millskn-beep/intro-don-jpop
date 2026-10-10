@@ -536,7 +536,7 @@ function publicRoom(room) {
       buzzing: q?.buzz?.token === p.token, // 早押しでいま答えている人
       card: room.settings.play === 'bingo' && p.card ? p.card.map(c => ({ w: c.w, open: c.open })) : null, bingo: !!p.bingoAt,
       picker: q?.picker === p.token,
-      rush: room.settings.play === 'rush' && p.rush?.left > 0 ? { chain: p.rush.chain, left: p.rush.left, mult: RUSH_MULT[Math.min(p.rush.chain + 1, RUSH_MULT.length) - 1] } : null,
+      rush: room.settings.play === 'rush' && p.rush?.left > 0 ? { chara: p.rush.chara || 0, mode: p.rush.mode, chain: p.rush.chain, left: p.rush.left, mult: p.rush.mode === 'rush' ? RUSH_MULT[Math.min(p.rush.chain + 1, RUSH_MULT.length) - 1] : p.rush.mode === 'super' ? SUPER_MULT[Math.min(p.rush.chain + 1, SUPER_MULT.length) - 1] : MODE_MULT[p.rush.mode] || 1 } : null,
       passed: !!q?.fillPass?.has(p.token), // 3つ埋めバトルでパスした人
     })),
     fill: fillPublic(room, q),
@@ -544,7 +544,7 @@ function publicRoom(room) {
     coop: room.game?.coop || null,
     // 激アツRUSH：保留ランプ（いまの問題の色と、先の4問の色）。当たりかどうかは入れない
     rush: room.settings.play === 'rush' && room.game?.rushPlan && room.state === 'playing'
-      ? { color: room.game.rushPlan[room.game.qi]?.color || null, next: room.game.rushPlan.slice(room.game.qi + 1, room.game.qi + 5).map(x => x.color) } : null,
+      ? { color: room.game.rushPlan[room.game.qi]?.color || null, state: room.game.rushPlan[room.game.qi]?.state || 0, next: room.game.rushPlan.slice(room.game.qi + 1, room.game.qi + 5).map(x => x.color) } : null,
   };
 }
 const broadcastRoom = room => { io.to(room.code).emit('room', publicRoom(room)); pushRoomList(); };
@@ -667,16 +667,55 @@ const RUSH_RATE = { normal: 1, high: 1.5, low: 0.6 };              // 設定「�
 const RUSH_BONUS = 2000;                                           // 大当たりのボーナス点
 const RUSH_MULT = [2, 2.5, 3, 3.5, 4];                             // 連チャンごとの倍率（上限 ×4）
 const RUSH_MAX = 10;                                               // RUSH は最大この問題数（当たりでまた10に戻る）
-const freshRush = () => ({ left: 0, chain: 0, earned: 0, jackpots: 0, maxChain: 0, rainbow: 0 });
+const freshRush = () => ({ left: 0, chain: 0, earned: 0, jackpots: 0, maxChain: 0, rainbow: 0, mode: 'normal', streak: 0, forgive: 0, chara: 0 });
+// 通常中の確率変動（状態 0〜3）：ルナ（低確）→ミコト→ヒナタ→ミヤビ（高確）。問題ごとに状態が動き、状態が高いほど当たりやすい（キャラで気づける）
+const STATE_HIT = [0.5, 0.9, 1.4, 2.0];
+const nextState = s => { const r = Math.random(); return r < 0.58 ? s : r < 0.8 ? Math.min(3, s + 1) : Math.max(0, s - 1); };
+// モード：通常 → チャンス（3連続正解）→ RUSH（大当たり）→ 超RUSH（RUSH中に5連チャン、または天国で大当たり）→ 天国（RUSH／超RUSHを走りきったあと）
+// left > 0 のあいだは、通常以外のモード中。len＝そのモードの問題数、mult＝点数の倍率、bonus＝大当たりのボーナス点
+const RUSH_MODE = {
+  chance: { len: 5, bonus: 3000, label: 'CHANCE', sub: '連続正解のチャンス！ 当たれば大きい' },
+  rush:   { len: RUSH_MAX, bonus: 2000, label: 'RUSH', sub: '大当たり継続中！ 当てるほど加速' },
+  super:  { len: 5, bonus: 5000, label: 'SUPER RUSH', sub: '超RUSH！ 倍率MAX級' },
+  heaven: { len: 5, bonus: 2000, label: 'HEAVEN', sub: '天国モード：1回だけミスOK' },
+};
+const MODE_MULT = { chance: 1.2, heaven: 1.5 }; // 固定倍率（RUSH・超RUSH は連チャンで上がる）
+const SUPER_MULT = [4, 4.5, 5, 5, 5];
+const SUPER_AT = 5;        // RUSH中にこの連チャンで超RUSHへ
+const HEAVEN_RATE = 0.6;   // RUSHを走りきったあと天国へ行く確率
+const CHANCE_AT = 3;       // 通常でこの連続正解でチャンスへ
+// 予兆：色が良いほど、当たりの問題ほど、多くて強い（ガセもある）。f は「イントロの中のどのへんで」（0〜1）、lv は強さ 1〜3
+const OMEN_BASE = [0, 1, 2, 3, 4];
+const OMEN_KIND = { 1: ['flash', 'voice', 'ripple'], 2: ['shake', 'redout', 'voice'], 3: ['lightning', 'group', 'rainbow'] };
+function makeOmens(ci, hit) {
+  let n = OMEN_BASE[ci] + (Math.random() < 0.4 ? 1 : 0) - (ci < 2 && Math.random() < 0.4 ? 1 : 0);
+  if (hit) n += Math.random() < 0.5 ? 1 : 0; else if (ci >= 2 && Math.random() < 0.3) n += 1; // ガセ予告
+  n = Math.max(0, Math.min(5, n));
+  const out = [];
+  const fs_ = Array.from({ length: n }, () => 0.12 + Math.random() * 0.76).sort((a, b) => a - b);
+  if (n >= 3 && Math.random() < 0.4) { // ステップアップ予告（1→2→3）
+    for (let k = 0; k < 3; k++) out.push({ f: fs_[k], kind: 'step', lv: k + 1, step: k + 1 });
+    for (let k = 3; k < n; k++) out.push({ f: fs_[k], kind: OMEN_KIND[3][Math.floor(Math.random() * 3)], lv: 3 });
+    return out;
+  }
+  for (let k = 0; k < n; k++) {
+    let lv = 1 + Math.floor(Math.random() * (1 + ci / 2)) + (k === n - 1 && hit ? 1 : 0);
+    lv = Math.max(1, Math.min(3, lv));
+    out.push({ f: fs_[k], kind: OMEN_KIND[lv][Math.floor(Math.random() * 3)], lv });
+  }
+  return out;
+}
 function buildRushPlan(order, source, S) {
   const rate = RUSH_RATE[S.rushRate] || 1, force = process.env.RUSH_FORCE === 'hit'; // RUSH_FORCE=hit：テスト用（全問を当たりにする。本番では使わない）
   const used = new Set(order.map(s => s.id));
   const spare = shuffle(source.filter(s => genresOf(s).includes('pachislot') && !used.has(s.id)));
   const plan = [];
+  let state = crypto.randomInt(2);
   for (let i = 0; i < order.length; i++) {
+    state = i === 0 ? state : nextState(state);
     let r = crypto.randomInt(100), ci = 0;
     for (; ci < RUSH_WEIGHT.length - 1; ci++) { if (r < RUSH_WEIGHT[ci]) break; r -= RUSH_WEIGHT[ci]; }
-    let hit = force || Math.random() < Math.min(1, RUSH_HIT[ci] * rate) || ci === RUSH_COLORS.length - 1;
+    let hit = force || Math.random() < Math.min(1, RUSH_HIT[ci] * rate * STATE_HIT[state]) || ci === RUSH_COLORS.length - 1;
     if (hit) {
       // もともとパチスロの曲ならそのまま。そうでなければ、パチスロの曲に入れ替える（足りなければ当たりにしない）
       if (!genresOf(order[i]).includes('pachislot')) {
@@ -684,33 +723,45 @@ function buildRushPlan(order, source, S) {
         if (next) { used.add(next.id); order[i] = next; } else hit = false;
       }
     }
-    plan.push({ color: RUSH_COLORS[ci], hit });
+    plan.push({ color: RUSH_COLORS[ci], hit, omens: makeOmens(ci, hit), state });
   }
   return plan;
 }
-// 答えたとき：RUSH中なら倍率、当たりの問題に正解なら大当たり（ボーナス＋RUSH開始・延長）。間違い・パスならRUSH終了
+// 答えたとき：モード中なら倍率、当たりの問題に正解なら大当たり（ボーナス＋RUSH開始・延長）。間違い・パスならモード終了（天国は1回だけ許す）
+// 戻りの info：mode＝この問題の前のモード、next＝答えたあとのモード、entered＝新しく入ったモード
 function rushApply(room, q, player, correct, points) {
   const r = player.rush || (player.rush = freshRush()), st = statsOf(room, player);
-  const was = r.left > 0; // この問題の前から RUSH 中か
-  const info = { mult: 1, bonus: 0, jackpot: false, ended: false, done: false, chain: r.chain, earned: r.earned };
+  const was = r.mode || 'normal';
+  const info = { mult: 1, bonus: 0, jackpot: false, ended: false, done: false, chain: r.chain, earned: r.earned, mode: was, next: was, entered: null };
+  const enter = (m, left) => { if (was === 'normal') r.chara = q.rush?.state || 0; r.mode = m; r.left = left; r.forgive = m === 'heaven' ? 1 : 0; info.entered = m; };
+  const toNormal = () => { r.mode = 'normal'; r.left = 0; r.chain = 0; r.streak = 0; r.forgive = 0; };
   if (!correct) {
-    if (r.left > 0) { info.ended = true; info.chain = r.chain; info.earned = r.earned; r.left = 0; r.chain = 0; r.earned = 0; }
+    if (was === 'heaven' && r.forgive > 0) { r.forgive--; r.left = Math.max(0, r.left - 1); info.forgiven = true; if (r.left === 0) { info.done = true; toNormal(); } }
+    else if (was !== 'normal') { info.ended = true; info.chain = r.chain; info.earned = r.earned; toNormal(); r.earned = 0; }
+    r.streak = 0; info.next = r.mode;
     return { points, info };
   }
-  if (r.left > 0) { // RUSH中の正解：連チャンが1つ増えて、倍率がかかる
-    r.chain++; st.maxChain = Math.max(st.maxChain || 0, r.chain);
-    info.mult = RUSH_MULT[Math.min(r.chain, RUSH_MULT.length) - 1];
+  if (was !== 'normal') { // モード中の正解：倍率がかかる
+    if (was === 'rush' || was === 'super') { r.chain++; st.maxChain = Math.max(st.maxChain || 0, r.chain); }
+    info.mult = was === 'rush' ? RUSH_MULT[Math.min(r.chain, RUSH_MULT.length) - 1] : was === 'super' ? SUPER_MULT[Math.min(r.chain, SUPER_MULT.length) - 1] : MODE_MULT[was];
     points = Math.round(points * info.mult);
     r.left--; r.earned += points;
-  }
-  if (q.rush?.hit) { // 大当たり
-    info.jackpot = true; info.bonus = RUSH_BONUS; points += RUSH_BONUS;
+  } else r.streak++;
+  const hit = !!q.rush?.hit;
+  if (hit) { // 大当たり
+    info.jackpot = true; info.bonus = RUSH_MODE[was === 'normal' ? 'rush' : was === 'heaven' ? 'super' : was].bonus; points += info.bonus;
     r.jackpots++; st.jackpots = (st.jackpots || 0) + 1;
     if (q.rush.color === 'rainbow') { r.rainbow++; st.rainbow = (st.rainbow || 0) + 1; }
-    if (!was) { r.chain = 0; r.earned = 0; }
-    r.left = RUSH_MAX; // RUSH開始（すでにRUSH中なら延長）。連チャンはそのまま
-  } else if (info.mult > 1 && r.left === 0) { info.done = true; r.chain = 0; } // 10問走りきった
-  info.chain = r.chain; info.earned = r.earned; info.left = r.left;
+    if (was === 'normal' || was === 'chance') { r.chain = 0; r.earned = 0; enter('rush', RUSH_MODE.rush.len); }
+    else if (was === 'heaven') { r.chain = 0; enter('super', RUSH_MODE.super.len); }
+    else r.left = RUSH_MODE[was].len; // RUSH・超RUSH中の大当たり＝延長
+  } else if (was === 'normal' && r.streak >= CHANCE_AT) { r.streak = 0; enter('chance', RUSH_MODE.chance.len); }
+  else if (was === 'rush' && r.chain >= SUPER_AT) enter('super', RUSH_MODE.super.len);
+  else if (r.left === 0 && was !== 'normal') { // 走りきった
+    info.done = true;
+    if ((was === 'rush' && Math.random() < HEAVEN_RATE) || was === 'super') enter('heaven', RUSH_MODE.heaven.len); else toNormal();
+  }
+  info.next = r.mode; info.chain = r.chain; info.earned = r.earned; info.left = r.left;
   return { points, info };
 }
 
@@ -1118,6 +1169,9 @@ function go(room) {
       if (at + S.introLen < hintAt) later(room, () => { if (q.phase === 'intro' && !q.flowOn) io.to(room.code).emit('stopIntro'); }, (at + S.introLen) * 1000);
     }
   }
+  if (q.rush?.omens?.length) { // 激アツRUSH：予兆（全員に同じ時刻で出す。当たりかどうかは伏せたまま）
+    for (const o of q.rush.omens) later(room, () => { if (q.phase === 'intro') io.to(room.code).emit('rushOmen', { kind: o.kind, lv: o.lv, step: o.step }); }, o.f * hintAt * 1000);
+  }
   later(room, () => {
     if (q.phase !== 'intro') return;
     q.phase = 'chorus';
@@ -1493,7 +1547,7 @@ function reveal(room) {
   // 答えなかった人は連続正解が途切れる（激アツRUSHでは、RUSH中ならそこで終わり）
   for (const t of q.participants) if (!q.answers.has(t)) {
     const p = room.players.get(t); if (p) p.streak = 0;
-    if (p && S.play === 'rush' && q.rush && p.rush?.left > 0) (q.rushEvents = q.rushEvents || new Map()).set(t, rushApply(room, q, p, false, 0).info);
+    if (p && S.play === 'rush' && q.rush) (q.rushEvents = q.rushEvents || new Map()).set(t, rushApply(room, q, p, false, 0).info);
   }
   // サバイバル：正解しなかった人（年代当ては2年以内なら助かる）はライフが減り、0で脱落
   const eliminated = [];

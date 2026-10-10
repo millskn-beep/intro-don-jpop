@@ -592,7 +592,7 @@ function renderRoom(r) {
     + (p.picker ? '<span class="buzzing">出題者</span>' : '')
     + (p.passed ? '<span class="passed">パス</span>' : '')
     + (p.card && r.state === 'playing' && p.bingo ? '<span class="bingo-tag done">BINGO!</span>' : '')
-    + (p.rush ? `<span class="rush-tag" title="RUSH中（連チャン ${p.rush.chain}・あと${p.rush.left}問）">🔥×${p.rush.mult}</span>` : '');
+    + (p.rush ? `<span class="rush-tag" title="${MODE_VIEW[p.rush.mode || 'rush']?.label || 'RUSH'}中（連チャン ${p.rush.chain}・あと${p.rush.left}問）">🔥×${p.rush.mult}</span>` : '');
   renderRush(r, r.players.find(p => p.id === me));
   // ビンゴ：名前の下に、その人のカードの埋まり具合を小さな4×4で（開いたマスに色）
   const miniCard = p => (p.card && r.state === 'playing'
@@ -1073,16 +1073,68 @@ socket.on('qlog', e => { qlogEntries.push(e); renderQlog(); });
 
 // ── アニソン激アツRUSH：保留ランプ・自分のRUSH・リーチ・大当たり ──
 const RUSH_LABEL = { blue: '青', green: '緑', red: '赤', gold: '金', rainbow: '虹' };
+// RUSH専用キャラ：通常中の確率変動（状態0〜3）でキャラが入れ替わる。モードが進むと「そのときのキャラ」で衣装が変わる（通常服→巫女服→浴衣→ステージ衣装→白い清楚な服）
+const RUSH_CHARAS = [
+  { id: 'runa', name: 'ルナ', say: ['今日は当たるかな？', 'ドキドキするね！', 'リーチ来い〜！'], lines: { chance: 'ふふっ、チャンスだよ！', rush: 'わーい！大当たりだー！', super: 'すっごーい！超RUSHだよ！！', heaven: 'えへへ、天国だぁ♪' } },
+  { id: 'mikoto', name: 'ミコト', say: ['…気配がします', '流れが来ています', '落ち着いて…'], lines: { chance: '…チャンス、来ましたね', rush: 'これが…大当たり、ですね', super: '力が…あふれます…！', heaven: 'ふふ…とても穏やかです' } },
+  { id: 'hinata', name: 'ヒナタ', say: ['いっけぇー！', 'もっともっと！', 'この調子っ！'], lines: { chance: 'チャンスだ！いくよー！', rush: '大当たりだー！！', super: '超RUSHだーっ！！最高ー！！', heaven: 'やったね！天国だよ〜♪' } },
+  { id: 'miyabi', name: 'ミヤビ', say: ['ふふっ、いい調子ですよ', 'ゆったり楽しみましょう', 'とっても素敵です♪'], lines: { chance: 'あら、チャンスですね', rush: 'まあ、大当たりですよ♪', super: '素晴らしい…超RUSHです！', heaven: 'ふふっ、天国ですよ♪' } },
+];
+let raySayTimer = null, rushCurChara = null;
+function rushSay(text, ms = 2600, expr = 'joy') {
+  const s = $('rushSay'); if (!text) { s.hidden = true; return; }
+  if (rushCurChara) $('rushSayFace').src = `assets/rush/face/${rushCurChara.id}-${expr}.webp`;
+  $('rushSayText').textContent = text; s.hidden = false; clearTimeout(raySayTimer); raySayTimer = setTimeout(() => { s.hidden = true; }, ms);
+}
+const MODE_VIEW = {
+  normal: { label: 'NORMAL', sub: 'リーチを狙え', enter: '' },
+  chance: { label: 'CHANCE', sub: '連続正解のチャンス！ 当たれば大きい', enter: 'チャンス突入！' },
+  rush: { label: 'RUSH', sub: '大当たり継続中！ 当てるほど加速', enter: 'RUSH突入！' },
+  super: { label: 'SUPER RUSH', sub: '超RUSH！ 倍率MAX級', enter: '超RUSH突入！！' },
+  heaven: { label: 'HEAVEN', sub: '天国モード：1回だけミスOK', enter: '天国モード！' },
+};
+// 予兆（あたるかも？）：サーバーがイントロの間に順番に送る。強さ lv 1〜3。当たりかどうかは分からない（ガセもある）
+const OMEN_TEXT = { flash: ['ん？', 'あれ…？', 'きた…？'], voice: ['なんか来そう…', 'ドキドキする…', 'ざわ…ざわ…'], ripple: ['…！'], shake: ['揺れた！？', 'これは…！'], redout: ['赤い…！', '熱くなってきた！'], lightning: ['激アツ！！', 'きたきたきた！'], group: ['みんな集まってきた！', '群予告！！'], rainbow: ['虹色の光が…！', '全回転の予感！！'] };
+let omenTimer = null;
+socket.on('rushOmen', ({ kind, lv, step }) => {
+  if (!document.body.classList.contains('rush-machine')) return;
+  const fx = $('omenFx'), q = $('quiz');
+  fx.className = ''; void fx.offsetWidth; // 前の予兆を切って、もう一度動かす
+  fx.classList.add('omen', 'omen-' + kind, 'omen-lv' + lv);
+  if (kind === 'shake' || kind === 'lightning') { q.classList.remove('omen-shake'); void q.offsetWidth; q.classList.add('omen-shake'); }
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  const text = kind === 'step' ? `STEP ${step}${step === 3 ? '！！' : ' ▶'}` : pick(OMEN_TEXT[kind] || OMEN_TEXT.voice);
+  $('omenText').textContent = text; $('omenText').dataset.lv = lv; $('omenText').hidden = false;
+  rushSay(text, 2200, lv >= 3 ? 'excited' : lv === 2 ? 'surprise' : 'smug');
+  if (lv >= 3) charFx.cutin(kind === 'group' ? '群予告！' : kind === 'rainbow' ? '全回転の予感…' : '激アツ！', text, 'cutin');
+  clearTimeout(omenTimer); omenTimer = setTimeout(() => { $('omenText').hidden = true; fx.className = ''; q.classList.remove('omen-shake'); }, 1800);
+});
 function renderRush(r, mine) {
   const on = r.settings?.play === 'rush' && r.state === 'playing' && !!r.rush;
   $('rushBar').hidden = !on;
   document.body.classList.toggle('rush-on', !!(on && mine?.rush)); // 自分がRUSH中は画面が燃える
-  if (!on) return;
+  document.body.classList.toggle('rush-machine', on); // RUSH専用の台の見た目（背景・枠・ランプ）
+  $('rushMarquee').hidden = !on;
+  if (!on) { delete document.body.dataset.rushMode; $('rushChara').hidden = true; $('rushCharaImg').removeAttribute('data-id'); $('rushCharaImg').removeAttribute('data-key'); return; }
+  const mode = mine?.rush?.mode || 'normal'; // 背景・電飾・マーキーはモードで変わる（リーチ中は body.rush-reach で「チャンス」の背景）
+  document.body.dataset.rushMode = mode;
+  // 通常中は、いまの問題の「状態」のキャラ。モード中は、突入したときのキャラのまま、モードに合った衣装
+  const ch = RUSH_CHARAS[Math.max(0, Math.min(3, mine?.rush ? (mine.rush.chara || 0) : (r.rush.state || 0)))];
+  rushCurChara = ch;
+  $('rushChara').hidden = false;
+  const key = ch.id + '-' + mode;
+  if ($('rushCharaImg').dataset.key !== key) {
+    const sameChara = $('rushCharaImg').dataset.id === ch.id;
+    $('rushCharaImg').src = `assets/rush/chara/${key}.webp`; $('rushCharaImg').dataset.key = key; $('rushCharaImg').dataset.id = ch.id; $('rushCharaName').textContent = ch.name;
+    $('rushChara').classList.remove('swap', 'outfit'); void $('rushChara').offsetWidth; $('rushChara').classList.add(sameChara ? 'outfit' : 'swap');
+  }
+  $('rushMode').textContent = MODE_VIEW[mode].label;
+  $('rushModeSub').textContent = MODE_VIEW[mode].sub;
   $('rushNow').dataset.color = r.rush.color || 'blue';
   $('rushNow').textContent = `保留 ${RUSH_LABEL[r.rush.color] || ''}`;
   $('rushNext').innerHTML = (r.rush.next || []).map(c => `<i data-color="${c}" title="${RUSH_LABEL[c]}"></i>`).join('');
   $('rushMe').hidden = !mine?.rush;
-  if (mine?.rush) $('rushMe').textContent = `🔥 RUSH中 ×${mine.rush.mult}（あと${mine.rush.left}問）`;
+  if (mine?.rush) $('rushMe').textContent = `🔥 ${MODE_VIEW[mine.rush.mode]?.label || 'RUSH'} ×${mine.rush.mult}（あと${mine.rush.left}問）`;
 }
 // リーチ：当たりの問題は、サビに入るところで知らされる
 socket.on('rushReach', ({ color, again }) => {
@@ -1415,7 +1467,13 @@ socket.on('reveal', r => {
   else if ((r.reach || []).length) setTimeout(() => charFx.cutin('リーチ！', r.reach.join('・'), 'cutin'), 600); // あと1マスでそろう列ができた
   document.body.classList.remove('rush-reach');
   // 激アツRUSH：大当たり・RUSH終了
-  if (r.rush?.jackpot?.length) setTimeout(() => { charFx.cutin('大当たり！', r.rush.jackpot.join('・') + ' +2000点', 'celebrate'); confetti(60); }, 500);
+  const myRush = r.results?.find(x => x.id === me)?.rush;
+  if (myRush?.entered && rushCurChara?.lines?.[myRush.entered]) setTimeout(() => rushSay(rushCurChara.lines[myRush.entered], 3500, 'joy'), 1500);
+  else if (r.rush?.jackpot?.length && rushCurChara) setTimeout(() => rushSay('やったー！ 大当たり！', 3000, 'joy'), 1500);
+  else if (r.rush?.hit && rushCurChara) setTimeout(() => rushSay('あぁ…惜しかった…', 3000, 'sad'), 1500);
+  else if (myRush?.ended && rushCurChara) setTimeout(() => rushSay('終わっちゃった…', 3000, 'sad'), 1500);
+  if (myRush?.entered && MODE_VIEW[myRush.entered]) setTimeout(() => { charFx.cutin(MODE_VIEW[myRush.entered].enter, MODE_VIEW[myRush.entered].sub, 'celebrate'); confetti(myRush.entered === 'super' ? 120 : 60); }, myRush.jackpot ? 1900 : 700);
+  if (r.rush?.jackpot?.length) setTimeout(() => { charFx.cutin('大当たり！', r.rush.jackpot.join('・') + ' ボーナス！', 'celebrate'); confetti(60); }, 500);
   else if (r.rush?.hit) setTimeout(() => flash('ng', 'ハズレ…', '当たりの問題でした'), 400);
   for (const e of r.rush?.ended || []) if (e.name === room?.players?.find(p => p.id === me)?.name) setTimeout(() => flash(e.done ? 'ok' : 'ng', e.done ? 'RUSH完走！' : 'RUSH終了', `連チャン・点`), 1400);
   if (r.picker?.id === me) flash('ok', '出題者ボーナス', `+${r.picker.points}（${r.picker.of}人中 ${r.picker.correct}人正解）`);

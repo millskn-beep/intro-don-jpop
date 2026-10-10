@@ -24,6 +24,8 @@
 </head>
 <body>
 <div class="backdrop" aria-hidden="true"></div>
+<div class="rush-bg" id="rushBg" aria-hidden="true"></div>
+<div id="omenFx" aria-hidden="true"></div>
 <!-- YouTube は画面全体の背景に置く。出題中は見えず、答え合わせで透けて見える -->
 <div class="video-bg" aria-hidden="true"><div id="player"></div></div>
 <main>
@@ -101,6 +103,8 @@
     <aside class="panel room-side">
       <h3>プレイヤー</h3>
       <ul class="players" id="players"></ul>
+      <!-- アニソン激アツRUSH：いまのモードを担当するキャラ（モードで変わる。予兆でひとこと） -->
+      <div class="rush-chara" id="rushChara" hidden><div class="rush-say" id="rushSay" hidden><img id="rushSayFace" alt=""><span id="rushSayText"></span></div><img id="rushCharaImg" alt=""><b id="rushCharaName"></b></div>
     </aside>
 
     <!-- 右：ゲーム画面 -->
@@ -284,6 +288,8 @@
         </div>
       </div>
       <!-- アニソン激アツRUSH：保留ランプ（左が いまの問題。右は先の問題）と、自分のRUSH -->
+      <div class="rush-marquee" id="rushMarquee" hidden><b id="rushMode">NORMAL</b><small id="rushModeSub"></small></div>
+      <div class="omen-text" id="omenText" hidden></div>
       <div class="rush-bar" id="rushBar" hidden>
         <span class="rush-now" id="rushNow" data-color="blue">保留</span>
         <span class="rush-next" id="rushNext"></span>

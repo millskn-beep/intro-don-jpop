@@ -16,6 +16,12 @@ async function load() {
   const decades = [...new Set(songs.map(s => Math.floor(s.year / 10) * 10))].sort();
   decades.forEach(d => $('decade').insertAdjacentHTML('beforeend', `<option value="${d}">${d}年代</option>`));
   render();
+  // トップ画面のリクエストから開いたとき（?song=曲ID）：その曲を探して、編集（イントロ・サビの位置）を開く
+  const want = new URLSearchParams(location.search).get('song');
+  if (want) {
+    const s = songs.find(x => x.id === want);
+    if (s) { $('q').value = s.title; render(); openEditor(s); } else toast('その曲は見つかりませんでした');
+  }
 }
 
 const genreOf = s => s.genres.length ? s.genres.map(k => genreLabel[k]).join('・') : '';

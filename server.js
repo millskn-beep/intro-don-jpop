@@ -265,7 +265,13 @@ function saveRequests() {
   try { fs.writeFileSync(REQUESTS_PATH + '.tmp', JSON.stringify(REQUESTS, null, 1) + '\n'); fs.renameSync(REQUESTS_PATH + '.tmp', REQUESTS_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
 }
 app.get('/api/requests', (req, res) => res.json({
-  requests: REQUESTS.slice(-500).reverse(),
+  // 追加済みのリクエストには、曲のID（songId）を付ける。トップ画面の「イントロ・サビを直す」から、その曲の編集を開くため
+  requests: REQUESTS.slice(-500).reverse().map(r => {
+    if (r.status !== 'added') return r;
+    const id = r.songId && ALL_SONGS.some(s => s.id === r.songId && !s.retired) ? r.songId
+      : ALL_SONGS.find(s => !s.retired && reqNorm(s.title) === reqNorm(r.title) && (!r.work || reqNorm(s.work).includes(reqNorm(r.work)) || reqNorm(r.work).includes(reqNorm(s.work))))?.id;
+    return id ? { ...r, songId: id } : r;
+  }),
   genres: GENRE_KEYS.map(k => ({ key: k, label: GENRES[k].label })),
 }));
 app.post('/api/requests', (req, res) => {

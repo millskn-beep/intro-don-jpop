@@ -822,3 +822,4 @@ body.rush-machine .rush-bar { flex-wrap: nowrap; min-height: 44px; }
 body.rush-machine .rush-me { max-width: 38%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 body.rush-machine .rush-say { max-height: 64px; }
 .omen-text { left: 50%; right: auto; translate: -50% 0; top: 2px; padding: 0 18px; border-radius: 14px; background: rgba(0, 0, 0, .55); white-space: nowrap; }
+.req-edit { margin-left: auto; padding: 3px 10px; font-size: 12px; text-decoration: none; border-radius: 99px; white-space: nowrap; }

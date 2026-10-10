@@ -771,6 +771,7 @@ function renderRequests() {
     <span class="req-status">${REQ_LABEL[r.status] || ''}</span>
     <span class="req-body"><b>${esc(r.title)}</b>${r.work ? `<small>${esc(r.work)}</small>` : ''}${r.artist ? `<small>${esc(r.artist)}</small>` : ''}${r.genre && reqGenres[r.genre] ? `<small class="req-genre">${esc(reqGenres[r.genre])}</small>` : ''}${r.note ? `<em>${esc(r.note)}</em>` : ''}</span>
     ${(r.votes || 1) > 1 ? `<span class="req-votes">${r.votes}票</span>` : ''}
+    ${r.status === 'added' && r.songId ? `<a class="btn-sub req-edit" href="songs.html?song=${encodeURIComponent(r.songId)}" title="試し聴きして、イントロ・サビの位置を直して送れます">✏ 位置を直す</a>` : ''}
     ${candCountOf(r.id) ? `<button class="btn-sub req-near${candFor === r.id ? ' on' : ''}" data-req="${esc(r.id)}">🔎 まわりの曲 ${candCountOf(r.id)}</button>` : ''}</li>`).join('') || '<li class="empty">まだリクエストはありません</li>';
   $('reqMore').hidden = reqAll.length <= reqShown;
 }

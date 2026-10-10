@@ -8485,5 +8485,56 @@
    "intro": 14.7,
    "chorus": 75.1
   }
+ },
+ {
+  "id": "vNVlpyJAbx4",
+  "title": "ハグルマ",
+  "work": "からくりサーカス",
+  "channel": "KANA-BOON Official YouTube Channel",
+  "at": "2026-10-10T16:02:42.644Z",
+  "before": {
+   "intro": 2,
+   "chorus": 54,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2,
+   "chorus": 58
+  }
+ },
+ {
+  "id": "FWQGzF99kO0",
+  "title": "マリオネット",
+  "work": "からくりサーカス",
+  "channel": "ロザリーナ OFFICIAL CHANNEL",
+  "at": "2026-10-10T16:02:54.043Z",
+  "before": {
+   "intro": 3.2,
+   "chorus": 63,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 3.2,
+   "chorus": 62
+  }
+ },
+ {
+  "id": "C2T3CQu5KTA",
+  "title": "gravitation",
+  "work": "ヒロイック・エイジ",
+  "channel": "angela Official Channel",
+  "at": "2026-10-10T16:03:44.831Z",
+  "before": {
+   "intro": 22,
+   "chorus": 76,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 22,
+   "chorus": 83.7
+  }
  }
 ]

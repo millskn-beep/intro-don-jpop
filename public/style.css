@@ -808,3 +808,17 @@ body.rush-machine .char-dock { display: none !important; } /* RUSH は専用キ�
 .rush-say img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid #ff4fa3; }
 .rush-say span { text-align: left; }
 .rush-say[hidden] { display: none; }
+
+/* ── RUSH：演出が入っても、選択肢は1ミリも動かさない（演出は重ねて出す・揺れは背景とキャラだけ）── */
+.omen-text { position: absolute; left: 0; right: 0; top: 40px; margin: 0; text-align: center; pointer-events: none; z-index: 5; }
+@keyframes omen-pop { 0% { transform: scale(.4); opacity: 0; } 60% { transform: scale(1.2); } 100% { transform: scale(1); opacity: 1; } }
+body.omen-shake .rush-bg, body.omen-shake .rush-marquee, body.omen-shake .rush-chara img { animation: omen-shake .7s ease-in-out; }
+#quiz.omen-shake { animation: none; }
+body.rush-machine:not(.revealing) #clues { min-height: 34px; margin-top: 0; margin-bottom: 4px; flex: none; }
+body.rush-machine:not(.revealing) #quizNote { min-height: 1.4em; margin: 2px 0 0; flex: none; }
+body.rush-machine .rush-marquee { min-height: 34px; overflow: hidden; white-space: nowrap; }
+body.rush-machine .rush-marquee small { overflow: hidden; text-overflow: ellipsis; }
+body.rush-machine .rush-bar { flex-wrap: nowrap; min-height: 44px; }
+body.rush-machine .rush-me { max-width: 38%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body.rush-machine .rush-say { max-height: 64px; }
+.omen-text { left: 50%; right: auto; translate: -50% 0; top: 2px; padding: 0 18px; border-radius: 14px; background: rgba(0, 0, 0, .55); white-space: nowrap; }

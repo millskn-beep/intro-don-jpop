@@ -1101,13 +1101,13 @@ socket.on('rushOmen', ({ kind, lv, step }) => {
   const fx = $('omenFx'), q = $('quiz');
   fx.className = ''; void fx.offsetWidth; // 前の予兆を切って、もう一度動かす
   fx.classList.add('omen', 'omen-' + kind, 'omen-lv' + lv);
-  if (kind === 'shake' || kind === 'lightning') { q.classList.remove('omen-shake'); void q.offsetWidth; q.classList.add('omen-shake'); }
+  if (kind === 'shake' || kind === 'lightning') { document.body.classList.remove('omen-shake'); void document.body.offsetWidth; document.body.classList.add('omen-shake'); }
   const pick = a => a[Math.floor(Math.random() * a.length)];
   const text = kind === 'step' ? `STEP ${step}${step === 3 ? '！！' : ' ▶'}` : pick(OMEN_TEXT[kind] || OMEN_TEXT.voice);
   $('omenText').textContent = text; $('omenText').dataset.lv = lv; $('omenText').hidden = false;
   rushSay(text, 2200, lv >= 3 ? 'excited' : lv === 2 ? 'surprise' : 'smug');
   if (lv >= 3) charFx.cutin(kind === 'group' ? '群予告！' : kind === 'rainbow' ? '全回転の予感…' : '激アツ！', text, 'cutin');
-  clearTimeout(omenTimer); omenTimer = setTimeout(() => { $('omenText').hidden = true; fx.className = ''; q.classList.remove('omen-shake'); }, 1800);
+  clearTimeout(omenTimer); omenTimer = setTimeout(() => { $('omenText').hidden = true; fx.className = ''; document.body.classList.remove('omen-shake'); }, 1800);
 });
 function renderRush(r, mine) {
   const on = r.settings?.play === 'rush' && r.state === 'playing' && !!r.rush;

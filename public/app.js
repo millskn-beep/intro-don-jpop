@@ -26,7 +26,27 @@ const icon = (name, cls = 'icon') => `<img class="${cls}" src="${ASSET}icon-${na
 
 const WARMUP_VIDEO = 'o6wtDPVkKqI';
 const socket = io();
-socket.on('pingc', ack => { if (typeof ack === 'function') ack(); }); // サーバーが回線の遅れを測るための合図（早押しの補正に使う）
+socket.on('pingc', ack => { if (typeof ack === 'function') ack(); });
+// ── 時計合わせ（賭ケ盟約と同じ方式）：端末の時計は performance.now() 基準（端末の時刻修正で飛ばない）。
+// 直近の計測のうち往復の短い3回の中央値で、サーバーの時刻とのずれを推定する。早押しは、押した時刻をこのずれで直してサーバーに送る
+const clientNow = () => performance.timeOrigin + performance.now();
+let clockSamples = [], clockOffset = null, clockBurstTimer = null;
+function clockPing() {
+  const c = clientNow();
+  socket.emit('clock', c, s => {
+    const now = clientNow(), rtt = now - c;
+    if (!(rtt >= 0 && rtt < 5000) || typeof s !== 'number') return;
+    clockSamples.push({ rtt, offset: s - (c + rtt / 2), at: now });
+    clockSamples = clockSamples.filter(x => now - x.at < 60000).slice(-16);
+    const offs = [...clockSamples].sort((p, q) => p.rtt - q.rtt).slice(0, 3).map(x => x.offset).sort((p, q) => p - q);
+    clockOffset = offs[Math.floor(offs.length / 2)];
+  });
+}
+function clockBurst(n = 8) { clearInterval(clockBurstTimer); let i = 0; clockBurstTimer = setInterval(() => { if (socket.connected) clockPing(); if (++i >= n) clearInterval(clockBurstTimer); }, 120); }
+socket.on('connect', () => { clockSamples = []; clockOffset = null; clockBurst(); });
+setInterval(() => { if (document.visibilityState === 'visible' && socket.connected) clockPing(); }, 4000);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && socket.connected) { clockSamples = []; clockBurst(); } });
+window.addEventListener('online', () => { clockSamples = []; clockBurst(); }); // サーバーが回線の遅れを測るための合図（早押しの補正に使う）
 let me = null, room = null, question = null, myAnswer = null, timerStart = 0, tick = null;
 let myLifelines = null, answering = false; // answering: イントロ/サビ中で、まだ答えられる状態
 
@@ -216,7 +236,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'pokerSuit'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -325,6 +345,7 @@ setSettingsTab(store.get('aq-settab') || 'range');
 $('openExclude').onclick = () => { setLobbyTab('settings'); lobbyTabChosen = true; setSettingsTab('exclude'); $('settings').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
 // 遊び方の説明（選んだ遊び方のルールを一言で）
 const PLAY_DESC = {
+  poker: '10問ごとに、手札に点を賭けて中間オープン（勝った人が総取り・使った手札は保管して最後にボーナス）。ときどき、カードの入れ替え・ドロー・2枚渡しなどの特殊演出が起こります。全員で同じ曲に答えます。正解すると、その曲のトランプが手札に入り、いちばん早く正解した人はランダムのカードがもう1枚もらえます。数字は作品ごと（同じ数字＝同じ作品）、マークはジャンル系統（設定でランダムにもできます）。手札は5枚で、増えたら不要なカードを捨てます。最後に全員の手札を開いて、ポーカーの役がいちばん強い人が勝ちです。カードに触れると曲の名前などが見えます。最後は、ポーカー場のテーブルで全員の手札をオープン！',
   normal: '全員が同時に答えます。速く正解するほど高得点。',
   buzzer: '曲が流れている間に「押す！」を押した人だけが答えられます。間違えると −200点で、ほかの人が押せます。',
   survival: '間違える・時間切れ・パスでライフが減り、0で脱落。最後まで残った人の勝ち（問題数は最大50問）。',
@@ -416,9 +437,17 @@ matchMedia('(max-width: 600px)').addEventListener('change', closeSheet);
 
 // ── 一時停止・途中でやめる ──
 let shownBeforePause = null, pausedNow = false, pausedAt = 0;
-$('pauseBtn').onclick = () => socket.emit('pause');
+$('menuBtn').onclick = e => {
+  e.stopPropagation();
+  const r = $('menuBtn').getBoundingClientRect(); // 枠からはみ出して切れないよう、画面に対して位置を決める
+  $('menuPop').style.top = r.bottom + 4 + 'px'; $('menuPop').style.right = Math.max(8, innerWidth - r.right) + 'px';
+  $('menuPop').hidden = !$('menuPop').hidden;
+};
+document.addEventListener('click', e => { if (!e.target.closest('#menuPop')) $('menuPop').hidden = true; });
+$('menuLayout').onclick = () => { $('menuPop').hidden = true; document.querySelector('.stage-tools .layout-open')?.click(); }; // 既存のレイアウト編集を開く
+$('pauseBtn').onclick = () => { $('menuPop').hidden = true; socket.emit('pause'); };
 $('resumeBtn').onclick = () => socket.emit('resume');
-$('abortBtn').onclick = () => { if (confirm('ゲームをやめて部屋に戻りますか？（得点は残りません）')) socket.emit('abort'); };
+$('abortBtn').onclick = () => { $('menuPop').hidden = true; if (confirm('ゲームをやめて部屋に戻りますか？（得点は残りません）')) socket.emit('abort'); };
 let phaseBefore = null; // 一時停止の前の表示（再開したら戻す）
 socket.on('paused', () => { pausedNow = true; pausedAt = performance.now(); player.pause(); phaseBefore = [$('phase').className.replace('phase ', ''), $('phase').textContent]; setPhase('ready', '一時停止中'); });
 socket.on('resumed', ({ ms, qTotal }) => {
@@ -488,6 +517,7 @@ function renderRoom(r) {
   $('livesLabel').hidden = r.settings.play !== 'survival';
   $('coopGoalLabel').hidden = r.settings.play !== 'coop';
   $('rushRateLabel').hidden = r.settings.play !== 'rush'; // アニソン激アツRUSH：当たりやすさ
+  $('pokerSuitLabel').hidden = r.settings.play !== 'poker'; // アニソン・ポーカー：マークの決め方
   $('lockSecLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えたあと押せない秒数
   $('bingoEndLabel').hidden = r.settings.play !== 'bingo'; // ビンゴ：何人・何ビンゴで終わるか
   $('noRepeatLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない
@@ -531,6 +561,7 @@ function renderRoom(r) {
   $('resetPlayed').disabled = !exHere;
   $('resetPlayed').hidden = false;
   const noRec = !!r.settings.noRecord;
+  $('pokerBox').hidden = !(r.settings.play === 'poker' && r.state !== 'lobby');
   $('noRecordBtn').textContent = noRec ? '✓ これから遊ぶ曲は除外に追加しない' : '🔁 これから遊ぶ曲は除外に追加しない';
   $('noRecordBtn').classList.toggle('on', noRec);
   $('noRecordBtn').disabled = !canSet;
@@ -546,7 +577,9 @@ function renderRoom(r) {
   $('quitBtn').hidden = !(isHost && r.state === 'playing' && r.paused); // 一時停止の設定画面から、結果発表なしでロビーへ
   // ゲーム中のホスト用ボタン。一時停止中は設定画面を出す
   const playing = r.state === 'playing';
-  $('gameCtrl').hidden = !(isHost && playing && !r.paused);
+  $('gameCtrl').hidden = !(playing && !r.paused); // メニュー：レイアウトはだれでも。設定を変える・ルームに戻るはホストだけ
+  $('pauseBtn').hidden = $('abortBtn').hidden = !isHost;
+  if ($('gameCtrl').hidden) $('menuPop').hidden = true;
   if (playing && r.paused && !shownBeforePause) {
     shownBeforePause = ['quiz', 'result'].find(x => !$(x).hidden) || 'quiz';
     show('lobby');
@@ -594,6 +627,7 @@ function renderRoom(r) {
     + (p.picker ? '<span class="buzzing">出題者</span>' : '')
     + (p.passed ? '<span class="passed">パス</span>' : '')
     + (p.card && r.state === 'playing' && p.bingo ? '<span class="bingo-tag done">BINGO!</span>' : '')
+    + (p.pokerCount != null ? `<span class="rush-tag" title="手札の枚数">🃏${p.pokerCount}</span>` : '')
     + (p.rush ? `<span class="rush-tag" title="${MODE_VIEW[p.rush.mode || 'rush']?.label || 'RUSH'}中（連チャン ${p.rush.chain}・あと${p.rush.left}問）">🔥×${p.rush.mult}</span>` : '');
   renderRush(r, r.players.find(p => p.id === me));
   // ビンゴ：名前の下に、その人のカードの埋まり具合を小さな4×4で（開いたマスに色）
@@ -860,6 +894,7 @@ function cue(text, fx) {
 const isInput = () => question?.answerMode === 'input';
 
 socket.on('question', q => {
+  hidePokerBet();
   if (q.qNo === 1 && !practice) playLog = []; // 新しいゲーム（テスト1問では曲ログを消さない）
   question = q; myAnswer = null; answering = false;
   stopTick();
@@ -997,7 +1032,7 @@ let buzzOpen = false, buzzHolder = null, buzzTick = null, buzzPausedAt = 0;
 function tryBuzz() {
   if (!buzzOpen || myAnswer !== null || practice || fillLocked()) return;
   buzzOpen = false; $('buzzBtn').disabled = true;
-  socket.emit('buzz');
+  socket.emit('buzz', clockOffset == null ? null : clientNow() + clockOffset); // 押した時刻（サーバーの時計に直したもの）
 }
 $('buzzBtn').onclick = tryBuzz;
 addEventListener('keydown', e => {
@@ -1073,6 +1108,120 @@ function renderQlog() {
   $('qlogInputs').scrollTop = $('qlogInputs').scrollHeight;
 }
 socket.on('qlog', e => { qlogEntries.push(e); renderQlog(); });
+
+// ── アニソン・ポーカー：手札・捨てる・ショーダウン ──
+const POKER_RULES = [['ファイブカード', '同じ数字（同じ作品）が5枚'], ['ロイヤルストレートフラッシュ', '10・J・Q・K・A が同じマーク'], ['ストレートフラッシュ', '数字が5枚連続で、同じマーク'], ['フォーカード', '同じ数字が4枚'], ['フルハウス', '同じ数字が3枚＋2枚'],
+  ['フラッシュ', '5枚とも同じマーク'], ['ストレート', '数字が5枚連続（A-2-3-4-5 〜 10-J-Q-K-A）'], ['スリーカード', '同じ数字が3枚'], ['ツーペア', '同じ数字のペアが2組'], ['ワンペア', '同じ数字が2枚'], ['ハイカード', '役なし（レアなカードほど強い）']];
+$('pokerRules').innerHTML = '<li class="note">数字が同じ＝同じ作品。レアな（知名度の低い）カードで作った役ほど強い</li>' + POKER_RULES.map(([n, d]) => `<li><b>${n}</b> ${d}</li>`).join('');
+const SUITS = ['♠', '♥', '♦', '♣'], NUMS = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+const FAME_NAME = ['超有名', '有名', '普通', 'マイナー', 'オタク'];
+const pokerTip = c => `${c.title}
+作品：${c.work}
+歌手：${c.artistLabel}
+${c.year}年・${c.type || '—'}・${FAME_NAME[c.fame] || ''}`;
+const pokerCard = (c, opt = {}) => `<div class="pk-card suit${c.suit} rare${c.fame}${opt.sm ? ' sm' : ''}${opt.used ? ' used' : ''}${opt.drop ? ' drop' : ''}${opt.fresh ? ' fresh' : ''}${opt.down ? ' facedown' : ''}" data-id="${esc(c.id)}" title="${esc(pokerTip(c))}">
+  <div class="pk-face"><b>${NUMS[c.num]}<small>${SUITS[c.suit]}</small></b><b class="br">${NUMS[c.num]}<small>${SUITS[c.suit]}</small></b><span class="pk-mid">${SUITS[c.suit]}</span><i>${esc(c.seriesLabel)}</i></div><div class="pk-back"></div></div>`;
+const pokerInfoOf = id => { const c = pokerHandData.hand.find(x => x.id === id); return c ? `${NUMS[c.num]}${SUITS[c.suit]}　${pokerTip(c).split(String.fromCharCode(10)).join("／")}` : ''; };
+let pokerHandData = { hand: [], over: false, usedIds: [], kept: [] }, pokerDrop = new Set(), pokerFresh = new Set();
+function renderPokerHand() {
+  const { hand, over, usedIds, best } = pokerHandData;
+  $('pokerKept').textContent = (pokerHandData.kept || []).length ? `🏦 保管 ${pokerHandData.kept.length}枚（最後に +${pokerHandData.kept.length * 50}点）` : '';
+  $('pokerBest').textContent = hand.length ? `（いまの役：${best}）` : '（まだカードがありません）';
+  $('pokerHand').innerHTML = hand.map(c => pokerCard(c, { used: usedIds.includes(c.id), drop: pokerDrop.has(c.id), fresh: pokerFresh.has(c.id) })).join('') || '<p class="note">正解すると、その曲のカードが入ります</p>';
+  $('pokerDiscard').hidden = !over;
+  if (over) $('pokerDiscardMsg').textContent = `${hand.length}枚あります。捨てるカードを選んで（${hand.length - 5}枚）。選ばなければ、強い5枚が残ります`;
+}
+socket.on('pokerHand', d => {
+  const before = new Set(pokerHandData.hand.map(c => c.id));
+  pokerFresh = new Set(d.hand.filter(c => !before.has(c.id)).map(c => c.id));
+  pokerHandData = d; pokerDrop = new Set([...pokerDrop].filter(id => d.hand.some(c => c.id === id)));
+  renderPokerHand();
+  setTimeout(() => { pokerFresh.clear(); renderPokerHand(); }, 1800);
+});
+$('pokerHand').onmouseover = e => { const el = e.target.closest('.pk-card'); if (el) $('pokerInfo').textContent = pokerInfoOf(el.dataset.id); };
+$('pokerHand').onclick = e => {
+  const el = e.target.closest('.pk-card'); if (!el) return;
+  $('pokerInfo').textContent = pokerInfoOf(el.dataset.id);
+  if (!pokerHandData.over) return;
+  const id = el.dataset.id;
+  if (pokerDrop.has(id)) pokerDrop.delete(id); else if (pokerDrop.size < pokerHandData.hand.length - 5) pokerDrop.add(id);
+  renderPokerHand();
+  if (pokerDrop.size === pokerHandData.hand.length - 5) { socket.emit('pokerDiscard', [...pokerDrop]); pokerDrop.clear(); }
+};
+$('pokerAuto').onclick = () => { socket.emit('pokerDiscard', []); pokerDrop.clear(); };
+// ── ポーカー：中間オープン（賭け）・特殊演出・ショーダウン ──
+const POKER_KEEP_PTS = 50;
+const betPop = $('pokerBetPop');
+let betTick = null;
+function hidePokerBet() { clearInterval(betTick); betPop.hidden = true; betPop.innerHTML = ''; }
+socket.on('pokerBet', d => {
+  clearInterval(betTick);
+  let left = d.sec;
+  const h = pokerHandData, max = Math.max(...d.options);
+  betPop.innerHTML = `<div class="pk-modal-box"><h3>💰 中間オープン！</h3>
+    <p class="pk-sub">手札に点を賭けて勝負します。賭けた人が2人以上なら、役が強い人が賭け金を総取り！ オープンした手札は<b>保管</b>に回り、最後に1枚 +${POKER_KEEP_PTS}点です。</p>
+    <div class="pk-mini-hand">${h.hand.map(c => pokerCard(c, { sm: true, used: h.usedIds.includes(c.id) })).join('') || '<small>手札がないので、見送りのみです</small>'}</div>
+    <p class="pk-now">いまの役：<b>${esc(h.best || '—')}</b>　持ち点：<b>${d.score}</b></p>
+    <div class="pk-bets">${d.options.map(v => `<button class="btn pk-bet" data-v="${v}" type="button">${v === 0 ? '見送り' : v === max ? `ALL IN ${v}点` : `${v}点`}</button>`).join('')}</div>
+    <p class="pk-prog"><span id="pbDone">0/${d.total}</span>人が決めました　あと <span id="pbLeft">${left}</span>秒</p></div>`;
+  betPop.hidden = false;
+  betPop.querySelectorAll('.pk-bet').forEach(b => b.onclick = () => {
+    socket.emit('pokerBet', +b.dataset.v);
+    betPop.querySelectorAll('.pk-bet').forEach(x => x.disabled = true); b.classList.add('chosen');
+  });
+  betTick = setInterval(() => { left--; const el = $('pbLeft'); if (el) el.textContent = Math.max(0, left); if (left <= 0) clearInterval(betTick); }, 1000);
+});
+socket.on('pokerBetProgress', ({ done, total }) => { const el = $('pbDone'); if (el) el.textContent = `${done}/${total}`; });
+socket.on('pokerBetResult', d => {
+  clearInterval(betTick);
+  const rows = [...d.rows].sort((a, b) => (b.delta - a.delta) || (b.bet - a.bet));
+  const winners = d.rows.filter(r => r.win).map(r => r.name);
+  betPop.innerHTML = `<div class="pk-modal-box wide"><h3>🂡 オープン！</h3>
+    <p class="pk-sub">${d.duel ? `賭け金 合計 <b>${d.pot}点</b> を ${esc(winners.join('・'))} が獲得！` : '賭けた人が1人以下だったので、勝負なし。手札はそのままです'}</p>
+    ${rows.filter(r => r.hand.length).map(r => `<div class="pk-res${r.win ? ' win' : ''}"><div class="pk-res-who">${r.win ? '👑 ' : ''}${avatarImg(r.avatar, 'avatar sm')}<b>${esc(r.name)}</b><em>${esc(r.handName)}</em><span class="${r.delta >= 0 ? 'plus' : 'minus'}">${r.delta > 0 ? '+' : ''}${r.delta}点</span></div>
+      <div class="pk-res-cards">${r.hand.map(c => pokerCard(c, { sm: true, used: r.used.includes(c.id) })).join('')}</div></div>`).join('')}</div>`;
+  betPop.hidden = false;
+  setTimeout(hidePokerBet, d.sec * 1000);
+});
+const POKER_EVENT_TITLE = { draw: 'カードドロー！', swap: 'カード入れ替え！', swapAll: '全入れ替え！！', trade: '2枚渡し！' };
+const showPokerEvent = ev => {
+  if (!ev) return;
+  const mine = ev.who.some(w => w.id === me);
+  charFx.cutin(POKER_EVENT_TITLE[ev.type] || '特殊演出！', ev.text, ev.type === 'swapAll' ? 'celebrate' : 'cutin');
+  toast(`🎴 ${ev.text}${mine ? '（あなたの手札が変わりました）' : ''}`);
+};
+
+// ショーダウン：ポーカー場のテーブルに席を並べて、最下位から順にカードをめくる
+let sdTimers = [];
+function renderShowdown(sd) {
+  const box = $('showdown');
+  sdTimers.forEach(clearTimeout); sdTimers = [];
+  box.hidden = !sd;
+  if (!sd) return;
+  const n = sd.length, oval = n <= 6 && innerWidth >= 760;
+  const seat = (x, i) => {
+    const ang = Math.PI / 2 + i * 2 * Math.PI / n;
+    const style = oval ? `--x:${(50 + 40 * Math.cos(ang)).toFixed(1)}%;--y:${(50 + 38 * Math.sin(ang)).toFixed(1)}%` : '';
+    return `<div class="pk-seat" data-k="${i}" style="${style}">
+      <div class="pk-plate">${avatarImg(x.avatar, 'avatar sm')}<span>${esc(x.name)}</span></div>
+      <div class="pk-seat-cards">${x.hand.map(c => pokerCard(c, { sm: true, down: true })).join('') || '<small class="pk-empty">カードなし</small>'}</div>
+      <div class="pk-seat-hand" hidden><b>${esc(x.handName)}</b><small>基本 ${x.base} ＋ 役 ${x.handBonus} ＋ 保管${x.keptCards.length}枚 ${x.keptBonus} ＝</small><strong>${x.total}点</strong></div></div>`;
+  };
+  box.innerHTML = `<div class="pk-table${oval ? '' : ' list'}"><div class="pk-felt-title"><span>SHOWDOWN</span><em id="pkWinner">いざ、オープン…</em><div class="pk-chips" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>${sd.map(seat).join('')}</div>`;
+  const seats = [...box.querySelectorAll('.pk-seat')];
+  [...sd.keys()].reverse().forEach((k, step) => {
+    sdTimers.push(setTimeout(() => {
+      const el = seats[k];
+      el.querySelectorAll('.pk-card').forEach((c, ci) => setTimeout(() => { c.classList.remove('facedown'); c.classList.add('flip'); if (sd[k].used.includes(c.dataset.id)) c.classList.add('used'); }, ci * 160));
+      setTimeout(() => { el.querySelector('.pk-seat-hand').hidden = false; el.classList.add('opened'); }, 5 * 160 + 200);
+      if (k === 0) setTimeout(() => {
+        el.classList.add('winner'); $('pkWinner').textContent = `👑 ${sd[0].name}　${sd[0].handName}`;
+        charFx.cutin('WINNER！', `${sd[0].name}　${sd[0].handName}`, 'celebrate');
+      }, 5 * 160 + 900);
+    }, 800 + step * 2200));
+  });
+}
+
 
 // ── アニソン激アツRUSH：保留ランプ・自分のRUSH・リーチ・大当たり ──
 const RUSH_LABEL = { blue: '青', green: '緑', red: '赤', gold: '金', rainbow: '虹' };
@@ -1470,6 +1619,12 @@ socket.on('reveal', r => {
   else if ((r.reach || []).length) setTimeout(() => charFx.cutin('リーチ！', r.reach.join('・'), 'cutin'), 600); // あと1マスでそろう列ができた
   document.body.classList.remove('rush-reach');
   // 激アツRUSH：大当たり・RUSH終了
+  if (r.poker?.card) {
+    const mineGain = r.poker.gains?.find(g => g.id === me);
+    if (mineGain) setTimeout(() => { toast(`🃏 「${r.poker.card.seriesLabel}」のカードを引いた${mineGain.bonus ? '！ いちばん早い正解のボーナスで、もう1枚！' : ''}`); if (mineGain.bonus) charFx.cutin('ボーナスカード！', 'いちばん早い正解', 'celebrate'); }, 600);
+    else if (r.poker.fastest) setTimeout(() => toast(`${r.poker.fastest}さんが、いちばん早い正解（ボーナスカード）`), 600);
+    if (r.poker.event) setTimeout(() => showPokerEvent(r.poker.event), 1600);
+  }
   const myRush = r.results?.find(x => x.id === me)?.rush;
   if (myRush?.entered && rushCurChara?.lines?.[myRush.entered]) setTimeout(() => rushSay(rushCurChara.lines[myRush.entered], 3500, 'joy'), 1500);
   else if (r.rush?.jackpot?.length && rushCurChara) setTimeout(() => rushSay('やったー！ 大当たり！', 3000, 'joy'), 1500);
@@ -1521,14 +1676,21 @@ socket.on('react', ({ id, name, kind }) => {
   setTimeout(() => el.remove(), 2600);
 });
 
-socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, survival, coop, bingo }) => {
+socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, survival, coop, bingo, showdown }) => {
+  hidePokerBet(); renderShowdown(showdown);
+  pokerHandData = { hand: [], over: false, usedIds: [], kept: [] }; pokerDrop.clear();
   $('pickPanel').hidden = true; clearInterval(pickTick); $('coopBar').hidden = true; $('bingoBox').hidden = true;
   if (Array.isArray(log)) playLog = log;
   if (Array.isArray(rl)) roomLog = rl;
   clearInterval(nextTick); $('nextCount').textContent = ''; // 「結果発表まで」のカウントを止める
   stageMascot(null);
   $('qno').textContent = ''; $('timer').textContent = ''; $('barFill').style.width = '0';
-  $('titles').innerHTML = titles.map(x => `<li>${avatarImg(x.avatar)}<div><b>${esc(x.title)}</b><span>${esc(x.name)}</span><small>${esc(x.why)}</small></div></li>`).join('');
+  // 称号は人ごとにまとめる（順位の順）
+  const byWho = new Map();
+  for (const x of titles) { if (!byWho.has(x.id)) byWho.set(x.id, { ...x, list: [] }); byWho.get(x.id).list.push(x); }
+  const order = new Map(ranking.map((r, i) => [r.id, i]));
+  $('titles').innerHTML = [...byWho.values()].sort((a, b) => (order.get(a.id) ?? 99) - (order.get(b.id) ?? 99))
+    .map(w => `<li>${avatarImg(w.avatar)}<div><span>${esc(w.name)}</span><p class="title-chips">${w.list.map(x => `<em title="${esc(x.why)}"><b>${esc(x.title)}</b><small>${esc(x.why)}</small></em>`).join('')}</p></div></li>`).join('');
   document.body.classList.remove('revealing', 'playing');
   question = null;
   player.stop(); stopTick();

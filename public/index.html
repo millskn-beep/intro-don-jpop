@@ -104,6 +104,15 @@
       <h3>プレイヤー</h3>
       <ul class="players" id="players"></ul>
       <!-- アニソン激アツRUSH：いまのモードを担当するキャラ（モードで変わる。予兆でひとこと） -->
+      <!-- アニソン・ポーカー：自分の手札（中身は自分だけに見える） -->
+      <div class="poker-box" id="pokerBox" hidden>
+        <h4>🃏 手札 <small id="pokerBest"></small></h4>
+        <div class="poker-hand" id="pokerHand"></div>
+        <div class="poker-kept" id="pokerKept"></div>
+        <div class="poker-info" id="pokerInfo">カードに触れると、曲の名前などが出ます</div>
+        <div class="poker-discard" id="pokerDiscard" hidden><span id="pokerDiscardMsg"></span><button class="btn-sub" id="pokerAuto" type="button">おまかせで捨てる</button></div>
+        <details class="poker-rules"><summary>役の一覧</summary><ul id="pokerRules"></ul></details>
+      </div>
       <div class="rush-chara" id="rushChara" hidden><div class="rush-say" id="rushSay" hidden><img id="rushSayFace" alt=""><span id="rushSayText"></span></div><img id="rushCharaImg" alt=""><b id="rushCharaName"></b></div>
     </aside>
 
@@ -128,9 +137,13 @@
       <label class="vol" title="エフェクトの輝き（自分の画面だけ。0で消す）"><span>エフェクト</span><input type="range" id="fxRange" min="0" max="100" value="100"></label>
       <label class="vol chk" title="キャラクターを表示する（自分の画面だけ）"><span>キャラ</span><input type="checkbox" id="mascotChk" checked></label>
       <label class="vol" title="キャラクターと画面の見た目を選ぶ（自分の画面だけ）"><span>キャラ選択</span><select class="char-sel" id="charSel"><option value="twins">双子</option><option value="rabbit">うさぎ</option><option value="cat">ねこ</option></select></label>
-      <div class="game-ctrl" id="gameCtrl" hidden>
-        <button class="btn-sub" id="pauseBtn" title="問題を一時停止して設定を変える（次の問題から反映）">⏸ 設定を変える</button>
-        <button class="btn-sub" id="abortBtn" title="ゲームをやめて部屋に戻る">ルームに戻る</button>
+      <div class="game-ctrl game-menu" id="gameCtrl" hidden>
+        <button class="btn-sub" id="menuBtn" type="button" title="設定を変える・レイアウト・ルームに戻る">⚙ メニュー ▾</button>
+        <div class="menu-pop" id="menuPop" hidden>
+          <button class="btn-sub" id="pauseBtn" title="問題を一時停止して設定を変える（次の問題から反映）">⏸ 設定を変える</button>
+          <button class="btn-sub" id="menuLayout" type="button" title="画面の配置を自分用に変える（パソコンだけ）">🧩 レイアウト</button>
+          <button class="btn-sub" id="abortBtn" title="ゲームをやめて部屋に戻る">ルームに戻る</button>
+        </div>
       </div>
       </div>
     </div>
@@ -193,10 +206,12 @@
           <option value="bingo">ビンゴ（作品名のカードをそろえる）</option>
           <option value="fill">3つ埋めバトル（曲名・アニメ・アーティストを早押しで埋める）</option>
           <option value="rush">アニソン激アツRUSH（保留・リーチ・大当たり・確変）</option>
+          <option value="poker">アニソン・ポーカー（正解した曲のカードで役を作る）</option>
         </select></label>
         <label>答えるもの<select data-key="target"><option value="song">曲名</option><option value="work">作品</option><option value="artist">歌手</option><option value="year">年（近いほど高得点）</option></select></label>
         <label id="questionsLabel">問題数<select data-key="questions"></select></label>
         <label id="livesLabel" hidden>ライフ<select data-key="lives"><option value="1">1（1回で脱落）</option><option value="2">2</option><option value="3">3</option></select></label>
+        <label id="pokerSuitLabel" hidden>マークの決め方<select data-key="pokerSuit"><option value="genre">ジャンル系統（♠バトル・SF ♥恋愛・日常 ♦異世界・ゲーム ♣その他）</option><option value="random">ランダム</option></select></label>
         <label id="rushRateLabel" hidden>当たりやすさ<select data-key="rushRate"><option value="normal">ふつう</option><option value="high">出やすい（×1.5）</option><option value="low">出にくい（×0.6）</option></select></label>
         <label id="lockSecLabel" hidden>お手つき後に押せない秒数<select data-key="lockSec"><option value="3">3秒</option><option value="5">5秒</option><option value="10">10秒</option><option value="15">15秒</option><option value="20">20秒</option><option value="30">30秒</option></select></label>
         <label id="noRepeatLabel" hidden>お手つきのあとの連続解答<select data-key="noRepeat"><option value="false">できる</option><option value="true">できない（ほかの人が押すまで待つ）</option></select></label>
@@ -350,6 +365,7 @@
         <img id="podiumImg" src="assets/glass/podium.webp" alt="">
         <div class="places" id="places"></div>
       </div>
+      <div class="showdown" id="showdown" hidden></div>
       <ol class="ranking" id="ranking"></ol>
       <button class="btn-sub copy-log" id="roomLogBtn">📋 この部屋で出題した曲を全部コピー</button>
       <button class="btn-main" id="againBtn" hidden>もう一回（同じ設定で）</button>
@@ -363,6 +379,7 @@
   <div class="mascot-pop" id="mascotPop" hidden></div>
   <div class="confetti" id="confetti" aria-hidden="true"></div>
   <div class="toast" id="toast" hidden></div>
+  <div class="pk-modal" id="pokerBetPop" hidden></div>
   <div class="sheet-shade" id="sheetShade"></div>
 </main>
 <script src="/socket.io/socket.io.js"></script>

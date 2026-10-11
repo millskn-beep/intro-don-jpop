@@ -480,7 +480,7 @@ details.more .settings { margin-top: 6px; }
 .react-pop b { font-size: 20px; font-weight: 900; color: var(--warn); text-shadow: 0 2px 6px rgba(0, 0, 0, .6); }
 
 /* ── 最終結果の称号 ── */
-.titles { list-style: none; margin: 0 0 6px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+.titles { list-style: none; margin: 0 0 6px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 8px; }
 .titles li { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 10px 12px; background: var(--glass-strong); border: 1px solid rgba(255, 211, 107, .55);
              border-radius: 14px; box-shadow: 0 0 14px rgba(255, 211, 107, .25); animation: pop .5s ease both; }
 .titles li div { display: flex; flex-direction: column; gap: 1px; min-width: 0; line-height: 1.35; }
@@ -823,3 +823,117 @@ body.rush-machine .rush-me { max-width: 38%; white-space: nowrap; overflow: hidd
 body.rush-machine .rush-say { max-height: 64px; }
 .omen-text { left: 50%; right: auto; translate: -50% 0; top: 2px; padding: 0 18px; border-radius: 14px; background: rgba(0, 0, 0, .55); white-space: nowrap; }
 .req-edit { margin-left: auto; padding: 3px 10px; font-size: 12px; text-decoration: none; border-radius: 99px; white-space: nowrap; }
+
+/* ── アニソン・ポーカー：手札・カード・ショーダウン ── */
+.poker-box { margin-top: 10px; padding: 8px; border-radius: 12px; background: rgba(0, 0, 0, .3); border: 1px solid var(--line); }
+.poker-box h4 { margin: 0 0 6px; font-size: 13px; }
+.poker-box h4 small { font-weight: 500; color: var(--accent); }
+.poker-hand { display: flex; flex-wrap: wrap; gap: 6px; }
+.poker-info { margin-top: 6px; min-height: 16px; font-size: 11.5px; color: #cfd0e8; word-break: break-all; }
+.pk-card.used { border-color: #e8a800; box-shadow: 0 0 10px rgba(255, 200, 60, .8); transform: translateY(-4px); }
+.pk-card.drop { opacity: .4; outline: 2px dashed #ff6b8a; }
+.pk-card.fresh { animation: pk-draw .8s ease-out; }
+@keyframes pk-draw { 0% { transform: translateY(-14px) scale(1.12) rotate(-4deg); filter: brightness(2); } 100% { transform: none; filter: none; } }
+.poker-discard { margin-top: 6px; display: grid; gap: 4px; font-size: 11.5px; color: #ffb3c4; }
+.poker-discard .btn-sub { padding: 4px 10px; font-size: 11px; width: auto; margin: 0; }
+.poker-box.over .pk-card { cursor: pointer; }
+.poker-rules { margin-top: 6px; font-size: 11px; color: var(--sub); }
+.poker-rules ul { margin: 4px 0 0; padding-left: 16px; }
+.showdown { margin: 10px 0; display: grid; gap: 8px; }
+.showdown h3 { margin: 0; }
+.sd-row { padding: 8px; border-radius: 12px; background: var(--glass); border: 1px solid var(--line); }
+.sd-who { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.sd-hand { margin-left: auto; padding: 2px 12px; border-radius: 99px; background: linear-gradient(90deg, #ff4fa3, #ffd36b); color: #1a0a20; font-weight: 900; }
+.sd-cards { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ゲーム中のメニュー：設定を変える・レイアウト・ルームに戻る をまとめる */
+.stage-tools .layout-open { display: none; } /* ボタンはメニューの中から開く */
+.game-menu { position: relative; }
+.menu-pop { position: fixed; z-index: 200; display: grid; gap: 4px; padding: 6px; min-width: 150px; border-radius: 12px; background: rgba(12, 10, 28, .96); border: 1px solid var(--line-strong, #5a5470); box-shadow: 0 6px 24px rgba(0, 0, 0, .6); }
+.menu-pop[hidden] { display: none; }
+.menu-pop .btn-sub { width: 100%; margin: 0; text-align: left; white-space: nowrap; }
+body.rush-machine .stage-tools { overflow: visible; }
+
+/* ── アニソン・ポーカー：高級感のあるトランプ ── */
+.pk-card { --w: 64px; position: relative; flex: none; width: var(--w); height: calc(var(--w) * 1.45); border-radius: 9px; background: linear-gradient(155deg, #fffdf6 0%, #f6efdc 55%, #eadfbf 100%); border: 1px solid #a87f2e;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .55), inset 0 0 0 2px #fffaf0, inset 0 0 0 3px rgba(184, 146, 60, .7); color: #15131d; font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; user-select: none; cursor: default; transition: transform .2s, box-shadow .2s; overflow: hidden; }
+.pk-card.sm { --w: 42px; border-radius: 6px; }
+.pk-face { position: absolute; inset: 0; }
+.pk-face b { position: absolute; left: 7%; top: 4%; display: grid; justify-items: center; font-size: calc(var(--w) * .27); line-height: 1; font-weight: 700; }
+.pk-face b small { font-size: calc(var(--w) * .21); margin-top: 1px; }
+.pk-face b.br { left: auto; top: auto; right: 7%; bottom: 19%; transform: rotate(180deg); }
+.pk-mid { position: absolute; left: 0; right: 0; top: 25%; text-align: center; font-size: calc(var(--w) * .58); line-height: 1; text-shadow: 0 1px 0 rgba(255, 255, 255, .9), 0 3px 4px rgba(0, 0, 0, .28); }
+.pk-face i { position: absolute; left: 0; right: 0; bottom: 0; height: 15%; display: grid; place-items: center; padding: 0 3px; font-style: normal; font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; font-size: calc(var(--w) * .125); font-weight: 700;
+  color: #2a1d06; background: linear-gradient(90deg, #8a6a24, #f0d27a 50%, #8a6a24); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.pk-card.sm .pk-face i { display: none; }
+.pk-card.sm .pk-face b.br { bottom: 5%; }
+.pk-card.suit1 .pk-face b, .pk-card.suit1 .pk-mid, .pk-card.suit2 .pk-face b, .pk-card.suit2 .pk-mid { color: #b3122c; }
+.pk-card::after { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, .7) 50%, transparent 62%); background-size: 250% 100%; }
+.pk-card.rare3 { border-color: #b9c4d6; box-shadow: 0 3px 8px rgba(0, 0, 0, .55), 0 0 8px rgba(185, 196, 214, .6), inset 0 0 0 2px #fbfcff, inset 0 0 0 3px rgba(150, 165, 190, .8); }
+.pk-card.rare4 { border-color: #ffd36b; box-shadow: 0 3px 8px rgba(0, 0, 0, .55), 0 0 12px rgba(255, 190, 70, .85), inset 0 0 0 2px #fff6dc, inset 0 0 0 3px #e0a623; background: linear-gradient(155deg, #fffbe9 0%, #ffe9b0 50%, #f6d27a 100%); }
+.pk-card.rare3::after, .pk-card.rare4::after { opacity: 1; animation: pk-sheen 3.2s linear infinite; }
+@keyframes pk-sheen { 0% { background-position: 150% 0; } 60%, 100% { background-position: -100% 0; } }
+.pk-card.used { transform: translateY(-6px); border-color: #ffd36b; box-shadow: 0 8px 14px rgba(0, 0, 0, .5), 0 0 14px rgba(255, 211, 107, .9), inset 0 0 0 2px #fffaf0, inset 0 0 0 3px #e0a623; }
+.pk-card.drop { opacity: .4; outline: 2px dashed #ff6b8a; }
+.pk-card.fresh { animation: pk-draw .8s ease-out; }
+.pk-card.flip { animation: pk-flip .55s ease-out; }
+@keyframes pk-flip { 0% { transform: rotateY(90deg) scale(1.12); filter: brightness(1.8); } 100% { transform: none; filter: none; } }
+@keyframes pk-draw { 0% { transform: translateY(-14px) scale(1.12) rotate(-4deg); filter: brightness(2); } 100% { transform: none; filter: none; } }
+.pk-back { display: none; position: absolute; inset: 0; border-radius: 8px; background: repeating-linear-gradient(45deg, #4a0f1c 0 4px, #651a2b 4px 8px); box-shadow: inset 0 0 0 3px #4a0f1c, inset 0 0 0 4px #d9b25a; }
+.pk-back::after { content: '♦'; position: absolute; inset: 0; display: grid; place-items: center; color: #e8c868; font-size: calc(var(--w) * .5); text-shadow: 0 0 6px rgba(0, 0, 0, .6); }
+.pk-card.facedown { background: #4a0f1c; }
+.pk-card.facedown .pk-face { visibility: hidden; }
+.pk-card.facedown .pk-back { display: block; }
+.pk-card.facedown::after { display: none; }
+.poker-kept { margin-top: 4px; font-size: 11.5px; color: #e8c868; }
+/* 中間オープン（賭け） */
+.pk-modal { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; padding: 16px; background: rgba(5, 4, 12, .72); backdrop-filter: blur(3px); }
+.pk-modal[hidden] { display: none; }
+.pk-modal-box { width: min(440px, 100%); max-height: 92vh; overflow: auto; padding: 18px; border-radius: 18px; background: linear-gradient(160deg, #1c1630, #0d0b19); border: 2px solid #c9a24a; box-shadow: 0 0 0 4px rgba(201, 162, 74, .2), 0 20px 50px rgba(0, 0, 0, .7); text-align: center; }
+.pk-modal-box.wide { width: min(620px, 100%); }
+.pk-modal-box h3 { margin: 0 0 6px; color: #f0d27a; letter-spacing: .06em; }
+.pk-sub { margin: 0 0 10px; font-size: 12px; color: #cfd0e8; line-height: 1.5; }
+.pk-mini-hand, .pk-res-cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; margin: 8px 0; }
+.pk-now { margin: 6px 0; font-size: 13px; }
+.pk-bets { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 8px; margin: 10px 0; }
+.pk-bet { padding: 10px 6px; font-weight: 900; background: linear-gradient(180deg, #f0d27a, #b8893a); color: #2a1d06; border: 0; border-radius: 10px; }
+.pk-bet:disabled { opacity: .45; }
+.pk-bet.chosen { outline: 3px solid #fff; opacity: 1; }
+.pk-prog { margin: 6px 0 0; font-size: 12px; color: var(--sub); }
+.pk-res { margin: 8px 0; padding: 8px; border-radius: 12px; background: rgba(255, 255, 255, .05); border: 1px solid var(--line); }
+.pk-res.win { border-color: #f0d27a; box-shadow: 0 0 14px rgba(240, 210, 122, .5); }
+.pk-res-who { display: flex; align-items: center; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.pk-res-who em { font-style: normal; padding: 1px 10px; border-radius: 99px; background: linear-gradient(90deg, #ff4fa3, #ffd36b); color: #1a0a20; font-weight: 900; }
+.pk-res-who .plus { color: #8dffc8; font-weight: 900; } .pk-res-who .minus { color: #ff8aa0; font-weight: 900; }
+/* ショーダウン：ポーカー場のテーブル */
+.showdown { margin: 14px 0; }
+.showdown h3 { display: none; }
+.pk-table { position: relative; width: min(100%, 880px); height: 540px; margin: 36px auto; border-radius: 50%; border: 16px solid #3a2213; background: radial-gradient(ellipse at 50% 38%, #23996000 0, #1f8a55 0%, #146b41 52%, #0a3b25 100%);
+  box-shadow: 0 0 0 3px #c9a24a, inset 0 0 0 3px #c9a24a, inset 0 0 70px rgba(0, 0, 0, .65), 0 18px 40px rgba(0, 0, 0, .7); }
+.pk-felt-title { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 4px; text-align: center; pointer-events: none; }
+.pk-felt-title span { font-family: Georgia, serif; letter-spacing: .4em; font-size: 20px; font-weight: 700; color: rgba(240, 210, 122, .85); text-shadow: 0 1px 2px #000; }
+.pk-felt-title em { font-style: normal; font-size: 14px; font-weight: 900; color: #fff; text-shadow: 0 1px 3px #000; }
+.pk-chips { display: flex; gap: 4px; margin-top: 4px; }
+.pk-chips i { width: 22px; height: 22px; border-radius: 50%; border: 3px dashed #fff; box-shadow: 0 2px 3px rgba(0, 0, 0, .6); background: #c8203a; }
+.pk-chips i:nth-child(2) { background: #1f5fc8; } .pk-chips i:nth-child(3) { background: #111; } .pk-chips i:nth-child(4) { background: #e8c868; }
+.pk-seat { position: absolute; left: var(--x); top: var(--y); transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 4px; }
+.pk-seat-cards { display: flex; gap: 2px; min-height: 61px; }
+.pk-plate { display: flex; align-items: center; gap: 6px; padding: 2px 10px 2px 3px; border-radius: 99px; background: rgba(10, 8, 20, .85); border: 1.5px solid #c9a24a; font-size: 12px; font-weight: 700; }
+.pk-seat-hand { display: grid; justify-items: center; padding: 3px 10px; border-radius: 10px; background: rgba(10, 8, 20, .85); border: 1px solid rgba(201, 162, 74, .6); animation: pk-draw .6s ease-out; }
+.pk-seat-hand[hidden] { display: none; }
+.pk-seat-hand b { color: #f0d27a; font-size: 13px; }
+.pk-seat-hand small { font-size: 9.5px; color: #cfd0e8; }
+.pk-seat-hand strong { font-size: 15px; color: #fff; }
+.pk-seat.winner .pk-plate { border-color: #fff3b0; box-shadow: 0 0 20px 4px rgba(255, 220, 110, .9); }
+.pk-seat.winner .pk-seat-hand { border-color: #fff3b0; box-shadow: 0 0 20px rgba(255, 220, 110, .8); }
+.pk-seat.winner::before { content: '👑'; font-size: 26px; position: absolute; top: -30px; animation: pk-draw .8s ease-out; }
+.pk-table.list { height: auto; border-radius: 22px; border-width: 10px; padding: 14px; display: grid; gap: 12px; }
+.pk-table.list .pk-felt-title { position: static; transform: none; margin-bottom: 4px; }
+.pk-table.list .pk-seat { position: relative; left: auto; top: auto; transform: none; justify-items: stretch; grid-template-columns: auto 1fr; gap: 6px 10px; align-items: center; }
+.pk-table.list .pk-plate { grid-column: 1 / -1; justify-self: start; }
+.pk-table.list .pk-seat-hand { grid-column: 1 / -1; }
+/* 称号：人ごとに並べる */
+.title-chips { display: flex; flex-wrap: wrap; gap: 4px; margin: 3px 0 0; }
+.title-chips em { display: inline-grid; font-style: normal; padding: 3px 8px; border-radius: 8px; background: rgba(255, 211, 107, .1); border: 1px solid rgba(255, 211, 107, .4); line-height: 1.25; }
+.title-chips em b { font-size: 13px; }
+.title-chips em small { font-size: 10px; }

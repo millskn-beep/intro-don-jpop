@@ -112,6 +112,7 @@ function openEditor(s) {
   if (ytReady) yt.cueVideoById({ videoId: s.id, startSeconds: pos.intro });
   showPos();
   $('repForm').hidden = true; showReportInfo();
+  showGenres();
   document.querySelectorAll('.sg-rows li.on').forEach(li => li.classList.remove('on'));
   document.querySelector(`.sg-rows li[data-id="${s.id}"]`)?.classList.add('on');
 }
@@ -130,6 +131,23 @@ $('edSend').onclick = async () => {
   } catch (e) { toast('送れませんでした'); }
   showPos();
 };
+
+// ── ジャンルを直す（曲ごと）：チェックして送ると、すぐ出題に使われる ──
+function showGenres() {
+  $('edGenres').innerHTML = Object.entries(genreLabel).map(([k, label]) => `<label><input type="checkbox" value="${k}"${selected.genres.includes(k) ? ' checked' : ''}> ${esc(label)}</label>`).join('');
+  $('edGenreNote').textContent = selected.genreOwn ? 'このジャンルは、収録曲一覧から直したものです' : '作品名から自動で決めたジャンルです。違っていたら直して送ってください';
+  $('edGenreAuto').hidden = !selected.genreOwn;
+}
+async function sendGenres(body, own) {
+  try {
+    const res = await fetch('/api/song-genres', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: selected.id, ...body }) });
+    const j = await res.json();
+    toast(j.message || j.error || '送れませんでした');
+    if (res.ok) { selected.genres = j.genres; selected.genreOwn = own; showGenres(); render(); }
+  } catch (e) { toast('送れませんでした'); }
+}
+$('edGenreSend').onclick = () => sendGenres({ genres: [...$('edGenres').querySelectorAll('input:checked')].map(x => x.value) }, true);
+$('edGenreAuto').onclick = () => sendGenres({ reset: true }, false);
 
 // ── 曲が違う（探し直す）／削除を依頼：一言（任意）を添えて送る。次の更新で、探し直す・出題から外す ──
 let repKind = null;

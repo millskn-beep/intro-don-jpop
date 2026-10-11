@@ -7905,7 +7905,7 @@
     "views": 1610735,
     "channel": "Release - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "famous"
+    "fame": "normal"
   },
   {
     "id": "ewphY7jULL0",
@@ -14904,7 +14904,7 @@
     "confidence": "中",
     "source": "Daito Music OFFCIAL",
     "intro": 6.2,
-    "chorus": 127,
+    "chorus": 131,
     "aliases": [
       "そこにあるかもしれない"
     ],
@@ -14912,7 +14912,7 @@
     "fame": "otaku",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 8352175,
     "channel": "Daito Music OFFCIAL",
@@ -17434,7 +17434,7 @@
     "views": 1596441,
     "channel": "Mika Arisaka - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "きどうせんしがんだむしーど",
       "がんだむしーど",
@@ -27261,7 +27261,7 @@
     "views": 10041672,
     "channel": "Ito Kanako - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "top",
+    "fame": "famous",
     "introSource": "songle",
     "introBefore": 0.7,
     "workAliases": [
@@ -27319,7 +27319,7 @@
     "views": 1616258,
     "channel": "Stereopony - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "だーかーざんぶらっく",
       "ダカブラ"
@@ -46632,7 +46632,7 @@
     "views": 118619,
     "channel": "Wake Up, Girls! - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "うぇいくあっぷがーるず",
       "WUG",
@@ -47272,7 +47272,7 @@
     "views": 21172639,
     "channel": "League of Legends",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "workAliases": [
       "ぺんたきる",
       "リーグ・オブ・レジェンド",
@@ -47281,7 +47281,8 @@
     ],
     "artistAliases": [
       "ペンタキル"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "4kIhBSzgbEQ",
@@ -47564,7 +47565,8 @@
     ],
     "artistAliases": [
       "ペンタキル"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "ayEAEF0iwiY",
@@ -48550,7 +48552,7 @@
     "views": 6835743,
     "channel": "League of Legends",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "ぺんたきる",
       "リーグ・オブ・レジェンド",
@@ -48559,7 +48561,8 @@
     ],
     "artistAliases": [
       "ペンタキル"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "kJ04dMmimn8",
@@ -48961,7 +48964,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 0,
+    "intro": 9,
     "chorus": 55,
     "aliases": [
       "ぎみーれぼりゅーしょん"
@@ -48982,7 +48985,9 @@
     "views": 568613,
     "channel": "内田真礼（UCHIDA MAAYA）Official Channel",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "QJTOWaPdlgg",
@@ -49980,7 +49985,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "amazarashi公式",
-    "intro": 0.5,
+    "intro": 8,
     "chorus": 92.6,
     "aliases": [
       "きせつはつぎつぎしんでいく"
@@ -49988,16 +49993,13 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "manual",
     "chorusChecked": true,
     "views": 65602777,
     "channel": "amazarashi Official YouTube Channel",
     "viewsAt": "2026-10-05",
     "fame": "top",
-    "introSource": "songle",
-    "introBefore": 8,
     "workAliases": [
       "とうきょうぐーる",
       "東京喰種",
@@ -52661,7 +52663,7 @@
     "views": 1578809,
     "channel": "Rica Matsumoto - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "ぽけっともんすたー",
       "ポケモン",
@@ -54508,7 +54510,7 @@
       "青春はノンストップ"
     ],
     "embeddable": null,
-    "fame": "normal",
+    "fame": "minor",
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap",
@@ -59961,7 +59963,7 @@
     "views": 8413726,
     "channel": "League of Legends",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "ぺんたきる",
       "リーグ・オブ・レジェンド",
@@ -59970,7 +59972,8 @@
     ],
     "artistAliases": [
       "ペンタキル"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "r6zIGXun57U",
@@ -60029,7 +60032,7 @@
     "views": 39951427,
     "channel": "League of Legends",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "workAliases": [
       "ぺんたきる",
       "リーグ・オブ・レジェンド",
@@ -60038,7 +60041,8 @@
     ],
     "artistAliases": [
       "ペンタキル"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "_werYjm5BmY",
@@ -60268,7 +60272,7 @@
     "views": 65552098,
     "channel": "League of Legends",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "workAliases": [
       "ぺんたきる",
       "リーグ・オブ・レジェンド",
@@ -60277,7 +60281,8 @@
     ],
     "artistAliases": [
       "ペンタキル"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "QlS8n0g6d3A",
@@ -60684,7 +60689,8 @@
     ],
     "artistAliases": [
       "ペンタキル"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "cREAHvB02RQ",
@@ -75836,7 +75842,7 @@
     "views": 13576399,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいん",
       "あるかね",
@@ -75846,7 +75852,8 @@
     ],
     "artistAliases": [
       "ボーンズユーケー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "y_fB0IMbq54",
@@ -75871,7 +75878,7 @@
     "views": 24764724,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "introSource": "auto",
     "introBefore": 0,
     "workAliases": [
@@ -75885,7 +75892,8 @@
       "デンゼルカリー",
       "ギズル",
       "ブレンジョイ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "UqcE-IIevf0",
@@ -75910,7 +75918,7 @@
     "views": 14125729,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいん",
       "あるかね",
@@ -75921,7 +75929,8 @@
     "artistAliases": [
       "イマジンドラゴンズ",
       "ジェイアイディー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "92ylxOeT1_g",
@@ -76076,7 +76085,7 @@
     "views": 14981027,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいん",
       "あるかね",
@@ -76086,7 +76095,8 @@
     ],
     "artistAliases": [
       "ラムジー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "pKNEx-9OqRM",
@@ -76111,7 +76121,7 @@
     "views": 14992975,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいん",
       "あるかね",
@@ -76121,7 +76131,8 @@
     ],
     "artistAliases": [
       "ウッドキッド"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "GL-LJCgYq10",
@@ -76296,7 +76307,8 @@
     ],
     "artistAliases": [
       "ペンタキル"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "f_Z1E32mxGg",
@@ -76321,7 +76333,7 @@
     "views": 14430657,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいん",
       "あるかね",
@@ -76332,7 +76344,8 @@
     "artistAliases": [
       "プシャティー",
       "メイコ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "vtuxTWxQ_cc",
@@ -76543,7 +76556,8 @@
     "artistAliases": [
       "カーティスハーディング",
       "ジャズミンサリバン"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "3jfI-z__GY0",
@@ -76568,7 +76582,7 @@
     "views": 22971833,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "workAliases": [
       "あーけいん",
       "あるかね",
@@ -76578,7 +76592,8 @@
     ],
     "artistAliases": [
       "ビーミラー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "SvTb43SY460",
@@ -76669,7 +76684,7 @@
     "views": 19450476,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいん",
       "あるかね",
@@ -76680,7 +76695,8 @@
     "artistAliases": [
       "ミヤヴィ",
       "パリス"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "Y0z_2C2LFfE",
@@ -77173,7 +77189,7 @@
     "views": 26118727,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "workAliases": [
       "あーけいん",
       "あるかね",
@@ -77184,7 +77200,8 @@
     "artistAliases": [
       "スティング",
       "レイチェン"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "2GKJlRfDKZo",
@@ -77319,7 +77336,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "追加プレビュー",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 126,
     "aliases": [
       "あんだんてにこいをして"
@@ -77337,7 +77354,9 @@
     "views": 939901,
     "channel": "angela Official Channel",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "j6N2DV3lclY",
@@ -84725,7 +84744,7 @@
     "views": 77016805,
     "channel": "League of Legends",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "workAliases": [
       "はーとすちーる",
       "リーグ・オブ・レジェンド",
@@ -84738,7 +84757,8 @@
       "トビールー",
       "オジ",
       "カルスクルビー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "c7E-tgmFuzw",
@@ -88283,7 +88303,7 @@
     "views": 19490163,
     "channel": "League of Legends",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいんしーずん2",
       "あーけいん",
@@ -88293,7 +88313,8 @@
     ],
     "artistAliases": [
       "シェリルリーラルフ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "JuS4iuhG-vc",
@@ -88425,7 +88446,7 @@
     "views": 24124474,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "workAliases": [
       "あーけいんしーずん2",
       "あーけいん",
@@ -88438,7 +88459,8 @@
       "スキズ",
       "ヤングミコ",
       "トムモレロ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "7XJ2MgEWkBg",
@@ -88493,7 +88515,7 @@
     "views": 11966546,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいんしーずん2",
       "あーけいん",
@@ -88503,7 +88525,8 @@
     ],
     "artistAliases": [
       "キングプリンセス"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "VJLJ15yIQlI",
@@ -88699,7 +88722,7 @@
     "views": 14236547,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "introSource": "auto",
     "introBefore": 1,
     "workAliases": [
@@ -88712,7 +88735,8 @@
     "artistAliases": [
       "フィーバースリースリースリー",
       "フィーバー333"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "n68BF6IlGhk",
@@ -88736,7 +88760,7 @@
     "views": 7463867,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいんしーずん2",
       "あーけいん",
@@ -88746,7 +88770,8 @@
     ],
     "artistAliases": [
       "イーソンチャン"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "Pq3RedHvV-A",
@@ -88845,7 +88870,7 @@
     "views": 66334250,
     "channel": "League of Legends",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "introSource": "auto",
     "introBefore": 0.2,
     "workAliases": [
@@ -88858,7 +88883,8 @@
     "artistAliases": [
       "ストロマエ",
       "ポム"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "OHzsF8TWkjk",
@@ -89112,7 +89138,7 @@
     "views": 7185095,
     "channel": "Netflix",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいんしーずん2",
       "あーけいん",
@@ -89122,7 +89148,8 @@
     ],
     "artistAliases": [
       "アシュニコ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "jio_17jg980",
@@ -89319,7 +89346,7 @@
     "views": 18416673,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "あーけいんしーずん2",
       "あーけいん",
@@ -89331,7 +89358,8 @@
       "ステフロンドン",
       "ラージャクマーリ",
       "ジャリーナデマルコ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "HCqVYCNZIrQ",
@@ -89707,7 +89735,8 @@
     ],
     "artistAliases": [
       "ミックウィンガート"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "AR1ecFmd8yw",
@@ -89766,7 +89795,7 @@
     "views": 35101730,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "workAliases": [
       "あーけいんしーずん2",
       "あーけいん",
@@ -89776,7 +89805,8 @@
     ],
     "artistAliases": [
       "マーカスキング"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "UxwHkqkzm0o",
@@ -89861,7 +89891,7 @@
     "views": 93966264,
     "channel": "League of Legends",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "workAliases": [
       "あーけいんしーずん2",
       "あーけいん",
@@ -89871,7 +89901,8 @@
     ],
     "artistAliases": [
       "トゥエンティワンパイロッツ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "Gj-jmBi0aK8",
@@ -89896,7 +89927,7 @@
     "views": 45339191,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "introSource": "auto",
     "introBefore": 0.2,
     "workAliases": [
@@ -89908,7 +89939,8 @@
     ],
     "artistAliases": [
       "ウッドキッド"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "BbjmHbm2i90",
@@ -90032,7 +90064,7 @@
     "views": 23135034,
     "channel": "Riot Games Music",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "minor",
     "workAliases": [
       "あーけいんしーずん2",
       "あーけいん",
@@ -90042,7 +90074,8 @@
     ],
     "artistAliases": [
       "ロイヤルアンドザサーペント"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "M4RYcKMHNwA",
@@ -93723,7 +93756,8 @@
       "ベクヒョン",
       "コナープライス",
       "ニックディー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "l0WArCNh6G0",
@@ -97348,7 +97382,7 @@
     "views": 216526,
     "channel": "MYTH & ROID Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "introSource": "auto",
     "introBefore": 0.5,
     "workAliases": [
@@ -100045,5 +100079,278 @@
       "やまもとこうた",
       "やまもと"
     ]
+  },
+  {
+    "id": "8SoWzkMO1YQ",
+    "title": "ひとりごつ",
+    "work": "ちいかわ",
+    "artist": "ハチワレ(CV:田中誠人)",
+    "year": 2022,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Release - Topic（NexTone公式配信）",
+    "intro": 0,
+    "chorus": 71,
+    "aliases": [
+      "ひとりごつ"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "ちいかわ",
+      "なんか小さくてかわいいやつ",
+      "人魚の島のひみつ",
+      "にんぎょのしまのひみつ"
+    ],
+    "artistAliases": [
+      "はちわれ",
+      "たなかまこと"
+    ],
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 12359153,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-10-11",
+    "fame": "top"
+  },
+  {
+    "id": "LzzW_TBL558",
+    "title": "パジャマパーティーズのうた",
+    "work": "ちいかわ",
+    "artist": "パジャマパーティーズ",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Pajama Parties - Topic（ポニーキャニオン公式配信）",
+    "intro": 2.7,
+    "chorus": 119,
+    "aliases": [
+      "ぱじゃまぱーてぃーずのうた",
+      "パジャマパーティーズ"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "ちいかわ",
+      "なんか小さくてかわいいやつ",
+      "人魚の島のひみつ",
+      "にんぎょのしまのひみつ"
+    ],
+    "artistAliases": [
+      "ぱじゃまぱーてぃーず"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 16913869,
+    "channel": "Pajama Parties - Topic",
+    "viewsAt": "2026-10-11",
+    "fame": "top"
+  },
+  {
+    "id": "Z6jikYjsjTA",
+    "title": "むちゃうマンのテーマ",
+    "work": "ちいかわ",
+    "artist": "影山ヒロノブ",
+    "year": 2024,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "影山ヒロノブ公式チャンネル（ポニーキャニオン配信）",
+    "intro": 0.2,
+    "chorus": 23,
+    "aliases": [
+      "むちゃうまんのてーま",
+      "むちゃうマン"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "ちいかわ",
+      "なんか小さくてかわいいやつ",
+      "人魚の島のひみつ",
+      "にんぎょのしまのひみつ"
+    ],
+    "artistAliases": [
+      "かげやまひろのぶ",
+      "影山",
+      "かげやま"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1663777,
+    "channel": "Kageyama Hironobu Official YouTube Channel",
+    "viewsAt": "2026-10-11",
+    "fame": "normal"
+  },
+  {
+    "id": "NvDkY-yabC4",
+    "title": "マジカルシンドローム",
+    "work": "まじかるちいかわ",
+    "artist": "yama",
+    "year": 2025,
+    "type": "主題歌",
+    "confidence": "中",
+    "source": "QTORYチャンネル公式スペシャルMV",
+    "intro": 11.7,
+    "chorus": 82,
+    "aliases": [
+      "まじかるしんどろーむ"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "まじかるちいかわ",
+      "ちいかわ"
+    ],
+    "artistAliases": [
+      "ヤマ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 14001636,
+    "channel": "QTORYチャンネル",
+    "viewsAt": "2026-10-11",
+    "fame": "famous"
+  },
+  {
+    "id": "9VoZ0BwjBbk",
+    "title": "くつずれ",
+    "work": "映画ちいかわ 人魚の島のひみつ",
+    "artist": "ハチワレ(CV:田中誠人)",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Hachiware(CV:Tanaka Makoto) - Topic（QTORY RECORDS公式配信）",
+    "intro": 1.5,
+    "chorus": 49,
+    "aliases": [
+      "靴擦れ",
+      "靴ずれ"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "ちいかわ",
+      "なんか小さくてかわいいやつ",
+      "人魚の島のひみつ",
+      "にんぎょのしまのひみつ"
+    ],
+    "artistAliases": [
+      "はちわれ",
+      "たなかまこと"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 5797305,
+    "channel": "Hachiware(CV:Tanaka Makoto) - Topic",
+    "viewsAt": "2026-10-11",
+    "fame": "famous"
+  },
+  {
+    "id": "x3sOXlcrpLg",
+    "title": "机さする",
+    "work": "映画ちいかわ 人魚の島のひみつ",
+    "artist": "ちいかわ(CV:青木遥)",
+    "year": 2026,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Haruka Aoki - Topic（QTORY RECORDS公式配信）",
+    "intro": 2.2,
+    "chorus": 129,
+    "aliases": [
+      "つくえさする"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "ちいかわ",
+      "なんか小さくてかわいいやつ",
+      "人魚の島のひみつ",
+      "にんぎょのしまのひみつ"
+    ],
+    "artistAliases": [
+      "ちいかわ",
+      "あおきはるか"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 7367804,
+    "channel": "Haruka Aoki - Topic",
+    "viewsAt": "2026-10-11",
+    "fame": "famous"
+  },
+  {
+    "id": "lI7efayDEeU",
+    "title": "島のうた (セイレーンver.)",
+    "work": "映画ちいかわ 人魚の島のひみつ",
+    "artist": "セイレーン(CV:鈴木みのり)",
+    "year": 2026,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Release - Topic（QTORY RECORDS公式配信）",
+    "intro": 8.2,
+    "chorus": 56,
+    "aliases": [
+      "しまのうた",
+      "島のうた"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "ちいかわ",
+      "なんか小さくてかわいいやつ",
+      "人魚の島のひみつ",
+      "にんぎょのしまのひみつ"
+    ],
+    "artistAliases": [
+      "せいれーん",
+      "すずきみのり"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 9482357,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-10-11",
+    "fame": "famous"
+  },
+  {
+    "id": "HZcpB0PfG6g",
+    "title": "うさぎラップ (リズム感のある者たちver.)",
+    "work": "映画ちいかわ 人魚の島のひみつ",
+    "artist": "うさぎ(CV:小澤亜李)、モモンガ(CV:井口裕香)",
+    "year": 2026,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Release - Topic（QTORY RECORDS公式配信）",
+    "intro": 3.5,
+    "chorus": 56,
+    "aliases": [
+      "うさぎらっぷ"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "ちいかわ",
+      "なんか小さくてかわいいやつ",
+      "人魚の島のひみつ",
+      "にんぎょのしまのひみつ"
+    ],
+    "artistAliases": [
+      "うさぎ",
+      "おざわあり",
+      "ももんが",
+      "いぐちゆか"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 5656802,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-10-11",
+    "fame": "otaku"
   }
 ]

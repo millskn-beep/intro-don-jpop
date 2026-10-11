@@ -8553,5 +8553,39 @@
    "intro": 0.7,
    "chorus": 78.6
   }
+ },
+ {
+  "id": "wtJcLWeY114",
+  "title": "季節は次々死んでいく",
+  "work": "東京喰種トーキョーグール",
+  "channel": "amazarashi Official YouTube Channel",
+  "at": "2026-10-11T16:25:28.226Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 92.6,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 8,
+   "chorus": 92.6
+  }
+ },
+ {
+  "id": "noe9z8baceg",
+  "title": "そこにあるかも知れない…",
+  "work": "吉宗（パチスロ）",
+  "channel": "Daito Music OFFCIAL",
+  "at": "2026-10-11T16:29:21.317Z",
+  "before": {
+   "intro": 6.2,
+   "chorus": 127,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 6.2,
+   "chorus": 131
+  }
  }
 ]

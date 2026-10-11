@@ -26050,5 +26050,78 @@
   "est": 54.9,
   "title": "ミオヤマザキ 『ノイズ』（TVアニメ「地獄少女 宵伽」オープニングテーマ）",
   "channel": "MIOYAMZAKI"
+ },
+ "8SoWzkMO1YQ": {
+  "dur": 90.9,
+  "chorusRank": 0.21,
+  "chorusGaps": 0.23,
+  "introGaps": 0.36,
+  "earlyGaps": 0.17,
+  "est": 48.4,
+  "title": "ひとりごつ",
+  "channel": "Release - Topic"
+ },
+ "LzzW_TBL558": {
+  "dur": 219.3,
+  "chorusRank": 0.64,
+  "chorusGaps": 0.0,
+  "introGaps": 0.12,
+  "earlyGaps": 0.03,
+  "est": 45.2,
+  "title": "パジャマパーティーズのうた",
+  "channel": "Pajama Parties - Topic"
+ },
+ "Z6jikYjsjTA": {
+  "dur": 34.3,
+  "chorusRank": 0.0,
+  "chorusGaps": 0.31,
+  "introGaps": 0.06,
+  "earlyGaps": 0.02,
+  "est": null,
+  "title": "むちゃうマンのテーマ",
+  "channel": "Kageyama Hironobu Official YouTube Channel"
+ },
+ "NvDkY-yabC4": {
+  "dur": 125.3,
+  "chorusRank": 0.87,
+  "chorusGaps": 0.0,
+  "introGaps": 0.09,
+  "earlyGaps": 0.03,
+  "est": 48.4,
+  "title": "【公式】『まじかるちいかわ』スペシャルミュージックビデオ「マジカルシンドローム」",
+  "channel": "QTORYチャンネル"
+ },
+ "9VoZ0BwjBbk": {
+  "dur": 180.9,
+  "chorusRank": 0.79,
+  "chorusGaps": 0.0,
+  "introGaps": 0.19,
+  "earlyGaps": 0.14,
+  "est": 112.8,
+  "title": "くつずれ",
+  "channel": "Hachiware(CV:Tanaka Makoto) - Topic"
+ },
+ "x3sOXlcrpLg": {
+  "error": "ERROR: unable to download video data: HTTP Error 403: Forbidden"
+ },
+ "lI7efayDEeU": {
+  "dur": 82.0,
+  "chorusRank": 0.79,
+  "chorusGaps": 0.03,
+  "introGaps": 0.0,
+  "earlyGaps": 0.0,
+  "est": 45.4,
+  "title": "島のうた (セイレーンver.)",
+  "channel": "Release - Topic"
+ },
+ "HZcpB0PfG6g": {
+  "dur": 75.2,
+  "chorusRank": 0.73,
+  "chorusGaps": 0.02,
+  "introGaps": 0.35,
+  "earlyGaps": 0.25,
+  "est": 45.4,
+  "title": "うさぎラップ (リズム感のある者たちver.)",
+  "channel": "Release - Topic"
  }
 }

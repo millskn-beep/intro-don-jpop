@@ -63,3 +63,8 @@ body.editing .songs-main { margin-right: 400px; } /* PC：右側に編集パネ�
 .report-form { display: grid; gap: 6px; margin-top: 8px; font-size: 13px; }
 .report-form textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 13px; }
 .sg-tags .auto { color: #8dffc8; border-color: rgba(141, 255, 200, .55); }
+/* ジャンルを直す */
+.genre-edit { margin-top: 10px; display: grid; gap: 6px; }
+.genre-checks { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 12.5px; }
+.genre-checks label { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; white-space: nowrap; }
+.genre-checks input { width: auto; min-width: 0; margin: 0; padding: 0; flex: none; }

@@ -58,6 +58,19 @@ async function remote(name) {
   }
   console.log(`修正 ${n} 曲${DRY ? '（保存しない）' : ''}`);
 
+  // ── ジャンルの修正（曲ごと）：新しい方を使う。自動に戻した曲は消す ──
+  const SG_PATH = path.join(ROOT, 'data', 'song-genres.json');
+  const sg = readJson(SG_PATH, {});
+  const rsg = await remote('song-genres');
+  let gN = 0;
+  for (const [id, g] of Object.entries(rsg || {})) {
+    if (sg[id] && sg[id].at >= g.at) continue;
+    if (g.reset) { if (sg[id]) { console.log(`  ジャンルを自動に戻す：${g.title}`); delete sg[id]; gN++; } continue; }
+    sg[id] = g; gN++; console.log(`  ジャンル：${g.title} → ${(g.genres || []).join('・') || '（なし）'}`);
+  }
+  if (!DRY && gN) writeJson(SG_PATH, sg);
+  console.log(`ジャンルの修正 ${gN} 曲`);
+
   // ── 曲が違う／削除を依頼 ──
   const reports = readJson(REPORTS_PATH, {});
   const rr = await remote('reports');

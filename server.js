@@ -11,6 +11,7 @@ const { Server } = require('socket.io');
 const fs = require('fs');
 const { isCorrectText, isAlmostText, shortForm } = require('./lib/normalize');
 const poker = require('./lib/poker');
+const datalog = require('./lib/datalog'); // 受け付けたものを GitHub の data-log ブランチに記録（再起動で消えないように）
 
 const PORT = process.env.PORT || 3000;
 const SONGS_PATH = path.join(__dirname, 'data', 'songs.json');
@@ -35,9 +36,15 @@ const GENRE_KEYS = Object.keys(GENRES);
 let WORK_GENRES = new Map();
 try { WORK_GENRES = new Map(Object.entries(require('./data/work-genres.json')).filter(([k]) => !k.startsWith('_'))); } catch (e) { /* なくても動く */ }
 // ただし「パチスロで有名」は、genres.json に並べた作品（keywords）だけで決める（作品の中身では決まらないので、手で決めた一覧どおり）
-const KEYWORD_ONLY = ['pachislot'];
-const byKeywords = song => GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => String(song.work).includes(w)));
+const KEYWORD_ONLY = ['pachislot', 'slot']; // slot：パチスロ（超マイナー）。台のための曲（作品名の（パチスロ）（パチンコ）か genres.json の ids）
+const byKeywords = song => GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => String(song.work).includes(w)) || (GENRES[k].ids || []).includes(song.id));
+// 曲ごとに直したジャンル（収録曲一覧の「ジャンルを直す」。data/song-genres.json：id → { genres, at }）。あればそれを使う
+const SONG_GENRES_PATH = path.join(__dirname, 'data', 'song-genres.json');
+let SONG_GENRES = {};
+try { SONG_GENRES = JSON.parse(fs.readFileSync(SONG_GENRES_PATH, 'utf8')); } catch (e) { SONG_GENRES = {}; }
 const genresOf = song => {
+  const own = SONG_GENRES[song.id];
+  if (own?.genres) return own.genres.filter(k => GENRES[k]);
   if (!WORK_GENRES.has(song.work)) return byKeywords(song);
   const kw = byKeywords(song).filter(k => KEYWORD_ONLY.includes(k));
   return [...WORK_GENRES.get(song.work).filter(k => GENRES[k] && !KEYWORD_ONLY.includes(k)), ...kw];
@@ -264,6 +271,7 @@ const reqLast = new Map();
 const reqNorm = s => String(s || '').normalize('NFKC').toLowerCase().replace(/[\s!！?？・〜~～()（）\-♪.。,、'"「」『』]/g, '');
 const reqText = (s, n) => String(s || '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, n);
 function saveRequests() {
+  datalog.touch();
   try { fs.writeFileSync(REQUESTS_PATH + '.tmp', JSON.stringify(REQUESTS, null, 1) + '\n'); fs.renameSync(REQUESTS_PATH + '.tmp', REQUESTS_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
 }
 app.get('/api/requests', (req, res) => res.json({
@@ -302,6 +310,7 @@ let CANDIDATES = [];
 try { CANDIDATES = JSON.parse(fs.readFileSync(CANDIDATES_PATH, 'utf8')); } catch (e) { CANDIDATES = []; }
 const voted = new Set(); // IP:曲 → 同じ人が同じ曲に何度も押せないように（再起動で消える）
 function saveCandidates() {
+  datalog.touch();
   try { fs.writeFileSync(CANDIDATES_PATH + '.tmp', JSON.stringify(CANDIDATES, null, 1) + '\n'); fs.renameSync(CANDIDATES_PATH + '.tmp', CANDIDATES_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
 }
 app.get('/api/candidates', (req, res) => res.json({
@@ -324,7 +333,7 @@ app.post('/api/candidates/vote', (req, res) => {
 const PROMOTES_PATH = path.join(__dirname, 'data', 'promotes.json');
 let PROMOTES = {};
 try { PROMOTES = JSON.parse(fs.readFileSync(PROMOTES_PATH, 'utf8')); } catch (e) { PROMOTES = {}; }
-function savePromotes() { try { fs.writeFileSync(PROMOTES_PATH + '.tmp', JSON.stringify(PROMOTES, null, 1) + '\n'); fs.renameSync(PROMOTES_PATH + '.tmp', PROMOTES_PATH); } catch (e) { /* 保存できなくても続ける */ } }
+function savePromotes() { datalog.touch(); try { fs.writeFileSync(PROMOTES_PATH + '.tmp', JSON.stringify(PROMOTES, null, 1) + '\n'); fs.renameSync(PROMOTES_PATH + '.tmp', PROMOTES_PATH); } catch (e) { /* 保存できなくても続ける */ } }
 app.get('/api/promotes', (req, res) => res.json({ promotes: Object.fromEntries(Object.entries(PROMOTES).map(([id, e]) => [id, { title: e.title, votes: e.votes.length, at: e.at }])) }));
 
 // ── 追加プレビュー画面（preview.html。このPCから開いたときだけ）──
@@ -343,6 +352,7 @@ function applyFixes() {
 }
 applyFixes();
 function saveFixes() {
+  datalog.touch();
   try { fs.writeFileSync(FIXES_PATH + '.tmp', JSON.stringify(FIXES, null, 1) + '\n'); fs.renameSync(FIXES_PATH + '.tmp', FIXES_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
 }
 app.get('/api/catalog', (req, res) => {
@@ -354,7 +364,7 @@ app.get('/api/catalog', (req, res) => {
     genres: GENRE_KEYS.map(k => ({ key: k, label: GENRES[k].label })),
     fame: FAME.map(([k, label]) => ({ key: k, label })),
     songs: SONGS.map(s => ({ id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type || '',
-      genres: genresOf(s), fame: fameOf(s), intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0, fix: FIXES[s.id] || null, warn: flags[s.id] || null,
+      genres: genresOf(s), genreOwn: !!SONG_GENRES[s.id]?.genres, fame: fameOf(s), intro: s.intro || 0, chorus: chorusOf(s), chorusKnown: s.chorus > 0, fix: FIXES[s.id] || null, warn: flags[s.id] || null,
       report: REPORTS[s.id] ? { wrong: REPORTS[s.id].wrong || 0, delete: REPORTS[s.id].delete || 0 } : null,
       // 自動の解析で直した（tools/auto_fix.py）。直す前の値も出して、収録曲一覧で確かめ・戻せるように
       auto: ['auto', 'songle'].includes(s.introSource) || ['audio2', 'songle'].includes(s.chorusSource)
@@ -378,6 +388,28 @@ app.post('/api/fixes', (req, res) => {
   res.json({ ok: true, message: `「${song.title}」の位置を直しました（次にこの曲が出たときから使われます）` });
 });
 
+// 収録曲一覧の「ジャンルを直す」：だれでも送れて、すぐ使う。反映の前に tools/pull-fixes.js でファイルに取り込む（reset：自動の判定に戻す）
+const genreFixLast = new Map();
+app.get('/api/song-genres', (req, res) => res.json({ 'song-genres': SONG_GENRES }));
+app.post('/api/song-genres', (req, res) => {
+  const id = String(req.body?.id || ''), song = ALL_SONGS.find(s => s.id === id);
+  if (!song) return res.status(400).json({ error: '曲が見つかりません' });
+  const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
+  const recent = (genreFixLast.get(ip) || []).filter(t => Date.now() - t < 60 * 1000);
+  if (recent.length >= 10) return res.status(429).json({ error: '少し時間をおいてから送ってください（1分に10曲まで）' });
+  genreFixLast.set(ip, [...recent, Date.now()]);
+  if (req.body?.reset) SONG_GENRES[id] = { genres: null, reset: true, at: new Date().toISOString(), title: song.title };
+  else {
+    const list = Array.isArray(req.body?.genres) ? [...new Set(req.body.genres.filter(k => GENRES[k]))] : null;
+    if (!list) return res.status(400).json({ error: 'ジャンルが正しくありません' });
+    SONG_GENRES[id] = { genres: list, at: new Date().toISOString(), title: song.title };
+  }
+  datalog.touch();
+  try { fs.writeFileSync(SONG_GENRES_PATH + '.tmp', JSON.stringify(SONG_GENRES, null, 1) + '\n'); fs.renameSync(SONG_GENRES_PATH + '.tmp', SONG_GENRES_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
+  buildSeries();
+  res.json({ ok: true, genres: genresOf(song), message: `「${song.title}」のジャンルを${req.body?.reset ? '自動の判定に戻しました' : '直しました'}（すぐ使われます）` });
+});
+
 // 収録曲一覧の「曲が違う（探し直す）」「削除を依頼」。誰でも送れる。反映の前に tools/pull-fixes.js で修正と一緒に取り込む
 // 曲が違う → 反映のときに正しい動画を探して差し替える／削除 → 消さずに出題から外す（retired）
 const REPORTS_PATH = path.join(__dirname, 'data', 'reports.json');
@@ -399,6 +431,7 @@ app.post('/api/reports', (req, res) => {
   r[kind] = (r[kind] || 0) + 1;
   r.notes = [...(r.notes || []), { kind, note, at: new Date().toISOString() }].slice(-20);
   REPORTS[id] = r;
+  datalog.touch();
   try { fs.writeFileSync(REPORTS_PATH + '.tmp', JSON.stringify(REPORTS, null, 1) + '\n'); fs.renameSync(REPORTS_PATH + '.tmp', REPORTS_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
   res.json({ ok: true, message: kind === 'wrong' ? `「${song.title}」を「曲が違う」として受け付けました（次の更新で探し直します）`
     : `「${song.title}」の削除の依頼を受け付けました（次の更新で出題から外します）` });
@@ -450,7 +483,7 @@ const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
 const YEAR_POINTS = [1000, 800, 600, 400, 200, 200]; // 年代当て：ずれ 0〜5 年の得点（それ以上は 0）
 // 新しい部屋で最初から除外しておくジャンル（アニソン以外）
-const DEFAULT_EXCLUDE = ['vocaloid', 'jpop']; // ライフラインは使わない（画面からも外した）
+const DEFAULT_EXCLUDE = ['vocaloid', 'jpop', 'slot']; // ライフラインは使わない（画面からも外した）
 const LIFELINES = ['fifty', 'audience', 'phone', 'replay']; // 50:50 / オーディエンス / テレフォン / もう一度聴く
 const NEAR_YEARS = 5; // 選択肢は、まず出題曲の前後この年数以内の曲から選ぶ
 const READY_TIMEOUT = 4000;      // 全員の読み込みを待つ上限
@@ -849,7 +882,7 @@ function suitFor(room, num, pref) {
 // 数字（1=A〜13=K）：作品ごと。同じゲームの中で「同じ数字＝同じ作品」になるよう、13種類を順に割り当てる
 function cardOf(s, room) {
   const g = room.game;
-  const gs = genresOf(s).filter(k => !['pachislot', 'vocaloid', 'jpop', 'lol'].includes(k));
+  const gs = genresOf(s).filter(k => !['pachislot', 'slot', 'vocaloid', 'jpop', 'lol'].includes(k));
   const series = workKey(s.work);
   let num = g.pokerNums.get(series);
   if (!num) { num = g.pokerPool.length ? g.pokerPool.pop() : 1 + crypto.randomInt(13); g.pokerNums.set(series, num); }
@@ -2503,4 +2536,15 @@ setInterval(() => {
   for (const [code, r] of rooms) if (r.emptySince && now - r.emptySince > ROOM_TTL) { rooms.delete(code); pushRoomList(); }
 }, 60 * 1000);
 
+datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES })).then(d => {
+  if (!d) return;
+  if (Array.isArray(d.requests)) REQUESTS = d.requests;
+  if (Array.isArray(d.candidates)) CANDIDATES = d.candidates;
+  if (d.promotes) PROMOTES = d.promotes;
+  if (d.fixes) { FIXES = d.fixes; applyFixes(); }
+  if (d.reports) REPORTS = d.reports;
+  if (d.songGenres) { SONG_GENRES = d.songGenres; buildSeries(); }
+  console.log('記録から戻しました（リクエスト・投票・修正など）');
+});
+process.on('SIGTERM', async () => { await datalog.flush(); process.exit(0); });
 server.listen(PORT, () => console.log(`イントロクイズ対戦サーバー起動: http://localhost:${PORT} （曲 ${SONGS.length} 件）`));

@@ -8536,5 +8536,22 @@
    "intro": 22,
    "chorus": 83.7
   }
+ },
+ {
+  "id": "6QLJw5cZ_tw",
+  "title": "Shangri-La",
+  "work": "蒼穹のファフナー",
+  "channel": "angela Official Channel",
+  "at": "2026-10-11T16:14:53.465Z",
+  "before": {
+   "intro": 5,
+   "chorus": 67,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 78.6
+  }
  }
 ]

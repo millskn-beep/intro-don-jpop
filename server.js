@@ -20,6 +20,7 @@ const DECOYS = require('./data/decoys.json');
 let ALL_SONGS = [], SONGS = [], STAGED = [];
 function loadSongs() {
   ALL_SONGS = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
+  try { applyFixes(); } catch (e) { /* 起動直後（修正の一覧を読む前）は何もしない */ }
   const playable = ALL_SONGS.filter(s => s.id && s.embeddable !== false && !s.retired);
   SONGS = playable.filter(s => !s.staged); // staged：プレイリストからの「お試し」の曲。ふだんの出題・選択肢には出さず、お題「プレイリスト」でだけ出す
   STAGED = playable.filter(s => s.staged); // retired：収録曲一覧の「削除を依頼」で出題から外した曲（データは残す）
@@ -335,6 +336,12 @@ const FIXES_PATH = path.join(__dirname, 'data', 'fixes.json');
 let FIXES = {};
 try { FIXES = JSON.parse(fs.readFileSync(FIXES_PATH, 'utf8')); } catch (e) { FIXES = {}; }
 const fixLast = new Map(); // IP → 直近の送信時刻（連投を防ぐ）
+// 送られた修正は、受け付けたらすぐ曲データ（メモリ上）に入れて、次の出題から使う。ファイルへの取り込みは反映の前に tools/pull-fixes.js で
+function applyFixes() {
+  const byId = new Map(ALL_SONGS.map(s => [s.id, s]));
+  for (const [id, f] of Object.entries(FIXES)) { const s = byId.get(id); if (s) { s.intro = f.intro; s.chorus = f.chorus; } }
+}
+applyFixes();
 function saveFixes() {
   try { fs.writeFileSync(FIXES_PATH + '.tmp', JSON.stringify(FIXES, null, 1) + '\n'); fs.renameSync(FIXES_PATH + '.tmp', FIXES_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
 }
@@ -367,7 +374,8 @@ app.post('/api/fixes', (req, res) => {
   const r = x => Math.round(x * 10) / 10;
   FIXES[id] = { intro: r(intro), chorus: r(chorus), at: new Date().toISOString(), count: (FIXES[id]?.count || 0) + 1, title: song.title };
   saveFixes();
-  res.json({ ok: true, message: `「${song.title}」の修正を受け付けました（次の更新で反映されます）` });
+  song.intro = FIXES[id].intro; song.chorus = FIXES[id].chorus; // すぐ使う（次にこの曲が出たときから）
+  res.json({ ok: true, message: `「${song.title}」の位置を直しました（次にこの曲が出たときから使われます）` });
 });
 
 // 収録曲一覧の「曲が違う（探し直す）」「削除を依頼」。誰でも送れる。反映の前に tools/pull-fixes.js で修正と一緒に取り込む

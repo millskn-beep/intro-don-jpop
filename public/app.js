@@ -763,8 +763,8 @@ function setupSongTools(s, r) {
     p.hidden = !p.hidden;
     if (p.hidden) return;
     p.innerHTML = row('i', 'イントロ') + row('c', 'サビ')
-      + `<div class="fix-actions"><button class="btn-main" id="fixSave">メモに保存</button><button class="btn-sub" id="fixCopy">📋 直した位置をコピー</button></div>`
-      + '<p class="note">直した位置は変えるたびにこの端末にメモとして残ります。手元のチェック画面に貼り付けて取り込むと、曲データに反映されます。</p>';
+      + `<div class="fix-actions"><button class="btn-main" id="fixSave">この位置で送る</button><button class="btn-sub" id="fixCopy">📋 直した位置をコピー</button></div>`
+      + '<p class="note">「この位置で送る」を押すと、みんなの曲データが直ります（次にこの曲が出たときから）。</p>';
     const save = quiet => {
       const all = fixes(); all[s.id] = { t: s.title, w: s.work, i: pos.i, c: pos.c };
       store.set(FIX_KEY, JSON.stringify(all));
@@ -776,7 +776,16 @@ function setupSongTools(s, r) {
     p.querySelectorAll('[data-fk]').forEach(b => b.onclick = () => { pos[b.dataset.fk] = round(pos[b.dataset.fk] + +b.dataset.d); show(); });
     p.querySelectorAll('[data-now]').forEach(b => b.onclick = () => { pos[b.dataset.now] = round(player.time()); show(); });
     p.querySelectorAll('[data-play]').forEach(b => b.onclick = () => player.playFrom(pos[b.dataset.play]));
-    $('fixSave').onclick = () => save(false);
+    // サーバーに送る（収録曲一覧の「修正を送る」と同じ受け付け）
+    $('fixSave').onclick = async () => {
+      save(true);
+      try {
+        const res = await fetch('/api/fixes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: s.id, intro: pos.i, chorus: pos.c }) });
+        const j = await res.json().catch(() => ({}));
+        toast(res.ok ? (j.message || '送りました') : (j.error || '送れませんでした'));
+        if (res.ok) $('fixToggle').textContent = '⏱ 位置を直す（送信済み）';
+      } catch (e) { toast('送れませんでした（通信エラー）'); }
+    };
     $('fixCopy').onclick = async () => {
       const n = Object.keys(fixes()).length;
       if (!n) return toast('まだメモした曲がありません');

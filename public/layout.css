@@ -14,7 +14,9 @@
   /* キャンバス：選んだ大きさの箱を、実際の画面に合わせて拡大・縮小する（layout.js が width/height/transform を入れる） */
   body.layout-on main:has(#room:not([hidden])) { max-width: none; }
   body.layout-on #room:not([hidden]) { display: block; position: relative; flex: none; transform-origin: 0 0; }
-  body.layout-on .room-main { position: absolute; inset: 0; display: block; overflow: visible; max-height: none; }
+  /* room-main はキャンバス全体を覆うので、それ自体はクリック・スクロールを受けない（下のプレイヤー一覧・手札に届くように）。中の部品だけ受ける */
+  body.layout-on .room-main { position: absolute; inset: 0; display: block; overflow: visible; max-height: none; pointer-events: none; }
+  body.layout-on .room-main > * { pointer-events: auto; }
   body.layout-on .room-side, body.layout-on .room-main > .stage, body.layout-on #quiz, body.layout-on #result, body.layout-on #results {
     position: absolute; margin: 0; overflow: auto; box-sizing: border-box; }
   body.layout-on #result { backdrop-filter: none; -webkit-backdrop-filter: none; transform: none; }

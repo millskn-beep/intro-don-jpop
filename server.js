@@ -418,6 +418,7 @@ const OPTIONS = {
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
   lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
+  buzzStop: [true, false],                // 早押し・3つ埋めバトル：押した人が答えている間、曲と残り時間を止める
   rushRate: ['normal', 'high', 'low'],     // アニソン激アツRUSH：当たりやすさ（ふつう／出やすい×1.5／出にくい×0.6）
   bingoEnd: ['p1', 'p2', 'p3', 'l2', 'l3', 'all'], // ビンゴの終わり：p〇＝〇人がBINGO／l〇＝だれかが〇ビンゴ／all＝問題数まで
   lives: [1, 2, 3],                       // サバイバルのライフ
@@ -429,14 +430,13 @@ const OPTIONS = {
   introPlays: [1, 2, 3],                 // イントロを流す回数（わからなかったときのため、頭から流し直す）
   noExclude: [false, true],              // 前に出た曲・ログを貼った曲も出す（除外しない。同じゲームの中で重なることはない）
   noRecord: [false, true],               // これから遊ぶ曲を除外に追加しない（ロビーの一番上のボタン）
-  pokerSuit: ['genre', 'random'],        // アニソン・ポーカー：マークの決め方（ジャンル系統／ランダム）
 };
 
 const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（public/assets/glass/avatar-1〜12）
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', pokerSuit: 'genre' };
+                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -701,13 +701,16 @@ function startGame(room) {
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map(), // stats: token -> 称号用の成績
                 rushPlan, // 激アツRUSH：問題ごとの { color, hit }
                 pokerDeck, // アニソン・ポーカー：ボーナスカードの山
-                pokerPool, pokerNums: new Map(), pokerRandom: S.pokerSuit === 'random', // 数字の残り・作品ごとの数字・マークをランダムにするか
+                pokerPool, pokerNums: new Map(), // 数字の残り・作品ごとの数字
                 bingoTarget: S.target, // ビンゴのマスの種類（ゲームの途中で答えるものを変えても、配ったカードのまま）
                 solo: connectedPlayers(room).length <= 1 }; // サバイバル：1人で遊ぶときはライフがなくなるまで、2人以上なら残り1人まで
   // 協力：目標は「問題数 × 人数 × 目標%」をゲーム開始時に決める（途中で人数が変わっても変えない）
   if (S.play === 'coop') room.game.coop = { goal: Math.max(1, Math.ceil(order.length * connectedPlayers(room).length * S.coopGoal / 100)), count: 0 };
   // ビンゴ：一人ひとりにカードを配る（途中から入った人には入ったときに配る）
   for (const p of room.players.values()) { p.rush = freshRush(); p.hand = []; p.kept = []; p.card = S.play === 'bingo' ? bingoCard(order, pool, S.target) : null; p.bingoAt = 0; p.reachN = 0; p.bingoLinesN = 0; }
+  // 動作確認用（本番では使わない）：環境変数 POKER_DEAL=枚数 で、はじめから手札を配る
+  if (S.play === 'poker' && +process.env.POKER_DEAL > 0) for (const p of room.players.values()) for (let i = 0; i < +process.env.POKER_DEAL && room.game.pokerDeck.length; i++) p.hand.push(cardOf(room.game.pokerDeck.pop(), room));
+  if (S.play === 'poker' && +process.env.POKER_DEAL > 0) for (const p of room.players.values()) sendPokerHand(room, p);
   nextQuestion(room);
   return true;
 }
@@ -821,21 +824,31 @@ function rushApply(room, q, player, correct, points) {
 // ── アニソン・ポーカー：正解した曲のカードを引いて、最後に役を比べる ──
 const POKER_HAND = 5;
 const FAME_IDX = { top: 0, famous: 1, normal: 2, minor: 3, otaku: 4 };
-// マーク（0=♠ 1=♥ 2=♦ 3=♣）：ジャンル系統（♠バトル・ロボット・SF ♥恋愛・日常 ♦異世界・ゲーム・劇場 ♣その他）。設定でランダムにもできる
+// マーク（0=♠ 1=♥ 2=♦ 3=♣）：ジャンル系統（♠バトル・ロボット・SF ♥恋愛・日常 ♦異世界・ゲーム・劇場 ♣その他）
 const SUIT_GENRES = [['robot', 'sf', 'jump', 'sports'], ['romcom', 'nichijou', 'idol', 'galge'], ['isekai', 'game', 'ghibli', 'theater', 'kids']];
-function suitOf(s, random) {
-  if (random) return crypto.randomInt(4);
+function suitOf(s) {
   const gs = genresOf(s), i = SUIT_GENRES.findIndex(l => l.some(k => gs.includes(k)));
   return i >= 0 ? i : 3;
 }
+// 本物のトランプと同じく、同じ数字・同じマークのカードは場に1枚だけ（全員の手札＋この答え合わせで作ったカードを見る）
+function suitFor(room, num, pref) {
+  const g = room.game;
+  const used = new Set([...room.players.values()].flatMap(p => p.hand || []).concat(g.pokerFresh || []).filter(c => c.num === num).map(c => c.suit));
+  if (!used.has(pref)) return pref;
+  const free = [0, 1, 2, 3].filter(x => !used.has(x));
+  return free.length ? free[crypto.randomInt(free.length)] : pref; // 同じ作品が場に4枚あるときだけ重なる
+}
 // 数字（1=A〜13=K）：作品ごと。同じゲームの中で「同じ数字＝同じ作品」になるよう、13種類を順に割り当てる
-function cardOf(s, g) {
+function cardOf(s, room) {
+  const g = room.game;
   const gs = genresOf(s).filter(k => !['pachislot', 'vocaloid', 'jpop', 'lol'].includes(k));
   const series = workKey(s.work);
   let num = g.pokerNums.get(series);
   if (!num) { num = g.pokerPool.length ? g.pokerPool.pop() : 1 + crypto.randomInt(13); g.pokerNums.set(series, num); }
-  return { id: s.id, title: s.title, work: s.work, seriesLabel: bingoLabel(s.work), series, num, suit: suitOf(s, g.pokerRandom), artistLabel: s.artist,
+  const card = { id: `${s.id}#${g.pokerSerial = (g.pokerSerial || 0) + 1}`, song: s.id, title: s.title, work: s.work, seriesLabel: bingoLabel(s.work), series, num, suit: suitFor(room, num, suitOf(s)), artistLabel: s.artist,
            genreLabels: gs.map(k => GENRES[k]?.label || k), year: s.year, type: s.type || '', fame: FAME_IDX[fameOf(s)] ?? 2 };
+  (g.pokerFresh = g.pokerFresh || []).push(card);
+  return card;
 }
 // 役がそろいやすいよう、出題の中に「同じシリーズの曲」を3曲ずつ、2組入れる（入れる場所はばらばら）
 function biasPokerOrder(order, pools) {
@@ -858,29 +871,31 @@ const sendPokerHand = (room, p) => {
 };
 // 答え合わせ：正解した人は曲のカードを1枚、いちばん早く正解した人はプラス1枚（ランダム・山から）
 function pokerReveal(room, q, results, song) {
-  const g = room.game, card = cardOf(song, g);
+  const g = room.game;
+  g.pokerFresh = [];
+  let card = null;
   const winners = results.filter(r => r.correct);
   const fastest = [...winners].sort((a, b) => (a.elapsed ?? 99) - (b.elapsed ?? 99))[0];
   const gains = [];
   for (const r of winners) {
     const p = [...room.players.values()].find(x => x.id === r.id); if (!p) continue;
     p.hand = p.hand || [];
-    p.hand.push({ ...card });
+    const c = cardOf(song, room); card = card || c; // 正解した人ごとに、別のマークのカード（同じカードは2枚ない）
+    p.hand.push(c);
     let bonus = null;
     if (fastest && r.id === fastest.id && g.pokerDeck?.length) {
       let i = g.pokerDeck.length - 1;
       if (!g.pokerPool.length) { const j = g.pokerDeck.findLastIndex(x => g.pokerNums.has(workKey(x.work))); if (j >= 0) i = j; } // 数字が足りないときは、数字を割り当て済みの作品から引く
-      bonus = cardOf(g.pokerDeck.splice(i, 1)[0], g); p.hand.push(bonus);
+      bonus = cardOf(g.pokerDeck.splice(i, 1)[0], room); p.hand.push(bonus);
     }
     gains.push({ id: r.id, name: r.name, bonus: !!bonus });
     sendPokerHand(room, p);
   }
-  const event = pokerEvent(room);
-  if (event) for (const w of event.who) { const p = [...room.players.values()].find(x => x.id === w.id); if (p) statsOf(room, p).pokerEv++; }
-  if (event) for (const p of room.players.values()) sendPokerHand(room, p);
-  return { card, gains, fastest: fastest?.name || null, event };
+  g.pokerFresh = [];
+  return { card: card || cardPreview(song), gains, fastest: fastest?.name || null };
 }
 // 手札が5枚を超えたまま次の問題へ進む人は、いちばん強い5枚が残るように自動で捨てる
+const cardPreview = s => ({ seriesLabel: bingoLabel(s.work) }); // だれも正解しなかったとき（表示用）
 function pokerAutoDiscard(room) {
   for (const p of room.players.values()) if ((p.hand || []).length > POKER_HAND) { p.hand = poker.bestFive(p.hand).cards; sendPokerHand(room, p); }
 }
@@ -893,39 +908,8 @@ function pokerShowdown(room) {
 
 // 保管したカード1枚につき最後に入る点／役ごとのボーナス（役のランク×この点）
 const POKER_KEEP_PTS = 50, POKER_RANK_PTS = 100;
-const POKER_BET_EVERY = +process.env.POKER_BET_EVERY || 10, POKER_BET_SEC = 25, POKER_BET_SHOW_SEC = 9;
-const POKER_EVENT_RATE = 0.4; // 答え合わせのあとに、特殊演出が起こる確率
+const POKER_BET_EVERY = +process.env.POKER_BET_EVERY || 10, POKER_BET_SEC = 25, POKER_BET_SHOW_SEC = 13;
 const pokerPlayers = room => connectedPlayers(room).filter(p => room.players.get(p.token));
-const pokerDraw = g => g.pokerDeck?.length ? cardOf(g.pokerDeck.pop(), g) : null;
-const pickRand = a => a[crypto.randomInt(a.length)];
-// 特殊演出：カード入れ替え／カードドロー／全入れ替え（低め）／2枚渡し（2人で入れ替え。3人以上はランダムに1人）
-function pokerEvent(room) {
-  const g = room.game, ps = pokerPlayers(room).filter(p => (p.hand || []).length > 0);
-  if (!ps.length || Math.random() >= POKER_EVENT_RATE) return null;
-  const type = pickRand([...Array(40).fill('draw'), ...Array(30).fill('swap'), ...Array(8).fill('swapAll'), ...Array(22).fill('trade')]);
-  const a = pickRand(ps), pub = p => ({ id: p.id, name: p.name });
-  if (type === 'trade') {
-    const others = ps.filter(p => p !== a); if (!others.length) return null;
-    const b = pickRand(others), n = Math.min(2, a.hand.length, b.hand.length);
-    const take = h => shuffle([...h.keys()]).slice(0, n);
-    const ia = take(a.hand), ib = take(b.hand);
-    const ca = ia.map(i => a.hand[i]), cb = ib.map(i => b.hand[i]);
-    a.hand = a.hand.filter((_, i) => !ia.includes(i)).concat(cb);
-    b.hand = b.hand.filter((_, i) => !ib.includes(i)).concat(ca);
-    return { type, who: [pub(a), pub(b)], text: `${a.name} と ${b.name} が、カード${n}枚を交換！` };
-  }
-  if (type === 'draw') { const c = pokerDraw(g); if (!c) return null; a.hand.push(c); return { type, who: [pub(a)], text: `${a.name} にカードドロー！ 1枚追加` }; }
-  if (type === 'swap') {
-    const c = pokerDraw(g); if (!c) return null;
-    a.hand.splice(crypto.randomInt(a.hand.length), 1, c);
-    return { type, who: [pub(a)], text: `${a.name} のカードが1枚入れ替わった！` };
-  }
-  const n = a.hand.length, fresh = [];
-  for (let i = 0; i < n; i++) { const c = pokerDraw(g); if (c) fresh.push(c); }
-  if (!fresh.length) return null;
-  a.hand = fresh;
-  return { type: 'swapAll', who: [pub(a)], text: `${a.name} の手札がすべて入れ替わった！！` };
-}
 const roundTo = (n, u) => Math.floor(n / u) * u;
 const pokerBetOptions = p => (p.hand || []).length ? [...new Set([0, 0.25, 0.5, 1].map(f => roundTo(Math.max(0, p.score || 0) * f, 10)))].sort((a, b) => a - b) : [0];
 // 10問ごと：手札に点を賭けて、全員でオープン。勝った人が賭けた点を総取り
@@ -933,7 +917,9 @@ function startPokerBet(room) {
   const g = room.game;
   g.pokerBet = { bets: new Map(), open: true };
   const ps = pokerPlayers(room);
-  for (const p of ps) io.to(p.socketId).emit('pokerBet', { sec: POKER_BET_SEC, score: p.score || 0, options: pokerBetOptions(p), total: ps.length });
+  const seats = ps.map(p => ({ id: p.id, name: p.name, avatar: p.avatar, count: (p.hand || []).length, score: p.score || 0 })); // 卓に座る全員（手札は枚数だけ）
+  const round = Math.floor((g.qi + 1) / POKER_BET_EVERY);
+  for (const p of ps) io.to(p.socketId).emit('pokerBet', { sec: POKER_BET_SEC, score: p.score || 0, options: pokerBetOptions(p), total: ps.length, seats, round });
   later(room, () => finishPokerBet(room), POKER_BET_SEC * 1000);
   broadcastRoom(room);
 }
@@ -960,7 +946,7 @@ function finishPokerBet(room) {
     for (const r of bettors) { const st = statsOf(room, r.p); if (r.bet >= roundTo(Math.max(0, r.p.score - r.delta), 10)) st.allin++; if (r.delta > 0) st.betWon += r.delta; }
   }
   io.to(room.code).emit('pokerBetResult', { duel, pot, sec: POKER_BET_SHOW_SEC,
-    rows: rows.map(r => ({ id: r.p.id, name: r.p.name, avatar: r.p.avatar, bet: duel ? r.bet : 0, hand: duel && r.bet > 0 ? r.b.cards : [], handName: duel && r.bet > 0 ? r.b.eval.name : '見送り',
+    rows: rows.map(r => ({ id: r.p.id, name: r.p.name, avatar: r.p.avatar, bet: r.bet, hand: duel && r.bet > 0 ? r.b.cards : [], handName: duel && r.bet > 0 ? r.b.eval.name : '見送り',
                            used: r.b.eval.used.map(c => c.id), win: winners.includes(r), delta: r.delta || 0, score: r.p.score })) });
   if (duel) for (const r of bettors) { r.p.kept = (r.p.kept || []).concat(r.p.hand); r.p.hand = []; } // 使った手札は保管へ（最後にボーナス）
   for (const r of rows) sendPokerHand(room, r.p);
@@ -1191,7 +1177,7 @@ function nextQuestion(room) {
   if (g.pokerBet) return; // 賭けのオープン中は進めない
   if (room.settings.play === 'poker') {
     pokerAutoDiscard(room);
-    if ((g.qi + 1) % POKER_BET_EVERY === 0 && g.qi + 1 < g.order.length && g.pokerBetAt !== g.qi && !survivalOver(room)) return startPokerBet(room);
+    if (g.qi >= 0 && (g.qi + 1) % POKER_BET_EVERY === 0 && g.qi + 1 < g.order.length && g.pokerBetAt !== g.qi && !survivalOver(room)) return startPokerBet(room);
   }
   // 終わり：全部出した、またはサバイバルで残りがいなくなった（qi は最後に出した問題のまま）
   if (g.qi + 1 >= g.order.length || survivalOver(room) || g.bingoDone) return endGame(room); // ビンゴは設定した人数・ビンゴ数で終わり（問題数までも選べる）
@@ -1309,9 +1295,9 @@ function resendQuestion(room, socket, token) {
   if (S.play === 'poker') sendPokerHand(room, room.players.get(token));
   socket.emit('question', questionPayload(room));
   if (q.phase === 'intro' || q.phase === 'chorus') {
-    const offset = (Date.now() - q.t0) / 1000;
+    const offset = ((q.frozen || Date.now()) - q.t0) / 1000; // 答えている間で止めているときは、止めた時点まで
     socket.emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt: q.hintAt || S.hintAt,
-                        total: q.total || questionTotal(S), offset, introLen: S.introLen, plays: q.plays || 1, gap: INTRO_GAP, speed: q.speed || 1 });
+                        total: q.total || questionTotal(S), offset, introLen: S.introLen, plays: q.plays || 1, gap: INTRO_GAP, speed: q.speed || 1, t0: q.frozen ? null : q.t0 });
     if (q.phase === 'chorus' && !q.flowOn) socket.emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' });
     if (q.phase === 'chorus' && q.rush?.hit) socket.emit('rushReach', { color: q.rush.color, again: true });
     if (q.flowOn) socket.emit('flowOn', { total: q.total }); // イントロ中に押されて流し続けになっている
@@ -1368,7 +1354,7 @@ function go(room) {
   q.hintAt = hintAt; q.plays = plays; q.total = q.fill ? fillTotal(q, hintAt) : questionTotal(S, hintAt); // 3つ埋めバトルは曲が終わるまで
   const sabimae = flowing(q.kind);
   io.to(room.code).emit('go', { intro: q.song.intro || 0, start: q.start, kind: q.kind, hintAt, total: q.total, offset: -LEAD_MS / 1000,
-                                introLen: S.introLen, plays, gap: INTRO_GAP, speed: q.speed || 1 });
+                                introLen: S.introLen, plays, gap: INTRO_GAP, speed: q.speed || 1, t0: q.t0 }); // t0：時計合わせ済みの端末は、この時刻ちょうどに流し始める
   const later = (r, fn, ms) => laterAt(r, fn, ms + LEAD_MS);
   // サビ前問題は止めずに流し続ける。イントロは introLen 秒で止め、回数の設定があれば少し空けて頭から流し直す
   if (!sabimae) {
@@ -1644,10 +1630,12 @@ const emitQueue = (room, q) => io.to(room.code).emit('buzzQueue', { ids: (q.buzz
 const BUZZ_COMP_MAX = 120, BUZZ_WINDOW_MS = 100, BUZZ_CLAIM_MAX = 250; // 端末が時計合わせをしていれば、押した時刻を端末から受け取る（サーバーの時刻より未来・250ms以上前は信じない）
 const buzzComp = p => Math.min(BUZZ_COMP_MAX, Math.max(0, (p.rtt || 0) / 2));
 // 押した時刻：端末から受け取った時刻（時計合わせ済み）があればそれを、なければ回線の遅れを引いた時刻を使う
+// 曲が聞こえ始めた遅れ（端末が測って送る 'heard'）の分も引く：読み込みが遅くて遅れて聞こえた人が不利にならないように
+const HEARD_LAG_MAX = 1500;
 function buzzAt(q, player, claimed) {
   const now = Date.now();
   const at = typeof claimed === 'number' && isFinite(claimed) ? Math.min(now, Math.max(now - BUZZ_CLAIM_MAX, claimed)) : now - buzzComp(player);
-  return Math.max(q.t0, at);
+  return Math.max(q.t0, at - (q.heardLag?.get(player.token) || 0));
 }
 // 最初の合図のあと待つ時間：いまの部屋でいちばん遅れの大きい人の分まで（短すぎると、遅れて届いた人が間に合わない）
 const buzzWindow = room => Math.min(200, Math.max(60, Math.max(0, ...[...room.players.values()].filter(p => p.connected).map(p => (p.rtt || 0) / 2)) + 20));
@@ -1655,14 +1643,17 @@ function settleBuzz(room, q) {
   const list = q.buzzPending || []; q.buzzPending = null;
   if (room.game?.q !== q || q.buzz || q.phase === 'reveal' || room.game.paused) return;
   list.sort((a, b) => a.at - b.at);
-  let started = false;
+  let first = null;
   for (const e of list) {
     const p = room.players.get(e.token);
     if (!p?.connected || q.answers.has(e.token) || (q.fill && !fillCanBuzz(room, q, p))) continue;
-    if (!started) { startBuzz(room, p, e.at); started = true; continue; }
+    if (!first) { first = { p, at: e.at }; continue; }
     if (q.fill) { (q.buzzQueue = q.buzzQueue || []).push({ token: e.token, at: e.at }); q.fillPass.delete(e.token); } // 早押しクイズは、後の人は間に合わなかった
   }
-  if (q.fill) { q.buzzQueue?.sort((a, b) => a.at - b.at); emitQueue(room, q); broadcastRoom(room); }
+  // 同時に押した人の順番待ちを先に知らせてから、1人目の番を始める（先に「回答中」が届くと、並んだ人の画面で一瞬「押せる」に戻ってしまう）
+  if (q.fill) { q.buzzQueue?.sort((a, b) => a.at - b.at); emitQueue(room, q); }
+  if (first) startBuzz(room, first.p, first.at);
+  else if (q.fill) broadcastRoom(room);
 }
 function onBuzz(room, player, claimed = null) {
   const g = room.game, q = g?.q;
@@ -1693,9 +1684,30 @@ function revealAtEnd(room, q) {
   if (left > 200) return later(room, () => revealAtEnd(room, q), left);
   if (q.buzz) q.revealPending = true; else reveal(room); // 押して答えている最中なら、答え終わるまで待つ
 }
+// 答えている間は止める（設定 buzzStop）：曲・残り時間・サビへの切り替えなどのタイマーを止めて、答え終わったら続きから
+function freezeQuestion(room, q) {
+  if (q.frozen) return;
+  q.frozen = Date.now();
+  for (const t of room.game.timers) if (!t.done) { clearTimeout(t.h); t.left = Math.max(0, t.due - Date.now()); }
+}
+function unfreezeQuestion(room, q) {
+  if (!q.frozen) return;
+  const d = Date.now() - q.frozen, g = room.game;
+  q.frozen = null;
+  if (q.t0) q.t0 += d;
+  const old = g.timers; g.timers = [];
+  for (const t of old) {
+    if (t.done) continue;
+    const n = addTimer(room, t.fn, t.left ?? Math.max(0, t.due - Date.now()));
+    if (q.nextTimer === t) q.nextTimer = n;
+  }
+}
+
 // 押した人の番を始める（at：押した時刻。早いほど高い点）
 function startBuzz(room, player, at) {
   const q = room.game.q;
+  const stop = !!room.settings.buzzStop;
+  if (stop) freezeQuestion(room, q);
   // 3つ埋めバトル：イントロ中に押されたら、サビへ飛ばずにそのまま流し続ける（イントロで止めない）。曲の終わりも合わせて延ばす
   if (q.fill && q.phase === 'intro' && !q.flowOn && q.kind !== 'sabimae') {
     q.flowOn = true;
@@ -1710,7 +1722,7 @@ function startBuzz(room, player, at) {
   // 押しても曲と進行（サビへ・時間切れ）は止めない。時間切れが答えている最中に来たら、答え終わってから答え合わせ（endBuzz）
   q.buzz = { token: player.token, elapsed: (at - q.t0) / 1000, at: now, until: now + sec * 1000 };
   q.buzz.timer = setTimeout(() => { if (room.game?.q === q && q.buzz?.token === player.token) onAnswer(room, player, { timeout: true }); }, sec * 1000);
-  io.to(room.code).emit('buzz', { id: player.id, name: player.name, sec, queue: queueNames(room, q) });
+  io.to(room.code).emit('buzz', { id: player.id, name: player.name, sec, queue: queueNames(room, q), stop });
   broadcastRoom(room);
 }
 // 答える人の番が終わった（間違い・時間切れ・抜けた）：順番待ちがいれば次の人へ、いなければ、また誰でも押せる。曲は流れたまま
@@ -1718,15 +1730,18 @@ function endBuzz(room) {
   const g = room.game, q = g?.q, b = q?.buzz;
   if (!b) return;
   clearTimeout(b.timer); q.buzz = null;
-  io.to(room.code).emit('buzzEnd', { ms: 0 });
-  if (q.revealPending) return setImmediate(() => { if (room.game?.q === q && q.phase !== 'reveal') reveal(room); }); // 答えている間に時間切れになっていた
+  if (q.revealPending) { io.to(room.code).emit('buzzEnd', { ms: 0 }); return setImmediate(() => { if (room.game?.q === q && q.phase !== 'reveal') reveal(room); }); } // 答えている間に時間切れになっていた
   // 3つ埋めバトル：押した順の次の人（抜けた人・その間にお手つきで押せなくなった人は飛ばす）
+  let next = null;
   while (q.fill && q.buzzQueue?.length) {
     const e = q.buzzQueue.shift(), p = room.players.get(e.token);
     if (!p?.connected || !fillCanBuzz(room, q, p)) { if (p?.connected) io.to(p.socketId).emit('notice', 'お手つきの間だったので、順番を飛ばしました'); continue; }
-    emitQueue(room, q);
-    return startBuzz(room, p, e.at);
+    next = { p, at: e.at }; break;
   }
+  // 次の人がいれば、止めたまま次の番へ（曲を一瞬だけ流さない）。いなければ続きから再開
+  io.to(room.code).emit('buzzEnd', { ms: 0, hold: !!(next && q.frozen) });
+  if (next) { emitQueue(room, q); return startBuzz(room, next.p, next.at); }
+  unfreezeQuestion(room, q);
   if (q.fill) emitQueue(room, q); // 飛ばした人も、また押せるように（列が空になったことを知らせる）
 }
 
@@ -2001,7 +2016,6 @@ function modeTitles(room, list, pick, top, ranking, showdown) {
     out.push(top(s => s.betWon, 1, '勝負師', s => `賭けで ${s.betWon}点獲得`));
     const k = list.filter(x => (P(x).kept || []).length >= 3).sort((a, c) => P(c).kept.length - P(a).kept.length)[0];
     if (k) out.push(pick(k, 'カード長者', `保管 ${P(k).kept.length}枚`));
-    out.push(top(s => s.pokerEv, 2, '運命の交換', s => `特殊演出の対象 ${s.pokerEv}回`));
   }
   if (S.teams) {
     const teamSum = new Map();
@@ -2334,6 +2348,14 @@ io.on('connection', socket => {
 
   // 端末の時計合わせ（賭ケ盟約と同じ方式）：端末が送った時刻に、サーバーの「いま」を返す
   socket.on('clock', (c, ack) => { if (typeof ack === 'function') ack(Date.now()); });
+  // 曲が実際に聞こえ始めた遅れ（秒）。問題ごとに1回だけ受け付ける
+  socket.on('heard', lag => {
+    const q = room?.game?.q;
+    if (!q || !player || !q.participants?.has(player.token) || (q.phase !== 'intro' && q.phase !== 'chorus') || typeof lag !== 'number' || !isFinite(lag)) return;
+    if (!q.heardLag) q.heardLag = new Map();
+    if (!q.heardLag.has(player.token)) q.heardLag.set(player.token, Math.min(HEARD_LAG_MAX, Math.max(0, lag * 1000)));
+    if (process.env.DEBUG_HEARD) console.log('heard', player.name, lag.toFixed(3));
+  });
   socket.on('buzz', t => { if (room && player) onBuzz(room, player, typeof t === 'number' ? t : null); });
   socket.on('pickSong', id => { if (room?.game?.q?.phase === 'picking' && room.game.q.picker === player?.token) finishPick(room, id); });
   // チーム戦：待機中に自分のチームを切り替える／ホストがシャッフル
@@ -2367,7 +2389,7 @@ io.on('connection', socket => {
     const a = +amount; if (!pokerBetOptions(player).includes(a)) return;
     g.pokerBet.bets.set(player.token, a);
     const ps = pokerPlayers(room);
-    io.to(room.code).emit('pokerBetProgress', { done: ps.filter(p => g.pokerBet.bets.has(p.token)).length, total: ps.length });
+    io.to(room.code).emit('pokerBetProgress', { done: ps.filter(p => g.pokerBet.bets.has(p.token)).length, total: ps.length, decided: ps.filter(p => g.pokerBet.bets.has(p.token)).map(p => p.id) });
     if (ps.every(p => g.pokerBet.bets.has(p.token))) finishPokerBet(room);
   });
   socket.on('pokerDiscard', ids => {

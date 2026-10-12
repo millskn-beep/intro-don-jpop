@@ -250,7 +250,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -540,6 +540,7 @@ function renderRoom(r) {
   $('lockSecLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えたあと押せない秒数
   $('bingoEndLabel').hidden = r.settings.play !== 'bingo'; // ビンゴ：何人・何ビンゴで終わるか
   $('karutaFaceLabel').hidden = r.settings.play !== 'karuta'; // かるた：札に書くもの
+  $('wolfWorkLabel').hidden = $('wolfTitleLabel').hidden = r.settings.play !== 'wolf'; // 人狼：候補に出す作品名・曲名
   $('buzzStopLabel').hidden = !['buzzer', 'fill'].includes(r.settings.play); // 早押し・3つ埋めバトル：答えている間は曲を止める
   $('noRepeatLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない
   $('playDesc').textContent = PLAY_DESC[r.settings.play] || '';
@@ -948,6 +949,7 @@ const isInput = () => question?.answerMode === 'input';
 
 socket.on('question', q => {
   hidePokerBet(); hideWolf();
+  if (q.attack) setTimeout(() => charFx.cutin('アタックチャンス！', 'この問題に正解した人が、最後のパネルのあと相手のパネルを1枚奪えます', 'cutin'), 400);
   if (q.qNo === 1 && !practice) playLog = []; // 新しいゲーム（テスト1問では曲ログを消さない）
   question = q; myAnswer = null; answering = false;
   stopTick();
@@ -981,7 +983,7 @@ socket.on('question', q => {
   $('choices').classList.toggle('years', q.answerMode === 'year');
   $('choices').innerHTML = isInput() || q.fill || !q.choices && q.answerMode !== 'year' ? '' : q.answerMode === 'year'
     ? q.years.map((y, i) => `<button class="choice year" data-i="${i}" disabled>${y}</button>`).join('')
-    : q.choices.map((c, i) => `<button class="choice${c.gone ? ' gone empty' : ''}" data-i="${i}" disabled>${esc(c.title)}${c.work ? `<small>${esc(c.work)}</small>` : ''}</button>`).join('');
+    : q.choices.map((c, i) => `<button class="choice${c.gone ? ' gone empty' : ''}${q.play === 'karuta' ? ' ' + ([...(c.title || '')].length > 18 ? 'len3' : [...(c.title || '')].length > 11 ? 'len2' : [...(c.title || '')].length > 6 ? 'len1' : '') : ''}" data-i="${i}" disabled>${esc(c.title)}${c.work ? `<small>${esc(c.work)}</small>` : ''}</button>`).join('');
   $('choices').classList.toggle('karuta', q.play === 'karuta');
   if (q.answerMode === 'nenpyo') { $('choices').hidden = true; $('inputForm').hidden = true; nenpyoSlot = null; }
   if (q.play === 'karuta' && (q.rest || []).includes(me)) setTimeout(() => toast('お手つきのため、この曲はお休みです'), 300);
@@ -1197,7 +1199,7 @@ const wolfName = id => wolfData?.players.find(p => p.id === id)?.name || '';
 let wolfMark = null; // 自分用の目印（どの曲を聴いていそうか。ほかの人には見えない）
 function wolfChoicesHtml(d) {
   if (!d.choices) return '';
-  return `<div class="wf-cands"><small>曲の候補（聴いている曲は、この中にあります。タップで自分用の目印）</small><div>${d.choices.map((c, i) => `<button type="button" class="wf-cand${wolfMark === i ? ' mine' : ''}" data-cand="${i}"><b>${i + 1}</b>${esc(c.title)}<small>${esc(c.work || '')}</small></button>`).join('')}</div></div>`;
+  return `<div class="wf-cands"><small>曲の候補（聴いている曲は、この中にあります。タップで自分用の目印）</small><div>${d.choices.map((c, i) => `<button type="button" class="wf-cand${wolfMark === i ? ' mine' : ''}" data-cand="${i}"><b>${i + 1}</b>${esc(c.title)}${c.work ? `<small>${esc(c.work)}</small>` : ''}</button>`).join('')}</div></div>`;
 }
 function wolfChatHtml() { return wolfChatLog.map(c => `<li${c.id === me ? ' class="mine"' : ''}><b>${esc(c.name)}</b>${esc(c.text)}</li>`).join(''); }
 socket.on('wolfChat', c => {
@@ -1289,7 +1291,8 @@ function renderPanel(r) {
     if (key === panelPickKey) return;
     panelPickKey = key; clearTimeout(panelPopTimer); clearInterval(nextTick); $('nextCount').textContent = '';
     const mine = pn.pick.id === me;
-    $('panelPop').innerHTML = `<div class="pn-field"><h3>${mine ? '🎯 パネルを選んでください' : `${esc(pn.pick.name)} さんがパネルを選んでいます`}</h3>
+    const atk = pn.pick.stage === 'attack';
+    $('panelPop').innerHTML = `<div class="pn-field${pn.pick.attack ? ' attack' : ''}"><h3>${atk ? (mine ? '⚡ アタックチャンス！ 相手のパネルを1枚、自分のものに！' : `⚡ ${esc(pn.pick.name)} さんのアタックチャンス！`) : pn.pick.attack ? (mine ? '⚡ アタックチャンス！ まず最後のパネルを選んでください' : `⚡ アタックチャンス！ ${esc(pn.pick.name)} さんが最後のパネルを選んでいます`) : mine ? '🎯 パネルを選んでください' : `${esc(pn.pick.name)} さんがパネルを選んでいます`}</h3>
       <div class="pn-board">${panelCells(r, pn.board, { allowed: pn.pick.allowed, mine })}</div>
       <div class="pn-legend">${panelLegend(r)}</div><p class="pn-left" id="panelLeft"></p></div>`;
     $('panelPop').hidden = false;
@@ -1302,13 +1305,15 @@ function renderPanel(r) {
 socket.on('panelUpdate', d => {
   clearInterval(panelTick);
   const r = room; if (!r) return;
-  $('panelPop').innerHTML = `<div class="pn-field"><h3>${esc(d.name)} さんが ${d.idx + 1}番 を取った！${d.flipped.length ? ` ${d.flipped.length}枚 裏返し！` : ''}</h3>
+  $('panelPop').innerHTML = `<div class="pn-field"><h3>${d.attack ? `⚡ ${esc(d.name)} さんがアタックチャンスで ${d.idx + 1}番 を奪った！` : `${esc(d.name)} さんが ${d.idx + 1}番 を取った！${d.flipped.length ? ` ${d.flipped.length}枚 裏返し！` : ''}`}</h3>
     <div class="pn-board">${panelCells(r, d.board, { flipped: d.flipped, idx: d.idx })}</div><div class="pn-legend">${panelLegend(r)}</div></div>`;
   $('panelPop').hidden = false;
-  if (d.flipped.length >= 3) charFx.cutin(`${d.flipped.length}枚 裏返し！`, d.name, 'celebrate');
+  if (d.attack) charFx.cutin('アタックチャンス！', `${d.name} さんが奪った！`, 'celebrate');
+  else if (d.flipped.length >= 3) charFx.cutin(`${d.flipped.length}枚 裏返し！`, d.name, 'celebrate');
   clearTimeout(panelPopTimer);
   panelPopTimer = setTimeout(() => { $('panelPop').hidden = true; panelPickKey = null; }, 2500);
-  if (!d.done && room?.settings?.autoNext > 0) startNextCount(Math.max(2.5, room.settings.autoNext / 2));
+  if (!d.done && !d.next && room?.settings?.autoNext > 0) startNextCount(Math.max(2.5, room.settings.autoNext / 2));
+  if (d.next) { panelPickKey = null; return; } // アタックチャンスの2段目：すぐ次の選択の画面になる
 });
 
 // ── アニソン・ポーカー：手札・捨てる・ショーダウン ──

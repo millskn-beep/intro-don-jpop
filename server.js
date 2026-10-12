@@ -9,7 +9,7 @@ const express = require('express');
 const { Server } = require('socket.io');
 
 const fs = require('fs');
-const { isCorrectText, isAlmostText, shortForm } = require('./lib/normalize');
+const { isCorrectText, isAlmostText, shortForm, normalize: normText } = require('./lib/normalize');
 const poker = require('./lib/poker');
 const panelLib = require('./lib/panel');
 const nenpyo = require('./lib/nenpyo'); // アニソン年表（ヒットスター風） // アニソン陣取り（アタック25風）の盤
@@ -564,6 +564,8 @@ const OPTIONS = {
   lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
   buzzStop: [true, false],
+  wolfWork: ['hide', 'show'],   // アニソン人狼：候補に作品名（タイトル）を出す（既定は出さない）
+  wolfTitle: ['show', 'hide'],  // アニソン人狼：候補に曲名を出す（既定は出す。曲名も作品名も出さないときは、候補の一覧を出さない）
   karutaFace: ['title', 'work', 'artist'], // アニソンかるた：札に書くもの（曲名・作品名・歌手名）                // 早押し・3つ埋めバトル：押した人が答えている間、曲と残り時間を止める
   rushRate: ['normal', 'high', 'low'],     // アニソン激アツRUSH：当たりやすさ（ふつう／出やすい×1.5／出にくい×0.6）
   bingoEnd: ['p1', 'p2', 'p3', 'l2', 'l3', 'all'], // ビンゴの終わり：p〇＝〇人がBINGO／l〇＝だれかが〇ビンゴ／all＝問題数まで
@@ -582,7 +584,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title' };
+                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show' };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -743,7 +745,7 @@ function publicRoom(room) {
     teams: teamScores(room),
     coop: room.game?.coop || null,
     panel: room.settings.play === 'panel' && room.game?.panel && room.state === 'playing'
-      ? { board: room.game.panel, pick: room.game.panelPick ? { id: room.game.panelPick.id, name: room.game.panelPick.name, allowed: room.game.panelPick.allowed, until: room.game.panelPick.until } : null } : null,
+      ? { board: room.game.panel, pick: room.game.panelPick ? { id: room.game.panelPick.id, name: room.game.panelPick.name, allowed: room.game.panelPick.allowed, until: room.game.panelPick.until, stage: room.game.panelPick.stage, attack: !!room.game.panelPick.attack } : null } : null,
     // 激アツRUSH：保留ランプ（いまの問題の色と、先の4問の色）。当たりかどうかは入れない
     rush: room.settings.play === 'rush' && room.game?.rushPlan && room.state === 'playing'
       ? { color: room.game.rushPlan[room.game.qi]?.color || null, state: room.game.rushPlan[room.game.qi]?.state || 0, next: room.game.rushPlan.slice(room.game.qi + 1, room.game.qi + 5).map(x => x.color) } : null,
@@ -848,6 +850,16 @@ function startGame(room) {
   // 曲オブジェクトそのものを持つ（ゲーム中に曲データが保存し直されても影響しないように）
   const order = spreadLowFame(capLowFame(weightedPick([...fresh.map(s => [s, 1]), ...popular.map(s => [s, POPULAR_REPEAT])], n), [fresh, candidates]));
   if (S.play === 'poker') { biasPokerOrder(order, [fresh.length ? fresh : candidates, candidates]); spreadLowFame(order); }
+  // 人狼・かるた：同じ曲名の曲（曲名のそろえた形が同じ）は、同じゲームに2問入れない。かぶったら別の曲に入れ替える
+  if (S.play === 'wolf' || S.play === 'karuta') {
+    const used = new Set(), spare = shuffle([...(fresh.length ? fresh : candidates), ...candidates].filter((s, i, arr) => arr.indexOf(s) === i));
+    for (let i = 0; i < order.length; i++) {
+      const k = normText(order[i].title);
+      if (!used.has(k)) { used.add(k); continue; }
+      const r = spare.find(s => !order.includes(s) && !used.has(normText(s.title)));
+      if (r) { order[i] = r; used.add(normText(r.title)); }
+    }
+  }
   const pokerPool = shuffle(Array.from({ length: 13 }, (_, i) => i + 1));
   const pokerDeck = S.play === 'poker' ? shuffle(candidates.filter(s => !order.includes(s))) : null; // ボーナスカード用の山（出題に使わない曲）
   // アニソン激アツRUSH：全問の色と当たりをここで決める（当たりの問題には、パチスロで有名な曲を入れる）
@@ -866,6 +878,8 @@ function startGame(room) {
   // ビンゴ：一人ひとりにカードを配る（途中から入った人には入ったときに配る）
   for (const p of room.players.values()) { p.rush = freshRush(); p.hand = []; p.kept = []; p.karutaCards = 0; p.karutaRest = -1;
     p.timeline = S.play === 'nenpyo' ? [nenpyoStartCard(room, order, ctx)] : null; p.card = S.play === 'bingo' ? bingoCard(order, pool, S.target) : null; p.bingoAt = 0; p.reachN = 0; p.bingoLinesN = 0; }
+  // 動作確認用（本番では使わない）：環境変数 PANEL_TEST_FILL=マス数 で、陣取りの盤を先に埋める（アタックチャンスの確認用）
+  if (S.play === 'panel' && +process.env.PANEL_TEST_FILL > 0) { const ids = [...room.players.values()].map(p => p.id); for (let i = 0; i < +process.env.PANEL_TEST_FILL && i < 25; i++) room.game.panel[i] = ids[i % ids.length]; }
   // 動作確認用（本番では使わない）：環境変数 POKER_DEAL=枚数 で、はじめから手札を配る
   if (S.play === 'poker' && +process.env.POKER_DEAL > 0) for (const p of room.players.values()) for (let i = 0; i < +process.env.POKER_DEAL && room.game.pokerDeck.length; i++) p.hand.push(cardOf(room.game.pokerDeck.pop(), room));
   if (S.play === 'poker' && +process.env.POKER_DEAL > 0) for (const p of room.players.values()) sendPokerHand(room, p);
@@ -1139,7 +1153,7 @@ function karutaChoices(room, song) {
   const faceOf = s => karutaFaceOf(s, face);
   // 読まれる札がまだ場になければ置く（同じ文字の札があればその札と入れ替える。空きがなければ、先の問題で読まれない札と入れ替える）
   if (!g.karuta.some(c => c?.id === song.id)) {
-    let slot = g.karuta.findIndex(c => c && c.face === faceOf(song));
+    let slot = g.karuta.findIndex(c => c && normText(c.face) === normText(faceOf(song)));
     if (slot < 0) slot = g.karuta.findIndex(c => !c);
     if (slot < 0) {
       const later_ = new Set(g.order.slice(g.qi + 1).map(s => s.id));
@@ -1149,14 +1163,14 @@ function karutaChoices(room, song) {
     g.karuta[slot] = { id: song.id, face: faceOf(song) };
   }
   // 空いたところに札を足す：これから読まれる曲 → 足りなければ候補の曲（読まれない札。同じ文字は置かない）
-  const faces = new Set(g.karuta.filter(Boolean).map(c => c.face)), ids = new Set(g.karuta.filter(Boolean).map(c => c.id));
+  const faces = new Set(g.karuta.filter(Boolean).map(c => normText(c.face))), ids = new Set(g.karuta.filter(Boolean).map(c => c.id));
   const fill = [...g.order.slice(g.qi + 1), ...shuffle(g.pool.filter(s => !g.order.includes(s)))];
   for (const s of fill) {
     const slot = g.karuta.findIndex(c => !c);
     if (slot < 0) break;
     const f = faceOf(s);
-    if (!f || faces.has(f) || ids.has(s.id)) continue;
-    g.karuta[slot] = { id: s.id, face: f }; faces.add(f); ids.add(s.id);
+    if (!f || faces.has(normText(f)) || ids.has(s.id)) continue;
+    g.karuta[slot] = { id: s.id, face: f }; faces.add(normText(f)); ids.add(s.id);
   }
   const choices = g.karuta.map(c => c ? { title: c.face, work: '' } : { title: '', work: '', gone: true });
   return { choices, correctIndex: g.karuta.findIndex(c => c?.id === song.id) };
@@ -1177,7 +1191,7 @@ function startPanelPick(room, q, results) {
   if (!win || g.panel.every(x => x)) return;
   const p = [...room.players.values()].find(x => x.id === win.id);
   if (!p) return;
-  g.panelPick = { token: p.token, id: p.id, name: p.name, allowed: panelLib.allowedCells(g.panel, p.id), until: Date.now() + PANEL_PICK_SEC * 1000, q };
+  g.panelPick = { token: p.token, id: p.id, name: p.name, allowed: panelLib.allowedCells(g.panel, p.id), until: Date.now() + PANEL_PICK_SEC * 1000, q, stage: 'place', attack: !!q.attack };
   later(room, () => panelChoose(room, null), PANEL_PICK_SEC * 1000);
 }
 function panelChoose(room, idx) {
@@ -1185,9 +1199,30 @@ function panelChoose(room, idx) {
   if (!pk) return;
   if (idx == null || !pk.allowed.includes(idx)) { if (idx != null) return; idx = panelLib.autoPick(g.panel, pk.id); } // 時間切れはいちばん多く裏返せるマス
   clearTimers(room);
+  // アタックチャンスの2段目：相手のパネルを1枚、自分のものにする（時間切れは、いちばん多く持っている人のパネルから）
+  if (pk.stage === 'attack') {
+    if (idx == null) idx = pk.allowed[crypto.randomInt(pk.allowed.length)];
+    const from = g.panel[idx];
+    panelLib.grab(g.panel, idx, pk.id);
+    g.panelPick = null; g.panelDone = true;
+    io.to(room.code).emit('panelUpdate', { board: g.panel, idx, flipped: [idx], id: pk.id, name: pk.name, attack: true, done: true });
+    broadcastRoom(room);
+    return later(room, () => nextQuestion(room), PANEL_SHOW_MS + 1500);
+  }
   const flipped = panelLib.place(g.panel, idx, pk.id);
   g.panelPick = null;
   if (g.panel.every(x => x)) g.panelDone = true;
+  // アタックチャンス：最後のマスを取ったあと、続けて相手のパネルを1枚取れる（相手のパネルがなければそのまま終わり）
+  if (pk.attack && g.panelDone) {
+    const cells = panelLib.attackCells(g.panel, pk.id);
+    if (cells.length) {
+      g.panelDone = false;
+      g.panelPick = { token: pk.token, id: pk.id, name: pk.name, allowed: cells, until: Date.now() + PANEL_PICK_SEC * 1000, q: pk.q, stage: 'attack', attack: true };
+      io.to(room.code).emit('panelUpdate', { board: g.panel, idx, flipped, id: pk.id, name: pk.name, done: false, next: 'attack' });
+      later(room, () => panelChoose(room, null), PANEL_PICK_SEC * 1000);
+      return broadcastRoom(room);
+    }
+  }
   io.to(room.code).emit('panelUpdate', { board: g.panel, idx, flipped, id: pk.id, name: pk.name, done: g.panelDone });
   broadcastRoom(room);
   // 次へ：盤が埋まったら少し見せて終わり。そうでなければ、ふだんの自動で次へ（答え合わせのときに止めていた分）
@@ -1201,9 +1236,10 @@ function panelChoose(room, idx) {
 const WOLF_SEC = { listen: 25, hint: 40, talk: 90, vote: 30, tally: 6, guess: 25 };
 const WOLF_CHOICES = 10; // 聴いているときから見える曲の候補。全員同じ一覧（みんなの曲と人狼の曲の両方が入っている）
 const WOLF_PTS = { village: 1000, wolf: 2000 };
+const wolfKey = title => normText(shortForm(title)); // 版ちがい（TV Size・Remix・カッコつき）の同名も同じ曲として扱う
 function wolfSongFor(room, song) {
   const pool = room.game.pool.length > 10 ? room.game.pool : SONGS, ctx = userCtx(room);
-  const ok = s => s.id !== song.id && s.title !== song.title && !ctx.block.has(s.id);
+  const ok = s => s.id !== song.id && wolfKey(s.title) !== wolfKey(song.title) && !ctx.block.has(s.id);
   const same = SONGS.filter(s => ok(s) && workKey(s.work) === workKey(song.work));
   if (same.length) return same[crypto.randomInt(same.length)];
   const gs = genresOf(song), near = pool.filter(s => ok(s) && Math.abs(s.year - song.year) <= 5 && genresOf(s).some(k => gs.includes(k)));
@@ -1215,7 +1251,26 @@ function startWolfRound(room, song) {
   const g = room.game, ps = connectedPlayers(room);
   const wolfP = ps[crypto.randomInt(ps.length)], other = wolfSongFor(room, song);
   // 候補は全員同じ一覧：みんなの曲と人狼の曲を両方入れる（一覧から、どちらが人狼の曲かは分からない）
-  const base = buildChoices(song, WOLF_CHOICES, room.game.pool).choices.filter(c => c.title !== song.title && c.title !== other.title).slice(0, WOLF_CHOICES - 2);
+  // 残りの8曲は、みんなの曲・人狼の曲と「似た曲」にする（同じ作品・シリーズ → 同じジャンルで近い年代 → ほかの曲）。
+  // ばらばらの曲だと、同じ作品の2曲だけが目立って、実質2択になってしまうため
+  const ctx = userCtx(room), taken = new Set([wolfKey(song.title), wolfKey(other.title)]);
+  const fam = s => bingoLabel(s.work), famKey = new Set([fam(song), fam(other)]), wks = new Set([workKey(song.work), workKey(other.work)]);
+  const gs = new Set([...genresOf(song), ...genresOf(other)]);
+  const ok = s => !ctx.block.has(s.id) && !taken.has(wolfKey(s.title));
+  const tiers = [
+    SONGS.filter(s => ok(s) && (wks.has(workKey(s.work)) || famKey.has(fam(s)))),
+    SONGS.filter(s => ok(s) && Math.abs(s.year - song.year) <= 6 && genresOf(s).some(k => gs.has(k))),
+    room.game.pool.filter(ok),
+  ];
+  const base = [];
+  for (const tier of tiers) {
+    for (const s of shuffle(tier.slice())) {
+      if (base.length >= WOLF_CHOICES - 2) break;
+      if (taken.has(wolfKey(s.title))) continue;
+      taken.add(wolfKey(s.title)); base.push({ title: s.title, work: s.work });
+    }
+    if (base.length >= WOLF_CHOICES - 2) break;
+  }
   const choices = shuffle([{ title: song.title, work: song.work }, { title: other.title, work: other.work }, ...base]);
   const correctIndex = choices.findIndex(c => c.title === song.title);
   g.q = { phase: 'wolf', song, participants: new Set(ps.map(p => p.token)), answers: new Map(), ready: new Set(), clues: [], lifelineResults: new Map(),
@@ -1234,7 +1289,9 @@ function wolfPublic(room) {
   const base = { step: w.step, until: w.until, round: room.game.qi + 1, total: room.game.order.length,
                  done: w.step === 'hint' ? [...w.hints.keys()].map(t => room.players.get(t)?.id) : w.step === 'vote' ? [...w.votes.keys()].map(t => room.players.get(t)?.id) : w.step === 'talk' ? [...w.talkDone].map(t => room.players.get(t)?.id) : [],
                  players: ps.map(p => ({ id: p.id, name: p.name, avatar: p.avatar })) };
-  base.choices = w.choices.map(c => ({ title: c.title, work: c.work })); // 聴いているときから、話し合い・投票まで見える
+  // 聴いているときから、話し合い・投票まで見える（部屋の設定で、作品名・曲名を隠せる。人狼が曲名を当てる段階では曲名は必ず出す）
+  const S = room.settings, showT = S.wolfTitle !== 'hide' || w.step === 'guess', showW = S.wolfWork === 'show';
+  base.choices = showT || showW ? w.choices.map(c => ({ title: showT ? c.title : '', work: showW ? c.work : '' })) : null;
   if (['talk', 'vote', 'tally', 'guess', 'result'].includes(w.step)) base.hints = ps.map(p => ({ id: p.id, text: w.hints.get(p.token) || '（なし）' }));
   if (['talk', 'vote', 'tally', 'guess', 'result'].includes(w.step)) base.chat = w.chat;
   if (['tally', 'guess', 'result'].includes(w.step)) base.votes = w.votesOut || {}; // 結果の前に、投票数が見える
@@ -1447,12 +1504,12 @@ function buildChoices(song, count, pool) {
     ...(pool.strict ? [] : shuffle(others.filter(s => !pool.includes(s))).map(toChoice)), // ジャンル・作品のお題では、そのお題の曲だけ
     ...(pool.strict ? [] : shuffle(DECOYS.map(([title, work]) => ({ title, work })))),
   ];
-  const seen = new Set([song.title]);
+  const seen = new Set([normText(song.title)]);
   const picks = [];
   for (const c of candidates) {
     if (picks.length >= count - 1) break;
-    if (seen.has(c.title)) continue;
-    seen.add(c.title); picks.push(c);
+    if (seen.has(normText(c.title))) continue;
+    seen.add(normText(c.title)); picks.push(c);
   }
   const choices = shuffle([{ title: song.title, work: song.work }, ...picks]);
   return { choices, correctIndex: choices.findIndex(c => c.title === song.title) };
@@ -1581,6 +1638,7 @@ function startQuestion(room, song, picker = null) {
     : S.target === 'artist' ? buildArtistChoices(song, S.choices, g.pool)
     : buildChoices(song, S.choices, g.pool);
   g.q = {
+    attack: S.play === 'panel' && !!g.panel && g.panel.filter(x => !x).length === 1, // アニソン陣取り：残り1マスの問題は「アタックチャンス」
     song, choices, correctIndex, kind, start, years,
     phase: 'loading', t0: 0,
     rush: g.rushPlan?.[g.qi] || null, // 激アツRUSH：この問題の保留の色と当たり
@@ -1610,6 +1668,7 @@ function questionPayload(room) {
     qNo: g.qi + 1, qTotal: g.order.length,
     videoId: q.song.id, intro: q.song.intro || 0, start: q.start, kind: q.kind,
     final: room.settings.bonus && isFinalQuestion(room),
+    attack: !!q.attack,
     answerMode: room.settings.play === 'nenpyo' ? 'nenpyo' : q.years ? 'year' : room.settings.answerMode === 'input' && room.settings.play !== 'karuta' ? 'input' : 'choice',
     rest: room.settings.play === 'karuta' ? [...room.players.values()].filter(p => p.karutaRest === g.qi).map(p => p.id) : null, // かるた：お手つきで1回休みの人
     choices: q.choices, years: q.years, settings: room.settings,

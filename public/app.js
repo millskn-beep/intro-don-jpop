@@ -361,10 +361,10 @@ setSettingsTab(store.get('aq-settab') || 'range');
 $('openExclude').onclick = () => { setLobbyTab('settings'); lobbyTabChosen = true; setSettingsTab('exclude'); $('settings').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
 // 遊び方の説明（選んだ遊び方のルールを一言で）
 const PLAY_DESC = {
-  wolf: '3人以上で遊びます。全員に同じ曲が流れますが、1人（人狼）だけ同じ作品の別の曲が流れます（自分が人狼かは分かりません）。曲について一言ヒントを出し合い、チャットで話し合って、人狼だと思う人に投票。人狼を当てたら村人の勝ち（+1000点）、外したら人狼の勝ち（+2000点）。当てられた人狼も、みんなの曲名を当てれば逆転勝ちです。問題数＝回数です（5回くらいがおすすめ）。',
+  wolf: '3人以上で遊びます。全員に同じ曲が流れますが、1人（人狼）だけ別の作品の曲が流れます（自分が人狼かは分かりません）。曲について一言ヒントを出し合い、チャットで話し合って、人狼だと思う人に投票。人狼を当てたら村人の勝ち（+1000点）、外したら人狼の勝ち（+2000点）。当てられた人狼も、みんなの曲名を当てれば逆転勝ちです。問題数＝回数です（5回くらいがおすすめ）。',
   nenpyo: '一人ひとり、年の見えている曲を1枚持って始めます。曲が流れたら（年は伏せたまま）、自分の年表の「どこに入るか」（この曲とこの曲の間）を選びます。合っていれば、その曲が年表に入ります（同じ年はどちらでも正解）。先に10枚並べた人の勝ち。曲名がわからなくても「この時代っぽい」で戦えます。',
   karuta: '画面に16枚の札（曲名・作品名・歌手名のどれか）を並べたまま、イントロが流れたら正しい札を早取りします。いちばん早く正しい札を取った人がその札をもらい、そこで答え合わせ。違う札を取るとお手つきで、次の1曲はお休みです。取った札は場から消え、空いたところに新しい札が入ります。取った札の多い人が勝ちです。',
-  panel: '5×5のパネルを取り合います。いちばん早く正解した人がパネルを1枚選び、自分の色で縦・横に挟んだ相手のパネルを裏返せます（斜めはなし）。選べるのは、最初は真ん中、そのあとは取られているパネルの縦・横の隣（挟めるところがあればそこだけ）。パネルが全部埋まったら終わりで、パネルの多い人が勝ちです。',
+  panel: '5×5のパネルを取り合います。20問目のあとにアタックチャンスが起きて、1マスが白くなります（取られているマスは色が消えます）。次の問題の正解者は、その白いマスをどこからでも取れます。いちばん早く正解した人がパネルを1枚選び、自分の色で縦・横に挟んだ相手のパネルを裏返せます（斜めはなし）。選べるのは、最初は真ん中、そのあとは取られているパネルの縦・横の隣（挟めるところがあればそこだけ）。パネルが全部埋まったら終わりで、パネルの多い人が勝ちです。',
   poker: '10問ごとに、手札に点を賭けて中間オープン（勝った人が総取り・使った手札は保管して最後にボーナス）。全員で同じ曲に答えます。正解すると、その曲のトランプが手札に入り、いちばん早く正解した人はランダムのカードがもう1枚もらえます。数字は作品ごと（同じ数字＝同じ作品）、マークはジャンル系統（♠バトル・SF ♥恋愛・日常 ♦異世界・ゲーム ♣その他）。同じ数字・マークのカードは場に1枚だけです。手札は5枚で、増えたら不要なカードを捨てます。最後に全員の手札を開いて、ポーカーの役がいちばん強い人が勝ちです。カードに触れると曲の名前などが見えます。最後は、ポーカー場のテーブルで全員の手札をオープン！',
   normal: '全員が同時に答えます。速く正解するほど高得点。',
   buzzer: '曲が流れている間に「押す！」を押した人だけが答えられます。間違えると −200点で、ほかの人が押せます。',
@@ -949,7 +949,7 @@ const isInput = () => question?.answerMode === 'input';
 
 socket.on('question', q => {
   hidePokerBet(); hideWolf();
-  if (q.attack) setTimeout(() => charFx.cutin('アタックチャンス！', 'この問題に正解した人が、最後のパネルのあと相手のパネルを1枚奪えます', 'cutin'), 400);
+  if (q.attack) setTimeout(() => charFx.cutin('アタックチャンス！', '白いマスを、この問題の正解者がどこからでも取れます', 'cutin'), 400);
   if (q.qNo === 1 && !practice) playLog = []; // 新しいゲーム（テスト1問では曲ログを消さない）
   question = q; myAnswer = null; answering = false;
   stopTick();
@@ -1256,7 +1256,7 @@ socket.on('wolfPhase', d => {
   const cands = wolfChoicesHtml(d);
   const chat = `<ul class="wf-chat" id="wolfChatList">${wolfChatHtml()}</ul><form class="wf-say" id="wolfSay"><input id="wolfSayText" maxlength="60" placeholder="話し合い（60文字まで）" autocomplete="off"><button class="btn-sub" type="submit">送る</button></form>`;
   let body = '';
-  if (d.step === 'listen') body = `<p class="wf-msg">🎧 曲を聴いてください。<br><small>みんなと同じ曲とは限りません。1人だけ、同じ作品の別の曲が流れています（自分が人狼かどうかは分かりません）</small></p>${cands}`;
+  if (d.step === 'listen') body = `<p class="wf-msg">🎧 曲を聴いてください。<br><small>みんなと同じ曲とは限りません。1人だけ、別の作品の曲が流れています（自分が人狼かどうかは分かりません）</small></p>${cands}`;
   if (d.step === 'hint') body = `<p class="wf-msg">この曲について、ヒントを一言（20文字まで）。<br><small>言いすぎると人狼にばれ、ぼかしすぎると疑われます</small></p>
     <form class="wf-say" id="wolfHintForm"><input id="wolfHintText" maxlength="20" placeholder="例：ロボット、2000年代、エンディング" autocomplete="off"><button class="btn-main" type="submit">出す</button></form>${cands}${seats}`;
   if (d.step === 'talk') body = `${hints}<p class="wf-msg">話し合って、だれが別の曲（人狼）か考えましょう</p>${cands}${chat}<button class="btn-sub" id="wolfReadyBtn" type="button">投票へ進む</button>${seats}`;
@@ -1311,13 +1311,13 @@ const PANEL_COLORS = ['#ff5c8a', '#4fb4ff', '#ffd23f', '#5be37d', '#b07cff', '#f
 let panelPickKey = null, panelPopTimer = null, panelTick = null;
 const PANEL_TEAM_COLORS = { red: '#ff5c8a', blue: '#4fb4ff' };
 const panelColor = (r, id) => { if (PANEL_TEAM_COLORS[id]) return PANEL_TEAM_COLORS[id];  const i = r.players.findIndex(p => p.id === id); return i < 0 ? '#666' : PANEL_COLORS[i % PANEL_COLORS.length]; };
-const panelCells = (r, board, opt = {}) => board.map((id, i) => `<button type="button" class="pn-cell${id ? ' own' : ''}${opt.allowed?.includes(i) ? ' can' : ''}${opt.flipped?.includes(i) ? ' flip' : ''}${opt.idx === i ? ' put' : ''}" data-i="${i}" style="${id ? `--pc:${panelColor(r, id)}` : ''}"${opt.allowed?.includes(i) && opt.mine ? '' : ' disabled'}>${i + 1}</button>`).join('');
+const panelCells = (r, board, opt = {}) => board.map((id, i) => `<button type="button" class="pn-cell${id ? ' own' : ''}${!id && opt.atk === i ? ' atk' : ''}${opt.allowed?.includes(i) ? ' can' : ''}${opt.flipped?.includes(i) ? ' flip' : ''}${opt.idx === i ? ' put' : ''}" data-i="${i}" style="${id ? `--pc:${panelColor(r, id)}` : ''}"${opt.allowed?.includes(i) && opt.mine ? '' : ' disabled'}>${i + 1}</button>`).join('');
 const panelLegend = (r, board) => r.settings.teams && board ? ['red', 'blue'].map(k => `<span style="--pc:${PANEL_TEAM_COLORS[k]}"><i></i>${TEAM_LABEL[k]}チーム ${board.filter(x => x === k).length}</span>`).join('') : r.players.filter(p => p.panelCount != null).map(p => `<span style="--pc:${panelColor(r, p.id)}"><i></i>${esc(p.name)} ${p.panelCount}</span>`).join('');
 function renderPanel(r) {
   const pn = r.panel;
   $('panelMini').hidden = !pn;
   if (!pn) { $('panelPop').hidden = true; panelPickKey = null; return; }
-  $('panelMini').innerHTML = `<div class="pn-board sm">${panelCells(r, pn.board)}</div><div class="pn-legend">${panelLegend(r, pn.board)}</div>`;
+  $('panelMini').innerHTML = `<div class="pn-board sm">${panelCells(r, pn.board, { atk: pn.attackCell })}</div><div class="pn-legend">${panelLegend(r, pn.board)}</div>`;
   // だれかが選んでいる：大きな盤を出す（選ぶ人だけ押せる）
   if (pn.pick) {
     const key = pn.pick.id + ':' + pn.pick.until;
@@ -1325,8 +1325,8 @@ function renderPanel(r) {
     panelPickKey = key; clearTimeout(panelPopTimer); clearInterval(nextTick); $('nextCount').textContent = '';
     const mine = pn.pick.id === me;
     const atk = pn.pick.stage === 'attack';
-    $('panelPop').innerHTML = `<div class="pn-field${pn.pick.attack ? ' attack' : ''}"><h3>${atk ? (mine ? '⚡ アタックチャンス！ 相手のパネルを1枚、自分のものに！' : `⚡ ${esc(pn.pick.name)} さんのアタックチャンス！`) : pn.pick.attack ? (mine ? '⚡ アタックチャンス！ まず最後のパネルを選んでください' : `⚡ アタックチャンス！ ${esc(pn.pick.name)} さんが最後のパネルを選んでいます`) : mine ? '🎯 パネルを選んでください' : `${esc(pn.pick.name)} さんがパネルを選んでいます`}</h3>
-      <div class="pn-board">${panelCells(r, pn.board, { allowed: pn.pick.allowed, mine })}</div>
+    $('panelPop').innerHTML = `<div class="pn-field${pn.pick.attack ? ' attack' : ''}"><h3>${pn.pick.attack ? (mine ? '⚡ アタックチャンス！ 白いマスも、どこからでも取れます' : `⚡ アタックチャンス！ ${esc(pn.pick.name)} さんがパネルを選んでいます`) : mine ? '🎯 パネルを選んでください' : `${esc(pn.pick.name)} さんがパネルを選んでいます`}</h3>
+      <div class="pn-board">${panelCells(r, pn.board, { allowed: pn.pick.allowed, mine, atk: pn.attackCell })}</div>
       <div class="pn-legend">${panelLegend(r, pn.board)}</div><p class="pn-left" id="panelLeft"></p></div>`;
     $('panelPop').hidden = false;
     $('panelPop').querySelectorAll('.pn-cell.can').forEach(b => b.onclick = () => { if (!mine) return; socket.emit('panelChoose', +b.dataset.i); $('panelPop').querySelectorAll('.pn-cell').forEach(x => x.disabled = true); });
@@ -1335,18 +1335,21 @@ function renderPanel(r) {
     tick(); panelTick = setInterval(tick, 500);
   }
 }
+socket.on('panelAttack', d => {
+  charFx.cutin('アタックチャンス！', `${d.idx + 1}番が白いマスに！ 次の問題の正解者が、どこからでも取れます`, 'celebrate');
+  toast(`⚡ ${d.idx + 1}番のパネルが白くなりました（次の問題で取れます）`);
+});
 socket.on('panelUpdate', d => {
   clearInterval(panelTick);
   const r = room; if (!r) return;
-  $('panelPop').innerHTML = `<div class="pn-field"><h3>${d.attack ? `⚡ ${esc(d.name)} さんがアタックチャンスで ${d.idx + 1}番 を奪った！` : `${esc(d.name)} さんが ${d.idx + 1}番 を取った！${d.flipped.length ? ` ${d.flipped.length}枚 裏返し！` : ''}`}</h3>
-    <div class="pn-board">${panelCells(r, d.board, { flipped: d.flipped, idx: d.idx })}</div><div class="pn-legend">${panelLegend(r, d.board)}</div></div>`;
+  $('panelPop').innerHTML = `<div class="pn-field"><h3>${d.attack ? `⚡ ${esc(d.name)} さんがアタックチャンスの白いマス（${d.idx + 1}番）を取った！${d.flipped.length ? ` ${d.flipped.length}枚 裏返し！` : ''}` : `${esc(d.name)} さんが ${d.idx + 1}番 を取った！${d.flipped.length ? ` ${d.flipped.length}枚 裏返し！` : ''}`}</h3>
+    <div class="pn-board">${panelCells(r, d.board, { flipped: d.flipped, idx: d.idx, atk: room?.panel?.attackCell })}</div><div class="pn-legend">${panelLegend(r, d.board)}</div></div>`;
   $('panelPop').hidden = false;
-  if (d.attack) charFx.cutin('アタックチャンス！', `${d.name} さんが奪った！`, 'celebrate');
+  if (d.attack) charFx.cutin('アタックチャンス成功！', `${d.name} さんが白いマスを取った！`, 'celebrate');
   else if (d.flipped.length >= 3) charFx.cutin(`${d.flipped.length}枚 裏返し！`, d.name, 'celebrate');
   clearTimeout(panelPopTimer);
   panelPopTimer = setTimeout(() => { $('panelPop').hidden = true; panelPickKey = null; }, 2500);
-  if (!d.done && !d.next && room?.settings?.autoNext > 0) startNextCount(Math.max(2.5, room.settings.autoNext / 2));
-  if (d.next) { panelPickKey = null; return; } // アタックチャンスの2段目：すぐ次の選択の画面になる
+  if (!d.done && room?.settings?.autoNext > 0) startNextCount(Math.max(2.5, room.settings.autoNext / 2));
 });
 
 // ── アニソン・ポーカー：手札・捨てる・ショーダウン ──

@@ -7342,7 +7342,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 3.7,
-    "chorus": 69,
+    "chorus": 57.4,
     "aliases": [
       "ドリームス",
       "ドリームズ"
@@ -7350,7 +7350,7 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "workAliases": [
       "きどうしんせいきがんだむえっくす",

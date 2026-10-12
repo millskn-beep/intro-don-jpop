@@ -1084,3 +1084,8 @@ body.rush-machine .stage-tools { overflow: visible; }
 /* かるた：文字は札に収まる最大の大きさ（JS で決める）。折り返しは文字の途中でもよい・行間はつめる */
 .choices.karuta .choice { padding: 3px 8px; line-height: 1.15; word-break: normal; overflow-wrap: break-word; font-weight: 900; letter-spacing: 0; }
 .choices.karuta .choice::before { left: 3px; top: 3px; right: 3px; bottom: 3px; }
+/* アタックチャンスの白いマス */
+.pn-cell.atk { background: #fff; color: #333; border-color: #fff; box-shadow: 0 0 14px #fff, inset 0 0 10px rgba(255, 79, 79, .45); animation: pn-atk 1s ease-in-out infinite alternate; }
+.pn-cell.atk::after { content: 'AC'; font-size: 9px; position: absolute; right: 3px; bottom: 1px; color: #d33; font-weight: 900; }
+.pn-cell { position: relative; }
+@keyframes pn-atk { to { box-shadow: 0 0 22px #fff, inset 0 0 14px rgba(255, 79, 79, .8); } }

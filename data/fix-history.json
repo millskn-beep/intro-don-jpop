@@ -8604,5 +8604,22 @@
    "intro": 0,
    "chorus": 37.7
   }
+ },
+ {
+  "id": "e4MkG3TfSeU",
+  "title": "DREAMS",
+  "work": "機動新世紀ガンダムX",
+  "channel": "ROMANTIC MODE - Topic",
+  "at": "2026-10-12T15:27:45.446Z",
+  "before": {
+   "intro": 3.7,
+   "chorus": 69,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 3.7,
+   "chorus": 57.4
+  }
  }
 ]

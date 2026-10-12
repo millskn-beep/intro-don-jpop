@@ -11,6 +11,8 @@ const { Server } = require('socket.io');
 const fs = require('fs');
 const { isCorrectText, isAlmostText, shortForm } = require('./lib/normalize');
 const poker = require('./lib/poker');
+const panelLib = require('./lib/panel');
+const nenpyo = require('./lib/nenpyo'); // アニソン年表（ヒットスター風） // アニソン陣取り（アタック25風）の盤
 const datalog = require('./lib/datalog'); // 受け付けたものを GitHub の data-log ブランチに記録（再起動で消えないように）
 
 const PORT = process.env.PORT || 3000;
@@ -91,11 +93,13 @@ function spreadLowFame(order, from = 1) {
   }
   return order;
 }
-const inTopic = (song, S) => {
+const inTopic = (song, S, ctx = {}) => {
   const topic = S.topic || 'all';
-  if (topic === 'all') { // 「全部」のときだけ、除外にチェックしたジャンルの曲を外す（お題で選んだときはそのまま）
+  if (topic === 'favorites') return !!ctx.fav?.has(song.id);
+  if (topic === 'weak') return !!ctx.weak?.has(song.id);
+  if (topic === 'all') { // 「全部」のときだけ、除外にチェックしたジャンルの曲を外す（お題で選んだときはそのまま）。お気に入りの曲は外さない
     const ex = S.excludeGenres || [];
-    return !ex.length || !genresOf(song).some(k => ex.includes(k));
+    return !ex.length || !!ctx.fav?.has(song.id) || !genresOf(song).some(k => ex.includes(k));
   }
   if (topic === 'series') return SERIES_OF.get(song.id) === S.series;
   return GENRES[topic] ? genresOf(song).includes(topic) : true;
@@ -410,6 +414,106 @@ app.post('/api/song-genres', (req, res) => {
   res.json({ ok: true, genres: genresOf(song), message: `「${song.title}」のジャンルを${req.body?.reset ? '自動の判定に戻しました' : '直しました'}（すぐ使われます）` });
 });
 
+// ── マイページ（名前だけで登録。合言葉なし）：お気に入り・もう聞きたくない・苦手な曲・もう一度出してほしい曲・成績・称号 ──
+// key：名前を NFKC・前後の空白なし・小文字にしたもの（同じ名前は1人だけ）。名前を知っていればだれでも開ける
+const USERS_PATH = path.join(__dirname, 'data', 'users.json');
+let USERS = {};
+try { USERS = JSON.parse(fs.readFileSync(USERS_PATH, 'utf8')); } catch (e) { USERS = {}; }
+let usersTimer = null;
+function saveUsers() {
+  datalog.touch();
+  clearTimeout(usersTimer);
+  usersTimer = setTimeout(() => { try { fs.writeFileSync(USERS_PATH + '.tmp', JSON.stringify(USERS) + '\n'); fs.renameSync(USERS_PATH + '.tmp', USERS_PATH); } catch (e) { /* 保存できなくても続ける */ } }, 2000);
+}
+const userKey = n => String(n || '').normalize('NFKC').replace(/[\u0000-\u001f]/g, '').trim().toLowerCase();
+const freshUser = name => ({ name, created: new Date().toISOString(), fav: [], block: [], weak: {}, again: [],
+                             stats: { games: 0, correct: 0, answered: 0, wins: 0, byPlay: {} }, titles: {} });
+const userPublic = u => u && { name: u.name, created: u.created, fav: u.fav, block: u.block, weak: u.weak, again: u.again, stats: u.stats, titles: u.titles };
+// 部屋にいる人（つながっている人）のマイページをまとめる：出題の候補に使う
+function userCtx(room) {
+  const fav = new Set(), block = new Set(), weak = new Set();
+  for (const p of room.players.values()) {
+    const u = p.connected && p.user && USERS[p.user];
+    if (!u) continue;
+    u.fav.forEach(id => fav.add(id)); u.block.forEach(id => block.add(id));
+    Object.keys(u.weak).forEach(id => weak.add(id)); u.again.forEach(id => weak.add(id));
+  }
+  return { fav, block, weak };
+}
+const userHits = new Map(); // IP → 直近の操作の時刻（連打を防ぐ）
+const userLimit = (req, n, ms) => {
+  const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
+  const k = ip + ':' + n, recent = (userHits.get(k) || []).filter(x => Date.now() - x < ms);
+  if (recent.length >= n) return true;
+  userHits.set(k, [...recent, Date.now()]); return false;
+};
+app.post('/api/user/login', (req, res) => {
+  const name = String(req.body?.name || '').normalize('NFKC').replace(/[\u0000-\u001f]/g, '').trim();
+  const key = userKey(name);
+  if ([...name].length < 2 || [...name].length > 12 || key === 'ゲスト') return res.status(400).json({ error: '名前は2〜12文字で入れてください' });
+  if (USERS[key]) return res.json({ ok: true, user: userPublic(USERS[key]) });
+  if (userLimit(req, 5, 60 * 60 * 1000)) return res.status(429).json({ error: '新しい登録は少し時間をおいてからにしてください' });
+  USERS[key] = freshUser(name); saveUsers();
+  res.json({ ok: true, created: true, user: userPublic(USERS[key]) });
+});
+app.get('/api/user', (req, res) => {
+  const u = USERS[userKey(req.query.name)];
+  if (!u) return res.status(404).json({ error: 'その名前は登録されていません' });
+  res.json({ user: userPublic(u) });
+});
+// リストの出し入れ：fav（お気に入り）／block（もう聞きたくない）／again（もう一度出してほしい）／weak（苦手：外すだけ）
+// お気に入りともう聞きたくないは逆なので、片方に入れたらもう片方からは外す
+app.post('/api/user/list', (req, res) => {
+  const u = USERS[userKey(req.body?.name)], list = String(req.body?.list || ''), id = String(req.body?.id || ''), on = !!req.body?.on;
+  if (!u) return res.status(404).json({ error: 'その名前は登録されていません' });
+  if (!['fav', 'block', 'again', 'weak'].includes(list) || !ALL_SONGS.some(s => s.id === id)) return res.status(400).json({ error: '曲が見つかりません' });
+  if (userLimit(req, 120, 60 * 1000)) return res.status(429).json({ error: '少し時間をおいてからにしてください' });
+  if (list === 'weak') { if (!on) delete u.weak[id]; }
+  else {
+    u[list] = u[list].filter(x => x !== id);
+    if (on) u[list].push(id);
+    if (on && list === 'fav') u.block = u.block.filter(x => x !== id);
+    if (on && list === 'block') { u.fav = u.fav.filter(x => x !== id); u.again = u.again.filter(x => x !== id); }
+  }
+  saveUsers();
+  for (const r of rooms.values()) if ([...r.players.values()].some(p => p.user === userKey(u.name))) broadcastRoom(r); // 部屋の出題できる曲数を更新
+  res.json({ ok: true, user: userPublic(u) });
+});
+// 答え合わせ：間違えた・パスした曲は苦手に（回数）。正解したら苦手・もう一度出してほしいから外す
+const WEAK_MAX = 400;
+function userReveal(room, q, results) {
+  const byId = new Map([...room.players.values()].map(p => [p.id, p])), id = q.song.id;
+  let changed = false;
+  for (const r of results) {
+    const p = byId.get(r.id), u = p?.user && USERS[p.user];
+    if (!u) continue;
+    changed = true;
+    if (r.answered && !r.pass) u.stats.answered++;
+    if (r.correct) { u.stats.correct++; delete u.weak[id]; u.again = u.again.filter(x => x !== id); continue; }
+    if (room.settings.play === 'karuta' && !r.answered) continue; // かるたは札に触らなかった曲を苦手にしない（取られただけ）
+    u.weak[id] = (u.weak[id] || 0) + 1;
+    const keys = Object.keys(u.weak);
+    if (keys.length > WEAK_MAX) delete u.weak[keys.sort((a, b) => u.weak[a] - u.weak[b])[0]]; // 多すぎたら回数の少ないものから
+  }
+  if (changed) saveUsers();
+}
+// ゲームの終わり：遊んだ回数・1位（2人以上のとき）・遊び方ごと・もらった称号
+function userEndGame(room, ranking, titles) {
+  let changed = false;
+  const multi = ranking.length >= 2, play = room.settings.play;
+  for (const p of room.players.values()) {
+    const u = p.user && USERS[p.user];
+    if (!u || !ranking.some(r => r.id === p.id)) continue;
+    changed = true;
+    const win = multi && ranking[0]?.id === p.id;
+    u.stats.games++; if (win) u.stats.wins++;
+    const b = u.stats.byPlay[play] || (u.stats.byPlay[play] = { games: 0, wins: 0 });
+    b.games++; if (win) b.wins++;
+    for (const x of titles) if (x.id === p.id) u.titles[x.title] = (u.titles[x.title] || 0) + 1;
+  }
+  if (changed) saveUsers();
+}
+
 // 収録曲一覧の「曲が違う（探し直す）」「削除を依頼」。誰でも送れる。反映の前に tools/pull-fixes.js で修正と一緒に取り込む
 // 曲が違う → 反映のときに正しい動画を探して差し替える／削除 → 消さずに出題から外す（retired）
 const REPORTS_PATH = path.join(__dirname, 'data', 'reports.json');
@@ -453,13 +557,14 @@ const OPTIONS = {
   lifelines: [true, false],
   quizType: ['intro', 'sabimae', 'mix', 'random', 'outro'], // イントロ／サビ前／1問ごとにランダム／どこから（曲の途中）／アウトロ（曲の終わり）
   // 遊び方：ふつう／早押し（押した人だけ答える）／サバイバル（ライフがなくなったら脱落）／出題者（順番に1人が曲を選ぶ）／協力（全員の正解数で目標）／ビンゴ
-  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker'], // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
+  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf'], // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
   target: ['song', 'work', 'year', 'artist'], // 答えるもの：曲名／作品／年／歌手
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
   lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
-  buzzStop: [true, false],                // 早押し・3つ埋めバトル：押した人が答えている間、曲と残り時間を止める
+  buzzStop: [true, false],
+  karutaFace: ['title', 'work', 'artist'], // アニソンかるた：札に書くもの（曲名・作品名・歌手名）                // 早押し・3つ埋めバトル：押した人が答えている間、曲と残り時間を止める
   rushRate: ['normal', 'high', 'low'],     // アニソン激アツRUSH：当たりやすさ（ふつう／出やすい×1.5／出にくい×0.6）
   bingoEnd: ['p1', 'p2', 'p3', 'l2', 'l3', 'all'], // ビンゴの終わり：p〇＝〇人がBINGO／l〇＝だれかが〇ビンゴ／all＝問題数まで
   lives: [1, 2, 3],                       // サバイバルのライフ
@@ -467,7 +572,7 @@ const OPTIONS = {
   leadSec: [3, 5, 10],                   // サビ前：サビの何秒前から流すか
   autoNext: [8, 12, 0],                  // 答え合わせから自動で次へ進むまでの秒数（0 は自動で進まない）
   bonus: [true, false],                  // 連続正解ボーナス・最終問題2倍
-  topic: ['all', 'series', 'playlist', ...GENRE_KEYS], // お題：全部／作品を選ぶ／ジャンル（data/genres.json）
+  topic: ['all', 'series', 'playlist', 'favorites', 'weak', ...GENRE_KEYS], // favorites・weak：部屋にいる人（マイページ）のお気に入り・苦手な曲 // お題：全部／作品を選ぶ／ジャンル（data/genres.json）
   introPlays: [1, 2, 3],                 // イントロを流す回数（わからなかったときのため、頭から流し直す）
   noExclude: [false, true],              // 前に出た曲・ログを貼った曲も出す（除外しない。同じゲームの中で重なることはない）
   noRecord: [false, true],               // これから遊ぶ曲を除外に追加しない（ロビーの一番上のボタン）
@@ -477,7 +582,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true };
+                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title' };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -513,15 +618,18 @@ function sanitizeSettings(input, base) {
   if (s.yearFrom > s.yearTo) [s.yearFrom, s.yearTo] = [s.yearTo, s.yearFrom];
   // できない組み合わせ：年代当て＋早押し、サバイバル＋チーム戦
   if (s.target === 'year' && s.play === 'buzzer') s.play = 'normal';
-  if (['survival', 'coop', 'bingo', 'rush', 'poker'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
+  if (['survival', 'coop', 'bingo', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
   return s;
 }
 
 // 部屋の年代設定に合う曲
-function poolFor(settings) {
+// ctx：部屋にいる人のマイページ（userCtx）。「もう聞きたくない」曲はいつも外す。お気に入り・苦手のお題は、年代・知名度の設定に関係なく全部
+function poolFor(settings, ctx = {}) {
   // 知名度はお題に関係なく、チェックした段階の曲だけにする（難しさの調整）
   const fame = Array.isArray(settings.fame) && settings.fame.length ? settings.fame : FAME_KEYS;
-  return (settings.topic === 'playlist' ? STAGED : SONGS).filter(s => s.year >= settings.yearFrom && s.year <= settings.yearTo && inTopic(s, settings) && fame.includes(fameOf(s))
+  const mine = ['favorites', 'weak'].includes(settings.topic);
+  return (settings.topic === 'playlist' ? STAGED : SONGS).filter(s => (mine || (s.year >= settings.yearFrom && s.year <= settings.yearTo && fame.includes(fameOf(s)))) && inTopic(s, settings, ctx)
+    && !ctx.block?.has(s.id)
     && !(settings.play === 'fill' && genresOf(s).includes('lol'))); // 3つ埋めバトルに LoL の曲は出さない
 }
 
@@ -607,7 +715,7 @@ function publicRoom(room) {
     locked: !!room.passwordHash,
     hostId: room.hostId,
     settings: room.settings,
-    poolSize: poolFor(room.settings).length,
+    poolSize: poolFor(room.settings, userCtx(room)).length,
     excluded: room.played?.size || 0,
     excludedHere: room.playedHere?.size || 0, // そのうち、この部屋で流したから除外になった曲
     paused: !!room.game?.paused,
@@ -625,12 +733,17 @@ function publicRoom(room) {
       picker: q?.picker === p.token,
       pokerCount: room.settings.play === 'poker' ? (p.hand || []).length : null,
       pokerKept: room.settings.play === 'poker' ? (p.kept || []).length : null,
+      timeline: room.settings.play === 'nenpyo' && p.timeline ? p.timeline.map(c => ({ year: c.year, title: c.title })) : null,
+      karutaCount: room.settings.play === 'karuta' ? p.karutaCards || 0 : null, karutaRest: room.settings.play === 'karuta' && room.game ? p.karutaRest === room.game.qi : false,
+      panelCount: room.settings.play === 'panel' && room.game?.panel ? room.game.panel.filter(x => x === p.id).length : null,
       rush: room.settings.play === 'rush' && p.rush?.left > 0 ? { chara: p.rush.chara || 0, mode: p.rush.mode, chain: p.rush.chain, left: p.rush.left, mult: p.rush.mode === 'rush' ? RUSH_MULT[Math.min(p.rush.chain + 1, RUSH_MULT.length) - 1] : p.rush.mode === 'super' ? SUPER_MULT[Math.min(p.rush.chain + 1, SUPER_MULT.length) - 1] : MODE_MULT[p.rush.mode] || 1 } : null,
       passed: !!q?.fillPass?.has(p.token), // 3つ埋めバトルでパスした人
     })),
     fill: fillPublic(room, q),
     teams: teamScores(room),
     coop: room.game?.coop || null,
+    panel: room.settings.play === 'panel' && room.game?.panel && room.state === 'playing'
+      ? { board: room.game.panel, pick: room.game.panelPick ? { id: room.game.panelPick.id, name: room.game.panelPick.name, allowed: room.game.panelPick.allowed, until: room.game.panelPick.until } : null } : null,
     // 激アツRUSH：保留ランプ（いまの問題の色と、先の4問の色）。当たりかどうかは入れない
     rush: room.settings.play === 'rush' && room.game?.rushPlan && room.state === 'playing'
       ? { color: room.game.rushPlan[room.game.qi]?.color || null, state: room.game.rushPlan[room.game.qi]?.state || 0, next: room.game.rushPlan.slice(room.game.qi + 1, room.game.qi + 5).map(x => x.color) } : null,
@@ -700,9 +813,11 @@ function unrecordPlayed(room, s) { room.played.delete(s.id); room.playedHere?.de
 
 function startGame(room) {
   const S = room.settings;
-  const pool = poolFor(S);
+  const ctx = userCtx(room);
+  const pool = poolFor(S, ctx);
   if (pool.length === 0) return false;
   if (S.play === 'picker' && connectedPlayers(room).length < 2) return 'picker'; // 出題者モードは2人以上
+  if (S.play === 'wolf' && connectedPlayers(room).length < 3) return 'wolf'; // 人狼は3人以上
   // サビ前だけの部屋は、サビの位置が確かな曲から出す（足りなければ全部から）
   let candidates = pool;
   if (S.quizType === 'sabimae') {
@@ -711,9 +826,9 @@ function startGame(room) {
   }
   // この部屋で前のゲームに出た曲・貼り付けたログの曲は避ける。足りなければ古く除外した曲から戻して使う
   if (!room.played) room.played = new Set();
-  const want = S.play === 'survival' ? SURVIVAL_MAX : S.questions; // サバイバルは終わるまで（最大 SURVIVAL_MAX 問）
+  const want = S.play === 'survival' ? SURVIVAL_MAX : S.play === 'panel' ? PANEL_MAX : S.play === 'nenpyo' ? NENPYO_MAX : S.questions; // サバイバルは終わるまで（最大 SURVIVAL_MAX 問）
   const need = Math.min(want, candidates.length);
-  let fresh = S.noExclude ? [...candidates] : candidates.filter(s => !room.played.has(s.id));
+  let fresh = S.noExclude ? [...candidates] : candidates.filter(s => !room.played.has(s.id) || ctx.fav.has(s.id)); // お気に入りは前に出ていても外さない
   if (fresh.length < need) {
     const byId = new Map(candidates.map(s => [s.id, s]));
     for (const id of room.played) {
@@ -742,13 +857,15 @@ function startGame(room) {
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map(), // stats: token -> 称号用の成績
                 rushPlan, // 激アツRUSH：問題ごとの { color, hit }
                 pokerDeck, // アニソン・ポーカー：ボーナスカードの山
+                panel: S.play === 'panel' ? Array(25).fill(null) : null, panelPick: null, panelDone: false, // アニソン陣取り：盤（持ち主の id）・いま選んでいる人
                 pokerPool, pokerNums: new Map(), // 数字の残り・作品ごとの数字
                 bingoTarget: S.target, // ビンゴのマスの種類（ゲームの途中で答えるものを変えても、配ったカードのまま）
                 solo: connectedPlayers(room).length <= 1 }; // サバイバル：1人で遊ぶときはライフがなくなるまで、2人以上なら残り1人まで
   // 協力：目標は「問題数 × 人数 × 目標%」をゲーム開始時に決める（途中で人数が変わっても変えない）
   if (S.play === 'coop') room.game.coop = { goal: Math.max(1, Math.ceil(order.length * connectedPlayers(room).length * S.coopGoal / 100)), count: 0 };
   // ビンゴ：一人ひとりにカードを配る（途中から入った人には入ったときに配る）
-  for (const p of room.players.values()) { p.rush = freshRush(); p.hand = []; p.kept = []; p.card = S.play === 'bingo' ? bingoCard(order, pool, S.target) : null; p.bingoAt = 0; p.reachN = 0; p.bingoLinesN = 0; }
+  for (const p of room.players.values()) { p.rush = freshRush(); p.hand = []; p.kept = []; p.karutaCards = 0; p.karutaRest = -1;
+    p.timeline = S.play === 'nenpyo' ? [nenpyoStartCard(room, order, ctx)] : null; p.card = S.play === 'bingo' ? bingoCard(order, pool, S.target) : null; p.bingoAt = 0; p.reachN = 0; p.bingoLinesN = 0; }
   // 動作確認用（本番では使わない）：環境変数 POKER_DEAL=枚数 で、はじめから手札を配る
   if (S.play === 'poker' && +process.env.POKER_DEAL > 0) for (const p of room.players.values()) for (let i = 0; i < +process.env.POKER_DEAL && room.game.pokerDeck.length; i++) p.hand.push(cardOf(room.game.pokerDeck.pop(), room));
   if (S.play === 'poker' && +process.env.POKER_DEAL > 0) for (const p of room.players.values()) sendPokerHand(room, p);
@@ -995,6 +1112,183 @@ function finishPokerBet(room) {
   later(room, () => { g.pokerBet = null; g.pokerBetAt = g.qi; nextQuestion(room); }, POKER_BET_SHOW_SEC * 1000);
 }
 
+// ── アニソン年表（ヒットスター風）：流れた曲を自分の年表の正しい位置に置く。合っていれば年表に入り、先に NENPYO_GOAL 枚になった人の勝ち ──
+const NENPYO_GOAL = 10, NENPYO_MAX = 60;
+const nenpyoCard = s => ({ id: s.id, title: s.title, work: s.work, year: s.year });
+function nenpyoStartCard(room, order, ctx) {
+  const used = new Set(order.map(s => s.id));
+  const pool = SONGS.filter(s => !used.has(s.id) && !ctx.block.has(s.id));
+  return nenpyoCard(pool[crypto.randomInt(pool.length)]);
+}
+function nenpyoReveal(room, q) {
+  const g = room.game;
+  for (const [token, a] of q.answers) {
+    const p = room.players.get(token);
+    if (p?.timeline && a.correct) nenpyo.insert(p.timeline, nenpyoCard(q.song));
+  }
+  if ([...room.players.values()].some(p => (p.timeline || []).length >= NENPYO_GOAL)) g.nenpyoDone = true;
+}
+
+// ── アニソンかるた：16枚の札を場に並べたまま、読まれた（流れた）曲の札を早取り。取った札は場から消え、空いたところに次の札を置く ──
+const KARUTA_N = 16;
+const karutaFaceOf = (s, face) => face === 'work' ? bingoLabel(s.work) : face === 'artist' ? s.artist : s.title;
+const SONG_BY_ID = id => ALL_SONGS.find(s => s.id === id);
+function karutaChoices(room, song) {
+  const g = room.game, face = room.settings.karutaFace || 'title';
+  if (!g.karuta) g.karuta = Array(KARUTA_N).fill(null); // { id, face }
+  const faceOf = s => karutaFaceOf(s, face);
+  // 読まれる札がまだ場になければ置く（同じ文字の札があればその札と入れ替える。空きがなければ、先の問題で読まれない札と入れ替える）
+  if (!g.karuta.some(c => c?.id === song.id)) {
+    let slot = g.karuta.findIndex(c => c && c.face === faceOf(song));
+    if (slot < 0) slot = g.karuta.findIndex(c => !c);
+    if (slot < 0) {
+      const later_ = new Set(g.order.slice(g.qi + 1).map(s => s.id));
+      const free = g.karuta.map((c, i) => [c, i]).filter(([c]) => !later_.has(c.id)).map(([, i]) => i);
+      slot = free.length ? free[crypto.randomInt(free.length)] : crypto.randomInt(KARUTA_N);
+    }
+    g.karuta[slot] = { id: song.id, face: faceOf(song) };
+  }
+  // 空いたところに札を足す：これから読まれる曲 → 足りなければ候補の曲（読まれない札。同じ文字は置かない）
+  const faces = new Set(g.karuta.filter(Boolean).map(c => c.face)), ids = new Set(g.karuta.filter(Boolean).map(c => c.id));
+  const fill = [...g.order.slice(g.qi + 1), ...shuffle(g.pool.filter(s => !g.order.includes(s)))];
+  for (const s of fill) {
+    const slot = g.karuta.findIndex(c => !c);
+    if (slot < 0) break;
+    const f = faceOf(s);
+    if (!f || faces.has(f) || ids.has(s.id)) continue;
+    g.karuta[slot] = { id: s.id, face: f }; faces.add(f); ids.add(s.id);
+  }
+  const choices = g.karuta.map(c => c ? { title: c.face, work: '' } : { title: '', work: '', gone: true });
+  return { choices, correctIndex: g.karuta.findIndex(c => c?.id === song.id) };
+}
+// 答え合わせ：最初に正解した人がその札を取る
+function karutaTake(room, q) {
+  const g = room.game, p = q.winner && room.players.get(q.winner);
+  if (!p || !q.answers.get(q.winner)?.correct) return;
+  const i = g.karuta.findIndex(c => c?.id === q.song.id);
+  if (i >= 0) g.karuta[i] = null;
+  p.karutaCards = (p.karutaCards || 0) + 1;
+}
+
+// ── アニソン陣取り（アタック25風）：いちばん早く正解した人がパネルを1枚選び、挟んだ相手のパネルを裏返す ──
+const PANEL_MAX = 60, PANEL_PICK_SEC = 15, PANEL_SHOW_MS = 2500;
+function startPanelPick(room, q, results) {
+  const g = room.game, win = results.find(r => r.correct);
+  if (!win || g.panel.every(x => x)) return;
+  const p = [...room.players.values()].find(x => x.id === win.id);
+  if (!p) return;
+  g.panelPick = { token: p.token, id: p.id, name: p.name, allowed: panelLib.allowedCells(g.panel, p.id), until: Date.now() + PANEL_PICK_SEC * 1000, q };
+  later(room, () => panelChoose(room, null), PANEL_PICK_SEC * 1000);
+}
+function panelChoose(room, idx) {
+  const g = room.game, pk = g?.panelPick;
+  if (!pk) return;
+  if (idx == null || !pk.allowed.includes(idx)) { if (idx != null) return; idx = panelLib.autoPick(g.panel, pk.id); } // 時間切れはいちばん多く裏返せるマス
+  clearTimers(room);
+  const flipped = panelLib.place(g.panel, idx, pk.id);
+  g.panelPick = null;
+  if (g.panel.every(x => x)) g.panelDone = true;
+  io.to(room.code).emit('panelUpdate', { board: g.panel, idx, flipped, id: pk.id, name: pk.name, done: g.panelDone });
+  broadcastRoom(room);
+  // 次へ：盤が埋まったら少し見せて終わり。そうでなければ、ふだんの自動で次へ（答え合わせのときに止めていた分）
+  const q = pk.q, S = room.settings;
+  if (g.panelDone) return later(room, () => nextQuestion(room), PANEL_SHOW_MS + 1500);
+  if (S.autoNext > 0 && room.game?.q === q) { q.revealAt = Date.now(); scheduleNext(room, q, Date.now() + Math.max(PANEL_SHOW_MS, S.autoNext * 1000 / 2)); }
+}
+
+// ── アニソン人狼（ワードウルフ風）：1人だけ「同じ作品の別の曲」が流れる。本人も知らない。ヒント → 話し合い → 投票。
+// 当てられた人狼は、みんなの曲名を当てれば逆転。勝った側に点数 ──
+const WOLF_SEC = { listen: 25, hint: 40, talk: 90, vote: 30, guess: 25 };
+const WOLF_PTS = { village: 1000, wolf: 2000 };
+function wolfSongFor(room, song) {
+  const pool = room.game.pool.length > 10 ? room.game.pool : SONGS, ctx = userCtx(room);
+  const ok = s => s.id !== song.id && s.title !== song.title && !ctx.block.has(s.id);
+  const same = SONGS.filter(s => ok(s) && workKey(s.work) === workKey(song.work));
+  if (same.length) return same[crypto.randomInt(same.length)];
+  const gs = genresOf(song), near = pool.filter(s => ok(s) && Math.abs(s.year - song.year) <= 5 && genresOf(s).some(k => gs.includes(k)));
+  const list = near.length ? near : pool.filter(ok);
+  return list[crypto.randomInt(list.length)];
+}
+const wolfStartOf = s => hasChorus(s) ? Math.max(s.intro || 0, chorusOf(s) - 3) : (s.intro || 0);
+function startWolfRound(room, song) {
+  const g = room.game, ps = connectedPlayers(room);
+  const wolfP = ps[crypto.randomInt(ps.length)], other = wolfSongFor(room, song);
+  g.q = { phase: 'wolf', song, participants: new Set(ps.map(p => p.token)), answers: new Map(), ready: new Set(), clues: [], lifelineResults: new Map(),
+          wolf: { step: null, until: 0, wolfToken: wolfP.token, wolfSong: other, hints: new Map(), chat: [], votes: new Map(), talkDone: new Set(), guess: null, choices: null, correctIndex: null } };
+  for (const p of ps) io.to(p.socketId).emit('wolfSong', wolfSongPayload(room, p));
+  wolfStep(room, 'listen');
+}
+function wolfSongPayload(room, p) {
+  const q = room.game.q, s = p.token === q.wolf.wolfToken ? q.wolf.wolfSong : q.song;
+  return { videoId: s.id, start: wolfStartOf(s), sec: WOLF_SEC.listen, round: room.game.qi + 1, total: room.game.order.length };
+}
+function wolfPublic(room) {
+  const q = room.game?.q, w = q?.wolf;
+  if (!w) return null;
+  const ps = [...q.participants].map(t => room.players.get(t)).filter(Boolean);
+  const base = { step: w.step, until: w.until, round: room.game.qi + 1, total: room.game.order.length,
+                 done: w.step === 'hint' ? [...w.hints.keys()].map(t => room.players.get(t)?.id) : w.step === 'vote' ? [...w.votes.keys()].map(t => room.players.get(t)?.id) : w.step === 'talk' ? [...w.talkDone].map(t => room.players.get(t)?.id) : [],
+                 players: ps.map(p => ({ id: p.id, name: p.name, avatar: p.avatar })) };
+  if (['talk', 'vote', 'guess', 'result'].includes(w.step)) base.hints = ps.map(p => ({ id: p.id, text: w.hints.get(p.token) || '（なし）' }));
+  if (['talk', 'vote', 'guess', 'result'].includes(w.step)) base.chat = w.chat;
+  if (w.step === 'guess') base.guess = { id: room.players.get(w.wolfToken)?.id, choices: w.choices };
+  if (w.step === 'result') base.result = w.result;
+  return base;
+}
+const wolfEmit = room => io.to(room.code).emit('wolfPhase', wolfPublic(room));
+function wolfStep(room, step) {
+  const q = room.game.q, w = q.wolf;
+  clearTimers(room);
+  w.step = step;
+  w.until = Date.now() + (WOLF_SEC[step] || 0) * 1000;
+  if (step === 'listen') later(room, () => wolfStep(room, 'hint'), WOLF_SEC.listen * 1000);
+  if (step === 'hint') later(room, () => wolfStep(room, 'talk'), WOLF_SEC.hint * 1000);
+  if (step === 'talk') later(room, () => wolfStep(room, 'vote'), WOLF_SEC.talk * 1000);
+  if (step === 'vote') later(room, () => wolfTally(room), WOLF_SEC.vote * 1000);
+  if (step === 'guess') later(room, () => wolfFinish(room, false), WOLF_SEC.guess * 1000);
+  wolfEmit(room); broadcastRoom(room);
+}
+// 投票を数える：いちばん票の多い人が1人だけで、それが人狼なら「当てた」。同票・人狼以外なら人狼の勝ち
+function wolfTally(room) {
+  const q = room.game.q, w = q.wolf;
+  if (w.step !== 'vote') return;
+  const count = new Map();
+  for (const target of w.votes.values()) count.set(target, (count.get(target) || 0) + 1);
+  const max = Math.max(0, ...count.values()), top = [...count].filter(([, n]) => n === max).map(([id]) => id);
+  const wolfId = room.players.get(w.wolfToken)?.id;
+  w.votesOut = Object.fromEntries(count);
+  w.caught = top.length === 1 && top[0] === wolfId;
+  if (!w.caught) return wolfFinish(room, null);
+  // 当てられた人狼：みんなの曲名を当てれば逆転
+  const { choices, correctIndex } = buildChoices(q.song, 8, room.game.pool);
+  w.choices = choices; w.correctIndex = correctIndex;
+  wolfStep(room, 'guess');
+}
+function wolfFinish(room, guessIndex) {
+  const g = room.game, q = g.q, w = q.wolf;
+  if (w.step === 'result') return;
+  clearTimers(room);
+  const guessed = w.caught && Number.isInteger(guessIndex) && guessIndex === w.correctIndex;
+  const winner = w.caught && !guessed ? 'village' : 'wolf';
+  for (const t of q.participants) {
+    const p = room.players.get(t); if (!p) continue;
+    const isWolf = t === w.wolfToken, pts = winner === 'wolf' ? (isWolf ? WOLF_PTS.wolf : 0) : (isWolf ? 0 : WOLF_PTS.village);
+    p.score += pts;
+    q.answers.set(t, { correct: pts > 0, points: pts, elapsed: null, pass: false });
+  }
+  const wp = room.players.get(w.wolfToken);
+  w.result = { winner, caught: !!w.caught, guessed, wolfId: wp?.id, wolfName: wp?.name, votes: w.votesOut || {},
+               song: { title: q.song.title, work: q.song.work, artist: q.song.artist, year: q.song.year, id: q.song.id },
+               wolfSong: { title: w.wolfSong.title, work: w.wolfSong.work, artist: w.wolfSong.artist, year: w.wolfSong.year, id: w.wolfSong.id },
+               guessTitle: Number.isInteger(guessIndex) ? w.choices?.[guessIndex]?.title : null, points: { ...WOLF_PTS } };
+  w.step = 'result'; w.until = 0;
+  q.phase = 'reveal'; // ホストの「次へ」・自動で次へを使えるように
+  recordPlayed(room, q.song);
+  wolfEmit(room); broadcastRoom(room);
+  const sec = Math.max(12, room.settings.autoNext || 0);
+  if (room.settings.autoNext > 0) { q.revealAt = Date.now(); scheduleNext(room, q, Date.now() + sec * 1000); }
+}
+
 // ライフラインは1ゲームにつき各1回（部屋設定で無しにもできる）
 function freshLifelines(settings) {
   return Object.fromEntries(LIFELINES.map(k => [k, settings.lifelines && settings.play !== 'fill' ? 1 : 0])); // 3つ埋めバトルは答えが出てしまうので使わない
@@ -1216,14 +1510,16 @@ function nextQuestion(room) {
   clearTimers(room);
   const g = room.game;
   if (g.pokerBet) return; // 賭けのオープン中は進めない
+  if (g.panelPick) return; // 陣取りでパネルを選んでいる間は進めない
   if (room.settings.play === 'poker') {
     pokerAutoDiscard(room);
     if (g.qi >= 0 && (g.qi + 1) % POKER_BET_EVERY === 0 && g.qi + 1 < g.order.length && g.pokerBetAt !== g.qi && !survivalOver(room)) return startPokerBet(room);
   }
   // 終わり：全部出した、またはサバイバルで残りがいなくなった（qi は最後に出した問題のまま）
-  if (g.qi + 1 >= g.order.length || survivalOver(room) || g.bingoDone) return endGame(room); // ビンゴは設定した人数・ビンゴ数で終わり（問題数までも選べる）
+  if (g.qi + 1 >= g.order.length || survivalOver(room) || g.bingoDone || g.panelDone || g.nenpyoDone) return endGame(room); // ビンゴは設定した人数・ビンゴ数で終わり（問題数までも選べる）
   g.qi++;
   if (room.settings.play === 'picker') return startPicking(room);
+  if (room.settings.play === 'wolf') return startWolfRound(room, g.order[g.qi]);
   startQuestion(room, g.order[g.qi]);
 }
 
@@ -1271,7 +1567,9 @@ function startQuestion(room, song, picker = null) {
   const years = S.target === 'year' ? yearRange(S, song) : null;
   g.pool.strict = (S.topic || 'all') !== 'all'; // ジャンル・作品のお題では、選択肢もそのお題の曲だけから作る
   const input = S.answerMode === 'input' && !years;
-  const { choices, correctIndex } = S.play === 'fill' ? { choices: null, correctIndex: null } // 3つ埋めバトルは枠ごとの選択肢（buildFill）
+  const { choices, correctIndex } = S.play === 'nenpyo' ? { choices: null, correctIndex: null } // 年表は置く場所を選ぶ
+    : S.play === 'karuta' ? karutaChoices(room, song) // かるたは場に並べた16枚の札
+    : S.play === 'fill' ? { choices: null, correctIndex: null } // 3つ埋めバトルは枠ごとの選択肢（buildFill）
     : years ? { choices: null, correctIndex: years.indexOf(song.year) }
     : input ? { choices: null, correctIndex: null }
     : S.target === 'work' ? buildWorkChoices(song, S.choices, g.pool)
@@ -1283,7 +1581,7 @@ function startQuestion(room, song, picker = null) {
     rush: g.rushPlan?.[g.qi] || null, // 激アツRUSH：この問題の保留の色と当たり
     ready: new Set(),
     answers: new Map(), // token -> { index, given, pass, elapsed, correct, points, hint }
-    participants: new Set(connectedPlayers(room).filter(p => !p.out && p.token !== picker).map(p => p.token)), // 脱落した人・出題者は見ているだけ
+    participants: new Set(connectedPlayers(room).filter(p => !p.out && p.token !== picker && !(S.play === 'karuta' && p.karutaRest === g.qi)).map(p => p.token)), // 脱落した人・出題者・かるたのお手つきで1回休みの人は見ているだけ
     picker, speed: speedOf(S),
     locked: new Set(),  // 早押し：この問題ではもう押せない人（お手つき・パス）
     buzz: null,         // 早押し：いま答えている人 { token, elapsed, until }
@@ -1307,7 +1605,8 @@ function questionPayload(room) {
     qNo: g.qi + 1, qTotal: g.order.length,
     videoId: q.song.id, intro: q.song.intro || 0, start: q.start, kind: q.kind,
     final: room.settings.bonus && isFinalQuestion(room),
-    answerMode: q.years ? 'year' : room.settings.answerMode === 'input' ? 'input' : 'choice',
+    answerMode: room.settings.play === 'nenpyo' ? 'nenpyo' : q.years ? 'year' : room.settings.answerMode === 'input' && room.settings.play !== 'karuta' ? 'input' : 'choice',
+    rest: room.settings.play === 'karuta' ? [...room.players.values()].filter(p => p.karutaRest === g.qi).map(p => p.id) : null, // かるた：お手つきで1回休みの人
     choices: q.choices, years: q.years, settings: room.settings,
     play: room.settings.play, target: room.settings.target, speed: q.speed || 1,
     pickerId: q.picker ? room.players.get(q.picker)?.id : null, pickerName: q.picker ? room.players.get(q.picker)?.name : null,
@@ -1330,6 +1629,7 @@ function clueList(song, target = 'song') {
 // 出題中に再接続した人へ、いまの問題と進み具合を送り直す
 function resendQuestion(room, socket, token) {
   const q = room.game?.q;
+  if (q?.wolf) { const p = room.players.get(token); if (p && q.participants.has(token) && q.wolf.step === 'listen') socket.emit('wolfSong', wolfSongPayload(room, p)); return socket.emit('wolfPhase', wolfPublic(room)); }
   if (q?.phase === 'picking') return socket.emit('picking', pickingPayload(room));
   if (!q || (!q.participants.has(token) && q.picker !== token) || q.phase === 'reveal') return; // 出題者は答えないが、問題は見られるように送り直す
   const S = room.settings;
@@ -1418,7 +1718,7 @@ function go(room) {
   }, hintAt * 1000);
   if (S.clues && !q.fill) { // 3つ埋めバトルは、ヒント（年・歌手・作品の頭文字）が枠の答えになるので出さない
     // ビンゴは頭文字のヒント（「〇」から始まる作品）を出さない（カードのマスがすぐ分かってしまうので）
-    clueList(q.song, S.target).filter(c => !(S.play === 'bingo' && c.label === '作品')).forEach((c, i) => later(room, () => {
+    clueList(q.song, S.target).filter(c => !(S.play === 'bingo' && c.label === '作品') && !(S.play === 'nenpyo' && c.label === '年') && !(S.play === 'karuta' && ((S.karutaFace === 'work' && c.label === '作品') || (S.karutaFace === 'artist' && c.label === '歌手')))).forEach((c, i) => later(room, () => {
       if (q.phase !== 'intro' && q.phase !== 'chorus') return;
       q.clues.push(c);
       io.to(room.code).emit('clue', c);
@@ -1446,6 +1746,12 @@ function onAnswer(room, player, payload) {
     pass = true;
   } else if (payload?.pass === true) {
     pass = true; miss = buzzer && holder; // 押してから「わからない」はお手つき
+  } else if (S.play === 'nenpyo') {
+    const slot = payload?.slot, tl = player.timeline || [];
+    if (!Number.isInteger(slot) || slot < 0 || slot > tl.length) return;
+    correct = nenpyo.fits(tl.map(c => c.year), slot, q.song.year);
+    given = `${slot > 0 ? tl[slot - 1].year : '…'}〜${slot < tl.length ? tl[slot].year : '…'}の間`;
+    (q.nenpyoSlot = q.nenpyoSlot || new Map()).set(player.token, slot);
   } else if (q.years) {
     const y = payload?.year;
     if (!Number.isInteger(y) || !q.years.includes(y)) return;
@@ -1549,7 +1855,8 @@ function onAnswer(room, player, payload) {
     if (holder) endBuzz(room); // 間違えた・時間切れ：曲を再開して、ほかの人が押せる
     return broadcastRoom(room);
   }
-  if ((S.mode === 'buzz' && q.winner && !q.years) || remaining.length === 0) reveal(room);
+  if (S.play === 'karuta' && !correct && !pass) player.karutaRest = room.game.qi + 1; // かるたのお手つき：次の1問はお休み
+  if ((S.mode === 'buzz' && q.winner && !q.years) || (S.play === 'karuta' && q.winner) || remaining.length === 0) reveal(room);
   else broadcastRoom(room);
 }
 
@@ -1876,11 +2183,14 @@ function reveal(room) {
   const bingoBonus = q.bingoBonus || []; // この問題でそろった人とボーナス
   const bingo = bingoBonus.map(b => b.name);
   if (S.play === 'bingo' && bingoOver(room)) room.game.bingoDone = true; // 設定した人数・ビンゴ数に届いたら、この問題で終わり
-  const last = room.game.qi + 1 >= room.game.order.length || survivalOver(room) || !!room.game.bingoDone;
+  const last = room.game.qi + 1 >= room.game.order.length || survivalOver(room) || !!room.game.bingoDone || !!room.game.nenpyoDone;
   // 激アツRUSH：この問題の結果（色・当たり）と、大当たり・RUSH終了の人
   const rushEv = [...(q.rushEvents || new Map())].map(([t, e]) => ({ ...e, name: room.players.get(t)?.name })).filter(e => e.name);
   const rush = q.rush ? { color: q.rush.color, hit: q.rush.hit, jackpot: rushEv.filter(e => e.jackpot).map(e => e.name), ended: rushEv.filter(e => e.ended || e.done) } : null;
+  if (S.play === 'karuta') karutaTake(room, q);
+  if (S.play === 'nenpyo') nenpyoReveal(room, q);
   trackReveal(room, q, results, picker);
+  userReveal(room, q, results);
   const pokerInfo = S.play === 'poker' ? pokerReveal(room, q, results, s) : null;
   io.to(room.code).emit('reveal', {
     rush, poker: pokerInfo,
@@ -1903,7 +2213,8 @@ function reveal(room) {
     last,
     autoNext: S.autoNext, // 0 なら自動では進まない
   });
-  if (S.autoNext > 0) {
+  if (S.play === 'panel') startPanelPick(room, q, results);
+  if (S.autoNext > 0 && !room.game.panelPick) {
     q.revealAt = Date.now();
     scheduleNext(room, q, Date.now() + S.autoNext * 1000);
   }
@@ -2137,7 +2448,7 @@ function resumeGame(room) {
   const S = room.settings, poolChanged = poolKey(S) !== g.paused.poolKey;
   if ((poolChanged || S.questions !== g.paused.questions) && !['picker', 'bingo', 'rush'].includes(S.play)) {
     const done = g.order.slice(0, g.qi + 1), rest = g.order.slice(g.qi + 1);
-    const pool = poolChanged ? poolFor(S) : g.pool;
+    const pool = poolChanged ? poolFor(S, userCtx(room)) : g.pool;
     if (pool.length) g.pool = pool;
     const need = Math.max(0, S.questions - done.length);
     const keep = poolChanged ? [] : rest.filter(s => g.pool.includes(s));
@@ -2213,9 +2524,23 @@ function endGame(room) {
     .sort((a, b) => (survival ? (b.out === a.out ? b.survived - a.survived : a.out - b.out) : 0)
       || b.score - a.score); // ビンゴも得点で競う（BINGO はボーナス点として入っている）
   if (showdown) for (const r of ranking) r.pokerHand = showdown.find(x => x.id === r.id)?.handName;
+  if (room.settings.play === 'nenpyo') { // 年表：枚数の多い順（同じなら得点）
+    for (const r of ranking) r.nenpyo = ([...room.players.values()].find(p => p.id === r.id)?.timeline || []).length;
+    ranking.sort((a, b) => b.nenpyo - a.nenpyo || b.score - a.score);
+  }
+  if (room.settings.play === 'karuta') { // かるた：取った札の多い順（同じなら得点）
+    for (const r of ranking) r.karuta = room.players.get([...room.players.values()].find(p => p.id === r.id)?.token)?.karutaCards || 0;
+    ranking.sort((a, b) => b.karuta - a.karuta || b.score - a.score);
+  }
+  if (room.settings.play === 'panel' && room.game.panel) { // 陣取り：パネルの多い順（同じなら得点）
+    for (const r of ranking) r.panels = room.game.panel.filter(x => x === r.id).length;
+    ranking.sort((a, b) => b.panels - a.panels || b.score - a.score);
+  }
   const teams = teamScores(room)?.sort((a, b) => b.score - a.score) || null;
   const coop = room.game.coop ? { ...room.game.coop, done: room.game.coop.count >= room.game.coop.goal } : null;
-  io.to(room.code).emit('gameover', { total: played, ranking, showdown, teams, survival, coop, bingo: room.settings.play === 'bingo', titles: titlesOf(room, ranking, showdown), log: playedLog(room), roomLog: room.history });
+  const titles = titlesOf(room, ranking, showdown);
+  userEndGame(room, ranking, titles);
+  io.to(room.code).emit('gameover', { total: played, ranking, showdown, teams, survival, coop, bingo: room.settings.play === 'bingo', titles, log: playedLog(room), roomLog: room.history });
   broadcastRoom(room);
 }
 
@@ -2264,13 +2589,17 @@ io.on('connection', socket => {
     return { ok: true, code: r.code, you: p.id, room: publicRoom(r) };
   }
 
-  socket.on('create', ({ token, name, roomName, password } = {}, ack) => {
+  // マイページの名前（登録済みのときだけ）を席に結びつける
+  const linkUser = (r, token, user) => { const p = r?.players.get(token); if (p) p.user = USERS[userKey(user)] ? userKey(user) : null; };
+  socket.on('create', ({ token, name, roomName, password, user } = {}, ack) => {
     if (typeof ack !== 'function' || typeof token !== 'string' || token.length < 8) return;
     socket.leave('home');
-    ack(enter(createRoom({ roomName, password }), token, cleanName(name)));
+    const r = createRoom({ roomName, password }), res = enter(r, token, cleanName(name));
+    linkUser(r, token, user); ack(res);
   });
+  socket.on('login', user => { if (room && player) { linkUser(room, player.token, user); broadcastRoom(room); } });
 
-  socket.on('join', ({ code, token, name, password } = {}, ack) => {
+  socket.on('join', ({ code, token, name, password, user } = {}, ack) => {
     if (typeof ack !== 'function' || typeof token !== 'string' || token.length < 8) return;
     const r = rooms.get(String(code || '').toUpperCase().trim());
     if (!r) return ack({ ok: false, error: '部屋が見つかりません' });
@@ -2281,7 +2610,8 @@ io.on('connection', socket => {
       if (hashPassword(r.salt, pw) !== r.passwordHash) return ack({ ok: false, needPassword: true, wrongPassword: true, error: 'パスワードが違います' });
     }
     socket.leave('home');
-    ack(enter(r, token, cleanName(name)));
+    const res = enter(r, token, cleanName(name));
+    linkUser(r, token, user); ack(res);
   });
 
   // ホーム画面の部屋一覧
@@ -2348,6 +2678,7 @@ io.on('connection', socket => {
     if (!isHost() || room.state === 'playing') return;
     const r = startGame(room);
     if (r === 'picker') socket.emit('notice', '出題者モードは2人以上で遊べます');
+    else if (r === 'wolf') socket.emit('notice', 'アニソン人狼は3人以上で遊べます');
     else if (!r) socket.emit('notice', '選んだ年代に出題できる曲がありません。年代の設定を広げてください');
   });
 
@@ -2424,6 +2755,41 @@ io.on('connection', socket => {
     io.to(room.code).emit('promoted', { id, title: s.title, by: player.name, votes: e.votes.length });
   });
   // アニソン・ポーカー：手札が5枚を超えているとき、捨てるカード（曲のID）を選ぶ
+  // ── アニソン人狼 ──
+  const wolfQ = () => { const q = room?.game?.q; return q?.wolf && player && q.participants.has(player.token) ? q : null; };
+  socket.on('wolfHint', text => {
+    const q = wolfQ(); if (!q || q.wolf.step !== 'hint' || typeof text !== 'string') return;
+    const s = text.replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, 20); if (!s) return;
+    q.wolf.hints.set(player.token, s);
+    if ([...q.participants].every(t => q.wolf.hints.has(t) || !room.players.get(t)?.connected)) wolfStep(room, 'talk'); else wolfEmit(room);
+  });
+  socket.on('wolfChat', text => {
+    const q = wolfQ(); if (!q || !['talk', 'vote'].includes(q.wolf.step) || typeof text !== 'string') return;
+    const s = text.replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, 60); if (!s) return;
+    const now = Date.now(); if (now - (player.wolfChatAt || 0) < 800) return; player.wolfChatAt = now; // 連投を防ぐ
+    q.wolf.chat.push({ id: player.id, name: player.name, text: s }); q.wolf.chat = q.wolf.chat.slice(-80);
+    io.to(room.code).emit('wolfChat', { id: player.id, name: player.name, text: s });
+  });
+  socket.on('wolfReady', () => { // 話し合いを終えて投票へ（全員そろったら）
+    const q = wolfQ(); if (!q || q.wolf.step !== 'talk') return;
+    q.wolf.talkDone.add(player.token);
+    if ([...q.participants].every(t => q.wolf.talkDone.has(t) || !room.players.get(t)?.connected)) wolfStep(room, 'vote'); else wolfEmit(room);
+  });
+  socket.on('wolfVote', id => {
+    const q = wolfQ(); if (!q || q.wolf.step !== 'vote' || id === player.id) return;
+    if (![...q.participants].some(t => room.players.get(t)?.id === id)) return;
+    q.wolf.votes.set(player.token, id);
+    if ([...q.participants].every(t => q.wolf.votes.has(t) || !room.players.get(t)?.connected)) wolfTally(room); else wolfEmit(room);
+  });
+  socket.on('wolfGuess', i => {
+    const q = wolfQ(); if (!q || q.wolf.step !== 'guess' || player.token !== q.wolf.wolfToken || !Number.isInteger(i)) return;
+    wolfFinish(room, i);
+  });
+  socket.on('panelChoose', idx => {
+    const pk = room?.game?.panelPick;
+    if (!pk || !player || pk.token !== player.token || !Number.isInteger(idx)) return;
+    panelChoose(room, idx);
+  });
   socket.on('pokerBet', amount => {
     const g = room?.game;
     if (!room || !player || room.settings.play !== 'poker' || !g?.pokerBet?.open || g.pokerBet.bets.has(player.token)) return;
@@ -2536,7 +2902,11 @@ setInterval(() => {
   for (const [code, r] of rooms) if (r.emptySince && now - r.emptySince > ROOM_TTL) { rooms.delete(code); pushRoomList(); }
 }, 60 * 1000);
 
-datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES })).then(d => {
+const restored = Promise.race([
+  datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES }), () => USERS),
+  new Promise(res => setTimeout(() => res({}), 8000)), // GitHub が遅いときは待ちすぎない
+]).then(({ data: d, users } = {}) => {
+  if (users && typeof users === 'object') { USERS = { ...USERS, ...users }; console.log(`マイページを記録から戻しました（${Object.keys(users).length}人）`); }
   if (!d) return;
   if (Array.isArray(d.requests)) REQUESTS = d.requests;
   if (Array.isArray(d.candidates)) CANDIDATES = d.candidates;
@@ -2547,4 +2917,4 @@ datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: P
   console.log('記録から戻しました（リクエスト・投票・修正など）');
 });
 process.on('SIGTERM', async () => { await datalog.flush(); process.exit(0); });
-server.listen(PORT, () => console.log(`イントロクイズ対戦サーバー起動: http://localhost:${PORT} （曲 ${SONGS.length} 件）`));
+restored.then(() => server.listen(PORT, () => console.log(`イントロクイズ対戦サーバー起動: http://localhost:${PORT} （曲 ${SONGS.length} 件）`)));

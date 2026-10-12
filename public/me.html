@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>マイページ｜アニソンイントロ対戦</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<meta name="theme-color" content="#05060f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="mobile.css" media="(max-width: 600px)">
+<link rel="stylesheet" href="songs.css">
+<link rel="stylesheet" href="me.css">
+</head>
+<body class="songs-page me-page">
+<div class="backdrop" aria-hidden="true"></div>
+<main class="songs-main">
+  <header class="top">
+    <a class="brand" href="/">
+      <img class="emblem" src="assets/glass/logo.webp" alt="">
+      <h1 class="logo"><small>ANISONG INTRO BATTLE</small>アニソン<em>イントロ</em>対戦</h1>
+    </a>
+    <a class="btn-sub" href="/">← トップへ</a>
+  </header>
+
+  <!-- ログイン（名前だけ） -->
+  <section class="panel" id="loginBox" hidden>
+    <h2>👤 マイページ</h2>
+    <p class="note">名前を入れるだけで登録・ログインできます（合言葉はありません）。<b>名前を知っている人ならだれでも開けるので、人と被らない名前にしてください。</b></p>
+    <form class="me-login" id="loginForm">
+      <input id="loginName" maxlength="12" placeholder="名前（2〜12文字）" autocomplete="nickname">
+      <button class="btn-main" type="submit">登録・ログイン</button>
+    </form>
+    <p class="note" id="loginMsg"></p>
+  </section>
+
+  <section id="meBox" hidden>
+    <div class="panel me-head">
+      <h2>👤 <span id="meName"></span> さんのマイページ</h2>
+      <button class="btn-sub" id="logoutBtn" type="button">ログアウト（この端末）</button>
+    </div>
+
+    <div class="panel">
+      <h3>📊 成績</h3>
+      <div class="me-stats" id="meStats"></div>
+      <div class="me-byplay" id="meByPlay"></div>
+    </div>
+
+    <div class="panel">
+      <h3>🏅 もらった称号</h3>
+      <div class="me-titles" id="meTitles"></div>
+    </div>
+
+    <div class="panel">
+      <h3>♡ お気に入り <small id="favCount"></small></h3>
+      <p class="note">部屋のお題「お気に入り」で出題できます。部屋の除外（ジャンル・前に出た曲）があっても出題の候補に残ります。</p>
+      <ul class="me-list" id="favList"></ul>
+    </div>
+
+    <div class="panel">
+      <h3>🎯 苦手な曲 <small id="weakCount"></small></h3>
+      <p class="note">間違えた・パスした曲と、「もう一度出して」を押した曲です。部屋のお題「苦手な曲」で出題でき、正解すると外れます。</p>
+      <ul class="me-list" id="weakList"></ul>
+    </div>
+
+    <div class="panel">
+      <h3>🚫 もう聞きたくない <small id="blockCount"></small></h3>
+      <p class="note">あなたがいる部屋では出題されません（部屋の除外とは別です）。</p>
+      <ul class="me-list" id="blockList"></ul>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast" hidden></div>
+<script src="me.js"></script>
+</body>
+</html>

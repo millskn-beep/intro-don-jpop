@@ -8587,5 +8587,22 @@
    "intro": 6.2,
    "chorus": 131
   }
+ },
+ {
+  "id": "8SoWzkMO1YQ",
+  "title": "ひとりごつ",
+  "work": "ちいかわ",
+  "channel": "Release - Topic",
+  "at": "2026-10-12T08:22:00.295Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 71,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 37.7
+  }
  }
 ]

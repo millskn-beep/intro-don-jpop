@@ -83,8 +83,10 @@
   "genre": "game",
   "note": "",
   "at": "2026-10-11T16:21:50.248Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "PrRyJBo7VEw",
+  "doneAt": "2026-10-11T17:12:39.730Z"
  },
  {
   "id": "26ca1899",
@@ -94,8 +96,10 @@
   "genre": "game",
   "note": "",
   "at": "2026-10-11T16:31:58.800Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "OWDcn7hl16A",
+  "doneAt": "2026-10-11T17:12:39.890Z"
  },
  {
   "id": "8289566e",
@@ -105,8 +109,10 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:43:46.008Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "F2qSrxsJnnw",
+  "doneAt": "2026-10-11T17:12:40.013Z"
  },
  {
   "id": "75dac48b",
@@ -116,8 +122,10 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:44:00.609Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "y3jKNoocyCo",
+  "doneAt": "2026-10-11T17:12:40.139Z"
  },
  {
   "id": "5fedbfd7",
@@ -127,8 +135,10 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:44:16.502Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "YgvpugYrAJ4",
+  "doneAt": "2026-10-11T17:12:40.272Z"
  },
  {
   "id": "4a0aa1bb",
@@ -138,8 +148,9 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:44:28.422Z",
-  "status": "open",
-  "votes": 1
+  "status": "notfound",
+  "votes": 1,
+  "doneAt": "2026-10-11T17:12:40.426Z"
  },
  {
   "id": "2d84acca",
@@ -149,8 +160,9 @@
   "genre": "",
   "note": "",
   "at": "2026-10-11T16:44:43.943Z",
-  "status": "open",
-  "votes": 1
+  "status": "notfound",
+  "votes": 1,
+  "doneAt": "2026-10-11T17:12:40.592Z"
  },
  {
   "id": "51038a9b",
@@ -160,8 +172,9 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:45:04.218Z",
-  "status": "open",
-  "votes": 1
+  "status": "notfound",
+  "votes": 1,
+  "doneAt": "2026-10-11T17:12:40.716Z"
  },
  {
   "id": "b4da2d89",
@@ -171,8 +184,10 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:45:38.245Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "aOX8KzPZkNg",
+  "doneAt": "2026-10-11T17:12:40.853Z"
  },
  {
   "id": "29383185",
@@ -182,8 +197,10 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:45:52.406Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "IMSspvguJ7c",
+  "doneAt": "2026-10-11T17:12:40.994Z"
  },
  {
   "id": "d3f0e0a3",
@@ -193,8 +210,10 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:46:02.781Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "42NGvYxX_ds",
+  "doneAt": "2026-10-11T17:12:41.130Z"
  },
  {
   "id": "8a6315f1",
@@ -204,8 +223,10 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:46:19.235Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "W39KKoUV5xI",
+  "doneAt": "2026-10-11T17:12:41.285Z"
  },
  {
   "id": "acd323e3",
@@ -215,8 +236,10 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:46:34.431Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "QkDQpkjgCDg",
+  "doneAt": "2026-10-11T17:12:41.416Z"
  },
  {
   "id": "1574a31c",
@@ -226,8 +249,10 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:46:44.523Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "fu1I1DXcW_Y",
+  "doneAt": "2026-10-11T17:28:12.037Z"
  },
  {
   "id": "6ee04c6d",
@@ -237,7 +262,9 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-10-11T16:46:54.626Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "rEVXQH42_IU",
+  "doneAt": "2026-10-11T17:12:41.694Z"
  }
 ]

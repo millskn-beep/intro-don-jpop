@@ -112,7 +112,7 @@ function openEditor(s) {
   if (ytReady) yt.cueVideoById({ videoId: s.id, startSeconds: pos.intro });
   showPos();
   $('repForm').hidden = true; showReportInfo();
-  showGenres();
+  showGenres(); showMe();
   document.querySelectorAll('.sg-rows li.on').forEach(li => li.classList.remove('on'));
   document.querySelector(`.sg-rows li[data-id="${s.id}"]`)?.classList.add('on');
 }
@@ -131,6 +131,32 @@ $('edSend').onclick = async () => {
   } catch (e) { toast('送れませんでした'); }
   showPos();
 };
+
+// ── マイページ：♡ お気に入り／🚫 もう聞きたくない（me.html で名前を登録した端末だけ） ──
+const meName = () => { try { return localStorage.getItem('aq-user') || ''; } catch (e) { return ''; } };
+let me = null;
+async function loadMe() {
+  const n = meName(); if (!n) return;
+  const r = await fetch('/api/user?name=' + encodeURIComponent(n));
+  me = r.ok ? (await r.json()).user : null;
+  if (selected) showMe();
+}
+function showMe() {
+  const box = $('edMe');
+  if (!me) { box.innerHTML = '<a class="note" href="/me.html" target="_blank" rel="noopener">👤 マイページに名前を登録すると、お気に入り・もう聞きたくない曲を残せます</a>'; return; }
+  const fav = me.fav.includes(selected.id), block = me.block.includes(selected.id);
+  box.innerHTML = `<button class="btn-sub${fav ? ' on' : ''}" data-me="fav" type="button">${fav ? '♥ お気に入り済み' : '♡ お気に入り'}</button>`
+    + `<button class="btn-sub${block ? ' on' : ''}" data-me="block" type="button">${block ? '🚫 もう聞かない曲' : '🚫 もう聞きたくない'}</button>`;
+  box.querySelectorAll('[data-me]').forEach(b => b.onclick = async () => {
+    const list = b.dataset.me, on = !me[list].includes(selected.id);
+    const r = await fetch('/api/user/list', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: me.name, list, id: selected.id, on }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) return toast(j.error || '送れませんでした');
+    me = j.user; showMe();
+    toast(on ? (list === 'fav' ? 'お気に入りにしました' : 'もう聞きたくない曲にしました（あなたがいる部屋では出ません）') : '外しました');
+  });
+}
+loadMe();
 
 // ── ジャンルを直す（曲ごと）：チェックして送ると、すぐ出題に使われる ──
 function showGenres() {

@@ -9308,7 +9308,7 @@
       "ダンシング"
     ],
     "embeddable": null,
-    "fame": "normal",
+    "fame": "famous",
     "introMeasured": true,
     "introMethod": "v2",
     "chorusChecked": true,
@@ -12992,7 +12992,7 @@
     "views": 213399,
     "channel": "Maaya Sakamoto",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "ちきゅうしょうじょあるじゅな",
       "アルジュナ"
@@ -23773,7 +23773,7 @@
     "views": 210057,
     "channel": "GRANRODEO",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "introMeasured": true,
     "introMethod": "v2",
     "workAliases": [
@@ -26815,7 +26815,7 @@
     "intro": 0.5,
     "chorus": 56,
     "aliases": [
-      "トレジャー"
+      "とれじゃー"
     ],
     "embeddable": null,
     "introMeasured": true,
@@ -33627,7 +33627,9 @@
     "views": 18532,
     "channel": "Take Away",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "vWX80P9U4W8",
@@ -47800,7 +47802,7 @@
     "views": 4262256,
     "channel": "tacica",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "はいきゅー"
     ],
@@ -70743,7 +70745,7 @@
     "views": 211016,
     "channel": "Konomi Suzuki Official",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "このよのはてでこいをうたうしょうじょゆーの",
       "ゆーの",
@@ -86364,7 +86366,7 @@
     "views": 216112,
     "channel": "sajou no hana Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "すぱいきょうしつ",
       "すぱいきょうしつ2ndしーずん",
@@ -97382,7 +97384,7 @@
     "views": 216526,
     "channel": "MYTH & ROID Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "introSource": "auto",
     "introBefore": 0.5,
     "workAliases": [
@@ -100090,7 +100092,7 @@
     "confidence": "高",
     "source": "Release - Topic（NexTone公式配信）",
     "intro": 0,
-    "chorus": 71,
+    "chorus": 37.7,
     "aliases": [
       "ひとりごつ"
     ],
@@ -100105,12 +100107,13 @@
       "はちわれ",
       "たなかまこと"
     ],
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 12359153,
     "channel": "Release - Topic",
     "viewsAt": "2026-10-11",
-    "fame": "top"
+    "fame": "top",
+    "introMeasured": false
   },
   {
     "id": "LzzW_TBL558",
@@ -100352,5 +100355,351 @@
     "channel": "Release - Topic",
     "viewsAt": "2026-10-11",
     "fame": "otaku"
+  },
+  {
+    "id": "OWDcn7hl16A",
+    "title": "DEMON'S SHOT",
+    "work": "PUKEY GODDESS SHOT TRICK",
+    "artist": "Aiobahn +81 feat. DEMONDICE",
+    "year": 2026,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "Aiobahn公式MV（Theme for PUKEY GODDESS SHOT TRICK）",
+    "intro": 0,
+    "chorus": 77.9,
+    "aliases": [
+      "でーもんずしょっと"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "ぷーきーごっですしょっとトリック",
+      "パキゴッデス"
+    ],
+    "artistAliases": [
+      "あいおばーん",
+      "でーもんだいす",
+      "DEMONDICE",
+      "Aiobahn"
+    ],
+    "chorusChecked": true,
+    "views": 7880462,
+    "channel": "Aiobahn",
+    "viewsAt": "2026-10-11",
+    "fame": "famous",
+    "chorusSource": "audio",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "F2qSrxsJnnw",
+    "title": "Get My World",
+    "work": "モンスターハンター 月下雷鳴（パチスロ）",
+    "artist": "（不明）",
+    "year": 2014,
+    "type": "イメージソング",
+    "confidence": "低",
+    "source": "遊戯館パチンコ（個人のアップロード）",
+    "intro": 0.7,
+    "chorus": 149.1,
+    "aliases": [
+      "げっとまいわーるど"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "モンハン",
+      "もんすたーはんたー"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 213342,
+    "channel": "遊戯館パチンコ",
+    "viewsAt": "2026-10-11",
+    "fame": "otaku",
+    "chorusSource": "audio"
+  },
+  {
+    "id": "y3jKNoocyCo",
+    "title": "Fly Away",
+    "work": "モンスターハンター 月下雷鳴（パチスロ）",
+    "artist": "（不明）",
+    "year": 2014,
+    "type": "イメージソング",
+    "confidence": "低",
+    "source": "Tamsmit Sam（個人のアップロード。サントラ音源）",
+    "intro": 0,
+    "chorus": 100,
+    "aliases": [
+      "ふらいあうぇい"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "モンハン",
+      "もんすたーはんたー"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 121036,
+    "channel": "Tamsmit Sam",
+    "viewsAt": "2026-10-11",
+    "fame": "otaku"
+  },
+  {
+    "id": "YgvpugYrAJ4",
+    "title": "Treasure",
+    "work": "モンスターハンター 狂竜戦線（パチスロ）",
+    "artist": "光永泰一朗",
+    "year": 2017,
+    "type": "イメージソング",
+    "confidence": "低",
+    "source": "金剛榛名（個人のアップロード）",
+    "intro": 0.7,
+    "chorus": 74.4,
+    "aliases": [
+      "とれじゃー"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "モンハン",
+      "もんすたーはんたー"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 6105,
+    "channel": "金剛榛名",
+    "viewsAt": "2026-10-11",
+    "fame": "otaku",
+    "chorusSource": "audio",
+    "artistAliases": [
+      "みつながたいちろう"
+    ]
+  },
+  {
+    "id": "aOX8KzPZkNg",
+    "title": "白銀の狩人",
+    "work": "CRモンスターハンター4（パチンコ）",
+    "artist": "双剣ハンター(CV:喜多村英梨)",
+    "year": 2016,
+    "type": "イメージソング",
+    "confidence": "低",
+    "source": "ORIGIN（個人のアップロード。フルver.）",
+    "intro": 0,
+    "chorus": 63,
+    "aliases": [
+      "しろがねのかりうど",
+      "はくぎんのかりうど"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "モンハン",
+      "モンスターハンター4",
+      "モンスターハンター"
+    ],
+    "artistAliases": [
+      "きたむらえり",
+      "そうけんはんたー"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 8112,
+    "channel": "ORIGIN",
+    "viewsAt": "2026-10-11",
+    "fame": "otaku",
+    "chorusSource": "audio"
+  },
+  {
+    "id": "IMSspvguJ7c",
+    "title": "祈りの傷",
+    "work": "CRモンスターハンター4（パチンコ）",
+    "artist": "maimie",
+    "year": 2016,
+    "type": "イメージソング",
+    "confidence": "低",
+    "source": "ORIGIN（個人のアップロード。フルver.）",
+    "intro": 0.2,
+    "chorus": 60.3,
+    "aliases": [
+      "いのりのきず"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "モンハン",
+      "モンスターハンター4",
+      "モンスターハンター"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 3620,
+    "channel": "ORIGIN",
+    "viewsAt": "2026-10-11",
+    "fame": "otaku",
+    "chorusSource": "audio",
+    "artistAliases": [
+      "まいみー"
+    ]
+  },
+  {
+    "id": "42NGvYxX_ds",
+    "title": "一撃",
+    "work": "CRモンスターハンター4（パチンコ）",
+    "artist": "緋村剛",
+    "year": 2016,
+    "type": "イメージソング",
+    "confidence": "低",
+    "source": "ORIGIN（個人のアップロード。フルver.）",
+    "intro": 0,
+    "chorus": 56.4,
+    "aliases": [
+      "いちげき"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "モンハン",
+      "モンスターハンター4",
+      "モンスターハンター"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 10555,
+    "channel": "ORIGIN",
+    "viewsAt": "2026-10-11",
+    "fame": "otaku",
+    "chorusSource": "audio",
+    "artistAliases": [
+      "ひむらごう"
+    ]
+  },
+  {
+    "id": "W39KKoUV5xI",
+    "title": "Sound of Life",
+    "work": "CRモンスターハンター4（パチンコ）",
+    "artist": "VOICES",
+    "year": 2016,
+    "type": "イメージソング",
+    "confidence": "低",
+    "source": "nektsc（個人のアップロード）",
+    "intro": 0,
+    "chorus": 27.4,
+    "aliases": [
+      "さうんどおぶらいふ"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "モンハン",
+      "モンスターハンター4",
+      "モンスターハンター"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 4491,
+    "channel": "nektsc 0_knky",
+    "viewsAt": "2026-10-11",
+    "fame": "otaku",
+    "chorusSource": "audio",
+    "artistAliases": [
+      "ぼいしず"
+    ]
+  },
+  {
+    "id": "QkDQpkjgCDg",
+    "title": "カムラ祓え歌：サマー ver.",
+    "work": "モンスターハンターライズ",
+    "artist": "加藤いづみ",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "低",
+    "source": "aimiring（個人のアップロード）",
+    "intro": 0,
+    "chorus": 127,
+    "aliases": [
+      "かむらはらえうた",
+      "カムラ祓え歌"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "モンハン",
+      "もんすたーはんたー"
+    ],
+    "artistAliases": [
+      "かとういづみ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 103871,
+    "channel": "aimiring",
+    "viewsAt": "2026-10-11",
+    "fame": "minor"
+  },
+  {
+    "id": "fu1I1DXcW_Y",
+    "title": "つなぐ花篝",
+    "work": "モンスターハンターライズ",
+    "artist": "加藤いづみ",
+    "year": 2021,
+    "type": "ED",
+    "confidence": "低",
+    "source": "良太HNレオナ（個人のアップロード。日本語ver.）",
+    "intro": 2.2,
+    "chorus": 231.9,
+    "aliases": [
+      "つなぐはなかがり"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "モンハン",
+      "もんすたーはんたー"
+    ],
+    "artistAliases": [
+      "かとういづみ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 28963,
+    "channel": "良太HNレオナ",
+    "viewsAt": "2026-10-11",
+    "fame": "minor",
+    "chorusSource": "audio"
+  },
+  {
+    "id": "rEVXQH42_IU",
+    "title": "禍群の息吹",
+    "work": "モンスターハンターライズ",
+    "artist": "加藤いづみ",
+    "year": 2021,
+    "type": "挿入歌",
+    "confidence": "低",
+    "source": "個人のアップロード（戦闘曲）",
+    "intro": 1.7,
+    "chorus": 100.9,
+    "aliases": [
+      "まがむれのいぶき",
+      "まがつむれのいぶき"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "モンハン",
+      "もんすたーはんたー"
+    ],
+    "artistAliases": [
+      "かとういづみ"
+    ],
+    "chorusChecked": true,
+    "views": 630594,
+    "channel": "B",
+    "viewsAt": "2026-10-11",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "introMeasured": true,
+    "introMethod": "v2"
   }
 ]

@@ -364,7 +364,7 @@ const PLAY_DESC = {
   wolf: '3人以上で遊びます。全員に同じ曲が流れますが、1人（人狼）だけ同じ作品の別の曲が流れます（自分が人狼かは分かりません）。曲について一言ヒントを出し合い、チャットで話し合って、人狼だと思う人に投票。人狼を当てたら村人の勝ち（+1000点）、外したら人狼の勝ち（+2000点）。当てられた人狼も、みんなの曲名を当てれば逆転勝ちです。問題数＝回数です（5回くらいがおすすめ）。',
   nenpyo: '一人ひとり、年の見えている曲を1枚持って始めます。曲が流れたら（年は伏せたまま）、自分の年表の「どこに入るか」（この曲とこの曲の間）を選びます。合っていれば、その曲が年表に入ります（同じ年はどちらでも正解）。先に10枚並べた人の勝ち。曲名がわからなくても「この時代っぽい」で戦えます。',
   karuta: '画面に16枚の札（曲名・作品名・歌手名のどれか）を並べたまま、イントロが流れたら正しい札を早取りします。いちばん早く正しい札を取った人がその札をもらい、そこで答え合わせ。違う札を取るとお手つきで、次の1曲はお休みです。取った札は場から消え、空いたところに新しい札が入ります。取った札の多い人が勝ちです。',
-  panel: '5×5のパネルを取り合います。いちばん早く正解した人がパネルを1枚選び、自分の色で縦・横・斜めに挟んだ相手のパネルを裏返せます（アタック25と同じ）。選べるのは、最初は真ん中、そのあとは取られているパネルの隣（挟めるところがあればそこだけ）。パネルが全部埋まったら終わりで、パネルの多い人が勝ちです。',
+  panel: '5×5のパネルを取り合います。いちばん早く正解した人がパネルを1枚選び、自分の色で縦・横に挟んだ相手のパネルを裏返せます（斜めはなし）。選べるのは、最初は真ん中、そのあとは取られているパネルの縦・横の隣（挟めるところがあればそこだけ）。パネルが全部埋まったら終わりで、パネルの多い人が勝ちです。',
   poker: '10問ごとに、手札に点を賭けて中間オープン（勝った人が総取り・使った手札は保管して最後にボーナス）。全員で同じ曲に答えます。正解すると、その曲のトランプが手札に入り、いちばん早く正解した人はランダムのカードがもう1枚もらえます。数字は作品ごと（同じ数字＝同じ作品）、マークはジャンル系統（♠バトル・SF ♥恋愛・日常 ♦異世界・ゲーム ♣その他）。同じ数字・マークのカードは場に1枚だけです。手札は5枚で、増えたら不要なカードを捨てます。最後に全員の手札を開いて、ポーカーの役がいちばん強い人が勝ちです。カードに触れると曲の名前などが見えます。最後は、ポーカー場のテーブルで全員の手札をオープン！',
   normal: '全員が同時に答えます。速く正解するほど高得点。',
   buzzer: '曲が流れている間に「押す！」を押した人だけが答えられます。間違えると −200点で、ほかの人が押せます。',
@@ -549,7 +549,7 @@ function renderRoom(r) {
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
-  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf'].includes(r.settings.play);
+  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
@@ -1187,16 +1187,32 @@ socket.on('qlog', e => { qlogEntries.push(e); renderQlog(); });
 function fitKaruta() {
   const b = $('choices'), on = !!b && b.classList.contains('karuta') && !b.hidden && room?.settings?.play === 'karuta' && room?.state === 'playing' && matchMedia('(min-width: 900px)').matches;
   document.body.classList.toggle('karuta-play', on); // ステージを小さくして、盤を大きく
-  if (!on) { b?.style.removeProperty('--kh'); b?.classList.remove('flat'); return; }
+  if (!on) { b?.style.removeProperty('--kh'); return; }
   const r = b.getBoundingClientRect(), quiz = $('quiz').getBoundingClientRect();
   const cs = getComputedStyle(b), pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom) + parseFloat(cs.borderTopWidth) * 2, gap = parseFloat(cs.rowGap) * 3 || 24;
   const top = r.top + (document.scrollingElement.scrollTop || 0);
   const below = Math.max(0, quiz.bottom - r.bottom); // 盤の下（わからない・ライフライン）
-  const kh = Math.max(64, Math.min(165, Math.floor((innerHeight - top - below - 28 - pad - gap) / 4)));
+  const kh = Math.max(64, Math.min(130, Math.floor((innerHeight - top - below - 28 - pad - gap) / 4)));
   if (b.style.getPropertyValue('--kh') !== kh + 'px') b.style.setProperty('--kh', kh + 'px');
-  b.classList.toggle('flat', kh < 104); // 低いときは横書きにして読みやすく
 }
-setInterval(fitKaruta, 400); addEventListener('resize', fitKaruta);
+// 札の文字は、札に収まる最大の大きさにする（二分探索。盤の大きさ・曲名が変わったときだけ計算し直す）
+function fitKarutaText() {
+  const b = $('choices');
+  if (!b || !b.classList.contains('karuta') || b.hidden || !b.offsetParent) return;
+  const cards = [...b.querySelectorAll('.choice:not(.empty)')];
+  if (!cards.length) return;
+  const key = [Math.round(cards[0].clientWidth), Math.round(cards[0].clientHeight), ...cards.map(c => c.textContent)].join('|');
+  if (b.dataset.fitKey === key) return;
+  b.dataset.fitKey = key;
+  const maxPx = Math.min(44, Math.floor(cards[0].clientHeight * 0.8));
+  for (const c of cards) {
+    let lo = 8, hi = maxPx;
+    c.style.fontSize = hi + 'px';
+    const fits = () => c.scrollHeight <= c.clientHeight + 1 && c.scrollWidth <= c.clientWidth + 1;
+    if (!fits()) { while (hi - lo > 1) { const mid = (lo + hi) >> 1; c.style.fontSize = mid + 'px'; if (fits()) lo = mid; else hi = mid; } c.style.fontSize = lo + 'px'; }
+  }
+}
+setInterval(() => { fitKaruta(); fitKarutaText(); }, 400); addEventListener('resize', () => { fitKaruta(); fitKarutaText(); });
 
 // ── アニソン人狼：聴く → ヒント → 話し合い → 投票 →（当てられたら人狼が曲名を当てる）→ 結果 ──
 let wolfPending = null, wolfData = null, wolfTick = null, wolfChatLog = [];
@@ -1293,14 +1309,15 @@ function renderNenpyo() {
 // ── アニソン陣取り：盤（問題中は小さく・選ぶときは大きく）──
 const PANEL_COLORS = ['#ff5c8a', '#4fb4ff', '#ffd23f', '#5be37d', '#b07cff', '#ff9a3d', '#3de0d0', '#ff7ad9', '#a3a3ff', '#c8e65a', '#ff6b5c', '#7ad1ff'];
 let panelPickKey = null, panelPopTimer = null, panelTick = null;
-const panelColor = (r, id) => { const i = r.players.findIndex(p => p.id === id); return i < 0 ? '#666' : PANEL_COLORS[i % PANEL_COLORS.length]; };
+const PANEL_TEAM_COLORS = { red: '#ff5c8a', blue: '#4fb4ff' };
+const panelColor = (r, id) => { if (PANEL_TEAM_COLORS[id]) return PANEL_TEAM_COLORS[id];  const i = r.players.findIndex(p => p.id === id); return i < 0 ? '#666' : PANEL_COLORS[i % PANEL_COLORS.length]; };
 const panelCells = (r, board, opt = {}) => board.map((id, i) => `<button type="button" class="pn-cell${id ? ' own' : ''}${opt.allowed?.includes(i) ? ' can' : ''}${opt.flipped?.includes(i) ? ' flip' : ''}${opt.idx === i ? ' put' : ''}" data-i="${i}" style="${id ? `--pc:${panelColor(r, id)}` : ''}"${opt.allowed?.includes(i) && opt.mine ? '' : ' disabled'}>${i + 1}</button>`).join('');
-const panelLegend = r => r.players.filter(p => p.panelCount != null).map(p => `<span style="--pc:${panelColor(r, p.id)}"><i></i>${esc(p.name)} ${p.panelCount}</span>`).join('');
+const panelLegend = (r, board) => r.settings.teams && board ? ['red', 'blue'].map(k => `<span style="--pc:${PANEL_TEAM_COLORS[k]}"><i></i>${TEAM_LABEL[k]}チーム ${board.filter(x => x === k).length}</span>`).join('') : r.players.filter(p => p.panelCount != null).map(p => `<span style="--pc:${panelColor(r, p.id)}"><i></i>${esc(p.name)} ${p.panelCount}</span>`).join('');
 function renderPanel(r) {
   const pn = r.panel;
   $('panelMini').hidden = !pn;
   if (!pn) { $('panelPop').hidden = true; panelPickKey = null; return; }
-  $('panelMini').innerHTML = `<div class="pn-board sm">${panelCells(r, pn.board)}</div><div class="pn-legend">${panelLegend(r)}</div>`;
+  $('panelMini').innerHTML = `<div class="pn-board sm">${panelCells(r, pn.board)}</div><div class="pn-legend">${panelLegend(r, pn.board)}</div>`;
   // だれかが選んでいる：大きな盤を出す（選ぶ人だけ押せる）
   if (pn.pick) {
     const key = pn.pick.id + ':' + pn.pick.until;
@@ -1310,7 +1327,7 @@ function renderPanel(r) {
     const atk = pn.pick.stage === 'attack';
     $('panelPop').innerHTML = `<div class="pn-field${pn.pick.attack ? ' attack' : ''}"><h3>${atk ? (mine ? '⚡ アタックチャンス！ 相手のパネルを1枚、自分のものに！' : `⚡ ${esc(pn.pick.name)} さんのアタックチャンス！`) : pn.pick.attack ? (mine ? '⚡ アタックチャンス！ まず最後のパネルを選んでください' : `⚡ アタックチャンス！ ${esc(pn.pick.name)} さんが最後のパネルを選んでいます`) : mine ? '🎯 パネルを選んでください' : `${esc(pn.pick.name)} さんがパネルを選んでいます`}</h3>
       <div class="pn-board">${panelCells(r, pn.board, { allowed: pn.pick.allowed, mine })}</div>
-      <div class="pn-legend">${panelLegend(r)}</div><p class="pn-left" id="panelLeft"></p></div>`;
+      <div class="pn-legend">${panelLegend(r, pn.board)}</div><p class="pn-left" id="panelLeft"></p></div>`;
     $('panelPop').hidden = false;
     $('panelPop').querySelectorAll('.pn-cell.can').forEach(b => b.onclick = () => { if (!mine) return; socket.emit('panelChoose', +b.dataset.i); $('panelPop').querySelectorAll('.pn-cell').forEach(x => x.disabled = true); });
     clearInterval(panelTick);
@@ -1322,7 +1339,7 @@ socket.on('panelUpdate', d => {
   clearInterval(panelTick);
   const r = room; if (!r) return;
   $('panelPop').innerHTML = `<div class="pn-field"><h3>${d.attack ? `⚡ ${esc(d.name)} さんがアタックチャンスで ${d.idx + 1}番 を奪った！` : `${esc(d.name)} さんが ${d.idx + 1}番 を取った！${d.flipped.length ? ` ${d.flipped.length}枚 裏返し！` : ''}`}</h3>
-    <div class="pn-board">${panelCells(r, d.board, { flipped: d.flipped, idx: d.idx })}</div><div class="pn-legend">${panelLegend(r)}</div></div>`;
+    <div class="pn-board">${panelCells(r, d.board, { flipped: d.flipped, idx: d.idx })}</div><div class="pn-legend">${panelLegend(r, d.board)}</div></div>`;
   $('panelPop').hidden = false;
   if (d.attack) charFx.cutin('アタックチャンス！', `${d.name} さんが奪った！`, 'celebrate');
   else if (d.flipped.length >= 3) charFx.cutin(`${d.flipped.length}枚 裏返し！`, d.name, 'celebrate');
@@ -1959,7 +1976,7 @@ socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, s
   if (teams) {
     const draw = teams.length > 1 && teams[0].score === teams[1].score;
     $('teamResult').innerHTML = (draw ? '<b>引き分け！</b>' : `<b class="team-${teams[0].team}">${TEAM_LABEL[teams[0].team]}チームの勝ち！</b>`)
-      + teams.map(x => `<span class="team-${x.team}">${TEAM_LABEL[x.team]} ${x.score}点（${x.members}人）</span>`).join('');
+      + teams.map(x => `<span class="team-${x.team}">${TEAM_LABEL[x.team]} ${x.score}${x.unit || '点'}（${x.members}人）</span>`).join('');
   }
   $('places').innerHTML = ranking.slice(0, 3).map((p, i) =>
     `<div class="place p${i + 1}">${i === 0 ? icon('crown', 'crown') : ''}${avatarImg(p.avatar, 'avatar lg')}<b>${i + 1}位</b>${esc(p.name)}<span>${p.score}点</span></div>`).join('');

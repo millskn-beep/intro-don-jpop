@@ -977,12 +977,20 @@ body.rush-machine .stage-tools { overflow: visible; }
   background: repeating-linear-gradient(90deg, rgba(0, 0, 0, .06) 0 1px, transparent 1px 7px), repeating-linear-gradient(0deg, rgba(0, 0, 0, .05) 0 1px, transparent 1px 7px),
               linear-gradient(135deg, #7a8f4a, #62773a 55%, #6f8441);
   border: 6px solid #2b2a24; box-shadow: inset 0 0 0 2px #d8cfa4, inset 0 0 40px rgba(0, 0, 0, .35), 0 8px 24px rgba(0, 0, 0, .55); }
-.choices.karuta .choice { --rot: 0deg; min-height: 0; height: 150px; padding: 10px 6px; display: grid; place-items: center; text-align: center;
+.choices.karuta .choice { --rot: 0deg; min-height: 0; height: var(--kh, 150px); padding: 10px 6px; display: grid; place-items: center; text-align: center;
   writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif; font-weight: 900; font-size: 16px; line-height: 1.45; letter-spacing: .12em;
   color: #1b1712; word-break: break-all; overflow: hidden; border-radius: 3px; border: 1px solid #b9ab80;
   background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, .55), transparent 55%), repeating-linear-gradient(0deg, rgba(120, 100, 60, .05) 0 2px, transparent 2px 5px), linear-gradient(170deg, #fbf6e6, #efe4c2);
   box-shadow: 1px 2px 0 #cfc29a, 2px 4px 0 #bdae82, 4px 7px 10px rgba(0, 0, 0, .5); transform: rotate(var(--rot)); backdrop-filter: none; -webkit-backdrop-filter: none; transition: transform .15s, box-shadow .15s; }
 .choices.karuta .choice.len1 { font-size: 14px; } .choices.karuta .choice.len2 { font-size: 12px; letter-spacing: .04em; line-height: 1.3; } .choices.karuta .choice.len3 { font-size: 10.5px; letter-spacing: 0; line-height: 1.25; }
+/* PC：盤の16枚が1画面に収まるように、札の高さを画面の高さに合わせる（上のステージ・下の「わからない」のぶんを引く） */
+@media (min-width: 900px) {
+  .choices.karuta { --kh: clamp(78px, calc((100vh - 345px) / 4), 165px); padding: 10px 12px; gap: 8px 8px; }
+  .choices.karuta .choice { font-size: clamp(11px, calc(var(--kh) * .115), 18px); padding: 6px 4px; }
+  .choices.karuta .choice.len1 { font-size: clamp(10px, calc(var(--kh) * .095), 15px); }
+  .choices.karuta .choice.len2 { font-size: clamp(9px, calc(var(--kh) * .08), 13px); }
+  .choices.karuta .choice.len3 { font-size: clamp(8px, calc(var(--kh) * .068), 11px); }
+}
 .choices.karuta .choice:nth-child(4n+1) { --rot: -1.6deg; } .choices.karuta .choice:nth-child(4n+2) { --rot: 1.2deg; } .choices.karuta .choice:nth-child(4n+3) { --rot: -.7deg; } .choices.karuta .choice:nth-child(4n) { --rot: 1.8deg; }
 .choices.karuta .choice:nth-child(3n) { --rot: calc(var(--rot) * -1); }
 .choices.karuta .choice::before { content: ''; counter-increment: none; position: absolute; left: 4px; top: 4px; right: 4px; bottom: 4px; width: auto; height: auto; transform: none; border-radius: 2px; background: none; border: 1px solid rgba(138, 106, 36, .55); pointer-events: none; display: block; }
@@ -1062,3 +1070,15 @@ body.rush-machine .stage-tools { overflow: visible; }
 .pn-field.attack { border-color: #ff4f4f; box-shadow: 0 0 30px rgba(255, 79, 79, .5); animation: pn-attack 1s ease-in-out infinite alternate; }
 @keyframes pn-attack { to { box-shadow: 0 0 46px rgba(255, 79, 79, .85); } }
 .pn-field.attack h3 { color: #ffb3b3; }
+/* かるた（PC）：ステージを小さくして、盤を1画面に収める */
+@media (min-width: 900px) {
+  body.karuta-play .room-main > .stage { padding: 8px 14px; gap: 6px 12px; }
+  body.karuta-play .room-main > .stage .cover, body.karuta-play .room-main > .stage .mascot { display: none; }
+  body.karuta-play .room-main > .stage .status { flex: 1; }
+  body.karuta-play .stage-tools { gap: 6px 12px; }
+  body.karuta-play #quiz { padding-top: 8px; padding-bottom: 8px; }
+  body.karuta-play #clues { min-height: 0; margin-bottom: 4px; }
+  .choices.karuta { padding: 8px 10px; gap: 6px 8px; border-width: 4px; }
+  .choices.karuta.flat .choice { writing-mode: horizontal-tb; letter-spacing: 0; line-height: 1.25; padding: 4px 8px; }
+  .choices.karuta.flat .choice::after { width: 5px; height: 5px; right: 4px; top: 4px; }
+}

@@ -1164,7 +1164,9 @@ function karutaChoices(room, song) {
   }
   // 空いたところに札を足す：これから読まれる曲 → 足りなければ候補の曲（読まれない札。同じ文字は置かない）
   const faces = new Set(g.karuta.filter(Boolean).map(c => normText(c.face))), ids = new Set(g.karuta.filter(Boolean).map(c => c.id));
-  const fill = [...g.order.slice(g.qi + 1), ...shuffle(g.pool.filter(s => !g.order.includes(s)))];
+  // 読まれない札（飾り）を足すのは最初の1回だけ。そのあとは、これから読まれる曲の札だけを足す（飾りの札が最後まで残らないように）
+  const first = !g.karutaInit; g.karutaInit = true;
+  const fill = [...g.order.slice(g.qi + 1), ...(first ? shuffle(g.pool.filter(s => !g.order.includes(s))) : [])];
   for (const s of fill) {
     const slot = g.karuta.findIndex(c => !c);
     if (slot < 0) break;
@@ -1182,6 +1184,12 @@ function karutaTake(room, q) {
   const i = g.karuta.findIndex(c => c?.id === q.song.id);
   if (i >= 0) g.karuta[i] = null;
   if (p && q.answers.get(q.winner)?.correct) p.karutaCards = (p.karutaCards || 0) + 1;
+  // 読まれない札（飾り）も、問題が進むたびに減らす：残りの問題の割合に合わせて、最後には1枚も残らない
+  const future = new Set(g.order.slice(g.qi + 1).map(s => s.id));
+  const decoys = g.karuta.map((c, k) => (c && !future.has(c.id) ? k : -1)).filter(k => k >= 0);
+  g.karutaDecoy0 = Math.max(g.karutaDecoy0 || 0, decoys.length);
+  const keep = Math.round(g.karutaDecoy0 * (g.order.length - g.qi - 1) / g.order.length);
+  for (const k of shuffle(decoys).slice(0, Math.max(0, decoys.length - keep))) g.karuta[k] = null;
 }
 
 // ── アニソン陣取り（アタック25風）：いちばん早く正解した人がパネルを1枚選び、挟んだ相手のパネルを裏返す ──

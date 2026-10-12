@@ -985,6 +985,7 @@ socket.on('question', q => {
     ? q.years.map((y, i) => `<button class="choice year" data-i="${i}" disabled>${y}</button>`).join('')
     : q.choices.map((c, i) => `<button class="choice${c.gone ? ' gone empty' : ''}${q.play === 'karuta' ? ' ' + ([...(c.title || '')].length > 18 ? 'len3' : [...(c.title || '')].length > 11 ? 'len2' : [...(c.title || '')].length > 6 ? 'len1' : '') : ''}" data-i="${i}" disabled>${esc(c.title)}${c.work ? `<small>${esc(c.work)}</small>` : ''}</button>`).join('');
   $('choices').classList.toggle('karuta', q.play === 'karuta');
+  $('choices').style.removeProperty('--kh'); fitKaruta();
   if (q.answerMode === 'nenpyo') { $('choices').hidden = true; $('inputForm').hidden = true; nenpyoSlot = null; }
   if (q.play === 'karuta' && (q.rest || []).includes(me)) setTimeout(() => toast('お手つきのため、この曲はお休みです'), 300);
   $('choices').querySelectorAll('.choice').forEach(b => b.onclick = () =>
@@ -1181,6 +1182,21 @@ function renderQlog() {
 }
 socket.on('qlog', e => { qlogEntries.push(e); renderQlog(); });
 
+
+// ── アニソンかるた（PC）：盤の16枚が1画面に収まるように、札の高さを画面の高さに合わせる（上のステージ・下の「わからない」のぶんを引く）──
+function fitKaruta() {
+  const b = $('choices'), on = !!b && b.classList.contains('karuta') && !b.hidden && room?.settings?.play === 'karuta' && room?.state === 'playing' && matchMedia('(min-width: 900px)').matches;
+  document.body.classList.toggle('karuta-play', on); // ステージを小さくして、盤を大きく
+  if (!on) { b?.style.removeProperty('--kh'); b?.classList.remove('flat'); return; }
+  const r = b.getBoundingClientRect(), quiz = $('quiz').getBoundingClientRect();
+  const cs = getComputedStyle(b), pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom) + parseFloat(cs.borderTopWidth) * 2, gap = parseFloat(cs.rowGap) * 3 || 24;
+  const top = r.top + (document.scrollingElement.scrollTop || 0);
+  const below = Math.max(0, quiz.bottom - r.bottom); // 盤の下（わからない・ライフライン）
+  const kh = Math.max(64, Math.min(165, Math.floor((innerHeight - top - below - 28 - pad - gap) / 4)));
+  if (b.style.getPropertyValue('--kh') !== kh + 'px') b.style.setProperty('--kh', kh + 'px');
+  b.classList.toggle('flat', kh < 104); // 低いときは横書きにして読みやすく
+}
+setInterval(fitKaruta, 400); addEventListener('resize', fitKaruta);
 
 // ── アニソン人狼：聴く → ヒント → 話し合い → 投票 →（当てられたら人狼が曲名を当てる）→ 結果 ──
 let wolfPending = null, wolfData = null, wolfTick = null, wolfChatLog = [];

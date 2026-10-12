@@ -1194,6 +1194,11 @@ function wolfStartPlayback() {
 }
 function hideWolf() { clearInterval(wolfTick); $('wolfPop').hidden = true; $('wolfPop').innerHTML = ''; wolfData = null; }
 const wolfName = id => wolfData?.players.find(p => p.id === id)?.name || '';
+let wolfMark = null; // 自分用の目印（どの曲を聴いていそうか。ほかの人には見えない）
+function wolfChoicesHtml(d) {
+  if (!d.choices) return '';
+  return `<div class="wf-cands"><small>曲の候補（聴いている曲は、この中にあります。タップで自分用の目印）</small><div>${d.choices.map((c, i) => `<button type="button" class="wf-cand${wolfMark === i ? ' mine' : ''}" data-cand="${i}"><b>${i + 1}</b>${esc(c.title)}<small>${esc(c.work || '')}</small></button>`).join('')}</div></div>`;
+}
 function wolfChatHtml() { return wolfChatLog.map(c => `<li${c.id === me ? ' class="mine"' : ''}><b>${esc(c.name)}</b>${esc(c.text)}</li>`).join(''); }
 socket.on('wolfChat', c => {
   wolfChatLog.push(c); wolfChatLog = wolfChatLog.slice(-80);
@@ -1202,7 +1207,7 @@ socket.on('wolfChat', c => {
 socket.on('wolfPhase', d => {
   if (!d) return hideWolf();
   const fresh = !wolfData || wolfData.step !== d.step || wolfData.round !== d.round;
-  if (d.round !== wolfData?.round) wolfChatLog = [];
+  if (d.round !== wolfData?.round) { wolfChatLog = []; wolfMark = null; }
   if (d.chat) wolfChatLog = d.chat;
   wolfData = d;
   $('wolfPop').hidden = false;
@@ -1213,16 +1218,19 @@ socket.on('wolfPhase', d => {
   const head = `<div class="wf-head"><b>🐺 アニソン人狼</b><span>第${d.round}/${d.total}回</span><span class="wf-left" id="wolfLeft"></span></div>`;
   const seats = `<div class="wf-seats">${d.players.map(p => `<span data-pid="${esc(p.id)}" class="${d.done.includes(p.id) ? 'done' : ''}">${avatarImg(p.avatar, 'avatar sm')}${esc(p.name)}</span>`).join('')}</div>`;
   const hints = d.hints ? `<div class="wf-hints">${d.hints.map(h => `<div><small>${esc(wolfName(h.id))}</small><b>${esc(h.text)}</b></div>`).join('')}</div>` : '';
+  const votesHtml = d.votes ? `<div class="wf-tallybox">${d.players.map(p => `<div><span>${esc(p.name)}</span><i style="--n:${d.votes[p.id] || 0}"></i><b>${d.votes[p.id] || 0}票</b></div>`).join('')}</div>` : '';
+  const cands = wolfChoicesHtml(d);
   const chat = `<ul class="wf-chat" id="wolfChatList">${wolfChatHtml()}</ul><form class="wf-say" id="wolfSay"><input id="wolfSayText" maxlength="60" placeholder="話し合い（60文字まで）" autocomplete="off"><button class="btn-sub" type="submit">送る</button></form>`;
   let body = '';
-  if (d.step === 'listen') body = '<p class="wf-msg">🎧 曲を聴いてください。<br><small>みんなと同じ曲とは限りません。1人だけ、同じ作品の別の曲が流れています（自分が人狼かどうかは分かりません）</small></p>';
+  if (d.step === 'listen') body = `<p class="wf-msg">🎧 曲を聴いてください。<br><small>みんなと同じ曲とは限りません。1人だけ、同じ作品の別の曲が流れています（自分が人狼かどうかは分かりません）</small></p>${cands}`;
   if (d.step === 'hint') body = `<p class="wf-msg">この曲について、ヒントを一言（20文字まで）。<br><small>言いすぎると人狼にばれ、ぼかしすぎると疑われます</small></p>
-    <form class="wf-say" id="wolfHintForm"><input id="wolfHintText" maxlength="20" placeholder="例：ロボット、2000年代、エンディング" autocomplete="off"><button class="btn-main" type="submit">出す</button></form>${seats}`;
-  if (d.step === 'talk') body = `${hints}<p class="wf-msg">話し合って、だれが別の曲（人狼）か考えましょう</p>${chat}<button class="btn-sub" id="wolfReadyBtn" type="button">投票へ進む</button>${seats}`;
-  if (d.step === 'vote') body = `${hints}<p class="wf-msg">人狼だと思う人に投票（自分以外）</p><div class="wf-votes">${d.players.filter(p => p.id !== me).map(p => `<button class="btn-sub" data-vote="${esc(p.id)}" type="button">${avatarImg(p.avatar, 'avatar sm')}${esc(p.name)}</button>`).join('')}</div>${chat}${seats}`;
+    <form class="wf-say" id="wolfHintForm"><input id="wolfHintText" maxlength="20" placeholder="例：ロボット、2000年代、エンディング" autocomplete="off"><button class="btn-main" type="submit">出す</button></form>${cands}${seats}`;
+  if (d.step === 'talk') body = `${hints}<p class="wf-msg">話し合って、だれが別の曲（人狼）か考えましょう</p>${cands}${chat}<button class="btn-sub" id="wolfReadyBtn" type="button">投票へ進む</button>${seats}`;
+  if (d.step === 'vote') body = `${hints}<p class="wf-msg">人狼だと思う人に投票（自分以外）<br><small>人狼も投票できますが、人狼の票は数えません</small></p><div class="wf-votes">${d.players.filter(p => p.id !== me).map(p => `<button class="btn-sub" data-vote="${esc(p.id)}" type="button">${avatarImg(p.avatar, 'avatar sm')}${esc(p.name)}</button>`).join('')}</div>${cands}${chat}${seats}`;
+  if (d.step === 'tally') body = `<p class="wf-msg">🗳 投票の結果（人狼の票は数えていません）</p>${votesHtml}${hints}`;
   if (d.step === 'guess') body = d.guess.id === me
-    ? `<p class="wf-msg">🐺 あなたが人狼でした！ みんなの曲は？ 当てれば逆転勝ち</p><div class="wf-guess">${d.guess.choices.map((c, i) => `<button class="btn-sub" data-guess="${i}" type="button">${esc(c.title)}<small>${esc(c.work || '')}</small></button>`).join('')}</div>`
-    : `${hints}<p class="wf-msg">🐺 人狼は <b>${esc(wolfName(d.guess.id))}</b> さん！ いま、みんなの曲名を当てようとしています…</p>`;
+    ? `<p class="wf-msg">🐺 あなたが人狼でした！ みんなの曲は？ 当てれば逆転勝ち</p>${votesHtml}<div class="wf-guess">${d.choices.map((c, i) => `<button class="btn-sub" data-guess="${i}" type="button">${esc(c.title)}<small>${esc(c.work || '')}</small></button>`).join('')}</div>`
+    : `${votesHtml}${hints}<p class="wf-msg">🐺 人狼は <b>${esc(wolfName(d.guess.id))}</b> さん！ いま、みんなの曲名を当てようとしています…</p>`;
   if (d.step === 'result') {
     const r = d.result, iWolf = r.wolfId === me, win = (r.winner === 'wolf') === iWolf;
     body = `<p class="wf-result ${win ? 'win' : 'lose'}">${r.winner === 'village' ? '🎉 村人の勝ち！' : r.caught ? '🐺 人狼の逆転勝ち！' : '🐺 人狼の勝ち！'}<small>${win ? 'あなたの勝ち' : 'あなたの負け'}（勝った側に 村人+${r.points.village}点／人狼+${r.points.wolf}点）</small></p>
@@ -1240,6 +1248,7 @@ socket.on('wolfPhase', d => {
   if (sf) sf.onsubmit = e => { e.preventDefault(); const v = $('wolfSayText').value.trim(); if (!v) return; socket.emit('wolfChat', v); $('wolfSayText').value = ''; };
   const rb = $('wolfReadyBtn');
   if (rb) rb.onclick = () => { socket.emit('wolfReady'); rb.disabled = true; rb.textContent = 'ほかの人を待っています…'; };
+  $('wolfPop').querySelectorAll('[data-cand]').forEach(b => b.onclick = () => { const i = +b.dataset.cand; wolfMark = wolfMark === i ? null : i; $('wolfPop').querySelectorAll('[data-cand]').forEach(x => x.classList.toggle('mine', +x.dataset.cand === wolfMark)); });
   $('wolfPop').querySelectorAll('[data-vote]').forEach(b => b.onclick = () => { socket.emit('wolfVote', b.dataset.vote); $('wolfPop').querySelectorAll('[data-vote]').forEach(x => { x.disabled = true; x.classList.toggle('on', x === b); }); });
   $('wolfPop').querySelectorAll('[data-guess]').forEach(b => b.onclick = () => { socket.emit('wolfGuess', +b.dataset.guess); $('wolfPop').querySelectorAll('[data-guess]').forEach(x => x.disabled = true); });
   const ul = $('wolfChatList'); if (ul) ul.scrollTop = ul.scrollHeight;

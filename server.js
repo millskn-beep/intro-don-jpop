@@ -1164,10 +1164,10 @@ function karutaChoices(room, song) {
 // 答え合わせ：最初に正解した人がその札を取る
 function karutaTake(room, q) {
   const g = room.game, p = q.winner && room.players.get(q.winner);
-  if (!p || !q.answers.get(q.winner)?.correct) return;
+  // 流れた曲の札は、取られても取られなくても場から消す（その曲はもう流れないので、残しても使わない札になる）
   const i = g.karuta.findIndex(c => c?.id === q.song.id);
   if (i >= 0) g.karuta[i] = null;
-  p.karutaCards = (p.karutaCards || 0) + 1;
+  if (p && q.answers.get(q.winner)?.correct) p.karutaCards = (p.karutaCards || 0) + 1;
 }
 
 // ── アニソン陣取り（アタック25風）：いちばん早く正解した人がパネルを1枚選び、挟んだ相手のパネルを裏返す ──
@@ -1198,7 +1198,8 @@ function panelChoose(room, idx) {
 
 // ── アニソン人狼（ワードウルフ風）：1人だけ「同じ作品の別の曲」が流れる。本人も知らない。ヒント → 話し合い → 投票。
 // 当てられた人狼は、みんなの曲名を当てれば逆転。勝った側に点数 ──
-const WOLF_SEC = { listen: 25, hint: 40, talk: 90, vote: 30, guess: 25 };
+const WOLF_SEC = { listen: 25, hint: 40, talk: 90, vote: 30, tally: 6, guess: 25 };
+const WOLF_CHOICES = 10; // 聴いているときから見える曲の候補。全員同じ一覧（みんなの曲と人狼の曲の両方が入っている）
 const WOLF_PTS = { village: 1000, wolf: 2000 };
 function wolfSongFor(room, song) {
   const pool = room.game.pool.length > 10 ? room.game.pool : SONGS, ctx = userCtx(room);
@@ -1213,8 +1214,12 @@ const wolfStartOf = s => hasChorus(s) ? Math.max(s.intro || 0, chorusOf(s) - 3) 
 function startWolfRound(room, song) {
   const g = room.game, ps = connectedPlayers(room);
   const wolfP = ps[crypto.randomInt(ps.length)], other = wolfSongFor(room, song);
+  // 候補は全員同じ一覧：みんなの曲と人狼の曲を両方入れる（一覧から、どちらが人狼の曲かは分からない）
+  const base = buildChoices(song, WOLF_CHOICES, room.game.pool).choices.filter(c => c.title !== song.title && c.title !== other.title).slice(0, WOLF_CHOICES - 2);
+  const choices = shuffle([{ title: song.title, work: song.work }, { title: other.title, work: other.work }, ...base]);
+  const correctIndex = choices.findIndex(c => c.title === song.title);
   g.q = { phase: 'wolf', song, participants: new Set(ps.map(p => p.token)), answers: new Map(), ready: new Set(), clues: [], lifelineResults: new Map(),
-          wolf: { step: null, until: 0, wolfToken: wolfP.token, wolfSong: other, hints: new Map(), chat: [], votes: new Map(), talkDone: new Set(), guess: null, choices: null, correctIndex: null } };
+          wolf: { step: null, until: 0, wolfToken: wolfP.token, wolfSong: other, hints: new Map(), chat: [], votes: new Map(), talkDone: new Set(), guess: null, choices, correctIndex } };
   for (const p of ps) io.to(p.socketId).emit('wolfSong', wolfSongPayload(room, p));
   wolfStep(room, 'listen');
 }
@@ -1229,9 +1234,11 @@ function wolfPublic(room) {
   const base = { step: w.step, until: w.until, round: room.game.qi + 1, total: room.game.order.length,
                  done: w.step === 'hint' ? [...w.hints.keys()].map(t => room.players.get(t)?.id) : w.step === 'vote' ? [...w.votes.keys()].map(t => room.players.get(t)?.id) : w.step === 'talk' ? [...w.talkDone].map(t => room.players.get(t)?.id) : [],
                  players: ps.map(p => ({ id: p.id, name: p.name, avatar: p.avatar })) };
-  if (['talk', 'vote', 'guess', 'result'].includes(w.step)) base.hints = ps.map(p => ({ id: p.id, text: w.hints.get(p.token) || '（なし）' }));
-  if (['talk', 'vote', 'guess', 'result'].includes(w.step)) base.chat = w.chat;
-  if (w.step === 'guess') base.guess = { id: room.players.get(w.wolfToken)?.id, choices: w.choices };
+  base.choices = w.choices.map(c => ({ title: c.title, work: c.work })); // 聴いているときから、話し合い・投票まで見える
+  if (['talk', 'vote', 'tally', 'guess', 'result'].includes(w.step)) base.hints = ps.map(p => ({ id: p.id, text: w.hints.get(p.token) || '（なし）' }));
+  if (['talk', 'vote', 'tally', 'guess', 'result'].includes(w.step)) base.chat = w.chat;
+  if (['tally', 'guess', 'result'].includes(w.step)) base.votes = w.votesOut || {}; // 結果の前に、投票数が見える
+  if (w.step === 'guess') base.guess = { id: room.players.get(w.wolfToken)?.id };
   if (w.step === 'result') base.result = w.result;
   return base;
 }
@@ -1245,6 +1252,7 @@ function wolfStep(room, step) {
   if (step === 'hint') later(room, () => wolfStep(room, 'talk'), WOLF_SEC.hint * 1000);
   if (step === 'talk') later(room, () => wolfStep(room, 'vote'), WOLF_SEC.talk * 1000);
   if (step === 'vote') later(room, () => wolfTally(room), WOLF_SEC.vote * 1000);
+  if (step === 'tally') later(room, () => (w.caught ? wolfStep(room, 'guess') : wolfFinish(room, null)), WOLF_SEC.tally * 1000);
   if (step === 'guess') later(room, () => wolfFinish(room, false), WOLF_SEC.guess * 1000);
   wolfEmit(room); broadcastRoom(room);
 }
@@ -1253,16 +1261,13 @@ function wolfTally(room) {
   const q = room.game.q, w = q.wolf;
   if (w.step !== 'vote') return;
   const count = new Map();
-  for (const target of w.votes.values()) count.set(target, (count.get(target) || 0) + 1);
+  for (const [token, target] of w.votes) if (token !== w.wolfToken) count.set(target, (count.get(target) || 0) + 1); // 人狼の票は無効（人狼は自分が人狼だと知らないので、投票はできるが数えない）
   const max = Math.max(0, ...count.values()), top = [...count].filter(([, n]) => n === max).map(([id]) => id);
   const wolfId = room.players.get(w.wolfToken)?.id;
   w.votesOut = Object.fromEntries(count);
   w.caught = top.length === 1 && top[0] === wolfId;
-  if (!w.caught) return wolfFinish(room, null);
-  // 当てられた人狼：みんなの曲名を当てれば逆転
-  const { choices, correctIndex } = buildChoices(q.song, 8, room.game.pool);
-  w.choices = choices; w.correctIndex = correctIndex;
-  wolfStep(room, 'guess');
+  // 投票数を見せてから（tally）、当てられた人狼なら曲名を当てる（guess）／そうでなければ結果へ
+  wolfStep(room, 'tally');
 }
 function wolfFinish(room, guessIndex) {
   const g = room.game, q = g.q, w = q.wolf;

@@ -3927,7 +3927,7 @@
     "confidence": "高",
     "source": "松任谷由実公式",
     "intro": 3.2,
-    "chorus": 31,
+    "chorus": 50.6,
     "aliases": [
       "やさしさにつつまれたなら"
     ],
@@ -3936,7 +3936,7 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "views": 3846559,
     "channel": "松任谷由実",
     "viewsAt": "2026-10-05",
@@ -5780,7 +5780,7 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 2.2,
-    "chorus": 23,
+    "chorus": 64.3,
     "aliases": [
       "ぷらねっとだんす"
     ],
@@ -5788,7 +5788,7 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMethod": "v2",
     "views": 458443,
     "channel": "FIRE BOMBER - Topic",
@@ -6821,12 +6821,12 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 47,
+    "chorus": 93,
     "aliases": [
       "むーんらいとでんせつ"
     ],
     "embeddable": null,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "workAliases": [
       "びしょうじょせんしせーらーむーん",
@@ -10721,7 +10721,7 @@
     "confidence": "高",
     "source": "日本コロムビア公式",
     "intro": 0.7,
-    "chorus": 29,
+    "chorus": 86.7,
     "aliases": [
       "うぃーあー"
     ],
@@ -10729,7 +10729,7 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMethod": "v2",
     "views": 2514297,
     "channel": "日本コロムビア 公式YouTubeチャンネル",
@@ -11184,12 +11184,12 @@
     "confidence": "中",
     "source": "DEEN Official YouTube Channel",
     "intro": 6.2,
-    "chorus": 89,
+    "chorus": 68,
     "aliases": [
       "きみがいないなつ"
     ],
     "embeddable": null,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 659826,
     "channel": "DEEN Official YouTube Channel",
@@ -16699,7 +16699,7 @@
     "confidence": "高",
     "source": "ASIAN KUNG-FU GENERATION公式",
     "intro": 0.7,
-    "chorus": 70,
+    "chorus": 75.4,
     "aliases": [
       "りらいと"
     ],
@@ -16707,7 +16707,7 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMethod": "v2",
     "views": 1815710,
     "channel": "ASIAN KUNG-FU GENERATION Official YouTube Channel",
@@ -27928,7 +27928,7 @@
     "confidence": "低",
     "source": "frogy P",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 54.4,
     "aliases": [
       "かえりみち"
     ],
@@ -27953,7 +27953,8 @@
       "かとう",
       "八九寺真宵",
       "はちくじまよい"
-    ]
+    ],
+    "chorusSource": "manual"
   },
   {
     "id": "rZZzlY8vUf8",
@@ -28460,7 +28461,7 @@
     "confidence": "高",
     "source": "花澤香菜公式",
     "intro": 0,
-    "chorus": 57.5,
+    "chorus": 57,
     "aliases": [
       "れんあいさーきゅれーしょん"
     ],
@@ -29160,14 +29161,14 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 6.7,
-    "chorus": 31,
+    "chorus": 35.5,
     "aliases": [
       "ゴッドオンリーノウズ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMeasured": true,
     "introMethod": "v2",
     "views": 141985,
@@ -30548,7 +30549,7 @@
     "chorus": 23,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMeasured": true,
     "introMethod": "v2",
     "views": 35818776,
@@ -32661,7 +32662,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 64,
+    "chorus": 57.8,
     "aliases": [
       "れんあいさーきゅれーしょん"
     ],
@@ -32678,7 +32679,7 @@
       "ものがたりしりーず",
       "ものがたり"
     ],
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 3549581,
     "channel": "せのん【実況】",
@@ -47512,14 +47513,14 @@
     "confidence": "中",
     "source": "フジテレビアニメ公式（TVサイズ）",
     "intro": 0,
-    "chorus": 48,
+    "chorus": 52.4,
     "aliases": [
       "フォールン"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMeasured": true,
     "introMethod": "v2",
     "views": 591032,
@@ -100701,5 +100702,30 @@
     "chorusSource": "audio",
     "introMeasured": true,
     "introMethod": "v2"
+  },
+  {
+    "id": "Je0JA1Wgny8",
+    "title": "You're already dead",
+    "work": "北斗の拳（パチスロ）",
+    "artist": "MY FIRST STORY",
+    "year": 2023,
+    "type": "イメージソング",
+    "confidence": "高",
+    "source": "MY FIRST STORY公式チャンネル（Audio）",
+    "intro": 0,
+    "chorus": 56,
+    "aliases": [
+      "ゆあおーるれでぃでっど"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "ほくとのけん"
+    ],
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1163272,
+    "channel": "MY FIRST STORY",
+    "viewsAt": "2026-10-13",
+    "fame": "otaku"
   }
 ]

@@ -22,3 +22,9 @@ data/chorus-feat.log
 data/chorus-feat.err
 data/preview*.json
 data/users.json
+# 構造解析AI（all-in-one-infer）の試験用（Python 環境・結果）
+.venv-struct/
+data/struct-ai/
+data/struct-tmp/
+data/struct-*.log
+data/ids.tmp

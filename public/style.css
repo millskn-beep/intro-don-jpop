@@ -1089,3 +1089,178 @@ body.rush-machine .stage-tools { overflow: visible; }
 .pn-cell.atk::after { content: 'AC'; font-size: 9px; position: absolute; right: 3px; bottom: 1px; color: #d33; font-weight: 900; }
 .pn-cell { position: relative; }
 @keyframes pn-atk { to { box-shadow: 0 0 22px #fff, inset 0 0 14px rgba(255, 79, 79, .8); } }
+
+/* アニソン・ディクシット */
+.dx-list { display: grid; gap: 6px; }
+.dx-card { display: flex; align-items: center; gap: 8px; justify-content: space-between; padding: 8px 10px; border-radius: 12px; background: rgba(255, 255, 255, .05); border: 1px solid var(--line); }
+.dx-card.sel { border-color: #ffd36b; background: rgba(255, 211, 107, .1); }
+.dx-card.teller { border-color: #8dffc8; }
+.dx-card > div:first-child { display: grid; min-width: 0; }
+.dx-card small { color: var(--sub); font-size: 11.5px; }
+.dx-btns { display: flex; gap: 6px; flex: none; }
+.dx-btns .btn-sub, .dx-btns .btn-main { width: auto; margin: 0; padding: 6px 12px; font-size: 13px; }
+.dx-hint { margin: 0; text-align: center; font-size: 15px; } .dx-hint b { font-size: 20px; color: #ffd36b; }
+
+/* アニソン・ババ抜き */
+.bb-backs { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.bb-back { font-size: 38px; line-height: 1; padding: 6px 4px; border-radius: 8px; background: rgba(255, 255, 255, .06); border: 1px solid var(--line); color: #c9a7ff; cursor: pointer; }
+.bb-back:hover { border-color: #ffd36b; }
+.bb-seats span.bb-turn { border-color: #ffd36b; opacity: 1; }
+.bb-log { list-style: none; margin: 0; padding: 0; font-size: 12px; color: var(--sub); display: grid; gap: 2px; text-align: center; }
+[data-card] { cursor: pointer; }
+/* ディクシット・ババ抜き：1画面に収める（スクロールさせない。曲カードは2列、高さは画面に合わせて詰める） */
+#dixitPop .wf-field, #babaPop .wf-field { width: min(960px, 100%); max-height: 98dvh; overflow: hidden; gap: clamp(4px, 1.2dvh, 10px); padding: clamp(8px, 1.8dvh, 16px); }
+#dixitPop .dx-list, #babaPop .dx-list { grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: clamp(3px, .8dvh, 6px); }
+#dixitPop .dx-card, #babaPop .dx-card { padding: clamp(3px, .9dvh, 8px) 10px; font-size: clamp(11px, 1.9dvh, 15px); }
+#dixitPop .dx-card b, #babaPop .dx-card b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#dixitPop .dx-card small, #babaPop .dx-card small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: clamp(9.5px, 1.5dvh, 11.5px); }
+#dixitPop .dx-btns .btn-sub, #dixitPop .dx-btns .btn-main, #babaPop .dx-btns .btn-sub { padding: clamp(3px, .8dvh, 6px) 10px; font-size: clamp(11px, 1.7dvh, 13px); }
+#dixitPop .wf-msg, #babaPop .wf-msg { font-size: clamp(12px, 2dvh, 15px); line-height: 1.4; }
+#dixitPop .wf-seats span, #babaPop .wf-seats span { font-size: clamp(10px, 1.6dvh, 12px); }
+#dixitPop .dx-hint b { font-size: clamp(15px, 3dvh, 20px); }
+#babaPop .bb-back { font-size: clamp(24px, 6dvh, 38px); }
+#babaPop .bb-log li:nth-child(-n+3) { display: none; }
+#babaPop #bbReadyBtn { padding: clamp(5px, 1.2dvh, 12px); }
+
+/* アニソン・コードネーム：1画面（盤面は画面の高さに合わせる） */
+#cnPop .cn-field { width: min(980px, 100%); max-height: 98dvh; overflow: hidden; gap: clamp(3px, .9dvh, 8px); padding: clamp(6px, 1.4dvh, 14px); }
+.cn-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: clamp(11px, 1.8dvh, 14px); }
+.cn-head b { font-size: clamp(13px, 2.2dvh, 16px); }
+.cn-score { font-weight: 800; padding: 1px 10px; border-radius: 99px; } .cn-score.red, .cn-turn.red { color: #ff7a8a; } .cn-score.blue, .cn-turn.blue { color: #7ab8ff; }
+.cn-me { font-size: 11px; color: var(--sub); } .cn-me.red { color: #ff7a8a; } .cn-me.blue { color: #7ab8ff; }
+.cn-turn { text-align: center; font-size: clamp(12px, 2.2dvh, 16px); }
+.cn-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(3px, .8dvh, 7px); }
+.cn-card { height: clamp(34px, 11.5dvh, 78px); padding: 2px 4px; border-radius: 10px; border: 2px solid var(--line); background: rgba(255, 255, 255, .07); color: inherit; font-size: clamp(10px, 2dvh, 15px); font-weight: 700; line-height: 1.15; display: grid; place-content: center; text-align: center; gap: 1px; overflow: hidden; cursor: pointer; word-break: break-all; }
+.cn-card span { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.cn-card small { font-size: clamp(8px, 1.4dvh, 10.5px); font-weight: 500; opacity: .85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cn-card:disabled { cursor: default; opacity: 1; }
+.cn-card.peek.red { border-color: #ff4d6a; } .cn-card.peek.blue { border-color: #4d9bff; } .cn-card.peek.neutral { border-color: #8a8aa0; border-style: dashed; } .cn-card.peek.assassin { border-color: #fff; background: #000; }
+.cn-card.shown.red { background: #b3283f; border-color: #ff4d6a; } .cn-card.shown.blue { background: #1f58b3; border-color: #4d9bff; } .cn-card.shown.neutral { background: #55556b; } .cn-card.shown.assassin { background: #000; border-color: #ff4d6a; }
+.cn-form select { padding: 0 10px; font-size: 16px; border-radius: 10px; }
+.cn-chatbar { display: grid; gap: 3px; } .cn-chat { display: flex; gap: 10px; flex-wrap: wrap; font-size: 12px; color: #cfd0e8; min-height: 1.3em; overflow: hidden; max-height: 2.8em; }
+.cn-note { text-align: center; color: var(--sub); }
+#cnPop .wf-say input { padding: clamp(6px, 1.2dvh, 12px) 12px; font-size: clamp(13px, 2dvh, 16px); }
+
+/* アニソン大富豪：1画面 */
+#dfPop .wf-field { width: min(960px, 100%); max-height: 98dvh; overflow: hidden; gap: clamp(4px, 1.1dvh, 10px); padding: clamp(8px, 1.6dvh, 16px); }
+#dfPop .dx-list { grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: clamp(3px, .7dvh, 6px); }
+#dfPop .dx-card { padding: clamp(3px, .8dvh, 8px) 10px; font-size: clamp(11px, 1.9dvh, 15px); }
+#dfPop .dx-card b, #dfPop .dx-card small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#dfPop .dx-card small { font-size: clamp(9.5px, 1.5dvh, 11.5px); }
+#dfPop .dx-btns .btn-sub, #dfPop .dx-btns .btn-main { padding: clamp(3px, .8dvh, 6px) 10px; font-size: clamp(11px, 1.7dvh, 13px); }
+#dfPop .wf-msg { font-size: clamp(12px, 2dvh, 15px); }
+#dfPop #dfPassBtn { padding: clamp(5px, 1.1dvh, 12px); }
+.df-field { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: clamp(44px, 9dvh, 76px); padding: 4px 10px; border-radius: 14px; background: radial-gradient(ellipse at center, rgba(40, 120, 70, .45), rgba(10, 40, 25, .6)); border: 1px solid rgba(141, 255, 200, .35); }
+.df-old { font-size: 12px; color: var(--sub); padding: 2px 6px; border-radius: 6px; background: rgba(0, 0, 0, .3); }
+.df-top { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.df-top span { display: grid; min-width: 0; } .df-top small { color: var(--sub); font-size: 11.5px; }
+.df-year { font-size: clamp(22px, 5dvh, 36px); font-family: var(--font-num); color: #ffd36b; }
+#dfPop .bb-log li:nth-child(-n+1) { display: none; }
+
+/* アニソン年当てベット：1画面 */
+#wwPop .ww-field { width: min(960px, 100%); max-height: 98dvh; overflow: hidden; gap: clamp(4px, 1.2dvh, 10px); padding: clamp(8px, 1.6dvh, 16px); }
+.ww-form input { font-size: 22px; text-align: center; }
+.ww-quick { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.ww-quick .btn-sub { width: auto; margin: 0; padding: 6px 12px; font-size: 13px; }
+.ww-slots { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; }
+.ww-slot { position: relative; display: grid; gap: 2px; align-content: start; padding: clamp(6px, 1.4dvh, 12px) 4px; border-radius: 12px; border: 2px solid var(--line); background: rgba(255, 255, 255, .05); color: inherit; text-align: center; min-height: clamp(70px, 18dvh, 130px); cursor: pointer; }
+.ww-slot b { font-family: var(--font-num); font-size: clamp(14px, 3dvh, 22px); } .ww-slot:first-child b { font-size: clamp(11px, 1.9dvh, 14px); }
+.ww-slot small { color: #ffd36b; font-weight: 800; }
+.ww-slot span { font-size: 11px; color: var(--sub); overflow: hidden; }
+.ww-slot i { font-style: normal; color: #ff6b8a; font-size: 18px; }
+.ww-slot.on { border-color: #ff6b8a; } .ww-slot.win { border-color: #8dffc8; background: rgba(141, 255, 200, .15); }
+.ww-slot:disabled { cursor: default; opacity: 1; }
+.ww-marks { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: 13px; } .ww-mark select { padding: 2px 6px; }
+.ww-actions { display: flex; gap: 8px; justify-content: center; } .ww-actions .btn-sub, .ww-actions .btn-main { width: auto; margin: 0; padding: 8px 22px; }
+
+/* アニソンすごろく：クイズ画面の下に小さく（31マス・2段） */
+.sg { margin-top: 6px; display: grid; gap: 4px; }
+.sg-board { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 2px; }
+.sg-cell { position: relative; aspect-ratio: 1; border-radius: 5px; background: rgba(255, 255, 255, .05); border: 1px solid var(--line); display: grid; place-items: center; font-size: 11px; overflow: hidden; }
+.sg-cell small { position: absolute; top: 1px; left: 3px; font-size: 8.5px; color: var(--sub); }
+.sg-cell.ev { background: rgba(255, 211, 107, .08); } .sg-cell.start { background: rgba(141, 255, 200, .1); } .sg-cell.goal { background: rgba(255, 107, 138, .18); border-color: #ff6b8a; }
+.sg-tokens { position: absolute; bottom: 1px; right: 1px; display: flex; flex-wrap: wrap-reverse; justify-content: flex-end; max-width: 100%; }
+.sg-tokens i, .sg-legend i { display: inline-grid; place-items: center; width: 13px; height: 13px; border-radius: 50%; font-style: normal; font-size: 8px; font-weight: 800; color: #111; margin-left: -3px; border: 1px solid rgba(0, 0, 0, .5); }
+.sg-tokens i.me { outline: 2px solid #fff; z-index: 1; } .sg-tokens i.moved { animation: sgHop .6s ease 2; }
+@keyframes sgHop { 50% { transform: translateY(-5px); } }
+.sg-legend { display: flex; flex-wrap: wrap; gap: 2px 10px; justify-content: center; font-size: 11px; color: var(--sub); }
+.sg-legend i { margin: 0 3px 0 0; vertical-align: -2px; }
+
+/* アニソン・ジャンル制覇 */
+.gz { margin-top: 6px; display: grid; gap: 3px; font-size: 11.5px; }
+.gz-cur { text-align: center; font-size: 12px; color: #ffd36b; }
+.gz-row { display: flex; align-items: center; justify-content: space-between; gap: 4px; } .gz-row.me span { color: #8dffc8; }
+.gz-row span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.gz-row i { font-style: normal; display: inline-grid; place-items: center; width: 17px; height: 17px; border-radius: 4px; background: rgba(255, 255, 255, .05); filter: grayscale(1); opacity: .3; font-size: 11px; }
+.gz-row i.on { filter: none; opacity: 1; background: rgba(255, 211, 107, .25); }
+#gzPop .gz-field { width: min(640px, 100%); }
+.gz-cats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.gz-cat { display: grid; gap: 2px; justify-items: center; padding: 12px 6px; margin: 0; width: auto; font-size: 13px; } .gz-cat b { font-size: 26px; }
+.gz-cat.have { opacity: .6; } .gz-cat small { font-size: 10px; color: var(--sub); }
+
+/* アニソン・デッキ構築 */
+.dk { margin-top: 6px; display: grid; gap: 4px; font-size: 11.5px; }
+.dk-coins { text-align: center; color: #ffd36b; }
+.dk-use { display: grid; gap: 3px; } .dk-use .btn-sub { margin: 0; width: 100%; padding: 4px 6px; font-size: 11.5px; }
+#dkPop .dk-field { width: min(760px, 100%); max-height: 98dvh; overflow: hidden; }
+.dk-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.dk-card { display: grid; gap: 3px; text-align: left; padding: clamp(6px, 1.4dvh, 12px); border-radius: 12px; border: 1px solid var(--line); background: rgba(255, 255, 255, .05); color: inherit; cursor: pointer; }
+.dk-card b { font-size: clamp(13px, 2.2dvh, 16px); } .dk-card small { color: var(--sub); font-size: 11px; line-height: 1.35; } .dk-card span { font-size: 12px; color: #ffd36b; }
+.dk-card:hover:not(:disabled) { border-color: #ffd36b; } .dk-card:disabled { opacity: .45; cursor: default; }
+#dkDoneBtn { padding: clamp(6px, 1.2dvh, 12px); }
+
+/* アニソン帰れま10：1画面（左にトップ10の盤、右に候補20曲） */
+#kmPop .km-field { width: min(1100px, 100%); max-height: 98dvh; overflow: hidden; gap: clamp(3px, .9dvh, 8px); padding: clamp(6px, 1.4dvh, 14px); }
+.km-topic { text-align: center; font-size: clamp(12px, 2.1dvh, 15px); } .km-topic b { color: #ffd36b; font-size: clamp(14px, 2.6dvh, 19px); } .km-topic small { color: var(--sub); }
+.km-miss { color: #ff6b8a; letter-spacing: 1px; }
+.km-res { text-align: center; font-size: clamp(12px, 2dvh, 15px); } .km-res.win { color: #8dffc8; font-size: 18px; } .km-res.lose { color: #ff6b8a; font-size: 18px; }
+.km-main { display: grid; grid-template-columns: minmax(170px, 1fr) 3fr; gap: 8px; min-height: 0; }
+.km-board { display: grid; grid-template-rows: repeat(10, minmax(0, 1fr)); gap: 3px; }
+.km-rank { display: grid; grid-template-columns: 24px 1fr; align-items: center; column-gap: 6px; padding: 0 8px; border-radius: 8px; background: rgba(255, 255, 255, .04); border: 1px solid var(--line); height: clamp(22px, 5.2dvh, 40px); overflow: hidden; }
+.km-rank b { font-family: var(--font-num); color: #ffd36b; font-size: clamp(12px, 2.2dvh, 17px); grid-row: span 2; }
+.km-rank span { font-size: clamp(10px, 1.8dvh, 13px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+.km-rank small { font-size: 9.5px; color: var(--sub); line-height: 1; }
+.km-rank.hit { background: rgba(141, 255, 200, .14); border-color: #8dffc8; } .km-rank.open { background: rgba(255, 107, 138, .1); }
+.km-cands { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); gap: 4px; }
+.km-cand { position: relative; display: grid; align-content: center; gap: 1px; padding: 2px 6px; border-radius: 10px; border: 1px solid var(--line); background: rgba(255, 255, 255, .06); color: inherit; text-align: left; height: clamp(34px, 10dvh, 74px); overflow: hidden; cursor: pointer; }
+.km-cand b { font-size: clamp(10.5px, 1.9dvh, 14px); line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.km-cand small { font-size: clamp(9px, 1.4dvh, 11px); color: var(--sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.km-cand i { position: absolute; top: 2px; right: 5px; font-style: normal; font-weight: 800; font-size: 12px; }
+.km-cand.hit { background: rgba(141, 255, 200, .18); border-color: #8dffc8; } .km-cand.miss { background: rgba(255, 107, 138, .14); border-color: #ff6b8a; opacity: .75; } .km-cand.left { border-color: #ffd36b; border-style: dashed; }
+.km-cand:disabled { cursor: default; opacity: 1; } .km-cand.miss:disabled { opacity: .75; }
+.km-cand:hover:not(:disabled) { border-color: #ffd36b; }
+.km-foot { display: grid; gap: 2px; }
+@media (max-width: 700px) { .km-main { grid-template-columns: 1fr 2fr; } .km-cands { grid-template-columns: repeat(2, minmax(0, 1fr)); } .km-cand { height: clamp(28px, 6.5dvh, 50px); } }
+
+/* アニソン・アズール：1画面 */
+#azPop .az-field { width: min(1150px, 100%); max-height: 98dvh; overflow: hidden; gap: clamp(3px, .8dvh, 8px); padding: clamp(6px, 1.3dvh, 14px); }
+.az-main { display: grid; grid-template-columns: 1.15fr 1fr; gap: 10px; min-height: 0; }
+.az-left, .az-right { display: grid; gap: 6px; align-content: start; min-width: 0; }
+.az-facs { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 5px; }
+.az-fac { display: grid; gap: 2px; padding: 4px; border-radius: 50%/18%; background: rgba(255, 255, 255, .04); border: 1px solid var(--line); min-height: 40px; }
+.az-fac.empty { opacity: .35; }
+.az-tile { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 3px; padding: 1px 5px; border-radius: 6px; font-size: clamp(9.5px, 1.6dvh, 12px); line-height: 1.3; border: 1px solid transparent; min-width: 0; }
+.az-tile b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; } .az-tile i { font-style: normal; } .az-tile em { font-style: normal; font-size: 9px; opacity: .6; cursor: pointer; padding: 0 2px; } .az-tile em:hover { opacity: 1; }
+.az-tile.can { cursor: pointer; } .az-tile.can:hover { border-color: #ffd36b; } .az-tile.sel { border-color: #ffd36b; box-shadow: 0 0 0 1px #ffd36b; }
+.c-jump { background: rgba(255, 110, 60, .28); } .c-robot { background: rgba(80, 160, 255, .28); } .c-love { background: rgba(255, 110, 180, .28); } .c-idol { background: rgba(255, 210, 80, .28); } .c-other { background: rgba(120, 220, 140, .25); }
+.az-center { display: grid; gap: 3px; padding: 5px; border-radius: 10px; border: 1px dashed var(--line); } .az-center > div { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 2px; } .az-center small { color: var(--sub); font-size: 10.5px; }
+.az-hand { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 3px; align-items: center; padding: 5px; border-radius: 10px; background: rgba(255, 211, 107, .08); border: 1px solid rgba(255, 211, 107, .4); } .az-hand small { grid-column: 1 / -1; font-size: 11px; color: #ffd36b; } .az-hand [data-hand] { cursor: pointer; } .az-hand .btn-sub { margin: 0; width: auto; padding: 3px 10px; font-size: 12px; }
+.az-board { display: grid; gap: 3px; } .az-board > b { font-size: clamp(11px, 1.8dvh, 13px); }
+.az-row { display: grid; grid-template-columns: 76px 1fr; align-items: center; gap: 6px; padding: 2px 6px; border-radius: 8px; border: 1px solid var(--line); } .az-row b { font-size: 11px; } .az-row > div { display: flex; gap: 3px; justify-content: flex-end; }
+.az-row.can { cursor: pointer; border-color: #ffd36b; } .az-row.can:hover { background: rgba(255, 211, 107, .12); } .az-row.done b::after { content: ' ★'; color: #ffd36b; }
+.az-slot { width: clamp(20px, 4.2dvh, 30px); height: clamp(20px, 4.2dvh, 30px); border-radius: 6px; border: 1px dashed rgba(255, 255, 255, .25); display: grid; place-items: center; font-size: clamp(11px, 2dvh, 15px); } .az-slot[class*="c-"] { border-style: solid; }
+.az-others { display: grid; gap: 3px; } .az-mini { display: flex; gap: 6px; align-items: center; font-size: 11px; color: var(--sub); flex-wrap: wrap; } .az-mini.turn b { color: #ffd36b; } .az-mini i { font-style: normal; padding: 0 4px; border-radius: 4px; background: rgba(255, 255, 255, .06); }
+@media (max-width: 760px) { .az-main { grid-template-columns: 1fr; } .az-facs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* 出題しないジャンル：一括 */
+.genre-ex-bulk { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; } .genre-ex-bulk .btn-sub { width: auto; margin: 0; padding: 4px 12px; font-size: 12px; }
+/* お題を自由に選ぶ（1画面。一覧だけスクロール） */
+#multiPop .mt-field { width: min(980px, 100%); height: min(92dvh, 760px); display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; overflow: hidden; }
+.mt-field .wf-head span { font-size: 11.5px; color: var(--sub); }
+.mt-tabs { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; } .mt-tabs .btn-sub { width: auto; margin: 0; padding: 6px 12px; font-size: 13px; } .mt-tabs .btn-sub.on { border-color: var(--accent); }
+.mt-tabs input { flex: 1 1 180px; min-width: 0; margin: 0; padding: 7px 10px; }
+.mt-list { overflow: auto; min-height: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 4px; align-content: start; }
+.mt-list label { display: flex; align-items: center; gap: 6px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--line); font-size: 12.5px; cursor: pointer; min-width: 0; }
+.mt-list label small { margin-left: auto; color: var(--sub); } .mt-list label.on { border-color: #ffd36b; background: rgba(255, 211, 107, .1); }
+.mt-foot { display: flex; gap: 8px; align-items: center; justify-content: flex-end; flex-wrap: wrap; } .mt-foot span { margin-right: auto; font-size: 12.5px; } .mt-foot .btn-sub, .mt-foot .btn-main { width: auto; margin: 0; padding: 8px 18px; }
+.mt-list label { justify-content: flex-start; text-align: left; font-weight: 600; } .mt-list label input { width: auto; margin: 0; flex: none; }

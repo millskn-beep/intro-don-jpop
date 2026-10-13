@@ -112,7 +112,7 @@ function openEditor(s) {
   if (ytReady) yt.cueVideoById({ videoId: s.id, startSeconds: pos.intro });
   showPos();
   $('repForm').hidden = true; showReportInfo();
-  showGenres(); showMe();
+  showGenres(); showMe(); showFame();
   document.querySelectorAll('.sg-rows li.on').forEach(li => li.classList.remove('on'));
   document.querySelector(`.sg-rows li[data-id="${s.id}"]`)?.classList.add('on');
 }
@@ -157,6 +157,24 @@ function showMe() {
   });
 }
 loadMe();
+
+// ── 知名度を直す（曲ごと）：選ぶと、すぐ出題に使われる ──
+function showFame() {
+  $('edFame').innerHTML = Object.entries(fameLabel).map(([k, label]) => `<label><input type="radio" name="edFameRadio" value="${k}"${selected.fame === k ? ' checked' : ''}> ${esc(label)}</label>`).join('');
+  $('edFameNote').textContent = selected.fameOwn ? 'この知名度は、収録曲一覧から直したものです' : '再生回数などから自動で決めた知名度です。違っていたら選んで直してください（選ぶとすぐ送られます）';
+  $('edFameAuto').hidden = !selected.fameOwn;
+  $('edFame').querySelectorAll('input').forEach(x => x.onchange = () => sendFame({ fame: x.value }, true));
+}
+async function sendFame(body, own) {
+  try {
+    const res = await fetch('/api/song-fame', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: selected.id, ...body }) });
+    const j = await res.json();
+    toast(j.message || j.error || '送れませんでした');
+    if (res.ok) { selected.fame = j.fame; selected.fameOwn = own; showFame(); render(); }
+    else showFame();
+  } catch (e) { toast('送れませんでした'); showFame(); }
+}
+$('edFameAuto').onclick = () => sendFame({ reset: true }, false);
 
 // ── ジャンルを直す（曲ごと）：チェックして送ると、すぐ出題に使われる ──
 function showGenres() {

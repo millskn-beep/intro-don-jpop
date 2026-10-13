@@ -1,0 +1,56 @@
+{
+ "2gAGzN4rjHY": {
+  "pick": "manual",
+  "value": 50.6,
+  "before": 31,
+  "at": "2026-10-13T09:38:27.163Z"
+ },
+ "AL2elWM-y3g": {
+  "pick": "manual",
+  "value": 35.5,
+  "before": 31,
+  "at": "2026-10-13T09:38:57.897Z"
+ },
+ "KRhmy8ZNP3U": {
+  "pick": "learned2",
+  "value": 93,
+  "before": 47,
+  "at": "2026-10-13T09:39:16.710Z"
+ },
+ "omkKMzR_vZY": {
+  "pick": "manual",
+  "value": 75.4,
+  "before": 70,
+  "at": "2026-10-13T09:39:40.590Z"
+ },
+ "r7n-L5B0bBw": {
+  "pick": "manual",
+  "value": 86.7,
+  "before": 31.3,
+  "at": "2026-10-13T09:40:01.141Z"
+ },
+ "Nj7QToGak2E": {
+  "pick": "manual",
+  "value": 64.3,
+  "before": 23,
+  "at": "2026-10-13T09:40:59.190Z"
+ },
+ "VZBU8LvZ91Q": {
+  "pick": "manual",
+  "value": 23,
+  "before": 23,
+  "at": "2026-10-13T09:41:04.067Z"
+ },
+ "KwvDb3b2qWw": {
+  "pick": "manual",
+  "value": 52.4,
+  "before": 48,
+  "at": "2026-10-13T09:41:32.687Z"
+ },
+ "aDehqMVTwJE": {
+  "pick": "manual",
+  "value": 68,
+  "before": 89,
+  "at": "2026-10-13T09:42:30.872Z"
+ }
+}

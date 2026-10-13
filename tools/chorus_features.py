@@ -33,7 +33,9 @@ def targets():
 
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
-    ids = [v for v in targets() if not (OUT / f'{v}.npz').exists()]
+    argv = sys.argv[1:]
+    src = argv[argv.index('--ids') + 1].split(',') if '--ids' in argv else targets()  # --ids a,b,c：指定した曲だけ
+    ids = [v for v in src if not (OUT / f'{v}.npz').exists()]
     print(f'{len(ids)} 曲', flush=True)
     model = load_model()
     for n, vid in enumerate(ids, 1):

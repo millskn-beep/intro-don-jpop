@@ -71,6 +71,19 @@ async function remote(name) {
   if (!DRY && gN) writeJson(SG_PATH, sg);
   console.log(`ジャンルの修正 ${gN} 曲`);
 
+  // ── 知名度の修正（曲ごと）：曲データの fame に入れて、手で決めた印（fameManual）を付ける。自動に戻した曲は印を外して assign-fame で付け直す ──
+  const rfm = await remote('song-fame');
+  let fN = 0, fReset = 0;
+  const rfr = await (async () => { try { const r = await fetch(`${SITE}/api/song-fame`); return (await r.json()).resets || {}; } catch (e) { return {}; } })();
+  if (!DRY) {
+    const songs2 = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8')), by2 = new Map(songs2.map(s => [s.id, s]));
+    for (const [id, f] of Object.entries(rfm || {})) { const s = by2.get(id); if (s && (s.fame !== f.fame || !s.fameManual)) { s.fame = f.fame; s.fameManual = true; fN++; console.log(`  知名度：${f.title} → ${f.fame}`); } }
+    for (const [id, f] of Object.entries(rfr || {})) { const s = by2.get(id); if (s?.fameManual && !(rfm || {})[id]) { delete s.fameManual; fReset++; console.log(`  知名度を自動に戻す：${f.title}`); } }
+    if (fN || fReset) { fs.writeFileSync(SONGS_PATH + '.tmp', JSON.stringify(songs2, null, 2) + '\n'); fs.renameSync(SONGS_PATH + '.tmp', SONGS_PATH); }
+    if (fReset) console.log('  （自動に戻した曲があるので、node tools/assign-fame.js を実行してください）');
+  }
+  console.log(`知名度の修正 ${fN} 曲${fReset ? `、自動に戻す ${fReset} 曲` : ''}`);
+
   // ── 曲が違う／削除を依頼 ──
   const reports = readJson(REPORTS_PATH, {});
   const rr = await remote('reports');

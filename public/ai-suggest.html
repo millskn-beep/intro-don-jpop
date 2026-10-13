@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AIの修正案（サビ）｜アニソンイントロ対戦</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="songs.css">
+<style>
+  .as { max-width: 1100px; margin: 0 auto; padding: 16px; display: grid; gap: 12px; }
+  .as-main { display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 14px; align-items: start; }
+  .as-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; max-height: 80vh; overflow: auto; }
+  .as-list li { padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--glass); cursor: pointer; display: grid; gap: 2px; }
+  .as-list li.on { border-color: var(--accent); background: var(--glass-strong); }
+  .as-list li.done { opacity: .5; }
+  .as-list small { color: var(--sub); }
+  .as-side { position: sticky; top: 12px; padding: 14px; border-radius: 16px; border: 1px solid var(--line); background: var(--glass-strong); display: grid; gap: 8px; }
+  .as-cand { display: grid; grid-template-columns: 1fr auto auto auto; gap: 8px; align-items: center; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line); }
+  .as-cand .val { font-family: var(--font-num); font-size: 18px; font-weight: 800; }
+  .as-cand small { color: var(--sub); display: block; font-weight: 500; }
+  .as-cand .btn-sub, .as-cand .btn-main, .as-side .btn-sub { padding: 6px 12px; font-size: 13px; border-radius: 99px; margin: 0; width: auto; }
+  .as-cand.agree { border-color: #8dffc8; }
+  .as-cand.cur { background: rgba(255, 211, 107, .08); }
+  .as-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .as-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .as-tabs button.on { border-color: var(--accent); }
+  .as-keys { font-size: 11px; color: var(--sub); line-height: 1.6; }
+  @media (max-width: 900px) { .as-main { grid-template-columns: 1fr; } .as-side { position: static; } }
+</style>
+</head>
+<body class="songs-page">
+<div class="backdrop" aria-hidden="true"></div>
+<main class="as">
+  <a class="btn-sub" href="songs.html" style="width:auto;justify-self:start">← 収録曲一覧</a>
+  <h2>AIの修正案（サビの位置） <span id="count"></span></h2>
+  <p class="note" id="intro">いまの値と、AI（学習で選んだ値・構造解析AI）の案を、聴き比べて決めます。決めた位置は曲データに入り、次の学習の「正解」にもなります（このPCから開いたときだけ使えます）。</p>
+  <div class="as-tabs" id="tabs"><button class="btn-sub on" data-tab="todo" type="button">未確認</button><button class="btn-sub" data-tab="done" type="button">確認済み</button></div>
+  <div class="as-main">
+    <ul class="as-list" id="list"><li>読み込み中…</li></ul>
+    <aside class="as-side" id="side" hidden>
+      <b id="sTitle"></b><small id="sMeta"></small>
+      <div class="ed-player"><div id="player"></div></div>
+      <div id="cands"></div>
+      <div class="as-row"><span>自分で決める</span><b class="val" id="vManual" style="font-family:var(--font-num);font-size:18px"></b>
+        <button class="btn-sub" data-d="-1" type="button">−1</button><button class="btn-sub" data-d="-0.1" type="button">−0.1</button>
+        <button class="btn-sub" data-d="0.1" type="button">+0.1</button><button class="btn-sub" data-d="1" type="button">+1</button>
+        <button class="btn-sub" id="nowBtn" type="button">今の位置（N）</button><button class="btn-sub" id="playManual" type="button">▶</button>
+        <button class="btn-main" id="setBtn" type="button" style="padding:6px 14px;font-size:13px;width:auto;margin:0">この位置で決める</button></div>
+      <p class="note" id="sNote"></p>
+      <div class="as-keys">1〜4：案を聴く　Shift+1〜4：その案で決める　N：今の位置　J・K：次・前の曲　スペース：止める・流す</div>
+    </aside>
+  </div>
+</main>
+<div class="toast" id="toast" hidden></div>
+<script src="ai-suggest.js"></script>
+</body>
+</html>

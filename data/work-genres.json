@@ -4,7 +4,8 @@
   "sf"
  ],
  "ルパン三世 カリオストロの城": [
-  "movie"
+  "movie",
+  "action"
  ],
  "ニルスのふしぎな旅": [
   "kids"
@@ -20,11 +21,13 @@
   "robot"
  ],
  "うる星やつら": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "Dr.スランプ アラレちゃん": [
   "jump",
-  "kids"
+  "kids",
+  "drama"
  ],
  "機動戦士ガンダムII 哀・戦士編": [
   "robot",
@@ -32,7 +35,8 @@
  ],
  "スペースコブラ": [
   "jump",
-  "sf"
+  "sf",
+  "action"
  ],
  "超時空要塞マクロス": [
   "robot",
@@ -43,17 +47,23 @@
   "movie"
  ],
  "魔法のプリンセス ミンキーモモ": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "戦闘メカ ザブングル": [
   "robot"
  ],
- "さすがの猿飛": [],
+ "さすがの猿飛": [
+  "action",
+  "romcom"
+ ],
  "キャッツ・アイ": [
-  "jump"
+  "jump",
+  "action"
  ],
  "キン肉マン": [
-  "jump"
+  "jump",
+  "action"
  ],
  "聖戦士ダンバイン": [
   "robot",
@@ -61,7 +71,8 @@
  ],
  "魔法の天使クリィミーマミ": [
   "kids",
-  "idol"
+  "idol",
+  "mahou"
  ],
  "装甲騎兵ボトムズ": [
   "robot"
@@ -77,7 +88,8 @@
   "robot"
  ],
  "北斗の拳": [
-  "jump"
+  "jump",
+  "action"
  ],
  "超時空要塞マクロス 愛・おぼえていますか": [
   "robot",
@@ -85,7 +97,8 @@
   "movie"
  ],
  "名探偵ホームズ": [
-  "kids"
+  "kids",
+  "horror"
  ],
  "風の谷のナウシカ": [
   "ghibli",
@@ -95,14 +108,17 @@
   "robot"
  ],
  "ハイスクール!奇面組": [
-  "jump"
+  "jump",
+  "drama"
  ],
  "ゲゲゲの鬼太郎（第3作）": [
-  "kids"
+  "kids",
+  "horror"
  ],
  "タッチ": [
   "sports",
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "蒼き流星SPTレイズナー": [
   "robot"
@@ -115,17 +131,20 @@
   "robot"
  ],
  "北斗の拳2": [
-  "jump"
+  "jump",
+  "action"
  ],
  "機動戦士ガンダムZZ": [
   "robot"
  ],
  "聖闘士星矢": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ドラゴンボール": [
   "jump",
-  "kids"
+  "kids",
+  "action"
  ],
  "天空の城ラピュタ": [
   "ghibli",
@@ -135,7 +154,8 @@
   "romcom"
  ],
  "シティーハンター": [
-  "jump"
+  "jump",
+  "action"
  ],
  "きまぐれオレンジ☆ロード": [
   "jump",
@@ -149,7 +169,8 @@
   "movie"
  ],
  "シティーハンター2": [
-  "jump"
+  "jump",
+  "action"
  ],
  "それいけ!アンパンマン": [
   "kids"
@@ -157,20 +178,25 @@
  "キテレツ大百科": [
   "kids"
  ],
- "鎧伝サムライトルーパー": [],
+ "鎧伝サムライトルーパー": [
+  "action"
+ ],
  "となりのトトロ": [
   "ghibli",
   "movie"
  ],
  "ドラゴンボールZ": [
   "jump",
-  "kids"
+  "kids",
+  "action"
  ],
  "シティーハンター3": [
-  "jump"
+  "jump",
+  "action"
  ],
  "らんま1/2": [
-  "romcom"
+  "romcom",
+  "action"
  ],
  "魔女の宅急便": [
   "ghibli",
@@ -180,7 +206,8 @@
   "sports"
  ],
  "ちびまる子ちゃん": [
-  "kids"
+  "kids",
+  "drama"
  ],
  "楽しいムーミン一家": [
   "kids"
@@ -198,19 +225,23 @@
  ],
  "おもひでぽろぽろ": [
   "ghibli",
-  "movie"
+  "movie",
+  "drama"
  ],
  "クレヨンしんちゃん": [
-  "kids"
+  "kids",
+  "drama"
  ],
  "ドラえもん": [
   "kids"
  ],
  "幽☆遊☆白書": [
-  "jump"
+  "jump",
+  "action"
  ],
  "美少女戦士セーラームーン": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "ドラえもん のび太と雲の王国": [
   "movie",
@@ -221,20 +252,24 @@
   "movie"
  ],
  "姫ちゃんのリボン": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "SLAM DUNK": [
   "jump",
   "sports"
  ],
  "美少女戦士セーラームーンR": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "忍たま乱太郎": [
-  "kids"
+  "kids",
+  "drama"
  ],
  "機動武闘伝Gガンダム": [
-  "robot"
+  "robot",
+  "action"
  ],
  "マクロス7": [
   "robot",
@@ -247,7 +282,8 @@
   "romcom"
  ],
  "魔法陣グルグル": [
-  "isekai"
+  "isekai",
+  "drama"
  ],
  "新世紀エヴァンゲリオン": [
   "robot"
@@ -260,20 +296,25 @@
  ],
  "耳をすませば": [
   "ghibli",
-  "movie"
+  "movie",
+  "drama"
  ],
  "NINKU -忍空-": [
-  "jump"
+  "jump",
+  "action"
  ],
  "るろうに剣心": [
-  "jump"
+  "jump",
+  "action",
+  "drama"
  ],
  "機動戦士ガンダム 第08MS小隊": [
   "robot"
  ],
  "ドラゴンボールGT": [
   "jump",
-  "kids"
+  "kids",
+  "action"
  ],
  "スレイヤーズNEXT": [
   "isekai"
@@ -289,15 +330,20 @@
   "isekai"
  ],
  "名探偵コナン": [
-  "kids"
+  "kids",
+  "horror"
  ],
  "サクラ大戦": [
   "game",
   "robot"
  ],
- "CLAMP学園探偵団": [],
+ "CLAMP学園探偵団": [
+  "horror",
+  "drama"
+ ],
  "剣風伝奇ベルセルク": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ポケットモンスター": [
   "game",
@@ -307,7 +353,9 @@
   "ghibli",
   "movie"
  ],
- "中華一番!": [],
+ "中華一番!": [
+  "drama"
+ ],
  "新世紀エヴァンゲリオン劇場版": [
   "robot",
   "movie"
@@ -315,15 +363,21 @@
  "勇者王ガオガイガー": [
   "robot"
  ],
- "少女革命ウテナ": [],
+ "少女革命ウテナ": [
+  "drama",
+  "action"
+ ],
  "カードキャプターさくら": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "serial experiments lain": [
-  "sf"
+  "sf",
+  "horror"
  ],
  "カウボーイビバップ": [
-  "sf"
+  "sf",
+  "action"
  ],
  "おじゃる丸": [
   "kids"
@@ -342,27 +396,36 @@
  "デジモンアドベンチャー": [
   "kids"
  ],
- "GTO": [],
+ "GTO": [
+  "drama"
+ ],
  "ONE PIECE": [
-  "jump"
+  "jump",
+  "action"
  ],
  "魔術士オーフェン": [
   "isekai"
  ],
  "おジャ魔女どれみ": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "∀ガンダム": [
   "robot"
  ],
  "こちら葛飾区亀有公園前派出所": [
-  "jump"
+  "jump",
+  "drama"
  ],
  "メダロット": [
   "game",
   "kids"
  ],
- "犬夜叉": [],
+ "犬夜叉": [
+  "action",
+  "horror",
+  "romcom"
+ ],
  "フリクリ": [
   "sf"
  ],
@@ -370,7 +433,8 @@
   "kids"
  ],
  "おジャ魔女どれみ♯": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "とっとこハム太郎": [
   "kids"
@@ -394,7 +458,8 @@
   "sf"
  ],
  "シャーマンキング": [
-  "jump"
+  "jump",
+  "action"
  ],
  "千と千尋の神隠し": [
   "ghibli",
@@ -407,7 +472,8 @@
   "romcom"
  ],
  "攻殻機動隊 STAND ALONE COMPLEX": [
-  "sf"
+  "sf",
+  "action"
  ],
  "機動戦士ガンダムSEED": [
   "robot"
@@ -420,7 +486,8 @@
   "kids"
  ],
  "NARUTO -ナルト-": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ポケットモンスター アドバンスジェネレーション": [
   "game",
@@ -447,9 +514,13 @@
   "movie"
  ],
  "金色のガッシュベル!!": [
-  "kids"
+  "kids",
+  "action"
  ],
- "鋼の錬金術師": [],
+ "鋼の錬金術師": [
+  "action",
+  "isekai"
+ ],
  "無人惑星サヴァイヴ": [
   "sf",
   "kids"
@@ -458,20 +529,33 @@
   "sf"
  ],
  "BLEACH": [
-  "jump"
+  "jump",
+  "action"
  ],
- "サムライチャンプルー": [],
+ "サムライチャンプルー": [
+  "action",
+  "drama"
+ ],
  "ふたりはプリキュア": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "BECK": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "機動戦士ガンダムSEED DESTINY": [
   "robot"
  ],
- "魔法少女リリカルなのは": [],
- "エルフェンリート": [],
+ "魔法少女リリカルなのは": [
+  "mahou",
+  "action"
+ ],
+ "エルフェンリート": [
+  "horror",
+  "sf",
+  "action"
+ ],
  "蒼穹のファフナー": [
   "robot"
  ],
@@ -480,7 +564,8 @@
   "kids"
  ],
  "ケロロ軍曹": [
-  "kids"
+  "kids",
+  "drama"
  ],
  "SDガンダムフォース": [
   "robot",
@@ -489,12 +574,20 @@
  "スクールランブル": [
   "romcom"
  ],
- "ローゼンメイデン": [],
- "ブラック・ジャック": [],
+ "ローゼンメイデン": [
+  "action",
+  "drama"
+ ],
+ "ブラック・ジャック": [
+  "drama"
+ ],
  "メジャー": [
   "sports"
  ],
- "魔法少女リリカルなのはA's": [],
+ "魔法少女リリカルなのはA's": [
+  "mahou",
+  "action"
+ ],
  "交響詩篇エウレカセブン": [
   "robot"
  ],
@@ -503,9 +596,14 @@
   "sports"
  ],
  "劇場版 鋼の錬金術師 シャンバラを征く者": [
-  "movie"
+  "movie",
+  "action",
+  "isekai"
  ],
- "バジリスク ～甲賀忍法帖～": [],
+ "バジリスク ～甲賀忍法帖～": [
+  "action",
+  "drama"
+ ],
  "魔法先生ネギま!": [
   "romcom"
  ],
@@ -513,40 +611,55 @@
   "isekai"
  ],
  "ハチミツとクローバー": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "甲虫王者ムシキング 〜森の民の伝説〜": [
   "game",
   "kids"
  ],
- "BLOOD+": [],
+ "BLOOD+": [
+  "action",
+  "horror"
+ ],
  "創聖のアクエリオン": [
   "robot"
  ],
- "灼眼のシャナ": [],
+ "灼眼のシャナ": [
+  "action",
+  "isekai"
+ ],
  "NANA": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "コードギアス 反逆のルルーシュ": [
   "robot"
  ],
  "Fate/stay night": [
-  "galge"
+  "galge",
+  "action"
  ],
  "家庭教師ヒットマンREBORN!": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ゼロの使い魔": [
   "isekai",
   "romcom"
  ],
- "涼宮ハルヒの憂鬱": [],
+ "涼宮ハルヒの憂鬱": [
+  "sf",
+  "nichijou",
+  "drama"
+ ],
  "恋する天使アンジェリーク〜心のめざめる時〜": [
   "game",
   "isekai"
  ],
  "D.Gray-man": [
-  "jump"
+  "jump",
+  "action"
  ],
  "WILD ARMS the Vth Vanguard": [
   "game"
@@ -555,24 +668,33 @@
   "galge"
  ],
  "銀魂": [
-  "jump"
+  "jump",
+  "action",
+  "drama"
  ],
- "BLACK LAGOON": [],
+ "BLACK LAGOON": [
+  "action"
+ ],
  "DEATH NOTE": [
-  "jump"
+  "jump",
+  "horror"
  ],
  "ポケットモンスター ダイヤモンド&パール": [
   "game",
   "kids"
  ],
  "ひぐらしのなく頃に": [
-  "galge"
+  "galge",
+  "horror"
  ],
  "時をかける少女": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
- "働きマン": [],
+ "働きマン": [
+  "drama"
+ ],
  "ゲド戦記": [
   "ghibli",
   "movie"
@@ -582,7 +704,8 @@
   "kids"
  ],
  "ハチミツとクローバーII": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "映画ドラえもん のび太の恐竜2006": [
   "movie",
@@ -597,7 +720,8 @@
   "romcom"
  ],
  "武装錬金": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ツバサ・クロニクル 第2シリーズ": [
   "isekai"
@@ -607,7 +731,8 @@
   "movie"
  ],
  "Angel Beats!": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "機動戦士ガンダム00": [
   "robot"
@@ -623,29 +748,39 @@
   "robot"
  ],
  "NARUTO -ナルト- 疾風伝": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ゼロの使い魔 〜双月の騎士〜": [
   "isekai",
   "romcom"
  ],
- "灼眼のシャナII": [],
- "魔法少女リリカルなのはStrikerS": [],
+ "灼眼のシャナII": [
+  "action",
+  "isekai"
+ ],
+ "魔法少女リリカルなのはStrikerS": [
+  "mahou",
+  "action"
+ ],
  "秒速5センチメートル": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
  "ぼくらの": [
   "robot"
  ],
  "しゅごキャラ!": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "ひだまりスケッチ×365": [
   "nichijou"
  ],
  "CLANNAD": [
-  "galge"
+  "galge",
+  "drama"
  ],
  "おおきく振りかぶって": [
   "sports"
@@ -660,21 +795,28 @@
   "robot"
  ],
  "劇場版 空の境界 第二章 殺人考察（前）": [
-  "movie"
+  "movie",
+  "horror",
+  "action"
  ],
  "みなみけ": [
   "nichijou"
  ],
- "さよなら絶望先生": [],
+ "さよなら絶望先生": [
+  "drama"
+ ],
  "ひぐらしのなく頃に解": [
-  "galge"
+  "galge",
+  "horror"
  ],
  "恋する天使アンジェリーク〜かがやきの明日〜": [
   "game",
   "isekai"
  ],
  "劇場版 空の境界 第四章 伽藍の洞": [
-  "movie"
+  "movie",
+  "horror",
+  "action"
  ],
  "ロザリオとバンパイア": [
   "romcom",
@@ -685,16 +827,22 @@
   "jump"
  ],
  "CHAOS;HEAD": [
-  "game"
+  "game",
+  "horror"
  ],
  "劇場版 空の境界 第六章 忘却録音": [
-  "movie"
+  "movie",
+  "horror",
+  "action"
  ],
  "To LOVEる -とらぶる-": [
   "jump",
   "romcom"
  ],
- "黒執事": [],
+ "黒執事": [
+  "horror",
+  "action"
+ ],
  "かんなぎ": [
   "romcom"
  ],
@@ -702,37 +850,60 @@
   "robot"
  ],
  "劇場版 空の境界": [
-  "movie"
+  "movie",
+  "horror",
+  "action"
  ],
- "ソウルイーター": [],
- "喰霊-零-": [],
- "とある魔術の禁書目録": [],
+ "ソウルイーター": [
+  "action"
+ ],
+ "喰霊-零-": [
+  "action",
+  "horror"
+ ],
+ "とある魔術の禁書目録": [
+  "action",
+  "sf"
+ ],
  "劇場版 空の境界 第五章 矛盾螺旋": [
-  "movie"
+  "movie",
+  "horror",
+  "action"
  ],
- "ストライクウィッチーズ": [],
+ "ストライクウィッチーズ": [
+  "action",
+  "sf"
+ ],
  "CLANNAD 〜AFTER STORY〜": [
-  "galge"
+  "galge",
+  "drama"
  ],
  "マクロスF": [
   "robot",
   "idol"
  ],
  "ペルソナ 〜トリニティ・ソウル〜": [
-  "game"
+  "game",
+  "horror"
  ],
- "夏目友人帳": [],
+ "夏目友人帳": [
+  "horror",
+  "drama"
+ ],
  "テイルズ オブ ジ アビス": [
   "game",
   "isekai"
  ],
  "ブラスレイター": [
-  "sf"
+  "sf",
+  "action"
  ],
  "とらドラ!": [
   "romcom"
  ],
- "墓場鬼太郎": [],
+ "墓場鬼太郎": [
+  "horror"
+ ],
  "ヤッターマン": [
   "kids"
  ],
@@ -747,7 +918,9 @@
   "romcom"
  ],
  "劇場版 空の境界 第三章 痛覚残留": [
-  "movie"
+  "movie",
+  "horror",
+  "action"
  ],
  "イナズマイレブン": [
   "game",
@@ -756,7 +929,8 @@
  ],
  "劇場版 BLEACH Fade to Black 君の名を呼ぶ": [
   "jump",
-  "movie"
+  "movie",
+  "action"
  ],
  "狼と香辛料": [
   "isekai",
@@ -768,48 +942,72 @@
  "FORTUNE ARTERIAL 赤い約束": [
   "galge"
  ],
- "鋼の錬金術師 FULLMETAL ALCHEMIST": [],
- "化物語": [],
+ "鋼の錬金術師 FULLMETAL ALCHEMIST": [
+  "action",
+  "isekai"
+ ],
+ "化物語": [
+  "horror",
+  "romcom"
+ ],
  "けいおん!": [
   "nichijou",
   "idol"
  ],
  "ドラゴンボール改": [
   "jump",
-  "kids"
+  "kids",
+  "action"
  ],
  "戦国BASARA": [
-  "game"
+  "game",
+  "action"
  ],
- "NEEDLESS": [],
- "とある科学の超電磁砲": [],
+ "NEEDLESS": [
+  "action"
+ ],
+ "とある科学の超電磁砲": [
+  "action",
+  "sf"
+ ],
  "劇場版 空の境界 第七章 殺人考察（後）": [
-  "movie"
+  "movie",
+  "horror",
+  "action"
  ],
  "NARUTO -ナルト- 少年篇": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ひぐらしのなく頃に礼": [
-  "galge"
+  "galge",
+  "horror"
  ],
- "黒神 The Animation": [],
+ "黒神 The Animation": [
+  "action"
+ ],
  "うみねこのなく頃に": [
-  "galge"
+  "galge",
+  "horror"
  ],
  "シャングリ・ラ": [
   "sf"
  ],
  "君に届け": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "STEINS;GATE": [
   "game",
   "sf"
  ],
  "DARKER THAN BLACK -流星の双子-": [
-  "sf"
+  "sf",
+  "action"
  ],
- "こばと。": [],
+ "こばと。": [
+  "drama"
+ ],
  "劇場版ポケットモンスター ダイヤモンド・パール アルセウス 超克の時空へ": [
   "game",
   "kids",
@@ -819,14 +1017,17 @@
   "galge"
  ],
  "ハートキャッチプリキュア!": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "借りぐらしのアリエッティ": [
   "ghibli",
   "movie"
  ],
  "魔法少女リリカルなのは The MOVIE 1st": [
-  "movie"
+  "movie",
+  "mahou",
+  "action"
  ],
  "それでも町は廻っている": [
   "nichijou"
@@ -841,8 +1042,14 @@
  "俺の妹がこんなに可愛いわけがない": [
   "romcom"
  ],
- "夜桜四重奏 〜ホシノウミ〜": [],
- "とある魔術の禁書目録II": [],
+ "夜桜四重奏 〜ホシノウミ〜": [
+  "action",
+  "horror"
+ ],
+ "とある魔術の禁書目録II": [
+  "action",
+  "sf"
+ ],
  "バカとテストと召喚獣": [
   "romcom"
  ],
@@ -852,31 +1059,48 @@
  "咎狗の血": [
   "game"
  ],
- "黒執事II": [],
- "デュラララ!!": [],
+ "黒執事II": [
+  "horror",
+  "action"
+ ],
+ "デュラララ!!": [
+  "action",
+  "horror"
+ ],
  "無限のフロンティアEXCEED スーパーロボット大戦OGサーガ": [
   "game"
  ],
- "ソウルイーター リピートショー": [],
+ "ソウルイーター リピートショー": [
+  "action"
+ ],
  "劇場版 銀魂 新訳紅桜篇": [
   "jump",
-  "movie"
+  "movie",
+  "action",
+  "drama"
  ],
  "ポケットモンスター ベストウイッシュ": [
   "game",
   "kids"
  ],
  "戦国BASARA弐": [
-  "game"
+  "game",
+  "action"
  ],
- "最強武将伝・三国演義": [],
+ "最強武将伝・三国演義": [
+  "drama",
+  "action"
+ ],
  "おおきく振りかぶって〜夏の大会編〜": [
   "sports"
  ],
  "素晴らしき日々 ～不連続存在～": [
   "galge"
  ],
- "ソ・ラ・ノ・ヲ・ト": [],
+ "ソ・ラ・ノ・ヲ・ト": [
+  "nichijou",
+  "sf"
+ ],
  "侵略!イカ娘": [
   "nichijou"
  ],
@@ -891,7 +1115,9 @@
  "ラブライブ!": [
   "idol"
  ],
- "四畳半神話大系": [],
+ "四畳半神話大系": [
+  "drama"
+ ],
  "ファイ・ブレイン 神のパズル": [
   "kids"
  ],
@@ -902,16 +1128,20 @@
   "galge"
  ],
  "青の祓魔師": [
-  "jump"
+  "jump",
+  "action"
  ],
  "HUNTER×HUNTER": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ギルティクラウン": [
   "sf"
  ],
  "劇場版 鋼の錬金術師 嘆きの丘の聖なる星": [
-  "movie"
+  "movie",
+  "action",
+  "isekai"
  ],
  "イナズマイレブンGO": [
   "game",
@@ -923,74 +1153,110 @@
   "romcom"
  ],
  "べるぜバブ": [
-  "jump"
+  "jump",
+  "action"
  ],
- "魔法少女まどか☆マギカ": [],
- "Fate/Zero": [],
+ "魔法少女まどか☆マギカ": [
+  "mahou",
+  "drama"
+ ],
+ "Fate/Zero": [
+  "game",
+  "action"
+ ],
  "電波女と青春男": [
   "romcom"
  ],
- "緋弾のアリア": [],
+ "緋弾のアリア": [
+  "action",
+  "romcom"
+ ],
  "DOG DAYS": [
   "isekai"
  ],
- "あの日見た花の名前を僕達はまだ知らない。": [],
+ "あの日見た花の名前を僕達はまだ知らない。": [
+  "drama"
+ ],
  "IS〈インフィニット・ストラトス〉": [
   "romcom"
  ],
  "ちはやふる": [
-  "sports"
+  "sports",
+  "drama"
  ],
  "たまゆら〜hitotose〜": [
   "nichijou"
  ],
- "TIGER & BUNNY": [],
+ "TIGER & BUNNY": [
+  "action"
+ ],
  "花咲くいろは": [
-  "nichijou"
+  "nichijou",
+  "drama"
  ],
  "日常": [
-  "nichijou"
+  "nichijou",
+  "drama"
  ],
  "戦場のヴァルキュリア3": [
-  "game"
+  "game",
+  "action"
  ],
  "ゆるゆり": [
   "nichijou"
  ],
- "未来日記": [],
+ "未来日記": [
+  "horror",
+  "action"
+ ],
  "僕は友達が少ない": [
   "romcom"
  ],
- "BLOOD-C": [],
- "輪るピングドラム": [],
+ "BLOOD-C": [
+  "horror",
+  "action"
+ ],
+ "輪るピングドラム": [
+  "drama"
+ ],
  "No.6": [
   "sf"
  ],
  "PSYCHO-PASS サイコパス": [
-  "sf"
+  "sf",
+  "action",
+  "horror"
  ],
  "機動戦士ガンダムAGE": [
   "robot"
  ],
  "魔法少女リリカルなのは The MOVIE 2nd A's": [
-  "movie"
+  "movie",
+  "mahou",
+  "action"
  ],
  "黒子のバスケ": [
   "jump",
   "sports"
  ],
  "アクセル・ワールド": [
-  "sf"
+  "sf",
+  "action"
  ],
  "黄昏乙女×アムネジア": [
-  "romcom"
+  "romcom",
+  "horror"
  ],
  "ソードアート・オンライン": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "CØDE:BREAKER": [],
+ "CØDE:BREAKER": [
+  "action"
+ ],
  "さくら荘のペットな彼女": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "ガールズ&パンツァー": [
   "sports"
@@ -1001,18 +1267,25 @@
  "中二病でも恋がしたい!": [
   "romcom"
  ],
- "K": [],
+ "K": [
+  "action"
+ ],
  "スマイルプリキュア!": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "リトルバスターズ!": [
-  "galge"
+  "galge",
+  "drama"
  ],
  "トリコ": [
-  "jump"
+  "jump",
+  "action"
  ],
  "劇場版 BLOOD-C The Last Dark": [
-  "movie"
+  "movie",
+  "action",
+  "horror"
  ],
  "ギルティクラウン ロストクリスマス": [
   "game"
@@ -1025,27 +1298,43 @@
   "idol",
   "kids"
  ],
- "偽物語": [],
+ "偽物語": [
+  "horror",
+  "romcom"
+ ],
  "戦姫絶唱シンフォギア": [
-  "idol"
+  "idol",
+  "action"
  ],
  "マギ": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "もやしもん リターンズ": [],
- "BTOOOM!": [],
+ "もやしもん リターンズ": [
+  "drama"
+ ],
+ "BTOOOM!": [
+  "action",
+  "sf"
+ ],
  "夏雪ランデブー": [
   "romcom"
  ],
  "宇宙兄弟": [
-  "sf"
+  "sf",
+  "drama"
  ],
  "ジョジョの奇妙な冒険": [
-  "jump"
+  "jump",
+  "action"
  ],
- "テルマエ・ロマエ": [],
+ "テルマエ・ロマエ": [
+  "drama"
+ ],
  "劇場版 魔法少女まどか☆マギカ": [
-  "movie"
+  "movie",
+  "mahou",
+  "drama"
  ],
  "エウレカセブンAO": [
   "robot"
@@ -1063,7 +1352,8 @@
   "sf"
  ],
  "劇場版 TIGER & BUNNY -The Beginning-": [
-  "movie"
+  "movie",
+  "action"
  ],
  "To LOVEる -とらぶる- ダークネス": [
   "jump",
@@ -1073,9 +1363,12 @@
   "game",
   "isekai"
  ],
- "Another": [],
+ "Another": [
+  "horror"
+ ],
  "坂道のアポロン": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "ヱヴァンゲリヲン新劇場版:Q": [
   "robot",
@@ -1084,42 +1377,73 @@
  "這いよれ!ニャル子さん": [
   "romcom"
  ],
- "Fate/Zero 2ndシーズン": [],
- "氷菓": [],
- "劇場版 魔法少女まどか☆マギカ [前編] 始まりの物語": [
-  "movie"
+ "Fate/Zero 2ndシーズン": [
+  "game",
+  "action"
  ],
- "フリージング ヴァイブレーション": [],
+ "氷菓": [
+  "horror",
+  "drama"
+ ],
+ "劇場版 魔法少女まどか☆マギカ [前編] 始まりの物語": [
+  "movie",
+  "mahou",
+  "drama"
+ ],
+ "フリージング ヴァイブレーション": [
+  "action",
+  "sf"
+ ],
  "ジョジョの奇妙な冒険 戦闘潮流": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ドラゴンボールZ 神と神": [
   "jump",
   "movie",
-  "kids"
+  "kids",
+  "action"
  ],
- "境界の彼方": [],
+ "境界の彼方": [
+  "action",
+  "horror"
+ ],
  "ログ・ホライズン": [
   "isekai"
  ],
- "とある科学の超電磁砲S": [],
+ "とある科学の超電磁砲S": [
+  "action",
+  "sf"
+ ],
  "ダイヤのA": [
   "sports"
  ],
- "進撃の巨人": [],
- "ドキドキ!プリキュア": [
-  "kids"
+ "進撃の巨人": [
+  "action",
+  "horror"
  ],
- "銀の匙 Silver Spoon": [],
+ "ドキドキ!プリキュア": [
+  "kids",
+  "mahou"
+ ],
+ "銀の匙 Silver Spoon": [
+  "drama"
+ ],
  "きんいろモザイク": [
   "nichijou"
  ],
- "サムライフラメンコ": [],
+ "サムライフラメンコ": [
+  "action",
+  "drama"
+ ],
  "凪のあすから": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "劇場版 魔法少女まどか☆マギカ [新編] 叛逆の物語": [
-  "movie"
+  "movie",
+  "mahou",
+  "drama"
  ],
  "革命機ヴァルヴレイヴ": [
   "robot"
@@ -1133,8 +1457,14 @@
  "蒼き鋼のアルペジオ -アルス・ノヴァ-": [
   "sf"
  ],
- "〈物語〉シリーズ セカンドシーズン": [],
- "Fate/kaleid liner プリズマ☆イリヤ": [],
+ "〈物語〉シリーズ セカンドシーズン": [
+  "horror",
+  "romcom"
+ ],
+ "Fate/kaleid liner プリズマ☆イリヤ": [
+  "mahou",
+  "action"
+ ],
  "機動戦士ガンダムUC": [
   "robot"
  ],
@@ -1142,22 +1472,38 @@
   "jump",
   "sports"
  ],
- "ぎんぎつね": [],
- "幻影ヲ駆ケル太陽": [],
+ "ぎんぎつね": [
+  "drama",
+  "horror"
+ ],
+ "幻影ヲ駆ケル太陽": [
+  "mahou",
+  "horror"
+ ],
  "ポケットモンスター XY": [
   "game",
   "kids"
  ],
  "戦姫絶唱シンフォギアG": [
-  "idol"
+  "idol",
+  "action"
  ],
- "ブラッドラッド": [],
- "東京レイヴンズ": [],
+ "ブラッドラッド": [
+  "action",
+  "horror"
+ ],
+ "東京レイヴンズ": [
+  "action",
+  "horror"
+ ],
  "劇場版 空の境界 未来福音": [
-  "movie"
+  "movie",
+  "horror",
+  "action"
  ],
  "やはり俺の青春ラブコメはまちがっている。": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "イナズマイレブンGO ギャラクシー": [
   "game",
@@ -1165,17 +1511,28 @@
   "sports"
  ],
  "劇場版 魔法少女まどか☆マギカ 新編 叛逆の物語": [
-  "movie"
+  "movie",
+  "mahou",
+  "drama"
  ],
  "ドラッグ オン ドラグーン3": [
-  "game"
+  "game",
+  "action"
  ],
- "有頂天家族": [],
+ "有頂天家族": [
+  "drama",
+  "horror"
+ ],
  "ゴールデンタイム": [
   "romcom"
  ],
- "キルラキル": [],
- "夜桜四重奏 〜ツキニナク〜": [],
+ "キルラキル": [
+  "action"
+ ],
+ "夜桜四重奏 〜ツキニナク〜": [
+  "action",
+  "horror"
+ ],
  "ゆゆ式": [
   "nichijou"
  ],
@@ -1193,7 +1550,8 @@
  ],
  "風立ちぬ": [
   "ghibli",
-  "movie"
+  "movie",
+  "drama"
  ],
  "うたの☆プリンスさまっ♪ マジLOVE1000%": [
   "game",
@@ -1206,26 +1564,41 @@
   "sf",
   "movie"
  ],
- "機巧少女は傷つかない": [],
+ "機巧少女は傷つかない": [
+  "action",
+  "isekai"
+ ],
  "革命機ヴァルヴレイヴ 2nd SEASON": [
   "robot"
  ],
  "劇場版 銀魂 完結篇 万事屋よ永遠なれ": [
   "jump",
-  "movie"
+  "movie",
+  "action",
+  "drama"
  ],
- "夜桜四重奏 〜ハナノウタ〜": [],
- "私がモテないのはどう考えてもお前らが悪い!": [],
+ "夜桜四重奏 〜ハナノウタ〜": [
+  "action",
+  "horror"
+ ],
+ "私がモテないのはどう考えてもお前らが悪い!": [
+  "drama"
+ ],
  "劇場版 HUNTER×HUNTER The LAST MISSION": [
   "jump",
-  "movie"
+  "movie",
+  "action"
  ],
- "カーニヴァル": [],
+ "カーニヴァル": [
+  "action",
+  "sf"
+ ],
  "這いよれ!ニャル子さんW": [
   "romcom"
  ],
  "七つの大罪": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "Wake Up, Girls!": [
   "idol"
@@ -1237,12 +1610,17 @@
  "アルドノア・ゼロ": [
   "robot"
  ],
- "世界征服〜謀略のズヴィズダー〜": [],
+ "世界征服〜謀略のズヴィズダー〜": [
+  "action",
+  "drama"
+ ],
  "Fate/stay night [Unlimited Blade Works]": [
-  "galge"
+  "galge",
+  "action"
  ],
  "ブラック・ブレット": [
-  "sf"
+  "sf",
+  "action"
  ],
  "ガンダム Gのレコンギスタ": [
   "robot"
@@ -1251,43 +1629,68 @@
   "sf",
   "movie"
  ],
- "憑物語": [],
+ "憑物語": [
+  "horror",
+  "romcom"
+ ],
  "Fate/hollow ataraxia": [
-  "galge"
+  "galge",
+  "action"
  ],
  "ニセコイ": [
   "jump",
   "romcom"
  ],
  "ソードアート・オンラインII": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ご注文はうさぎですか?": [
   "nichijou"
  ],
- "メカクシティアクターズ": [],
+ "メカクシティアクターズ": [
+  "sf",
+  "drama"
+ ],
  "Pentakill": [
   "lol"
  ],
  "弱虫ペダル GRANDE ROAD": [
   "sports"
  ],
- "ウィッチクラフトワークス": [],
+ "ウィッチクラフトワークス": [
+  "action",
+  "romcom"
+ ],
  "Free! Eternal Summer": [
   "sports"
  ],
  "PSYCHO-PASS サイコパス 2": [
+  "sf",
+  "action",
+  "horror"
+ ],
+ "魔法科高校の劣等生": [
+  "action",
   "sf"
  ],
- "魔法科高校の劣等生": [],
  "劇場版 TIGER & BUNNY -The Rising-": [
-  "movie"
+  "movie",
+  "action"
  ],
- "selector infected WIXOSS": [],
+ "selector infected WIXOSS": [
+  "game",
+  "drama"
+ ],
  "寄生獣 セイの格率": [
-  "sf"
+  "sf",
+  "action",
+  "horror"
  ],
- "アカメが斬る!": [],
+ "アカメが斬る!": [
+  "action",
+  "isekai"
+ ],
  "ラブライブ! 2期": [
   "idol"
  ],
@@ -1305,13 +1708,15 @@
   "game"
  ],
  "美少女戦士セーラームーンCrystal": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "M3〜ソノ黒キ鋼〜": [
   "robot"
  ],
  "ジョジョの奇妙な冒険 スターダストクルセイダース": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ノーゲーム・ノーライフ": [
   "isekai"
@@ -1322,41 +1727,54 @@
  "バディ・コンプレックス": [
   "robot"
  ],
- "東京喰種トーキョーグール": [],
+ "東京喰種トーキョーグール": [
+  "action",
+  "horror"
+ ],
  "リーグ・オブ・レジェンド": [
   "lol",
   "game"
  ],
  "ワールドトリガー": [
   "jump",
-  "sf"
+  "sf",
+  "action"
  ],
  "僕らはみんな河合荘": [
   "romcom"
  ],
  "四月は君の嘘": [
   "idol",
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "妖怪ウォッチ": [
   "game",
-  "kids"
+  "kids",
+  "horror"
  ],
  "シドニアの騎士": [
   "robot"
  ],
- "ノラガミ": [],
+ "ノラガミ": [
+  "action",
+  "horror"
+ ],
  "翠星のガルガンティア 〜めぐる航路、遥か〜": [
   "sf"
  ],
  "ハピネスチャージプリキュア!": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "STAND BY ME ドラえもん": [
   "movie",
   "kids"
  ],
- "天体のメソッド": [],
+ "天体のメソッド": [
+  "drama",
+  "sf"
+ ],
  "未確認で進行形": [
   "romcom"
  ],
@@ -1364,13 +1782,16 @@
   "robot"
  ],
  "魔弾の王と戦姫": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "月刊少女野崎くん": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "劇場版「進撃の巨人」前編〜紅蓮の弓矢〜": [
-  "movie"
+  "movie",
+  "action"
  ],
  "いなり、こんこん、恋いろは。": [
   "romcom"
@@ -1379,41 +1800,76 @@
   "robot"
  ],
  "アオハライド": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
- "残響のテロル": [],
+ "残響のテロル": [
+  "drama",
+  "horror"
+ ],
  "ソードアート・オンライン Extra Edition": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "ボクラはピアチェーレ": [],
+ "ボクラはピアチェーレ": [
+  "idol"
+ ],
  "アルドノア・ゼロ 2期": [
   "robot"
  ],
- "アブソリュート・デュオ": [],
- "純潔のマリア": [],
- "魔法少女リリカルなのはViVid": [],
- "Charlotte": [],
- "オーバーロード": [
-  "isekai"
+ "アブソリュート・デュオ": [
+  "action",
+  "romcom"
  ],
- "SHIROBAKO": [],
+ "純潔のマリア": [
+  "isekai",
+  "drama"
+ ],
+ "魔法少女リリカルなのはViVid": [
+  "mahou",
+  "action",
+  "sports"
+ ],
+ "Charlotte": [
+  "drama",
+  "sf"
+ ],
+ "オーバーロード": [
+  "isekai",
+  "action"
+ ],
+ "SHIROBAKO": [
+  "drama"
+ ],
  "蒼穹のファフナー EXODUS": [
   "robot"
  ],
- "櫻子さんの足下には死体が埋まっている": [],
+ "櫻子さんの足下には死体が埋まっている": [
+  "horror"
+ ],
  "響け!ユーフォニアム": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "戦姫絶唱シンフォギアGX": [
-  "idol"
+  "idol",
+  "action"
  ],
  "GOD EATER": [
-  "game"
+  "game",
+  "action"
  ],
- "デス・パレード": [],
- "銃皇無尽のファフニール": [],
+ "デス・パレード": [
+  "drama",
+  "horror"
+ ],
+ "銃皇無尽のファフニール": [
+  "action",
+  "romcom"
+ ],
  "GATE 自衛隊 彼の地にて、斯く戦えり": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "アルドノア・ゼロ 第2期": [
   "robot"
@@ -1423,16 +1879,19 @@
   "movie"
  ],
  "血界戦線": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ダイヤのA Second Season": [
   "sports"
  ],
  "ダンジョンに出会いを求めるのは間違っているだろうか": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "電撃文庫 FIGHTING CLIMAX IGNITION": [
-  "game"
+  "game",
+  "action"
  ],
  "ダイヤのA -SECOND SEASON-": [
   "sports"
@@ -1442,13 +1901,15 @@
   "game"
  ],
  "Go!プリンセスプリキュア": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "DOG DAYS''": [
   "isekai"
  ],
  "アルスラーン戦記": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "黒子のバスケ 第3期": [
   "jump",
@@ -1462,25 +1923,34 @@
   "romcom"
  ],
  "Re:LieF ～親愛なるあなたへ～": [
-  "galge"
+  "galge",
+  "drama"
  ],
  "プラスティック・メモリーズ": [
   "sf"
  ],
  "Fate/stay night [Unlimited Blade Works] 2ndシーズン": [
-  "galge"
+  "galge",
+  "action"
  ],
  "アイドルマスター シンデレラガールズ": [
   "game",
   "idol"
  ],
- "ワンパンマン": [],
- "終わりのセラフ 名古屋決戦編": [
-  "jump"
+ "ワンパンマン": [
+  "action"
  ],
- "学戦都市アスタリスク": [],
+ "終わりのセラフ 名古屋決戦編": [
+  "jump",
+  "action"
+ ],
+ "学戦都市アスタリスク": [
+  "action",
+  "romcom"
+ ],
  "終わりのセラフ": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ポケットモンスター XY&Z": [
   "game",
@@ -1491,7 +1961,8 @@
   "sports"
  ],
  "攻殻機動隊 ARISE ALTERNATIVE ARCHITECTURE": [
-  "sf"
+  "sf",
+  "action"
  ],
  "クラスルーム☆クライシス": [
   "sf"
@@ -1510,26 +1981,39 @@
  ],
  "ソードアート・オンライン -ロスト・ソング-": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "やはり俺の青春ラブコメはまちがっている。続": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "響け！ユーフォニアム": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "ご注文はうさぎですか??": [
   "nichijou"
  ],
- "ノラガミ ARAGOTO": [],
- "おそ松さん": [],
+ "ノラガミ ARAGOTO": [
+  "action",
+  "horror"
+ ],
+ "おそ松さん": [
+  "drama"
+ ],
  "銀魂゜": [
-  "jump"
+  "jump",
+  "action",
+  "drama"
  ],
  "アクエリオンロゴス": [
   "robot"
  ],
- "Fate/kaleid liner プリズマ☆イリヤ ツヴァイ ヘルツ!": [],
+ "Fate/kaleid liner プリズマ☆イリヤ ツヴァイ ヘルツ!": [
+  "mahou",
+  "action"
+ ],
  "艦隊これくしょん -艦これ-": [
   "game"
  ],
@@ -1545,68 +2029,99 @@
  "モンスター娘のいる日常": [
   "romcom"
  ],
- "境界のRINNE": [],
+ "境界のRINNE": [
+  "romcom",
+  "horror"
+ ],
  "劇場版「進撃の巨人」後編〜自由の翼〜": [
-  "movie"
+  "movie",
+  "action"
  ],
  "Fate/Grand Order": [
-  "game"
+  "game",
+  "action"
  ],
  "暗殺教室": [
-  "jump"
+  "jump",
+  "action",
+  "drama"
  ],
- "進撃!巨人中学校": [],
+ "進撃!巨人中学校": [
+  "drama"
+ ],
  "ドラゴンボール超": [
   "jump",
-  "kids"
+  "kids",
+  "action"
  ],
  "ラブライブ!The School Idol Movie": [
   "idol",
   "movie"
  ],
- "東京喰種√A": [],
- "モブサイコ100": [],
+ "東京喰種√A": [
+  "action",
+  "horror"
+ ],
+ "モブサイコ100": [
+  "action",
+  "drama"
+ ],
  "AKIBA'S BEAT": [
   "game"
  ],
  "ブブキ・ブランキ": [
   "robot"
  ],
- "タブー・タトゥー": [],
+ "タブー・タトゥー": [
+  "action"
+ ],
  "アルスラーン戦記 風塵乱舞": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "クオリディア・コード": [
-  "sf"
+  "sf",
+  "action"
  ],
  "テイルズ オブ ベルセリア": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "テイルズ オブ ゼスティリア ザ クロス": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ジョジョの奇妙な冒険 ダイヤモンドは砕けない": [
-  "jump"
+  "jump",
+  "action"
  ],
  "レガリア The Three Sacred Stars": [
   "robot"
  ],
  "この素晴らしい世界に祝福を!": [
-  "isekai"
+  "isekai",
+  "drama"
  ],
  "僕のヒーローアカデミア": [
-  "jump"
+  "jump",
+  "action"
  ],
- "ハイスクール・フリート": [],
+ "ハイスクール・フリート": [
+  "action",
+  "drama"
+ ],
  "ユーリ!!! on ICE": [
   "sports"
  ],
  "機動戦士ガンダムUC RE:0096": [
   "robot"
  ],
- "甲鉄城のカバネリ": [],
+ "甲鉄城のカバネリ": [
+  "action",
+  "horror"
+ ],
  "アンジュ・ヴィエルジュ": [
   "game"
  ],
@@ -1617,35 +2132,52 @@
   "isekai"
  ],
  "Rewrite": [
-  "galge"
+  "galge",
+  "horror"
  ],
  "暗殺教室 第2期": [
-  "jump"
+  "jump",
+  "action",
+  "drama"
  ],
  "機動戦士ガンダム 鉄血のオルフェンズ 第2期": [
   "robot"
  ],
- "僕だけがいない街": [],
- "文豪ストレイドッグス": [],
+ "僕だけがいない街": [
+  "horror",
+  "sf"
+ ],
+ "文豪ストレイドッグス": [
+  "action",
+  "horror"
+ ],
  "NEW GAME!": [
   "nichijou"
  ],
  "この美術部には問題がある!": [
   "romcom"
  ],
- "デュラララ!!×2 結": [],
+ "デュラララ!!×2 結": [
+  "action",
+  "horror"
+ ],
  "プリンス・オブ・ストライド オルタナティブ": [
   "game",
   "sports"
  ],
- "亜人 第2期": [],
+ "亜人 第2期": [
+  "action",
+  "horror"
+ ],
  "戦姫絶唱シンフォギアXD UNLIMITED": [
   "game",
-  "idol"
+  "idol",
+  "action"
  ],
  "ソードアート・オンライン -ホロウ・リアリゼーション-": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "BanG Dream!": [
   "idol"
@@ -1658,11 +2190,13 @@
   "kids"
  ],
  "3月のライオン": [
-  "sports"
+  "sports",
+  "drama"
  ],
  "押忍！番長（パチスロ）": [],
  "響け!ユーフォニアム2": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "アイカツスターズ!": [
   "game",
@@ -1671,69 +2205,107 @@
  ],
  "君の名は。": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
  "ハイキュー!! 烏野高校 VS 白鳥沢学園高校": [
   "jump",
   "sports"
  ],
- "クビキリサイクル 青色サヴァンと戯言遣い": [],
+ "クビキリサイクル 青色サヴァンと戯言遣い": [
+  "horror"
+ ],
  "マクロスΔ": [
   "idol",
   "robot"
  ],
- "夏目友人帳 伍": [],
- "魔法少女育成計画": [],
- "終末のイゼッタ": [],
- "斉木楠雄のΨ難": [
-  "jump"
+ "夏目友人帳 伍": [
+  "horror",
+  "drama"
  ],
- "うしおととら": [],
- "ハッピーライヴ ショウアップ！": [],
+ "魔法少女育成計画": [
+  "mahou",
+  "action",
+  "horror"
+ ],
+ "終末のイゼッタ": [
+  "drama",
+  "action"
+ ],
+ "斉木楠雄のΨ難": [
+  "jump",
+  "drama"
+ ],
+ "うしおととら": [
+  "action",
+  "horror"
+ ],
+ "ハッピーライヴ ショウアップ！": [
+  "galge",
+  "romcom"
+ ],
  "ラブライブ!サンシャイン!!": [
   "idol"
  ],
  "ONE PIECE FILM GOLD": [
   "jump",
-  "movie"
+  "movie",
+  "action"
  ],
- "ハルチカ〜ハルタとチカは青春する〜": [],
+ "ハルチカ〜ハルタとチカは青春する〜": [
+  "horror",
+  "drama"
+ ],
  "この世界の片隅に": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
- "最弱無敗の神装機竜": [],
+ "最弱無敗の神装機竜": [
+  "action",
+  "isekai",
+  "romcom"
+ ],
  "映画 聲の形": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
  "ボールルームへようこそ": [
   "sports"
  ],
- "Fate/Apocrypha": [],
+ "Fate/Apocrypha": [
+  "game",
+  "action"
+ ],
  "BORUTO-ボルト- NARUTO NEXT GENERATIONS": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ブラッククローバー": [
   "jump",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ロクでなし魔術講師と禁忌教典": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ひなろじ〜from Luck & Logic〜": [
   "game"
  ],
  "劇場版 ソードアート・オンライン -オーディナル・スケール-": [
   "isekai",
-  "movie"
+  "movie",
+  "action"
  ],
  "クロックワーク・プラネット": [
   "sf"
  ],
  "劇場版総集編 オーバーロード 不死者の王": [
   "isekai",
-  "movie"
+  "movie",
+  "action"
  ],
  "銀魂.": [
   "jump"
@@ -1745,49 +2317,75 @@
   "isekai"
  ],
  "魔法少女リリカルなのは Reflection": [
-  "movie"
+  "movie",
+  "mahou",
+  "action"
  ],
  "血界戦線 & BEYOND": [
-  "jump"
+  "jump",
+  "action"
  ],
  "劇場版 黒子のバスケ LAST GAME": [
   "jump",
   "sports",
   "movie"
  ],
- "Re:CREATORS": [],
+ "Re:CREATORS": [
+  "action",
+  "sf"
+ ],
  "ナイツ&マジック": [
   "isekai",
   "robot"
  ],
- "魔法使いの嫁": [],
+ "魔法使いの嫁": [
+  "isekai",
+  "drama"
+ ],
  "テイルズ オブ ゼスティリア ザ クロス 第2期": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "幼女戦記": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "URAHARA": [],
+ "URAHARA": [
+  "drama",
+  "sf"
+ ],
  "少女終末旅行": [
   "sf"
  ],
- "最遊記RELOAD BLAST": [],
- "ハンドシェイカー": [],
- "その他（岸田教団&THE明星ロケッツ）": [],
- "終物語": [],
+ "最遊記RELOAD BLAST": [
+  "action",
+  "isekai"
+ ],
+ "ハンドシェイカー": [
+  "action"
+ ],
+ "その他（岸田教団&THE明星ロケッツ）": [
+  "jpop"
+ ],
+ "終物語": [
+  "horror",
+  "romcom"
+ ],
  "NEW GAME!!": [
   "nichijou"
  ],
  "戦姫絶唱シンフォギアAXZ": [
-  "idol"
+  "idol",
+  "action"
  ],
  "ノーゲーム・ノーライフ ゼロ": [
   "isekai",
   "movie"
  ],
  "この素晴らしい世界に祝福を!2": [
-  "isekai"
+  "isekai",
+  "drama"
  ],
  "ラブライブ!サンシャイン!! 2期": [
   "idol"
@@ -1795,39 +2393,50 @@
  "小林さんちのメイドラゴン": [
   "nichijou"
  ],
- "ようこそ実力至上主義の教室へ": [],
+ "ようこそ実力至上主義の教室へ": [
+  "drama"
+ ],
  "ガヴリールドロップアウト": [
   "nichijou"
  ],
  "CHAOS;CHILD": [
   "game",
-  "sf"
+  "sf",
+  "horror"
  ],
  "弱虫ペダル NEW GENERATION": [
   "sports"
  ],
  "ベルセルク": [
-  "isekai"
+  "isekai",
+  "action",
+  "horror"
  ],
  "冴えない彼女の育てかた♭": [
   "romcom"
  ],
  "僕のヒーローアカデミア 2期": [
-  "jump"
+  "jump",
+  "action"
  ],
  "僕のヒーローアカデミア 第2期": [
-  "jump"
+  "jump",
+  "action"
  ],
  "エロマンガ先生": [
   "romcom"
  ],
  "3月のライオン 第2シリーズ": [
-  "sports"
+  "sports",
+  "drama"
  ],
  "終末なにしてますか? 忙しいですか? 救ってもらっていいですか?": [
   "isekai"
  ],
- "有頂天家族2": [],
+ "有頂天家族2": [
+  "drama",
+  "horror"
+ ],
  "けものフレンズ": [
   "game"
  ],
@@ -1837,7 +2446,9 @@
  ],
  "劇場版 Fate/stay night [Heaven's Feel]": [
   "galge",
-  "movie"
+  "movie",
+  "action",
+  "horror"
  ],
  "宝石の国": [
   "sf"
@@ -1845,21 +2456,30 @@
  "異世界はスマートフォンとともに。": [
   "isekai"
  ],
- "進撃の巨人 Season 2": [],
- "アホガール": [],
+ "進撃の巨人 Season 2": [
+  "action",
+  "horror"
+ ],
+ "アホガール": [
+  "drama"
+ ],
  "打ち上げ花火、下から見るか?横から見るか?": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
  "劇場版 名探偵コナン から紅の恋歌": [
   "kids",
-  "movie"
+  "movie",
+  "horror"
  ],
  "活撃 刀剣乱舞": [
-  "game"
+  "game",
+  "action"
  ],
  "クズの本懐": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "ドラえもん のび太の南極カチコチ大冒険": [
   "kids",
@@ -1869,7 +2489,8 @@
   "sf"
  ],
  "ソードアート・オンライン アリシゼーション": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "からかい上手の高木さん": [
   "romcom"
@@ -1877,8 +2498,13 @@
  "転生したらスライムだった件": [
   "isekai"
  ],
- "東京喰種トーキョーグール:re": [],
- "バキ": [],
+ "東京喰種トーキョーグール:re": [
+  "action",
+  "horror"
+ ],
+ "バキ": [
+  "action"
+ ],
  "ラブライブ!サンシャイン!! The School Idol Movie Over the Rainbow": [
   "idol",
   "movie"
@@ -1887,52 +2513,84 @@
   "sports"
  ],
  "風が強く吹いている": [
-  "sports"
+  "sports",
+  "drama"
  ],
- "はたらく細胞": [],
+ "はたらく細胞": [
+  "drama"
+ ],
  "カードキャプターさくら クリアカード編": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "文豪ストレイドッグス DEAD APPLE": [
-  "movie"
+  "movie",
+  "action",
+  "horror"
  ],
  "されど罪人は竜と踊る": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ジョジョの奇妙な冒険 黄金の風": [
-  "jump"
+  "jump",
+  "action"
  ],
- "BANANA FISH": [],
+ "BANANA FISH": [
+  "action",
+  "drama"
+ ],
  "魔法少女リリカルなのは Detonation": [
-  "movie"
+  "movie",
+  "mahou",
+  "action"
  ],
  "ウマ娘 プリティーダービー": [
   "game",
   "sports"
  ],
  "オーバーロードII": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "とある魔術の禁書目録III": [
-  "sf"
+  "sf",
+  "action"
  ],
- "ゴールデンカムイ": [],
- "Phantom in the Twilight": [],
- "バジリスク 〜桜花忍法帖〜": [],
+ "ゴールデンカムイ": [
+  "action",
+  "drama"
+ ],
+ "Phantom in the Twilight": [
+  "action",
+  "horror"
+ ],
+ "バジリスク 〜桜花忍法帖〜": [
+  "action",
+  "drama"
+ ],
  "七つの大罪 戒めの復活": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "劇場版 Fate/stay night [Heaven's Feel] II.lost butterfly": [
   "galge",
-  "movie"
+  "movie",
+  "action",
+  "horror"
  ],
  "銀魂. 銀ノ魂篇": [
-  "jump"
+  "jump",
+  "action",
+  "drama"
  ],
  "Fate/EXTELLA LINK": [
-  "game"
+  "game",
+  "action"
  ],
- "キリングバイツ": [],
+ "キリングバイツ": [
+  "action"
+ ],
  "ダーリン・イン・ザ・フランキス": [
   "robot"
  ],
@@ -1940,50 +2598,73 @@
   "romcom"
  ],
  "僕のヒーローアカデミア 3期": [
-  "jump"
+  "jump",
+  "action"
  ],
  "グランクレスト戦記": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "ポプテピピック": [],
+ "ポプテピピック": [
+  "drama"
+ ],
  "K/DA": [
   "lol"
  ],
  "BEATLESS": [
   "sf"
  ],
- "進撃の巨人 Season 3": [],
+ "進撃の巨人 Season 3": [
+  "action",
+  "horror"
+ ],
  "恋は雨上がりのように": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "ゴブリンスレイヤー": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ゆるキャン△": [
   "nichijou"
  ],
  "オーバーロードIII": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "ヴァイオレット・エヴァーガーデン": [],
- "ハッピーシュガーライフ": [],
- "宇宙よりも遠い場所": [],
+ "ヴァイオレット・エヴァーガーデン": [
+  "drama"
+ ],
+ "ハッピーシュガーライフ": [
+  "horror"
+ ],
+ "宇宙よりも遠い場所": [
+  "drama"
+ ],
  "SSSS.GRIDMAN": [
-  "robot"
+  "robot",
+  "action"
  ],
  "HUGっと!プリキュア": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "モンスターストライク": [
   "game"
  ],
- "邪神ちゃんドロップキック": [],
+ "邪神ちゃんドロップキック": [
+  "drama",
+  "nichijou"
+ ],
  "斉木楠雄のΨ難 第2期": [
-  "jump"
+  "jump",
+  "drama"
  ],
  "銀魂乱舞": [
   "jump",
-  "game"
+  "game",
+  "action"
  ],
  "あまんちゅ!〜あどばんす〜": [
   "nichijou"
@@ -2005,10 +2686,17 @@
  ],
  "未来のミライ": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
- "ゴールデンカムイ 第二期": [],
- "メルヘン・メドヘン": [],
+ "ゴールデンカムイ 第二期": [
+  "action",
+  "drama"
+ ],
+ "メルヘン・メドヘン": [
+  "isekai",
+  "mahou"
+ ],
  "LOST SONG": [
   "isekai"
  ],
@@ -2016,13 +2704,20 @@
   "romcom"
  ],
  "青春ブタ野郎はバニーガール先輩の夢を見ない": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
- "バジリスク ～桜花忍法帖～": [],
+ "バジリスク ～桜花忍法帖～": [
+  "action",
+  "drama"
+ ],
  "少女☆歌劇 レヴュースタァライト": [
   "idol"
  ],
- "天狼 Sirius the Jaeger": [],
+ "天狼 Sirius the Jaeger": [
+  "action",
+  "horror"
+ ],
  "ソラとウミのアイダ": [
   "game",
   "sf"
@@ -2042,36 +2737,51 @@
   "romcom"
  ],
  "ソードアート・オンライン オルタナティブ ガンゲイル・オンライン": [
-  "sf"
+  "sf",
+  "action"
  ],
  "名探偵コナン ゼロの執行人": [
   "kids",
-  "movie"
+  "movie",
+  "horror"
  ],
- "モブサイコ100 II": [],
+ "モブサイコ100 II": [
+  "action",
+  "drama"
+ ],
  "BLACKFOX": [
-  "movie"
+  "movie",
+  "action",
+  "sf"
  ],
  "劇場版 響け!ユーフォニアム〜誓いのフィナーレ〜": [
   "idol",
-  "movie"
+  "movie",
+  "drama"
  ],
  "ぼくたちは勉強ができない!": [
   "jump",
   "romcom"
  ],
- "ヴィンランド・サガ": [],
+ "ヴィンランド・サガ": [
+  "action",
+  "drama"
+ ],
  "盾の勇者の成り上がり": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "戦姫絶唱シンフォギアXV": [
-  "idol"
+  "idol",
+  "action"
  ],
  "BanG Dream! 2nd Season": [
   "idol"
  ],
  "鬼滅の刃": [
-  "jump"
+  "jump",
+  "action",
+  "horror"
  ],
  "True Damage": [
   "lol"
@@ -2082,7 +2792,8 @@
  ],
  "ONE PIECE STAMPEDE": [
   "jump",
-  "movie"
+  "movie",
+  "action"
  ],
  "Dr.STONE": [
   "jump",
@@ -2091,48 +2802,71 @@
  "アズールレーン": [
   "game"
  ],
- "文豪ストレイドッグス 第3シーズン": [],
- "魔入りました!入間くん": [],
+ "文豪ストレイドッグス 第3シーズン": [
+  "action",
+  "horror"
+ ],
+ "魔入りました!入間くん": [
+  "isekai",
+  "drama"
+ ],
  "この世の果てで恋を唄う少女YU-NO": [
   "galge",
   "sf"
  ],
- "進撃の巨人 Season 3 Part.2": [],
+ "進撃の巨人 Season 3 Part.2": [
+  "action",
+  "horror"
+ ],
  "異世界チート魔術師": [
   "isekai"
  ],
  "とある科学の一方通行": [
-  "sf"
+  "sf",
+  "action"
  ],
  "Fate/Grand Order -絶対魔獣戦線バビロニア-": [
-  "game"
+  "game",
+  "action"
  ],
  "PSYCHO-PASS サイコパス 3": [
-  "sf"
+  "sf",
+  "action",
+  "horror"
  ],
  "劇場版 幼女戦記": [
   "isekai",
-  "movie"
+  "movie",
+  "action"
  ],
  "ソードアート・オンライン アリシゼーション War of Underworld": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "ブギーポップは笑わない": [],
+ "ブギーポップは笑わない": [
+  "horror"
+ ],
  "慎重勇者〜この勇者が俺TUEEEくせに慎重すぎる〜": [
   "isekai"
  ],
  "約束のネバーランド": [
-  "jump"
+  "jump",
+  "horror"
  ],
- "BEASTARS": [],
+ "BEASTARS": [
+  "drama"
+ ],
  "バースデー・ワンダーランド": [
   "theater",
   "movie",
   "isekai"
  ],
- "炎炎ノ消防隊": [],
+ "炎炎ノ消防隊": [
+  "action"
+ ],
  "ヴァイオレット・エヴァーガーデン 外伝 -永遠と自動手記人形-": [
-  "movie"
+  "movie",
+  "drama"
  ],
  "ダンベル何キロ持てる?": [
   "sports"
@@ -2142,7 +2876,8 @@
  ],
  "天気の子": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
  "ダイヤのA actII": [
   "sports"
@@ -2158,12 +2893,25 @@
   "romcom"
  ],
  "僕のヒーローアカデミア 4期": [
-  "jump"
+  "jump",
+  "action"
  ],
- "どろろ": [],
- "BEM": [],
- "ロード・エルメロイII世の事件簿 -魔眼蒐集列車 Grace note-": [],
- "胡蝶綺 〜若き信長〜": [],
+ "どろろ": [
+  "action",
+  "horror"
+ ],
+ "BEM": [
+  "action",
+  "horror"
+ ],
+ "ロード・エルメロイII世の事件簿 -魔眼蒐集列車 Grace note-": [
+  "horror",
+  "game"
+ ],
+ "胡蝶綺 〜若き信長〜": [
+  "drama",
+  "action"
+ ],
  "海獣の子供": [
   "theater",
   "movie"
@@ -2172,149 +2920,212 @@
   "nichijou"
  ],
  "グランベルム": [
-  "robot"
+  "robot",
+  "mahou"
  ],
  "五等分の花嫁": [
   "romcom"
  ],
  "甲鉄城のカバネリ 海門決戦": [
-  "movie"
+  "movie",
+  "action",
+  "horror"
  ],
- "ワンパンマン 第2期": [],
- "ナカノヒトゲノム【実況中】": [],
- "ダーウィンズゲーム": [],
+ "ワンパンマン 第2期": [
+  "action"
+ ],
+ "ナカノヒトゲノム【実況中】": [
+  "horror",
+  "drama"
+ ],
+ "ダーウィンズゲーム": [
+  "action",
+  "sf"
+ ],
  "かぐや様は告らせたい?": [
   "romcom"
  ],
- "キングダム 第3シリーズ": [],
+ "キングダム 第3シリーズ": [
+  "action",
+  "drama"
+ ],
  "ラブライブ!虹ヶ咲学園スクールアイドル同好会": [
   "idol"
  ],
  "とある科学の超電磁砲T": [
-  "sf"
+  "sf",
+  "action"
  ],
- "映像研には手を出すな!": [],
+ "映像研には手を出すな!": [
+  "drama"
+ ],
  "ダンジョンに出会いを求めるのは間違っているだろうかIII": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "劇場版 メイドインアビス 深き魂の黎明": [
   "isekai",
   "movie"
  ],
- "ゴールデンカムイ 第三期": [],
+ "ゴールデンカムイ 第三期": [
+  "action",
+  "drama"
+ ],
  "魔法科高校の劣等生 来訪者編": [
-  "sf"
+  "sf",
+  "action"
  ],
  "ひぐらしのなく頃に業": [
-  "galge"
+  "galge",
+  "horror"
  ],
  "キングスレイド 意志を継ぐものたち": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ダイヤのA actII -Second Season-": [
   "sports"
  ],
  "呪術廻戦": [
-  "jump"
+  "jump",
+  "action",
+  "horror"
  ],
  "Re:ゼロから始める異世界生活 2nd season": [
   "isekai"
  ],
- "富豪刑事 Balance:UNLIMITED": [],
- "BNA ビー・エヌ・エー": [],
+ "富豪刑事 Balance:UNLIMITED": [
+  "horror",
+  "drama"
+ ],
+ "BNA ビー・エヌ・エー": [
+  "action",
+  "sf"
+ ],
  "デュエル・マスターズ キング": [
   "kids",
   "game"
  ],
- "地縛少年花子くん": [],
+ "地縛少年花子くん": [
+  "horror"
+ ],
  "ハイキュー!! TO THE TOP": [
   "jump",
   "sports"
  ],
  "ソードアート・オンライン アリシゼーション・リコリス": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
- "炎炎ノ消防隊 弐ノ章": [],
- "ドロヘドロ": [],
+ "炎炎ノ消防隊 弐ノ章": [
+  "action"
+ ],
+ "ドロヘドロ": [
+  "action",
+  "horror"
+ ],
  "デカダンス": [
-  "sf"
+  "sf",
+  "action"
  ],
  "アークナイツ": [
-  "game"
+  "game",
+  "action"
  ],
  "劇場版 ヴァイオレット・エヴァーガーデン": [
-  "movie"
+  "movie",
+  "drama"
  ],
  "マギアレコード 魔法少女まどか☆マギカ外伝": [
-  "game"
+  "game",
+  "mahou"
  ],
  "映画 えんとつ町のプペル": [
   "theater",
   "movie"
  ],
  "おばけずかん": [
-  "kids"
+  "kids",
+  "horror"
  ],
- "アルテ": [],
+ "アルテ": [
+  "drama"
+ ],
  "彼女、お借りします": [
   "romcom"
  ],
- "かくしごと": [],
+ "かくしごと": [
+  "drama"
+ ],
  "スマホを落としただけなのに 囚われの殺人鬼": [
-  "movie"
+  "movie",
+  "horror"
  ],
  "ヒーリングっど♥プリキュア": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "劇場版ポケットモンスター ココ": [
   "game",
   "kids",
   "movie"
  ],
- "その他（THE SIXTH LIE）": [],
+ "その他（THE SIXTH LIE）": [
+  "jpop"
+ ],
  "魔女の旅々": [
   "isekai"
  ],
  "泣きたい私は猫をかぶる": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
  "劇場版 鬼滅の刃 無限列車編": [
   "jump",
-  "movie"
+  "movie",
+  "action"
  ],
  "乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…": [
   "isekai"
  ],
  "ダンジョンに出会いを求めるのは間違っているだろうか 〜メモリア・フレーゼ〜": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "劇場版 Fate/stay night [Heaven's Feel] III.spring song": [
   "galge",
-  "movie"
+  "movie",
+  "action"
  ],
- "バキ 大擂台賽編": [],
+ "バキ 大擂台賽編": [
+  "action"
+ ],
  "ジョゼと虎と魚たち": [
   "theater",
   "movie",
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "シャドウバース": [
   "game"
  ],
  "ソードアート・オンライン アリシゼーション・ブレイディング": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "劇場版 SHIROBAKO": [
-  "movie"
+  "movie",
+  "drama"
  ],
  "劇場版 Fate/Grand Order -神聖円卓領域キャメロット- 前編 Wandering; Agateram": [
   "game",
-  "movie"
+  "movie",
+  "action"
  ],
  "STAND BY ME ドラえもん 2": [
   "kids",
@@ -2325,13 +3136,16 @@
   "romcom"
  ],
  "魔法科高校の優等生": [
-  "sf"
+  "sf",
+  "action"
  ],
  "86―エイティシックス―": [
-  "robot"
+  "robot",
+  "action"
  ],
  "ひぐらしのなく頃に卒": [
-  "galge"
+  "galge",
+  "horror"
  ],
  "ビルディバイド -#000000-": [
   "game"
@@ -2340,35 +3154,51 @@
   "isekai"
  ],
  "蜘蛛ですが、なにか？": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "東京リベンジャーズ": [],
+ "東京リベンジャーズ": [
+  "action",
+  "drama"
+ ],
  "バック・アロウ": [
   "robot"
  ],
  "Arcane": [
   "lol",
-  "game"
+  "game",
+  "action"
  ],
- "ブルーピリオド": [],
- "はたらく細胞!!": [],
+ "ブルーピリオド": [
+  "drama"
+ ],
+ "はたらく細胞!!": [
+  "drama"
+ ],
  "SHAMAN KING": [
-  "jump"
+  "jump",
+  "action"
  ],
  "転生したらスライムだった件 第2期": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "Levius -レビウス-": [
-  "sports"
+  "sports",
+  "action"
  ],
  "ウマ娘 プリティーダービー Season 2": [
   "game",
   "sports"
  ],
  "僕のヒーローアカデミア 5期": [
-  "jump"
+  "jump",
+  "action"
  ],
- "オッドタクシー": [],
+ "オッドタクシー": [
+  "horror",
+  "drama"
+ ],
  "シン・エヴァンゲリオン劇場版": [
   "robot",
   "movie"
@@ -2377,27 +3207,35 @@
   "nichijou"
  ],
  "Vivy -Fluorite Eye's Song-": [
-  "sf"
+  "sf",
+  "action"
  ],
  "ラブライブ!スーパースター!!": [
   "idol"
  ],
  "ジョジョの奇妙な冒険 ストーンオーシャン": [
-  "jump"
+  "jump",
+  "action"
  ],
- "範馬刃牙": [],
+ "範馬刃牙": [
+  "action"
+ ],
  "竜とそばかすの姫": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
  "トロピカル～ジュ!プリキュア": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "約束のネバーランド Season 2": [
-  "jump"
+  "jump",
+  "horror"
  ],
  "BLUE REFLECTION RAY/澪": [
-  "game"
+  "game",
+  "mahou"
  ],
  "SSSS.DYNAZENON": [
   "robot"
@@ -2406,28 +3244,42 @@
   "sports"
  ],
  "すばらしきこのせかい The Animation": [
-  "game"
+  "game",
+  "action"
  ],
  "マギアレコード 魔法少女まどか☆マギカ外伝 2nd SEASON": [
-  "game"
+  "game",
+  "mahou"
  ],
  "怪物事変": [
-  "jump"
+  "jump",
+  "action",
+  "horror"
  ],
- "シキザクラ": [],
- "シャドーハウス": [],
+ "シキザクラ": [
+  "robot",
+  "action"
+ ],
+ "シャドーハウス": [
+  "horror"
+ ],
  "小林さんちのメイドラゴンS": [
   "nichijou"
  ],
  "劇場版 呪術廻戦 0": [
   "jump",
-  "movie"
+  "movie",
+  "action",
+  "horror"
  ],
  "劇場版 ソードアート・オンライン -プログレッシブ- 星なき夜のアリア": [
   "isekai",
-  "movie"
+  "movie",
+  "action"
  ],
- "BEASTARS 第2期": [],
+ "BEASTARS 第2期": [
+  "drama"
+ ],
  "Dr.STONE STONE WARS": [
   "jump",
   "sf"
@@ -2435,7 +3287,10 @@
  "無職転生 〜異世界行ったら本気だす〜": [
   "isekai"
  ],
- "ロード・エルメロイII世の事件簿 -魔眼蒐集列車 Grace note- 特別編": [],
+ "ロード・エルメロイII世の事件簿 -魔眼蒐集列車 Grace note- 特別編": [
+  "horror",
+  "game"
+ ],
  "プロジェクトセカイ カラフルステージ! feat. 初音ミク": [
   "game",
   "idol"
@@ -2444,17 +3299,23 @@
   "romcom"
  ],
  "鬼滅の刃 遊郭編": [
-  "jump"
+  "jump",
+  "action"
  ],
- "進撃の巨人 The Final Season": [],
+ "進撃の巨人 The Final Season": [
+  "action",
+  "horror"
+ ],
  "ホリミヤ": [
   "romcom"
  ],
  "かげきしょうじょ!!": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "月姫 -A piece of blue glass moon-": [
-  "galge"
+  "galge",
+  "horror"
  ],
  "機動戦士ガンダム 閃光のハサウェイ": [
   "robot",
@@ -2465,25 +3326,39 @@
  ],
  "銀魂 THE FINAL": [
   "jump",
-  "movie"
+  "movie",
+  "action",
+  "drama"
  ],
  "鬼滅の刃 無限列車編": [
-  "jump"
+  "jump",
+  "action"
  ],
  "太陽は動かない": [
-  "movie"
+  "movie",
+  "action"
  ],
  "Deep Insanity THE LOST CHILD": [
-  "game"
+  "game",
+  "action"
  ],
  "LOST JUDGMENT：裁かれざる記憶": [
-  "game"
+  "game",
+  "action",
+  "horror"
  ],
- "モブサイコ100 III": [],
+ "モブサイコ100 III": [
+  "action",
+  "drama"
+ ],
  "アークナイツ【黎明前奏/PRELUDE TO DAWN】": [
-  "game"
+  "game",
+  "action"
  ],
- "リコリス・リコイル": [],
+ "リコリス・リコイル": [
+  "action",
+  "drama"
+ ],
  "明日ちゃんのセーラー服": [
   "nichijou"
  ],
@@ -2491,14 +3366,18 @@
   "robot"
  ],
  "盾の勇者の成り上がり Season 2": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "チェンソーマン": [
-  "jump"
+  "jump",
+  "action",
+  "horror"
  ],
  "Tower of Fantasy（幻塔）": [
   "game",
-  "sf"
+  "sf",
+  "action"
  ],
  "ラブライブ!スーパースター!! 2期": [
   "idol"
@@ -2508,12 +3387,16 @@
  ],
  "ぼっち・ざ・ろっく!": [
   "nichijou",
-  "idol"
+  "idol",
+  "drama"
  ],
  "メイドインアビス 烈日の黄金郷": [
   "isekai"
  ],
- "キングダム 第4シリーズ": [],
+ "キングダム 第4シリーズ": [
+  "action",
+  "drama"
+ ],
  "かぐや様は告らせたい-ウルトラロマンティック-": [
   "romcom"
  ],
@@ -2527,17 +3410,22 @@
   "romcom"
  ],
  "陰の実力者になりたくて!": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "オーバーロードIV": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ラブライブ!虹ヶ咲学園スクールアイドル同好会 2期": [
   "idol"
  ],
- "TIGER & BUNNY 2": [],
+ "TIGER & BUNNY 2": [
+  "action"
+ ],
  "失格紋の最強賢者": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "かぐや様は告らせたい-ファーストキッスは終わらない-": [
   "romcom",
@@ -2551,10 +3439,14 @@
  "恋愛フロップス": [
   "romcom"
  ],
- "シャドーハウス 2nd Season": [],
+ "シャドーハウス 2nd Season": [
+  "horror",
+  "drama"
+ ],
  "シン・ウルトラマン": [
   "movie",
-  "sf"
+  "sf",
+  "action"
  ],
  "鹿の王 ユナと約束の旅": [
   "theater",
@@ -2564,21 +3456,28 @@
   "game",
   "robot"
  ],
- "真・一騎当千": [],
+ "真・一騎当千": [
+  "action"
+ ],
  "SPY×FAMILY": [
-  "jump"
+  "jump",
+  "action"
  ],
  "異世界おじさん": [
-  "isekai"
+  "isekai",
+  "drama"
  ],
  "映画 ゆるキャン△": [
   "nichijou",
   "movie"
  ],
- "進撃の巨人 The Final Season Part 2": [],
+ "進撃の巨人 The Final Season Part 2": [
+  "action"
+ ],
  "ONE PIECE FILM RED": [
   "jump",
-  "movie"
+  "movie",
+  "action"
  ],
  "映画ドラえもん のび太の宇宙小戦争 2021": [
   "kids",
@@ -2589,30 +3488,45 @@
  ],
  "呪術廻戦 ファントムパレード": [
   "jump",
-  "game"
+  "game",
+  "action"
  ],
- "てっぺんっ!!!!!!!!!!!!!!!": [],
+ "てっぺんっ!!!!!!!!!!!!!!!": [
+  "drama",
+  "nichijou"
+ ],
  "すずめの戸締まり": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
- "最遊記RELOAD -ZEROIN-": [],
+ "最遊記RELOAD -ZEROIN-": [
+  "action",
+  "isekai"
+ ],
  "名探偵コナン ハロウィンの花嫁": [
   "kids",
-  "movie"
+  "movie",
+  "horror"
  ],
  "BLEACH 千年血戦篇": [
-  "jump"
+  "jump",
+  "action"
  ],
  "鋼の錬金術師 MOBILE": [
-  "game"
+  "game",
+  "action"
  ],
- "トモダチゲーム": [],
+ "トモダチゲーム": [
+  "horror",
+  "drama"
+ ],
  "パリピ孔明": [
   "idol"
  ],
  "僕のヒーローアカデミア 6期": [
-  "jump"
+  "jump",
+  "action"
  ],
  "からかい上手の高木さん3": [
   "romcom"
@@ -2623,12 +3537,17 @@
  ],
  "劇場版 異世界かるてっと 〜あなざーわーるど〜": [
   "isekai",
-  "movie"
+  "movie",
+  "drama"
  ],
- "よふかしのうた": [],
+ "よふかしのうた": [
+  "romcom",
+  "horror"
+ ],
  "雨を告げる漂流団地": [
   "theater",
-  "movie"
+  "movie",
+  "drama"
  ],
  "本好きの下剋上 司書になるためには手段を選んでいられません 第3期": [
   "isekai"
@@ -2644,26 +3563,32 @@
  ],
  "劇場版 転生したらスライムだった件 紅蓮の絆編": [
   "isekai",
-  "movie"
+  "movie",
+  "action"
  ],
  "劇場版 ソードアート・オンライン -プログレッシブ- 冥き夕闇のスケルツォ": [
   "isekai",
-  "movie"
+  "movie",
+  "action"
  ],
  "サマータイムレンダ": [
-  "jump"
+  "jump",
+  "horror"
  ],
  "ダンジョンに出会いを求めるのは間違っているだろうかIV 新章 迷宮篇": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "であいもん": [
   "nichijou"
  ],
  "アンデッドアンラック": [
-  "jump"
+  "jump",
+  "action"
  ],
  "アークナイツ【冬隠帰路/PERISH IN FROST】": [
-  "game"
+  "game",
+  "action"
  ],
  "葬送のフリーレン": [
   "isekai"
@@ -2674,84 +3599,134 @@
  ],
  "NieR:Automata Ver1.1a": [
   "game",
-  "sf"
+  "sf",
+  "action"
  ],
  "七つの大罪 黙示録の四騎士": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "帰還者の魔法は特別です": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ウマ娘 プリティーダービー ROAD TO THE TOP": [
   "game",
   "sports"
  ],
  "陰の実力者になりたくて! 2nd season": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ダンジョンに出会いを求めるのは間違っているだろうかIV": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "その他（La prière）": [],
+ "その他（La prière）": [
+  "jpop"
+ ],
  "天国大魔境": [
-  "sf"
+  "sf",
+  "horror"
  ],
  "マッシュル-MASHLE-": [
-  "jump"
+  "jump",
+  "action"
  ],
- "ライアー・ライアー": [],
+ "ライアー・ライアー": [
+  "romcom",
+  "drama"
+ ],
  "呪術廻戦 渋谷事変": [
-  "jump"
+  "jump",
+  "action",
+  "horror"
  ],
- "ゴールデンカムイ 第四期": [],
+ "ゴールデンカムイ 第四期": [
+  "action",
+  "drama"
+ ],
  "HEARTSTEEL": [
   "lol"
  ],
  "【推しの子】": [
-  "idol"
+  "idol",
+  "drama"
  ],
- "もののがたり": [],
- "ひきこまり吸血姫の悶々": [],
+ "もののがたり": [
+  "horror",
+  "action",
+  "romcom"
+ ],
+ "ひきこまり吸血姫の悶々": [
+  "isekai",
+  "action",
+  "drama"
+ ],
  "機動戦士ガンダム 水星の魔女 Season2": [
   "robot"
  ],
- "東京リベンジャーズ 天竺編": [],
- "スパイ教室": [],
+ "東京リベンジャーズ 天竺編": [
+  "action",
+  "drama"
+ ],
+ "スパイ教室": [
+  "action"
+ ],
  "盾の勇者の成り上がり Season 3": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "劇場版 SPY×FAMILY CODE: White": [
   "jump",
-  "movie"
+  "movie",
+  "action"
  ],
  "無職転生II 〜異世界行ったら本気だす〜": [
   "isekai"
  ],
- "でこぼこ魔女の親子事情": [],
+ "でこぼこ魔女の親子事情": [
+  "nichijou",
+  "isekai"
+ ],
  "TRIGUN STAMPEDE": [
-  "sf"
+  "sf",
+  "action"
  ],
- "REVENGER": [],
- "進撃の巨人 The Final Season 完結編": [],
+ "REVENGER": [
+  "action",
+  "drama"
+ ],
+ "進撃の巨人 The Final Season 完結編": [
+  "action"
+ ],
  "地獄楽": [
-  "jump"
+  "jump",
+  "action"
  ],
- "薬屋のひとりごと": [],
+ "薬屋のひとりごと": [
+  "horror",
+  "drama"
+ ],
  "王様ランキング 勇気の宝箱": [
   "isekai"
  ],
  "特別編 響け!ユーフォニアム〜アンサンブルコンテスト〜": [
   "idol",
-  "movie"
+  "movie",
+  "drama"
  ],
  "鴨乃橋ロンの禁断推理": [
-  "jump"
+  "jump",
+  "horror"
  ],
  "SPY×FAMILY Season 2": [
-  "jump"
+  "jump",
+  "action"
  ],
  "鬼滅の刃 刀鍛冶の里編": [
-  "jump"
+  "jump",
+  "action"
  ],
  "白聖女と黒牧師": [
   "romcom"
@@ -2759,30 +3734,42 @@
  "君のことが大大大大大好きな100人の彼女": [
   "romcom"
  ],
- "ゾン100〜ゾンビになるまでにしたい100のこと〜": [],
+ "ゾン100〜ゾンビになるまでにしたい100のこと〜": [
+  "horror",
+  "drama"
+ ],
  "大雪海のカイナ": [
   "sf"
  ],
- "スパイ教室 2nd season": [],
+ "スパイ教室 2nd season": [
+  "action"
+ ],
  "ひろがるスカイ!プリキュア": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "カノジョも彼女 Season 2": [
   "romcom"
  ],
- "東京リベンジャーズ 聖夜決戦編": [],
+ "東京リベンジャーズ 聖夜決戦編": [
+  "action",
+  "drama"
+ ],
  "火狩りの王": [
   "sf"
  ],
  "ダンまち バトル・クロニクル": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "スキップとローファー": [
-  "nichijou"
+  "nichijou",
+  "drama"
  ],
  "EDENS ZERO 第2期": [
-  "sf"
+  "sf",
+  "action"
  ],
  "Dr.STONE NEW WORLD": [
   "jump",
@@ -2791,17 +3778,22 @@
  "ブルバスター": [
   "robot"
  ],
- "文豪ストレイドッグス 第5シーズン": [],
+ "文豪ストレイドッグス 第5シーズン": [
+  "action",
+  "horror"
+ ],
  "FINAL FANTASY XVI": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "大雪海のカイナ ほしのけんじゃ": [
   "sf",
   "movie"
  ],
  "BLEACH 千年血戦篇-相剋譚-": [
-  "jump"
+  "jump",
+  "action"
  ],
  "豚のレバーは加熱しろ": [
   "isekai"
@@ -2810,16 +3802,21 @@
   "romcom"
  ],
  "BanG Dream! It's MyGO!!!!!": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "ミステリと言う勿れ": [
-  "movie"
+  "movie",
+  "horror"
  ],
  "呪術廻戦 懐玉・玉折": [
-  "jump"
+  "jump",
+  "action",
+  "horror"
  ],
  "ダンジョンに出会いを求めるのは間違っているだろうかIV 深章 厄災篇": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "君たちはどう生きるか": [
   "ghibli",
@@ -2827,9 +3824,13 @@
  ],
  "劇場版 PSYCHO-PASS サイコパス PROVIDENCE": [
   "sf",
-  "movie"
+  "movie",
+  "action",
+  "horror"
  ],
- "その他（Es）": [],
+ "その他（Es）": [
+  "jpop"
+ ],
  "僕の心のヤバイやつ 第2期": [
   "romcom"
  ],
@@ -2838,42 +3839,61 @@
  ],
  "怪獣8号": [
   "jump",
-  "sf"
+  "sf",
+  "action"
  ],
  "HIGHSPEED Étoile": [
   "sports"
  ],
- "夏目友人帳 漆": [],
+ "夏目友人帳 漆": [
+  "horror",
+  "drama"
+ ],
  "マッシュル-MASHLE- 神覚者候補選抜試験編": [
-  "jump"
+  "jump",
+  "action"
  ],
  "Arcane シーズン2": [
   "lol",
-  "game"
+  "game",
+  "action"
  ],
  "【推しの子】第2期": [
-  "idol"
+  "idol",
+  "drama"
  ],
- "〈物語〉シリーズ オフ&モンスターシーズン": [],
+ "〈物語〉シリーズ オフ&モンスターシーズン": [
+  "horror",
+  "romcom"
+ ],
  "魔都精兵のスレイブ": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ばいばい、アース": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "杖と剣のウィストリア": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ソードアート・オンライン オルタナティブ ガンゲイル・オンラインII": [
-  "sf"
+  "sf",
+  "action"
  ],
  "この素晴らしい世界に祝福を!3": [
+  "isekai",
+  "drama"
+ ],
+ "俺だけレベルアップな件": [
+  "action",
   "isekai"
  ],
- "俺だけレベルアップな件": [],
  "鳴潮": [
   "game",
-  "sf"
+  "sf",
+  "action"
  ],
  "星降る王国のニナ": [
   "romcom"
@@ -2881,7 +3901,10 @@
  "Re:ゼロから始める異世界生活 3rd season": [
   "isekai"
  ],
- "ザ・ファブル": [],
+ "ザ・ファブル": [
+  "action",
+  "drama"
+ ],
  "ブルーロック VS. U-20 JAPAN": [
   "sports"
  ],
@@ -2889,28 +3912,38 @@
   "isekai"
  ],
  "転生したらスライムだった件 第3期": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "シャングリラ・フロンティア 2nd season": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "響け!ユーフォニアム3": [
-  "idol"
+  "idol",
+  "drama"
  ],
- "キングダム 第5シリーズ": [],
+ "キングダム 第5シリーズ": [
+  "action",
+  "drama"
+ ],
  "SPECIAL EDITED VERSION ONE PIECE 魚人島編": [
-  "jump"
+  "jump",
+  "action"
  ],
  "アオのハコ": [
   "jump",
   "sports",
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "夜桜さんちの大作戦": [
-  "jump"
+  "jump",
+  "action"
  ],
  "魔法科高校の劣等生 第3シーズン": [
-  "sf"
+  "sf",
+  "action"
  ],
  "狼と香辛料 MERCHANT MEETS THE WISE WOLF": [
   "isekai",
@@ -2920,22 +3953,33 @@
   "nichijou"
  ],
  "BLEACH 千年血戦篇-訣別譚-": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ダンダダン": [
-  "jump"
+  "jump",
+  "action",
+  "horror"
  ],
  "SHAMAN KING FLOWERS": [
-  "jump"
+  "jump",
+  "action"
  ],
- "来世は他人がいい": [],
+ "来世は他人がいい": [
+  "romcom",
+  "action"
+ ],
  "劇場版「オーバーロード」聖王国編": [
   "isekai",
-  "movie"
+  "movie",
+  "action"
  ],
- "チ。 ―地球の運動について―": [],
+ "チ。 ―地球の運動について―": [
+  "drama"
+ ],
  "夜のクラゲは泳げない": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "劇場版ハイキュー!! ゴミ捨て場の決戦": [
   "jump",
@@ -2943,42 +3987,55 @@
   "movie"
  ],
  "僕のヒーローアカデミア 7期": [
-  "jump"
+  "jump",
+  "action"
  ],
  "シャングリラ・フロンティア": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ラストマイル": [
-  "movie"
+  "movie",
+  "horror"
  ],
- "小市民シリーズ": [],
+ "小市民シリーズ": [
+  "horror",
+  "drama"
+ ],
  "モブから始まる探索英雄譚": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "映画ドラえもん のび太の地球交響楽": [
   "kids",
   "movie"
  ],
  "負けヒロインが多すぎる!": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "劇場総集編ぼっち・ざ・ろっく! Re:Re:": [
   "nichijou",
   "idol",
-  "movie"
+  "movie",
+  "drama"
  ],
  "道産子ギャルはなまらめんこい": [
   "romcom"
  ],
  "ダンジョンに出会いを求めるのは間違っているだろうかV 豊穣の女神篇": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "NieR:Automata Ver1.1a 第2クール": [
   "game",
-  "sf"
+  "sf",
+  "action"
  ],
  "逃げ上手の若君": [
-  "jump"
+  "jump",
+  "action",
+  "drama"
  ],
  "転生貴族、鑑定スキルで成り上がる": [
   "isekai"
@@ -2988,35 +4045,47 @@
   "sports"
  ],
  "わんだふるぷりきゅあ!": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "鬼滅の刃 柱稽古編": [
-  "jump"
+  "jump",
+  "action"
  ],
  "甲鉄城のカバネリ（パチスロ）": [],
  "ソードアート・オンライン フラクチュアード デイドリーム": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "異修羅": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "青のミブロ": [],
+ "青のミブロ": [
+  "action",
+  "drama"
+ ],
  "名探偵コナン 100万ドルの五稜星": [
   "kids",
-  "movie"
+  "movie",
+  "horror"
  ],
  "やり直し令嬢は竜帝陛下を攻略中": [
   "isekai",
   "romcom"
  ],
  "義妹生活": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "火狩りの王 第2期": [
   "sf"
  ],
- "WIND BREAKER": [],
+ "WIND BREAKER": [
+  "action",
+  "drama"
+ ],
  "魔王様、リトライ!R": [
   "isekai"
  ],
@@ -3025,15 +4094,21 @@
   "sports"
  ],
  "SPY×FAMILY Season 3": [
-  "jump"
+  "jump",
+  "action"
  ],
  "片田舎のおっさん、剣聖になる": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "鬼人幻燈抄": [],
+ "鬼人幻燈抄": [
+  "horror",
+  "drama"
+ ],
  "怪獣8号 第2期": [
   "jump",
-  "sf"
+  "sf",
+  "action"
  ],
  "メダリスト": [
   "sports"
@@ -3042,74 +4117,108 @@
   "jump"
  ],
  "ある魔女が死ぬまで": [
-  "isekai"
+  "isekai",
+  "drama"
  ],
  "アークナイツ【焔燼曙明/RISE FROM EMBER】": [
-  "game"
+  "game",
+  "action"
  ],
  "サイレント・ウィッチ 沈黙の魔女の隠しごと": [
   "isekai"
  ],
- "ワンパンマン 第3期": [],
- "ガチアクタ": [],
- "僕のヒーローアカデミア FINAL SEASON": [
-  "jump"
+ "ワンパンマン 第3期": [
+  "action"
  ],
- "東京リベンジャーズ 三天戦争編": [],
+ "ガチアクタ": [
+  "action"
+ ],
+ "僕のヒーローアカデミア FINAL SEASON": [
+  "jump",
+  "action"
+ ],
+ "東京リベンジャーズ 三天戦争編": [
+  "action",
+  "drama"
+ ],
  "劇場版 チェンソーマン レゼ篇": [
   "jump",
-  "movie"
+  "movie",
+  "action",
+  "horror"
  ],
  "その着せ替え人形は恋をする Season 2": [
   "romcom"
  ],
  "BanG Dream! Ave Mujica": [
-  "idol"
+  "idol",
+  "drama"
  ],
  "Summer Pockets": [
-  "galge"
+  "galge",
+  "drama"
  ],
  "羅小黒戦記2 ぼくらが望む未来": [
-  "movie"
+  "movie",
+  "action"
  ],
  "SAKAMOTO DAYS": [
-  "jump"
+  "jump",
+  "action"
  ],
- "よふかしのうた Season2": [],
+ "よふかしのうた Season2": [
+  "romcom",
+  "horror"
+ ],
  "七つの大罪 黙示録の四騎士 第2期": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ばいばい、アース 第2シーズン": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "機動戦士Gundam GQuuuuuuX": [
   "robot"
  ],
- "Fate/strange Fake": [],
- "俺だけレベルアップな件 Season 2": [],
- "盾の勇者の成り上がり Season 4": [
+ "Fate/strange Fake": [
+  "action",
+  "galge"
+ ],
+ "俺だけレベルアップな件 Season 2": [
+  "action",
   "isekai"
+ ],
+ "盾の勇者の成り上がり Season 4": [
+  "isekai",
+  "action"
  ],
  "Dr.STONE SCIENCE FUTURE": [
   "jump",
   "sf"
  ],
- "天久鷹央の推理カルテ": [],
+ "天久鷹央の推理カルテ": [
+  "horror",
+  "drama"
+ ],
  "BEYBLADE X": [
   "kids"
  ],
  "異修羅 第2期": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "名探偵コナン 隻眼の残像": [
   "kids",
-  "movie"
+  "movie",
+  "horror"
  ],
  "彼女、お借りします 第4期": [
   "romcom"
  ],
  "3年Z組銀八先生": [
-  "jump"
+  "jump",
+  "drama"
  ],
  "君のことが大大大大大好きな100人の彼女 第2期": [
   "romcom"
@@ -3119,64 +4228,93 @@
   "romcom"
  ],
  "ウィッチウォッチ": [
-  "jump"
+  "jump",
+  "drama"
  ],
  "ブラッククローバー 2nd Season": [
   "jump",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ポケットモンスター ライジングアゲイン": [
   "game",
   "kids"
  ],
- "光が死んだ夏": [],
- "らんま1/2 第2期": [],
+ "光が死んだ夏": [
+  "horror",
+  "drama"
+ ],
+ "らんま1/2 第2期": [
+  "action",
+  "romcom"
+ ],
  "タコピーの原罪": [
   "jump",
-  "sf"
+  "sf",
+  "drama"
  ],
  "キミとアイドルプリキュア♪": [
   "kids",
-  "idol"
+  "idol",
+  "mahou"
  ],
- "薬屋のひとりごと 第2期": [],
+ "薬屋のひとりごと 第2期": [
+  "horror",
+  "drama"
+ ],
  "ゲゲゲの鬼太郎 私の愛した歴代ゲゲゲ": [
-  "kids"
+  "kids",
+  "horror"
  ],
  "ヴィジランテ -僕のヒーローアカデミア ILLEGALS-": [
-  "jump"
+  "jump",
+  "action"
  ],
  "サンダー3": [
   "sf"
  ],
  "前橋ウィッチーズ": [
-  "idol"
+  "idol",
+  "mahou"
  ],
  "青春ブタ野郎はサンタクロースの夢を見ない": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "ダンダダン 第2期": [
-  "jump"
+  "jump",
+  "action",
+  "horror"
  ],
  "ヤマトよ永遠に REBEL3199 第三章 群青のアステロイド": [
   "sf",
   "movie"
  ],
- "小市民シリーズ 第2期": [],
+ "小市民シリーズ 第2期": [
+  "horror",
+  "drama"
+ ],
  "メイクアガール": [
   "theater",
   "movie",
   "sf"
  ],
  "異世界かるてっと3": [
-  "isekai"
+  "isekai",
+  "drama"
  ],
  "劇場版 鬼滅の刃 無限城編 第一章": [
   "jump",
-  "movie"
+  "movie",
+  "action"
  ],
- "ワールド イズ ダンシング": [],
- "キングダム 第6シリーズ": [],
+ "ワールド イズ ダンシング": [
+  "drama"
+ ],
+ "キングダム 第6シリーズ": [
+  "action",
+  "drama"
+ ],
  "阿波連さんははかれない season2": [
   "jump",
   "romcom"
@@ -3185,30 +4323,40 @@
   "nichijou",
   "movie"
  ],
- "薬屋のひとりごと 第3期": [],
+ "薬屋のひとりごと 第3期": [
+  "horror",
+  "drama"
+ ],
  "呪術廻戦 死滅回游 前編": [
-  "jump"
+  "jump",
+  "action",
+  "horror"
  ],
  "きみが死ぬまで恋をしたい": [
   "romcom"
  ],
  "追放された転生重騎士はゲーム知識で無双する": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "クレバテスII -魔獣の王と偽りの勇者伝承-": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "花ざかりの君たちへ": [
   "romcom"
  ],
  "杖と剣のウィストリア Season2": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "ONE PIECE HEROINES": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ヴィジランテ -僕のヒーローアカデミア ILLEGALS- 第2期": [
-  "jump"
+  "jump",
+  "action"
  ],
  "メダリスト 第2期": [
   "sports"
@@ -3220,11 +4368,16 @@
   "isekai"
  ],
  "攻殻機動隊 THE GHOST IN THE SHELL": [
-  "sf"
+  "sf",
+  "action"
  ],
- "拷問バイトくんの日常": [],
+ "拷問バイトくんの日常": [
+  "drama",
+  "action"
+ ],
  "勇者刑に処す 懲罰勇者9004隊刑務記録": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "リズム天国 ミラクルスターズ": [
   "game"
@@ -3232,53 +4385,81 @@
  "葬送のフリーレン 第2期": [
   "isekai"
  ],
- "ようこそ実力至上主義の教室へ 4th Season 2年生編1学期": [],
+ "ようこそ実力至上主義の教室へ 4th Season 2年生編1学期": [
+  "drama"
+ ],
  "マジカル★エクスプローラー": [
   "isekai"
  ],
- "勇者のクズ": [],
+ "勇者のクズ": [
+  "action"
+ ],
  "スティール・ボール・ラン ジョジョの奇妙な冒険": [
-  "jump"
+  "jump",
+  "action"
  ],
- "ふつつかな悪女ではございますが ～雛宮蝶鼠とりかえ伝～": [],
+ "ふつつかな悪女ではございますが ～雛宮蝶鼠とりかえ伝～": [
+  "drama",
+  "romcom"
+ ],
  "【推しの子】第3期": [
-  "idol"
+  "idol",
+  "drama"
  ],
- "ゴールデンカムイ 最終章": [],
+ "ゴールデンカムイ 最終章": [
+  "action",
+  "drama"
+ ],
  "幼女戦記II": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "うるわしの宵の月": [
   "romcom"
  ],
- "スーパーの裏でヤニ吸うふたり": [],
+ "スーパーの裏でヤニ吸うふたり": [
+  "romcom",
+  "nichijou"
+ ],
  "オーバーウォッチ": [
-  "game"
+  "game",
+  "action"
  ],
  "片田舎のおっさん、剣聖になるII": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "姫騎士は蛮族の嫁": [
   "isekai",
   "romcom"
  ],
- "バーテックスフォース": [],
- "ドロヘドロ Season2": [],
+ "バーテックスフォース": [
+  "robot",
+  "sf",
+  "action"
+ ],
+ "ドロヘドロ Season2": [
+  "action",
+  "horror"
+ ],
  "ONE PIECE エルバフ編": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ここは俺に任せて先に行けと言ってから10年がたったら伝説になっていた。": [
   "isekai"
  ],
  "名探偵プリキュア!": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "鬼の花嫁": [
   "romcom"
  ],
  "劇場版 転生したらスライムだった件 蒼海の涙編": [
   "isekai",
-  "movie"
+  "movie",
+  "action"
  ],
  "劇場版「僕の心のヤバイやつ」": [
   "romcom",
@@ -3288,7 +4469,8 @@
   "isekai"
  ],
  "転生したらスライムだった件 第4期": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "無職転生III 〜異世界行ったら本気だす〜": [
   "isekai"
@@ -3297,19 +4479,27 @@
   "romcom"
  ],
  "魔都精兵のスレイブ2": [
-  "jump"
+  "jump",
+  "action"
  ],
  "新劇場版 銀魂 -吉原大炎上-": [
   "jump",
-  "movie"
+  "movie",
+  "action",
+  "drama"
  ],
  "君のことが大大大大大好きな100人の彼女 第3期": [
   "romcom"
  ],
  "劇場版 魔法少女まどか☆マギカ〈ワルプルギスの廻天〉": [
-  "movie"
+  "movie",
+  "mahou",
+  "drama"
  ],
- "黄泉のツガイ": [],
+ "黄泉のツガイ": [
+  "action",
+  "horror"
+ ],
  "とんがり帽子のアトリエ": [
   "isekai"
  ],
@@ -3317,17 +4507,24 @@
   "sports"
  ],
  "天才バカボン": [
-  "kids"
+  "kids",
+  "drama"
  ],
  "科学忍者隊ガッチャマン": [
-  "sf"
+  "sf",
+  "action"
  ],
- "デビルマン": [],
+ "デビルマン": [
+  "action",
+  "horror"
+ ],
  "ど根性ガエル": [
-  "kids"
+  "kids",
+  "drama"
  ],
  "元祖天才バカボン": [
-  "kids"
+  "kids",
+  "drama"
  ],
  "銀河鉄道999": [
   "sf"
@@ -3337,7 +4534,8 @@
   "movie"
  ],
  "平成天才バカボン": [
-  "kids"
+  "kids",
+  "drama"
  ],
  "頭文字D": [
   "sports"
@@ -3357,39 +4555,59 @@
  "モンキーターンV": [
   "sports"
  ],
- "地獄少女": [],
+ "地獄少女": [
+  "horror"
+ ],
  "SHAKE（パチスロ）": [],
- "地獄少女 二籠": [],
+ "地獄少女 二籠": [
+  "horror"
+ ],
  "マジカルハロウィン（パチスロ）": [],
  "秘宝伝（パチスロ）": [],
  "花の慶次（パチンコ）": [
   "jump"
  ],
- "逆境無頼カイジ Ultimate Survivor": [],
+ "逆境無頼カイジ Ultimate Survivor": [
+  "drama"
+ ],
  "恋姫†無双": [
   "game",
   "galge"
  ],
- "地獄少女 三鼎": [],
+ "地獄少女 三鼎": [
+  "horror"
+ ],
  "戦国乙女（パチンコ）": [],
  "咲-Saki-": [
   "sports"
  ],
  "クイーンズブレイド 流浪の戦士": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "クイーンズブレイド 玉座を継ぐ者": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "忍魂（パチスロ）": [],
- "学園黙示録 HIGHSCHOOL OF THE DEAD": [],
- "逆境無頼カイジ 破戒録篇": [],
- "デッドマン・ワンダーランド": [],
+ "学園黙示録 HIGHSCHOOL OF THE DEAD": [
+  "horror",
+  "action"
+ ],
+ "逆境無頼カイジ 破戒録篇": [
+  "drama"
+ ],
+ "デッドマン・ワンダーランド": [
+  "action",
+  "horror"
+ ],
  "戦国乙女～桃色パラドックス～": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "クイーンズブレイド リベリオン": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "輪廻のラグランジェ": [
   "robot"
@@ -3397,9 +4615,13 @@
  "咲-Saki- 阿知賀編 episode of side-A": [
   "sports"
  ],
- "猫物語（黒）": [],
- "ハイスクールD×D": [
+ "猫物語（黒）": [
+  "horror",
   "romcom"
+ ],
+ "ハイスクールD×D": [
+  "romcom",
+  "action"
  ],
  "輪廻のラグランジェ season2": [
   "robot"
@@ -3409,10 +4631,12 @@
  ],
  "必殺仕事人（パチンコ）": [],
  "世界でいちばん強くなりたい!": [
-  "sports"
+  "sports",
+  "action"
  ],
  "ハイスクールD×D NEW": [
-  "romcom"
+  "romcom",
+  "action"
  ],
  "咲-Saki- 全国編": [
   "sports"
@@ -3421,7 +4645,8 @@
  "海物語（パチンコ）": [],
  "地獄少女（パチンコ）": [],
  "ハイスクールD×D BorN": [
-  "romcom"
+  "romcom",
+  "action"
  ],
  "新劇場版 頭文字D Legend2 -闘走-": [
   "sports",
@@ -3434,32 +4659,41 @@
  "獣王（パチンコ）": [],
  "うたわれるもの 偽りの仮面": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "聖戦士ダンバイン（パチンコ）": [
   "robot",
   "isekai"
  ],
  "傷物語": [
-  "movie"
+  "movie",
+  "horror",
+  "action"
  ],
- "からくりサーカス": [],
+ "からくりサーカス": [
+  "action",
+  "drama"
+ ],
  "痛いのは嫌なので防御力に極振りしたいと思います。": [
   "isekai"
  ],
  "世界最高の暗殺者、異世界貴族に転生する": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "takt op.Destiny": [
   "game",
-  "idol"
+  "idol",
+  "action"
  ],
  "エヴァンゲリオン（パチンコ）": [
   "robot"
  ],
  "うたわれるもの 二人の白皇": [
   "game",
-  "isekai"
+  "isekai",
+  "action"
  ],
  "痛いのは嫌なので防御力に極振りしたいと思います。2": [
   "isekai"
@@ -3471,32 +4705,42 @@
   "sf"
  ],
  "甲鉄城のカバネリ（パチンコ）": [],
- "横山光輝 三国志": [],
+ "横山光輝 三国志": [
+  "drama",
+  "action"
+ ],
  "マクロスプラス": [
   "robot",
   "sf"
  ],
  "美少女戦士セーラームーンSuperS": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "美少女戦士セーラームーンS": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "マクロス7 LET'S FIRE!!": [
   "robot",
   "sf",
   "idol"
  ],
- "Vの炎": [],
+ "Vの炎": [
+  "sports",
+  "drama"
+ ],
  "忍者戦隊カクレンジャー": [
-  "kids"
+  "kids",
+  "action"
  ],
  "イタズラなKiss": [
   "romcom"
  ],
  "快傑蒸気探偵団": [
   "jump",
-  "sf"
+  "sf",
+  "horror"
  ],
  "頭文字D Fourth Stage": [
   "sports"
@@ -3504,15 +4748,22 @@
  "エデンズボゥイ": [
   "isekai"
  ],
- "陸上防衛隊まおちゃん": [],
- "ママはぽよぽよザウルスがお好き": [],
+ "陸上防衛隊まおちゃん": [
+  "sf",
+  "nichijou"
+ ],
+ "ママはぽよぽよザウルスがお好き": [
+  "kids",
+  "drama"
+ ],
  "OVERMANキングゲイナー": [
   "robot"
  ],
  "プロジェクトA子": [
   "movie",
   "theater",
-  "sf"
+  "sf",
+  "action"
  ],
  "機動新世紀ガンダムX": [
   "robot",
@@ -3521,7 +4772,9 @@
  "アクエリアンエイジ Sign for Evolution": [
   "game"
  ],
- "朝霧の巫女": [],
+ "朝霧の巫女": [
+  "horror"
+ ],
  "JINKI:EXTEND": [
   "robot"
  ],
@@ -3567,7 +4820,10 @@
  "ハーメルンのバイオリン弾き": [
   "isekai"
  ],
- "プリンセスチュチュ": [],
+ "プリンセスチュチュ": [
+  "mahou",
+  "isekai"
+ ],
  "鉄コミュニケイション": [
   "sf"
  ],
@@ -3579,13 +4835,15 @@
   "isekai"
  ],
  "飛べ!イサミ": [
-  "kids"
+  "kids",
+  "action"
  ],
  "おねがい☆ツインズ": [
   "romcom"
  ],
  "地獄先生ぬ〜べ〜": [
-  "jump"
+  "jump",
+  "horror"
  ],
  "メダロット魂": [
   "game",
@@ -3604,46 +4862,59 @@
   "romcom"
  ],
  "すごいよ!!マサルさん": [
-  "jump"
+  "jump",
+  "drama"
  ],
  "まじかる☆タルるートくん": [
   "jump",
-  "kids"
+  "kids",
+  "drama"
  ],
  "勇者指令ダグオン": [
   "robot",
   "kids"
  ],
  "Gu-Guガンモ": [
-  "kids"
+  "kids",
+  "drama"
  ],
  "ムカムカパラダイス": [
   "kids"
  ],
- "パタリロ!": [],
+ "パタリロ!": [
+  "drama"
+ ],
  "ストップ!!ひばりくん!": [
   "jump",
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "妖しのセレス": [
-  "romcom"
+  "romcom",
+  "horror"
  ],
  "美少女戦士セーラームーン セーラースターズ": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "どっきりドクター": [
   "kids"
  ],
- "魔法使いTai!": [],
+ "魔法使いTai!": [
+  "mahou",
+  "sf"
+ ],
  "野球狂の詩": [
   "sports"
  ],
  "宇宙の騎士テッカマンブレード": [
-  "sf"
+  "sf",
+  "action"
  ],
  "劇場版 カードキャプターさくら": [
   "movie",
-  "kids"
+  "kids",
+  "mahou"
  ],
  "蒼穹のファフナー RIGHT OF LEFT": [
   "robot",
@@ -3651,7 +4922,8 @@
  ],
  "魔法少女隊アルス": [
   "isekai",
-  "kids"
+  "kids",
+  "mahou"
  ],
  "黄金勇者ゴルドラン": [
   "robot",
@@ -3661,7 +4933,8 @@
   "romcom"
  ],
  "怪盗セイント・テール": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "仰天人間バトシーラー": [
   "kids"
@@ -3670,13 +4943,22 @@
   "robot",
   "sf"
  ],
- "超変身コス∞プレイヤー": [],
+ "超変身コス∞プレイヤー": [
+  "action",
+  "sf"
+ ],
  "BRIGADOON まりんとメラン": [
   "robot",
   "sf"
  ],
- "南海奇皇": [],
- "風まかせ月影蘭": [],
+ "南海奇皇": [
+  "sf",
+  "drama"
+ ],
+ "風まかせ月影蘭": [
+  "action",
+  "drama"
+ ],
  "ツインビーPARADISE2": [
   "game"
  ],
@@ -3685,7 +4967,10 @@
   "galge",
   "isekai"
  ],
- "The SoulTaker 〜魂狩〜": [],
+ "The SoulTaker 〜魂狩〜": [
+  "action",
+  "sf"
+ ],
  "GIRLSブラボー": [
   "romcom"
  ],
@@ -3698,17 +4983,21 @@
   "sports"
  ],
  "魔法戦隊マジレンジャー": [
-  "kids"
+  "kids",
+  "action"
  ],
  "DARKER THAN BLACK -黒の契約者-": [
-  "sf"
+  "sf",
+  "action"
  ],
  "グレネーダー 〜ほほえみの閃士〜": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "劇場版 NARUTO -ナルト- 疾風伝 絆": [
   "jump",
-  "movie"
+  "movie",
+  "action"
  ],
  "スレイヤーズMEGUMIXXX": [
   "isekai"
@@ -3717,17 +5006,22 @@
   "kids"
  ],
  "化物語 劇伴音楽集": [],
- "宙のまにまに": [],
+ "宙のまにまに": [
+  "drama",
+  "romcom"
+ ],
  "シンドラーのリスト": [
   "movie"
  ],
  "コンプリートする生徒会": [],
  "侍戦隊シンケンジャー": [
-  "kids"
+  "kids",
+  "action"
  ],
  "プラチナ・ジャズ ～アニメ・スタンダード Vol.2～": [],
  "バクマン。": [
-  "jump"
+  "jump",
+  "drama"
  ],
  "えむえむっ!": [
   "romcom"
@@ -3740,7 +5034,8 @@
  "劇場版 Fate/stay night UNLIMITED BLADE WORKS": [
   "game",
   "galge",
-  "movie"
+  "movie",
+  "action"
  ],
  "BAKUROCK ~未来の輪郭線~": [
   "jump"
@@ -3754,7 +5049,10 @@
   "game",
   "galge"
  ],
- "生徒会役員共": [],
+ "生徒会役員共": [
+  "nichijou",
+  "drama"
+ ],
  "神のみぞ知るセカイII": [
   "romcom"
  ],
@@ -3765,16 +5063,27 @@
  "Departures~あなたにおくるアイの歌~": [
   "sf"
  ],
- "GOSICK -ゴシック-": [],
+ "GOSICK -ゴシック-": [
+  "horror"
+ ],
  "nexus": [
   "romcom"
  ],
  "PRESENTER": [
   "isekai"
  ],
- "C³ -シーキューブ-": [],
- "UN-GO": [],
- "灼眼のシャナIII -FINAL-": [],
+ "C³ -シーキューブ-": [
+  "action",
+  "horror"
+ ],
+ "UN-GO": [
+  "horror",
+  "sf"
+ ],
+ "灼眼のシャナIII -FINAL-": [
+  "action",
+  "isekai"
+ ],
  "Aチャンネル": [
   "nichijou"
  ],
@@ -3786,7 +5095,10 @@
   "game",
   "idol"
  ],
- "C": [],
+ "C": [
+  "sf",
+  "drama"
+ ],
  "青い栞": [],
  "ロウきゅーぶ!": [
   "sports"
@@ -3814,7 +5126,8 @@
  ],
  "みつどもえ増量中!": [],
  "海賊戦隊ゴーカイジャー": [
-  "kids"
+  "kids",
+  "action"
  ],
  "Rewrite Original SoundTrack": [
   "game",
@@ -3830,21 +5143,32 @@
   "game",
   "galge"
  ],
- "灼眼のシャナIII-FINAL-": [],
+ "灼眼のシャナIII-FINAL-": [
+  "action",
+  "isekai"
+ ],
  "あの夏で待ってる": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "Daybreaker": [],
  "さんかれあ": [
-  "romcom"
+  "romcom",
+  "horror"
  ],
- "高校入試": [],
+ "高校入試": [
+  "horror",
+  "drama"
+ ],
  "WHITE ALBUM2 Original Soundtrack~introductory~": [
   "game",
   "galge",
   "romcom"
  ],
- "ブラック★ロックシューター": [],
+ "ブラック★ロックシューター": [
+  "action",
+  "drama"
+ ],
  "リトルバスターズ!～Refrain～": [
   "game",
   "galge"
@@ -3855,15 +5179,20 @@
   "game"
  ],
  "獣電戦隊キョウリュウジャー": [
-  "kids"
+  "kids",
+  "action"
  ],
  "はたらく魔王さま!": [
   "isekai"
  ],
  "新世界より": [
-  "sf"
+  "sf",
+  "horror"
  ],
- "刀語": [],
+ "刀語": [
+  "action",
+  "drama"
+ ],
  "失恋ショコラティエ": [
   "romcom"
  ],
@@ -3873,8 +5202,14 @@
  "異能バトルは日常系のなかで": [
   "romcom"
  ],
- "俺、ツインテールになります。": [],
- "ストライク・ザ・ブラッド": [],
+ "俺、ツインテールになります。": [
+  "action",
+  "romcom"
+ ],
+ "ストライク・ザ・ブラッド": [
+  "action",
+  "romcom"
+ ],
  "未確認で歌唱形": [
   "romcom"
  ],
@@ -3903,7 +5238,8 @@
  ],
  "グリザイア:ファントムトリガー": [
   "game",
-  "galge"
+  "galge",
+  "action"
  ],
  "LIVE YOUR LIFE": [],
  "WHITE ALBUM2 Original Soundtrack ~kazusa~": [
@@ -3929,8 +5265,13 @@
  "リトルウィッチアカデミア": [
   "isekai"
  ],
- "サクラクエスト": [],
- "武装少女マキャヴェリズム": [],
+ "サクラクエスト": [
+  "drama"
+ ],
+ "武装少女マキャヴェリズム": [
+  "action",
+  "romcom"
+ ],
  "STEP by STEP UP↑↑↑↑": [
   "nichijou"
  ],
@@ -3961,7 +5302,8 @@
   "robot"
  ],
  "ダンジョンに出会いを求めるのは間違っているだろうかⅡ": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "楽園都市": [],
  "「デート・ア・ライブ」新作放送記念! 主題歌大全集": [
@@ -3991,9 +5333,12 @@
   "robot"
  ],
  "インフィニット・デンドログラム": [
-  "isekai"
+  "isekai",
+  "action"
  ],
- "神様になった日": [],
+ "神様になった日": [
+  "drama"
+ ],
  "トミカ絆合体 アースグランナー": [
   "kids",
   "robot"
@@ -4002,7 +5347,8 @@
   "romcom"
  ],
  "マギアレコード 魔法少女まどか☆マギカ外伝 2nd SEASON -覚醒前夜-": [
-  "game"
+  "game",
+  "mahou"
  ],
  "乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…X": [
   "isekai",
@@ -4037,13 +5383,20 @@
  "藤子・F・不二雄 生誕90周年 藤子・F・不二雄 TV MUSIC HISTORY II -藤子・F・不二雄作品集2-": [
   "kids"
  ],
- "怪異と乙女と神隠し": [],
- "ようこそ実力至上主義の教室へ 3rd Season": [],
+ "怪異と乙女と神隠し": [
+  "horror"
+ ],
+ "ようこそ実力至上主義の教室へ 3rd Season": [
+  "drama"
+ ],
  "ループ7回目の悪役令嬢は、元敵国で自由気ままな花嫁生活を満喫する": [
   "isekai",
   "romcom"
  ],
- "地縛少年花子くん2": [],
+ "地縛少年花子くん2": [
+  "horror",
+  "romcom"
+ ],
  "ロックは淑女の嗜みでして": [
   "idol"
  ],
@@ -4061,20 +5414,28 @@
   "idol",
   "movie"
  ],
- "ドラム―VIVANT THE ORIGIN STORY―": [],
+ "ドラム―VIVANT THE ORIGIN STORY―": [
+  "drama"
+ ],
  "君と花火と約束と": [
   "theater",
   "movie",
   "romcom"
  ],
- "名探偵のままでいて": [],
+ "名探偵のままでいて": [
+  "horror"
+ ],
  "セクシーコマンドー外伝 すごいよ!!マサルさん": [
-  "jump"
+  "jump",
+  "drama"
  ],
  "スレイヤーズREVOLUTION": [
   "isekai"
  ],
- "生徒会の一存": [],
+ "生徒会の一存": [
+  "romcom",
+  "nichijou"
+ ],
  "ロードス島戦記": [
   "isekai"
  ],
@@ -4104,19 +5465,24 @@
   "movie",
   "isekai"
  ],
- "夢喰いメリー": [],
+ "夢喰いメリー": [
+  "action",
+  "isekai"
+ ],
  "アイドルマスター (アニメ)": [
   "game",
   "idol"
  ],
  "グリザイアの迷宮": [
   "game",
-  "galge"
+  "galge",
+  "action"
  ],
  "WHITE ALBUM2": [
   "game",
   "galge",
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "プリティーリズム・レインボーライブ": [
   "idol",
@@ -4133,13 +5499,17 @@
   "romcom"
  ],
  "ねじ巻き精霊戦記 天鏡のアルデラミン": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "プリンセスコネクト!Re:Dive": [
   "game",
   "isekai"
  ],
- "ストライク・ザ・ブラッドIII": [],
+ "ストライク・ザ・ブラッドIII": [
+  "action",
+  "romcom"
+ ],
  "デート・ア・ライブIII": [
   "romcom"
  ],
@@ -4148,23 +5518,31 @@
  ],
  "新サクラ大戦": [
   "game",
-  "robot"
+  "robot",
+  "action"
  ],
  "Yes!プリキュア5GoGo!": [
-  "kids"
+  "kids",
+  "mahou"
  ],
  "ひだまりスケッチ": [
   "nichijou"
  ],
- "続 夏目友人帳": [],
+ "続 夏目友人帳": [
+  "horror",
+  "drama"
+ ],
  "やはり俺の青春ラブコメはまちがっている。完": [
-  "romcom"
+  "romcom",
+  "drama"
  ],
  "映画 五等分の花嫁": [
   "romcom"
  ],
  "銀魂'延長戦": [
-  "jump"
+  "jump",
+  "action",
+  "drama"
  ],
  "ちいかわ": [
   "nichijou"
@@ -4177,9 +5555,13 @@
   "nichijou"
  ],
  "モンスターハンターライズ": [
-  "game"
+  "game",
+  "action"
  ],
  "PUKEY GODDESS SHOT TRICK": [
   "game"
+ ],
+ "地獄少女 宵伽": [
+  "horror"
  ]
 }

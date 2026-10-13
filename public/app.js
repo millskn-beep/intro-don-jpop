@@ -228,7 +228,7 @@ $('copyBtn').onclick = async () => {
 
 // ── 設定 ──
 const SETTING_OPTIONS = {
-  questions: [5, 10, 20, 30].map(n => [n, n + '問']),
+  questions: [1, 3, 5, 10, 20, 30].map(n => [n, n + '問']),
   choices: Array.from({ length: 11 }, (_, i) => [i + 2, (i + 2) + '択']),
   introLen: [3, 5, 10, 15].map(n => [n, n + '秒']),
   hintAt: [5, 10, 15, 20].map(n => [n, n + '秒後']),
@@ -250,7 +250,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -392,11 +392,53 @@ $('setTabs').onclick = e => { const b = e.target.closest('button[data-sec]'); if
 setSettingsTab(store.get('aq-settab') || 'range');
 $('openExclude').onclick = () => { setLobbyTab('settings'); lobbyTabChosen = true; setSettingsTab('exclude'); $('settings').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
 // 遊び方の説明（選んだ遊び方のルールを一言で）
+// 遊び方の一覧（アイコン・名前・ひとこと・人数・分類）。「遊び方を選ぶ」の画面で使う
+const PLAY_INFO = {
+  normal: ['🎵', 'ふつう', '全員で同時に答える。速く正解するほど高得点', '1人〜', 'quiz'],
+  buzzer: ['🔔', '早押し', '押した人だけが答えられる。お手つきに注意', '2人〜', 'quiz'],
+  survival: ['💀', 'サバイバル', '間違えると脱落。最後まで残った人の勝ち', '1人〜', 'quiz'],
+  picker: ['🎤', '出題者', '順番に1人が曲を選んで出題。半分くらいが正解すると出題者も高得点', '2人〜', 'quiz'],
+  coop: ['🤝', '協力', '全員の正解数を合わせて目標をめざす', '1人〜', 'quiz'],
+  fill: ['🧩', '3つ埋めバトル', '曲名・アニメ・アーティストの枠を早押しで埋める', '1人〜', 'quiz'],
+  rush: ['🎰', '激アツRUSH', 'パチンコ風。保留・リーチ・大当たり・確変で点が跳ねる', '1人〜', 'quiz'],
+  karuta: ['🎴', 'かるた', '並んだ札から、流れた曲の札を早取り', '1人〜', 'quiz'],
+  nenpyo: ['📅', '年表', '流れた曲を、自分の年表の正しい位置に置く', '1人〜', 'quiz'],
+  panel: ['🟥', '陣取り', 'アタック25風。正解したらパネルを取って挟んで裏返す', '1人〜', 'quiz'],
+  bingo: ['🎯', 'ビンゴ', '正解した作品名のマスを開けて、列をそろえる', '1人〜', 'quiz'],
+  poker: ['🃏', 'ポーカー', '正解した曲がトランプになる。10問ごとに役で勝負', '1人〜', 'quiz'],
+  sugoroku: ['🎲', 'すごろく', '正解の速さでコマを進める。止まったマスでイベント', '1人〜', 'quiz'],
+  genre: ['🏆', 'ジャンル制覇', '6ジャンルのピースを集める。次のジャンルは選択制かランダム制', '1人〜', 'quiz'],
+  deck: ['🛒', 'デッキ構築', '正解でコイン。3問ごとのショップでカードを買って育てる', '1人〜', 'quiz'],
+  wits: ['💰', '年当てベット', '発売年を予想して、いちばん近い予想に賭ける', '2人〜', 'quiz'],
+  kaerema: ['🍜', '帰れま10', 'お題の曲の再生回数トップ10を、全部当てたら帰れる', '1人〜', 'board'],
+  wolf: ['🐺', '人狼', '1人だけ別の曲。ヒントと話し合いで、だれが違うか当てる', '3人〜', 'board'],
+  dixit: ['🖼️', 'ディクシット', '語り手のヒントに合う曲を手札から出し、語り手の曲を当てる', '3人〜', 'board'],
+  baba: ['😈', 'ババ抜き', '同じ作品の曲2枚がペア。最後までババを持っていたら負け', '3人〜', 'board'],
+  daifugo: ['👑', '大富豪', '発売年が新しい曲ほど強い。年は見えない', '3人〜', 'board'],
+  codenames: ['🕵️', 'コードネーム', '2チームで、作品名の盤面から味方の作品を当てる', '4人〜', 'board'],
+  azul: ['🧱', 'アズール', '曲カードを色ごとに取り合い、年代別の棚に並べる', '2〜4人', 'board'],
+};
+const PLAY_GROUPS = [['quiz', '🎧 イントロクイズで遊ぶ（毎問、曲を聴いて答える）'], ['board', '🎲 ボードゲーム風（手札・投票・話し合いなど）']];
+function renderPlayPick(play) {
+  const p = PLAY_INFO[play] || ['🎵', play, '', '', ''];
+  $('playPick').innerHTML = `<b>${p[0]}</b>${esc(p[1])}<small>▾ 一覧から選ぶ</small>`;
+}
+$('playPick').onclick = () => {
+  const cur = room?.settings?.play;
+  $('playPop').innerHTML = `<div class="wf-field pl-field"><div class="wf-head"><b>🎮 遊び方を選ぶ</b><span>カードを押すと、その遊び方になります</span><button class="btn-sub pl-close" id="plClose" type="button">閉じる</button></div>
+    <div class="pl-body">${PLAY_GROUPS.map(([g, label]) => `<h4>${label}</h4><div class="pl-grid">${Object.entries(PLAY_INFO).filter(([, v]) => v[4] === g).map(([k, v]) => `<button type="button" class="pl-card${k === cur ? ' on' : ''}" data-play="${k}" title="${esc(PLAY_DESC[k] || '')}"><span class="pl-icon">${v[0]}</span><b>${esc(v[1])}</b><small>${esc(v[2])}</small><i>${esc(v[3])}</i></button>`).join('')}</div>`).join('')}</div></div>`;
+  $('playPop').hidden = false;
+  $('plClose').onclick = () => { $('playPop').hidden = true; };
+  $('playPop').onclick = e => { if (e.target === $('playPop')) $('playPop').hidden = true; };
+  $('playPop').querySelectorAll('[data-play]').forEach(b => b.onclick = () => {
+    const sel = document.querySelector('[data-key="play"]'); sel.value = b.dataset.play; sendSettings(); renderPlayPick(b.dataset.play); $('playPop').hidden = true;
+  });
+};
 const PLAY_DESC = {
   azul: 'ボードゲーム「アズール」の曲版（2〜4人）。工房に並んだ曲カード（曲名と色＝ジャンルが見える。年代は見えない）から、同じ色を全部取り、自分の棚の年代別の段（〜80年代／90年代／00年代／10年代／20年代）に1枚ずつ置きます。年代ちがい・段があふれたカードは床に落ちて失点。段がいっぱいになると、ラウンドの終わりに 1枚2点（同じ色だけなら+3点）。3ラウンドで終わり。置いた曲はサビが流れます。',
   kaerema: 'テレビの「帰れま10」のアニソン版。お題（歌手・シリーズ・年）の曲20曲から、再生回数トップ10に入っている曲を順番に1曲ずつ選びます（選ぶとサビが流れて順位が出ます）。トップ10を全部当てたら帰れる！ 外れが6回で帰れません…。当たり +500点（1位は +1000点）、10曲目を当てた人 +2000点、帰れたら全員 +1000点。問題数＝お題の数です。',
-  deck: 'いつものイントロクイズで正解するとコインがもらえます（いちばん速い人 +3、ほかの正解 +2）。3問ごとにショップが開き、コインでカードを買えます：50:50・オーディエンス・もう一度聴く（問題中に使う）、ブースト（次の正解の点数2倍）、投資（ずっと正解のたびにコイン+1）、勝利点（すぐ+1000点・買うたびに値上がり）。コインを増やすか、早めに点に換えるかの駆け引きです。',
-  genre: 'いつものイントロクイズで、6つのジャンル（ジャンプ／ロボット・SF／ラブコメ・日常／アイドル・バンド／異世界・ファンタジー／ゲーム・スポーツ）のピースを集めます。毎問どれか1つのジャンルの曲が出て、いちばん速く正解した人がそのジャンルのピースをもらい、次の問題のジャンルを選べます。先に6つそろえた人の勝ち（+3000点）。',
+  deck: 'いつものイントロクイズで正解するとコインがもらえます（いちばん速い人 +3、ほかの正解 +2）。3問ごと（と、最後の問題のあと必ず）にショップが開き、コインでカードを買えます：50:50・オーディエンス・テレフォン・もう一度聴く（問題中に使う）、ランダムカード、ブースト（次の正解の点数2倍／大ブーストは3倍）、投資（ずっと正解のたびにコイン+1／大投資は+2）、コイン強奪、勝利点（すぐ+1000点・買うたびに値上がり／大勝利点は+2500点）。',
+  genre: 'いつものイントロクイズで、6つのジャンル（ジャンプ／ロボット・SF／ラブコメ・日常／アイドル・バンド／異世界・ファンタジー／ゲーム・スポーツ）のピースを集めます。毎問どれか1つのジャンルの曲が出て、いちばん速く正解した人がそのジャンルのピースをもらいます。次の問題のジャンルは、設定で「選択制（最速の正解者が選ぶ）」か「ランダム制（毎問ランダム）」にできます。先に6つそろえた人の勝ち（+3000点）。',
   sugoroku: 'いつものイントロクイズに答えながら、すごろくでゴール（30マス目）を目指します。正解の速い順に 3・2・1 マス進み、止まったマスでイベント（進む・戻る・ボーナス・1回休み・次は2倍・先頭と入れ替え・前の人を戻す）。だれかがゴールしたら終わり（+2000点）。順位は進んだマスの多い順です。',
   wits: '2人以上（3人以上がおすすめ）。イントロを聴いて発売年を予想します。全員の予想が年の順に並んだら、「正解の年を超えない中でいちばん近い予想」がどれかを当てるマーカーを2個置きます（ほかの人の予想にも置けます）。外側の枠ほど倍率が高く、点数を上乗せして勝負もできます。自分の予想が当たり枠なら +300点（ぴったりなら +600点）。',
   daifugo: '3人以上で遊びます。曲のカードが7枚ずつ配られます。カードの強さは発売年で、新しい曲ほど強いのですが、手札の年は見えません。場の曲より新しいと思う曲を出すか、パス。新しくなかったら失敗（−200点・カードは戻る）。全員パスで場が流れます。早く手札をなくした順に 大富豪+3000／富豪+2000／平民+1000点。1回が1ゲームです。',
@@ -586,10 +628,13 @@ function renderRoom(r) {
   $('lockSecLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えたあと押せない秒数
   $('bingoEndLabel').hidden = r.settings.play !== 'bingo'; // ビンゴ：何人・何ビンゴで終わるか
   $('karutaFaceLabel').hidden = r.settings.play !== 'karuta'; // かるた：札に書くもの
+  $('gzPickLabel').hidden = r.settings.play !== 'genre';
   $('wolfWorkLabel').hidden = $('wolfTitleLabel').hidden = r.settings.play !== 'wolf'; // 人狼：候補に出す作品名・曲名
   $('buzzStopLabel').hidden = !['buzzer', 'fill'].includes(r.settings.play); // 早押し・3つ埋めバトル：答えている間は曲を止める
   $('noRepeatLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない
   $('playDesc').textContent = PLAY_DESC[r.settings.play] || '';
+  renderPlayPick(r.settings.play);
+  $('playPick').disabled = document.querySelector('[data-key="play"]').disabled;
   $('questionsLabel').hidden = r.settings.play === 'survival';
   const fillMode = r.settings.play === 'fill'; // 3つ埋めバトルは、答えるもの・回答方法・採点・ヒントを使わない（枠ごとに書くか10択）
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
@@ -1383,8 +1428,8 @@ function renderKm() {
   const d = kmData; if (!d) return;
   const pop = $('kmPop'); pop.hidden = false;
   const myTurn = d.step === 'turn' && d.turn === me;
-  const board = Array.from({ length: d.top }, (_, i) => { const c = d.cands.find(x => x.rank === i + 1 && (x.picked || d.step === 'result')); return `<div class="km-rank${c?.picked ? ' hit' : c ? ' open' : ''}"><b>${i + 1}</b><span>${c ? esc(c.title) : '？？？'}</span><small>${c?.picked ? esc(c.by) : ''}</small></div>`; }).join('');
-  const cands = d.cands.map((c, i) => `<button type="button" class="km-cand${c.picked ? (c.hit ? ' hit' : ' miss') : ''}${!c.picked && d.step === 'result' && c.rank <= d.top ? ' left' : ''}" data-km="${i}"${myTurn && !c.picked ? '' : ' disabled'}><b>${esc(c.title)}</b><small>${esc(c.artist)}</small>${c.rank ? `<i>${c.rank}位</i>` : ''}</button>`).join('');
+  const board = Array.from({ length: d.top }, (_, i) => { const c = d.cands.find(x => x.rank === i + 1 && (x.picked || d.step === 'result')); return `<div class="km-rank${c?.picked ? ' hit' : c ? ' open' : ''}"><b>${i + 1}</b><span>${c ? esc(c.title) : '？？？'}</span><small>${c ? esc(c.work) + (c.picked ? '　' + esc(c.by) : '') : ''}</small></div>`; }).join('');
+  const cands = d.cands.map((c, i) => `<button type="button" class="km-cand${c.picked ? (c.hit ? ' hit' : ' miss') : ''}${!c.picked && d.step === 'result' && c.rank <= d.top ? ' left' : ''}" data-km="${i}"${myTurn && !c.picked ? ' data-can="1"' : ' aria-disabled="true"'}><b>${esc(c.title)}</b><small>${c.work ? '📺 ' + esc(c.work) : esc(c.artist)}</small>${c.rank ? `<i>${c.rank}位</i>` : ''}<em class="km-prev" data-kmprev="${i}" title="自分だけ試聴">▶</em></button>`).join('');
   const status = d.step === 'result' ? `<b class="km-res ${d.result.home ? 'win' : 'lose'}">${d.result.home ? '🎉 帰れる！ トップ10を全部当てました' : `😱 帰れません…（${d.result.found}/${d.top}）`}</b>`
     : myTurn ? '<b class="km-res">あなたの番：トップ10に入っていると思う曲を選んでください</b>' : `<b class="km-res">${esc(d.turnName || '')} さんが選んでいます…</b>`;
   pop.innerHTML = `<div class="wf-field km-field"><div class="wf-head"><b>🍜 アニソン帰れま10</b><span>第${d.round}/${d.total}回</span><span class="wf-left" id="kmLeft"></span></div>
@@ -1393,7 +1438,8 @@ function renderKm() {
     <div class="km-foot"><ul class="bb-log">${d.log.map(l => `<li>${esc(l)}</li>`).join('')}</ul><div class="wf-seats">${d.players.map(p => `<span class="${p.id === d.turn ? 'done' : ''}">${esc(p.name)} +${p.gain}</span>`).join('')}</div></div></div>`;
   const left = () => { const el = $('kmLeft'); if (el) el.textContent = d.until ? `あと ${wolfLeft(d.until)} 秒` : ''; };
   clearInterval(kmTick); left(); kmTick = setInterval(left, 500);
-  pop.querySelectorAll('[data-km]').forEach(b => b.onclick = () => { socket.emit('kmPick', +b.dataset.km); pop.querySelectorAll('[data-km]').forEach(x => x.disabled = true); });
+  pop.querySelectorAll('[data-kmprev]').forEach(el => el.onclick = e => { e.stopPropagation(); e.preventDefault(); socket.emit('kmPreview', +el.dataset.kmprev); });
+  pop.querySelectorAll('[data-km][data-can]').forEach(b => b.onclick = () => { socket.emit('kmPick', +b.dataset.km); pop.querySelectorAll('[data-km]').forEach(x => { x.removeAttribute('data-can'); x.onclick = null; x.setAttribute('aria-disabled', 'true'); }); });
 }
 // ── アニソン年当てベット：発売年を予想 → いちばん近い予想に賭ける ──
 let wwData = null, wwTick = null, wwMarks = [], wwSent = false, wwKey = '';
@@ -1625,13 +1671,14 @@ const panelCells = (r, board, opt = {}) => board.map((id, i) => `<button type="b
 const panelLegend = (r, board) => r.settings.teams && board ? ['red', 'blue'].map(k => `<span style="--pc:${PANEL_TEAM_COLORS[k]}"><i></i>${TEAM_LABEL[k]}チーム ${board.filter(x => x === k).length}</span>`).join('') : r.players.filter(p => p.panelCount != null).map(p => `<span style="--pc:${panelColor(r, p.id)}"><i></i>${esc(p.name)} ${p.panelCount}</span>`).join('');
 // ── アニソン・デッキ構築：自分のコイン・カード（問題中は使える）・ショップ ──
 let dkShopData = null, dkTick = null, dkDoneIds = [];
-const DK_USE = [['fifty', '✂', '50:50'], ['audience', '👥', 'オーディエンス'], ['replay', '🔁', 'もう一度聴く']];
+const DK_USE = [['fifty', '✂', '50:50'], ['audience', '👥', 'オーディエンス'], ['phone', '📞', 'テレフォン'], ['replay', '🔁', 'もう一度聴く']];
 function renderDeck(r) {
   const meP = r.players.find(p => p.id === me), dk = meP?.deck;
   $('dkBox').hidden = !dk || r.state !== 'playing';
   if (!dk) return;
   const playing = ['intro', 'chorus'].includes(r.phase);
-  $('dkBox').innerHTML = `<div class="dk-coins">🪙 ${dk.coins}コイン　💰投資 ${dk.invest}　✖2 ${dk.boost}　👑 ${dk.vp}</div><div class="dk-use">${DK_USE.map(([k, ic, lb]) => { const n = meP.lifelines?.[k] || 0; return `<button type="button" class="btn-sub" data-dkuse="${k}"${n && playing ? '' : ' disabled'}>${ic} ${lb} ×${n}</button>`; }).join('')}</div>`;
+  const dg = r.deckGame;
+  $('dkBox').innerHTML = `${dg ? `<div class="dk-prog">曲 <b>${dg.qNo}</b> / ${dg.qTotal}　ショップ あと <b>${Math.max(0, dg.shopsTotal - dg.shopsDone)}</b> 回（${dg.nextShopIn > 0 ? `${dg.nextShopIn}問あと` : 'この問題のあと'}）</div>` : ''}<div class="dk-coins">🪙 ${dk.coins}コイン　💰${dk.invest + (dk.invest2 || 0) * 2}　✖2 ${dk.boost}　✖3 ${dk.boost3 || 0}　👑 ${dk.vp + (dk.vp2 || 0)}</div><div class="dk-use">${DK_USE.map(([k, ic, lb]) => { const n = meP.lifelines?.[k] || 0; return `<button type="button" class="btn-sub" data-dkuse="${k}"${n && playing ? '' : ' disabled'}>${ic} ${lb} ×${n}</button>`; }).join('')}</div>`;
   $('dkBox').querySelectorAll('[data-dkuse]').forEach(b => b.onclick = () => { b.disabled = true; socket.emit('lifeline', { type: b.dataset.dkuse }); });
   if (dkShopData) renderDkShop();
 }
@@ -1642,9 +1689,9 @@ function renderDkShop() {
   const d = dkShopData, r = room; if (!d || !r) return;
   const meP = r.players.find(p => p.id === me), dk = meP?.deck || { coins: 0, vp: 0 }, done = dkDoneIds.includes(me);
   const price = c => (c.key === 'vp' ? dk.vpPrice ?? c.price : c.price);
-  const have = c => (c.key === 'boost' || c.key === 'invest' || c.key === 'vp' ? dk[c.key] : meP?.lifelines?.[c.key]) || 0;
-  $('dkPop').innerHTML = `<div class="wf-field dk-field"><div class="wf-head"><b>🛒 ショップ（第${d.round}回）</b><span>🪙 ${dk.coins}コイン</span><span class="wf-left" id="dkLeft"></span></div>
-    <div class="dk-cards">${d.cards.map(c => `<button type="button" class="dk-card" data-buy="${c.key}"${done || dk.coins < price(c) ? ' disabled' : ''}><b>${c.icon} ${esc(c.label)}</b><small>${esc(c.text)}</small><span>🪙${price(c)}　持っている ${have(c)}</span></button>`).join('')}</div>
+  const have = c => (['boost', 'boost3', 'invest', 'invest2', 'vp', 'vp2'].includes(c.key) ? dk[c.key] : ['steal', 'gift'].includes(c.key) ? '' : meP?.lifelines?.[c.key]) ?? 0;
+  $('dkPop').innerHTML = `<div class="wf-field dk-field"><div class="wf-head"><b>🛒 ショップ（第${d.round}回／全${d.rounds}回・あと ${d.rounds - d.round} 回）</b><span>曲 ${d.qNo} / ${d.qTotal}${d.last ? '・最後のショップ' : ''}</span><span>🪙 ${dk.coins}コイン</span><span class="wf-left" id="dkLeft"></span></div>
+    <div class="dk-cards">${d.cards.map(c => `<button type="button" class="dk-card" data-buy="${c.key}"${done || dk.coins < price(c) ? ' disabled' : ''}><b>${c.icon} ${esc(c.label)}</b><small>${esc(c.text)}</small><span>🪙${price(c)}${have(c) === '' ? '' : `　持っている ${have(c)}`}</span></button>`).join('')}</div>
     <div class="wf-seats">${r.players.map(p => `<span class="${dkDoneIds.includes(p.id) ? 'done' : ''}">${esc(p.name)} 🪙${p.deck?.coins ?? 0}</span>`).join('')}</div>
     <button class="btn-main" id="dkDoneBtn" type="button"${done ? ' disabled' : ''}>${done ? 'ほかの人を待っています…' : '買い物を終わる'}</button></div>`;
   $('dkPop').hidden = false;
@@ -1657,9 +1704,12 @@ let gzTick = null, gzPickKey = null;
 socket.on('gzChosen', d => toast(`${d.name} さんが次のジャンルを「${d.icon}${d.label}」に！`));
 function renderGenreZone(r) {
   const z = r.genreZone; $('gzBox').hidden = !z;
-  if (!z) { $('gzPop').hidden = true; gzPickKey = null; return; }
+  if (!z) { $('gzPop').hidden = true; gzPickKey = null; gzSeen = -2; return; }
+  const fresh = hlOn() && r.phase === 'reveal' && z.at >= 0 && z.at !== gzSeen && z.gain;
+  if (r.phase === 'reveal' && z.at >= 0) gzSeen = z.at;
   const cur = z.cats.find(c => c.key === z.cur);
-  $('gzBox').innerHTML = `<b class="gz-cur">${cur ? `いまのジャンル：${cur.icon}${esc(cur.label)}` : 'ジャンル制覇'}</b>${z.players.map(p => `<div class="gz-row${p.id === me ? ' me' : ''}"><span>${esc(p.name)}</span><div>${z.cats.map(c => `<i class="${p.pieces.includes(c.key) ? 'on' : ''}" title="${esc(c.label)}">${c.icon}</i>`).join('')}</div></div>`).join('')}`;
+  $('gzBox').innerHTML = `<b class="gz-cur">${cur ? `いまのジャンル：${cur.icon}${esc(cur.label)}` : 'ジャンル制覇'}</b>${z.players.map(p => { const g = fresh && z.gain.id === p.id ? z.gain : null; return `<div class="gz-row${p.id === me ? ' me' : ''}${g ? ' hl' : ''}"${g ? ` data-hl="${g.dup ? '+300点' : `${g.n}/6 ✨`}"` : ''}><span>${esc(p.name)}</span><div>${z.cats.map(c => `<i class="${p.pieces.includes(c.key) ? 'on' : ''}${g && g.key === c.key ? ' gain' : ''}" title="${esc(c.label)}">${c.icon}</i>`).join('')}</div></div>`; }).join('')}`;
+  if (fresh) setTimeout(() => $('gzBox').querySelectorAll('.hl,.gain').forEach(el => { el.classList.remove('hl', 'gain'); el.removeAttribute('data-hl'); }), 4500);
   if (!z.pick) { $('gzPop').hidden = true; gzPickKey = null; clearInterval(gzTick); return; }
   const key = z.pick.id + ':' + z.pick.until; if (key === gzPickKey) return; gzPickKey = key;
   const mine = z.pick.id === me, my = z.players.find(p => p.id === me)?.pieces || [];
@@ -1671,16 +1721,24 @@ function renderGenreZone(r) {
 }
 // ── アニソンすごろく：盤（31マス・2段）と全員のコマ ──
 const SG_ICON = { fwd: '⏩', back: '⏪', bonus: '💰', rest: '💤', dbl: '✖2', swap: '🔀', hit: '💥' };
+// 答え合わせのとき、進んだ分・埋めた分を、プレイヤー一覧の下の小さな欄の中だけでハイライトする（PCのみ。画面の邪魔をしないよう、数秒で消える）
+let sgSeen = -2, gzSeen = -2;
+const hlOn = () => matchMedia('(min-width: 900px)').matches;
 function renderSugoroku(r) {
   const sg = r.sugoroku; $('sgBox').hidden = !sg;
-  if (!sg) return;
+  if (!sg) { sgSeen = -2; return; }
+  const fresh = hlOn() && r.phase === 'reveal' && sg.at >= 0 && sg.at !== sgSeen;
+  if (r.phase === 'reveal' && sg.at >= 0) sgSeen = sg.at;
+  const trail = new Set(), badge = new Map();
+  if (fresh) for (const m of sg.moves || []) { for (let i = m.from + 1; i <= m.to; i++) trail.add(i); badge.set(m.id, `+${Math.max(0, m.to - m.from)}マス${m.ev && SG_ICON[m.ev] ? ' ' + SG_ICON[m.ev] : ''}`); }
   const color = id => `hsl(${[...id].reduce((a, c) => a + c.charCodeAt(0) * 37, 0) % 360} 80% 62%)`;
   const cells = sg.board.map((ev, i) => {
     const here = sg.pos.filter(p => p.pos === i);
-    return `<div class="sg-cell${i === 0 ? ' start' : i === sg.goal ? ' goal' : ''}${ev ? ' ev' : ''}" title="${i}"><small>${i === 0 ? 'S' : i === sg.goal ? '🏁' : i}</small><span>${SG_ICON[ev] || ''}</span><div class="sg-tokens">${here.map(p => `<i class="${p.id === me ? 'me' : ''}${sg.last.includes(p.id) ? ' moved' : ''}" style="background:${color(p.id)}" title="${esc(p.name)}">${esc([...p.name][0] || '?')}</i>`).join('')}</div></div>`;
+    return `<div class="sg-cell${i === 0 ? ' start' : i === sg.goal ? ' goal' : ''}${ev ? ' ev' : ''}${trail.has(i) ? ' trail' : ''}" title="${i}"><small>${i === 0 ? 'S' : i === sg.goal ? '🏁' : i}</small><span>${SG_ICON[ev] || ''}</span><div class="sg-tokens">${here.map(p => `<i class="${p.id === me ? 'me' : ''}${sg.last.includes(p.id) ? ' moved' : ''}" style="background:${color(p.id)}" title="${esc(p.name)}">${esc([...p.name][0] || '?')}</i>`).join('')}</div></div>`;
   }).join('');
-  const legend = [...sg.pos].sort((a, b) => b.pos - a.pos).map(p => `<span><i style="background:${color(p.id)}"></i>${esc(p.name)} ${p.pos}${p.rest ? '💤' : ''}${p.dbl ? '✖2' : ''}</span>`).join('');
+  const legend = [...sg.pos].sort((a, b) => b.pos - a.pos).map(p => `<span${badge.has(p.id) ? ` class="hl" data-hl="${esc(badge.get(p.id))}"` : ''}><i style="background:${color(p.id)}"></i>${esc(p.name)} ${p.pos}${p.rest ? '💤' : ''}${p.dbl ? '✖2' : ''}</span>`).join('');
   $('sgBox').innerHTML = `<div class="sg-board">${cells}</div><div class="sg-legend">${legend}</div>`;
+  if (fresh) setTimeout(() => $('sgBox').querySelectorAll('.trail,.hl').forEach(el => { el.classList.remove('trail', 'hl'); el.removeAttribute('data-hl'); }), 4500);
 }
 function renderPanel(r) {
   const pn = r.panel;

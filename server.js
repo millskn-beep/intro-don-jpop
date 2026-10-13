@@ -634,7 +634,7 @@ const OPTIONS = {
   hintAt: [5, 10, 15, 20],
   chorusLen: [10, 15, 20],
   typingExtra: [5, 10, 15, 20, 30],
-  questions: [5, 10, 20, 30],
+  questions: [1, 3, 5, 10, 20, 30], // 1・3：ババ抜き・大富豪など、1回が長い遊び方用
   mode: ['score', 'buzz'],
   answerMode: ['choice', 'input'],
   clues: [true, false],
@@ -649,6 +649,7 @@ const OPTIONS = {
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
   buzzStop: [true, false],
   wolfWork: ['hide', 'show'],   // アニソン人狼：候補に作品名（タイトル）を出す（既定は出さない）
+  gzPick: ['choose', 'random'], // ジャンル制覇：次のジャンル（choose：最速の正解者が選ぶ／random：毎問ランダム）
   wolfTitle: ['show', 'hide'],  // アニソン人狼：候補に曲名を出す（既定は出す。曲名も作品名も出さないときは、候補の一覧を出さない）
   karutaFace: ['title', 'work', 'artist'], // アニソンかるた：札に書くもの（曲名・作品名・歌手名）                // 早押し・3つ埋めバトル：押した人が答えている間、曲と残り時間を止める
   rushRate: ['normal', 'high', 'low'],     // アニソン激アツRUSH：当たりやすさ（ふつう／出やすい×1.5／出にくい×0.6）
@@ -668,7 +669,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show' };
+                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose' };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -835,10 +836,11 @@ function publicRoom(room) {
     teams: teamScores(room),
     coop: room.game?.coop || null,
     genreZone: room.settings.play === 'genre' && room.game?.gz && room.state === 'playing'
-      ? { cats: GZ_CATS.map(c => ({ key: c.key, label: c.label, icon: c.icon })), cur: room.game.gz.cur, pick: room.game.gz.pick ? { id: room.game.gz.pick.id, name: room.game.gz.pick.name, until: room.game.gz.pick.until } : null,
+      ? { cats: GZ_CATS.map(c => ({ key: c.key, label: c.label, icon: c.icon })), cur: room.game.gz.cur, gain: room.game.gz.gain || null, at: room.game.gz.at ?? -1, pick: room.game.gz.pick ? { id: room.game.gz.pick.id, name: room.game.gz.pick.name, until: room.game.gz.pick.until } : null,
           players: [...room.players.values()].map(p => ({ id: p.id, name: p.name, pieces: [...(room.game.gz.pieces.get(p.id) || [])] })) } : null,
+    deckGame: room.settings.play === 'deck' && room.game && room.state === 'playing' ? { qNo: Math.max(0, room.game.qi + 1), qTotal: room.game.order.length, shopsDone: room.game.dkShopN || 0, shopsTotal: dkShopTotal(room.game), nextShopIn: Math.min(DK_EVERY - ((room.game.qi + 1) % DK_EVERY || DK_EVERY) + 0, room.game.order.length - (room.game.qi + 1)) } : null,
     sugoroku: room.settings.play === 'sugoroku' && room.game?.sg && room.state === 'playing'
-      ? { board: room.game.sg.board, goal: SG_GOAL, last: room.game.sg.last, pos: [...room.players.values()].map(p => ({ id: p.id, name: p.name, pos: room.game.sg.pos.get(p.id) || 0, rest: room.game.sg.rest.has(p.id), dbl: room.game.sg.dbl.has(p.id) })) } : null,
+      ? { board: room.game.sg.board, goal: SG_GOAL, last: room.game.sg.last, moves: room.game.sg.moves || [], at: room.game.sg.at ?? -1, pos: [...room.players.values()].map(p => ({ id: p.id, name: p.name, pos: room.game.sg.pos.get(p.id) || 0, rest: room.game.sg.rest.has(p.id), dbl: room.game.sg.dbl.has(p.id) })) } : null,
     panel: room.settings.play === 'panel' && room.game?.panel && room.state === 'playing'
       ? { board: room.game.panel, attackCell: room.game.attackCell ?? null, pick: room.game.panelPick ? { id: room.game.panelPick.id, name: room.game.panelPick.name, allowed: room.game.panelPick.allowed, until: room.game.panelPick.until, stage: room.game.panelPick.stage, attack: !!room.game.panelPick.attack } : null } : null,
     // 激アツRUSH：保留ランプ（いまの問題の色と、先の4問の色）。当たりかどうかは入れない
@@ -943,7 +945,7 @@ function startGame(room) {
   room.state = 'playing';
   for (const p of room.players.values()) {
     p.score = 0; p.streak = 0; p.lifelines = freshLifelines(S);
-    p.dk = S.play === 'deck' ? { coins: 0, invest: 0, boost: 0, vp: 0 } : null; // デッキ構築：コイン・投資・ブースト・勝利点を買った数
+    p.dk = S.play === 'deck' ? { coins: +process.env.DK_TEST_COINS || 0, invest: 0, boost: 0, vp: 0 } : null; // デッキ構築：コイン・投資・ブースト・勝利点を買った数
     p.lives = S.play === 'survival' ? S.lives : null; p.out = false; p.outAt = 0; // サバイバル：ライフ・脱落・何問目で脱落したか
   }
   if (S.teams) assignTeams(room);
@@ -1293,19 +1295,28 @@ const DK_EVERY = 3, DK_SHOP_SEC = 20, DK_VP = 5, DK_VP_PTS = 1000, DK_COIN = [3,
 const DK_CARDS = [
   { key: 'fifty', label: '50:50', icon: '✂', price: 2, text: '問題中に使う：不正解の選択肢を半分消す' },
   { key: 'audience', label: 'オーディエンス', icon: '👥', price: 2, text: '問題中に使う：ほかの人の答えが見える' },
+  { key: 'phone', label: 'テレフォン', icon: '📞', price: 2, text: '問題中に使う：歌手か年のヒントがもらえる' },
   { key: 'replay', label: 'もう一度聴く', icon: '🔁', price: 1, text: '問題中に使う：イントロをもう一度' },
+  { key: 'gift', label: 'ランダムカード', icon: '🎁', price: 2, text: '使い切りカード（50:50・オーディエンス・テレフォン・もう一度聴く）のどれかが1枚もらえる' },
   { key: 'boost', label: 'ブースト', icon: '✖2', price: 3, text: '次に正解した問題の点数が2倍' },
+  { key: 'boost3', label: '大ブースト', icon: '✖3', price: 6, text: '次に正解した問題の点数が3倍' },
+  { key: 'steal', label: 'コイン強奪', icon: '🧲', price: 4, text: 'いちばんコインを持っている他の人から、2コイン奪う' },
   { key: 'invest', label: '投資', icon: '💰', price: 4, text: 'ずっと：正解のたびにコイン +1' },
+  { key: 'invest2', label: '大投資', icon: '🏦', price: 7, text: 'ずっと：正解のたびにコイン +2' },
   { key: 'vp', label: '勝利点', icon: '👑', price: DK_VP, text: `すぐに +${DK_VP_PTS}点（買うたびに値段 +1）` },
+  { key: 'vp2', label: '大勝利点', icon: '💎', price: 10, text: 'すぐに +2500点' },
 ];
+const DK_LIFE = ['fifty', 'audience', 'phone', 'replay'];
+const dkShopTotal = g => Math.ceil(g.order.length / DK_EVERY); // 3問ごと＋最後の問題のあと
 function dkReveal(room, q, results) {
   const out = [], order = results.filter(r => r.correct).sort((a, b) => (a.elapsed ?? 99) - (b.elapsed ?? 99));
   order.forEach((r, i) => {
     const p = [...room.players.values()].find(x => x.id === r.id); if (!p?.dk) return;
-    const c = (DK_COIN[i] ?? DK_COIN[DK_COIN.length - 1]) + p.dk.invest;
+    const c = (DK_COIN[i] ?? DK_COIN[DK_COIN.length - 1]) + p.dk.invest + (p.dk.invest2 || 0) * 2;
     p.dk.coins += c;
     let msg = `🪙 ${r.name} +${c}コイン`;
-    if (p.dk.boost > 0 && r.points > 0) { p.dk.boost--; p.score += r.points; msg += ` ✖2 ブーストで +${r.points}点`; }
+    const mult = p.dk.boost3 > 0 ? 3 : p.dk.boost > 0 ? 2 : 1;
+    if (mult > 1 && r.points > 0) { if (mult === 3) p.dk.boost3--; else p.dk.boost--; p.score += r.points * (mult - 1); msg += ` ✖${mult} ブーストで +${r.points * (mult - 1)}点`; }
     out.push(msg);
   });
   return out;
@@ -1313,8 +1324,9 @@ function dkReveal(room, q, results) {
 function startDkShop(room) {
   const g = room.game;
   clearTimers(room);
+  g.dkShopN = (g.dkShopN || 0) + 1;
   g.dkShop = { done: new Set(), until: Date.now() + DK_SHOP_SEC * 1000 };
-  io.to(room.code).emit('dkShop', { cards: DK_CARDS, until: g.dkShop.until, round: Math.floor((g.qi + 1) / DK_EVERY) });
+  io.to(room.code).emit('dkShop', { cards: DK_CARDS, until: g.dkShop.until, round: g.dkShopN, rounds: dkShopTotal(g), qNo: g.qi + 1, qTotal: g.order.length, last: g.qi + 1 >= g.order.length });
   later(room, () => finishDkShop(room), DK_SHOP_SEC * 1000);
   broadcastRoom(room);
 }
@@ -1349,14 +1361,17 @@ function gzPrepare(room) { // 次の問題の曲を、選ばれたジャンル�
 function gzReveal(room, q, results) {
   const g = room.game, gz = g.gz, out = [], cat = gzCatOf(gz.cur);
   const win = results.filter(r => r.correct).sort((a, b) => (a.elapsed ?? 99) - (b.elapsed ?? 99))[0];
+  gz.gain = null; gz.at = g.qi;
   if (!win) { gz.cur = GZ_CATS[crypto.randomInt(GZ_CATS.length)].key; out.push(`だれも正解しなかったので、次のジャンルはランダム：${gzCatOf(gz.cur).icon}${gzCatOf(gz.cur).label}`); return out; }
   const p = [...room.players.values()].find(x => x.id === win.id);
   if (!gz.pieces.has(win.id)) gz.pieces.set(win.id, new Set());
   const mine = gz.pieces.get(win.id);
+  gz.gain = { id: win.id, key: cat.key, dup: mine.has(cat.key), n: mine.has(cat.key) ? mine.size : mine.size + 1 }; gz.at = g.qi; // 画面のハイライト用
   if (mine.has(cat.key)) { if (p) p.score += GZ_DUP; out.push(`${cat.icon} ${win.name} もう持っているジャンル → +${GZ_DUP}点`); }
   else { mine.add(cat.key); out.push(`${cat.icon} ${win.name} が「${cat.label}」のピースを手に入れた！（${mine.size}/6）`); }
   if (mine.size >= GZ_CATS.length) { g.gzDone = true; if (p) p.score += GZ_WIN; out.push(`👑 ${win.name} 6ジャンル制覇！ +${GZ_WIN}点`); return out; }
   if (g.qi + 1 >= g.order.length) return out;
+  if (room.settings.gzPick === 'random') { gz.cur = GZ_CATS[crypto.randomInt(GZ_CATS.length)].key; const c2 = gzCatOf(gz.cur); out.push(`次のジャンルはランダム：${c2.icon}${c2.label}`); return out; } // ランダム制
   gz.pick = { id: win.id, token: p?.token, name: win.name, until: Date.now() + GZ_PICK_SEC * 1000, q };
   later(room, () => gzChoose(room, null), GZ_PICK_SEC * 1000);
   return out;
@@ -1387,7 +1402,7 @@ function sgReveal(room, q, results) {
   const ids = [...room.players.values()].filter(p => q.participants.has(p.token)).map(p => p.id);
   for (const id of ids) if (!sg.pos.has(id)) sg.pos.set(id, 0);
   const order = results.filter(r => r.correct).sort((a, b) => (a.elapsed ?? 99) - (b.elapsed ?? 99));
-  sg.last = [];
+  sg.last = []; sg.moves = []; const before = new Map(sg.pos);
   order.forEach((r, i) => {
     if (g.sgDone) return;
     if (sg.rest.has(r.id)) { sg.rest.delete(r.id); out.push(`🎲 ${r.name} 1回休み（進めない）`); return; }
@@ -1413,6 +1428,8 @@ function sgReveal(room, q, results) {
     }
     out.push(msg);
   });
+  for (const id of sg.last) sg.moves.push({ id, from: before.get(id) || 0, to: sg.pos.get(id) || 0, ev: sg.board[sg.pos.get(id)] || '' }); // 画面の「進んだ分」のハイライト用
+  sg.at = g.qi;
   return out;
 }
 // アタックチャンス：PANEL_ATTACK_Q 問目のあと、1マスが白くなる（取られているマスなら色が消えて空きに戻る）。次の問題で、正解の最速の人がそのマスをどこからでも取れる
@@ -1749,7 +1766,7 @@ function kmTopics(room) { // 曲が KM.min 曲以上ある歌手・シリーズ�
   return out;
 }
 function startKaeremaRound(room, placeholder) {
-  const g = room.game, ps = connectedPlayers(room);
+  const g = room.game, ps = shuffle(connectedPlayers(room).slice()); // 答える順番はお題ごとにランダム
   if (!g.kmUsed) g.kmUsed = new Set();
   const topics = kmTopics(room).filter(x => !g.kmUsed.has(x.key));
   const tp = topics.length ? topics[crypto.randomInt(topics.length)] : kmTopics(room)[0];
@@ -1766,7 +1783,7 @@ function kmPublic(room) {
   const over = k.step === 'result', nameOf = t => room.players.get(t)?.name || '';
   return { step: k.step, until: k.until, round: room.game.qi + 1, total: room.game.order.length, topic: k.topic, count: k.total, turn: room.players.get(k.turn)?.id || null, turnName: nameOf(k.turn),
            misses: k.misses, maxMiss: KM.misses, found: k.found, top: KM.top,
-           cands: k.cands.map((c, i) => { const pk = k.picked.get(i); return { title: c.s.title, artist: c.s.artist, picked: !!pk, rank: pk || over ? c.rank : null, hit: pk ? c.rank <= KM.top : null, by: pk ? nameOf(pk.by) : '' }; }).map((c, i) => ({ ...c, by: k.picked.get(i)?.byName || '' })),
+           cands: k.cands.map((c, i) => { const pk = k.picked.get(i); return { title: c.s.title, artist: c.s.artist, work: pk || over ? c.s.work : '', picked: !!pk, rank: pk || over ? c.rank : null, hit: pk ? c.rank <= KM.top : null, by: pk ? nameOf(pk.by) : '' }; }).map((c, i) => ({ ...c, by: k.picked.get(i)?.byName || '' })),
            players: k.seats.map(t => ({ id: room.players.get(t)?.id, name: nameOf(t), gain: k.gain.get(t) || 0 })), log: k.log.slice(-2), result: k.result };
 }
 const kmEmit = room => io.to(room.code).emit('kmPhase', kmPublic(room));
@@ -1791,8 +1808,8 @@ function kmPick(room, token, i) {
     k.found++;
     let pts = c.rank === 1 ? KM.first : KM.hit; if (k.found >= KM.top) pts += KM.last;
     k.gain.set(token, (k.gain.get(token) || 0) + pts); if (p) p.score += pts;
-    k.log.push(`⭕ ${p?.name}「${c.s.title}」→ ${c.rank}位！ +${pts}点`);
-  } else { k.misses++; k.log.push(`❌ ${p?.name}「${c.s.title}」→ ${c.rank}位（トップ10の外）`); }
+    k.log.push(`⭕ ${p?.name}「${c.s.title}」（${c.s.work}）→ ${c.rank}位！ +${pts}点`);
+  } else { k.misses++; k.log.push(`❌ ${p?.name}「${c.s.title}」（${c.s.work}）→ ${c.rank}位（トップ10の外）`); }
   k.step = 'show'; k.until = 0; kmEmit(room);
   if (k.found >= KM.top) return later(room, () => kmFinish(room, true), KM.pause);
   if (k.misses >= KM.misses) return later(room, () => kmFinish(room, false), KM.pause);
@@ -2550,7 +2567,7 @@ function nextQuestion(room) {
   if (g.panelPick) return; // 陣取りでパネルを選んでいる間は進めない
   if (g.gz?.pick) return; // ジャンル制覇で次のジャンルを選んでいる間は進めない
   if (g.dkShop) return; // デッキ構築のショップ中は進めない
-  if (room.settings.play === 'deck' && g.qi >= 0 && (g.qi + 1) % DK_EVERY === 0 && g.qi + 1 < g.order.length && g.dkShopAt !== g.qi) return startDkShop(room);
+  if (room.settings.play === 'deck' && g.qi >= 0 && ((g.qi + 1) % DK_EVERY === 0 || g.qi + 1 >= g.order.length) && g.dkShopAt !== g.qi) return startDkShop(room); // 3問ごと＋最後の問題のあと（必ず）
   if (room.settings.play === 'poker') {
     pokerAutoDiscard(room);
     if (g.qi >= 0 && (g.qi + 1) % POKER_BET_EVERY === 0 && g.qi + 1 < g.order.length && g.pokerBetAt !== g.qi && !survivalOver(room)) return startPokerBet(room);
@@ -3859,6 +3876,11 @@ io.on('connection', socket => {
     const a = q.az, x = [...a.factories.flat(), ...a.center, ...a.hand].find(y => y.id === String(id));
     if (x) socket.emit('wolfSong', { videoId: x.id, start: wolfStartOf(x), sec: DX_PREVIEW });
   });
+  socket.on('kmPreview', i => { // 帰れま10：候補の曲を自分だけ試聴（順位は出ない）
+    const q = room?.game?.q; if (!q?.km || !player || !Number.isInteger(i) || !q.km.cands[i]) return;
+    const now = Date.now(); if (now - (player.dxPrevAt || 0) < 700) return; player.dxPrevAt = now;
+    const s = q.km.cands[i].s; socket.emit('wolfSong', { videoId: s.id, start: wolfStartOf(s), sec: DX_PREVIEW });
+  });
   socket.on('kmPick', i => { const q = room?.game?.q; if (q?.km && player && q.participants.has(player.token)) kmPick(room, player.token, i); });
   // ── アニソン年当てベット ──
   const wwQ = () => { const q = room?.game?.q; return q?.ww && player && q.participants.has(player.token) ? q : null; };
@@ -3972,9 +3994,17 @@ io.on('connection', socket => {
     const c = DK_CARDS.find(x => x.key === key); if (!c) return;
     const price = c.key === 'vp' ? DK_VP + player.dk.vp : c.price;
     if (player.dk.coins < price) return socket.emit('notice', 'コインが足りません');
+    if (c.key === 'steal' && ![...room.players.values()].some(x => x !== player && x.dk && x.dk.coins > 0)) return socket.emit('notice', '奪えるコインを持っている人がいません');
     player.dk.coins -= price;
     if (c.key === 'vp') { player.dk.vp++; player.score += DK_VP_PTS; }
-    else if (c.key === 'boost' || c.key === 'invest') player.dk[c.key]++;
+    else if (c.key === 'vp2') { player.dk.vp2 = (player.dk.vp2 || 0) + 1; player.score += 2500; }
+    else if (['boost', 'boost3', 'invest', 'invest2'].includes(c.key)) player.dk[c.key] = (player.dk[c.key] || 0) + 1;
+    else if (c.key === 'gift') { const k = DK_LIFE[crypto.randomInt(DK_LIFE.length)]; player.lifelines[k] = (player.lifelines[k] || 0) + 1; socket.emit('notice', `🎁 ${DK_CARDS.find(x => x.key === k).label} が当たりました`); }
+    else if (c.key === 'steal') {
+      const rich = [...room.players.values()].filter(x => x !== player && x.dk && x.dk.coins > 0).sort((a, b) => b.dk.coins - a.dk.coins)[0];
+      const n = Math.min(2, rich.dk.coins); rich.dk.coins -= n; player.dk.coins += n;
+      io.to(room.code).emit('notice', `🧲 ${player.name} が ${rich.name} から ${n}コイン奪いました`);
+    }
     else player.lifelines[c.key] = (player.lifelines[c.key] || 0) + 1;
     broadcastRoom(room);
   });

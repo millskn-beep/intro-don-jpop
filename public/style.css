@@ -1227,8 +1227,8 @@ body.rush-machine .stage-tools { overflow: visible; }
 .km-cand small { font-size: clamp(9px, 1.4dvh, 11px); color: var(--sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .km-cand i { position: absolute; top: 2px; right: 5px; font-style: normal; font-weight: 800; font-size: 12px; }
 .km-cand.hit { background: rgba(141, 255, 200, .18); border-color: #8dffc8; } .km-cand.miss { background: rgba(255, 107, 138, .14); border-color: #ff6b8a; opacity: .75; } .km-cand.left { border-color: #ffd36b; border-style: dashed; }
-.km-cand:disabled { cursor: default; opacity: 1; } .km-cand.miss:disabled { opacity: .75; }
-.km-cand:hover:not(:disabled) { border-color: #ffd36b; }
+.km-cand[aria-disabled="true"] { cursor: default; }
+.km-cand[data-can]:hover { border-color: #ffd36b; }
 .km-foot { display: grid; gap: 2px; }
 @media (max-width: 700px) { .km-main { grid-template-columns: 1fr 2fr; } .km-cands { grid-template-columns: repeat(2, minmax(0, 1fr)); } .km-cand { height: clamp(28px, 6.5dvh, 50px); } }
 
@@ -1264,3 +1264,41 @@ body.rush-machine .stage-tools { overflow: visible; }
 .mt-list label small { margin-left: auto; color: var(--sub); } .mt-list label.on { border-color: #ffd36b; background: rgba(255, 211, 107, .1); }
 .mt-foot { display: flex; gap: 8px; align-items: center; justify-content: flex-end; flex-wrap: wrap; } .mt-foot span { margin-right: auto; font-size: 12.5px; } .mt-foot .btn-sub, .mt-foot .btn-main { width: auto; margin: 0; padding: 8px 18px; }
 .mt-list label { justify-content: flex-start; text-align: left; font-weight: 600; } .mt-list label input { width: auto; margin: 0; flex: none; }
+
+/* 遊び方を選ぶ：ボタンと一覧（アイコン・ひとこと・人数） */
+.play-pick { display: flex; align-items: center; gap: 8px; width: 100%; margin: 4px 0 0; padding: 9px 12px; text-align: left; font-size: 15px; }
+.play-pick b { font-size: 20px; } .play-pick small { margin-left: auto; font-size: 11px; color: var(--sub); }
+#playPop .pl-field { width: min(1100px, 100%); max-height: 96dvh; display: grid; grid-template-rows: auto 1fr; gap: 6px; overflow: hidden; }
+.pl-field .wf-head span { font-size: 12px; color: var(--sub); } .pl-close { margin: 0 0 0 auto; width: auto; padding: 5px 14px; font-size: 13px; }
+.pl-body { overflow: auto; min-height: 0; display: grid; gap: 6px; align-content: start; }
+.pl-body h4 { margin: 4px 0 0; font-size: 13px; color: #ffd36b; }
+.pl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; }
+.pl-card { position: relative; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr; column-gap: 8px; align-items: start; padding: 8px 10px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255, 255, 255, .05); color: inherit; text-align: left; cursor: pointer; min-height: 64px; }
+.pl-card:hover { border-color: #ffd36b; } .pl-card.on { border-color: #8dffc8; background: rgba(141, 255, 200, .1); }
+.pl-icon { grid-row: span 2; font-size: 26px; line-height: 1.1; }
+.pl-card b { font-size: 14px; } .pl-card small { font-size: 11px; color: var(--sub); line-height: 1.35; }
+.pl-card i { position: absolute; top: 6px; right: 8px; font-style: normal; font-size: 10px; color: #c9a7ff; }
+@media (max-width: 600px) { .pl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pl-card small { display: none; } .pl-card { min-height: 0; } }
+.play-label { grid-column: 1 / -1; } .play-pick { white-space: nowrap; }
+.km-prev { position: absolute; right: 5px; bottom: 3px; font-style: normal; font-size: 11px; padding: 1px 7px; border-radius: 99px; background: rgba(255, 255, 255, .12); cursor: pointer; pointer-events: auto; } .km-prev:hover { background: rgba(255, 211, 107, .35); }
+
+/* デッキ構築：カードが増えたので、ショップは4列×3段で1画面に */
+#dkPop .dk-field { width: min(980px, 100%); gap: clamp(4px, 1dvh, 10px); }
+.dk-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(4px, .9dvh, 8px); }
+.dk-card { padding: clamp(5px, 1.1dvh, 10px); gap: 2px; }
+.dk-card b { font-size: clamp(12px, 2dvh, 15px); } .dk-card small { font-size: clamp(9.5px, 1.5dvh, 11px); }
+.dk-prog { text-align: center; color: var(--text); } .dk-prog b { color: #ffd36b; font-size: 14px; }
+@media (max-width: 700px) { .dk-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* すごろく・ジャンル制覇：進んだ分・埋めた分のハイライト（左下の小さな欄の中だけ。数秒で消える。PCのみ） */
+@media (min-width: 900px) {
+  .sg-cell.trail { animation: sgTrail 1.4s ease-in-out 3; z-index: 1; }
+  @keyframes sgTrail { 0%, 100% { box-shadow: none; background: rgba(255, 211, 107, .08); } 50% { box-shadow: 0 0 8px 2px #ffd36b; background: rgba(255, 211, 107, .5); } }
+  .sg-legend span.hl, .gz-row.hl { position: relative; animation: hlFlash 1.4s ease-in-out 3; border-radius: 6px; color: #fff; }
+  .sg-legend span.hl::after, .gz-row.hl::after { content: attr(data-hl); position: absolute; right: 0; top: -15px; padding: 0 6px; border-radius: 99px; background: #ffd36b; color: #221; font-size: 10.5px; font-weight: 800; white-space: nowrap; animation: hlPop .5s ease-out; }
+  @keyframes hlFlash { 0%, 100% { background: transparent; } 50% { background: rgba(255, 211, 107, .3); } }
+  @keyframes hlPop { from { transform: translateY(6px) scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+  .gz-row i.gain { animation: gzGain 1.2s ease-in-out 3; background: rgba(255, 211, 107, .6); outline: 2px solid #ffd36b; }
+  @keyframes gzGain { 50% { transform: scale(1.5); } }
+}
+@media (max-width: 899px) { .sg-cell.trail, .sg-legend span.hl, .gz-row.hl, .gz-row i.gain { animation: none; } }

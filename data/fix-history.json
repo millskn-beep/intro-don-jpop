@@ -8864,5 +8864,158 @@
    "intro": 0,
    "chorus": 57
   }
+ },
+ {
+  "id": "0IIaLwACmSg",
+  "title": "戦国乙女",
+  "work": "戦国乙女（パチンコ）",
+  "channel": "QUEN MUSIC by HEIWA - Topic",
+  "at": "2026-10-13T14:43:05.771Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 128,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 85
+  }
+ },
+ {
+  "id": "1Epuw7MG0a8",
+  "title": "GG",
+  "work": "ソードアート・オンライン オルタナティブ ガンゲイル・オンラインII",
+  "channel": "ReoNa official YouTube channel",
+  "at": "2026-10-13T14:43:38.694Z",
+  "before": {
+   "intro": 1.2,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.2,
+   "chorus": 141
+  }
+ },
+ {
+  "id": "RNE93dieQF4",
+  "title": "革命デュアリズム",
+  "work": "革命機ヴァルヴレイヴ 2nd SEASON",
+  "channel": "水樹奈々×T.M.Revolution You Tube Official Channel",
+  "at": "2026-10-13T14:50:05.622Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 77,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 71.3,
+   "chorus": 85
+  }
+ },
+ {
+  "id": "oWVjyd73aaI",
+  "title": "Meteor -ミーティア-",
+  "work": "機動戦士ガンダムSEED",
+  "channel": "T.M.Revolution",
+  "at": "2026-10-13T14:51:10.903Z",
+  "before": {
+   "intro": 0,
+   "chorus": 85,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 6,
+   "chorus": 85
+  }
+ },
+ {
+  "id": "drkqY_C0tTQ",
+  "title": "Re:Re:",
+  "work": "僕だけがいない街",
+  "channel": "ASIAN KUNG-FU GENERATION Official YouTube Channel",
+  "at": "2026-10-13T16:38:08.965Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 47,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 72
+  }
+ },
+ {
+  "id": "TM7oDItP200",
+  "title": "Infinite Love",
+  "work": "恋する天使アンジェリーク〜心のめざめる時〜",
+  "channel": "Lantis Global Channel",
+  "at": "2026-10-13T17:07:14.662Z",
+  "before": {
+   "intro": 0,
+   "chorus": 90,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 22,
+   "chorus": 80.5
+  }
+ },
+ {
+  "id": "EEWVJ4RZ4Xg",
+  "title": "LOVE ROCKETS",
+  "work": "THE FIRST SLAM DUNK",
+  "channel": "The Birthday",
+  "at": "2026-10-13T17:09:14.734Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 16.8,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 1.7,
+   "chorus": 107.9
+  }
+ },
+ {
+  "id": "Z2zW-zYzrlI",
+  "title": "HELP!! -Heaven side-",
+  "work": "えむえむっ!",
+  "channel": "マーチチャンネル",
+  "at": "2026-10-13T17:10:51.613Z",
+  "before": {
+   "intro": 1,
+   "chorus": 0,
+   "introMethod": "v2",
+   "chorusSource": null
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 76.2
+  }
+ },
+ {
+  "id": "wHRUDL7GKmI",
+  "title": "League of Legends",
+  "work": "リーグ・オブ・レジェンド",
+  "channel": "League of Legends",
+  "at": "2026-10-13T17:14:13.723Z",
+  "before": {
+   "intro": 6.5,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 6.5,
+   "chorus": 141.8
+  }
  }
 ]

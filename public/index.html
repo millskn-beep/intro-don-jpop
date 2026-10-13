@@ -204,7 +204,7 @@
       <section class="set-group" data-sec="play" hidden>
       <p class="set-desc">ゲームのルールと、何を当てるかを決めます。</p>
       <div class="settings">
-        <label>遊び方<select data-key="play">
+        <label class="play-label">遊び方<button class="btn-sub play-pick" id="playPick" type="button"></button><select data-key="play" hidden>
           <option value="normal">ふつう（全員で答える）</option>
           <option value="buzzer">早押し（押した人だけ答える）</option>
           <option value="survival">サバイバル（間違えると脱落）</option>
@@ -235,6 +235,7 @@
         <label id="rushRateLabel" hidden>当たりやすさ<select data-key="rushRate"><option value="normal">ふつう</option><option value="high">出やすい（×1.5）</option><option value="low">出にくい（×0.6）</option></select></label>
         <label id="lockSecLabel" hidden>お手つき後に押せない秒数<select data-key="lockSec"><option value="3">3秒</option><option value="5">5秒</option><option value="10">10秒</option><option value="15">15秒</option><option value="20">20秒</option><option value="30">30秒</option></select></label>
         <label id="wolfWorkLabel" hidden>人狼：候補に作品名（タイトル）<select data-key="wolfWork"><option value="hide">出さない</option><option value="show">出す</option></select></label>
+        <label id="gzPickLabel" hidden>ジャンル制覇：次のジャンル<select data-key="gzPick"><option value="choose">選択制（最速の正解者が選ぶ）</option><option value="random">ランダム制（毎問ランダム）</option></select></label>
         <label id="wolfTitleLabel" hidden>人狼：候補に曲名<select data-key="wolfTitle"><option value="show">出す</option><option value="hide">出さない</option></select></label>
         <label id="karutaFaceLabel" hidden>札に書くもの<select data-key="karutaFace"><option value="title">曲名</option><option value="work">作品名</option><option value="artist">歌手名</option></select></label>
         <label id="buzzStopLabel" hidden>答えている間の曲<select data-key="buzzStop"><option value="true">止める（答え終わったら続きから）</option><option value="false">止めない（流れたまま答える）</option></select></label>
@@ -418,6 +419,7 @@
   <div class="pk-modal wf-modal" id="kmPop" hidden></div>
   <div class="pk-modal wf-modal" id="azPop" hidden></div>
   <div class="pk-modal wf-modal" id="multiPop" hidden></div>
+  <div class="pk-modal wf-modal" id="playPop" hidden></div>
   <div class="sheet-shade" id="sheetShade"></div>
 </main>
 <script src="/socket.io/socket.io.js"></script>

@@ -12661,7 +12661,8 @@
       "くらきまい",
       "倉木",
       "くらき"
-    ]
+    ],
+    "retired": true
   },
   {
     "id": "20v5nkljnpI",
@@ -15973,7 +15974,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "T.M.Revolution公式",
-    "intro": 0,
+    "intro": 6,
     "chorus": 85,
     "aliases": [
       "ガンダムSEED",
@@ -15982,8 +15983,7 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 4111673,
@@ -19036,15 +19036,13 @@
     "type": "OP",
     "confidence": "高",
     "source": "GRANRODEO公式MV（Lantis）",
-    "intro": 0,
-    "chorus": 90,
+    "intro": 22,
+    "chorus": 80.5,
     "aliases": [
       "インフィニットラブ"
     ],
     "embeddable": null,
-    "introMethod": "v2",
-    "introUnsure": true,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 194658,
     "channel": "Lantis Global Channel",
@@ -19058,7 +19056,8 @@
     ],
     "artistAliases": [
       "グランロデオ"
-    ]
+    ],
+    "introMeasured": false
   },
   {
     "id": "a26P38E2OPc",
@@ -24996,7 +24995,7 @@
     "confidence": "中",
     "source": "QUEN MUSIC by HEIWA（Topic）",
     "intro": 0.5,
-    "chorus": 128,
+    "chorus": 85,
     "aliases": [
       "せんごくおとめ"
     ],
@@ -25004,7 +25003,7 @@
     "fame": "otaku",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 151505,
     "channel": "QUEN MUSIC by HEIWA - Topic",
@@ -29291,7 +29290,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 76.2,
     "aliases": [
       "ヘルプ",
       "ヘルプヘブンサイド"
@@ -29313,7 +29312,8 @@
     "views": 257,
     "channel": "マーチチャンネル",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "manual"
   },
   {
     "id": "80oWZrEDgxs",
@@ -45579,15 +45579,14 @@
     "type": "OP",
     "confidence": "高",
     "source": "水樹奈々×T.M.Revolution公式MV",
-    "intro": 0.5,
-    "chorus": 77,
+    "intro": 71.3,
+    "chorus": 85,
     "aliases": [
       "かくめいでゅありずむ"
     ],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "introMeasured": false,
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 21800440,
     "channel": "水樹奈々×T.M.Revolution You Tube Official Channel",
@@ -46635,7 +46634,7 @@
     "views": 118619,
     "channel": "Wake Up, Girls! - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "うぇいくあっぷがーるず",
       "WUG",
@@ -56202,7 +56201,7 @@
     "confidence": "高",
     "source": "ASIAN KUNG-FU GENERATION公式",
     "intro": 0.2,
-    "chorus": 47,
+    "chorus": 72,
     "aliases": [
       "りりー"
     ],
@@ -56210,7 +56209,7 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMethod": "v2",
     "views": 1876869,
     "channel": "ASIAN KUNG-FU GENERATION Official YouTube Channel",
@@ -64034,7 +64033,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 6.5,
-    "chorus": 129,
+    "chorus": 141.8,
     "aliases": [
       "リーグオブレジェンド",
       "リーグオブレジェンズ",
@@ -64043,7 +64042,7 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "workAliases": [
       "りーぐおぶれじぇんど",
@@ -80429,7 +80428,7 @@
     "confidence": "中",
     "source": "The Birthday公式",
     "intro": 1.7,
-    "chorus": 16.8,
+    "chorus": 107.9,
     "aliases": [
       "らぶろけっつ"
     ],
@@ -88575,14 +88574,14 @@
     "confidence": "高",
     "source": "ReoNa公式MV",
     "intro": 1.2,
-    "chorus": 129,
+    "chorus": 141,
     "aliases": [
       "ジージー"
     ],
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 2281431,
     "channel": "ReoNa official YouTube channel",
@@ -100092,7 +100091,7 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "Release - Topic（NexTone公式配信）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 37.7,
     "aliases": [
       "ひとりごつ"
@@ -100114,7 +100113,8 @@
     "channel": "Release - Topic",
     "viewsAt": "2026-10-11",
     "fame": "top",
-    "introMeasured": false
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "LzzW_TBL558",
@@ -100712,7 +100712,7 @@
     "type": "イメージソング",
     "confidence": "高",
     "source": "MY FIRST STORY公式チャンネル（Audio）",
-    "intro": 0,
+    "intro": 0.5,
     "chorus": 56,
     "aliases": [
       "ゆあおーるれでぃでっど"
@@ -100725,6 +100725,33 @@
     "chorusChecked": true,
     "views": 1163272,
     "channel": "MY FIRST STORY",
+    "viewsAt": "2026-10-13",
+    "fame": "otaku",
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "3KSot0OXmGk",
+    "title": "海物語 ～Go!Go! SEA STORY～",
+    "work": "海物語（パチスロ）",
+    "artist": "マリン",
+    "year": 2005,
+    "type": "主題歌",
+    "confidence": "中",
+    "source": "SANYO MUSIC - Topic",
+    "intro": 2.5,
+    "chorus": 115,
+    "aliases": [
+      "うみものがたり",
+      "ごーごーしーすとーりー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 83316,
+    "channel": "SANYO MUSIC - Topic",
     "viewsAt": "2026-10-13",
     "fame": "otaku"
   }

@@ -107,20 +107,27 @@ function spreadLowFame(order, from = 1) {
   }
   return order;
 }
+// 出題しないジャンル：ボカロ・J-POP・パチスロ（超マイナー）・LoL は「曲の種類」なので、チェックすれば必ず外す。
+// それ以外（作品の中身のジャンル）は、曲のジャンルが全部チェックされているときだけ外す（例：ロボットを外しても「パチスロで有名」を残せば、ガンダムSEED は出る）。
+// マイページのお気に入りでも外す（除外はいつもそのとおりに効かせる）
+const HARD_EX = ['vocaloid', 'jpop', 'slot', 'lol'];
+const isExcluded = (song, ex) => {
+  if (!ex?.length) return false;
+  const gs = genresOf(song);
+  if (gs.some(k => HARD_EX.includes(k) && ex.includes(k))) return true;
+  const soft = gs.filter(k => !HARD_EX.includes(k));
+  return soft.length > 0 && soft.every(k => ex.includes(k));
+};
 const inTopic = (song, S, ctx = {}) => {
   const topic = S.topic || 'all';
   if (topic === 'favorites') return !!ctx.fav?.has(song.id);
   if (topic === 'weak') return !!ctx.weak?.has(song.id);
-  if (topic === 'all') { // 「全部」のときだけ、除外にチェックしたジャンルの曲を外す（お題で選んだときはそのまま）。お気に入りの曲は外さない
-    const ex = S.excludeGenres || [];
-    return !ex.length || !!ctx.fav?.has(song.id) || !genresOf(song).some(k => ex.includes(k));
-  }
+  if (topic === 'all') return !isExcluded(song, S.excludeGenres); // 「全部」のときだけ、除外にチェックしたジャンルの曲を外す（お題で選んだときはそのまま）
   if (topic === 'series') return SERIES_OF.get(song.id) === S.series;
-  if (topic === 'multi') { // 自由に選ぶ：選んだジャンル・作品のどれかに入る曲。そのあと除外のチェックも効く（お気に入りは外さない）
+  if (topic === 'multi') { // 自由に選ぶ：選んだジャンル・作品のどれかに入る曲。そのあと除外のチェックも効く
     const gs = genresOf(song), mg = S.multiGenres || [], ms = S.multiSeries || [];
     if (!(mg.some(k => gs.includes(k)) || ms.includes(SERIES_OF.get(song.id)))) return false;
-    const ex = S.excludeGenres || [];
-    return !ex.length || !!ctx.fav?.has(song.id) || !gs.some(k => ex.includes(k));
+    return !isExcluded(song, S.excludeGenres);
   }
   return GENRES[topic] ? genresOf(song).includes(topic) : true;
 };
@@ -2350,7 +2357,7 @@ function buildWorkChoices(song, count, pool) {
   const candidates = [
     ...shuffle(pool.filter(s => near(s))).map(s => s.work),
     ...shuffle(pool.filter(s => !near(s))).map(s => s.work),
-    ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !(pool.ex?.length && genresOf(s).some(k => pool.ex.includes(k))))).map(s => s.work)), // ジャンル・作品のお題では、そのお題の曲だけ
+    ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !isExcluded(s, pool.ex))).map(s => s.work)), // ジャンル・作品のお題では、そのお題の曲だけ
     ...(pool.strict ? [] : shuffle(DECOYS.map(([, work]) => work))),
   ];
   for (const w of candidates) {
@@ -2379,7 +2386,7 @@ function buildArtistChoices(song, count, pool) {
   const candidates = sameVoiceFirst(song.artist, [
     ...shuffle(pool.filter(s => near(s))).map(s => s.artist),
     ...shuffle(pool.filter(s => !near(s))).map(s => s.artist),
-    ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !(pool.ex?.length && genresOf(s).some(k => pool.ex.includes(k))))).map(s => s.artist)), // ジャンル・作品のお題では、そのお題の曲だけ
+    ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !isExcluded(s, pool.ex))).map(s => s.artist)), // ジャンル・作品のお題では、そのお題の曲だけ
   ]);
   for (const a of candidates) {
     if (picks.length >= count - 1) break;
@@ -2465,7 +2472,7 @@ function yearRange(S, song) {
 function buildChoices(song, count, pool) {
   const near = s => Math.abs(s.year - song.year) <= NEAR_YEARS;
   const toChoice = s => ({ title: s.title, work: s.work });
-  const others = SONGS.filter(s => s !== song && !(pool.ex?.length && genresOf(s).some(k => pool.ex.includes(k)))); // 除外したジャンルの曲は、選択肢にも出さない
+  const others = SONGS.filter(s => s !== song && !isExcluded(s, pool.ex)); // 除外したジャンルの曲は、選択肢にも出さない
   const candidates = [
     ...shuffle(pool.filter(s => s !== song && near(s))).map(toChoice),
     ...shuffle(pool.filter(s => s !== song && !near(s))).map(toChoice),

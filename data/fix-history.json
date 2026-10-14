@@ -9051,5 +9051,73 @@
    "intro": 20.7,
    "chorus": 118
   }
+ },
+ {
+  "id": "ZC7Cj4ZFBUI",
+  "title": "リローデッド",
+  "work": "虐殺器官",
+  "channel": "EGOIST Official YouTube Channel",
+  "at": "2026-10-14T08:59:36.035Z",
+  "before": {
+   "intro": 42,
+   "chorus": 128,
+   "introMethod": null,
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 65,
+   "chorus": 149.7
+  }
+ },
+ {
+  "id": "yS24Of69IOc",
+  "title": "Runaway",
+  "work": "アークナイツ",
+  "channel": "ReoNa official YouTube channel",
+  "at": "2026-10-14T09:01:06.217Z",
+  "before": {
+   "intro": 0,
+   "chorus": 68,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 4,
+   "chorus": 68
+  }
+ },
+ {
+  "id": "YvIsU9kgZz4",
+  "title": "God knows...",
+  "work": "涼宮ハルヒの憂鬱",
+  "channel": "Haruhi Suzumiya (CV: Aya Hirano) - Topic",
+  "at": "2026-10-14T09:05:59.203Z",
+  "before": {
+   "intro": 1,
+   "chorus": 64,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 64
+  }
+ },
+ {
+  "id": "kTyOqOdmtBE",
+  "title": "Wagnaria Sanka ~ a day of Satou Jun",
+  "work": "WORKING!!",
+  "channel": "AnimeMusic OST",
+  "at": "2026-10-14T09:12:34.890Z",
+  "before": {
+   "intro": 2,
+   "chorus": 0,
+   "introMethod": "v2",
+   "chorusSource": null
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 52
+  }
  }
 ]

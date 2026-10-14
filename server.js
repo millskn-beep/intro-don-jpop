@@ -1403,11 +1403,18 @@ function gzPrepare(room) { // 次の問題の曲を、選ばれたジャンル�
   const list = g.pool.filter(ok), alt = list.length ? list : SONGS.filter(ok);
   if (alt.length) g.order[g.qi] = alt[crypto.randomInt(alt.length)];
 }
+// ランダムに次のジャンルを決めるとき：参加者の全員がもう持っているジャンルは出さない（持っていない人がいるジャンルから選ぶ）
+function gzRandomNext(room) {
+  const gz = room.game.gz, ids = [...room.players.values()].filter(p => p.connected !== false).map(p => p.id);
+  const lack = gz.cats.filter(c => ids.some(id => !(gz.pieces.get(id) || new Set()).has(c.key)));
+  const list = lack.length ? lack : gz.cats;
+  return list[crypto.randomInt(list.length)];
+}
 function gzReveal(room, q, results) {
   const g = room.game, gz = g.gz, out = [], cat = gzCatOf(gz, gz.cur);
   const win = results.filter(r => r.correct).sort((a, b) => (a.elapsed ?? 99) - (b.elapsed ?? 99))[0];
   gz.gain = null; gz.at = g.qi;
-  if (!win) { gz.cur = gz.cats[crypto.randomInt(gz.cats.length)].key; out.push(`だれも正解しなかったので、次のジャンルはランダム：${gzCatOf(gz, gz.cur).icon}${gzCatOf(gz, gz.cur).label}`); return out; }
+  if (!win) { gz.cur = gzRandomNext(room).key; out.push(`だれも正解しなかったので、次のジャンルはランダム：${gzCatOf(gz, gz.cur).icon}${gzCatOf(gz, gz.cur).label}`); return out; }
   const p = [...room.players.values()].find(x => x.id === win.id);
   if (!gz.pieces.has(win.id)) gz.pieces.set(win.id, new Set());
   const mine = gz.pieces.get(win.id);
@@ -1416,7 +1423,7 @@ function gzReveal(room, q, results) {
   else { mine.add(cat.key); out.push(`${cat.icon} ${win.name} が「${cat.label}」のピースを手に入れた！（${mine.size}/${gz.cats.length}）`); }
   if (mine.size >= gz.cats.length) { g.gzDone = true; if (p) p.score += GZ_WIN; out.push(`👑 ${win.name} ${gz.cats.length}種類 制覇！ +${GZ_WIN}点`); return out; }
   if (g.qi + 1 >= g.order.length) return out;
-  if (room.settings.gzPick === 'random') { gz.cur = gz.cats[crypto.randomInt(gz.cats.length)].key; const c2 = gzCatOf(gz, gz.cur); out.push(`次のジャンルはランダム：${c2.icon}${c2.label}`); return out; } // ランダム制
+  if (room.settings.gzPick === 'random') { gz.cur = gzRandomNext(room).key; const c2 = gzCatOf(gz, gz.cur); out.push(`次のジャンルはランダム：${c2.icon}${c2.label}`); return out; } // ランダム制
   gz.pick = { id: win.id, token: p?.token, name: win.name, until: Date.now() + GZ_PICK_SEC * 1000, q };
   later(room, () => gzChoose(room, null), GZ_PICK_SEC * 1000);
   return out;
@@ -2417,9 +2424,7 @@ function buildWorkChoices(song, count, pool) {
   const seen = new Set([key(song.work)]);
   const picks = [];
   const candidates = [
-    ...shuffle(pool.filter(s => near(s))).map(s => s.work),
-    ...shuffle(pool.filter(s => !near(s))).map(s => s.work),
-    ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !isExcluded(s, pool.ex))).map(s => s.work)), // ジャンル・作品のお題では、そのお題の曲だけ
+    ...similarFirst(song, [...shuffle(pool.filter(s => s !== song)), ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !isExcluded(s, pool.ex))))], near).map(s => s.work), // ジャンル・作品のお題では、そのお題の曲だけ
     ...(pool.strict ? [] : shuffle(DECOYS.map(([, work]) => work))),
   ];
   for (const w of candidates) {
@@ -2446,9 +2451,7 @@ function buildArtistChoices(song, count, pool) {
   const seen = new Set([artistKey(song.artist)]);
   const picks = [];
   const candidates = sameVoiceFirst(song.artist, [
-    ...shuffle(pool.filter(s => near(s))).map(s => s.artist),
-    ...shuffle(pool.filter(s => !near(s))).map(s => s.artist),
-    ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !isExcluded(s, pool.ex))).map(s => s.artist)), // ジャンル・作品のお題では、そのお題の曲だけ
+    ...similarFirst(song, [...shuffle(pool.filter(s => s !== song)), ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !isExcluded(s, pool.ex))))], near).map(s => s.artist), // ジャンル・作品のお題では、そのお題の曲だけ
   ]);
   for (const a of candidates) {
     if (picks.length >= count - 1) break;
@@ -2531,14 +2534,21 @@ function yearRange(S, song) {
 
 // 選択肢は「出題曲に年が近い曲」→「同じ年代設定の曲」→「それ以外の曲」→「ダミー」の順に選ぶ。
 // 年代がばらばらだと、知らなくても消去法で当たってしまうため。
+// 選択肢は、正解と「同じ種類」のものを先に選ぶ（J-POP の問題に J-POP が1つだけ、アニメの問題にボカロが1つだけ…で、種類で消去法ができないように）。
+// 優先：①同じ種類（アニメ／ボカロ／J-POP／パチスロ曲）→ ②同じジャンルがある → ③近い年代。足りないときだけ、ほかのものでうめる
+const KIND_KEYS = ['vocaloid', 'jpop', 'slot'];
+const kindOf = s => { const g = genresOf(s); return g.includes('vocaloid') ? 'v' : g.includes('jpop') ? 'j' : g.includes('slot') ? 's' : 'a'; };
+function similarFirst(song, list, near) {
+  const k = kindOf(song), gs = genresOf(song).filter(x => !KIND_KEYS.includes(x) && !['pachislot', 'lol'].includes(x));
+  const score = s => (kindOf(s) === k ? 0 : 8) + (!gs.length || genresOf(s).some(x => gs.includes(x)) ? 0 : 2) + (near(s) ? 0 : 1);
+  return list.map(s => [s, score(s)]).sort((a, b) => a[1] - b[1]).map(x => x[0]); // 同じ点どうしは、並べ替え前（ランダム）の順のまま
+}
 function buildChoices(song, count, pool) {
   const near = s => Math.abs(s.year - song.year) <= NEAR_YEARS;
   const toChoice = s => ({ title: s.title, work: s.work });
   const others = SONGS.filter(s => s !== song && !isExcluded(s, pool.ex)); // 除外したジャンルの曲は、選択肢にも出さない
   const candidates = [
-    ...shuffle(pool.filter(s => s !== song && near(s))).map(toChoice),
-    ...shuffle(pool.filter(s => s !== song && !near(s))).map(toChoice),
-    ...(pool.strict ? [] : shuffle(others.filter(s => !pool.includes(s))).map(toChoice)), // ジャンル・作品のお題では、そのお題の曲だけ
+    ...similarFirst(song, [...shuffle(pool.filter(s => s !== song)), ...(pool.strict ? [] : shuffle(others.filter(s => !pool.includes(s))))], near).map(toChoice), // ジャンル・作品のお題では、そのお題の曲だけ
     ...(pool.strict ? [] : shuffle(DECOYS.map(([title, work]) => ({ title, work })))),
   ];
   const seen = new Set([normText(song.title)]);

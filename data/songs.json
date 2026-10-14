@@ -18963,7 +18963,7 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "Topic",
-    "intro": 1,
+    "intro": 0,
     "chorus": 64,
     "aliases": [
       "ゴッドノウズ"
@@ -18971,8 +18971,7 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 3355715,
@@ -35076,39 +35075,39 @@
   },
   {
     "id": "kTyOqOdmtBE",
-    "title": "Wagnaria Sanka ~ a day of Taneshima Popura",
+    "title": "Wagnaria Sanka ~ a day of Satou Jun",
     "work": "WORKING!!",
-    "artist": "Taneshima Popura (CV: Asumi Kana)",
+    "artist": "Satou Jun (CV: Daisuke Ono)",
     "year": 2011,
     "type": "キャラソン",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 2,
-    "chorus": 0,
+    "intro": 0,
+    "chorus": 52,
     "aliases": [
       "わぐなりあさんか",
-      "ワグナリアさんかアデイオブたねしまぽぷら"
+      "ワグナリア賛歌",
+      "ワグナリア賛歌 a day of 佐藤潤",
+      "わぐなりあさんかあでいおぶさとうじゅん"
     ],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "workAliases": [
       "わーきんぐ"
     ],
     "artistAliases": [
-      "たねしまぽぷら",
-      "ぽぷら",
-      "あすみかな",
-      "阿澄佳奈",
-      "あすみ"
+      "さとうじゅん",
+      "佐藤潤",
+      "おのだいすけ",
+      "小野大輔",
+      "daisuke ono"
     ],
     "chorusChecked": true,
     "views": 454,
     "channel": "AnimeMusic OST",
     "viewsAt": "2026-10-10",
     "fame": "minor",
-    "introSource": "auto",
-    "introBefore": 0.2
+    "chorusSource": "manual"
   },
   {
     "id": "EzA3SWkeYd8",
@@ -62030,11 +62029,11 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "EGOIST公式MV",
-    "intro": 42,
-    "chorus": 128,
+    "intro": 65,
+    "chorus": 149.7,
     "aliases": [],
     "embeddable": null,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 507875,
     "channel": "EGOIST Official YouTube Channel",
@@ -94242,14 +94241,13 @@
     "type": "イメージソング",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 0,
+    "intro": 4,
     "chorus": 68,
     "aliases": [
       "ランナウェイ"
     ],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "workAliases": [
       "あーくないつ",
       "アクナイ",

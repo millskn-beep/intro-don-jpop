@@ -11342,7 +11342,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "the pillows",
-    "intro": 3,
+    "intro": 20.7,
     "chorus": 118,
     "aliases": [
       "ファニーバニー"
@@ -11350,14 +11350,11 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "chorusChecked": true,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "views": 12090605,
     "channel": "the pillows",
     "viewsAt": "2026-10-05",
     "fame": "famous",
-    "introSource": "songle",
-    "introBefore": 1,
     "workAliases": [
       "ふりくり",
       "FLCL"
@@ -17328,14 +17325,12 @@
     "type": "OP",
     "confidence": "高",
     "source": "GRANRODEO公式MV（Lantis）",
-    "intro": 0,
+    "intro": 19,
     "chorus": 80,
     "aliases": [
       "ゴーフォーイット"
     ],
     "embeddable": null,
-    "introMethod": "v2",
-    "introUnsure": true,
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 468342,
@@ -17347,7 +17342,8 @@
     ],
     "artistAliases": [
       "グランロデオ"
-    ]
+    ],
+    "introMeasured": false
   },
   {
     "id": "Pl0Saxnj9eQ",

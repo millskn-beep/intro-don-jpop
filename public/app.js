@@ -250,7 +250,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -295,6 +295,33 @@ fetch('/api/topics').then(r => r.json()).then(d => {
   if (room) renderRoom(room); // 選択肢がそろったので選ばれている値を入れ直す
 }).catch(() => {});
 
+// ── ジャンル制覇：集める種類を選ぶ（別の画面。EX は年代・曲の種類・知名度も選べて、何個でも。ふつうは、ジャンルから最大6つ）──
+let catSel = new Set();
+$('gzPickOpen').onclick = () => {
+  const ex = room?.settings?.play === 'genreex';
+  catSel = new Set(room?.settings?.gzPicks || []);
+  renderCatPicker(ex);
+  $('catPop').hidden = false;
+};
+function renderCatPicker(ex) {
+  const cat = (TOPIC_DATA?.gzCatalog || []).filter(c => ex || c.group === 'genre'), max = ex ? 99 : 6;
+  const G = { genre: 'ジャンル', era: '年代', type: '曲の種類', fame: '知名度' };
+  const pop = $('catPop');
+  pop.innerHTML = `<div class="wf-field mt-field cat-field"><div class="wf-head"><b>🏆 集める種類を選ぶ</b><span>${ex ? '何個でも選べます（2個以上）。選んだ種類を全部そろえた人の勝ち' : 'ジャンルを最大6つ選びます（2つ以上）'}</span></div>
+    <div class="mt-tabs"><span class="cat-count" id="catCount"></span><button type="button" class="btn-sub" id="catClear">全部外す</button>${ex ? '<button type="button" class="btn-sub" id="catRand">おまかせで10個</button>' : ''}</div>
+    <div class="mt-list cat-list">${Object.entries(G).filter(([g]) => cat.some(c => c.group === g)).map(([g, label]) => `<h4 class="cat-h">${label}</h4>${cat.filter(c => c.group === g).map(c => `<label class="${catSel.has(c.key) ? 'on' : ''}"><input type="checkbox" value="${esc(c.key)}"${catSel.has(c.key) ? ' checked' : ''}>${c.icon} ${esc(c.label)}<small>${c.count}</small></label>`).join('')}`).join('')}</div>
+    <div class="mt-foot"><span id="catNote"></span><button type="button" class="btn-sub" id="catCancel">やめる</button><button type="button" class="btn-main" id="catOk">この内容で決める</button></div></div>`;
+  const upd = () => { $('catCount').textContent = `選んだ種類：${catSel.size}${ex ? '' : ' / 6'}`; $('catOk').disabled = catSel.size < 2; $('catNote').textContent = catSel.size < 2 ? '2つ以上選んでください' : ''; };
+  pop.querySelectorAll('.cat-list input').forEach(cb => cb.onchange = () => {
+    if (cb.checked && catSel.size >= max) { cb.checked = false; return toast('ふつうのジャンル制覇は、最大6つまでです（EXなら何個でも）'); }
+    cb.checked ? catSel.add(cb.value) : catSel.delete(cb.value); cb.parentElement.classList.toggle('on', cb.checked); upd();
+  });
+  $('catClear').onclick = () => { catSel.clear(); renderCatPicker(ex); };
+  const rb = $('catRand'); if (rb) rb.onclick = () => { catSel = new Set([...cat].sort(() => Math.random() - .5).slice(0, 10).map(c => c.key)); renderCatPicker(ex); };
+  $('catCancel').onclick = () => { $('catPop').hidden = true; };
+  $('catOk').onclick = () => { sendSettings({ gzPicks: [...catSel] }); $('catPop').hidden = true; };
+  upd();
+}
 // ── お題を自由に選ぶ（別の画面。ジャンル・作品を何個でも。選んだもののどれかに入る曲を出す）──
 let multiAsked = false, multiSel = { g: new Set(), s: new Set() }, multiTab = 'g', multiQ = '';
 $('multiOpen').onclick = () => openMulti();
@@ -407,6 +434,7 @@ const PLAY_INFO = {
   bingo: ['🎯', 'ビンゴ', '正解した作品名のマスを開けて、列をそろえる', '1人〜', 'quiz'],
   poker: ['🃏', 'ポーカー', '正解した曲がトランプになる。10問ごとに役で勝負', '1人〜', 'quiz'],
   sugoroku: ['🎲', 'すごろく', '正解の速さでコマを進める。止まったマスでイベント', '1人〜', 'quiz'],
+  genreex: ['👑', 'ジャンル制覇EX', '集める種類を6つ以上に。ジャンル・年代・曲の種類・知名度から選ぶ（ランダムも）', '1人〜', 'quiz'],
   genre: ['🏆', 'ジャンル制覇', '6ジャンルのピースを集める。次のジャンルは選択制かランダム制', '1人〜', 'quiz'],
   deck: ['🛒', 'デッキ構築', '正解でコイン。3問ごとのショップでカードを買って育てる', '1人〜', 'quiz'],
   wits: ['💰', '年当てベット', '発売年を予想して、いちばん近い予想に賭ける', '2人〜', 'quiz'],
@@ -438,6 +466,7 @@ const PLAY_DESC = {
   azul: 'ボードゲーム「アズール」の曲版（2〜4人）。工房に並んだ曲カード（曲名と色＝ジャンルが見える。年代は見えない）から、同じ色を全部取り、自分の棚の年代別の段（〜80年代／90年代／00年代／10年代／20年代）に1枚ずつ置きます。年代ちがい・段があふれたカードは床に落ちて失点。段がいっぱいになると、ラウンドの終わりに 1枚2点（同じ色だけなら+3点）。3ラウンドで終わり。置いた曲はサビが流れます。',
   kaerema: 'テレビの「帰れま10」のアニソン版。お題（歌手・シリーズ・年）の曲20曲から、再生回数トップ10に入っている曲を順番に1曲ずつ選びます（選ぶとサビが流れて順位が出ます）。トップ10を全部当てたら帰れる！ 外れが6回で帰れません…。当たり +500点（1位は +1000点）、10曲目を当てた人 +2000点、帰れたら全員 +1000点。問題数＝お題の数です。',
   deck: 'いつものイントロクイズで正解するとコインがもらえます（いちばん速い人 +3、ほかの正解 +2）。3問ごと（と、最後の問題のあと必ず）にショップが開き、コインでカードを買えます：50:50・オーディエンス・テレフォン・もう一度聴く（問題中に使う）、ランダムカード、ブースト（次の正解の点数2倍／大ブーストは3倍）、投資（ずっと正解のたびにコイン+1／大投資は+2）、コイン強奪、勝利点（すぐ+1000点・買うたびに値上がり／大勝利点は+2500点）。',
+  genreex: 'ジャンル制覇の発展版。集める「種類」を6つより多くできます。ジャンル（約20種類）・年代・曲の種類（OP・ED・挿入歌・ボカロなど）・知名度の中から、ランダムに決める（数も選べる）か、自分たちで好きなだけ選びます。毎問、どれか1つの種類の曲が出て、最速の正解者がその種類のピースをもらい、選んだ種類を先に全部そろえた人の勝ちです（次の種類の決め方は「選択制／ランダム制」）。',
   genre: 'いつものイントロクイズで、6つのジャンル（ジャンプ／ロボット・SF／ラブコメ・日常／アイドル・バンド／異世界・ファンタジー／ゲーム・スポーツ）のピースを集めます。毎問どれか1つのジャンルの曲が出て、いちばん速く正解した人がそのジャンルのピースをもらいます。次の問題のジャンルは、設定で「選択制（最速の正解者が選ぶ）」か「ランダム制（毎問ランダム）」にできます。先に6つそろえた人の勝ち（+3000点）。',
   sugoroku: 'いつものイントロクイズに答えながら、すごろくでゴール（30マス目）を目指します。正解の速い順に 3・2・1 マス進み、止まったマスでイベント（進む・戻る・ボーナス・1回休み・次は2倍・先頭と入れ替え・前の人を戻す）。だれかがゴールしたら終わり（+2000点）。順位は進んだマスの多い順です。',
   wits: '2人以上（3人以上がおすすめ）。イントロを聴いて発売年を予想します。全員の予想が年の順に並んだら、「正解の年を超えない中でいちばん近い予想」がどれかを当てるマーカーを2個置きます（ほかの人の予想にも置けます）。外側の枠ほど倍率が高く、点数を上乗せして勝負もできます。自分の予想が当たり枠なら +300点（ぴったりなら +600点）。',
@@ -628,7 +657,14 @@ function renderRoom(r) {
   $('lockSecLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えたあと押せない秒数
   $('bingoEndLabel').hidden = r.settings.play !== 'bingo'; // ビンゴ：何人・何ビンゴで終わるか
   $('karutaFaceLabel').hidden = r.settings.play !== 'karuta'; // かるた：札に書くもの
-  $('gzPickLabel').hidden = r.settings.play !== 'genre';
+  const isGzP = ['genre', 'genreex'].includes(r.settings.play), isEx = r.settings.play === 'genreex';
+  $('gzPickLabel').hidden = !isGzP;
+  $('gzSetLabel').hidden = !isGzP;
+  document.querySelector('[data-key="gzSet"] option[value="fixed"]').disabled = isEx; // EXは「今の6つ」の固定はなし
+  if (isEx && r.settings.gzSet === 'fixed') document.querySelector('[data-key="gzSet"]').value = 'random';
+  $('gzCountLabel').hidden = !(isEx && r.settings.gzSet !== 'choose');
+  $('gzPickOpen').hidden = !(isGzP && r.settings.gzSet === 'choose');
+  $('gzPickOpen').textContent = `集める種類を選ぶ（${(r.settings.gzPicks || []).length}）`;
   $('wolfWorkLabel').hidden = $('wolfTitleLabel').hidden = r.settings.play !== 'wolf'; // 人狼：候補に出す作品名・曲名
   $('buzzStopLabel').hidden = !['buzzer', 'fill'].includes(r.settings.play); // 早押し・3つ埋めバトル：答えている間は曲を止める
   $('noRepeatLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない
@@ -640,7 +676,7 @@ function renderRoom(r) {
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
-  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul'].includes(r.settings.play);
+  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'genreex', 'daifugo', 'wits', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';

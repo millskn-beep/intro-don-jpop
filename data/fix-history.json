@@ -9017,5 +9017,39 @@
    "intro": 6.5,
    "chorus": 141.8
   }
+ },
+ {
+  "id": "IH3RLvY8gRA",
+  "title": "Go For It!",
+  "work": "IGPX",
+  "channel": "Lantis Global Channel",
+  "at": "2026-10-14T08:45:45.118Z",
+  "before": {
+   "intro": 0,
+   "chorus": 80,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 19,
+   "chorus": 80
+  }
+ },
+ {
+  "id": "f92VWkYl8CI",
+  "title": "Funny Bunny",
+  "work": "フリクリ",
+  "channel": "the pillows",
+  "at": "2026-10-14T08:53:08.041Z",
+  "before": {
+   "intro": 3,
+   "chorus": 118,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 20.7,
+   "chorus": 118
+  }
  }
 ]

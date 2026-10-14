@@ -53,7 +53,14 @@ const genresOfRaw = song => {
   const kw = byKeywords(song).filter(k => KEYWORD_ONLY.includes(k));
   return [...WORK_GENRES.get(song.work).filter(k => GENRES[k] && !KEYWORD_ONLY.includes(k)), ...kw];
 };
-const genresOf = song => { const g = genresOfRaw(song).filter(k => k !== 'other'); return g.length || !GENRES.other ? g : ['other']; };
+// ジャンルは曲ごとに何度も聞かれる（一覧の曲数・出題・除外）ので、結果をおぼえておく（曲・作品・手で直したジャンルが変わったら、キーが変わって計算し直す）
+const GENRE_MEMO = new Map();
+const genresOf = song => {
+  const own = SONG_GENRES[song.id], key = song.id + '|' + song.work + '|' + (own ? (own.at || '') + (own.genres ? own.genres.join() : '-') : '');
+  let r = GENRE_MEMO.get(key);
+  if (!r) { const g = genresOfRaw(song).filter(k => k !== 'other'); r = g.length || !GENRES.other ? g : ['other']; if (GENRE_MEMO.size > 20000) GENRE_MEMO.clear(); GENRE_MEMO.set(key, r); }
+  return r;
+};
 // 知名度（ジャンルとは別の分類）。曲データの fame。未設定の曲は「普通」
 const FAME = [['top', '超有名'], ['famous', '有名'], ['normal', '普通'], ['minor', 'マイナー'], ['otaku', 'オタク']];
 const FAME_KEYS = FAME.map(([k]) => k);
@@ -174,6 +181,8 @@ function buildSeries() {
 loadSongs();
 
 const app = express();
+app.use(require('compression')()); // 文字のデータ（画面・スクリプト・曲一覧など）を圧縮して送る（転送量が約1/4〜1/8になる）
+app.use('/assets', express.static(path.join(__dirname, 'public', 'assets'), { maxAge: '1d' })); // 画像・動画は1日おぼえてもらう
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json({ limit: '2mb' }));
 

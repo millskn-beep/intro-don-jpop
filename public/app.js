@@ -1737,7 +1737,8 @@ function renderDkShop() {
 }
 // ── アニソン・ジャンル制覇：いまのジャンル・全員のピース・次のジャンルを選ぶ窓 ──
 let gzTick = null, gzPickKey = null;
-socket.on('gzChosen', d => toast(`${d.name} さんが次のジャンルを「${d.icon}${d.label}」に！`));
+// 次のジャンルが決まった：画面の下に小さく出すだけ（邪魔しない）。ランダムのときは、答え合わせが出てから
+socket.on('gzChosen', d => setTimeout(() => toast(`${d.icon}「${d.label}」ジャンルが選択されました${d.random ? '（ランダム）' : d.name ? '（' + d.name + ' さん）' : ''}`), d.random ? 1500 : 0));
 function renderGenreZone(r) {
   const z = r.genreZone; $('gzBox').hidden = !z;
   if (!z) { $('gzPop').hidden = true; gzPickKey = null; gzSeen = -2; return; }

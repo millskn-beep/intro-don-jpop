@@ -1353,7 +1353,7 @@ function finishDkShop(room) {
 }
 
 // ── アニソン・ジャンル制覇：6ジャンルのピースを集める。最速の正解者がピースをもらい、次のジャンルを選ぶ（docs/genre-zone-spec.md）──
-const GZ_MAX = 60, GZ_PICK_SEC = 10, GZ_DUP = 300, GZ_WIN = 3000;
+const GZ_MAX = 60, GZ_PICK_SEC = 10, GZ_DUP = 300, GZ_WIN = 3000, GZ_NEXT_MS = 3000;
 const GZ_CATS = [
   { key: 'jump', label: 'ジャンプ', icon: '🔥', g: ['jump'] },
   { key: 'robot', label: 'ロボット・SF', icon: '🤖', g: ['robot', 'sf'] },
@@ -1404,6 +1404,7 @@ function gzPrepare(room) { // 次の問題の曲を、選ばれたジャンル�
   if (alt.length) g.order[g.qi] = alt[crypto.randomInt(alt.length)];
 }
 // ランダムに次のジャンルを決めるとき：参加者の全員がもう持っているジャンルは出さない（持っていない人がいるジャンルから選ぶ）
+function gzAnnounceRandom(room) { const gz = room.game.gz, c = gzCatOf(gz, gz.cur); if (c) io.to(room.code).emit('gzChosen', { name: '', random: true, key: c.key, label: c.label, icon: c.icon }); }
 function gzRandomNext(room) {
   const gz = room.game.gz, ids = [...room.players.values()].filter(p => p.connected !== false).map(p => p.id);
   const lack = gz.cats.filter(c => ids.some(id => !(gz.pieces.get(id) || new Set()).has(c.key)));
@@ -1414,7 +1415,7 @@ function gzReveal(room, q, results) {
   const g = room.game, gz = g.gz, out = [], cat = gzCatOf(gz, gz.cur);
   const win = results.filter(r => r.correct).sort((a, b) => (a.elapsed ?? 99) - (b.elapsed ?? 99))[0];
   gz.gain = null; gz.at = g.qi;
-  if (!win) { gz.cur = gzRandomNext(room).key; out.push(`だれも正解しなかったので、次のジャンルはランダム：${gzCatOf(gz, gz.cur).icon}${gzCatOf(gz, gz.cur).label}`); return out; }
+  if (!win) { gz.cur = gzRandomNext(room).key; gzAnnounceRandom(room); out.push(`だれも正解しなかったので、次のジャンルはランダム：${gzCatOf(gz, gz.cur).icon}${gzCatOf(gz, gz.cur).label}`); return out; }
   const p = [...room.players.values()].find(x => x.id === win.id);
   if (!gz.pieces.has(win.id)) gz.pieces.set(win.id, new Set());
   const mine = gz.pieces.get(win.id);
@@ -1423,7 +1424,7 @@ function gzReveal(room, q, results) {
   else { mine.add(cat.key); out.push(`${cat.icon} ${win.name} が「${cat.label}」のピースを手に入れた！（${mine.size}/${gz.cats.length}）`); }
   if (mine.size >= gz.cats.length) { g.gzDone = true; if (p) p.score += GZ_WIN; out.push(`👑 ${win.name} ${gz.cats.length}種類 制覇！ +${GZ_WIN}点`); return out; }
   if (g.qi + 1 >= g.order.length) return out;
-  if (room.settings.gzPick === 'random') { gz.cur = gzRandomNext(room).key; const c2 = gzCatOf(gz, gz.cur); out.push(`次のジャンルはランダム：${c2.icon}${c2.label}`); return out; } // ランダム制
+  if (room.settings.gzPick === 'random') { gz.cur = gzRandomNext(room).key; gzAnnounceRandom(room); const c2 = gzCatOf(gz, gz.cur); out.push(`次のジャンルはランダム：${c2.icon}${c2.label}`); return out; } // ランダム制
   gz.pick = { id: win.id, token: p?.token, name: win.name, until: Date.now() + GZ_PICK_SEC * 1000, q };
   later(room, () => gzChoose(room, null), GZ_PICK_SEC * 1000);
   return out;
@@ -1436,7 +1437,8 @@ function gzChoose(room, key) {
   io.to(room.code).emit('gzChosen', { name: pk.name, key: cat.key, label: cat.label, icon: cat.icon });
   broadcastRoom(room);
   const q = pk.q, S = room.settings;
-  if (S.autoNext > 0 && room.game?.q === q) { q.revealAt = Date.now(); scheduleNext(room, q, Date.now() + Math.max(2500, S.autoNext * 1000 / 2)); }
+  // ジャンルが決まったら、3秒後に次の問題へ（画面には小さく「選択されました」と出す）
+  if (S.autoNext > 0 && room.game?.q === q) { q.revealAt = Date.now(); scheduleNext(room, q, Date.now() + GZ_NEXT_MS); io.to(room.code).emit('nextAt', { seconds: GZ_NEXT_MS / 1000, by: '' }); }
 }
 
 // ── アニソンすごろく：正解の速い順に 3・2・1 マス進む。止まったマスのイベント。先にゴールした人の勝ち（docs/sugoroku-spec.md）──

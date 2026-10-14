@@ -1309,3 +1309,5 @@ body.rush-machine .stage-tools { overflow: visible; }
 .gz-cats { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); max-height: 70dvh; overflow: auto; }
 .cat-h { margin: 6px 0 2px; font-size: 12px; color: #ffd36b; grid-column: 1 / -1; } .cat-count { margin-right: auto; font-weight: 700; }
 #catPop .cat-field { grid-template-rows: auto auto 1fr auto; }
+
+.pref-row { border-bottom: 1px dashed var(--line); padding-bottom: 6px; margin-bottom: 6px; }

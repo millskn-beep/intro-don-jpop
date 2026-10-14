@@ -22,3 +22,6 @@
 .me-btns { display: flex; gap: 6px; flex: none; }
 .me-btns .btn-sub { padding: 4px 10px; font-size: 12px; text-decoration: none; }
 .me-page a.btn-sub, .me-btns a.btn-sub { color: inherit; text-decoration: none; display: inline-flex; align-items: center; }
+
+.me-prefs { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 8px; }
+.me-prefs span { display: grid; padding: 4px 10px; border-radius: 10px; background: rgba(255, 255, 255, .06); border: 1px solid var(--line); } .me-prefs small { color: var(--sub); font-size: 10.5px; } .me-prefs b { font-size: 13px; }

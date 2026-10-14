@@ -7,7 +7,7 @@ const setName = n => { try { n ? localStorage.setItem(KEY, n) : localStorage.rem
 let toastTimer = null;
 const toast = msg => { $('toast').textContent = msg; $('toast').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { $('toast').hidden = true; }, 2600); };
 
-const PLAY_NAME = { normal: 'ふつう', buzzer: '早押し', survival: 'サバイバル', picker: '出題者', coop: '協力', bingo: 'ビンゴ', fill: '3つ埋めバトル', rush: '激アツRUSH', poker: 'ポーカー' };
+const PLAY_NAME = { normal: 'ふつう', buzzer: '早押し', survival: 'サバイバル', picker: '出題者', coop: '協力', bingo: 'ビンゴ', fill: '3つ埋めバトル', rush: '激アツRUSH', poker: 'ポーカー', dixit: 'ディクシット', baba: 'ババ抜き', daifugo: '大富豪', codenames: 'コードネーム', wits: '年当てベット', sugoroku: 'すごろく', genre: 'ジャンル制覇', genreex: 'ジャンル制覇EX', deck: 'デッキ構築', kaerema: '帰れま10', azul: 'アズール', panel: '陣取り', karuta: 'かるた', nenpyo: '年表', wolf: '人狼' };
 let user = null, songs = new Map();
 
 async function loadCatalog() {
@@ -30,6 +30,7 @@ function show(u) {
   $('meStats').innerHTML = [['遊んだ回数', st.games || 0], ['1位（2人以上）', st.wins || 0], ['正解', st.correct || 0], ['正解率', st.answered ? `${rate}%` : '—']]
     .map(([k, v]) => `<div><small>${k}</small><b>${v}</b></div>`).join('');
   $('meByPlay').innerHTML = Object.entries(st.byPlay || {}).map(([k, v]) => `<span>${esc(PLAY_NAME[k] || k)}：${v.games}回${v.wins ? `（1位 ${v.wins}回）` : ''}</span>`).join('') || '<span class="note">まだ遊んだ記録がありません</span>';
+  showPrefs(u);
   const titles = Object.entries(u.titles || {}).sort((a, b) => b[1] - a[1]);
   $('meTitles').innerHTML = titles.map(([t, n]) => `<em>${esc(t)}<small>×${n}</small></em>`).join('') || '<span class="note">まだ称号がありません</span>';
   const row = (id, extra, buttons) => {
@@ -47,6 +48,27 @@ function show(u) {
   $('blockCount').textContent = `${u.block.length}曲`;
   $('blockList').innerHTML = u.block.slice().reverse().map(id => row(id, '', `<button class="btn-sub" data-list="block" data-id="${esc(id)}">戻す</button>`)).join('') || '<li class="note">答え合わせ画面の「🚫 もう聞きたくない」で入ります</li>';
 }
+// 保存した設定の見えるところ
+const PREF_LABEL = { play: '遊び方', questions: '問題数', topic: 'お題', target: '答えるもの', answerMode: '答え方', quizType: '出題', choices: '選択肢の数', yearFrom: '年代（から）', yearTo: '年代（まで）', teams: 'チーム戦', lives: 'ライフ', speed: '再生速度', introPlays: 'イントロの回数', clues: 'ヒント', lifelines: 'ライフライン', bonus: 'ボーナス', maxPlayers: '定員', autoNext: '自動で次へ（秒）', mode: '得点方式', typingExtra: '入力の追加時間' };
+const PREF_ANS = { choice: '選択式', input: '入力式', song: '曲名', work: '作品', artist: '歌手', year: '年', intro: 'イントロ', sabimae: 'サビ前', true: 'あり', false: 'なし', all: '全部', series: '作品を選ぶ', multi: '自由に選ぶ', score: '得点制' };
+function showPrefs(u) {
+  const pf = u.prefs;
+  $('prefClear').hidden = !pf;
+  if (!pf) { $('mePrefs').innerHTML = '<span class="note">まだ保存した設定がありません</span>'; return; }
+  const s = pf.settings || {};
+  const chips = Object.keys(PREF_LABEL).filter(k => s[k] !== undefined).map(k => {
+    const v = s[k]; const txt = k === 'play' ? (PLAY_NAME[v] || v) : PREF_ANS[String(v)] ?? v;
+    return `<span><small>${PREF_LABEL[k]}</small><b>${esc(txt)}</b></span>`;
+  });
+  const ex = (pf.excludeGenres || []).length;
+  $('mePrefs').innerHTML = chips.join('') + (ex ? `<span><small>出題しないジャンル</small><b>${ex}個</b></span>` : '') + `<span class="note">保存：${esc(String(pf.at || '').slice(0, 10))}</span>`;
+}
+$('prefClear').onclick = async () => {
+  const r = await fetch('/api/user/prefs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: getName(), clear: true }) });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) return toast(j.error || '削除できませんでした');
+  toast('保存した設定を削除しました'); show(j.user);
+};
 async function send(list, id, on) {
   const r = await fetch('/api/user/list', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: user.name, list, id, on }) });
   const j = await r.json().catch(() => ({}));

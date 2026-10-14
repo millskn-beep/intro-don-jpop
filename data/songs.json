@@ -20945,14 +20945,13 @@
     "type": "挿入歌",
     "confidence": "高",
     "source": "水樹奈々公式MV",
-    "intro": 0.5,
+    "intro": 23.9,
     "chorus": 102,
     "aliases": [
       "プレイ"
     ],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 3321006,
@@ -66509,7 +66508,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "the peggies公式",
-    "intro": 0.3,
+    "intro": 5.5,
     "chorus": 68.9,
     "aliases": [
       "きみのせい"
@@ -66517,16 +66516,13 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "manual",
     "chorusChecked": true,
     "views": 7892398,
     "channel": "the peggies",
     "viewsAt": "2026-10-05",
     "fame": "famous",
-    "introSource": "songle",
-    "introBefore": 6.7,
     "workAliases": [
       "せいしゅんぶたやろうはばにーがーるせんぱいのゆめをみない",
       "青ブタ",

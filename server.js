@@ -520,9 +520,17 @@ function saveUsers() {
   usersTimer = setTimeout(() => { try { fs.writeFileSync(USERS_PATH + '.tmp', JSON.stringify(USERS) + '\n'); fs.renameSync(USERS_PATH + '.tmp', USERS_PATH); } catch (e) { /* 保存できなくても続ける */ } }, 2000);
 }
 const userKey = n => String(n || '').normalize('NFKC').replace(/[\u0000-\u001f]/g, '').trim().toLowerCase();
-const freshUser = name => ({ name, created: new Date().toISOString(), fav: [], block: [], weak: {}, again: [],
+const freshUser = name => ({ name, created: new Date().toISOString(), fav: [], block: [], weak: {}, again: [], prefs: null,
                              stats: { games: 0, correct: 0, answered: 0, wins: 0, byPlay: {} }, titles: {} });
-const userPublic = u => u && { name: u.name, created: u.created, fav: u.fav, block: u.block, weak: u.weak, again: u.again, stats: u.stats, titles: u.titles };
+const userPublic = u => u && { name: u.name, created: u.created, fav: u.fav, block: u.block, weak: u.weak, again: u.again, stats: u.stats, titles: u.titles, prefs: u.prefs || null };
+// マイページに保存する設定（曲の範囲・出題のしかた・答え方・得点・部屋の設定）。ゲームごとの「前に出た曲を除外しない／記録しない」は保存しない
+const prefKeys = () => [...new Set([...Object.keys(OPTIONS), 'questions', 'choices', 'maxPlayers', 'yearFrom', 'yearTo', 'typingExtra', 'coopGoal', 'fame', 'series', 'multiGenres', 'multiSeries', 'gzPicks', 'introLen', 'hintAt', 'chorusLen'])].filter(k => !['noExclude', 'noRecord'].includes(k));
+const prefsOf = (settings, excludeGenres) => {
+  const PREF_KEYS = prefKeys(); const picked = {}; for (const k of PREF_KEYS) if (settings && settings[k] !== undefined) picked[k] = settings[k];
+  const s = sanitizeSettings(picked, { ...DEFAULTS }); // 正しい値だけにする
+  const out = {}; for (const k of PREF_KEYS) if (picked[k] !== undefined && s[k] !== undefined) out[k] = s[k];
+  return { settings: out, excludeGenres: [...new Set((Array.isArray(excludeGenres) ? excludeGenres : []).filter(k => GENRES[k]))], at: new Date().toISOString() };
+};
 // 部屋にいる人（つながっている人）のマイページをまとめる：出題の候補に使う
 function userCtx(room) {
   const fav = new Set(), block = new Set(), weak = new Set();
@@ -549,6 +557,17 @@ app.post('/api/user/login', (req, res) => {
   if (userLimit(req, 5, 60 * 60 * 1000)) return res.status(429).json({ error: '新しい登録は少し時間をおいてからにしてください' });
   USERS[key] = freshUser(name); saveUsers();
   res.json({ ok: true, created: true, user: userPublic(USERS[key]) });
+});
+// 設定の保存・削除（部屋を作るとき自動で使われる）
+app.post('/api/user/prefs', (req, res) => {
+  const u = USERS[userKey(req.body?.name)];
+  if (!u) return res.status(404).json({ error: 'その名前は登録されていません' });
+  if (userLimit(req, 30, 60 * 1000)) return res.status(429).json({ error: '少し時間をおいてからにしてください' });
+  if (req.body?.clear) u.prefs = null;
+  else if (req.body?.settings && typeof req.body.settings === 'object') u.prefs = prefsOf(req.body.settings, req.body.excludeGenres);
+  else return res.status(400).json({ error: '設定がありません' });
+  saveUsers();
+  res.json({ ok: true, user: userPublic(u) });
 });
 app.get('/api/user', (req, res) => {
   const u = USERS[userKey(req.query.name)];
@@ -2688,6 +2707,7 @@ function startQuestion(room, song, picker = null) {
   // 答えるもの：年 → 年を選ぶ／作品 → 作品名の選択肢（入力なら作品名だけ正解）／曲名 → いつもの選択肢
   const years = S.target === 'year' ? yearRange(S, song) : null;
   g.pool.strict = !['all', 'multi'].includes(S.topic || 'all'); // ジャンル・作品のお題では、選択肢もそのお題の曲だけから作る
+  if (isGz(S.play)) g.pool.ex = []; // ジャンル制覇は、出題しないジャンルに入っている種類（ボカロ・J-POP など）が選ばれることがある。選択肢はその種類の曲から作るので、除外はかけない
   const input = S.answerMode === 'input' && !years;
   const { choices, correctIndex } = S.play === 'nenpyo' ? { choices: null, correctIndex: null } // 年表は置く場所を選ぶ
     : S.play === 'karuta' ? karutaChoices(room, song) // かるたは場に並べた16枚の札
@@ -3744,7 +3764,10 @@ io.on('connection', socket => {
   socket.on('create', ({ token, name, roomName, password, user } = {}, ack) => {
     if (typeof ack !== 'function' || typeof token !== 'string' || token.length < 8) return;
     socket.leave('home');
-    const r = createRoom({ roomName, password }), res = enter(r, token, cleanName(name));
+    const r = createRoom({ roomName, password });
+    const pf = USERS[userKey(user)]?.prefs; // マイページに保存した設定があれば、部屋を作るときに自動で使う
+    if (pf?.settings) { r.settings = sanitizeSettings(pf.settings, r.settings); r.settings.excludeGenres = (pf.excludeGenres || []).filter(k => GENRES[k]); }
+    const res = enter(r, token, cleanName(name));
     linkUser(r, token, user); ack(res);
   });
   socket.on('login', user => { if (room && player) { linkUser(room, player.token, user); broadcastRoom(room); } });

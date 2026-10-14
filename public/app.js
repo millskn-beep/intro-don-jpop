@@ -322,6 +322,26 @@ function renderCatPicker(ex) {
   $('catOk').onclick = () => { sendSettings({ gzPicks: [...catSel] }); $('catPop').hidden = true; };
   upd();
 }
+// ── マイページの設定：保存（曲の範囲・遊び方・答え方・得点・部屋の設定）と、保存した設定を使う ──
+$('prefSave').onclick = async () => {
+  if (!meUser() || !room) return;
+  try {
+    const res = await fetch('/api/user/prefs', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: meUser(), settings: room.settings, excludeGenres: room.settings.excludeGenres }) });
+    const j = await res.json().catch(() => ({}));
+    toast(res.ok ? '💾 いまの設定をマイページに保存しました（次から、部屋を作るときに自動で使われます）' : (j.error || '保存できませんでした'));
+  } catch (e) { toast('保存できませんでした（通信エラー）'); }
+};
+$('prefLoad').onclick = async () => {
+  if (!meUser()) return;
+  try {
+    const j = await fetch('/api/user?name=' + encodeURIComponent(meUser())).then(r => r.json());
+    const pf = j.user?.prefs;
+    if (!pf) return toast('マイページに保存した設定がありません（先に「いまの設定を保存」を押してください）');
+    socket.emit('settings', pf.settings);
+    socket.emit('excludeGenres', pf.excludeGenres || []);
+    toast('📂 保存した設定を使いました');
+  } catch (e) { toast('読み込めませんでした'); }
+};
 // ── お題を自由に選ぶ（別の画面。ジャンル・作品を何個でも。選んだもののどれかに入る曲を出す）──
 let multiAsked = false, multiSel = { g: new Set(), s: new Set() }, multiTab = 'g', multiQ = '';
 $('multiOpen').onclick = () => openMulti();
@@ -657,6 +677,7 @@ function renderRoom(r) {
   $('lockSecLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えたあと押せない秒数
   $('bingoEndLabel').hidden = r.settings.play !== 'bingo'; // ビンゴ：何人・何ビンゴで終わるか
   $('karutaFaceLabel').hidden = r.settings.play !== 'karuta'; // かるた：札に書くもの
+  $('prefRow').hidden = !meUser() || (r.state === 'playing' && !r.paused);
   const isGzP = ['genre', 'genreex'].includes(r.settings.play), isEx = r.settings.play === 'genreex';
   $('gzPickLabel').hidden = !isGzP;
   $('gzSetLabel').hidden = !isGzP;

@@ -1311,3 +1311,29 @@ body.rush-machine .stage-tools { overflow: visible; }
 #catPop .cat-field { grid-template-rows: auto auto 1fr auto; }
 
 .pref-row { border-bottom: 1px dashed var(--line); padding-bottom: 6px; margin-bottom: 6px; }
+
+/* ジャンル制覇：種類ごとのカードと、とった人の色つきの丸 */
+.gz-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px; }
+.gz-cards.compact { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.gz-card { position: relative; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1px 4px; padding: 2px 5px; border-radius: 7px; border: 1px solid var(--line); background: rgba(255, 255, 255, .04); min-width: 0; }
+.gz-card i { font-style: normal; font-size: 14px; } .gz-card b { font-size: 10px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--sub); }
+.gz-card.got { background: rgba(255, 211, 107, .08); } .gz-card.got b { color: var(--text); }
+.gz-card.cur { border-color: #ffd36b; box-shadow: 0 0 6px rgba(255, 211, 107, .55); }
+.gz-card.mini { grid-template-columns: 1fr; justify-items: center; padding: 2px 1px; } .gz-card.mini b { display: none; }
+.gz-own { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 1px; min-height: 11px; }
+.gz-own u, .gz-legend u { display: inline-grid; place-items: center; width: 11px; height: 11px; border-radius: 50%; font-size: 7px; font-weight: 800; color: #111; text-decoration: none; border: 1px solid rgba(0, 0, 0, .45); }
+.gz-card.mini .gz-own { justify-content: center; }
+.gz-legend { display: flex; flex-wrap: wrap; gap: 2px 8px; font-size: 10.5px; color: var(--sub); } .gz-legend span { position: relative; display: inline-flex; align-items: center; gap: 3px; } .gz-legend span.me { color: #8dffc8; } .gz-legend em { font-style: normal; color: #ffd36b; }
+.gz-legend u { width: 13px; height: 13px; font-size: 8px; }
+.gz-cat .gz-own { justify-content: center; margin-top: 2px; } .gz-cat .gz-own u { width: 14px; height: 14px; font-size: 9px; }
+@media (min-width: 900px) {
+  .gz-card.gain { animation: gzGain 1.2s ease-in-out 3; background: rgba(255, 211, 107, .5); }
+  .gz-legend span.hl { animation: hlFlash 1.4s ease-in-out 3; border-radius: 6px; }
+  .gz-legend span.hl::after { content: attr(data-hl); position: absolute; right: 0; top: -15px; padding: 0 6px; border-radius: 99px; background: #ffd36b; color: #221; font-size: 10.5px; font-weight: 800; white-space: nowrap; animation: hlPop .5s ease-out; }
+}
+
+/* 帰れま10：トップ15・20（順位の盤は2列、候補は列を増やす） */
+.km-main { grid-template-columns: calc(var(--bc, 1) * 150px) 1fr; }
+.km-board { grid-template-rows: repeat(10, minmax(0, 1fr)); grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+.km-cands { grid-template-columns: repeat(var(--cc, 4), minmax(0, 1fr)); }
+.km-cand b { font-size: clamp(9.5px, calc(2dvh - var(--cc, 4) * .15dvh), 14px); }

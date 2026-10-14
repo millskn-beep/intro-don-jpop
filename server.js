@@ -678,6 +678,7 @@ const OPTIONS = {
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
   buzzStop: [true, false],
   wolfWork: ['hide', 'show'],   // アニソン人狼：候補に作品名（タイトル）を出す（既定は出さない）
+  kmTop: [10, 15, 20], // 帰れま10：当てる順位の数（トップ10／15／20）
   gzSet: ['fixed', 'random', 'choose'], // ジャンル制覇：集めるジャンルの決め方（fixed：今の6つ／random：ゲームごとにランダム／choose：選ぶ）
   gzCount: [6, 7, 8, 10, 12, 15, 20, 25], // ジャンル制覇EX：ランダムで決める種類の数
   gzPick: ['choose', 'random'], // ジャンル制覇：次のジャンル（choose：最速の正解者が選ぶ／random：毎問ランダム）
@@ -700,7 +701,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [] };
+                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10 };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -1822,42 +1823,69 @@ function azFinish(room) {
 
 // ── アニソン帰れま10：お題の曲の中から、再生回数トップ10を全部当てたら帰れる（docs/kaerema-spec.md）──
 const KM = { turn: 30, cands: 20, top: 10, misses: 6, min: 14, play: 8, hit: 500, first: 1000, last: 2000, home: 1000, pause: 3500 };
+// トップ N に応じて、候補の曲数・外れの上限を決める（トップ10：候補20・外れ6／15：28・8／20：36・10）
+const kmSetup = room => { const top = [10, 15, 20].includes(room.settings.kmTop) ? room.settings.kmTop : KM.top; return { top, cands: Math.round(top * 1.8), misses: top === 10 ? 6 : top === 15 ? 8 : 10 }; };
 function kmTopics(room) { // 曲が KM.min 曲以上ある歌手・シリーズ・年
   const pool = room.game.pool.length > 200 ? room.game.pool : SONGS, ctx = userCtx(room), groups = new Map();
   const add = (key, label, s) => { if (!groups.has(key)) groups.set(key, { label, songs: [] }); groups.get(key).songs.push(s); };
+  // J-POP は、お題で J-POP を指定したとき（お題「J-POP」か、自由選択に J-POP を入れたとき）だけ出す。ふつうは、部屋の除外の設定に関係なく出さない
+  const S = room.settings, jpopOk = S.topic === 'jpop' || (S.topic === 'multi' && (S.multiGenres || []).includes('jpop'));
+  // お題の種類：歌手／作品・シリーズ／年／ジャンル／年代／曲の種類（OP・ED…）／組み合わせ（年代×曲の種類・年代×ジャンル・年×OP/ED）
+  const cat = gzCatalog(), byKey = Object.fromEntries(cat.map(c => [c.key, c]));
+  const SPECIAL = ['jpop', 'vocaloid', 'slot', 'lol', 'pachislot']; // J-POP・ボカロ・パチスロ・LoL は、お題で指定したときだけ（ふつうは出さない）
+  const said = k => S.topic === k || (S.topic === 'multi' && (S.multiGenres || []).includes(k));
+  const eraOf = s => (s.year < 1990 ? 'e:80' : s.year < 2000 ? 'e:90' : s.year < 2010 ? 'e:00' : s.year < 2020 ? 'e:10' : 'e:20');
+  const typeKeys = ['t:op', 't:ed', 't:ins', 't:movie'], typeShort = { 't:op': 'OP', 't:ed': 'ED', 't:ins': '挿入歌・劇中歌', 't:movie': '映画主題歌' };
+  const eraShort = { 'e:80': '〜1989年', 'e:90': '1990年代', 'e:00': '2000年代', 'e:10': '2010年代', 'e:20': '2020年代' };
   for (const s of pool) {
     if (ctx.block.has(s.id) || !(s.views > 0)) continue;
+    if (!jpopOk && genresOf(s).includes('jpop')) continue;
     add('a:' + wolfArtist(s), `「${String(s.artist).split(/\s+(?:feat\.?|ft\.)\s/i)[0]}」の曲`, s);
     add('w:' + wolfFam(s), `「${wolfFam(s)}」の曲`, s);
     if (s.year) add('y:' + s.year, `${s.year}年のアニソン`, s);
+    const gs = genresOf(s), era = s.year ? eraOf(s) : null, types = typeKeys.filter(k => byKey[k]?.test(s));
+    for (const k of gs) {
+      if (!byKey['g:' + k] || (SPECIAL.includes(k) && !said(k))) continue;
+      add('g:' + k, `${byKey['g:' + k].icon}${byKey['g:' + k].label}の曲`, s);
+      if (era && !SPECIAL.includes(k)) add('x:g:' + k + ':' + era, `${eraShort[era]}の${byKey['g:' + k].label}の曲`, s);
+    }
+    if (era) add('e:' + era, `${eraShort[era]}のアニソン`, s);
+    for (const tk of types) {
+      add('t:' + tk, `${typeShort[tk]}の曲`, s);
+      if (era) add('x:' + tk + ':' + era, `${eraShort[era]}の${typeShort[tk]}`, s);
+      if ((tk === 't:op' || tk === 't:ed') && s.year) add('x:' + tk + ':y:' + s.year, `${s.year}年の${typeShort[tk]}`, s);
+    }
   }
   const out = [];
   for (const [key, g] of groups) {
     const best = new Map(); // 同じ曲名（版ちがい）は再生回数の多いほうだけ
     for (const s of g.songs) { const k = wolfKey(s.title); if (!best.has(k) || best.get(k).views < s.views) best.set(k, s); }
     const songs = [...best.values()].sort((a, b) => b.views - a.views);
-    if (songs.length >= KM.min) out.push({ key, label: g.label, songs });
+    if (songs.length >= Math.max(KM.min, kmSetup(room).cands)) out.push({ key, label: g.label, songs, kind: key.startsWith('x:') ? 'x' : key.startsWith('g:') ? 'g' : key.startsWith('e:') ? 'e' : key.startsWith('t:') ? 't' : key[0] });
   }
   return out;
 }
 function startKaeremaRound(room, placeholder) {
   const g = room.game, ps = shuffle(connectedPlayers(room).slice()); // 答える順番はお題ごとにランダム
   if (!g.kmUsed) g.kmUsed = new Set();
-  const topics = kmTopics(room).filter(x => !g.kmUsed.has(x.key));
-  const tp = topics.length ? topics[crypto.randomInt(topics.length)] : kmTopics(room)[0];
+  const all = kmTopics(room), topics = all.filter(x => !g.kmUsed.has(x.key));
+  // お題の種類（歌手・作品・年・ジャンル・年代・曲の種類・組み合わせ）を先にランダムに選んでから、その中から選ぶ（種類がかたよらない）
+  const kinds = [...new Set(topics.map(x => x.kind))], kind = kinds.length ? kinds[crypto.randomInt(kinds.length)] : null, inKind = topics.filter(x => x.kind === kind);
+  const tp = inKind.length ? inKind[crypto.randomInt(inKind.length)] : all[0];
   g.kmUsed.add(tp.key);
   const ranked = tp.songs.map((s, i) => ({ s, rank: i + 1 }));
-  const others = shuffle(ranked.slice(KM.top)).slice(0, KM.cands - KM.top);
-  const cands = shuffle([...ranked.slice(0, KM.top), ...others]);
+  const U = kmSetup(room);
+  const others = shuffle(ranked.slice(U.top)).slice(0, U.cands - U.top);
+  const cands = shuffle([...ranked.slice(0, U.top), ...others]);
   g.q = { phase: 'kaerema', song: placeholder, participants: new Set(ps.map(p => p.token)), answers: new Map(), ready: new Set(), clues: [], lifelineResults: new Map(),
-          km: { step: 'turn', until: 0, topic: tp.label, total: tp.songs.length, cands, picked: new Map(), seats: ps.map(p => p.token), turnIdx: -1, turn: null, misses: 0, found: 0, gain: new Map(), log: [], result: null } };
+          km: { top: U.top, maxMiss: U.misses, step: 'turn', until: 0, topic: tp.label, total: tp.songs.length, cands, picked: new Map(), seats: ps.map(p => p.token), turnIdx: -1, turn: null, misses: 0, found: 0, gain: new Map(), log: [], result: null } };
   kmTurn(room);
 }
 function kmPublic(room) {
   const q = room.game?.q, k = q?.km; if (!k) return null;
   const over = k.step === 'result', nameOf = t => room.players.get(t)?.name || '';
   return { step: k.step, until: k.until, round: room.game.qi + 1, total: room.game.order.length, topic: k.topic, count: k.total, turn: room.players.get(k.turn)?.id || null, turnName: nameOf(k.turn),
-           misses: k.misses, maxMiss: KM.misses, found: k.found, top: KM.top,
+           misses: k.misses, maxMiss: k.maxMiss, found: k.found, top: k.top,
            cands: k.cands.map((c, i) => { const pk = k.picked.get(i); return { title: c.s.title, artist: c.s.artist, work: pk || over ? c.s.work : '', picked: !!pk, rank: pk || over ? c.rank : null, hit: pk ? c.rank <= KM.top : null, by: pk ? nameOf(pk.by) : '' }; }).map((c, i) => ({ ...c, by: k.picked.get(i)?.byName || '' })),
            players: k.seats.map(t => ({ id: room.players.get(t)?.id, name: nameOf(t), gain: k.gain.get(t) || 0 })), log: k.log.slice(-2), result: k.result };
 }
@@ -1876,18 +1904,18 @@ function kmPick(room, token, i) {
   const k = room.game.q.km;
   if (k.step !== 'turn' || token !== k.turn || !Number.isInteger(i) || !k.cands[i] || k.picked.has(i)) return;
   clearTimers(room);
-  const c = k.cands[i], p = room.players.get(token), hit = c.rank <= KM.top;
+  const c = k.cands[i], p = room.players.get(token), hit = c.rank <= k.top;
   k.picked.set(i, { by: token, byName: p?.name || '' });
   io.to(room.code).emit('wolfSong', { videoId: c.s.id, start: wolfStartOf(c.s), sec: KM.play });
   if (hit) {
     k.found++;
-    let pts = c.rank === 1 ? KM.first : KM.hit; if (k.found >= KM.top) pts += KM.last;
+    let pts = c.rank === 1 ? KM.first : KM.hit; if (k.found >= k.top) pts += KM.last;
     k.gain.set(token, (k.gain.get(token) || 0) + pts); if (p) p.score += pts;
     k.log.push(`⭕ ${p?.name}「${c.s.title}」（${c.s.work}）→ ${c.rank}位！ +${pts}点`);
-  } else { k.misses++; k.log.push(`❌ ${p?.name}「${c.s.title}」（${c.s.work}）→ ${c.rank}位（トップ10の外）`); }
+  } else { k.misses++; k.log.push(`❌ ${p?.name}「${c.s.title}」（${c.s.work}）→ ${c.rank}位（トップ${k.top}の外）`); }
   k.step = 'show'; k.until = 0; kmEmit(room);
-  if (k.found >= KM.top) return later(room, () => kmFinish(room, true), KM.pause);
-  if (k.misses >= KM.misses) return later(room, () => kmFinish(room, false), KM.pause);
+  if (k.found >= k.top) return later(room, () => kmFinish(room, true), KM.pause);
+  if (k.misses >= k.maxMiss) return later(room, () => kmFinish(room, false), KM.pause);
   later(room, () => kmTurn(room), KM.pause);
 }
 function kmFinish(room, home) {

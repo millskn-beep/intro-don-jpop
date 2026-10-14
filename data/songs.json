@@ -8748,12 +8748,12 @@
     "confidence": "高",
     "source": "VAP公式",
     "intro": 8,
-    "chorus": 129,
+    "chorus": 105.6,
     "aliases": [
       "テルミーホワイ"
     ],
     "embeddable": true,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
@@ -11282,7 +11282,7 @@
     "type": "OP",
     "confidence": "高",
     "source": "avex公式",
-    "intro": 0,
+    "intro": 8,
     "chorus": 99.3,
     "aliases": [
       "ちぇんじざわーるど"
@@ -11290,15 +11290,12 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
+    "introMeasured": false,
     "chorusSource": "manual",
-    "introMethod": "v2",
     "views": 8304358,
     "channel": "avex",
     "viewsAt": "2026-10-05",
     "fame": "famous",
-    "introSource": "songle",
-    "introBefore": 8.2,
     "workAliases": [
       "いぬやしゃ"
     ],
@@ -14363,7 +14360,7 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "つじあやの公式",
-    "intro": 19.6,
+    "intro": 20.6,
     "chorus": 88.2,
     "aliases": [
       "かぜになる"
@@ -14717,14 +14714,14 @@
     "confidence": "高",
     "source": "Maaya Sakamoto - Topic",
     "intro": 0.2,
-    "chorus": 130,
+    "chorus": 151.4,
     "aliases": [
       "チューンザレインボー"
     ],
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 88475,
     "channel": "Maaya Sakamoto",
@@ -16542,7 +16539,7 @@
     "confidence": "低",
     "source": "coffeejapan",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 109.8,
     "aliases": [
       "こころがとまらない"
     ],
@@ -16556,7 +16553,8 @@
     "fame": "famous",
     "artistAliases": [
       "ジュエリー"
-    ]
+    ],
+    "chorusSource": "manual"
   },
   {
     "id": "fKE4uRsBA2Y",
@@ -17987,12 +17985,12 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 2.5,
-    "chorus": 50,
+    "chorus": 66.6,
     "aliases": [],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMeasured": true,
     "introMethod": "v2",
     "views": 569688,
@@ -19719,7 +19717,7 @@
     "type": "挿入歌",
     "confidence": "中",
     "source": "手嶌葵公式",
-    "intro": 2.2,
+    "intro": 0.4,
     "chorus": 71,
     "aliases": [
       "てるーのうた"
@@ -19727,8 +19725,7 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 440697,
@@ -29412,7 +29409,8 @@
     "views": 50060,
     "channel": "Tsukasa Ayatsuji (CV: Kaori Nazuka) - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "otaku",
+    "retired": true
   },
   {
     "id": "gLdxT-8tDes",
@@ -37798,7 +37796,8 @@
     "views": 15312,
     "channel": "yanaginagi official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true
   },
   {
     "id": "0uokJNpgh-0",
@@ -37860,7 +37859,8 @@
     "views": 29568,
     "channel": "yanaginagi official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true
   },
   {
     "id": "ypdfRodp1yY",
@@ -38051,7 +38051,8 @@
     "views": 39283,
     "channel": "yanaginagi official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true
   },
   {
     "id": "6FhmyWT-_0U",
@@ -38268,7 +38269,8 @@
     "viewsAt": "2026-10-10",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "retired": true
   },
   {
     "id": "nJ1b_2y7h2M",
@@ -38349,7 +38351,8 @@
     "views": 12389563,
     "channel": "FlamingJune2012",
     "viewsAt": "2026-10-10",
-    "fame": "famous"
+    "fame": "famous",
+    "retired": true
   },
   {
     "id": "HZYADUF1JYI",
@@ -39868,7 +39871,8 @@
     "views": 18067,
     "channel": "yanaginagi official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true
   },
   {
     "id": "XQtT_oSFuoI",
@@ -40021,7 +40025,8 @@
     "views": 25344,
     "channel": "yanaginagi official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true
   },
   {
     "id": "f3fg3RZsUOE",
@@ -40151,7 +40156,8 @@
     "views": 33232,
     "channel": "yanaginagi official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true
   },
   {
     "id": "Zw60p6DvzYE",
@@ -40704,7 +40710,8 @@
     "views": 48417,
     "channel": "yanaginagi official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true
   },
   {
     "id": "u7dXtrC_BdE",
@@ -41186,7 +41193,8 @@
     "views": 565952,
     "channel": "yanaginagi official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true
   },
   {
     "id": "nwu8W0P8JHY",
@@ -41495,7 +41503,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "retired": true
   },
   {
     "id": "mxGpcFDhSk8",
@@ -41646,7 +41655,8 @@
     "views": 10552,
     "channel": "yanaginagi official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true
   },
   {
     "id": "VdOUggE_Yoo",
@@ -42071,7 +42081,8 @@
     "views": 97873,
     "channel": "yanaginagi official",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true
   },
   {
     "id": "6m_NwZYVefo",
@@ -44445,17 +44456,16 @@
     "type": "映画主題歌",
     "confidence": "中",
     "source": "ClariS公式",
-    "intro": 9.5,
-    "chorus": 55,
+    "intro": 0,
+    "chorus": 60,
     "aliases": [
       "からふる"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "chorusSource": "heatmap",
-    "introMethod": "v2",
+    "introMeasured": false,
+    "chorusSource": "manual",
     "views": 960116,
     "channel": "ClariS Official YouTube Channel",
     "viewsAt": "2026-10-05",
@@ -58965,14 +58975,13 @@
     "type": "OP",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 35,
+    "intro": 46.5,
     "chorus": 116,
     "aliases": [
       "アドレナリン"
     ],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "workAliases": [
       "えろまんがせんせい"
     ],
@@ -58984,9 +58993,7 @@
     "views": 3353735,
     "channel": "THE FIRST TAKE",
     "viewsAt": "2026-10-10",
-    "fame": "normal",
-    "introSource": "auto",
-    "introBefore": 9.7
+    "fame": "normal"
   },
   {
     "id": "onIQMPIaS7E",
@@ -59215,17 +59222,16 @@
     "type": "映画主題歌",
     "confidence": "中",
     "source": "LiSA公式",
-    "intro": 4.7,
-    "chorus": 43,
+    "intro": 0.7,
+    "chorus": 57,
     "aliases": [
       "きゃっちざもーめんと"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "chorusSource": "heatmap",
-    "introMethod": "v2",
+    "introMeasured": false,
+    "chorusSource": "manual",
     "views": 17409692,
     "channel": "LiSA Official YouTube",
     "viewsAt": "2026-10-05",
@@ -74358,14 +74364,14 @@
     "confidence": "中",
     "source": "ダンメモ公式（音源試聴）",
     "intro": 4.2,
-    "chorus": 102,
+    "chorus": 51.4,
     "aliases": [
       "きょくや"
     ],
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 165025,
     "channel": "ダンメモ【公式】",
@@ -77044,14 +77050,14 @@
     "confidence": "高",
     "source": "FLOW公式MV",
     "intro": 0.7,
-    "chorus": 128,
+    "chorus": 138.3,
     "aliases": [
       "ユナイテッドスパロウズ"
     ],
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 368396,
     "channel": "FLOW Official YouTube Channel",
@@ -82534,7 +82540,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "ソニー公式",
-    "intro": 1.5,
+    "intro": 0.5,
     "chorus": 41.9,
     "aliases": [
       "めざせぽけもんますたー"
@@ -82542,8 +82548,7 @@
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusChecked": true,
     "views": 6207879,
     "channel": "Sony Music Japan",
@@ -83793,17 +83798,16 @@
     "type": "ED",
     "confidence": "高",
     "source": "Topic",
-    "intro": 5,
-    "chorus": 63,
+    "intro": 0,
+    "chorus": 61,
     "aliases": [
       "ころがるいわきみにあさがふる"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "introMeasured": false,
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 1275558,
     "channel": "kessoku band - Topic",
@@ -85638,20 +85642,17 @@
     "type": "ED",
     "confidence": "高",
     "source": "Aimer公式MV",
-    "intro": 0.8,
+    "intro": 12.3,
     "chorus": 58.3,
     "aliases": [],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "manual",
     "chorusChecked": true,
     "views": 4783611,
     "channel": "Aimer Official YouTube Channel",
     "viewsAt": "2026-10-05",
     "fame": "famous",
-    "introSource": "songle",
-    "introBefore": 12.5,
     "workAliases": [
       "おうさまらんきんぐゆうきのたからばこ",
       "おうさまらんきんぐ",

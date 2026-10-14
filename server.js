@@ -1372,6 +1372,7 @@ function finishDkShop(room) {
 }
 
 // ── アニソン・ジャンル制覇：6ジャンルのピースを集める。最速の正解者がピースをもらい、次のジャンルを選ぶ（docs/genre-zone-spec.md）──
+const GZ_HARD_MAX = 400; // ジャンル制覇は、全部そろえるまで続ける（これだけ出しても決まらなければ終わる）
 const GZ_MAX = 60, GZ_PICK_SEC = 10, GZ_DUP = 300, GZ_WIN = 3000, GZ_NEXT_MS = 3000;
 const GZ_CATS = [
   { key: 'jump', label: 'ジャンプ', icon: '🔥', g: ['jump'] },
@@ -1442,7 +1443,8 @@ function gzReveal(room, q, results) {
   if (mine.has(cat.key)) { if (p) p.score += GZ_DUP; out.push(`${cat.icon} ${win.name} もう持っているジャンル → +${GZ_DUP}点`); }
   else { mine.add(cat.key); out.push(`${cat.icon} ${win.name} が「${cat.label}」のピースを手に入れた！（${mine.size}/${gz.cats.length}）`); }
   if (mine.size >= gz.cats.length) { g.gzDone = true; if (p) p.score += GZ_WIN; out.push(`👑 ${win.name} ${gz.cats.length}種類 制覇！ +${GZ_WIN}点`); return out; }
-  if (g.qi + 1 >= g.order.length) return out;
+  // 全種類をそろえる人が出るまで終わらない（問題数の上限はない。ただし、止まらなくならないよう GZ_HARD_MAX 問まで）
+  if (g.qi + 1 >= GZ_HARD_MAX) return out;
   if (room.settings.gzPick === 'random') { gz.cur = gzRandomNext(room).key; gzAnnounceRandom(room); const c2 = gzCatOf(gz, gz.cur); out.push(`次のジャンルはランダム：${c2.icon}${c2.label}`); return out; } // ランダム制
   gz.pick = { id: win.id, token: p?.token, name: win.name, until: Date.now() + GZ_PICK_SEC * 1000, q };
   later(room, () => gzChoose(room, null), GZ_PICK_SEC * 1000);
@@ -2649,6 +2651,9 @@ function nextQuestion(room) {
     if (g.qi >= 0 && (g.qi + 1) % POKER_BET_EVERY === 0 && g.qi + 1 < g.order.length && g.pokerBetAt !== g.qi && !survivalOver(room)) return startPokerBet(room);
   }
   // 終わり：全部出した、またはサバイバルで残りがいなくなった（qi は最後に出した問題のまま）
+  if (isGz(room.settings.play) && !g.gzDone && g.qi + 1 >= g.order.length && g.order.length < GZ_HARD_MAX) { // 続ける：曲を足す（実際の曲は gzPrepare が、そのときの種類から選び直す）
+    const more = shuffle((g.pool.length ? g.pool : SONGS).slice()).slice(0, 20); g.order.push(...(more.length ? more : shuffle(SONGS.slice()).slice(0, 20)));
+  }
   if (g.qi + 1 >= g.order.length || survivalOver(room) || g.bingoDone || g.panelDone || g.nenpyoDone || g.sgDone || g.gzDone) return endGame(room); // ビンゴは設定した人数・ビンゴ数で終わり（問題数までも選べる）
   g.qi++;
   if (room.settings.play === 'picker') return startPicking(room);
@@ -2745,7 +2750,7 @@ function startQuestion(room, song, picker = null) {
 function questionPayload(room) {
   const g = room.game, q = g.q;
   return {
-    qNo: g.qi + 1, qTotal: g.order.length,
+    qNo: g.qi + 1, qTotal: g.order.length, endless: isGz(room.settings.play), // endless：全部そろうまで続く（問題数なし）
     videoId: q.song.id, intro: q.song.intro || 0, start: q.start, kind: q.kind,
     final: room.settings.bonus && isFinalQuestion(room),
     attack: !!q.attack,
@@ -3335,7 +3340,7 @@ function reveal(room) {
   const bingo = bingoBonus.map(b => b.name);
   if (S.play === 'bingo' && bingoOver(room)) room.game.bingoDone = true; // 設定した人数・ビンゴ数に届いたら、この問題で終わり
   const sgEv = S.play === 'sugoroku' ? sgReveal(room, q, results) : isGz(S.play) ? gzReveal(room, q, results) : S.play === 'deck' ? dkReveal(room, q, results) : [];
-  const last = room.game.qi + 1 >= room.game.order.length || survivalOver(room) || !!room.game.bingoDone || !!room.game.nenpyoDone || !!room.game.sgDone || !!room.game.gzDone;
+  const last = (!isGz(S.play) && room.game.qi + 1 >= room.game.order.length) || (isGz(S.play) && room.game.qi + 1 >= GZ_HARD_MAX) || survivalOver(room) || !!room.game.bingoDone || !!room.game.nenpyoDone || !!room.game.sgDone || !!room.game.gzDone;
   // 激アツRUSH：この問題の結果（色・当たり）と、大当たり・RUSH終了の人
   const rushEv = [...(q.rushEvents || new Map())].map(([t, e]) => ({ ...e, name: room.players.get(t)?.name })).filter(e => e.name);
   const rush = q.rush ? { color: q.rush.color, hit: q.rush.hit, jackpot: rushEv.filter(e => e.jackpot).map(e => e.name), ended: rushEv.filter(e => e.ended || e.done) } : null;
@@ -3551,7 +3556,7 @@ function survivalOver(room) {
   const alive = [...room.players.values()].filter(p => p.connected && !p.out).length;
   return room.game.solo ? alive === 0 : alive <= 1;
 }
-const isFinalQuestion = room => room.settings.play !== 'survival' && room.game.qi + 1 >= room.game.order.length && room.game.order.length > 1;
+const isFinalQuestion = room => room.settings.play !== 'survival' && !isGz(room.settings.play) && room.game.qi + 1 >= room.game.order.length && room.game.order.length > 1;
 
 // 答え合わせで出す一言（最速・全員正解・ひとりだけ・連続正解など）
 function highlightsOf(room, results) {

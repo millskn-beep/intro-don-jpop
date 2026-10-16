@@ -9,7 +9,7 @@ const express = require('express');
 const { Server } = require('socket.io');
 
 const fs = require('fs');
-const { isCorrectText, isAlmostText, shortForm, normalize: normText } = require('./lib/normalize');
+const { isCorrectText, isAlmostText, shortForm, vocalShort, vocalCombo, normalize: normText } = require('./lib/normalize');
 const poker = require('./lib/poker');
 const panelLib = require('./lib/panel');
 const nenpyo = require('./lib/nenpyo'); // アニソン年表（ヒットスター風） // アニソン陣取り（アタック25風）の盤
@@ -125,6 +125,8 @@ const isExcluded = (song, ex) => {
   const soft = gs.filter(k => !HARD_EX.includes(k));
   return soft.length > 0 && soft.every(k => ex.includes(k));
 };
+// 選択肢にも、出さないと決めた曲（除外ジャンル・カップリング曲）は使わない
+const choiceBlocked = (s, pool) => isExcluded(s, pool.ex) || !!(pool.noCoupling && s.coupling);
 const inTopic = (song, S, ctx = {}) => {
   const topic = S.topic || 'all';
   if (topic === 'favorites') return !!ctx.fav?.has(song.id);
@@ -203,6 +205,7 @@ app.get('/api/topics', (req, res) => res.json({
   series: SERIES_LIST,
   fame: FAME.map(([k, label]) => ({ key: k, label, count: SONGS.filter(s => fameOf(s) === k).length })),
   playlist: STAGED.length,
+  coupling: SONGS.filter(s => s.coupling).length,
   gzCatalog: gzCatalog().map(({ key, group, icon, label, count }) => ({ key, group, icon, label, count })),
 }));
 app.get('/api/songs', (req, res) => { loadSongs(); res.json({ songs: ALL_SONGS, canEdit: canEdit(req) }); });
@@ -334,6 +337,61 @@ app.post('/api/ai-suggest', (req, res) => {
               before: { intro: s.intro || 0, chorus: before }, after: { intro: s.intro || 0, chorus: s.chorus } });
   writeJson(path.join(__dirname, 'data', 'fix-history.json'), hist);
   res.json({ ok: true, chorus: s.chorus, was: before });
+});
+
+// ── カップリング曲の管理（coupling.html。このPCから開いたときだけ）：印がある曲を見る・ふつうの曲に戻す・印を付ける ──
+// 戻した曲には couplingNo を付ける（tools/merge-coupling.js・itunes-couplings.js で、あとからまた印を付けないように）
+// 公開サイトでも、一覧は見られて、「カップリング曲です／ふつうの曲に戻して」の提案を送れる（書き換えは手元だけ。提案は反映の前に tools/pull-fixes.js で手元に取り込み、coupling.html の「届いた提案」で承認する）
+const CW_REPORTS_PATH = path.join(__dirname, 'data', 'coupling-reports.json');
+let CW_REPORTS = {}; // 公開側で受け付けた提案：id → { on, title, artist, at, n, notes[] }
+try { CW_REPORTS = JSON.parse(fs.readFileSync(CW_REPORTS_PATH, 'utf8')).pending || {}; } catch (e) { CW_REPORTS = {}; }
+const cwLast = new Map();
+app.get('/api/coupling-reports', (req, res) => {
+  // 手元：取り込み済みの提案（ファイル）を毎回読む／公開側：メモリ
+  const local = canEdit(req) ? (readJson(CW_REPORTS_PATH, {}).pending || {}) : null;
+  res.json({ 'coupling-reports': local || CW_REPORTS });
+});
+app.post('/api/coupling-reports', (req, res) => {
+  if (canEdit(req) && req.body?.resolve) { // 手元：承認（apply）・却下
+    const id = String(req.body.id || ''), file = readJson(CW_REPORTS_PATH, { pending: {}, resolved: {} }), rp = file.pending?.[id];
+    if (!rp) return res.status(404).json({ error: '提案がありません' });
+    if (req.body.apply) {
+      const songs = readJson(SONGS_PATH, []), s = songs.find(x => x.id === id);
+      if (s) { if (rp.on) { s.coupling = true; delete s.couplingNo; } else { delete s.coupling; s.couplingNo = true; } fs.writeFileSync(SONGS_PATH + '.tmp', JSON.stringify(songs, null, 2) + '\n'); fs.renameSync(SONGS_PATH + '.tmp', SONGS_PATH); loadSongs(); }
+    }
+    delete file.pending[id]; (file.resolved = file.resolved || {})[id] = rp.at;
+    writeJson(CW_REPORTS_PATH, file);
+    return res.json({ ok: true });
+  }
+  const id = String(req.body?.id || ''), on = !!req.body?.on;
+  const note = String(req.body?.note || '').replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, 100);
+  const song = ALL_SONGS.find(s => s.id === id);
+  if (!song) return res.status(400).json({ error: '曲が見つかりません' });
+  const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
+  const recent = (cwLast.get(ip) || []).filter(x => Date.now() - x < 60 * 1000);
+  if (recent.length >= 10) return res.status(429).json({ error: '少し時間をおいてから送ってください（1分に10件まで）' });
+  cwLast.set(ip, [...recent, Date.now()]);
+  if (!!song.coupling === on) return res.json({ ok: true, message: `「${song.title}」は、すでにそうなっています` });
+  const r = CW_REPORTS[id] && CW_REPORTS[id].on === on ? CW_REPORTS[id] : { on, title: song.title, artist: song.artist, n: 0, notes: [] };
+  r.n++; r.at = new Date().toISOString(); r.notes = [...(r.notes || []), ...(note ? [{ note, at: r.at }] : [])].slice(-10);
+  CW_REPORTS[id] = r;
+  datalog.touch();
+  try { writeJson(CW_REPORTS_PATH, { pending: CW_REPORTS, resolved: readJson(CW_REPORTS_PATH, {}).resolved || {} }); } catch (e) { /* 保存できなくても受付は続ける */ }
+  res.json({ ok: true, message: on ? `「${song.title}」を「カップリング曲」として受け付けました（確認して、次の更新で反映します）` : `「${song.title}」を「ふつうの曲に戻す」として受け付けました（確認して、次の更新で反映します）` });
+});
+app.get('/api/coupling', (req, res) => {
+  loadSongs();
+  res.json({ canEdit: canEdit(req), songs: ALL_SONGS.filter(s => !s.retired).map(s => ({ id: s.id, title: s.title, artist: s.artist, work: s.work, year: s.year, coupling: !!s.coupling, couplingOf: s.couplingOf || '' })) });
+});
+app.post('/api/coupling', (req, res) => {
+  if (!canEdit(req)) return res.status(403).json({ error: 'このPCから開いたときだけ使えます' });
+  const id = String(req.body?.id || ''), on = !!req.body?.on;
+  const songs = readJson(SONGS_PATH, []), s = songs.find(x => x.id === id);
+  if (!s) return res.status(404).json({ error: '曲が見つかりません' });
+  if (on) { s.coupling = true; delete s.couplingNo; } else { delete s.coupling; s.couplingNo = true; }
+  fs.writeFileSync(SONGS_PATH + '.tmp', JSON.stringify(songs, null, 2) + '\n'); fs.renameSync(SONGS_PATH + '.tmp', SONGS_PATH);
+  loadSongs();
+  res.json({ ok: true, coupling: on });
 });
 
 // ── 曲リクエスト（トップ画面の「出してほしい曲」）──
@@ -678,6 +736,7 @@ const OPTIONS = {
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
   buzzStop: [true, false],
   wolfWork: ['hide', 'show'],   // アニソン人狼：候補に作品名（タイトル）を出す（既定は出さない）
+  noCoupling: [false, true],            // カップリング曲（シングルのB面）を出さない（曲データの coupling が true の曲）
   kmTop: [10, 15, 20], // 帰れま10：当てる順位の数（トップ10／15／20）
   gzSet: ['fixed', 'random', 'choose'], // ジャンル制覇：集めるジャンルの決め方（fixed：今の6つ／random：ゲームごとにランダム／choose：選ぶ）
   gzCount: [6, 7, 8, 10, 12, 15, 20, 25], // ジャンル制覇EX：ランダムで決める種類の数
@@ -701,7 +760,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10 };
+                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, noCoupling: false };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -752,9 +811,10 @@ function poolFor(settings, ctx = {}) {
   // 知名度はお題に関係なく、チェックした段階の曲だけにする（難しさの調整）
   const fame = Array.isArray(settings.fame) && settings.fame.length ? settings.fame : FAME_KEYS;
   const mine = ['favorites', 'weak'].includes(settings.topic);
-  const out = (settings.topic === 'playlist' ? STAGED : SONGS).filter(s => (mine || (s.year >= settings.yearFrom && s.year <= settings.yearTo && fame.includes(fameOf(s)))) && inTopic(s, settings, ctx)
+  const out = (settings.topic === 'playlist' ? STAGED : SONGS).filter(s => (mine || (s.year >= settings.yearFrom && s.year <= settings.yearTo && fame.includes(fameOf(s)))) && inTopic(s, settings, ctx) && !(settings.noCoupling && s.coupling)
     && !ctx.block?.has(s.id)
     && !(settings.play === 'fill' && genresOf(s).includes('lol'))); // 3つ埋めバトルに LoL の曲は出さない
+  out.noCoupling = !!settings.noCoupling;
   out.ex = ['all', 'multi'].includes(settings.topic || 'all') ? settings.excludeGenres || [] : []; // 選択肢を足りない分だけ外から足すときも、除外したジャンルは使わない
   return out;
 }
@@ -934,6 +994,42 @@ function randomStart(song) {
 
 // 除外の記録。room.played：出題しない曲（前から除外していた曲＋この部屋で流した曲）。
 // room.playedHere：そのうち「この部屋で流したから」除外になった曲だけ（ロビーの「このルームで流した曲の除外を解除」で外す）
+// ── 再生の統計（曲ごとの「流れた回数」「答えた人数・正解した人数」と、日ごと・遊び方ごとのゲーム数・出題数）──
+// 数えるのは公開サーバー（Render）だけ（手元の試しのゲームは数えない。環境変数 COUNT_STATS=1 なら手元でも数える）。
+// 公開側の数は、反映の前の tools/pull-fixes.js で手元の data/play-stats.json に取り込む（再起動で戻らないように）
+const STATS_PATH = path.join(__dirname, 'data', 'play-stats.json');
+const todayStr = () => new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10); // 日本時間の日付
+let PSTATS = readJson(STATS_PATH, null) || { since: todayStr(), songs: {}, days: {}, byPlay: {} };
+const statsOn = !!process.env.RENDER || process.env.COUNT_STATS === '1';
+let statsTimer = null;
+function statsTouch() {
+  datalog.touch(); clearTimeout(statsTimer);
+  statsTimer = setTimeout(() => { try { writeJson(STATS_PATH, PSTATS); } catch (e) { /* 保存できなくても数え続ける */ } }, 5000);
+}
+const statsDay = () => (PSTATS.days[todayStr()] = PSTATS.days[todayStr()] || { games: 0, plays: 0 });
+function statsGame(room) { // ゲームが始まった
+  if (!statsOn) return;
+  statsDay().games++;
+  const b = (PSTATS.byPlay[room.settings.play] = PSTATS.byPlay[room.settings.play] || { games: 0, plays: 0 }); b.games++;
+  statsTouch();
+}
+function statsPlay(room, song) { // 曲が流れた（出題された）
+  if (!statsOn || !song?.id) return;
+  const r = (PSTATS.songs[song.id] = PSTATS.songs[song.id] || [0, 0, 0]); r[0]++;
+  statsDay().plays++;
+  const b = (PSTATS.byPlay[room.settings.play] = PSTATS.byPlay[room.settings.play] || { games: 0, plays: 0 }); b.plays++;
+  statsTouch();
+}
+function statsReveal(room, q, results) { // 答え合わせ：答えた人数・正解した人数
+  if (!statsOn || !q?.song?.id) return;
+  const r = (PSTATS.songs[q.song.id] = PSTATS.songs[q.song.id] || [0, 0, 0]);
+  for (const x of results) { if (x.pass || !x.answered) continue; r[1]++; if (x.correct) r[2]++; }
+  statsTouch();
+}
+app.get('/api/play-stats', (req, res) => {
+  const days = Object.fromEntries(Object.entries(PSTATS.days).sort().slice(-90));
+  res.json({ 'play-stats': PSTATS, since: PSTATS.since, days, counting: statsOn });
+});
 function recordPlayed(room, s) {
   if (!room.playedHere) room.playedHere = new Set();
   const before = room.played.has(s.id) && !room.playedHere.has(s.id); // 前から除外していた曲（貼り付けたログ・端末の記録）
@@ -1002,6 +1098,7 @@ function startGame(room) {
   const rushPlan = S.play === 'rush' ? buildRushPlan(order, fresh.length ? fresh : candidates, S) : null;
   if (!S.noRecord) order.forEach(s => recordPlayed(room, s));
   room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
+  statsGame(room);
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map(), // stats: token -> 称号用の成績
                 rushPlan, // 激アツRUSH：問題ごとの { color, hit }
                 pokerDeck, // アニソン・ポーカー：ボーナスカードの山
@@ -1577,6 +1674,7 @@ function wolfSongFor(room, song) {
 }
 const wolfStartOf = s => hasChorus(s) ? Math.max(s.intro || 0, chorusOf(s) - 3) : (s.intro || 0);
 function startWolfRound(room, song) {
+  statsPlay(room, song);
   const g = room.game, ps = connectedPlayers(room);
   const wolfP = ps[crypto.randomInt(ps.length)], other = wolfSongFor(room, song);
   // 候補は全員同じ一覧：みんなの曲と人狼の曲を両方入れる（一覧から、どちらが人狼の曲かは分からない）
@@ -1838,7 +1936,7 @@ function kmTopics(room) { // 曲が KM.min 曲以上ある歌手・シリーズ�
   const typeKeys = ['t:op', 't:ed', 't:ins', 't:movie'], typeShort = { 't:op': 'OP', 't:ed': 'ED', 't:ins': '挿入歌・劇中歌', 't:movie': '映画主題歌' };
   const eraShort = { 'e:80': '〜1989年', 'e:90': '1990年代', 'e:00': '2000年代', 'e:10': '2010年代', 'e:20': '2020年代' };
   for (const s of pool) {
-    if (ctx.block.has(s.id) || !(s.views > 0)) continue;
+    if (ctx.block.has(s.id) || !(s.views > 0) || (S.noCoupling && s.coupling)) continue;
     if (!jpopOk && genresOf(s).includes('jpop')) continue;
     add('a:' + wolfArtist(s), `「${String(s.artist).split(/\s+(?:feat\.?|ft\.)\s/i)[0]}」の曲`, s);
     add('w:' + wolfFam(s), `「${wolfFam(s)}」の曲`, s);
@@ -2475,7 +2573,7 @@ function buildWorkChoices(song, count, pool) {
   const seen = new Set([key(song.work)]);
   const picks = [];
   const candidates = [
-    ...similarFirst(song, [...shuffle(pool.filter(s => s !== song)), ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !isExcluded(s, pool.ex))))], near).map(s => s.work), // ジャンル・作品のお題では、そのお題の曲だけ
+    ...similarFirst(song, [...shuffle(pool.filter(s => s !== song)), ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !choiceBlocked(s, pool))))], near).map(s => s.work), // ジャンル・作品のお題では、そのお題の曲だけ
     ...(pool.strict ? [] : shuffle(DECOYS.map(([, work]) => work))),
   ];
   for (const w of candidates) {
@@ -2502,7 +2600,7 @@ function buildArtistChoices(song, count, pool) {
   const seen = new Set([artistKey(song.artist)]);
   const picks = [];
   const candidates = sameVoiceFirst(song.artist, [
-    ...similarFirst(song, [...shuffle(pool.filter(s => s !== song)), ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !isExcluded(s, pool.ex))))], near).map(s => s.artist), // ジャンル・作品のお題では、そのお題の曲だけ
+    ...similarFirst(song, [...shuffle(pool.filter(s => s !== song)), ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !choiceBlocked(s, pool))))], near).map(s => s.artist), // ジャンル・作品のお題では、そのお題の曲だけ
   ]);
   for (const a of candidates) {
     if (picks.length >= count - 1) break;
@@ -2597,7 +2695,7 @@ function similarFirst(song, list, near) {
 function buildChoices(song, count, pool) {
   const near = s => Math.abs(s.year - song.year) <= NEAR_YEARS;
   const toChoice = s => ({ title: s.title, work: s.work });
-  const others = SONGS.filter(s => s !== song && !isExcluded(s, pool.ex)); // 除外したジャンルの曲は、選択肢にも出さない
+  const others = SONGS.filter(s => s !== song && !choiceBlocked(s, pool)); // 除外したジャンルの曲は、選択肢にも出さない
   const candidates = [
     ...similarFirst(song, [...shuffle(pool.filter(s => s !== song)), ...(pool.strict ? [] : shuffle(others.filter(s => !pool.includes(s))))], near).map(toChoice), // ジャンル・作品のお題では、そのお題の曲だけ
     ...(pool.strict ? [] : shuffle(DECOYS.map(([title, work]) => ({ title, work })))),
@@ -2617,6 +2715,8 @@ function buildChoices(song, count, pool) {
 const FILL_CHOICES = 10;   // 10択で答えるときの選択肢の数（10択は点数が半分）
 const FILL_BUZZ_SEC = 20;  // 押した人が枠を選んで答えられる秒数
 const FILL_LOCK_SEC = 5;   // 間違えた人が押せない秒数
+const AUTO_FILL = '__auto__'; // 最初から埋まっている枠（ボーカルなし）の埋めた人
+const VOCAL_COMBOS = ['ミク×リン', 'ミク×ルカ', 'リン×レン', 'ミク×GUMI', 'ミク×KAITO', 'GUMI×IA', 'ルカ×MEIKO'];
 const VOCALS = ['初音ミク', '鏡音リン', '鏡音レン', '巡音ルカ', 'GUMI', 'IA', 'v flower', 'KAITO', 'MEIKO', '歌愛ユキ', '重音テト', '可不'];
 const authorOf = s => String(s.work || '').normalize('NFKC').match(/^ボカロ\((.+)\)$/)?.[1] || s.artist;
 // 選択肢を作る：正解 + ほかの候補から重ならないものを count-1 個
@@ -2639,12 +2739,20 @@ function buildFill(song, pool) {
     const slots = [slot('title', '曲名', 'title', title),
       slot('author', '作者', 'author', fillChoices(authorOf(song), shuffle(vocaloids.map(authorOf)), FILL_CHOICES))];
     if (song.vocal?.length) {
-      const ch = fillChoices(song.vocal[0], shuffle(VOCALS.filter(v => !song.vocal.includes(v))), FILL_CHOICES);
+      // 2人以上（ミクとリンなど）で歌っている曲は「ミク×リン」のような組み合わせを正解の選択肢にする（歌っている1人ずつの選択肢も正解）。紛らわしい候補には、よくある組み合わせも混ぜる
+      const combo = song.vocal.length >= 2 ? vocalCombo(song.vocal) : null;
+      const decoys = [...VOCALS, ...VOCAL_COMBOS].filter(v => !song.vocal.includes(v) && v !== combo && !(combo && v.split('×').some(x => song.vocal.map(vocalShort).includes(x))));
+      const ch = fillChoices(combo || song.vocal[0], shuffle(decoys), FILL_CHOICES);
       slots.push(slot('vocal', 'VOCALOID', 'vocal', ch));
     } else if (song.singer?.length) {
       // 本人が歌っている動画（米津玄師・Eve など）は、3つ目の枠を「歌手」にする
       const ch = fillChoices(song.singer[0], sameVoiceFirst(song.singer[0], shuffle([...new Set((pool.strict ? pool : SONGS).filter(s => s !== song).map(s => s.artist))])), FILL_CHOICES);
       slots.push(slot('singer', '歌手', 'singer', ch));
+    } else {
+      // ボーカルも歌手も分からない曲：3つ目の枠は最初から「ボーカルなし」で埋まっている（押せない・点数なし）
+      const s3 = slot('vocal', 'VOCALOID', 'vocal', { choices: [{ title: 'ボーカルなし', work: '' }], correctIndex: 0 });
+      s3.by = AUTO_FILL; s3.given = 'ボーカルなし'; s3.auto = true;
+      slots.push(s3);
     }
     return slots;
   }
@@ -2730,6 +2838,7 @@ function finishPick(room, id) {
 }
 
 function startQuestion(room, song, picker = null) {
+  statsPlay(room, song);
   const g = room.game;
   const S = room.settings;
   // ミックスでも、サビの位置が仮の曲はイントロで出す
@@ -3074,7 +3183,7 @@ function onFillAnswer(room, player, payload) {
       const c = slot.choices[payload.index];
       if (!c || slot.removed?.has(payload.index)) return; // お手つきで消えた選択肢は選べない
       choice = true; given = c.title;
-      correct = payload.index === slot.correctIndex || (slot.key === 'vocal' && (song.vocal || []).includes(c.title));
+      correct = payload.index === slot.correctIndex || (slot.key === 'vocal' && ((song.vocal || []).includes(c.title) || (song.vocal || []).map(vocalShort).includes(c.title) || isCorrectText(c.title, song, 'vocal')));
       if (!correct) (slot.removed = slot.removed || new Set()).add(payload.index); // 間違えた選択肢は、その枠の10択から消す（全員）
     } else {
       if (typeof payload?.text !== 'string' || slot.peeked) return; // 10択が出た枠は手で打てない
@@ -3102,7 +3211,7 @@ function onFillAnswer(room, player, payload) {
     if (choice) points = Math.round(points / 2);
     if (S.bonus && isFinalQuestion(room)) points *= 2;
     const st = statsOf(room, player);
-    if (!q.fill.some(f => f.by)) st.first++; // その曲でいちばん最初に枠を埋めた
+    if (!q.fill.some(f => f.by && !f.auto)) st.first++; // その曲でいちばん最初に枠を埋めた
     slot.by = player.token; slot.given = given;
     st.correct++; st.time += elapsed;
     if (hint) st.chorus++;
@@ -3355,6 +3464,7 @@ function reveal(room) {
     })
     // 正解した人が上（同じなら速い順）。年代当ては点数（近さ）の順
     .sort((a, b) => (q.years || q.fill ? (b.points - a.points) : (b.correct - a.correct)) || ((a.elapsed ?? 99) - (b.elapsed ?? 99)));
+  statsReveal(room, q, results);
   // 出題者：答える人の半分くらいが正解で最高点（全員正解・全員不正解は0点）
   let picker = null;
   if (q.picker) {
@@ -3385,7 +3495,7 @@ function reveal(room) {
     // 3つ埋めバトル：枠ごとの正解・埋めた人・10択の正解の番号
     fill: q.fill ? q.fill.map(f => ({ key: f.key, label: f.label, by: f.by ? room.players.get(f.by)?.name || '' : null, given: f.given,
                                        answer: f.key === 'title' ? s.title : f.key === 'work' ? s.work : f.key === 'artist' ? s.artist
-                                         : f.key === 'author' ? authorOf(s) : f.key === 'singer' ? s.singer[0] : (s.vocal || []).join('・'),
+                                         : f.key === 'author' ? authorOf(s) : f.key === 'singer' ? s.singer[0] : f.auto ? 'ボーカルなし' : (s.vocal || []).join('・'),
                                        correctIndex: f.correctIndex })) : null,
     song: { id: s.id, title: s.title, work: s.work, artist: s.artist, year: s.year, type: s.type, staged: !!s.staged },
     log: playedLog(room), // ここまでに出た曲（ページを読み込み直した人も曲ログをコピーできるように）
@@ -3437,7 +3547,7 @@ function trackReveal(room, q, results, picker) {
     if (s.year <= 1988) st.showa++;
     if (ok.length === 1 && results.length >= 3) st.sole++;
   }
-  if (q.fill?.length && q.fill.every(f => f.by && f.by === q.fill[0].by)) { const p = room.players.get(q.fill[0].by); if (p) statsOf(room, p).hat++; }
+  if (q.fill?.length && q.fill.filter(f => !f.auto).every(f => f.by && f.by === q.fill.find(x => !x.auto).by)) { const p = room.players.get(q.fill.find(x => !x.auto).by); if (p) statsOf(room, p).hat++; }
   if (picker) { const p = byId.get(picker.id); if (p) statsOf(room, p).pickPts += picker.points; }
 }
 
@@ -4246,7 +4356,7 @@ setInterval(() => {
 }, 60 * 1000);
 
 const restored = Promise.race([
-  datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES, songFame: SONG_FAME, fameResets: SONG_FAME_RESETS }), () => USERS),
+  datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES, songFame: SONG_FAME, fameResets: SONG_FAME_RESETS, couplingReports: CW_REPORTS, playStats: PSTATS }), () => USERS),
   new Promise(res => setTimeout(() => res({}), 8000)), // GitHub が遅いときは待ちすぎない
 ]).then(({ data: d, users } = {}) => {
   if (users && typeof users === 'object') { USERS = { ...USERS, ...users }; console.log(`マイページを記録から戻しました（${Object.keys(users).length}人）`); }
@@ -4257,6 +4367,8 @@ const restored = Promise.race([
   if (d.fixes) { FIXES = d.fixes; applyFixes(); }
   if (d.reports) REPORTS = d.reports;
   if (d.songGenres) { SONG_GENRES = d.songGenres; buildSeries(); }
+  if (d.couplingReports) CW_REPORTS = d.couplingReports;
+  if (d.playStats) PSTATS = d.playStats;
   if (d.songFame) { SONG_FAME = d.songFame; Object.assign(SONG_FAME_RESETS, d.fameResets || {}); applyFame(); }
   console.log('記録から戻しました（リクエスト・投票・修正など）');
 });

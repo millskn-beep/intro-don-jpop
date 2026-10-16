@@ -292,5 +292,82 @@
   "votes": 1,
   "songId": "3KSot0OXmGk",
   "doneAt": "2026-10-13T17:01:08.155Z"
+ },
+ {
+  "id": "00fbdbe7",
+  "title": "カトラリー",
+  "work": "ボカロ",
+  "artist": "有機酸",
+  "genre": "vocaloid",
+  "note": "",
+  "at": "2026-10-15T17:18:25.063Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "e01b95c8",
+  "title": "帝国少女",
+  "work": "ボカロ",
+  "artist": "R Sound Design",
+  "genre": "vocaloid",
+  "note": "",
+  "at": "2026-10-15T17:19:09.184Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "49dfe14a",
+  "title": "マシュマリー",
+  "work": "ボカロ",
+  "artist": "MIMI",
+  "genre": "vocaloid",
+  "note": "",
+  "at": "2026-10-15T17:19:38.589Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "83c1fd1f",
+  "title": "flos",
+  "work": "ボカロ",
+  "artist": "R Sound Design",
+  "genre": "vocaloid",
+  "note": "",
+  "at": "2026-10-15T17:20:00.810Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "7c98165d",
+  "title": "ワンルーム・オール・ザット・ジャズ",
+  "work": "ボカロ",
+  "artist": "DATEKEN feat. Miku HATSUNE",
+  "genre": "vocaloid",
+  "note": "",
+  "at": "2026-10-15T17:20:54.729Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "f46c0e8a",
+  "title": "転生林檎",
+  "work": "ボカロ",
+  "artist": "ピノキオピー",
+  "genre": "vocaloid",
+  "note": "",
+  "at": "2026-10-15T17:22:32.520Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "c8523b0f",
+  "title": "マーシャル・マキシマイザー",
+  "work": "ボカロ",
+  "artist": "柊マグネタイト",
+  "genre": "vocaloid",
+  "note": "",
+  "at": "2026-10-15T17:23:14.401Z",
+  "status": "open",
+  "votes": 1
  }
 ]

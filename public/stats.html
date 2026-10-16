@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>流れた曲の統計｜アニソンイントロ対戦</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="songs.css">
+<style>
+  .st { max-width: 1000px; margin: 0 auto; padding: 16px; display: grid; gap: 12px; }
+  .st-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+  .st-card { padding: 10px 12px; border-radius: 14px; border: 1px solid var(--line); background: var(--glass); display: grid; gap: 2px; }
+  .st-card small { color: var(--sub); font-size: 11.5px; } .st-card b { font-family: var(--font-num); font-size: 24px; }
+  .st-panel { padding: 12px; border-radius: 16px; border: 1px solid var(--line); background: var(--glass); display: grid; gap: 8px; }
+  .st-bars { display: grid; gap: 4px; }
+  .st-bar { display: grid; grid-template-columns: 110px 1fr 70px; align-items: center; gap: 8px; font-size: 12.5px; }
+  .st-bar i { display: block; height: 12px; border-radius: 6px; background: linear-gradient(90deg, #7ab8ff, #b36bff); min-width: 2px; }
+  .st-bar span:last-child { text-align: right; color: var(--sub); }
+  .st-days { display: flex; align-items: end; gap: 2px; height: 90px; }
+  .st-days i { flex: 1; min-width: 3px; background: linear-gradient(0deg, #b36bff, #7ab8ff); border-radius: 3px 3px 0 0; position: relative; }
+  .st-tabs { display: flex; flex-wrap: wrap; gap: 6px; } .st-tabs button { width: auto; margin: 0; padding: 6px 14px; font-size: 13px; } .st-tabs button.on { border-color: var(--accent); }
+  .st-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  .st-row { display: grid; grid-template-columns: 34px 1fr auto; gap: 8px; align-items: center; padding: 6px 10px; border-radius: 10px; border: 1px solid var(--line); }
+  .st-row > b { color: #ffd36b; text-align: center; font-family: var(--font-num); } .st-row div { display: grid; min-width: 0; } .st-row div b, .st-row div small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .st-row small { color: var(--sub); }
+  .st-row em { font-style: normal; text-align: right; font-size: 12.5px; }
+</style>
+</head>
+<body class="songs-page">
+<div class="backdrop" aria-hidden="true"></div>
+<main class="st">
+  <a class="btn-sub" href="songs.html" style="width:auto;justify-self:start">← 収録曲一覧</a>
+  <h2>📊 流れた曲の統計 <small id="since"></small></h2>
+  <div class="st-cards" id="cards"></div>
+  <div class="st-panel"><h3>日ごとの出題数（最近90日）</h3><div class="st-days" id="days"></div><small class="note" id="daysNote"></small></div>
+  <div class="st-panel"><h3>遊び方ごとの出題数</h3><div class="st-bars" id="byPlay"></div></div>
+  <div class="st-panel">
+    <div class="st-tabs" id="tabs">
+      <button class="btn-sub on" data-tab="top" type="button">よく流れた曲</button>
+      <button class="btn-sub" data-tab="never" type="button">まだ流れていない曲</button>
+      <button class="btn-sub" data-tab="easy" type="button">正解率が高い曲</button>
+      <button class="btn-sub" data-tab="hard" type="button">正解率が低い曲</button>
+      <button class="btn-sub" data-tab="work" type="button">作品ごと</button>
+      <button class="btn-sub" data-tab="artist" type="button">歌手ごと</button>
+    </div>
+    <p class="note" id="tabNote"></p>
+    <ul class="st-list" id="list"></ul>
+  </div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const PLAY = { normal: 'ふつう', buzzer: '早押し', survival: 'サバイバル', picker: '出題者', coop: '協力', bingo: 'ビンゴ', fill: '3つ埋めバトル', rush: '激アツRUSH', poker: 'ポーカー', panel: '陣取り', karuta: 'かるた', nenpyo: '年表', wolf: '人狼', sugoroku: 'すごろく', genre: 'ジャンル制覇', genreex: 'ジャンル制覇EX', deck: 'デッキ構築', wits: '年当てベット' };
+let ST = null, songs = [], tab = 'top';
+const MIN_ANS = 5; // 正解率を出す最低の回答数
+async function load() {
+  const [a, b] = await Promise.all([fetch('/api/play-stats').then(r => r.json()), fetch('/api/catalog').then(r => r.json())]);
+  ST = a['play-stats']; songs = b.songs.map(s => { const r = ST.songs[s.id] || [0, 0, 0]; return { ...s, p: r[0], a: r[1], c: r[2] }; });
+  render();
+}
+const rate = s => s.a ? Math.round(s.c / s.a * 100) : null;
+function render() {
+  const tot = songs.reduce((x, s) => x + s.p, 0), played = songs.filter(s => s.p > 0).length, never = songs.length - played;
+  const games = Object.values(ST.days).reduce((x, d) => x + d.games, 0), ans = songs.reduce((x, s) => x + s.a, 0), cor = songs.reduce((x, s) => x + s.c, 0);
+  $('since').textContent = `（${ST.since} から数えています）`;
+  $('cards').innerHTML = [['ゲーム数', games], ['出題された回数', tot], ['流れた曲の種類', `${played} / ${songs.length}`], ['まだ流れていない曲', never], ['全体の正解率', ans ? Math.round(cor / ans * 100) + '%' : '-'], ['のべ回答数', ans]]
+    .map(([k, v]) => `<div class="st-card"><small>${k}</small><b>${v}</b></div>`).join('');
+  const ds = Object.entries(ST.days).sort().slice(-90), max = Math.max(1, ...ds.map(([, d]) => d.plays));
+  $('days').innerHTML = ds.map(([k, d]) => `<i style="height:${Math.max(3, d.plays / max * 100)}%" title="${k}：出題 ${d.plays}回・ゲーム ${d.games}"></i>`).join('') || '<small class="note">まだ記録がありません</small>';
+  $('daysNote').textContent = ds.length ? `いちばん多い日：${Math.max(...ds.map(([, d]) => d.plays))}回／1日あたり平均 ${Math.round(ds.reduce((x, [, d]) => x + d.plays, 0) / ds.length)}回` : '';
+  const bp = Object.entries(ST.byPlay).sort((x, y) => y[1].plays - x[1].plays), bmax = Math.max(1, ...bp.map(([, v]) => v.plays));
+  $('byPlay').innerHTML = bp.map(([k, v]) => `<div class="st-bar"><span>${esc(PLAY[k] || k)}</span><i style="width:${v.plays / bmax * 100}%"></i><span>${v.plays}回（${v.games}ゲーム）</span></div>`).join('') || '<small class="note">まだ記録がありません</small>';
+  document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
+  const row = (i, s, right) => `<li class="st-row"><b>${i}</b><div><b>${esc(s.title)}</b><small>${esc(s.work)}／${esc(s.artist)}</small></div><em>${right}</em></li>`;
+  const grp = key => { const m = new Map(); for (const s of songs) { const k = s[key]; const g = m.get(k) || { n: 0, p: 0, a: 0, c: 0 }; g.n++; g.p += s.p; g.a += s.a; g.c += s.c; m.set(k, g); } return [...m].sort((x, y) => y[1].p - x[1].p); };
+  let html = '', note = '';
+  if (tab === 'top') { const l = songs.filter(s => s.p > 0).sort((x, y) => y.p - x.p).slice(0, 50); note = '出題された回数が多い順（上位50曲）'; html = l.map((s, i) => row(i + 1, s, `${s.p}回${s.a ? `・正解率 ${rate(s)}%` : ''}`)).join(''); }
+  else if (tab === 'never') { const l = songs.filter(s => !s.p); note = `まだ一度も流れていない曲：${l.length}曲（最初の200曲を表示）`; html = l.slice(0, 200).map((s, i) => row(i + 1, s, esc(s.year))).join(''); }
+  else if (tab === 'easy' || tab === 'hard') { const l = songs.filter(s => s.a >= MIN_ANS).sort((x, y) => tab === 'easy' ? rate(y) - rate(x) || y.a - x.a : rate(x) - rate(y) || y.a - x.a).slice(0, 50); note = `回答が ${MIN_ANS} 人以上ある曲だけ（上位50曲）`; html = l.map((s, i) => row(i + 1, s, `${rate(s)}%（${s.c}/${s.a}人）`)).join(''); }
+  else { const l = grp(tab).filter(([k]) => k).slice(0, 50); note = `${tab === 'work' ? '作品' : '歌手'}ごとの出題された回数（上位50）`; html = l.map(([k, g], i) => `<li class="st-row"><b>${i + 1}</b><div><b>${esc(k)}</b><small>${g.n}曲${g.a ? `・正解率 ${Math.round(g.c / g.a * 100)}%` : ''}</small></div><em>${g.p}回</em></li>`).join(''); }
+  $('tabNote').textContent = note;
+  $('list').innerHTML = html || '<li class="note">まだ記録がありません（遊ぶと、ここに溜まっていきます）</li>';
+}
+$('tabs').onclick = e => { const b = e.target.closest('button[data-tab]'); if (b) { tab = b.dataset.tab; render(); } };
+load();
+</script>
+</body>
+</html>

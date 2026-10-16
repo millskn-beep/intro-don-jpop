@@ -84,6 +84,30 @@ async function remote(name) {
   }
   console.log(`知名度の修正 ${fN} 曲${fReset ? `、自動に戻す ${fReset} 曲` : ''}`);
 
+  // ── カップリング曲の提案（coupling.html から：「カップリング曲です」「ふつうの曲に戻して」）。確認してから反映するので、ここでは取り込むだけ（承認は手元の coupling.html の「届いた提案」で）──
+  const CW_PATH = path.join(ROOT, 'data', 'coupling-reports.json');
+  const cwFile = readJson(CW_PATH, { pending: {}, resolved: {} });
+  cwFile.pending = cwFile.pending || {}; cwFile.resolved = cwFile.resolved || {};
+  const rcw = await remote('coupling-reports');
+  let cwN = 0;
+  for (const [id, r] of Object.entries(rcw || {})) {
+    if ((cwFile.resolved[id] || '') >= r.at) continue; // 確認済み
+    const cur = cwFile.pending[id];
+    if (!cur || cur.at < r.at) { cwFile.pending[id] = r; cwN++; console.log(`  カップリング曲の提案：${r.title}（${r.artist}）→ ${r.on ? 'カップリング曲です' : 'ふつうの曲に戻して'}（${r.n}件）`); }
+  }
+  if (!DRY) writeJson(CW_PATH, cwFile);
+  console.log(`カップリング曲の提案 ${cwN} 件（承認待ち ${Object.keys(cwFile.pending).length} 件。http://localhost:3001/coupling.html の「届いた提案」で確認）`);
+
+  // ── 再生の統計（流れた回数・正解率）：公開サイトの数を手元の data/play-stats.json に取り込む（公開側は、手元のファイルの数から数え始めるので、公開側のほうが多い）──
+  const PS_PATH = path.join(ROOT, 'data', 'play-stats.json');
+  try {
+    const r = await fetch(`${SITE}/api/play-stats`);
+    const ps = (await r.json())['play-stats'];
+    const sum = x => Object.values(x?.songs || {}).reduce((a, v) => a + v[0], 0);
+    if (ps && sum(ps) >= sum(readJson(PS_PATH, {}))) { if (!DRY) writeJson(PS_PATH, ps); console.log(`再生の統計：出題 ${sum(ps)}回（${Object.keys(ps.songs).length}曲）${ps.since} から`); }
+    else console.log('再生の統計：公開サイトの数が少ないので、取り込みません');
+  } catch (e) { console.log('再生の統計：取り込めませんでした'); }
+
   // ── 曲が違う／削除を依頼 ──
   const reports = readJson(REPORTS_PATH, {});
   const rr = await remote('reports');

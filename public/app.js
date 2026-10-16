@@ -250,7 +250,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -280,6 +280,7 @@ fetch('/api/topics').then(r => r.json()).then(d => {
   d.genres.forEach(g => tp.add(new Option(`${g.label}（${g.count}曲）`, g.key)));
   const se = document.querySelector('[data-key="series"]');
   d.series.forEach(s => se.add(new Option(`${s.name}（${s.count}曲）`, s.name)));
+  $('cwInfo').textContent = d.coupling ? `（カップリング曲と分かっている ${d.coupling}曲）` : '';
   // 知名度のチェック欄（ホストが変える）
   $('fameList').innerHTML = (d.fame || []).map(f =>
     `<label><input type="checkbox" value="${esc(f.key)}" checked>${esc(f.label)}<small>${f.count}</small></label>`).join('');

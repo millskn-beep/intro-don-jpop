@@ -9408,5 +9408,56 @@
    "intro": 20.6,
    "chorus": 88.2
   }
+ },
+ {
+  "id": "CfFRtGgcYFg",
+  "title": "その着せ替え人形は恋をする",
+  "work": "その着せ替え人形は恋をする",
+  "channel": "アニプレックス チャンネル",
+  "at": "2026-10-15T14:20:51.873Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 20,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 15.8,
+   "chorus": 20
+  }
+ },
+ {
+  "id": "NZdjDUjzUiQ",
+  "title": "READY STEADY GO",
+  "work": "鋼の錬金術師",
+  "channel": "L'Arc-en-Ciel",
+  "at": "2026-10-15T14:30:08.035Z",
+  "before": {
+   "intro": 4,
+   "chorus": 67,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 6.5,
+   "chorus": 67
+  }
+ },
+ {
+  "id": "zK3YHKYM6PQ",
+  "title": "Listen!!",
+  "work": "けいおん!!",
+  "channel": "Houkago Teatime - Topic",
+  "at": "2026-10-15T15:16:42.122Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 34,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 44.5
+  }
  }
 ]

@@ -10,6 +10,8 @@ const collator = new Intl.Collator('ja');
 async function load() {
   const data = await fetch('/api/catalog').then(r => r.json());
   songs = data.songs;
+  // 流れた回数・正解率（公開サイトの統計）。なくても動く
+  try { const st = (await fetch('/api/play-stats').then(r => r.json()))['play-stats'].songs; for (const s of songs) { const r = st[s.id]; s.plays = r ? r[0] : 0; s.ans = r ? r[1] : 0; s.cor = r ? r[2] : 0; } } catch (e) { for (const s of songs) { s.plays = s.ans = s.cor = 0; } }
   data.genres.forEach(g => { genreLabel[g.key] = g.label; $('genre').insertAdjacentHTML('beforeend', `<option value="${g.key}">${esc(g.label)}</option>`); });
   $('genre').insertAdjacentHTML('beforeend', '<option value="-">ジャンルなし</option>');
   data.fame.forEach((f, i) => { fameLabel[f.key] = f.label; fameOrder[f.key] = i; $('fame').insertAdjacentHTML('beforeend', `<option value="${f.key}">${esc(f.label)}</option>`); });
@@ -28,6 +30,7 @@ const genreOf = s => s.genres.length ? s.genres.map(k => genreLabel[k]).join('�
 const KEY = {
   title: s => s.title, work: s => s.work, artist: s => s.artist, year: s => s.year,
   genre: s => genreOf(s) || '￿', fame: s => fameOrder[s.fame] ?? 9,
+  plays: s => s.plays || 0, rate: s => (s.ans >= 3 ? s.cor / s.ans : -1),
 };
 function filtered() {
   const q = $('q').value.trim().toLowerCase(), g = $('genre').value, f = $('fame').value, d = $('decade').value;
@@ -45,7 +48,7 @@ function sorted(list) {
 }
 const row = s => `<li data-id="${s.id}" class="${selected?.id === s.id ? 'on' : ''}">
   <span class="sg-main"><b>${esc(s.title)}</b><small>${esc(s.work)}${s.type ? `（${esc(s.type)}）` : ''}／${esc(s.artist)}</small></span>
-  <span class="sg-tags">${s.year ? `<i>${s.year}</i>` : ''}${genreOf(s) ? `<i>${esc(genreOf(s))}</i>` : ''}<i class="fame-${s.fame}">${esc(fameLabel[s.fame] || '')}</i>${s.fix ? '<i class="pending">修正待ち</i>' : ''}${s.warn && !s.fix ? '<i class="warn">要確認</i>' : ''}${s.report ? '<i class="reported">報告あり</i>' : ''}${s.auto && !s.fix ? '<i class="auto">自動で直した</i>' : ''}</span>
+  <span class="sg-tags">${s.year ? `<i>${s.year}</i>` : ''}${genreOf(s) ? `<i>${esc(genreOf(s))}</i>` : ''}<i class="fame-${s.fame}">${esc(fameLabel[s.fame] || '')}</i>${s.plays ? `<i class="plays" title="出題された回数・正解した人数/答えた人数">▶${s.plays}回${s.ans ? ' ' + Math.round(s.cor / s.ans * 100) + '%' : ''}</i>` : ''}${s.fix ? '<i class="pending">修正待ち</i>' : ''}${s.warn && !s.fix ? '<i class="warn">要確認</i>' : ''}${s.report ? '<i class="reported">報告あり</i>' : ''}${s.auto && !s.fix ? '<i class="auto">自動で直した</i>' : ''}</span>
   <span class="sg-sec">イントロ ${s.fix ? s.fix.intro : s.intro}秒<br>サビ ${s.fix ? s.fix.chorus : s.chorus}秒${!s.chorusKnown && !s.fix ? '（仮）' : ''}</span></li>`;
 
 function render() {

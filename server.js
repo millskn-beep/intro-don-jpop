@@ -2230,8 +2230,9 @@ function startCodenamesRound(room, placeholder) {
   const key = shuffle([...Array(first === 'red' ? 9 : 8).fill('red'), ...Array(first === 'blue' ? 9 : 8).fill('blue'), ...Array(7).fill('neutral'), 'assassin']);
   g.q = { phase: 'codenames', song: placeholder, participants: new Set(ps.map(p => p.token)), answers: new Map(), ready: new Set(), clues: [], lifelineResults: new Map(),
           cn: { step: null, until: 0, teams, members, spy, key, cards, turn: first, first, clue: null, guesses: 0, max: 0, winner: null, reason: '', log: [], result: null } };
-  for (const c of ['red', 'blue']) { const sp = room.players.get(spy[c]); if (sp) io.to(sp.socketId).emit('cnKey', { key }); }
   cnStep(room, 'clue');
+  // 色の答えは、盤面（cnPhase）を送ったあとに送る（先に送ると、画面が新しい回の盤面を受け取ったときに消してしまう）
+  for (const c of ['red', 'blue']) { const sp = room.players.get(spy[c]); if (sp) io.to(sp.socketId).emit('cnKey', { key, round: room.game.qi + 1 }); }
 }
 function cnPublic(room) {
   const q = room.game?.q, c = q?.cn; if (!c) return null;
@@ -2590,7 +2591,7 @@ function dixitPublic(room) {
   const idOf = t => room.players.get(t)?.id;
   const done = d.step === 'tell' ? (d.tellerSong ? [idOf(d.teller)] : []) : d.step === 'pick' ? [...d.picks.keys()].map(idOf) : d.step === 'vote' ? [...d.votes.keys()].map(idOf) : [];
   const out = { step: d.step, until: d.until, round: room.game.qi + 1, total: room.game.order.length, teller: idOf(d.teller), hint: d.step === 'tell' ? '' : d.hint, done,
-                players: ps.map(p => ({ id: p.id, name: p.name, avatar: p.avatar })) };
+                players: ps.map(p => ({ id: p.id, name: p.name, avatar: p.avatar, score: p.score || 0 })) }; // score：いまの点数（窓の上に出す）
   if (d.cands && ['vote', 'result'].includes(d.step)) out.cands = d.cands.map(c => ({ id: c.song.id, title: c.song.title, work: c.song.work, artist: d.step === 'result' ? c.song.artist : '' }));
   if (d.step === 'result') out.result = d.result;
   return out;

@@ -623,7 +623,23 @@ socket.on('aborted', () => {
 });
 
 // ── 部屋の状態 ──
-socket.on('room', renderRoom);
+socket.on('room', r => { renderRoom(r); refreshScoreStrips(); });
+// ── ボードゲーム風の窓：後ろの点数表が隠れるので、窓の見出しの下に全員の点数を出す（ディクシットは自分の欄に出している）──
+const SCORE_POPS = ['wolfPop', 'dtPop', 'babaPop', 'cnPop', 'dfPop', 'wwPop', 'kmPop', 'azPop', 'dkPop'];
+function scoreStripHtml() {
+  const ps = (room?.players || []).filter(p => p.connected !== false || p.score);
+  if (!ps.length) return '';
+  const top = Math.max(0, ...ps.map(p => p.score || 0));
+  return [...ps].sort((a, b) => (b.score || 0) - (a.score || 0)).map(p => `<span class="${p.id === me ? 'me' : ''}">${top > 0 && p.score === top ? '👑' : ''}${esc(p.name)}<b>${p.score || 0}点</b></span>`).join('');
+}
+function putScoreStrip(pop) {
+  const f = pop.querySelector('.wf-field'); if (!f || pop.hidden) return;
+  let s = f.querySelector(':scope > .sc-strip');
+  if (!s) { s = document.createElement('div'); s.className = 'sc-strip'; const h = f.querySelector(':scope > .wf-head, :scope > .cn-head'); h ? h.after(s) : f.prepend(s); }
+  const html = scoreStripHtml(); if (s.innerHTML !== html) s.innerHTML = html;
+}
+function refreshScoreStrips() { for (const id of SCORE_POPS) { const p = $(id); if (p && !p.hidden) putScoreStrip(p); } }
+for (const id of SCORE_POPS) { const p = $(id); if (p) new MutationObserver(() => putScoreStrip(p)).observe(p, { childList: true, attributes: true, attributeFilter: ['hidden'] }); } // 窓を描き直したら付け直す
 // 部屋を作った時刻（今日なら 時:分:秒、別の日なら 月/日 時:分:秒）
 function madeAt(ms) {
   if (!ms) return '';
@@ -661,6 +677,7 @@ function renderRoom(r) {
   const prevScores = new Map((room?.players || []).map(p => [p.id, p.score]));
   room = r;
   if (practice) return; // テスト1問の間は画面を切り替えない（終わったら最新の部屋の状態で描き直す）
+  if (prevState === 'playing' && r.state !== 'playing') { hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); } // 中止して部屋に戻ったら、ボードゲーム風の窓を閉じる
   const isHost = r.hostId === me;
   const canSet = !(r.state === 'playing' && !r.paused); // 設定はだれでも変えられる（ゲーム中は一時停止のときだけ）
   if (!lobbyTabChosen) setLobbyTab(isHost ? 'settings' : 'members');
@@ -1577,9 +1594,10 @@ function renderDf() {
 // ── アニソン・コードネーム：赤・青のチーム。スパイマスターのヒントで、作品名の盤面から味方の作品を当てる ──
 let cnData = null, cnKey = null, cnTick = null, cnChatLog = [];
 function hideCn() { clearInterval(cnTick); $('cnPop').hidden = true; $('cnPop').innerHTML = ''; cnData = null; cnKey = null; cnChatLog = []; }
-socket.on('cnKey', d => { cnKey = d.key; if (cnData) renderCn(); });
+let cnKeyRound = null;
+socket.on('cnKey', d => { cnKey = d.key; cnKeyRound = d.round ?? cnData?.round ?? null; if (cnData) renderCn(); });
 socket.on('cnChat', m => { cnChatLog.push(m); cnChatLog = cnChatLog.slice(-3); const el = $('cnChat'); if (el) el.innerHTML = cnChatLog.map(c => `<span>${esc(c.name)}：${esc(c.text)}</span>`).join(''); });
-socket.on('cnPhase', d => { if (!d) return hideCn(); if (d.round !== cnData?.round) { cnChatLog = []; cnKey = null; } cnData = d; renderCn(); });
+socket.on('cnPhase', d => { if (!d) return hideCn(); if (d.round !== cnData?.round) { cnChatLog = []; if (cnKeyRound !== d.round) cnKey = null; } cnData = d; renderCn(); });
 function renderCn() {
   const d = cnData; if (!d) return;
   const pop = $('cnPop'); pop.hidden = false;
@@ -1587,11 +1605,12 @@ function renderCn() {
   const TN = { red: '赤', blue: '青' }, nameOf = id => d.players.find(p => p.id === id)?.name || '';
   const myTurn = d.turn === myTeam, spyTurn = amSpy && myTurn;
   const key = amSpy && cnKey ? cnKey : null;
-  const head = `<div class="cn-head"><b>🕵️ アニソン・コードネーム</b><span class="cn-score red">赤 あと${d.left.red}</span><span class="cn-score blue">青 あと${d.left.blue}</span><span class="cn-me ${myTeam || ''}">${myTeam ? TN[myTeam] + 'チーム' + (amSpy ? '・スパイマスター' : '') : ''}</span><span class="wf-left" id="cnLeft"></span></div>`;
+  const head = `<div class="cn-head"><b>🕵️ アニソン・コードネーム</b><span class="cn-score red">赤 あと${d.left.red}</span><span class="cn-score blue">青 あと${d.left.blue}</span><span class="cn-me ${myTeam || ''}">${myTeam ? 'あなた：' + TN[myTeam] + 'チーム（' + (amSpy ? 'スパイマスター' : '当てる人') + '）' : '見学'}</span><span class="wf-left" id="cnLeft"></span></div>`;
   const status = d.step === 'result' ? `<b class="cn-turn ${d.winner}">${TN[d.winner]}チームの勝ち！（${esc(d.reason)}）${(d.result.rows.find(r => r.id === me)?.points) ? ' あなた +' + d.result.rows.find(r => r.id === me).points + '点' : ''}</b>`
     : d.step === 'clue' ? `<b class="cn-turn ${d.turn}">${TN[d.turn]}チームのヒント待ち（スパイマスター：${esc(nameOf(d.spy[d.turn]))}）</b>`
     : `<b class="cn-turn ${d.turn}">${TN[d.turn]}チーム：ヒント「${esc(d.clue?.word || '')}」 ${d.clue?.num || '∞'}　（${d.guesses}/${d.max > 50 ? '∞' : d.max}枚）</b>`;
   const canGuess = d.step === 'guess' && myTurn && !amSpy;
+  const role = d.step === 'result' || !myTeam ? '' : `<small class="cn-role">${amSpy ? `色はあなたにだけ見えています。${TN[myTeam]}のパネルを当ててもらえるヒントを出しましょう（黒は暗殺者＝開けたら負け）` : `パネルの色はスパイマスターだけが知っています。ヒントから${TN[myTeam]}チームのパネルを当てましょう`}</small>`;
   const grid = `<div class="cn-grid">${d.cards.map((c, i) => {
     const col = c.color || (key ? key[i] : null), shown = !!c.color;
     return `<button type="button" class="cn-card ${shown ? 'shown ' + c.color : key ? 'peek ' + key[i] : ''}" data-i="${i}"${canGuess && !c.revealed ? '' : ' disabled'}><span>${esc(c.work)}</span>${c.title ? `<small>${esc(c.title)}</small>` : ''}</button>`;
@@ -1601,7 +1620,7 @@ function renderCn() {
   else if (d.step === 'guess' && canGuess) foot = `<button class="btn-sub" id="cnEndBtn" type="button"${d.guesses ? '' : ' disabled'}>ここまで（手番を終える）</button>`;
   else if (d.step === 'result') foot = '<small class="cn-note">' + d.result.rows.filter(r => r.team === d.winner).map(r => esc(r.name)).join('・') + ' さんの勝ち</small>';
   const chat = d.step !== 'result' && myTeam ? `<div class="cn-chatbar"><div class="cn-chat" id="cnChat">${cnChatLog.map(c => `<span>${esc(c.name)}：${esc(c.text)}</span>`).join('')}</div><form class="wf-say" id="cnSay"><input id="cnSayText" maxlength="40" placeholder="チームに一言" autocomplete="off"><button class="btn-sub" type="submit">送る</button></form></div>` : '';
-  pop.innerHTML = `<div class="wf-field cn-field">${head}${status}${grid}${foot}${chat}</div>`;
+  pop.innerHTML = `<div class="wf-field cn-field ${myTeam ? 'team-' + myTeam : ''}">${head}${status}${role}${grid}${foot}${chat}</div>`;
   const left = () => { const el = $('cnLeft'); if (el) el.textContent = d.until ? `あと ${wolfLeft(d.until)} 秒` : ''; };
   clearInterval(cnTick); left(); cnTick = setInterval(left, 500);
   pop.querySelectorAll('.cn-card').forEach(b => b.onclick = () => socket.emit('cnGuess', +b.dataset.i));
@@ -1713,7 +1732,8 @@ function renderDixit() {
   const d = dxData; if (!d) return;
   const pop = $('dixitPop'); pop.hidden = false;
   const isTeller = d.teller === me;
-  const seats = `<div class="wf-seats">${d.players.map(p => `<span data-pid="${esc(p.id)}" class="${d.done.includes(p.id) ? 'done' : ''}">${esc(p.name)}${p.id === d.teller ? '（語り手）' : ''}</span>`).join('')}</div>`;
+  const top = Math.max(...d.players.map(p => p.score || 0));
+  const seats = `<div class="wf-seats">${d.players.map(p => `<span data-pid="${esc(p.id)}" class="${d.done.includes(p.id) ? 'done' : ''}${p.id === me ? ' me' : ''}">${top > 0 && p.score === top ? '👑' : ''}${esc(p.name)}${p.id === d.teller ? '（語り手）' : ''}<b class="dx-pts">${p.score || 0}点</b></span>`).join('')}</div>`; // いまの点数（いちばん多い人に👑）
   const head = `<div class="wf-head"><b>🎴 アニソン・ディクシット</b><span>第${d.round}/${d.total}回　語り手：${esc(dxName(d.teller))}</span><span class="wf-left" id="dxLeft"></span></div>`;
   const hint = d.hint ? `<p class="dx-hint">ヒント：<b>${esc(d.hint)}</b></p>` : '';
   let body = '';
@@ -1736,7 +1756,7 @@ function renderDixit() {
       <div class="dx-list">${r.cards.map((c, i) => `<div class="dx-card${i === r.tellerIndex ? ' teller' : ''}"><div><b>${esc(c.title)}</b><small>${esc(c.work)}／${esc(c.artist)}（${c.year}）</small><small>${i === r.tellerIndex ? '★語り手の曲' : '出した人：' + esc(c.ownerName)}　票 ${c.votes}${c.voters.length ? '（' + c.voters.map(esc).join('・') + '）' : ''}</small></div><div class="dx-btns"><button class="btn-sub" type="button" data-prev="${esc(c.id)}">▶ 聴く</button></div></div>`).join('')}</div>
       <div class="wf-tally">${d.players.map(p => `<span>${esc(p.name)} +${(r.gains[p.id] || 0)}点</span>`).join('')}</div>`;
   }
-  pop.innerHTML = `<div class="wf-field">${head}${body}${d.step !== 'result' ? seats : ''}</div>`;
+  pop.innerHTML = `<div class="wf-field">${head}${seats}${body}</div>`; // 点数はいつも上に出す（結果の画面でも）
   const left = () => { const el = $('dxLeft'); if (el) el.textContent = d.until ? `あと ${wolfLeft(d.until)} 秒` : ''; };
   clearInterval(dxTick); left(); dxTick = setInterval(left, 500);
   pop.querySelectorAll('[data-prev]').forEach(b => b.onclick = () => socket.emit('dxPreview', b.dataset.prev));

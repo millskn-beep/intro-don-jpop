@@ -1664,7 +1664,7 @@ function renderDt() {
   const tellerName = d.players.find(p => p.id === d.teller)?.name || '';
   const head = `<div class="wf-head"><b>📨 アニソン伝達クイズ</b><span>第${d.round}/${d.total}問　伝える人：${esc(tellerName)}</span><span class="wf-left" id="dtLeft"></span></div>`;
   const hints = `<div class="dt-hints">${d.hints.length ? d.hints.map((h, i) => `<span><i>${i + 1}</i>${esc(h)}</span>`).join('') : '<small class="note">まだヒントはありません</small>'}</div>`;
-  const status = `<p class="wf-msg"><small>回答 ${d.answered.length}/${d.answerers}人</small></p>`;
+  const status = `<p class="wf-msg"><small>決定 ${d.answered.length}/${d.answerers}人</small></p>`;
   let body = '';
   if (d.step === 'tell' && d.me === 'teller') {
     const s = d.song || {};
@@ -1674,9 +1674,9 @@ function renderDt() {
       ${hints}
       <form class="wf-say" id="dtHintForm"><input id="dtHintText" maxlength="30" placeholder="ヒント（30文字まで・${10 - d.hints.length}個まで）" autocomplete="off"${d.hints.length >= 10 ? ' disabled' : ''}><button class="btn-main" type="submit"${d.hints.length >= 10 ? ' disabled' : ''}>送る</button></form>${status}`;
   } else if (d.step === 'tell') {
-    const picked = d.myPick != null;
-    body = `${hints}<p class="wf-msg">${picked ? '選びました。結果を待っています…' : d.hints.length ? 'ヒントに合う曲を選んでください（1回だけ）' : `${esc(tellerName)} さんが曲を聴いて、ヒントを考えています…`}</p>
-      <div class="dt-choices">${d.choices.map((c, i) => `<button type="button" class="dt-choice${d.myPick === i ? ' sel' : ''}" data-pick="${i}"${picked || !d.hints.length ? ' disabled' : ''}><b>${esc(c.title)}</b><small>${esc(c.work)}</small></button>`).join('')}</div>${status}`;
+    const picked = d.myLocked, chosen = d.myPick != null;
+    body = `${hints}<p class="wf-msg">${picked ? '決定しました。ほかの人を待っています…' : chosen ? '「決定」を押すまで選び直せます（ヒントが増えたら見直しも）' : d.hints.length ? 'ヒントに合う曲を選んでください（▶で自分だけ試聴できます）' : `${esc(tellerName)} さんが曲を聴いて、ヒントを考えています…`}</p>
+      <div class="dt-choices">${d.choices.map((c, i) => `<div class="dt-row"><button type="button" class="dt-choice${d.myPick === i ? ' sel' : ''}" data-pick="${i}"${picked || !d.hints.length ? ' disabled' : ''}><b>${esc(c.title)}</b><small>${esc(c.work)}</small></button>${d.canPreview?.[i] ? `<button type="button" class="btn-sub dt-prev" data-prev="${i}" title="自分だけ試聴（20秒）">▶</button>` : ''}</div>`).join('')}</div>${chosen && !picked ? '<button class="btn-main dt-lock" type="button" id="dtLockBtn">これで決定</button>' : ''}${status}`;
   } else if (d.step === 'result') {
     const r = d.result;
     body = `<div class="dt-song"><b>${esc(r.song.title)}</b><small>${esc(r.song.work)}／${esc(r.song.artist)}（${r.song.year}）</small></div>
@@ -1691,6 +1691,8 @@ function renderDt() {
   clearInterval(dtTick); left(); dtTick = setInterval(left, 500);
   pop.querySelectorAll('[data-listen]').forEach(b => b.onclick = () => socket.emit('dtListen', b.dataset.listen));
   pop.querySelectorAll('[data-pick]').forEach(b => b.onclick = () => socket.emit('dtPick', +b.dataset.pick));
+  pop.querySelectorAll('[data-prev]').forEach(b => b.onclick = () => socket.emit('dtPreview', +b.dataset.prev)); // 選択肢の試聴（自分だけ）
+  if ($('dtLockBtn')) $('dtLockBtn').onclick = () => socket.emit('dtLock');
   const f = $('dtHintForm');
   if (f) { $('dtHintText').focus(); f.onsubmit = e => { e.preventDefault(); const v = $('dtHintText').value.trim(); if (!v) return; socket.emit('dtHint', v); $('dtHintText').value = ''; }; }
 }

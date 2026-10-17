@@ -2451,8 +2451,10 @@ function startDentatsuRound(room, song) {
   const teller = dtNextTeller(room);
   const n = [4, 8, 12].includes(room.settings.dtChoices) ? room.settings.dtChoices : 8;
   const ch = buildChoices(song, n, g.pool);
+  // 選択肢の曲（答える人の試聴用）。正解は出題の曲、ほかは曲名・作品名から探す
+  const songOf = (c, i) => i === ch.correctIndex ? song : SONGS.find(s => s.title === c.title && s.work === c.work) || null;
   g.q = { phase: 'dentatsu', song, participants: new Set(ps.map(p => p.token)), answers: new Map(), ready: new Set(), clues: [], lifelineResults: new Map(),
-          dt: { step: 'tell', until: Date.now() + DT_SEC * 1000, teller, hints: [], choices: ch.choices, correctIndex: ch.correctIndex, picks: new Map(), firstHintAt: 0, result: null } };
+          dt: { step: 'tell', until: Date.now() + DT_SEC * 1000, teller, hints: [], choices: ch.choices, correctIndex: ch.correctIndex, choiceSongs: ch.choices.map(songOf), picks: new Map(), firstHintAt: 0, result: null } };
   statsPlay(room, song);
   clearTimers(room);
   later(room, () => dtFinish(room), DT_SEC * 1000);
@@ -2466,11 +2468,12 @@ function dtPublic(room, token) { // 見る人ごと（伝える人には選択�
   const idOf = t => room.players.get(t)?.id;
   const isTeller = token === d.teller;
   const out = { step: d.step, until: d.until, round: room.game.qi + 1, total: room.game.order.length, teller: idOf(d.teller), me: isTeller ? 'teller' : 'answer',
-                hints: d.hints, answered: [...d.picks.keys()].map(idOf), answerers: [...q.participants].filter(t => t !== d.teller && room.players.get(t)?.connected).length,
+                hints: d.hints, answered: [...d.picks].filter(([, p]) => p.locked).map(([t]) => idOf(t)), /* 「決定」した人 */ answerers: [...q.participants].filter(t => t !== d.teller && room.players.get(t)?.connected).length,
                 players: [...q.participants].map(t => room.players.get(t)).filter(Boolean).map(p => ({ id: p.id, name: p.name })) };
   if (isTeller && d.step === 'tell') out.song = { title: q.song.title, work: q.song.work, artist: q.song.artist, year: q.song.year, chorus: hasChorus(q.song) };
   if (!isTeller || d.step === 'result') out.choices = d.choices.map(c => ({ title: c.title, work: c.work }));
-  if (!isTeller) out.myPick = d.picks.get(token)?.i ?? null;
+  if (!isTeller) { out.myPick = d.picks.get(token)?.i ?? null; out.myLocked = !!d.picks.get(token)?.locked; }
+  if (!isTeller && d.step === 'tell') out.canPreview = d.choiceSongs.map(s => !!s);
   if (d.step === 'result') out.result = d.result;
   return out;
 }
@@ -2494,12 +2497,21 @@ function dtHint(room, player, text) {
   if (!d.firstHintAt) d.firstHintAt = Date.now();
   dtEmit(room);
 }
+// 選ぶ：「決定」を押すまでは何度でも選び直せる（早さボーナスは最後に選んだ時間で数える）
 function dtPick(room, player, i) {
   const q = room.game?.q, d = q?.dt;
-  if (!d || d.step !== 'tell' || player.token === d.teller || !q.participants.has(player.token) || !Number.isInteger(i) || !d.choices[i] || d.picks.has(player.token)) return;
+  if (!d || d.step !== 'tell' || player.token === d.teller || !q.participants.has(player.token) || !Number.isInteger(i) || !d.choices[i] || d.picks.get(player.token)?.locked) return;
   if (!d.hints.length) return io.to(player.socketId).emit('notice', 'ヒントが出てから選んでください');
-  d.picks.set(player.token, { i, at: Date.now() });
-  const left = [...q.participants].filter(t => t !== d.teller && room.players.get(t)?.connected && !d.picks.has(t));
+  if (d.picks.get(player.token)?.i === i) return;
+  d.picks.set(player.token, { i, at: Date.now(), locked: false });
+  dtEmit(room);
+}
+// 決定：全員（つながっている答える人）が決定したら答え合わせ
+function dtLock(room, player) {
+  const q = room.game?.q, d = q?.dt, p = d?.picks.get(player.token);
+  if (!d || d.step !== 'tell' || !p || p.locked) return;
+  p.locked = true;
+  const left = [...q.participants].filter(t => t !== d.teller && room.players.get(t)?.connected && !d.picks.get(t)?.locked);
   if (!left.length) return dtFinish(room);
   dtEmit(room);
 }
@@ -4270,6 +4282,12 @@ io.on('connection', socket => {
   // ── アニソン伝達クイズ ──
   socket.on('dtHint', text => { if (room && player) dtHint(room, player, text); });
   socket.on('dtPick', i => { if (room && player) dtPick(room, player, i); });
+  socket.on('dtLock', () => { if (room && player) dtLock(room, player); });
+  socket.on('dtPreview', i => { // 答える人だけ：選択肢の曲を自分だけ試聴（サビあたり20秒）
+    const q = room?.game?.q, d = q?.dt; if (!d || d.step !== 'tell' || !player || player.token === d.teller || !q.participants.has(player.token) || !Number.isInteger(i)) return;
+    const now = Date.now(); if (now - (player.dtPrevAt || 0) < 700) return; player.dtPrevAt = now;
+    const s = d.choiceSongs[i]; if (s) socket.emit('wolfSong', { videoId: s.id, start: wolfStartOf(s), sec: DT_PLAY });
+  });
   socket.on('dtListen', what => { // 伝える人だけ：イントロ／サビをもう一度聴く
     const q = room?.game?.q, d = q?.dt; if (!d || d.step !== 'tell' || !player || player.token !== d.teller) return;
     const now = Date.now(); if (now - (player.dtPrevAt || 0) < 700) return; player.dtPrevAt = now;

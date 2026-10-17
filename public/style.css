@@ -1337,3 +1337,15 @@ body.rush-machine .stage-tools { overflow: visible; }
 .km-board { grid-template-rows: repeat(10, minmax(0, 1fr)); grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
 .km-cands { grid-template-columns: repeat(var(--cc, 4), minmax(0, 1fr)); }
 .km-cand b { font-size: clamp(9.5px, calc(2dvh - var(--cc, 4) * .15dvh), 14px); }
+
+/* アニソン伝達クイズ */
+#dtPop .wf-field { width: min(960px, 100%); max-height: 98dvh; overflow: hidden; gap: clamp(4px, 1.2dvh, 10px); padding: clamp(8px, 1.8dvh, 16px); }
+.dt-song { display: grid; gap: 2px; justify-items: center; text-align: center; } .dt-song b { font-size: clamp(15px, 2.6dvh, 20px); color: #ffd36b; } .dt-song small { color: var(--sub); }
+.dt-song span { display: flex; gap: 6px; margin-top: 4px; } .dt-song .btn-sub { width: auto; margin: 0; padding: 4px 14px; font-size: 13px; }
+.dt-hints { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; min-height: 28px; }
+.dt-hints span { padding: 3px 10px; border-radius: 99px; background: rgba(255, 211, 107, .12); border: 1px solid rgba(255, 211, 107, .4); font-size: clamp(12px, 2.1dvh, 15px); }
+.dt-hints i { font-style: normal; color: #ffd36b; margin-right: 6px; font-size: 11px; }
+.dt-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: clamp(3px, .8dvh, 6px); }
+.dt-choice { display: grid; text-align: left; margin: 0; width: 100%; padding: clamp(3px, .9dvh, 8px) 10px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255, 255, 255, .05); color: inherit; cursor: pointer; }
+.dt-choice b, .dt-choice small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .dt-choice b { font-size: clamp(11px, 1.9dvh, 15px); } .dt-choice small { color: var(--sub); font-size: 11px; }
+.dt-choice.sel { border-color: #ffd36b; background: rgba(255, 211, 107, .12); } .dt-choice:disabled { cursor: default; } .dt-choice:disabled:not(.sel) { opacity: .75; }

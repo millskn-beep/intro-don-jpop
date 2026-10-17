@@ -55843,7 +55843,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "TrySail（麻倉もも・雨宮天・夏川椎菜）official YouTube channel",
-    "intro": 12.2,
+    "intro": 9.6,
     "chorus": 62,
     "aliases": [
       "ハイフリースピリッツ"
@@ -55851,8 +55851,7 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "chorusChecked": true,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "views": 530910,
     "channel": "TrySail（麻倉もも・雨宮天・夏川椎菜）official YouTube channel",
     "viewsAt": "2026-10-05",
@@ -57876,7 +57875,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "Aimer Official YouTube Channel",
-    "intro": 0.1,
+    "intro": 4.2,
     "chorus": 100.6,
     "aliases": [
       "あかねさす"
@@ -57884,15 +57883,12 @@
     "embeddable": null,
     "chorusSource": "songle",
     "chorusChecked": true,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "views": 32531663,
     "channel": "Aimer Official YouTube Channel",
     "viewsAt": "2026-10-05",
     "fame": "famous",
     "chorusBefore": 99,
-    "introSource": "songle",
-    "introBefore": 8.5,
     "workAliases": [
       "なつめゆうじんちょう",
       "夏目友人帳"

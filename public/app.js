@@ -461,6 +461,7 @@ const PLAY_INFO = {
   wits: ['💰', '年当てベット', '発売年を予想して、いちばん近い予想に賭ける', '2人〜', 'quiz'],
   kaerema: ['🍜', '帰れま10', 'お題の曲の再生回数トップ10を、全部当てたら帰れる', '1人〜', 'board'],
   wolf: ['🐺', '人狼', '1人だけ別の曲。ヒントと話し合いで、だれが違うか当てる', '3人〜', 'board'],
+  dentatsu: ['📨', '伝達クイズ', '伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる', '2人〜', 'board'],
   dixit: ['🖼️', 'ディクシット', '語り手のヒントに合う曲を手札から出し、語り手の曲を当てる', '3人〜', 'board'],
   baba: ['😈', 'ババ抜き', '同じ作品の曲2枚がペア。最後までババを持っていたら負け', '3人〜', 'board'],
   daifugo: ['👑', '大富豪', '発売年が新しい曲ほど強い。年は見えない', '3人〜', 'board'],
@@ -484,6 +485,7 @@ $('playPick').onclick = () => {
   });
 };
 const PLAY_DESC = {
+  dentatsu: '2人以上で遊びます。毎回、順番に1人が「伝える人」になり、その人だけがイントロとサビを聴けます（曲名も見えます）。伝える人は、曲名・作品名・歌手名を使わずに、文字のヒント（1つ30文字まで・10個まで）で曲を伝えます。ほかの人は、ヒントを見ながら選択肢から曲を当てます（選択肢は伝える人には見えません）。正解すると100点（早いほど最大+50点）、伝える人は正解した人1人につき100点です。',
   azul: 'ボードゲーム「アズール」の曲版（2〜4人）。工房に並んだ曲カード（曲名と色＝ジャンルが見える。年代は見えない）から、同じ色を全部取り、自分の棚の年代別の段（〜80年代／90年代／00年代／10年代／20年代）に1枚ずつ置きます。年代ちがい・段があふれたカードは床に落ちて失点。段がいっぱいになると、ラウンドの終わりに 1枚2点（同じ色だけなら+3点）。3ラウンドで終わり。置いた曲はサビが流れます。',
   kaerema: 'テレビの「帰れま10」のアニソン版。お題（歌手・作品・年・ジャンル・年代・曲の種類・それらの組み合わせ）の曲20曲から、再生回数トップ10に入っている曲を順番に1曲ずつ選びます（選ぶとサビが流れて順位が出ます）。トップ10を全部当てたら帰れる！ 外れが6回で帰れません…。当たり +500点（1位は +1000点）、10曲目を当てた人 +2000点、帰れたら全員 +1000点。問題数＝お題の数です。',
   deck: 'いつものイントロクイズで正解するとコインがもらえます（いちばん速い人 +3、ほかの正解 +2）。3問ごと（と、最後の問題のあと必ず）にショップが開き、コインでカードを買えます：50:50・オーディエンス・テレフォン・もう一度聴く（問題中に使う）、ランダムカード、ブースト（次の正解の点数2倍／大ブーストは3倍）、投資（ずっと正解のたびにコイン+1／大投資は+2）、コイン強奪、勝利点（すぐ+1000点・買うたびに値上がり／大勝利点は+2500点）。',
@@ -680,6 +682,7 @@ function renderRoom(r) {
   $('karutaFaceLabel').hidden = r.settings.play !== 'karuta'; // かるた：札に書くもの
   $('prefRow').hidden = !meUser() || (r.state === 'playing' && !r.paused);
   $('kmTopLabel').hidden = r.settings.play !== 'kaerema';
+  $('dtChoicesLabel').hidden = r.settings.play !== 'dentatsu';
   const isGzP = ['genre', 'genreex'].includes(r.settings.play), isEx = r.settings.play === 'genreex';
   $('gzPickLabel').hidden = !isGzP;
   $('gzSetLabel').hidden = !isGzP;
@@ -699,7 +702,7 @@ function renderRoom(r) {
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
-  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'genreex', 'daifugo', 'wits', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul'].includes(r.settings.play);
+  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'genreex', 'daifugo', 'wits', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'dentatsu'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
@@ -1099,7 +1102,7 @@ function cue(text, fx) {
 const isInput = () => question?.answerMode === 'input';
 
 socket.on('question', q => {
-  hidePokerBet(); hideWolf(); hideDixit(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz();
+  hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz();
   if (q.attack) setTimeout(() => charFx.cutin('アタックチャンス！', '白いマスを、この問題の正解者がどこからでも取れます', 'cutin'), 400);
   if (q.qNo === 1 && !practice) playLog = []; // 新しいゲーム（テスト1問では曲ログを消さない）
   question = q; myAnswer = null; answering = false;
@@ -1489,7 +1492,7 @@ function renderKm() {
   const myTurn = d.step === 'turn' && d.turn === me;
   const board = Array.from({ length: d.top }, (_, i) => { const c = d.cands.find(x => x.rank === i + 1 && (x.picked || d.step === 'result')); return `<div class="km-rank${c?.picked ? ' hit' : c ? ' open' : ''}"><b>${i + 1}</b><span>${c ? esc(c.title) : '？？？'}</span><small>${c ? esc(c.work) + (c.picked ? '　' + esc(c.by) : '') : ''}</small></div>`; }).join('');
   const cands = d.cands.map((c, i) => `<button type="button" class="km-cand${c.picked ? (c.hit ? ' hit' : ' miss') : ''}${!c.picked && d.step === 'result' && c.rank <= d.top ? ' left' : ''}" data-km="${i}"${myTurn && !c.picked ? ' data-can="1"' : ' aria-disabled="true"'}><b>${esc(c.title)}</b><small>${c.work ? '📺 ' + esc(c.work) : esc(c.artist)}</small>${c.rank ? `<i>${c.rank}位</i>` : ''}<em class="km-prev" data-kmprev="${i}" title="自分だけ試聴">▶</em></button>`).join('');
-  const status = d.step === 'result' ? `<b class="km-res ${d.result.home ? 'win' : 'lose'}">${d.result.home ? '🎉 帰れる！ トップ${d.top}を全部当てました' : `😱 帰れません…（${d.result.found}/${d.top}）`}</b>`
+  const status = d.step === 'result' ? `<b class="km-res ${d.result.home ? 'win' : 'lose'}">${d.result.home ? `🎉 帰れる！ トップ${d.top}を全部当てました` : `😱 帰れません…（${d.result.found}/${d.top}）`}</b>`
     : myTurn ? '<b class="km-res">あなたの番：トップ${d.top}に入っていると思う曲を選んでください</b>' : `<b class="km-res">${esc(d.turnName || '')} さんが選んでいます…</b>`;
   pop.innerHTML = `<div class="wf-field km-field"><div class="wf-head"><b>🍜 アニソン帰れま${d.top === 10 ? '10' : d.top}</b><span>第${d.round}/${d.total}回</span><span class="wf-left" id="kmLeft"></span></div>
     <div class="km-topic">お題：<b>${esc(d.topic)}</b> 再生回数トップ${d.top}<small>（全${d.count}曲から）</small>　<span>当たり ${d.found}/${d.top}</span>　<span class="km-miss">外れ ${'✖'.repeat(d.misses)}${'・'.repeat(Math.max(0, d.maxMiss - d.misses))}</span></div>
@@ -1649,6 +1652,47 @@ function renderBaba() {
     renderBaba();
   });
   const rb = $('bbReadyBtn'); if (rb) rb.onclick = () => { socket.emit('bbReady'); rb.disabled = true; rb.textContent = 'ほかの人を待っています…'; };
+}
+
+// ── アニソン伝達クイズ：伝える人がヒントを打つ → ほかの人は選択肢から選ぶ → 結果（曲は人狼と同じ wolfSong で、伝える人だけに流れる） ──
+let dtData = null, dtTick = null;
+function hideDt() { clearInterval(dtTick); $('dtPop').hidden = true; $('dtPop').innerHTML = ''; dtData = null; }
+socket.on('dtPhase', d => { if (!d) return hideDt(); dtData = d; renderDt(); });
+function renderDt() {
+  const d = dtData; if (!d) return;
+  const pop = $('dtPop'); pop.hidden = false;
+  const tellerName = d.players.find(p => p.id === d.teller)?.name || '';
+  const head = `<div class="wf-head"><b>📨 アニソン伝達クイズ</b><span>第${d.round}/${d.total}問　伝える人：${esc(tellerName)}</span><span class="wf-left" id="dtLeft"></span></div>`;
+  const hints = `<div class="dt-hints">${d.hints.length ? d.hints.map((h, i) => `<span><i>${i + 1}</i>${esc(h)}</span>`).join('') : '<small class="note">まだヒントはありません</small>'}</div>`;
+  const status = `<p class="wf-msg"><small>回答 ${d.answered.length}/${d.answerers}人</small></p>`;
+  let body = '';
+  if (d.step === 'tell' && d.me === 'teller') {
+    const s = d.song || {};
+    body = `<p class="wf-msg">あなたが伝える人です。曲名・作品名・歌手名を使わずに、文字のヒントで伝えてください</p>
+      <div class="dt-song"><b>${esc(s.title)}</b><small>${esc(s.work)}／${esc(s.artist)}（${s.year}）</small>
+        <span><button class="btn-sub" type="button" data-listen="intro">▶ イントロ</button>${s.chorus ? '<button class="btn-sub" type="button" data-listen="chorus">▶ サビ</button>' : ''}</span></div>
+      ${hints}
+      <form class="wf-say" id="dtHintForm"><input id="dtHintText" maxlength="30" placeholder="ヒント（30文字まで・${10 - d.hints.length}個まで）" autocomplete="off"${d.hints.length >= 10 ? ' disabled' : ''}><button class="btn-main" type="submit"${d.hints.length >= 10 ? ' disabled' : ''}>送る</button></form>${status}`;
+  } else if (d.step === 'tell') {
+    const picked = d.myPick != null;
+    body = `${hints}<p class="wf-msg">${picked ? '選びました。結果を待っています…' : d.hints.length ? 'ヒントに合う曲を選んでください（1回だけ）' : `${esc(tellerName)} さんが曲を聴いて、ヒントを考えています…`}</p>
+      <div class="dt-choices">${d.choices.map((c, i) => `<button type="button" class="dt-choice${d.myPick === i ? ' sel' : ''}" data-pick="${i}"${picked || !d.hints.length ? ' disabled' : ''}><b>${esc(c.title)}</b><small>${esc(c.work)}</small></button>`).join('')}</div>${status}`;
+  } else if (d.step === 'result') {
+    const r = d.result;
+    body = `<div class="dt-song"><b>${esc(r.song.title)}</b><small>${esc(r.song.work)}／${esc(r.song.artist)}（${r.song.year}）</small></div>
+      ${hints}
+      <p class="wf-msg">正解 ${r.nCorrect}/${r.nAnswer}人　伝える人（${esc(r.teller)}）+${r.tellerPts}点</p>
+      <div class="dx-list">${r.rows.map(x => `<div class="dx-card${x.correct ? ' teller' : ''}"><div><b>${x.correct ? '⭕' : '❌'} ${esc(x.name)}</b><small>${x.pick == null ? '選ばなかった' : esc(x.pick)}</small></div><b>+${x.pts}</b></div>`).join('')}</div>`;
+  }
+  const typing = $('dtHintText')?.value || ''; // 打ちかけのヒントは、画面を描き直しても消さない
+  pop.innerHTML = `<div class="wf-field">${head}${body}</div>`;
+  if (typing && $('dtHintText')) $('dtHintText').value = typing;
+  const left = () => { const el = $('dtLeft'); if (el) el.textContent = d.until ? `あと ${wolfLeft(d.until)} 秒` : ''; };
+  clearInterval(dtTick); left(); dtTick = setInterval(left, 500);
+  pop.querySelectorAll('[data-listen]').forEach(b => b.onclick = () => socket.emit('dtListen', b.dataset.listen));
+  pop.querySelectorAll('[data-pick]').forEach(b => b.onclick = () => socket.emit('dtPick', +b.dataset.pick));
+  const f = $('dtHintForm');
+  if (f) { $('dtHintText').focus(); f.onsubmit = e => { e.preventDefault(); const v = $('dtHintText').value.trim(); if (!v) return; socket.emit('dtHint', v); $('dtHintText').value = ''; }; }
 }
 
 // ── アニソン・ディクシット：語り手がヒント → 手札から出す → 投票 → 結果（試聴は人狼と同じ wolfSong） ──
@@ -2447,7 +2491,7 @@ socket.on('react', ({ id, name, kind }) => {
 });
 
 socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, survival, coop, bingo, showdown }) => {
-  hidePokerBet(); hideWolf(); hideDixit(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); renderShowdown(showdown);
+  hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); renderShowdown(showdown);
   pokerHandData = { hand: [], over: false, usedIds: [], kept: [] }; pokerDrop.clear();
   $('pickPanel').hidden = true; clearInterval(pickTick); $('coopBar').hidden = true; $('bingoBox').hidden = true;
   if (Array.isArray(log)) playLog = log;

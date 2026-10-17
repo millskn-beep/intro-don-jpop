@@ -230,6 +230,7 @@
           <option value="daifugo">アニソン大富豪（発売年が新しい曲ほど強い。年は見えない・3人以上）</option>
           <option value="codenames">アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる・4人以上）</option>
           <option value="baba">アニソン・ババ抜き（同じ作品の曲2枚をペアにして出す・3人以上）</option>
+          <option value="dentatsu">アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える・2人以上）</option>
           <option value="dixit">アニソン・ディクシット（語り手のヒントに合う曲を出して、語り手の曲を当てる・3人以上）</option>
           <option value="wolf">アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる・3人以上）</option>
           <option value="nenpyo">アニソン年表（曲を年表の正しい位置に置く）</option>
@@ -242,6 +243,7 @@
         <label id="rushRateLabel" hidden>当たりやすさ<select data-key="rushRate"><option value="normal">ふつう</option><option value="high">出やすい（×1.5）</option><option value="low">出にくい（×0.6）</option></select></label>
         <label id="lockSecLabel" hidden>お手つき後に押せない秒数<select data-key="lockSec"><option value="3">3秒</option><option value="5">5秒</option><option value="10">10秒</option><option value="15">15秒</option><option value="20">20秒</option><option value="30">30秒</option></select></label>
         <label id="wolfWorkLabel" hidden>人狼：候補に作品名（タイトル）<select data-key="wolfWork"><option value="hide">出さない</option><option value="show">出す</option></select></label>
+        <label id="dtChoicesLabel" hidden>伝達クイズ：選択肢の数<select data-key="dtChoices"><option value="4">4択</option><option value="8">8択</option><option value="12">12択</option></select></label>
         <label id="kmTopLabel" hidden>帰れま10：当てる順位<select data-key="kmTop"><option value="10">トップ10（候補20曲・外れ6回まで）</option><option value="15">トップ15（候補28曲・外れ8回まで）</option><option value="20">トップ20（候補36曲・外れ10回まで）</option></select></label>
         <label id="gzSetLabel" hidden>ジャンル制覇：集めるジャンル<select data-key="gzSet"><option value="fixed">固定（今の6つ）</option><option value="random">ランダム（ゲームごとに決める）</option><option value="choose">選択（自分たちで選ぶ）</option></select></label>
         <label id="gzCountLabel" hidden>ジャンル制覇EX：ランダムの数<select data-key="gzCount"><option value="6">6種類</option><option value="7">7種類</option><option value="8">8種類</option><option value="10">10種類</option><option value="12">12種類</option><option value="15">15種類</option><option value="20">20種類</option><option value="25">25種類</option></select></label>
@@ -421,6 +423,7 @@
   <div class="pk-modal pn-modal" id="panelPop" hidden></div>
   <div class="pk-modal wf-modal" id="wolfPop" hidden></div>
   <div class="pk-modal wf-modal" id="dixitPop" hidden></div>
+  <div class="pk-modal wf-modal" id="dtPop" hidden></div>
   <div class="pk-modal wf-modal" id="babaPop" hidden></div>
   <div class="pk-modal wf-modal" id="cnPop" hidden></div>
   <div class="pk-modal wf-modal" id="dfPop" hidden></div>

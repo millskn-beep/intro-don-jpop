@@ -9459,5 +9459,39 @@
    "intro": 0.2,
    "chorus": 44.5
   }
+ },
+ {
+  "id": "bN1t3-2X3aM",
+  "title": "茜さす",
+  "work": "夏目友人帳 伍",
+  "channel": "Aimer Official YouTube Channel",
+  "at": "2026-10-17T12:56:27.627Z",
+  "before": {
+   "intro": 0.1,
+   "chorus": 100.6,
+   "introMethod": "v2",
+   "chorusSource": "songle"
+  },
+  "after": {
+   "intro": 4.2,
+   "chorus": 100.6
+  }
+ },
+ {
+  "id": "8BpRh7RtYnE",
+  "title": "High Free Spirits",
+  "work": "ハイスクール・フリート",
+  "channel": "TrySail（麻倉もも・雨宮天・夏川椎菜）official YouTube channel",
+  "at": "2026-10-17T13:15:53.932Z",
+  "before": {
+   "intro": 12.2,
+   "chorus": 62,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 9.6,
+   "chorus": 62
+  }
  }
 ]

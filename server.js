@@ -728,7 +728,7 @@ const OPTIONS = {
   lifelines: [true, false],
   quizType: ['intro', 'sabimae', 'mix', 'random', 'outro'], // イントロ／サビ前／1問ごとにランダム／どこから（曲の途中）／アウトロ（曲の終わり）
   // 遊び方：ふつう／早押し（押した人だけ答える）／サバイバル（ライフがなくなったら脱落）／出題者（順番に1人が曲を選ぶ）／協力（全員の正解数で目標）／ビンゴ
-  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'genreex'], // genreex：アニソン・ジャンル制覇EX（集める種類を6つ以上・年代や曲の種類・知名度も選べる） // azul：アニソン・アズール（曲カードを取り合い、年代別の棚に並べる） // kaerema：アニソン帰れま10（お題の曲の再生回数トップ10を全部当てる） // deck：アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買う） // genre：アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ） // sugoroku：アニソンすごろく（正解の速さでコマを進める） // wits：アニソン年当てベット（発売年を予想して、いちばん近い予想に賭ける） // daifugo：アニソン大富豪（発売年が新しい曲ほど強い。年は見えない） // codenames：アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる） // baba：アニソン・ババ抜き（同じ作品の曲2枚がペア） // dixit：アニソン・ディクシット（語り手のヒントから、手札の曲を出して語り手の曲を当てる） // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
+  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'genreex', 'dentatsu'], // dentatsu：アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる） // genreex：アニソン・ジャンル制覇EX（集める種類を6つ以上・年代や曲の種類・知名度も選べる） // azul：アニソン・アズール（曲カードを取り合い、年代別の棚に並べる） // kaerema：アニソン帰れま10（お題の曲の再生回数トップ10を全部当てる） // deck：アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買う） // genre：アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ） // sugoroku：アニソンすごろく（正解の速さでコマを進める） // wits：アニソン年当てベット（発売年を予想して、いちばん近い予想に賭ける） // daifugo：アニソン大富豪（発売年が新しい曲ほど強い。年は見えない） // codenames：アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる） // baba：アニソン・ババ抜き（同じ作品の曲2枚がペア） // dixit：アニソン・ディクシット（語り手のヒントから、手札の曲を出して語り手の曲を当てる） // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
   target: ['song', 'work', 'year', 'artist'], // 答えるもの：曲名／作品／年／歌手
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
@@ -737,6 +737,7 @@ const OPTIONS = {
   buzzStop: [true, false],
   wolfWork: ['hide', 'show'],   // アニソン人狼：候補に作品名（タイトル）を出す（既定は出さない）
   noCoupling: [false, true],            // カップリング曲（シングルのB面）を出さない（曲データの coupling が true の曲）
+  dtChoices: [4, 8, 12], // 伝達クイズ：選択肢の数
   kmTop: [10, 15, 20], // 帰れま10：当てる順位の数（トップ10／15／20）
   gzSet: ['fixed', 'random', 'choose'], // ジャンル制覇：集めるジャンルの決め方（fixed：今の6つ／random：ゲームごとにランダム／choose：選ぶ）
   gzCount: [6, 7, 8, 10, 12, 15, 20, 25], // ジャンル制覇EX：ランダムで決める種類の数
@@ -760,7 +761,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, noCoupling: false };
+                   play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, noCoupling: false };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -801,7 +802,7 @@ function sanitizeSettings(input, base) {
   if (s.yearFrom > s.yearTo) [s.yearFrom, s.yearTo] = [s.yearTo, s.yearFrom];
   // できない組み合わせ：年代当て＋早押し、サバイバル＋チーム戦
   if (s.target === 'year' && s.play === 'buzzer') s.play = 'normal';
-  if (['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'sugoroku', 'genre', 'genreex', 'deck', 'kaerema', 'azul'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
+  if (['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'sugoroku', 'genre', 'genreex', 'deck', 'kaerema', 'azul', 'dentatsu'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
   return s;
 }
 
@@ -1048,6 +1049,7 @@ function startGame(room) {
   if (S.play === 'picker' && connectedPlayers(room).length < 2) return 'picker'; // 出題者モードは2人以上
   if (S.play === 'wolf' && connectedPlayers(room).length < 3) return 'wolf'; // 人狼は3人以上
   if (S.play === 'dixit' && connectedPlayers(room).length < 3) return 'dixit'; // ディクシットは3人以上
+  if (S.play === 'dentatsu' && connectedPlayers(room).length < 2) return 'dentatsu'; // 伝達クイズは2人以上
   if (S.play === 'baba' && connectedPlayers(room).length < 3) return 'baba'; // ババ抜きは3人以上
   if (S.play === 'codenames' && connectedPlayers(room).length < 4) return 'codenames'; // コードネームは4人以上
   if (S.play === 'daifugo' && connectedPlayers(room).length < 3) return 'daifugo'; // 大富豪は3人以上
@@ -2433,6 +2435,110 @@ function bbFinish(room) {
   if (room.settings.autoNext > 0) { q.revealAt = Date.now(); scheduleNext(room, q, Date.now() + sec * 1000); }
 }
 
+// ── アニソン伝達クイズ：伝える人（順番に全員）だけがイントロ・サビを聴いて、文字のヒントで伝える。
+//    ほかの人は選択肢から当てる（選択肢は伝える人には見えない）。正解した人が多いほど伝える人の点が増える（docs/dentatsu-spec.md）──
+const DT_SEC = 100, DT_UNIT = 100, DT_BONUS = 50, DT_HINT_MAX = 10, DT_HINT_LEN = 30, DT_PLAY = 20;
+function dtNextTeller(room) { // 順番に全員：一巡ごとに順番をまぜる（抜けた人は飛ばす）
+  const g = room.game, on = new Set(connectedPlayers(room).map(p => p.token));
+  for (let i = 0; i < 2; i++) {
+    while (g.dtQueue?.length) { const t = g.dtQueue.shift(); if (on.has(t)) return t; }
+    g.dtQueue = shuffle([...on]);
+  }
+  return [...on][0];
+}
+function startDentatsuRound(room, song) {
+  const g = room.game, ps = connectedPlayers(room);
+  const teller = dtNextTeller(room);
+  const n = [4, 8, 12].includes(room.settings.dtChoices) ? room.settings.dtChoices : 8;
+  const ch = buildChoices(song, n, g.pool);
+  g.q = { phase: 'dentatsu', song, participants: new Set(ps.map(p => p.token)), answers: new Map(), ready: new Set(), clues: [], lifelineResults: new Map(),
+          dt: { step: 'tell', until: Date.now() + DT_SEC * 1000, teller, hints: [], choices: ch.choices, correctIndex: ch.correctIndex, picks: new Map(), firstHintAt: 0, result: null } };
+  statsPlay(room, song);
+  clearTimers(room);
+  later(room, () => dtFinish(room), DT_SEC * 1000);
+  const tp = room.players.get(teller);
+  if (tp?.connected) io.to(tp.socketId).emit('wolfSong', { videoId: song.id, start: song.intro || 0, sec: DT_PLAY });
+  dtEmit(room); broadcastRoom(room);
+}
+function dtPublic(room, token) { // 見る人ごと（伝える人には選択肢を見せない。答える人には曲名を見せない）
+  const q = room.game?.q, d = q?.dt;
+  if (!d) return null;
+  const idOf = t => room.players.get(t)?.id;
+  const isTeller = token === d.teller;
+  const out = { step: d.step, until: d.until, round: room.game.qi + 1, total: room.game.order.length, teller: idOf(d.teller), me: isTeller ? 'teller' : 'answer',
+                hints: d.hints, answered: [...d.picks.keys()].map(idOf), answerers: [...q.participants].filter(t => t !== d.teller && room.players.get(t)?.connected).length,
+                players: [...q.participants].map(t => room.players.get(t)).filter(Boolean).map(p => ({ id: p.id, name: p.name })) };
+  if (isTeller && d.step === 'tell') out.song = { title: q.song.title, work: q.song.work, artist: q.song.artist, year: q.song.year, chorus: hasChorus(q.song) };
+  if (!isTeller || d.step === 'result') out.choices = d.choices.map(c => ({ title: c.title, work: c.work }));
+  if (!isTeller) out.myPick = d.picks.get(token)?.i ?? null;
+  if (d.step === 'result') out.result = d.result;
+  return out;
+}
+function dtEmit(room) {
+  for (const p of room.players.values()) if (p.connected) io.to(p.socketId).emit('dtPhase', dtPublic(room, p.token));
+}
+// ヒントに曲名・作品名・歌手名（の一部でも2文字以上の名前）が入っていないか
+function dtBanned(song, text) {
+  const n = normText(text);
+  const names = [song.title, shortForm(song.title), song.work, shortForm(song.work), song.artist, shortForm(song.artist), ...(song.aliases || []), ...(song.workAliases || [])]
+    .map(normText).filter(s => [...s].length >= 2 && !/^ボカロ/.test(s));
+  return names.some(s => n.includes(s));
+}
+function dtHint(room, player, text) {
+  const q = room.game?.q, d = q?.dt;
+  if (!d || d.step !== 'tell' || player.token !== d.teller || typeof text !== 'string') return;
+  const s = text.replace(/[\u0000-\u001f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, DT_HINT_LEN);
+  if (!s || d.hints.length >= DT_HINT_MAX) return;
+  if (dtBanned(q.song, s)) return io.to(player.socketId).emit('notice', '曲名・作品名・歌手名はヒントに使えません');
+  d.hints.push(s);
+  if (!d.firstHintAt) d.firstHintAt = Date.now();
+  dtEmit(room);
+}
+function dtPick(room, player, i) {
+  const q = room.game?.q, d = q?.dt;
+  if (!d || d.step !== 'tell' || player.token === d.teller || !q.participants.has(player.token) || !Number.isInteger(i) || !d.choices[i] || d.picks.has(player.token)) return;
+  if (!d.hints.length) return io.to(player.socketId).emit('notice', 'ヒントが出てから選んでください');
+  d.picks.set(player.token, { i, at: Date.now() });
+  const left = [...q.participants].filter(t => t !== d.teller && room.players.get(t)?.connected && !d.picks.has(t));
+  if (!left.length) return dtFinish(room);
+  dtEmit(room);
+}
+function dtFinish(room) {
+  const g = room.game, q = g.q, d = q?.dt;
+  if (!d || d.step !== 'tell') return;
+  clearTimers(room);
+  const span = Math.max(1, d.until - (d.firstHintAt || d.until));
+  const rows = [];
+  let nCorrect = 0;
+  for (const t of q.participants) {
+    if (t === d.teller) continue;
+    const p = room.players.get(t); if (!p) continue;
+    const pk = d.picks.get(t), correct = !!pk && pk.i === d.correctIndex;
+    // 答える人：正解で100点＋早いほど最大50点
+    let pts = correct ? DT_UNIT + Math.round(DT_BONUS * Math.max(0, Math.min(1, (d.until - pk.at) / span))) : 0;
+    if (correct && room.settings.bonus && isFinalQuestion(room)) pts *= 2;
+    if (correct) nCorrect++;
+    p.score += pts;
+    q.answers.set(t, { correct, points: pts, elapsed: null, pass: !pk });
+    rows.push({ name: p.name, pick: pk ? d.choices[pk.i]?.title || '' : null, correct, pts });
+  }
+  // 伝える人：正解した人1人につき100点
+  const tp = room.players.get(d.teller);
+  let tpts = nCorrect * DT_UNIT;
+  if (room.settings.bonus && isFinalQuestion(room)) tpts *= 2;
+  if (tp) { tp.score += tpts; q.answers.set(d.teller, { correct: tpts > 0, points: tpts, elapsed: null, pass: false }); }
+  rows.sort((a, b) => b.pts - a.pts);
+  d.result = { song: { title: q.song.title, work: q.song.work, artist: q.song.artist, year: q.song.year }, correctIndex: d.correctIndex,
+               teller: tp?.name || '', tellerPts: tpts, nCorrect, nAnswer: rows.length, rows };
+  d.step = 'result'; d.until = 0;
+  q.phase = 'reveal';
+  recordPlayed(room, q.song);
+  io.to(room.code).emit('wolfSong', { videoId: q.song.id, start: wolfStartOf(q.song), sec: 15 }); // 答え合わせ：みんなでサビを聴く
+  dtEmit(room); broadcastRoom(room);
+  const sec = Math.max(12, room.settings.autoNext || 0);
+  if (room.settings.autoNext > 0) { q.revealAt = Date.now(); scheduleNext(room, q, Date.now() + sec * 1000); }
+}
+
 // ── アニソン・ディクシット：語り手が曲にヒントを付け、ほかの人は手札から合う曲を出す。出た曲から語り手の曲を当てる（docs/dixit-spec.md）──
 const DX_SEC = { tell: 60, pick: 45, vote: 60 };
 const DX_HAND = 5, DX_UNIT = 500, DX_PREVIEW = 20;
@@ -2795,6 +2901,7 @@ function nextQuestion(room) {
   if (room.settings.play === 'picker') return startPicking(room);
   if (room.settings.play === 'wolf') return startWolfRound(room, g.order[g.qi]);
   if (room.settings.play === 'dixit') return startDixitRound(room, g.order[g.qi]);
+  if (room.settings.play === 'dentatsu') return startDentatsuRound(room, g.order[g.qi]);
   if (room.settings.play === 'baba') return startBabaRound(room, g.order[g.qi]);
   if (room.settings.play === 'codenames') return startCodenamesRound(room, g.order[g.qi]);
   if (isGz(room.settings.play)) gzPrepare(room);
@@ -2921,6 +3028,7 @@ function resendQuestion(room, socket, token) {
   if (q?.df) { const p = room.players.get(token); if (p && q.participants.has(token)) socket.emit('dfHand', dfHandOf(room, token)); return socket.emit('dfPhase', dfPublic(room)); }
   if (q?.cn) { const p = room.players.get(token); if (p && q.participants.has(token)) { socket.emit('cnPhase', cnPublic(room)); if (q.cn.spy.red === token || q.cn.spy.blue === token) socket.emit('cnKey', { key: q.cn.key }); } return; }
   if (q?.bb) { const p = room.players.get(token); if (p && q.participants.has(token)) socket.emit('bbHand', bbHandOf(room, token)); return socket.emit('bbPhase', bbPublic(room)); }
+  if (q?.dt) { const p = room.players.get(token); if (p) { socket.emit('dtPhase', dtPublic(room, token)); if (token === q.dt.teller && q.dt.step === 'tell') socket.emit('wolfSong', { videoId: q.song.id, start: q.song.intro || 0, sec: DT_PLAY }); } return; }
   if (q?.dx) { const p = room.players.get(token); if (p && q.participants.has(token)) socket.emit('dixitHand', dixitHandOf(room, token)); return socket.emit('dixitPhase', dixitPublic(room)); }
   if (q?.wolf) { const p = room.players.get(token); if (p && q.participants.has(token) && q.wolf.step === 'listen') socket.emit('wolfSong', wolfSongPayload(room, p)); return socket.emit('wolfPhase', wolfPublic(room)); }
   if (q?.phase === 'picking') return socket.emit('picking', pickingPayload(room));
@@ -3996,6 +4104,7 @@ io.on('connection', socket => {
     if (r === 'picker') socket.emit('notice', '出題者モードは2人以上で遊べます');
     else if (r === 'wolf') socket.emit('notice', 'アニソン人狼は3人以上で遊べます');
     else if (r === 'dixit') socket.emit('notice', 'アニソン・ディクシットは3人以上で遊べます');
+    else if (r === 'dentatsu') socket.emit('notice', 'アニソン伝達クイズは2人以上で遊べます');
     else if (r === 'baba') socket.emit('notice', 'アニソン・ババ抜きは3人以上で遊べます');
     else if (r === 'codenames') socket.emit('notice', 'アニソン・コードネームは4人以上で遊べます');
     else if (r === 'daifugo') socket.emit('notice', 'アニソン大富豪は3人以上で遊べます');
@@ -4157,6 +4266,14 @@ io.on('connection', socket => {
     const now = Date.now(); if (now - (player.dxPrevAt || 0) < 700) return; player.dxPrevAt = now;
     const s = ALL_SONGS.find(x => x.id === String(id)), mine = (q.bb.hands.get(player.token) || []).some(c => c.id === String(id));
     if (s && mine) socket.emit('wolfSong', { videoId: s.id, start: wolfStartOf(s), sec: DX_PREVIEW });
+  });
+  // ── アニソン伝達クイズ ──
+  socket.on('dtHint', text => { if (room && player) dtHint(room, player, text); });
+  socket.on('dtPick', i => { if (room && player) dtPick(room, player, i); });
+  socket.on('dtListen', what => { // 伝える人だけ：イントロ／サビをもう一度聴く
+    const q = room?.game?.q, d = q?.dt; if (!d || d.step !== 'tell' || !player || player.token !== d.teller) return;
+    const now = Date.now(); if (now - (player.dtPrevAt || 0) < 700) return; player.dtPrevAt = now;
+    const s = q.song; socket.emit('wolfSong', { videoId: s.id, start: what === 'chorus' && hasChorus(s) ? chorusOf(s) : (s.intro || 0), sec: DT_PLAY });
   });
   // ── アニソン・ディクシット ──
   const dixitQ = () => { const q = room?.game?.q; return q?.dx && player && q.participants.has(player.token) ? q : null; };

@@ -1359,3 +1359,25 @@ body.rush-machine .stage-tools { overflow: visible; }
 .sc-strip { display: flex; flex-wrap: wrap; gap: 4px 6px; justify-content: center; font-size: clamp(10px, 1.6dvh, 12px); }
 .sc-strip span { padding: 1px 8px; border-radius: 99px; background: rgba(255, 255, 255, .05); border: 1px solid var(--line); white-space: nowrap; }
 .sc-strip span.me { border-color: #7ab8ff; } .sc-strip b { color: #ffd36b; font-family: var(--font-num); margin-left: 4px; }
+/* 答え合わせの「修正を依頼」 */
+.fix-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.fix-tabs .btn-sub { width: auto; margin: 0; padding: 5px 12px; font-size: 12.5px; border-radius: 99px; } .fix-tabs .btn-sub.on { border-color: var(--accent); background: rgba(255, 255, 255, .1); }
+.fix-field { display: grid; grid-template-columns: 9em 1fr; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 13px; }
+.fix-field input { margin: 0; padding: 6px 10px; font-size: 14px; }
+.fix-kind { display: grid; gap: 4px; margin-bottom: 8px; font-size: 13px; } .fix-kind label { display: flex; gap: 6px; align-items: center; }
+.fix-kind input { width: auto; margin: 0; }
+@media (max-width: 520px) { .fix-field { grid-template-columns: 1fr; gap: 2px; } }
+/* どの遊び方でも「🛠 修正」（このゲームで出た曲から選んで修正を依頼） */
+.fix-fab { position: fixed; left: 10px; bottom: 10px; z-index: 60; width: auto; margin: 0; padding: 6px 12px; font-size: 12.5px; border-radius: 99px; border: 1px solid var(--line); background: rgba(20, 20, 35, .85); color: inherit; cursor: pointer; }
+#fixPop { z-index: 70; } #fixPop .fix-pop { width: min(760px, 100%); max-height: 98dvh; overflow: auto; gap: 8px; padding: clamp(8px, 1.6dvh, 14px); }
+.fix-songs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+.fix-songs .btn-sub { flex: none; width: auto; max-width: 220px; margin: 0; padding: 4px 10px; display: grid; text-align: left; border-radius: 10px; }
+.fix-songs .btn-sub.on { border-color: var(--accent); background: rgba(255, 255, 255, .1); }
+.fix-songs b, .fix-songs small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; } .fix-songs small { color: var(--sub); font-size: 10.5px; }
+.fix-x { width: auto; margin: 0 0 0 auto; padding: 3px 10px; font-size: 12px; }
+.fix-pick { position: relative; min-width: 0; } .fix-pick input { width: 100%; }
+.fix-sugg { position: absolute; left: 0; right: 0; top: 100%; z-index: 5; display: grid; max-height: 220px; overflow-y: auto; background: #1b1b2e; border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 8px 24px rgba(0, 0, 0, .5); }
+.fix-sugg button { width: 100%; margin: 0; padding: 6px 10px; text-align: left; background: none; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .06); color: inherit; font-size: 13px; cursor: pointer; border-radius: 0; }
+.fix-sugg button:hover { background: rgba(255, 255, 255, .08); } .fix-sugg small { padding: 6px 10px; color: var(--sub); }
+.fix-sep { margin-top: 10px; border-top: 1px dashed var(--line); padding-top: 8px; }
+.fix-fab { z-index: 310; } #fixPop { z-index: 320; }

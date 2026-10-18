@@ -58,6 +58,22 @@ async function remote(name) {
   }
   console.log(`修正 ${n} 曲${DRY ? '（保存しない）' : ''}`);
 
+  // ── 曲の情報（アニメ名・歌っている人・作者）の直し：曲データに入れて、data/info-fixes.json は空に戻す ──
+  const INFO_PATH = path.join(ROOT, 'data', 'info-fixes.json');
+  const info = readJson(INFO_PATH, {});
+  for (const [id, f] of Object.entries((await remote('song-info')) || {})) if (!info[id] || info[id].at < f.at) info[id] = f;
+  let iN = 0;
+  for (const [id, f] of Object.entries(info)) {
+    const s = byId.get(id); if (!s) continue;
+    const w = f.work && f.work !== s.work, a = f.artist && f.artist !== s.artist;
+    if (!w && !a) continue;
+    console.log(`  情報：${s.title}　${w ? `作品 ${s.work} → ${f.work}` : ''}${w && a ? '／' : ''}${a ? `歌 ${s.artist} → ${f.artist}` : ''}`);
+    if (w) s.work = f.work; if (a) s.artist = f.artist;
+    iN++;
+  }
+  console.log(`曲の情報の修正 ${iN} 曲`);
+  if (!DRY) { if (iN) { fs.writeFileSync(SONGS_PATH + '.tmp', JSON.stringify(songs, null, 2) + '\n'); fs.renameSync(SONGS_PATH + '.tmp', SONGS_PATH); } fs.writeFileSync(INFO_PATH, '{}\n'); }
+
   // ── ジャンルの修正（曲ごと）：新しい方を使う。自動に戻した曲は消す ──
   const SG_PATH = path.join(ROOT, 'data', 'song-genres.json');
   const sg = readJson(SG_PATH, {});
@@ -128,12 +144,19 @@ async function remote(name) {
       }
       r.delete = 0; r.notes = r.notes.filter(x => x.kind !== 'delete');
     }
-    if (!(r.wrong > 0)) delete reports[id];
+    if (!(r.wrong > 0) && !(r.info > 0)) delete reports[id];
   }
-  const wrong = Object.entries(reports);
+  const wrong = Object.entries(reports).filter(([, r]) => r.wrong > 0);
   if (wrong.length) {
     console.log(`曲が違う（探し直す）${wrong.length} 曲：`);
-    for (const [id, r] of wrong) console.log(`  ${id} ${r.title}（${r.work}）${r.notes.filter(x => x.note).map(x => ` …${x.note}`).join('')}`);
+    for (const [id, r] of wrong) console.log(`  ${id} ${r.title}（${r.work}）${r.notes.filter(x => x.kind !== 'info' && x.note).map(x => ` …${x.note}`).join('')}`);
+  }
+  // 曲の情報の直し（曲名・作品名・歌っている人・作者）：確認してから songs.json を直し、--done <id> で消す
+  const infoReq = Object.entries(reports).filter(([, r]) => r.info > 0);
+  if (infoReq.length) {
+    console.log(`曲の情報の修正の依頼 ${infoReq.length} 曲（確認して直す）：`);
+    const L = { title: '曲名', work: '作品名', artist: '歌っている人', author: '作者' };
+    for (const [id, r] of infoReq) for (const x of r.notes.filter(x => x.kind === 'info')) console.log(`  ${id} ${r.title}（${r.work}）→ ${Object.entries(x.fix || {}).map(([k, v]) => `${L[k] || k}「${v}」`).join('・')}${x.note ? ` …${x.note}` : ''}`);
   }
   console.log(`出題から外す ${retired} 曲`);
 

@@ -623,7 +623,7 @@ socket.on('aborted', () => {
 });
 
 // ── 部屋の状態 ──
-socket.on('room', r => { renderRoom(r); refreshScoreStrips(); });
+socket.on('room', r => { renderRoom(r); refreshScoreStrips(); updateFixFab(); });
 // ── ボードゲーム風の窓：後ろの点数表が隠れるので、窓の見出しの下に全員の点数を出す（ディクシットは自分の欄に出している）──
 const SCORE_POPS = ['wolfPop', 'dtPop', 'babaPop', 'cnPop', 'dfPop', 'wwPop', 'kmPop', 'azPop', 'dkPop'];
 function scoreStripHtml() {
@@ -945,49 +945,163 @@ function setupSongTools(s, r) {
     $('keepSongBtn').textContent = '✓ 除外しない曲';
     toast(`「${s.title}」は除外しません（また出ることがあります）`);
   };
-  // 位置を直す：自分の画面のプレーヤーで試し聴きしながら、イントロ・サビの秒数を決めてメモに残す
-  const saved = fixes()[s.id];
-  const pos = { i: saved?.i ?? r.intro ?? 0, c: saved?.c ?? r.chorus ?? 0 };
-  const round = x => Math.max(0, Math.round(x * 10) / 10);
-  const row = (k, label) => `<div class="fix-row"><b>${label}</b><span class="fix-sec" id="fix-${k}">${pos[k]}秒</span>
-    <span class="fix-btns"><button class="btn-sub" data-fk="${k}" data-d="-1">−1</button><button class="btn-sub" data-fk="${k}" data-d="-0.1">−0.1</button>`
-    + `<button class="btn-sub" data-fk="${k}" data-d="0.1">+0.1</button><button class="btn-sub" data-fk="${k}" data-d="1">+1</button>`
-    + `<button class="btn-sub" data-now="${k}">今の位置</button><button class="btn-sub" data-play="${k}">▶ 聴く</button></span></div>`;
+  // 修正を依頼（答え合わせのボタン）：中身は makeFixPanel（ほかの遊び方の「🛠 修正」窓と同じ）
+  const fixUi = makeFixPanel(s, { intro: r.intro, chorus: r.chorus }, {
+    label: t => { $('fixToggle').textContent = `🛠 修正を依頼（${t}）`; },
+    close: () => { $('fixPanel').hidden = true; socket.emit('fixHold', false); },
+  });
   $('fixToggle').onclick = () => {
     const p = $('fixPanel');
     p.hidden = !p.hidden;
     socket.emit('fixHold', !p.hidden); // 開いている間は、自動で次の問題へ進まない（閉じるか送ると再開）
-    if (p.hidden) return;
-    p.innerHTML = row('i', 'イントロ') + row('c', 'サビ')
-      + `<div class="fix-actions"><button class="btn-main" id="fixSave">この位置で送る</button><button class="btn-sub" id="fixCopy">📋 直した位置をコピー</button></div>`
-      + '<p class="note">「この位置で送る」を押すと、みんなの曲データが直ります（次にこの曲が出たときから）。</p>';
+    if (!p.hidden) fixUi(p);
+  };
+}
+// ── 修正を依頼の中身：⏱ イントロ・サビの位置／✏️ 曲名・アニメ名・歌っている人・作者／🔁 曲が違う・削除 をタブで選ぶ ──
+// s：曲（id・title・work・artist・type）、pos0：いまのイントロ・サビ（秒）、cb.label：送ったあとのボタンの表示、cb.close：閉じる
+// 名前の一覧（作品名・歌っている人・作者）。一度だけ読み込む。検索はひらがな・カタカナ・全角半角・大文字小文字を区別しない
+let catsCache = null;
+const loadCats = () => catsCache || (catsCache = fetch('/api/categories').then(r => r.json()).catch(() => { catsCache = null; return { works: [], artists: [], authors: [] }; }));
+const catNorm = x => String(x || '').normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/[\s・･·\-‐_.,!！?？'"]/g, '');
+function makeFixPanel(s, pos0, cb) {
+  // 位置を直す：自分の画面のプレーヤーで試し聴きしながら、イントロ・サビの秒数を決めてメモに残す
+  const saved = fixes()[s.id];
+  const pos = { i: saved?.i ?? pos0.intro ?? 0, c: saved?.c ?? pos0.chorus ?? 0 };
+  const round = x => Math.max(0, Math.round(x * 10) / 10);
+  const row = (k, label) => `<div class="fix-row"><b>${label}</b><span class="fix-sec" data-sec="${k}">${pos[k]}秒</span>
+    <span class="fix-btns"><button class="btn-sub" data-fk="${k}" data-d="-1">−1</button><button class="btn-sub" data-fk="${k}" data-d="-0.1">−0.1</button>`
+    + `<button class="btn-sub" data-fk="${k}" data-d="0.1">+0.1</button><button class="btn-sub" data-fk="${k}" data-d="1">+1</button>`
+    + `<button class="btn-sub" data-now="${k}">今の位置</button><button class="btn-sub" data-play="${k}">▶ 聴く</button></span></div>`;
+  let tab = 'pos';
+  const sendReport = async (body, done) => {
+    try {
+      const res = await fetch('/api/reports', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: s.id, ...body }) });
+      const j = await res.json().catch(() => ({}));
+      toast(res.ok ? (j.message || '送りました') : (j.error || '送れませんでした'));
+      if (res.ok) { cb.label(done); cb.close(); }
+    } catch (e) { toast('送れませんでした（通信エラー）'); }
+  };
+  const vocaloid = s.type === 'ボカロ', author = String(s.work || '').normalize('NFKC').match(/^ボカロ\((.+)\)$/)?.[1] || '';
+  const infoForm = () => {
+    const f = (k, label, v) => `<div class="fix-field"><b>${label}</b><div class="fix-pick"><input data-cat="${k}" value="${esc(v)}" data-orig="${esc(v)}" maxlength="100" autocomplete="off" placeholder="入力して一覧から選ぶ"><div class="fix-sugg" hidden></div></div></div>`;
+    return '<p class="note">すでにある名前の一覧から検索して選ぶと、その場で直ります（次にこの曲が出たときから）</p>'
+      + (vocaloid ? f('author', '作者', author) : f('work', 'アニメ名（作品名）', s.work)) + f('artist', '歌っている人', s.artist)
+      + '<div class="fix-actions"><button class="btn-main" data-send="cat" type="button">この内容で直す</button></div>'
+      + '<p class="note fix-sep">曲名がちがうとき（確認してから直します）</p>'
+      + `<label class="fix-field"><b>曲名</b><input data-info="title" value="${esc(s.title)}" maxlength="100" autocomplete="off"></label>`
+      + '<label class="fix-field"><b>ひとこと</b><input data-note maxlength="200" placeholder="（任意）理由や出典など" autocomplete="off"></label>'
+      + '<div class="fix-actions"><button class="btn-sub" data-send="info" type="button">曲名の修正を依頼</button></div>';
+  };
+  const wrongForm = () => '<div class="fix-kind"><label><input type="radio" name="wrongKind" value="wrong" checked> 曲が違う（動画が別の曲・別バージョン）</label>'
+    + '<label><input type="radio" name="wrongKind" value="delete"> 削除を依頼（出題しないでほしい）</label></div>'
+    + '<label class="fix-field"><b>ひとこと</b><input data-note maxlength="200" placeholder="（任意）どう違うか・正しい曲など" autocomplete="off"></label>'
+    + '<div class="fix-actions"><button class="btn-main" data-send="wrong" type="button">送る</button></div>';
+  const posForm = () => row('i', 'イントロ') + row('c', 'サビ')
+    + `<div class="fix-actions"><button class="btn-main" data-send="pos">この位置で送る</button><button class="btn-sub" data-copy>📋 直した位置をコピー</button></div>`
+    + '<p class="note">「この位置で送る」を押すと、みんなの曲データが直ります（次にこの曲が出たときから）。</p>';
+  const render = p => {
+    const tabs = [['pos', '⏱ イントロ・サビの位置'], ['info', '✏️ 曲名・アニメ名・歌手'], ['wrong', '🔁 曲が違う・削除']]
+      .map(([k, l]) => `<button type="button" class="btn-sub${tab === k ? ' on' : ''}" data-ftab="${k}">${l}</button>`).join('');
+    p.innerHTML = `<div class="fix-tabs">${tabs}</div>` + (tab === 'info' ? infoForm() : tab === 'wrong' ? wrongForm() : posForm());
+    p.querySelectorAll('[data-ftab]').forEach(b => b.onclick = () => { tab = b.dataset.ftab; render(p); });
+    const note = () => p.querySelector('[data-note]')?.value.trim() || '';
+    if (tab === 'info') {
+      // 名前の一覧（カテゴリ）から検索して選ぶ
+      const key = { work: 'works', author: 'authors', artist: 'artists' };
+      p.querySelectorAll('[data-cat]').forEach(inp => {
+        const box = inp.nextElementSibling;
+        const show = async () => {
+          const list = (await loadCats())[key[inp.dataset.cat]] || [];
+          const q = catNorm(inp.value);
+          const hits = (q ? list.filter(x => catNorm(x).includes(q)) : list).slice(0, 8);
+          box.innerHTML = hits.map(x => `<button type="button" data-v="${esc(x)}">${esc(x)}</button>`).join('') || '<small>一覧にありません（曲名のように依頼してください）</small>';
+          box.hidden = false;
+          box.querySelectorAll('[data-v]').forEach(b => b.onmousedown = e => { e.preventDefault(); inp.value = b.dataset.v; box.hidden = true; });
+        };
+        inp.oninput = show; inp.onfocus = show;
+        inp.onblur = () => setTimeout(() => { box.hidden = true; }, 150);
+      });
+      p.querySelector('[data-send="cat"]').onclick = async () => {
+        const cats = await loadCats(), body = {};
+        for (const inp of p.querySelectorAll('[data-cat]')) {
+          const v = inp.value.trim(), k = inp.dataset.cat;
+          if (!v || v === inp.dataset.orig) continue;
+          if (!(cats[key[k]] || []).includes(v)) return toast('一覧の中から選んでください（入力すると候補が出ます）');
+          body[k] = v;
+        }
+        if (!Object.keys(body).length) return toast('直したいところを一覧から選んでください');
+        try {
+          const res = await fetch('/api/song-info', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: s.id, ...body }) });
+          const j = await res.json().catch(() => ({}));
+          toast(res.ok ? (j.message || '直しました') : (j.error || '直せませんでした'));
+          if (res.ok) { Object.assign(s, j.song || {}); cb.label('情報を直しました'); cb.close(); }
+        } catch (e) { toast('直せませんでした（通信エラー）'); }
+      };
+      p.querySelector('[data-send="info"]').onclick = () => {
+        const v = p.querySelector('[data-info="title"]').value.trim();
+        if (!v || v === s.title) return toast('曲名を書き直してください');
+        sendReport({ kind: 'info', fix: { title: v }, note: note() }, '曲名の修正を送信済み');
+      };
+      return;
+    }
+    if (tab === 'wrong') {
+      p.querySelector('[data-send="wrong"]').onclick = () => {
+        const kind = p.querySelector('[name="wrongKind"]:checked')?.value || 'wrong';
+        if (kind === 'delete' && !confirm(`「${s.title}」の削除を依頼しますか？`)) return;
+        sendReport({ kind, note: note() }, kind === 'delete' ? '削除の依頼を送信済み' : '曲が違うを送信済み');
+      };
+      return;
+    }
     const save = quiet => {
       const all = fixes(); all[s.id] = { t: s.title, w: s.work, i: pos.i, c: pos.c };
       store.set(FIX_KEY, JSON.stringify(all));
-      $('fixToggle').textContent = '⏱ 位置を直す（直し済み）';
+      cb.label('位置は直し済み');
       if (!quiet) toast(`「${s.title}」の位置をメモしました（${Object.keys(all).length}曲）`);
     };
     // 変えるたびにメモに残す（自動で次の問題に進んでも消えないように）
-    const show = () => { $('fix-i').textContent = `${pos.i}秒`; $('fix-c').textContent = `${pos.c}秒`; save(true); };
+    const show = () => { p.querySelector('[data-sec="i"]').textContent = `${pos.i}秒`; p.querySelector('[data-sec="c"]').textContent = `${pos.c}秒`; save(true); };
     p.querySelectorAll('[data-fk]').forEach(b => b.onclick = () => { pos[b.dataset.fk] = round(pos[b.dataset.fk] + +b.dataset.d); show(); });
     p.querySelectorAll('[data-now]').forEach(b => b.onclick = () => { pos[b.dataset.now] = round(player.time()); show(); });
-    p.querySelectorAll('[data-play]').forEach(b => b.onclick = () => player.playFrom(pos[b.dataset.play]));
+    p.querySelectorAll('[data-play]').forEach(b => b.onclick = () => player.currentId() === s.id ? player.playFrom(pos[b.dataset.play]) : player.playVideoFrom(s.id, pos[b.dataset.play]));
     // サーバーに送る（収録曲一覧の「修正を送る」と同じ受け付け）
-    $('fixSave').onclick = async () => {
+    p.querySelector('[data-send="pos"]').onclick = async () => {
       save(true);
       try {
         const res = await fetch('/api/fixes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: s.id, intro: pos.i, chorus: pos.c }) });
         const j = await res.json().catch(() => ({}));
         toast(res.ok ? (j.message || '送りました') : (j.error || '送れませんでした'));
-        if (res.ok) { $('fixToggle').textContent = '⏱ 位置を直す（送信済み）'; p.hidden = true; socket.emit('fixHold', false); }
+        if (res.ok) { cb.label('位置を送信済み'); cb.close(); }
       } catch (e) { toast('送れませんでした（通信エラー）'); }
     };
-    $('fixCopy').onclick = async () => {
+    p.querySelector('[data-copy]').onclick = async () => {
       const n = Object.keys(fixes()).length;
       if (!n) return toast('まだメモした曲がありません');
       toast(await copyText(fixText()) ? `直した位置 ${n}曲をコピーしました` : 'コピーできませんでした');
     };
   };
+  return render;
+}
+// ── どの遊び方でも「🛠 修正」：このゲームで出た曲（新しい順）から選んで、修正を依頼する（3つ埋め・ボードゲーム風など、答え合わせの画面がちがう遊び方用）──
+let fixRecent = [];
+socket.on('fixSongs', list => { if (Array.isArray(list)) { fixRecent = list.slice(0, 30); updateFixFab(); } });
+socket.on('fixSong', s => { if (!s?.id) return; fixRecent = [s, ...fixRecent.filter(x => x.id !== s.id)].slice(0, 30); updateFixFab(); });
+function updateFixFab() {
+  const fab = $('fixFab'); if (!fab) return;
+  fab.hidden = !(room && ['playing', 'result'].includes(room.state) && fixRecent.length);
+}
+$('fixFab').onclick = () => openFixPop(0);
+function openFixPop(sel = 0) {
+  const pop = $('fixPop'), s = fixRecent[sel]; if (!s) return;
+  pop.hidden = false;
+  socket.emit('fixHold', true);
+  const close = () => { pop.hidden = true; pop.innerHTML = ''; socket.emit('fixHold', false); };
+  pop.innerHTML = `<div class="wf-field fix-pop"><div class="wf-head"><b>🛠 曲の修正を依頼</b><span>この部屋で出た曲（新しい順）</span><button class="btn-sub fix-x" type="button" data-close>✕ 閉じる</button></div>
+    <div class="fix-songs">${fixRecent.map((x, i) => `<button type="button" class="btn-sub${i === sel ? ' on' : ''}" data-song="${i}"><b>${esc(x.title)}</b><small>${esc(x.work)}／${esc(x.artist)}</small></button>`).join('')}</div>
+    <div class="fix-panel" data-fixbox></div></div>`;
+  pop.querySelector('[data-close]').onclick = close;
+  pop.onclick = e => { if (e.target === pop) close(); };
+  pop.querySelectorAll('[data-song]').forEach(b => b.onclick = () => openFixPop(+b.dataset.song));
+  makeFixPanel(s, { intro: s.intro, chorus: s.chorus }, { label: t => toast(`「${s.title}」：${t}`), close })(pop.querySelector('[data-fixbox]'));
 }
 // ── マイページの出し入れ（答え合わせ画面）：♡ お気に入り・🚫 もう聞きたくない・🎯 もう一度出して（苦手の枠） ──
 function renderMeTools(s) {
@@ -2423,7 +2537,7 @@ socket.on('reveal', r => {
     + (s.staged ? '<button class="btn-main promote-btn" id="promoteBtn" type="button">✅ これはゲームデータに入れる</button><small class="promote-note">お試し中の曲です。押すと、ふだんの出題に入れる候補になります</small>' : '')
     + (s.id ? `<div class="song-tools"><button class="btn-sub" id="copySongBtn">📋 この曲をコピー</button>`
       + `<button class="btn-sub" id="keepSongBtn">${keptIds().has(s.id) ? '✓ 除外しない曲' : '🔁 この曲は除外しない'}</button>`
-      + `<button class="btn-sub" id="fixToggle">⏱ 位置を直す${fixes()[s.id] ? '（直し済み）' : ''}</button></div>`
+      + `<button class="btn-sub" id="fixToggle">🛠 修正を依頼${fixes()[s.id] ? '（位置は直し済み）' : ''}</button></div>`
       + `<div class="song-tools me-tools" id="meTools"></div><div class="fix-panel" id="fixPanel" hidden></div>` : '');
   if (s.id) { setupSongTools(s, r); renderMeTools(s); }
   if (s.staged) $('promoteBtn').onclick = () => { socket.emit('promote', s.id); $('promoteBtn').disabled = true; $('promoteBtn').textContent = '✅ 入れる候補にしました'; };

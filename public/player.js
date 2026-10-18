@@ -136,6 +136,9 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     // 答え合わせで位置を直すとき用：いまの再生位置／その位置から流す（自分の画面だけ）
     time() { return apiReady && yt.getCurrentTime ? yt.getCurrentTime() : 0; },
     playFrom(t) { clear(); run(() => { yt.seekTo(t, true); yt.unMute(); yt.setVolume(volume); yt.playVideo(); }); },
+    // いま読み込んでいる動画／別の動画をその位置から流す（修正を依頼の試し聴き用。サーバーには知らせない）
+    currentId() { return apiReady && yt.getVideoData ? yt.getVideoData()?.video_id || '' : ''; },
+    playVideoFrom(videoId, t) { clear(); run(() => { yt.loadVideoById({ videoId, startSeconds: t }); yt.unMute(); yt.setVolume(volume); }); },
     setVolume(v) { volume = v; run(() => yt.setVolume(v)); },
     // 再生速度（倍速・スロー）。YouTube は 0.25〜2 倍
     setRate(r) { run(() => { if (yt.setPlaybackRate) yt.setPlaybackRate(r || 1); }); },

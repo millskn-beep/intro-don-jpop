@@ -25,6 +25,7 @@ function loadSongs() {
   ALL_SONGS = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
   try { applyFixes(); } catch (e) { /* 起動直後（修正の一覧を読む前）は何もしない */ }
   try { applyFame(); } catch (e) { /* 同上 */ }
+  try { applyInfoFixes(); if (typeof CATS !== 'undefined') CATS = null; } catch (e) { /* 同上（曲の情報の直し） */ }
   const playable = ALL_SONGS.filter(s => s.id && s.embeddable !== false && !s.retired);
   SONGS = playable.filter(s => !s.staged); // staged：プレイリストからの「お試し」の曲。ふだんの出題・選択肢には出さず、お題「プレイリスト」でだけ出す
   STAGED = playable.filter(s => s.staged); // retired：収録曲一覧の「削除を依頼」で出題から外した曲（データは残す）
@@ -489,6 +490,57 @@ function saveFixes() {
   datalog.touch();
   try { fs.writeFileSync(FIXES_PATH + '.tmp', JSON.stringify(FIXES, null, 1) + '\n'); fs.renameSync(FIXES_PATH + '.tmp', FIXES_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
 }
+// ── 曲の情報（アニメ名・歌っている人・作者）の直し：すでにある名前（カテゴリ）から選んだものだけ受け付けて、すぐ使う。
+//    反映の前に tools/pull-fixes.js で曲データに取り込む（data/info-fixes.json は空に戻す）──
+const INFO_PATH = path.join(__dirname, 'data', 'info-fixes.json');
+let INFO_FIXES = {};
+try { INFO_FIXES = JSON.parse(fs.readFileSync(INFO_PATH, 'utf8')); } catch (e) { INFO_FIXES = {}; }
+const infoLast = new Map();
+function applyInfoFixes() {
+  const byId = new Map(ALL_SONGS.map(s => [s.id, s]));
+  for (const [id, f] of Object.entries(INFO_FIXES)) { const s = byId.get(id); if (!s) continue; if (f.work) s.work = f.work; if (f.artist) s.artist = f.artist; }
+}
+applyInfoFixes();
+const authorOfWork = w => String(w || '').normalize('NFKC').match(/^ボカロ\((.+)\)$/)?.[1] || null;
+let CATS = null; // 名前の一覧（曲が変わったら作り直す）
+function categories() {
+  if (CATS) return CATS;
+  const works = new Set(), artists = new Set(), authors = new Map(); // authors：作者名 → 作品欄の書き方（ボカロ（○○））
+  // 直す前の名前も一覧に残す（その曲しかない名前を直しても、元に戻せるように）
+  const rows = [...ALL_SONGS, ...Object.values(INFO_FIXES).map(f => f.before || {})];
+  for (const s of rows) {
+    const a = authorOfWork(s.work);
+    if (a) { if (!authors.has(a)) authors.set(a, s.work); } else if (s.work) works.add(s.work);
+    if (s.artist) artists.add(s.artist);
+  }
+  const sort = arr => [...arr].sort((x, y) => x.localeCompare(y, 'ja'));
+  CATS = { works: sort(works), artists: sort(artists), authors: sort(authors.keys()), authorWork: authors };
+  return CATS;
+}
+app.get('/api/categories', (req, res) => { const c = categories(); res.json({ works: c.works, artists: c.artists, authors: c.authors }); });
+app.get('/api/song-info', (req, res) => res.json({ 'song-info': INFO_FIXES }));
+app.post('/api/song-info', (req, res) => {
+  const id = String(req.body?.id || ''), song = ALL_SONGS.find(s => s.id === id);
+  if (!song) return res.status(400).json({ error: '曲が見つかりません' });
+  const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
+  const recent = (infoLast.get(ip) || []).filter(t => Date.now() - t < 60 * 1000);
+  if (recent.length >= 10) return res.status(429).json({ error: '少し時間をおいてから送ってください（1分に10曲まで）' });
+  const c = categories(), b = req.body || {}, after = {};
+  if (b.work != null && b.work !== song.work) { if (!c.works.includes(b.work)) return res.status(400).json({ error: 'アニメ名は一覧から選んでください' }); after.work = b.work; }
+  if (b.author != null && b.author !== authorOfWork(song.work)) { if (!c.authorWork.has(b.author)) return res.status(400).json({ error: '作者は一覧から選んでください' }); after.work = c.authorWork.get(b.author); }
+  if (b.artist != null && b.artist !== song.artist) { if (!c.artists.includes(b.artist)) return res.status(400).json({ error: '歌っている人は一覧から選んでください' }); after.artist = b.artist; }
+  if (!Object.keys(after).length) return res.status(400).json({ error: '変わったところがありません' });
+  infoLast.set(ip, [...recent, Date.now()]);
+  const prev = INFO_FIXES[id];
+  INFO_FIXES[id] = { title: song.title, before: prev?.before || { work: song.work, artist: song.artist }, work: after.work || prev?.work || null, artist: after.artist || prev?.artist || null, at: new Date().toISOString() };
+  if (after.work) song.work = after.work;
+  if (after.artist) song.artist = after.artist;
+  CATS = null; buildSeries();
+  datalog.touch();
+  try { fs.writeFileSync(INFO_PATH + '.tmp', JSON.stringify(INFO_FIXES, null, 1) + '\n'); fs.renameSync(INFO_PATH + '.tmp', INFO_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
+  res.json({ ok: true, song: { work: song.work, artist: song.artist }, message: `「${song.title}」を直しました（${after.work ? '作品：' + song.work : ''}${after.work && after.artist ? '／' : ''}${after.artist ? '歌：' + song.artist : ''}）` });
+});
+
 app.get('/api/catalog', (req, res) => {
   loadSongs();
   // 自動チェック（tools/scan_videos.py）で「原曲でない・サビの位置がずれているかも」とされた曲
@@ -697,18 +749,26 @@ app.post('/api/reports', (req, res) => {
   const note = String(req.body?.note || '').replace(/[\u0000-\u001f]/g, ' ').trim().slice(0, 200);
   const song = ALL_SONGS.find(s => s.id === id);
   if (!song) return res.status(400).json({ error: '曲が見つかりません' });
-  if (!['wrong', 'delete'].includes(kind)) return res.status(400).json({ error: '種類が正しくありません' });
+  if (!['wrong', 'delete', 'info'].includes(kind)) return res.status(400).json({ error: '種類が正しくありません' });
+  // info：曲名・作品名（アニメ名）・歌っている人・作者（ボカロ）の直し。変えた欄だけ受け取る
+  const clean = v => String(v ?? '').replace(/[\u0000-\u001f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 100);
+  const fix = {};
+  if (kind === 'info') {
+    for (const k of ['title', 'work', 'artist', 'author']) { const v = clean(req.body?.fix?.[k]); if (v) fix[k] = v; }
+    if (!Object.keys(fix).length) return res.status(400).json({ error: '直すところを入れてください' });
+  }
   const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
   const recent = (reportLast.get(ip) || []).filter(t => Date.now() - t < 60 * 1000);
   if (recent.length >= 5) return res.status(429).json({ error: '少し時間をおいてから送ってください（1分に5件まで）' });
   reportLast.set(ip, [...recent, Date.now()]);
   const r = REPORTS[id] || { title: song.title, work: song.work, wrong: 0, delete: 0, notes: [] };
   r[kind] = (r[kind] || 0) + 1;
-  r.notes = [...(r.notes || []), { kind, note, at: new Date().toISOString() }].slice(-20);
+  r.notes = [...(r.notes || []), { kind, note, ...(kind === 'info' ? { fix } : {}), at: new Date().toISOString() }].slice(-20);
   REPORTS[id] = r;
   datalog.touch();
   try { fs.writeFileSync(REPORTS_PATH + '.tmp', JSON.stringify(REPORTS, null, 1) + '\n'); fs.renameSync(REPORTS_PATH + '.tmp', REPORTS_PATH); } catch (e) { /* 保存できなくても受付は続ける */ }
-  res.json({ ok: true, message: kind === 'wrong' ? `「${song.title}」を「曲が違う」として受け付けました（次の更新で探し直します）`
+  res.json({ ok: true, message: kind === 'info' ? `「${song.title}」の修正の依頼を受け付けました（確認して、次の更新で直します）`
+    : kind === 'wrong' ? `「${song.title}」を「曲が違う」として受け付けました（次の更新で探し直します）`
     : `「${song.title}」の削除の依頼を受け付けました（次の更新で出題から外します）` });
 });
 
@@ -1032,6 +1092,12 @@ app.get('/api/play-stats', (req, res) => {
   res.json({ 'play-stats': PSTATS, since: PSTATS.since, days, counting: statsOn });
 });
 function recordPlayed(room, s) {
+  // どの遊び方でも、出た曲を画面の「🛠 修正」の候補に送る
+  if (s?.id) {
+    const fs_ = { id: s.id, title: s.title, work: s.work, artist: s.artist, type: s.type, year: s.year, intro: s.intro || 0, chorus: s.chorus || 0 };
+    room.fixRecent = [fs_, ...(room.fixRecent || []).filter(x => x.id !== s.id)].slice(0, 30); // 入り直した人にも送る
+    io.to(room.code).emit('fixSong', fs_);
+  }
   if (!room.playedHere) room.playedHere = new Set();
   const before = room.played.has(s.id) && !room.playedHere.has(s.id); // 前から除外していた曲（貼り付けたログ・端末の記録）
   room.played.delete(s.id); // 新しく出た曲ほど後ろ（戻すのは古い順）
@@ -4033,6 +4099,7 @@ io.on('connection', socket => {
     if (pf?.settings) { r.settings = sanitizeSettings(pf.settings, r.settings); r.settings.excludeGenres = (pf.excludeGenres || []).filter(k => GENRES[k]); }
     const res = enter(r, token, cleanName(name));
     linkUser(r, token, user); ack(res);
+    socket.emit('fixSongs', r.fixRecent || []);
   });
   socket.on('login', user => { if (room && player) { linkUser(room, player.token, user); broadcastRoom(room); } });
 
@@ -4049,6 +4116,7 @@ io.on('connection', socket => {
     socket.leave('home');
     const res = enter(r, token, cleanName(name));
     linkUser(r, token, user); ack(res);
+    socket.emit('fixSongs', r.fixRecent || []); // このゲームで出た曲（「🛠 修正」用）
   });
 
   // ホーム画面の部屋一覧
@@ -4492,7 +4560,7 @@ setInterval(() => {
 }, 60 * 1000);
 
 const restored = Promise.race([
-  datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES, songFame: SONG_FAME, fameResets: SONG_FAME_RESETS, couplingReports: CW_REPORTS, playStats: PSTATS }), () => USERS),
+  datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES, songFame: SONG_FAME, fameResets: SONG_FAME_RESETS, couplingReports: CW_REPORTS, playStats: PSTATS, infoFixes: INFO_FIXES }), () => USERS),
   new Promise(res => setTimeout(() => res({}), 8000)), // GitHub が遅いときは待ちすぎない
 ]).then(({ data: d, users } = {}) => {
   if (users && typeof users === 'object') { USERS = { ...USERS, ...users }; console.log(`マイページを記録から戻しました（${Object.keys(users).length}人）`); }
@@ -4501,6 +4569,7 @@ const restored = Promise.race([
   if (Array.isArray(d.candidates)) CANDIDATES = d.candidates;
   if (d.promotes) PROMOTES = d.promotes;
   if (d.fixes) { FIXES = d.fixes; applyFixes(); }
+  if (d.infoFixes) { INFO_FIXES = d.infoFixes; applyInfoFixes(); CATS = null; buildSeries(); }
   if (d.reports) REPORTS = d.reports;
   if (d.songGenres) { SONG_GENRES = d.songGenres; buildSeries(); }
   if (d.couplingReports) CW_REPORTS = d.couplingReports;

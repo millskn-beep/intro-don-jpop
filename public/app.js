@@ -2533,7 +2533,7 @@ socket.on('reveal', r => {
     $('fillSlots').innerHTML = r.fill.map(f => `<div class="fill-slot ${f.by != null ? 'done' : 'missed'}"><small>${esc(f.label)}</small><b>${esc(f.answer)}</b><em>${f.by != null ? esc(f.by) : '誰も埋められず'}</em></div>`).join('');
   }
   const s = r.song;
-  $('answer').innerHTML =`${esc(s.title)}<small>${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}（${s.year}）</small>`
+  $('answer').innerHTML =`${esc(s.title)}<small>${s.work === 'ボカロ（プロセカ）' ? `プロセカ書き下ろし ボカロ／作曲：${esc(s.artist)}` : `${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}`}（${s.year}）</small>`
     + (s.staged ? '<button class="btn-main promote-btn" id="promoteBtn" type="button">✅ これはゲームデータに入れる</button><small class="promote-note">お試し中の曲です。押すと、ふだんの出題に入れる候補になります</small>' : '')
     + (s.id ? `<div class="song-tools"><button class="btn-sub" id="copySongBtn">📋 この曲をコピー</button>`
       + `<button class="btn-sub" id="keepSongBtn">${keptIds().has(s.id) ? '✓ 除外しない曲' : '🔁 この曲は除外しない'}</button>`

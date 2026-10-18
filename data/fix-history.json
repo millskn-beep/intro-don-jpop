@@ -9493,5 +9493,22 @@
    "intro": 9.6,
    "chorus": 62
   }
+ },
+ {
+  "id": "m34DPnRUfMU",
+  "title": "青と夏",
+  "work": "J-POP（Mrs. GREEN APPLE）",
+  "channel": "Mrs. GREEN APPLE",
+  "at": "2026-10-18T13:21:56.760Z",
+  "before": {
+   "intro": 2.1,
+   "chorus": 74.5,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 28.9,
+   "chorus": 74.5
+  }
  }
 ]

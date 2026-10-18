@@ -2903,7 +2903,8 @@ const FILL_LOCK_SEC = 5;   // 間違えた人が押せない秒数
 const AUTO_FILL = '__auto__'; // 最初から埋まっている枠（ボーカルなし）の埋めた人
 const VOCAL_COMBOS = ['ミク×リン', 'ミク×ルカ', 'リン×レン', 'ミク×GUMI', 'ミク×KAITO', 'GUMI×IA', 'ルカ×MEIKO'];
 const VOCALS = ['初音ミク', '鏡音リン', '鏡音レン', '巡音ルカ', 'GUMI', 'IA', 'v flower', 'KAITO', 'MEIKO', '歌愛ユキ', '重音テト', '可不'];
-const authorOf = s => String(s.work || '').normalize('NFKC').match(/^ボカロ\((.+)\)$/)?.[1] || s.artist;
+// ボカロの作者：作品欄「ボカロ（ryo）」のカッコの中。プロセカの書き下ろし（ボカロ（プロセカ））は、作曲者（歌手の欄に入れてある）
+const authorOf = s => { const a = String(s.work || '').normalize('NFKC').match(/^ボカロ\((.+)\)$/)?.[1]; return a && a !== 'プロセカ' ? a : s.artist; };
 // 選択肢を作る：正解 + ほかの候補から重ならないものを count-1 個
 function fillChoices(correct, candidates, count, key = x => String(x).normalize('NFKC').toLowerCase()) {
   const seen = new Set([key(correct)]), picks = [];

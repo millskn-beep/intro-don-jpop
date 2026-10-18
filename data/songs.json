@@ -66831,22 +66831,19 @@
     "type": "",
     "confidence": "中",
     "source": "Mrs. GREEN APPLE",
-    "intro": 2.1,
+    "intro": 28.9,
     "chorus": 74.5,
     "aliases": [
       "あおとなつ"
     ],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusChecked": true,
     "views": 213745676,
     "channel": "Mrs. GREEN APPLE",
     "viewsAt": "2026-10-05",
     "fame": "top",
     "chorusSource": "manual",
-    "introSource": "songle",
-    "introBefore": 6.2,
     "artistAliases": [
       "ミセスグリーンアップル",
       "ミセス"
@@ -100827,7 +100824,11 @@
     "views": 544269,
     "channel": "Last Note. - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "巡音ルカ"
+    ]
   },
   {
     "id": "dwjLNU6HWL8",
@@ -100850,7 +100851,12 @@
     "channel": "KazearashiP",
     "viewsAt": "2026-10-16",
     "fame": "famous",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク",
+      "巡音ルカ",
+      "KAITO"
+    ]
   },
   {
     "id": "uwwU55zBYlQ",
@@ -100873,7 +100879,10 @@
     "views": 8202553,
     "channel": "Mitchie M",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Fqz_s4sr-5M",
@@ -100896,7 +100905,10 @@
     "views": 1768600,
     "channel": "marasy8",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "8Z3TbMBfDM0",
@@ -100919,7 +100931,10 @@
     "views": 16202330,
     "channel": "ピノキオピー PINOCCHIOP OFFICIAL CHANNEL",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "_JThDGMJL_s",
@@ -100942,7 +100957,11 @@
     "views": 259277,
     "channel": "Crystal P Official Studio ",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "KAITO",
+      "鏡音レン"
+    ]
   },
   {
     "id": "iN1bTB0EMgc",
@@ -100965,7 +100984,10 @@
     "views": 588073,
     "channel": "クワガタP / kuwagataP",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "06d8SwcSm_Q",
@@ -100988,7 +101010,10 @@
     "views": 6354037,
     "channel": "TOYSFACTORYJP",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "FTGqYnjOHkA",
@@ -101011,7 +101036,10 @@
     "channel": "lordxwillie",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "jVp91z9fEMo",
@@ -101034,7 +101062,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Pe70EW6__Ks",
@@ -101057,7 +101088,10 @@
     "channel": "有栖川鈴",
     "viewsAt": "2026-10-16",
     "fame": "famous",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "y3yyYYLyVzw",
@@ -101080,7 +101114,11 @@
     "views": 19221273,
     "channel": "Mitchie M",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク",
+      "KAITO"
+    ]
   },
   {
     "id": "HUzLUGKwQJc",
@@ -101103,7 +101141,10 @@
     "channel": "Himitsumiable",
     "viewsAt": "2026-10-16",
     "fame": "famous",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "R6Uh1Qqflzc",
@@ -101126,7 +101167,11 @@
     "views": 817100,
     "channel": "OSTER project - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "mmUqY658kws",
@@ -101148,7 +101193,11 @@
     "views": 183,
     "channel": "niconikomirror",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン"
+    ]
   },
   {
     "id": "OQz8nEKzgZs",
@@ -101171,7 +101220,11 @@
     "views": 5459561,
     "channel": "WhiteFlame official",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "KAITO",
+      "初音ミク"
+    ]
   },
   {
     "id": "t0PtXau1vjg",
@@ -101194,7 +101247,10 @@
     "views": 279803,
     "channel": "クワガタP / kuwagataP",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "uB_kB8YIDyk",
@@ -101217,7 +101273,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "k2uywrdsmXQ",
@@ -101240,7 +101299,10 @@
     "views": 351234,
     "channel": "doriko",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "JnmVJKX2JQA",
@@ -101263,7 +101325,10 @@
     "channel": "Manuel Alexis Merlín Román",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "T4MNOlqgROA",
@@ -101286,7 +101351,10 @@
     "views": 1370240,
     "channel": "t.Komine - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "BBAUCUYnX9M",
@@ -101309,7 +101377,10 @@
     "views": 407327,
     "channel": "森井ケンシロウ",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "sH92A1du050",
@@ -101332,7 +101403,10 @@
     "views": 659600,
     "channel": "ひとしずく×やま△ （Hitoshizuku_Yamasankakkei）",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "KwORhzLvyzQ",
@@ -101355,7 +101429,10 @@
     "views": 2131084,
     "channel": "cosMo@bousouP Official Channel",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "ecU_uJRzhfk",
@@ -101378,7 +101455,10 @@
     "views": 4914287,
     "channel": "U/M/A/A Inc.",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "OuLZlZ18APQ",
@@ -101401,7 +101481,10 @@
     "views": 21706754,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "YE_S-OPHP8o",
@@ -101424,7 +101507,11 @@
     "views": 773025,
     "channel": "twinkledisc [Dios/シグナルP] 公式チャンネル",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "KAITO"
+    ]
   },
   {
     "id": "ePcZoyHpF1Q",
@@ -101447,7 +101534,12 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "piCzhq8SP3Q",
@@ -101470,7 +101562,11 @@
     "views": 175100,
     "channel": "dixie flatline",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "ta9zslmSRqg",
@@ -101493,7 +101589,10 @@
     "views": 6148128,
     "channel": "まふまふちゃんねる",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "3rAblF_p704",
@@ -101516,7 +101615,11 @@
     "views": 3465476,
     "channel": "栗山夕璃",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "MEIKO"
+    ]
   },
   {
     "id": "aPb-MTcpNbE",
@@ -101539,7 +101642,10 @@
     "views": 5732516,
     "channel": "Noboru",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Vz1C44EDkYA",
@@ -101562,7 +101668,10 @@
     "views": 2367350,
     "channel": "Junky // Clover lab.",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "singer": [
+      "ろん"
+    ]
   },
   {
     "id": "atXcWO54Ek0",
@@ -101585,7 +101694,10 @@
     "views": 1871812,
     "channel": "八王子P",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "op3lPBDHEXs",
@@ -101608,7 +101720,11 @@
     "views": 5167227,
     "channel": "HoneyWorks OFFICIAL",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "SUXQ7L1D2Dw",
@@ -101631,7 +101747,10 @@
     "views": 3197085,
     "channel": "halyosy",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "KAITO"
+    ]
   },
   {
     "id": "ec3V80b0S2c",
@@ -101654,7 +101773,10 @@
     "views": 998345,
     "channel": "tokuP - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "_HlF-2K1WhQ",
@@ -101677,7 +101799,10 @@
     "channel": "AVTechNO",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "EgOWe9ByNaE",
@@ -101700,7 +101825,10 @@
     "views": 6862189,
     "channel": "40meterP",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "OK-ybp0qRl0",
@@ -101723,7 +101851,11 @@
     "views": 2020511,
     "channel": "hinayukki LR",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "bmkY2yc1K7Q",
@@ -101746,7 +101878,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "zweVJrnE1uY",
@@ -101769,7 +101904,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "AUEiHQOCQ2M",
@@ -101792,7 +101930,10 @@
     "views": 14432964,
     "channel": "HoneyWorks OFFICIAL",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "WdHRGH1Qv70",
@@ -101815,7 +101956,10 @@
     "views": 14948831,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "UPhq3BA7zLU",
@@ -101838,7 +101982,10 @@
     "channel": "CV02rinxlen",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "DZyzw_6S9RA",
@@ -101861,7 +102008,11 @@
     "views": 800534,
     "channel": "KulfiQ",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン",
+      "初音ミク"
+    ]
   },
   {
     "id": "o8l0SC84AVc",
@@ -101884,7 +102035,10 @@
     "views": 769217,
     "channel": "ぽりふぉ / PolyphonicBranch",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "I3cETfu08w4",
@@ -101907,7 +102061,10 @@
     "views": 860909,
     "channel": "satuki ga tenkomori - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "dU5scH-eWuE",
@@ -101930,7 +102087,10 @@
     "channel": "DATS Group™",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "MEIKO"
+    ]
   },
   {
     "id": "e1gY8dUfKxg",
@@ -101953,7 +102113,10 @@
     "views": 1889202,
     "channel": "ピノキオピー PINOCCHIOP OFFICIAL CHANNEL",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "MFEaIgMkR_0",
@@ -101976,7 +102139,10 @@
     "views": 24862794,
     "channel": "cosMo@bousouP Official Channel",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "vP_IgKTrq2U",
@@ -101999,7 +102165,10 @@
     "channel": "V2MegurineLuka",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "oVb6Gkf-IJM",
@@ -102022,7 +102191,10 @@
     "views": 4394114,
     "channel": "sasakure. UK",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "L05E133c2RI",
@@ -102045,7 +102217,10 @@
     "channel": "Kei - Topic",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "RKtoreimcQ8",
@@ -102068,7 +102243,10 @@
     "views": 17695864,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "JQTl7IvOX0E",
@@ -102091,7 +102269,10 @@
     "views": 618712,
     "channel": "OSTER projectテスロ&ロゼット",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "MEIKO"
+    ]
   },
   {
     "id": "f_2PqUwdijI",
@@ -102114,7 +102295,10 @@
     "views": 2271068,
     "channel": "Giga",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "singer": [
+      "Reol"
+    ]
   },
   {
     "id": "_XB3PxNZpT4",
@@ -102137,7 +102321,10 @@
     "views": 459353,
     "channel": "Buriru / ぶりる",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "myEsj-qf73A",
@@ -102160,7 +102347,10 @@
     "views": 4819293,
     "channel": "halyosy",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "UP5aUdsOvy4",
@@ -102183,7 +102373,10 @@
     "views": 272560,
     "channel": "otetsu Official",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "yIc8j0oMAW8",
@@ -102206,7 +102399,10 @@
     "views": 372635,
     "channel": "ゆちゃ(ボカロP)",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "KmvydnVTriE",
@@ -102229,7 +102425,10 @@
     "views": 7209212,
     "channel": "Mitchie M",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "gqPWXe0dCC4",
@@ -102252,7 +102451,10 @@
     "views": 1630472,
     "channel": "OSTER projectテスロ&ロゼット",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "snUfbQzgZm4",
@@ -102275,7 +102477,10 @@
     "views": 827040,
     "channel": "John Zeroness",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "PB6qZQNteQY",
@@ -102298,7 +102503,10 @@
     "views": 689682,
     "channel": "Noboru",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "KmZEK3iHVyI",
@@ -102321,7 +102529,10 @@
     "views": 1011095,
     "channel": "すこっぷOfficial Channel",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "EUsU8kDOv_g",
@@ -102344,7 +102555,10 @@
     "views": 944163,
     "channel": "Vocaliod-P / ぼーかりおどP(noa) ",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Ium_7HDVT_Y",
@@ -102367,7 +102581,10 @@
     "views": 452947,
     "channel": "omoi",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "T6mMMYSqlM4",
@@ -102390,7 +102607,10 @@
     "views": 1486961,
     "channel": "kz-livetune",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "QHa0_A5_dFA",
@@ -102413,7 +102633,10 @@
     "views": 277546,
     "channel": "OSTER projectテスロ&ロゼット",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "w3RBNI6kz-4",
@@ -102436,7 +102659,11 @@
     "channel": "shield000",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン"
+    ]
   },
   {
     "id": "u-YH22ijXhs",
@@ -102459,7 +102686,11 @@
     "views": 531546,
     "channel": "twinkledisc [Dios/シグナルP] 公式チャンネル",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "e0ddGWxyhUQ",
@@ -102482,7 +102713,10 @@
     "views": 4348605,
     "channel": "ゆよゆっぺ",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "LLpP0Wfq1gU",
@@ -102505,7 +102739,10 @@
     "views": 115392,
     "channel": "SHUICHI TANAKA",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "MEIKO"
+    ]
   },
   {
     "id": "RZzvY-xqqFQ",
@@ -102528,7 +102765,10 @@
     "views": 261658,
     "channel": "daniwell",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "btYMfaIyVao",
@@ -102551,7 +102791,10 @@
     "views": 125026,
     "channel": "OSTER projectテスロ&ロゼット",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "eXaVzZlkQ9c",
@@ -102574,7 +102817,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "y9uxB_ddC9c",
@@ -102596,7 +102842,10 @@
     "views": 44187,
     "channel": "baker",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "aX4H1rOzbow",
@@ -102619,7 +102868,10 @@
     "fame": "normal",
     "chorusSource": "audio",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "syk1f6Dj82E",
@@ -102642,7 +102894,10 @@
     "views": 1649021,
     "channel": "otetsu Official",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "STbj31OfEko",
@@ -102665,7 +102920,10 @@
     "views": 228103,
     "channel": "クワガタP / kuwagataP",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "yGnFdaOV3us",
@@ -102688,7 +102946,10 @@
     "views": 76517,
     "channel": "millstones",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "lZDXLDP034c",
@@ -102711,7 +102972,10 @@
     "views": 304972,
     "channel": "kz-livetune",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "cEyyVhlRGfg",
@@ -102735,7 +102999,10 @@
     "views": 133121,
     "channel": "Ultra-Noob - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "Y_DzUshhdBQ",
@@ -102758,7 +103025,10 @@
     "views": 331670,
     "channel": "SHUICHI TANAKA",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "MEIKO"
+    ]
   },
   {
     "id": "l62uUZqz0Z8",
@@ -102781,7 +103051,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "AgpU1gL1Py4",
@@ -102804,7 +103077,10 @@
     "views": 79058,
     "channel": "ラヴリーPのYouTube",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "tPnIwDBk09k",
@@ -102827,7 +103103,10 @@
     "views": 392280,
     "channel": "OSTER projectテスロ&ロゼット",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "DKHyxZnFnvg",
@@ -102850,7 +103129,10 @@
     "channel": "KazearashiP",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "aTUfwLAVSHE",
@@ -102873,7 +103155,11 @@
     "views": 4676088,
     "channel": "ガルナ(オワタP)",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音レン",
+      "鏡音リン"
+    ]
   },
   {
     "id": "gXIHRPPGt3g",
@@ -102896,7 +103182,11 @@
     "channel": "Kolya Krim (Krimsong)",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "巡音ルカ",
+      "MEIKO"
+    ]
   },
   {
     "id": "a-Nf3QUFkOU",
@@ -102919,7 +103209,10 @@
     "views": 4537344,
     "channel": "和田たけあき",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "y-vCQDglXME",
@@ -102942,7 +103235,10 @@
     "channel": "fallvas",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "RxarOTJxFnw",
@@ -102965,7 +103261,10 @@
     "views": 83982,
     "channel": "OneRoom",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "zBNWup41idY",
@@ -102988,7 +103287,10 @@
     "views": 433472,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "SWa3Wgu0G6Q",
@@ -103011,7 +103313,11 @@
     "views": 1233698,
     "channel": "twinkledisc [Dios/シグナルP] 公式チャンネル",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "B9cSEBVPToE",
@@ -103034,7 +103340,10 @@
     "fame": "normal",
     "chorusSource": "audio",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "KAITO"
+    ]
   },
   {
     "id": "rCm83lCpK7M",
@@ -103057,7 +103366,10 @@
     "views": 381846,
     "channel": "reddevils500a",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "_JPm6z7F3Co",
@@ -103080,7 +103392,10 @@
     "views": 264627,
     "channel": "Camellia Official",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Absugp8fk8M",
@@ -103103,7 +103418,12 @@
     "views": 485165,
     "channel": "rerulili - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "qHjIfbO-bP8",
@@ -103126,7 +103446,10 @@
     "views": 1648797,
     "channel": "Nem",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "PfpE43nIE5o",
@@ -103148,7 +103471,10 @@
     "views": 3495985,
     "channel": "mikufan",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "i_UIEIYNIYg",
@@ -103171,7 +103497,10 @@
     "views": 556042,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "yftUk8R1gwA",
@@ -103194,7 +103523,10 @@
     "views": 551050,
     "channel": "ゆうゆ /仮乃スガタ",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "_oS2aIhE2_U",
@@ -103217,7 +103549,11 @@
     "views": 5710909,
     "channel": "ガルナ(オワタP)",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "巡音ルカ"
+    ]
   },
   {
     "id": "qh6Sy67s6zM",
@@ -103240,7 +103576,10 @@
     "views": 4500826,
     "channel": "Torittyo",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "GlBWvRslL2c",
@@ -103263,7 +103602,10 @@
     "views": 3721155,
     "channel": "Kenshi Yonezu  米津玄師",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "wsE1FabUeAY",
@@ -103286,7 +103628,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Fh9h6eXpAoU",
@@ -103309,7 +103654,10 @@
     "channel": "SlatorXVertigo",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "LdnlHz3qGrQ",
@@ -103332,7 +103680,10 @@
     "views": 868833,
     "channel": "sasakure. UK",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "rVB9wjJBWY4",
@@ -103355,7 +103706,10 @@
     "views": 123977,
     "channel": "Re:nG Official Channel",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "AQ4VvMjdFIE",
@@ -103378,7 +103732,10 @@
     "views": 156154,
     "channel": "蝶々P / 一之瀬ユウ",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "singer": [
+      "MAYU"
+    ]
   },
   {
     "id": "f5kUd72R_tg",
@@ -103401,7 +103758,10 @@
     "views": 1005295,
     "channel": "kz-livetune",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "JkqCiOguzgk",
@@ -103424,7 +103784,10 @@
     "fame": "normal",
     "chorusSource": "audio",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "kY6Xe4Au_sI",
@@ -103447,7 +103810,11 @@
     "views": 251517,
     "channel": "OSTER projectテスロ&ロゼット",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン"
+    ]
   },
   {
     "id": "R8F8xpkffB8",
@@ -103470,7 +103837,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "MEIKO"
+    ]
   },
   {
     "id": "9YDoZZkin7M",
@@ -103493,7 +103863,10 @@
     "views": 172777,
     "channel": "Release - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "lI7T7fbYj0w",
@@ -103516,7 +103889,10 @@
     "views": 2845809,
     "channel": "40meterP",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "WMKWZDpEZ8A",
@@ -103539,7 +103915,10 @@
     "views": 131366,
     "channel": "KeitaUsui",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "hvklQRYBwsE",
@@ -103562,7 +103941,10 @@
     "views": 324566,
     "channel": "Hikarisyuyo - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "0GLSJHTZDuM",
@@ -103585,7 +103967,10 @@
     "channel": "KazearashiP",
     "viewsAt": "2026-10-16",
     "fame": "famous",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "hN2PJ8mBF6w",
@@ -103608,7 +103993,10 @@
     "views": 780558,
     "channel": "tilt six",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "dcDQyxCiInk",
@@ -103631,7 +104019,10 @@
     "channel": "Gaypoid",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "KAITO"
+    ]
   },
   {
     "id": "ovAGYYPtS1w",
@@ -103654,7 +104045,10 @@
     "views": 181368,
     "channel": "eleven - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "MEIKO"
+    ]
   },
   {
     "id": "osi8khZpxd8",
@@ -103677,7 +104071,10 @@
     "channel": "dnyin1227",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "07r67gGbtLQ",
@@ -103700,7 +104097,10 @@
     "views": 3720630,
     "channel": "U/M/A/A Inc.",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "fv2MZQSbiIY",
@@ -103722,7 +104122,10 @@
     "views": 114100,
     "channel": "V-Breeze",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "hOuteh4pm1I",
@@ -103745,7 +104148,10 @@
     "channel": "いーえるP@TinySymphony",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "KAITO"
+    ]
   },
   {
     "id": "5CcBwKoP5oM",
@@ -103768,7 +104174,10 @@
     "channel": "U-ji (RaychoruiP)",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "GUMI"
+    ]
   },
   {
     "id": "V0TqWSdLRUI",
@@ -103791,7 +104200,10 @@
     "channel": "teaeye ch",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "3b7vtvKAA1k",
@@ -103814,7 +104226,10 @@
     "channel": "AdamBv1",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "1dB8in_QRrw",
@@ -103837,7 +104252,10 @@
     "fame": "normal",
     "chorusSource": "audio",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "tz-VWGbyvkk",
@@ -103860,7 +104278,10 @@
     "channel": "くぇ",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "6epGqrOPSzo",
@@ -103882,7 +104303,11 @@
     "views": 19676,
     "channel": "r-dash l-down",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "DbWy8wsuNPc",
@@ -103905,7 +104330,10 @@
     "channel": "銀サク - Topic",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "singer": [
+      "Clear"
+    ]
   },
   {
     "id": "uj5iJU7B-44",
@@ -103928,7 +104356,10 @@
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "n0L5YNYH0ho",
@@ -103951,7 +104382,10 @@
     "channel": "keren238",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "lZK78oM8SoU",
@@ -103974,7 +104408,10 @@
     "views": 130703,
     "channel": "ぽりふぉ / PolyphonicBranch",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "Lp_qp39T7Qk",
@@ -103997,7 +104434,10 @@
     "channel": "Ohnuma Daisuke",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "KAITO"
+    ]
   },
   {
     "id": "NdH8QtfLluA",
@@ -104020,7 +104460,10 @@
     "channel": "Kurenai2815",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "PeCvbb8ccE8",
@@ -104043,7 +104486,10 @@
     "channel": "JevanniP - Topic",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "caK5NOG6qww",
@@ -104066,7 +104512,10 @@
     "channel": "AdamBv1",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "9zhrDj4KRlc",
@@ -104089,7 +104538,11 @@
     "channel": "Rinka Rii (RRRINKA)",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "Idoi6TbICXI",
@@ -104111,7 +104564,10 @@
     "views": 24373,
     "channel": "플스한거 올림",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "ObZMtleyMJs",
@@ -104134,7 +104590,10 @@
     "views": 66543,
     "channel": "StudioTiara -Official-",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "singer": [
+      "てぃあら"
+    ]
   },
   {
     "id": "oxCKSprQwXE",
@@ -104156,7 +104615,10 @@
     "channel": "OSTER projectテスロ&ロゼット",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "-ZhcF8QJyEo",
@@ -104179,7 +104641,10 @@
     "views": 103490,
     "channel": "Shinjou-P - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "KAITO"
+    ]
   },
   {
     "id": "o1ZIydRgidQ",
@@ -104201,7 +104666,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "UCAKuOECgjE",
@@ -104224,7 +104692,11 @@
     "channel": "KazearashiP",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "njLwHIR3I08",
@@ -104247,7 +104719,10 @@
     "channel": "はやや / Hayaya",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "UYVFCfnBJgg",
@@ -104270,7 +104745,10 @@
     "channel": "Soratobucat",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "yZMqpW4CXsA",
@@ -104293,7 +104771,10 @@
     "channel": "Maluna",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "IXYBwvWz_00",
@@ -104315,7 +104796,10 @@
     "views": 61225,
     "channel": "VocaloidAlbums",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "iLlLcfvBgSI",
@@ -104338,7 +104822,10 @@
     "channel": "SlatorXVertigo",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "I1NoGh08YYA",
@@ -104361,7 +104848,10 @@
     "channel": "yasuo - Topic",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "v3fpASjfb7E",
@@ -104384,7 +104874,10 @@
     "views": 60801,
     "channel": "North-T - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "xWhA3KCxW1k",
@@ -104407,7 +104900,11 @@
     "views": 771484,
     "channel": "HINATA Haruhana",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音レン",
+      "鏡音リン"
+    ]
   },
   {
     "id": "PHZIAhNOGpU",
@@ -104430,7 +104927,11 @@
     "views": 81560,
     "channel": "Death Ohagi / USAMIMI Typhoon",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "巡音ルカ"
+    ]
   },
   {
     "id": "4pUnUSyDHZE",
@@ -104453,7 +104954,10 @@
     "channel": "Re:nG Official Channel",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "rgLpY7eSVXU",
@@ -104476,7 +104980,10 @@
     "views": 53105,
     "channel": "Vocaliod-P / ぼーかりおどP(noa) ",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "rov-R6EWfes",
@@ -104499,7 +105006,10 @@
     "channel": "Antihero Rubbish Bin",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Z5TokLYyZQw",
@@ -104522,7 +105032,10 @@
     "views": 59114,
     "channel": "kofunp",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Ty23LnIH4oA",
@@ -104545,7 +105058,10 @@
     "views": 330037,
     "channel": "kz-livetune",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "NT46dSsGYLY",
@@ -104568,7 +105084,10 @@
     "views": 426800,
     "channel": "iroha(sasaki)",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "z1Zl-EF_dcM",
@@ -104591,7 +105110,10 @@
     "fame": "normal",
     "chorusSource": "audio",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "X3oPcfoTEF8",
@@ -104614,7 +105136,10 @@
     "channel": "くらP",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "m-OlTQ0f9GE",
@@ -104637,7 +105162,10 @@
     "channel": "hmtk (はまたく)",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "AXqSmwNNciY",
@@ -104660,7 +105188,10 @@
     "views": 105219,
     "channel": "Hoskey",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "6wLTYhh44Ek",
@@ -104683,7 +105214,10 @@
     "channel": "MEIKO Upload Channel",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "MEIKO"
+    ]
   },
   {
     "id": "ldmh22aWCEI",
@@ -104706,7 +105240,10 @@
     "channel": "鏡音樂坊",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "Z05MHD3TSsA",
@@ -104729,7 +105266,10 @@
     "views": 89763,
     "channel": "DeadballP - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "hXBZ82s4_Aw",
@@ -104752,7 +105292,10 @@
     "channel": "Bennington Mandy",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "UiCXqyug-Kk",
@@ -104775,7 +105318,10 @@
     "channel": "VocaloidAlbums",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "QSx5ZYrH-70",
@@ -104798,7 +105344,10 @@
     "channel": "ohxudytu",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "6JV4HjZythw",
@@ -104821,7 +105370,10 @@
     "channel": "udongerge - Topic",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "UqD-LpLWu7I",
@@ -104844,7 +105396,10 @@
     "channel": "KazearashiP",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "pSV5xLRsz_c",
@@ -104867,7 +105422,10 @@
     "views": 170263,
     "channel": "ガルナ(オワタP)",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "OlC-uSjLQ_o",
@@ -104889,7 +105447,10 @@
     "views": 215485,
     "channel": "popopopopepopo",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "W8KWM6L-pjU",
@@ -104912,7 +105473,10 @@
     "channel": "Maluna",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "jPWAL_Mkxck",
@@ -104935,7 +105499,10 @@
     "channel": "wdbisl",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "sWzK9nTiUWA",
@@ -104958,7 +105525,10 @@
     "views": 106088,
     "channel": "Lemm sounds",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "64TRC_6m-7I",
@@ -104981,7 +105551,10 @@
     "views": 287626,
     "channel": "otetsu Official",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "Px7WMtHpOMg",
@@ -105002,7 +105575,10 @@
     "channel": "KazearashiP",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "O2jqU-n5ybI",
@@ -105025,7 +105601,10 @@
     "channel": "KazearashiP",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "CqORPVkNpvI",
@@ -105048,7 +105627,10 @@
     "views": 115860,
     "channel": "Noboru",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "WfdRFr1Mj1A",
@@ -105071,7 +105653,10 @@
     "views": 257009,
     "channel": "siinamota - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "SLC2n8oFICg",
@@ -105094,7 +105679,10 @@
     "channel": "藤式",
     "viewsAt": "2026-10-16",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "qSDkabdp3sk",
@@ -114935,7 +115523,10 @@
     "views": 7652595,
     "channel": "ピノキオピー PINOCCHIOP OFFICIAL CHANNEL",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "zNrNj-vnGEk",
@@ -114958,7 +115549,10 @@
     "views": 6699497,
     "channel": "Wonderlands×Showtime - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "XAg1jDDG49Y",
@@ -114981,7 +115575,12 @@
     "views": 21687908,
     "channel": "Giga",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "crCS77wqxTI",
@@ -115004,7 +115603,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "4QL9tLfVFJg",
@@ -115027,7 +115629,13 @@
     "views": 5365697,
     "channel": "Mitchie M",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "巡音ルカ",
+      "MEIKO"
+    ]
   },
   {
     "id": "r2OS97F6P_U",
@@ -115050,7 +115658,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "singer": [
+      "まふまふ"
+    ]
   },
   {
     "id": "bNagYg_YGbU",
@@ -115073,7 +115684,10 @@
     "views": 13472929,
     "channel": "まふまふちゃんねる",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "singer": [
+      "まふまふ"
+    ]
   },
   {
     "id": "B2llCEKbxwA",
@@ -115096,7 +115710,10 @@
     "views": 9875382,
     "channel": "syudou",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "buoYwfZG4vQ",
@@ -115119,7 +115736,10 @@
     "views": 3977338,
     "channel": "DECO*27",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "AL6hWKN0WQo",
@@ -115142,7 +115762,10 @@
     "views": 9292769,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "9vyIPWBeRes",
@@ -115165,7 +115788,10 @@
     "views": 7993082,
     "channel": "DECO*27",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "okJ9Vk6owG8",
@@ -115188,7 +115814,11 @@
     "views": 4923302,
     "channel": "Mitchie M",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン"
+    ]
   },
   {
     "id": "i5rl-NGSYoo",
@@ -115211,7 +115841,10 @@
     "views": 3264501,
     "channel": "40meterP",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "cwLlHFMlBNQ",
@@ -115234,7 +115867,10 @@
     "views": 19682702,
     "channel": "すりぃ",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "wvlUWjqGQSA",
@@ -115257,7 +115893,10 @@
     "views": 8144257,
     "channel": "Orangestar",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "jwZWhMnSvm4",
@@ -115280,7 +115919,10 @@
     "views": 2235729,
     "channel": "NayutalieN Official / Nayutan Seijin",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "ikCebevls90",
@@ -115303,7 +115945,12 @@
     "views": 936198,
     "channel": "八王子P",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "WztzykQSkgM",
@@ -115326,7 +115973,15 @@
     "views": 799150,
     "channel": "OSTER projectテスロ&ロゼット",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "巡音ルカ",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "S84mvlha5Fc",
@@ -115349,7 +116004,10 @@
     "views": 856771,
     "channel": "YASUHIRO(康寛)",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "lFJA9muTUDM",
@@ -115372,7 +116030,10 @@
     "views": 4466970,
     "channel": "DIVELA / Official",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "X_6EPkvIAGg",
@@ -115395,7 +116056,11 @@
     "views": 7245508,
     "channel": "- Toa Official -",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン"
+    ]
   },
   {
     "id": "8dywenCWPI0",
@@ -115418,7 +116083,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "singer": [
+      "Ayase"
+    ]
   },
   {
     "id": "dBQg24mx45Y",
@@ -115441,7 +116109,11 @@
     "views": 31527576,
     "channel": "sasakure. UK",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク",
+      "KAITO"
+    ]
   },
   {
     "id": "mMiLWxuffdQ",
@@ -115464,7 +116136,10 @@
     "views": 5390179,
     "channel": "夏代孝明-夏と彗星",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "fobQOAOAdoE",
@@ -115487,7 +116162,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "WXvm5XfkXrk",
@@ -115510,7 +116188,10 @@
     "views": 4746976,
     "channel": "Aqu3ra",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "purlnb5K_jM",
@@ -115533,7 +116214,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "7Fub9yGHmfw",
@@ -115556,7 +116240,10 @@
     "views": 2180548,
     "channel": "Nightcord at 25:00 - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "Rcc_BreWEMI",
@@ -115579,7 +116266,10 @@
     "views": 6187331,
     "channel": "ポリスピカデリー / Police Piccadilly",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "YVD1RLI7klc",
@@ -115600,7 +116290,10 @@
     "views": 1637284,
     "channel": "針原翼 / はりーP",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "uDBVetc5JKo",
@@ -115623,7 +116316,10 @@
     "views": 4428329,
     "channel": "烏屋茶房（カラスヤサボウ）",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "RiV7hbyJ0bQ",
@@ -115646,7 +116342,10 @@
     "views": 125531,
     "channel": "伊東健人 / Kent Ito Official YouTube Channel",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "singer": [
+      "伊東健人"
+    ]
   },
   {
     "id": "Y-QhzXC9NbI",
@@ -115669,7 +116368,10 @@
     "views": 2061576,
     "channel": "キノシタ/kinoshita",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "8Zds1FvEtKw",
@@ -115692,7 +116394,10 @@
     "views": 3092123,
     "channel": "*Luna",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "UgZFpO_Y6qo",
@@ -115715,7 +116420,10 @@
     "views": 17030308,
     "channel": "cosMo@bousouP Official Channel",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "v7SYWS2jarw",
@@ -115738,7 +116446,10 @@
     "views": 22030814,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "X_u5UtcgrKw",
@@ -115761,7 +116472,10 @@
     "views": 4675942,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "nfpYhYtHuKo",
@@ -115784,7 +116498,10 @@
     "views": 4601953,
     "channel": "Chinozo",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "v flower"
+    ]
   },
   {
     "id": "3sEptl-psU0",
@@ -115807,7 +116524,10 @@
     "views": 64212839,
     "channel": "Lanndo / ぬゆり Official",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "v flower"
+    ]
   },
   {
     "id": "mKfwzOgorXs",
@@ -115830,7 +116550,10 @@
     "views": 6793768,
     "channel": "SudaKeina Balloon",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "v flower"
+    ]
   },
   {
     "id": "jNBRyo54Tks",
@@ -115853,7 +116576,10 @@
     "views": 1058410,
     "channel": "mothy akuno",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "6NdOqVypgCM",
@@ -115876,7 +116602,10 @@
     "views": 1754314,
     "channel": "TOKOTOKO / 西沢さんP / zawaso Official",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "sHXrqptOU2s",
@@ -115899,7 +116628,15 @@
     "views": 1992319,
     "channel": "傘村トータ",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "巡音ルカ",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "BPh4m2VnfNo",
@@ -115922,7 +116659,10 @@
     "views": 4530608,
     "channel": "煮ル果実 / NILFRUITS",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "v flower"
+    ]
   },
   {
     "id": "IPIwkhKdQxM",
@@ -115945,7 +116685,10 @@
     "views": 4894406,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "KAITO"
+    ]
   },
   {
     "id": "PulLO9CgBE0",
@@ -115968,7 +116711,10 @@
     "views": 902264,
     "channel": "emon-Tes. Official Channel",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "Xt1x1s2eAno",
@@ -115991,7 +116737,10 @@
     "views": 7951028,
     "channel": "Tsukuyomi / YurryCanon",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "singer": [
+      "月詠み"
+    ]
   },
   {
     "id": "VznMASce0CM",
@@ -116014,7 +116763,14 @@
     "views": 820012,
     "channel": "ぽりふぉ / PolyphonicBranch",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "rmw_4vVvp-0",
@@ -116037,7 +116793,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "505rBX9MNcQ",
@@ -116060,7 +116819,11 @@
     "views": 4869149,
     "channel": "marasy8",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "KAITO"
+    ]
   },
   {
     "id": "_j5rd9kZIZw",
@@ -116083,7 +116846,12 @@
     "views": 1094680,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "巡音ルカ",
+      "MEIKO"
+    ]
   },
   {
     "id": "pu1gbwsB9Os",
@@ -116106,7 +116874,12 @@
     "views": 3263388,
     "channel": "ピノキオピー PINOCCHIOP OFFICIAL CHANNEL",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音リン",
+      "鏡音レン",
+      "初音ミク"
+    ]
   },
   {
     "id": "jPXAgWkqbo4",
@@ -116129,7 +116902,12 @@
     "views": 14891287,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク",
+      "鏡音レン",
+      "KAITO"
+    ]
   },
   {
     "id": "BTekXS9d-no",
@@ -116152,7 +116930,10 @@
     "views": 5523739,
     "channel": "DECO*27",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "fwb4qCw5Q1I",
@@ -116175,7 +116956,11 @@
     "views": 1915888,
     "channel": "古川本舗",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "巡音ルカ"
+    ]
   },
   {
     "id": "gtYydJJtQdg",
@@ -116198,7 +116983,10 @@
     "views": 3880515,
     "channel": "雄之助/Yunosuke",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "FkO8ub83wss",
@@ -116221,7 +117009,10 @@
     "views": 31055130,
     "channel": "かいりきベア／Kairiki bear",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Dr5vN1GgKlo",
@@ -116244,7 +117035,12 @@
     "views": 822721,
     "channel": "EasyPop",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ",
+      "初音ミク",
+      "鏡音リン"
+    ]
   },
   {
     "id": "dDuyz3Mw720",
@@ -116267,7 +117063,10 @@
     "views": 634255,
     "channel": "和田たけあき",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "singer": [
+      "和田たけあき"
+    ]
   },
   {
     "id": "5m6TyoB2mV8",
@@ -116290,7 +117089,10 @@
     "views": 207035,
     "channel": "buzzG",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "I0XyBfldX2U",
@@ -116313,7 +117115,10 @@
     "views": 953469,
     "channel": "ナナホシ管弦楽団/岩見陸official",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "POD_KGL2aqQ",
@@ -116336,7 +117141,10 @@
     "views": 2599801,
     "channel": "遼遼",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "cerKXekZHfE",
@@ -116359,7 +117167,10 @@
     "views": 1281440,
     "channel": "獅子志司",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "singer": [
+      "獅子志司"
+    ]
   },
   {
     "id": "FS9xdxx42EU",
@@ -116382,7 +117193,10 @@
     "views": 562103,
     "channel": "Mizuno Atsu",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "p6snD1650ck",
@@ -116405,7 +117219,11 @@
     "views": 8507130,
     "channel": "sasakure. UK",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "KAITO"
+    ]
   },
   {
     "id": "I9VfWCyCagQ",
@@ -116428,7 +117246,10 @@
     "views": 7687943,
     "channel": "Guiano",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "可不"
+    ]
   },
   {
     "id": "F9sWMsUNDw0",
@@ -116451,7 +117272,11 @@
     "views": 8510101,
     "channel": "ツユ",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "singer": [
+      "礼衣",
+      "ツユ"
+    ]
   },
   {
     "id": "gtodYcC1nrc",
@@ -116474,7 +117299,11 @@
     "views": 273699,
     "channel": "Heavenz / Experimental Groove",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン",
+      "初音ミク"
+    ]
   },
   {
     "id": "kO-cSKs45ig",
@@ -116497,7 +117326,11 @@
     "views": 391804,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "MEIKO"
+    ]
   },
   {
     "id": "QYpL88jiWFs",
@@ -116520,7 +117353,10 @@
     "views": 3600077,
     "channel": "れるりり, rerulili",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "sAUdWpemfGw",
@@ -116543,7 +117379,10 @@
     "views": 14372433,
     "channel": "いよわ/ iyowa",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "pXLnKaiDeVw",
@@ -116566,7 +117405,11 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "鏡音レン",
+      "KAITO"
+    ]
   },
   {
     "id": "4J1O5NA8Nek",
@@ -116589,7 +117432,10 @@
     "views": 2714232,
     "channel": "ヤマモトガク／Peg",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "gB4hx1MxcGs",
@@ -116612,7 +117458,10 @@
     "views": 1336119,
     "channel": "koyori/電ポルP",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "4NhL6mqkMWY",
@@ -116635,7 +117484,15 @@
     "views": 1407464,
     "channel": "ひとしずく×やま△ （Hitoshizuku_Yamasankakkei）",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "巡音ルカ",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "m1I3XWZ4eUs",
@@ -116658,7 +117515,15 @@
     "views": 755783,
     "channel": "キノシタ/kinoshita",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "巡音ルカ",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "gJqsFNNCIX0",
@@ -116680,7 +117545,10 @@
     "views": 5047972,
     "channel": "Nanou Official",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Ws3B-ozOXDU",
@@ -116703,7 +117571,10 @@
     "views": 85080,
     "channel": "やいり チャンネル",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "xwqjhRwg7xc",
@@ -116726,7 +117597,10 @@
     "views": 1151213,
     "channel": "ツミキ / NOMELON NOLEMON",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "pRZwLHrMsvM",
@@ -116749,7 +117623,10 @@
     "views": 5751102,
     "channel": "Hiiragi Magnetite",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "b2Di3kFGAUM",
@@ -116772,7 +117649,10 @@
     "views": 3508941,
     "channel": "じん OFFICIAL YOUTUBE CHANNEL",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "yVMHWv7hKTE",
@@ -116795,7 +117675,15 @@
     "views": 4081152,
     "channel": "halyosy",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "巡音ルカ",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "akO2mUie1Ds",
@@ -116818,7 +117706,10 @@
     "views": 583464,
     "channel": "Misumi",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "可不"
+    ]
   },
   {
     "id": "QAbwPeAYf_o",
@@ -116841,7 +117732,10 @@
     "views": 1431845,
     "channel": "HoneyWorks OFFICIAL",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Fo3qg44Rn6Q",
@@ -116864,7 +117758,10 @@
     "views": 377997,
     "channel": "40meterP",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "w6bP9GZ2-gg",
@@ -116887,7 +117784,10 @@
     "views": 141329,
     "channel": "doriko",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "ydb05OX2U7M",
@@ -116910,7 +117810,11 @@
     "views": 669855,
     "channel": "- Toa Official -",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン"
+    ]
   },
   {
     "id": "mQH0Fmk1K0g",
@@ -116933,7 +117837,15 @@
     "views": 841313,
     "channel": "nyanyannya",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "巡音ルカ",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "cdw_2hCSYys",
@@ -116956,7 +117868,10 @@
     "views": 122873,
     "channel": "Powerless Sounds Official",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "Sa0d5w-b9Vs",
@@ -116979,7 +117894,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "cCjPspdse94",
@@ -117002,7 +117920,11 @@
     "views": 1382354,
     "channel": "栗山夕璃",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "MEIKO"
+    ]
   },
   {
     "id": "SJcgOWsDwi4",
@@ -117025,7 +117947,12 @@
     "views": 13979357,
     "channel": "Giga",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "OOQWSLYx1u0",
@@ -117048,7 +117975,11 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン"
+    ]
   },
   {
     "id": "SjSlCJG4CxU",
@@ -117071,7 +118002,11 @@
     "views": 899525,
     "channel": "R Sound Design",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "MEIKO"
+    ]
   },
   {
     "id": "94r98Y1CsXg",
@@ -117094,7 +118029,10 @@
     "views": 478209,
     "channel": "MORE MORE JUMP! - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "C5ElSU1EdZk",
@@ -117117,7 +118055,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "MEIKO"
+    ]
   },
   {
     "id": "RifILHUOV_w",
@@ -117140,7 +118081,15 @@
     "views": 680795,
     "channel": "Iori Kanzaki",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "巡音ルカ",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "R0DWNySEhcc",
@@ -117163,7 +118112,15 @@
     "views": 241896,
     "channel": "OSTER projectテスロ&ロゼット",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "巡音ルカ",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "hr_w8F_YeXM",
@@ -117186,7 +118143,10 @@
     "views": 428319,
     "channel": "Sheeno Mirin",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "yys1WD9A2IY",
@@ -117209,7 +118169,14 @@
     "views": 1025879,
     "channel": "official梅とら",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ",
+      "初音ミク",
+      "GUMI",
+      "IA",
+      "鏡音リン"
+    ]
   },
   {
     "id": "P2KRg60WPvE",
@@ -117232,7 +118199,10 @@
     "views": 1493277,
     "channel": "r-906",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "8Kp3EqKnOCw",
@@ -117255,7 +118225,11 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "gjLYd3iyPKM",
@@ -117278,7 +118252,10 @@
     "views": 445371,
     "channel": "*Luna",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "ZynP9ajVfuI",
@@ -117301,7 +118278,10 @@
     "views": 311243,
     "channel": "卯花ロク",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "4T2vDDY6qNw",
@@ -117324,7 +118304,10 @@
     "views": 407252,
     "channel": "picco",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "PAwZl3Up-hc",
@@ -117347,7 +118330,11 @@
     "views": 9419030,
     "channel": "MIMI",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "可不"
+    ]
   },
   {
     "id": "yz0pg4pNzQY",
@@ -117370,7 +118357,10 @@
     "views": 301968,
     "channel": "瀬名航/Wataru Sena",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "u4MhA-3ateU",
@@ -117393,7 +118383,10 @@
     "views": 713101,
     "channel": "すこっぷOfficial Channel",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "FtzVg9SZ9SQ",
@@ -117416,7 +118409,10 @@
     "views": 511950,
     "channel": "CircusP - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "LqteHTWNdu0",
@@ -117439,7 +118435,11 @@
     "views": 942565,
     "channel": "NayutalieN Official / Nayutan Seijin",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン"
+    ]
   },
   {
     "id": "5HPJ7eUvU4o",
@@ -117462,7 +118462,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "uaGq_H22Ok4",
@@ -117485,7 +118488,10 @@
     "views": 586403,
     "channel": "香椎モイミ",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "KAITO"
+    ]
   },
   {
     "id": "7-A2FC4q4ac",
@@ -117508,7 +118514,10 @@
     "views": 3261418,
     "channel": "八王子P",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "KF9Mu2gXNdI",
@@ -117531,7 +118540,11 @@
     "views": 3639535,
     "channel": "Giga",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "鏡音リン",
+      "鏡音レン"
+    ]
   },
   {
     "id": "w0lpuKNZRQ0",
@@ -117554,7 +118567,10 @@
     "views": 5431126,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "Yz2UiHN-u6E",
@@ -117577,7 +118593,10 @@
     "views": 1774172,
     "channel": "夏代孝明-夏と彗星",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "n9xeDxXE4Jc",
@@ -117600,7 +118619,10 @@
     "views": 2249641,
     "channel": "鬱P / Utsu-P",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "y7uFVdBluns",
@@ -117623,7 +118645,10 @@
     "views": 774272,
     "channel": "kemu",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "EEk4JGzqoFg",
@@ -117646,7 +118671,10 @@
     "views": 9314405,
     "channel": "inabakumori",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "歌愛ユキ"
+    ]
   },
   {
     "id": "sjVBXpYzSEg",
@@ -117669,7 +118697,11 @@
     "views": 790390,
     "channel": "niki official",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン"
+    ]
   },
   {
     "id": "hqMzvbxBSXw",
@@ -117692,7 +118724,10 @@
     "views": 195872,
     "channel": "MORE MORE JUMP! - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "BTsrA2SRqhk",
@@ -117715,7 +118750,10 @@
     "views": 547395,
     "channel": "keeno official",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "InZ7GOU-CQ8",
@@ -117738,7 +118776,11 @@
     "views": 4326151,
     "channel": "HarumakiGohan Official",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "重音テト"
+    ]
   },
   {
     "id": "MJa46AEGMb4",
@@ -117761,7 +118803,10 @@
     "views": 1917806,
     "channel": "煮ル果実 / NILFRUITS",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "v flower"
+    ]
   },
   {
     "id": "D4FWxIn3sHU",
@@ -117784,7 +118829,10 @@
     "views": 287067,
     "channel": "平田義久",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音レン"
+    ]
   },
   {
     "id": "MBU2UfZQ5m0",
@@ -117807,7 +118855,10 @@
     "views": 182160,
     "channel": "Go Aoki / Gogotea",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "qmI33kyMeTg",
@@ -117830,7 +118881,10 @@
     "views": 1119108,
     "channel": "袖野あらわ",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "ejG2_B95DzY",
@@ -117853,7 +118907,10 @@
     "views": 1842614,
     "channel": "香椎モイミ",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "WfEY62WVPCc",
@@ -117876,7 +118933,10 @@
     "views": 545763,
     "channel": "ポリスピカデリー / Police Piccadilly",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "jaCSrluJBUE",
@@ -117899,7 +118959,10 @@
     "views": 2429797,
     "channel": "¿?",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "v flower"
+    ]
   },
   {
     "id": "OgQc2wSjy3c",
@@ -117922,7 +118985,10 @@
     "views": 3646569,
     "channel": "Camellia Official",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "JoNrFLnxwpQ",
@@ -117945,7 +119011,10 @@
     "views": 189886,
     "channel": "石風呂 / 朝日",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "nP3Lv7CfCFs",
@@ -117968,7 +119037,10 @@
     "views": 9354025,
     "channel": "羽生まゐご",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "v flower"
+    ]
   },
   {
     "id": "x8-eQ4sEKqs",
@@ -117991,7 +119063,10 @@
     "views": 3155734,
     "channel": "DI:Verse/Akito Shinonome(CV.Fumiya Imai),Toya Aoyagi(CV.Kento Ito),Ts... - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "singer": [
+      "DI:Verse"
+    ]
   },
   {
     "id": "Pr4OUUAXbZI",
@@ -118014,7 +119089,10 @@
     "views": 665403,
     "channel": "Lanndo / ぬゆり Official",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "v flower"
+    ]
   },
   {
     "id": "Nviu-HiYF-0",
@@ -118037,7 +119115,10 @@
     "views": 3179170,
     "channel": "Nightcord at 25:00 - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "singer": [
+      "25時、ナイトコードで。"
+    ]
   },
   {
     "id": "6p6QKhvKkVw",
@@ -118060,7 +119141,15 @@
     "views": 913419,
     "channel": "大漠波新",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "巡音ルカ",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "y8sa2X_aZXQ",
@@ -118083,7 +119172,10 @@
     "views": 362565,
     "channel": "大沼パセリ",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "mxj3mW4jf7Q",
@@ -118106,7 +119198,10 @@
     "views": 3130225,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "C6TAZ8Elbao",
@@ -118129,7 +119224,10 @@
     "views": 5280723,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "singer": [
+      "MORE MORE JUMP！"
+    ]
   },
   {
     "id": "Zqs0lEADyFo",
@@ -118152,7 +119250,10 @@
     "views": 12986505,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "singer": [
+      "Vivid BAD SQUAD"
+    ]
   },
   {
     "id": "91O6VohptEo",
@@ -118175,7 +119276,10 @@
     "views": 3235243,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "singer": [
+      "ワンダーランズ×ショウタイム"
+    ]
   },
   {
     "id": "t5U0rrj0dio",
@@ -118199,7 +119303,10 @@
     "views": 8378156,
     "channel": "DECO*27",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "UoptEaMrnok",
@@ -118222,7 +119329,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "eVfppbSqACQ",
@@ -118245,7 +119355,10 @@
     "views": 3388815,
     "channel": "Chinozo",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "qkAKmANIHDs",
@@ -118268,7 +119381,10 @@
     "views": 360290,
     "channel": "吉田夜世",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "JXbb-_ScjSY",
@@ -118291,7 +119407,11 @@
     "views": 1746688,
     "channel": "syudou",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "v flower"
+    ]
   },
   {
     "id": "j9RGt9Z_UeE",
@@ -118314,7 +119434,11 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "重音テト",
+      "v flower"
+    ]
   },
   {
     "id": "YMv2bRs25mQ",
@@ -118337,7 +119461,10 @@
     "views": 142132,
     "channel": "蝶々P / 一之瀬ユウ",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "H03D7Rr1gbI",
@@ -118360,7 +119487,15 @@
     "views": 192249,
     "channel": "せきこみごはん / Uka",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "鏡音レン",
+      "巡音ルカ",
+      "MEIKO",
+      "KAITO"
+    ]
   },
   {
     "id": "cCZOz1RbvHs",
@@ -118383,7 +119518,10 @@
     "views": 1387380,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "69MN_xQnwU0",
@@ -118406,7 +119544,11 @@
     "views": 81051,
     "channel": "烏屋茶房（カラスヤサボウ）",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音レン",
+      "鏡音リン"
+    ]
   },
   {
     "id": "MlTQUSFr-gw",
@@ -118429,7 +119571,10 @@
     "views": 4516662,
     "channel": "LonePi",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "T1K831KdL1o",
@@ -118452,7 +119597,10 @@
     "views": 1724700,
     "channel": "Guiano",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "重音テト"
+    ]
   },
   {
     "id": "4_OZvsjqJGY",
@@ -118475,7 +119623,11 @@
     "views": 229933,
     "channel": "Noboru",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "GUMI"
+    ]
   },
   {
     "id": "1V9iqdt0CsY",
@@ -118498,7 +119650,10 @@
     "views": 815554,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "巡音ルカ"
+    ]
   },
   {
     "id": "Q7k_ZNjZS94",
@@ -118521,7 +119676,10 @@
     "views": 559981,
     "channel": "Aqu3ra",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "0GnVdv2q3jM",
@@ -118544,7 +119702,10 @@
     "views": 477153,
     "channel": "john / TOOBOE",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "xJYdM-NugcE",
@@ -118567,7 +119728,10 @@
     "views": 124358,
     "channel": "ユジー Yuzy OFFICIAL",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Eb6iBq0zNZg",
@@ -118590,7 +119754,10 @@
     "views": 232230,
     "channel": "namigroove",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "nOtWU5MRiTU",
@@ -118613,7 +119780,10 @@
     "views": 1452219,
     "channel": "かいりきベア／Kairiki bear",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "TbakFPc4ZTw",
@@ -118636,7 +119806,10 @@
     "views": 9619579,
     "channel": "Sakuzyo Official",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "tjL4KK2RWgQ",
@@ -118659,7 +119832,12 @@
     "views": 1664753,
     "channel": "KIRA",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "初音ミク",
+      "重音テト",
+      "GUMI"
+    ]
   },
   {
     "id": "tbeV4Xb3kD8",
@@ -118682,7 +119860,11 @@
     "views": 156303,
     "channel": "TOKOTOKO / 西沢さんP / zawaso Official",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音レン",
+      "鏡音リン"
+    ]
   },
   {
     "id": "hfY9-ROVfvg",
@@ -118705,7 +119887,10 @@
     "views": 98659,
     "channel": "mikitoP  Official",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "Wu8WtrTCX-Q",
@@ -118728,7 +119913,11 @@
     "views": 1111803,
     "channel": "栗山夕璃",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "vocal": [
+      "v flower",
+      "重音テト"
+    ]
   },
   {
     "id": "os_Mx0vCvbY",
@@ -118751,7 +119940,10 @@
     "views": 988128,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "KAITO"
+    ]
   },
   {
     "id": "RIItBfZ6S3Q",
@@ -118774,7 +119966,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "58TbfRY2R8Y",
@@ -118796,7 +119991,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "singer": [
+      "キタニタツヤ"
+    ]
   },
   {
     "id": "eu3yoLa3dgs",
@@ -118819,7 +120017,10 @@
     "views": 434203,
     "channel": "獅子志司",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "csDLDFadvlI",
@@ -118842,7 +120043,10 @@
     "views": 1128499,
     "channel": "Tsukuyomi / YurryCanon",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "singer": [
+      "月詠み"
+    ]
   },
   {
     "id": "MS1JmGKrdFo",
@@ -118865,7 +120069,10 @@
     "views": 373136,
     "channel": "遼遼",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "zVi96Fs1G1c",
@@ -118888,7 +120095,11 @@
     "views": 154687,
     "channel": "Iori Kanzaki",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "重音テト"
+    ]
   },
   {
     "id": "FRSfnD3k_ts",
@@ -118911,7 +120122,10 @@
     "views": 222577,
     "channel": "40meterP",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "p1BHscS8O5w",
@@ -118934,7 +120148,13 @@
     "views": 120003,
     "channel": "Mellowcle",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "鏡音リン",
+      "巡音ルカ",
+      "MEIKO"
+    ]
   },
   {
     "id": "Jf3TxUsgJTU",
@@ -118957,7 +120177,10 @@
     "views": 173857,
     "channel": "和田たけあき",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "重音テト"
+    ]
   },
   {
     "id": "0Ccd0JdqEo4",
@@ -118980,7 +120203,11 @@
     "views": 571677,
     "channel": "SudaKeina Balloon",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "重音テト",
+      "v flower"
+    ]
   },
   {
     "id": "pfT4CQfQFsk",
@@ -119003,7 +120230,10 @@
     "views": 341759,
     "channel": "syudou",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク"
+    ]
   },
   {
     "id": "ul97PWn9gtk",
@@ -119026,7 +120256,10 @@
     "views": 459643,
     "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "鏡音リン"
+    ]
   },
   {
     "id": "wpYrUuQgztk",
@@ -119049,7 +120282,10 @@
     "views": 425639,
     "channel": "雨良 Amala",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "重音テト"
+    ]
   },
   {
     "id": "K4TGmA71xgY",
@@ -119072,7 +120308,15 @@
     "views": 367764,
     "channel": "32ki",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "vocal": [
+      "初音ミク",
+      "GUMI",
+      "IA",
+      "v flower",
+      "可不",
+      "重音テト"
+    ]
   },
   {
     "id": "VIiOdLG1aZs",
@@ -119094,6 +120338,9 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "vocal": [
+      "鏡音リン"
+    ]
   }
 ]

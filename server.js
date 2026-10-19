@@ -188,6 +188,7 @@ app.use(require('compression')()); // 文字のデータ（画面・スクリプ
 app.use('/assets', express.static(path.join(__dirname, 'public', 'assets'), { maxAge: '1d' })); // 画像・動画は1日おぼえてもらう
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json({ limit: '2mb' }));
+require('./lib/drive')(app, req => `${req.headers['x-forwarded-proto'] || req.protocol}://${req.get('host')}`); // ドライブの部屋（車のアプリ＋助手席のスマホ）
 
 // ── 曲データ API（曲チェック画面用）──
 // 書き込みは、このPCから開いたとき（localhost）か、環境変数 ADMIN_KEY と同じキーを付けたときだけ許可

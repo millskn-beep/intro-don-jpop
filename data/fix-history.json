@@ -9629,5 +9629,413 @@
    "intro": 26,
    "chorus": 74
   }
+ },
+ {
+  "id": "jAAZDIGWcio",
+  "title": "UNDEAD",
+  "work": "〈物語〉シリーズ オフ&モンスターシーズン",
+  "channel": "アニプレックス チャンネル",
+  "at": "2026-10-19T15:36:27.117Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 53,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 58.7
+  }
+ },
+ {
+  "id": "F0CLM5wbkqw",
+  "title": "NE-CHU-SHOW",
+  "work": "ババンババンバンバンパイア",
+  "channel": "ぼっちぼろまる",
+  "at": "2026-10-19T15:38:49.030Z",
+  "before": {
+   "intro": 0,
+   "chorus": 126,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 95.8
+  }
+ },
+ {
+  "id": "QbNwgXAXq9M",
+  "title": "Kill or Kiss",
+  "work": "マリッジトキシン",
+  "channel": "平手友梨奈",
+  "at": "2026-10-19T15:39:50.613Z",
+  "before": {
+   "intro": 12.2,
+   "chorus": 125,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 13.2,
+   "chorus": 125
+  }
+ },
+ {
+  "id": "tN_1OM5BGws",
+  "title": "ただ美しい呪い",
+  "work": "とんがり帽子のアトリエ",
+  "channel": "Witch Hat Atelier Anime Official",
+  "at": "2026-10-19T15:45:53.408Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 82,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 53.9
+  }
+ },
+ {
+  "id": "REA6cv8IZqc",
+  "title": "火宴",
+  "work": "鉄鍋のジャン！",
+  "channel": "原因は自分にある。Official",
+  "at": "2026-10-19T15:48:59.454Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 50,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 48
+  }
+ },
+ {
+  "id": "wlTMXFbPfKw",
+  "title": "奇縁ロマンス",
+  "work": "江戸前エルフ",
+  "channel": "ナナヲアカリ OFFICIAL",
+  "at": "2026-10-19T15:51:33.849Z",
+  "before": {
+   "intro": 0,
+   "chorus": 89,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 46.6
+  }
+ },
+ {
+  "id": "WwI7hPXZC-Y",
+  "title": "シャケナベイベー",
+  "work": "マリッジトキシン",
+  "channel": "AKASAKI",
+  "at": "2026-10-19T15:53:18.338Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 126,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 34
+  }
+ },
+ {
+  "id": "SCJ6thMy7qk",
+  "title": "最最最高級のお世話して",
+  "work": "才女のお世話 高嶺の花だらけな名門校で、学院一のお嬢様（生活能力皆無）を陰ながらお世話することになりました",
+  "channel": "angela Official Channel",
+  "at": "2026-10-19T15:53:43.343Z",
+  "before": {
+   "intro": 0,
+   "chorus": 127,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 35
+  }
+ },
+ {
+  "id": "e9RVh2bXA8M",
+  "title": "聖者の行進",
+  "work": "平穏世代の韋駄天達",
+  "channel": "キタニタツヤ / Tatsuya Kitani",
+  "at": "2026-10-19T15:54:05.537Z",
+  "before": {
+   "intro": 5.7,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 5.7,
+   "chorus": 50
+  }
+ },
+ {
+  "id": "coZT_PK-nxc",
+  "title": "君にふさわしい奇跡",
+  "work": "帝乃三姉妹は案外、チョロい。",
+  "channel": "MAISONdes -メゾン・デ- / 日曜日のメゾンデ",
+  "at": "2026-10-19T15:54:27.871Z",
+  "before": {
+   "intro": 6.5,
+   "chorus": 86,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 6.5,
+   "chorus": 59
+  }
+ },
+ {
+  "id": "Bl5CW_aV9PI",
+  "title": "夢じゃないならなんなのさ",
+  "work": "ロックは淑女の嗜みでして",
+  "channel": "Little Glee Monster",
+  "at": "2026-10-19T15:55:10.712Z",
+  "before": {
+   "intro": 5.7,
+   "chorus": 130,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 5.7,
+   "chorus": 50
+  }
+ },
+ {
+  "id": "2ceu5H42bjU",
+  "title": "そんなもんね",
+  "work": "日々は過ぎれど飯うまし",
+  "channel": "asmi Official Channel",
+  "at": "2026-10-19T15:55:45.171Z",
+  "before": {
+   "intro": 1,
+   "chorus": 58,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 51
+  }
+ },
+ {
+  "id": "8HyaYNcH2gA",
+  "title": "パーフェクトデイ",
+  "work": "ギルドの受付嬢ですが、残業は嫌なのでボスをソロ討伐しようと思います",
+  "channel": "310_ｻﾄｳ",
+  "at": "2026-10-19T15:56:06.348Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 128,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 135.1
+  }
+ },
+ {
+  "id": "q2uxFkb7znE",
+  "title": "我がまま",
+  "work": "先輩はおとこのこ",
+  "channel": "くじらofficial",
+  "at": "2026-10-19T15:56:45.312Z",
+  "before": {
+   "intro": 0,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 44
+  }
+ },
+ {
+  "id": "eQ6RE6jKtf0",
+  "title": "シャッターチャンス",
+  "work": "2.5次元の誘惑",
+  "channel": "Meychan official Channel",
+  "at": "2026-10-19T15:57:15.059Z",
+  "before": {
+   "intro": 0,
+   "chorus": 102,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 58
+  }
+ },
+ {
+  "id": "ewkQ5WTlGLc",
+  "title": "赤猫",
+  "work": "ラーメン赤猫",
+  "channel": "水曜日のカンパネラ",
+  "at": "2026-10-19T15:57:41.639Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 117,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 49
+  }
+ },
+ {
+  "id": "O3ZYjfMqAsc",
+  "title": "次回予告",
+  "work": "戦隊大失格",
+  "channel": "キタニタツヤ / Tatsuya Kitani",
+  "at": "2026-10-19T15:58:07.334Z",
+  "before": {
+   "intro": 0,
+   "chorus": 24,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 57
+  }
+ },
+ {
+  "id": "4xH_r0ZJMss",
+  "title": "あいことば",
+  "work": "経験済みなキミと、経験ゼロなオレが、お付き合いする話。",
+  "channel": "AliA OFFICIAL",
+  "at": "2026-10-19T15:58:21.993Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 71,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 70
+  }
+ },
+ {
+  "id": "K8GZ8SoNfmE",
+  "title": "傷つけど、愛してる。",
+  "work": "東京リベンジャーズ 聖夜決戦編",
+  "channel": "ツユ",
+  "at": "2026-10-19T15:58:39.967Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 61,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 55
+  }
+ },
+ {
+  "id": "B6lQMyMw9kw",
+  "title": "円鈴",
+  "work": "鬼人幻燈抄",
+  "channel": "FAKE TYPE. (TOPHAMHAT-KYO & DYES IWASAKI)",
+  "at": "2026-10-19T15:59:06.702Z",
+  "before": {
+   "intro": 1.5,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.5,
+   "chorus": 59
+  }
+ },
+ {
+  "id": "wWvXpgIqhi0",
+  "title": "LOVE MEN HOLIC",
+  "work": "ラーメン大好き小泉さん",
+  "channel": "FlyingDog",
+  "at": "2026-10-19T15:59:34.257Z",
+  "before": {
+   "intro": 3,
+   "chorus": 105,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 3,
+   "chorus": 59
+  }
+ },
+ {
+  "id": "4dnT-kKIO6Y",
+  "title": "アカシア",
+  "work": "ポケットモンスター（ポケモン スペシャルミュージックビデオ「GOTCHA!」）",
+  "channel": "BUMP OF CHICKEN",
+  "at": "2026-10-19T15:59:53.309Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 68,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.7,
+   "chorus": 64
+  }
+ },
+ {
+  "id": "4q-MBRA2D7w",
+  "title": "今この胸に滾るのは",
+  "work": "スノウボールアース",
+  "channel": "Ai Higuchi",
+  "at": "2026-10-19T16:00:31.752Z",
+  "before": {
+   "intro": 0,
+   "chorus": 68,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 84
+  }
+ },
+ {
+  "id": "UFw27xYEvbY",
+  "title": "猫じゃらし",
+  "work": "正反対な君と僕 第2期",
+  "channel": "7co ",
+  "at": "2026-10-19T16:01:13.189Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 59
+  }
  }
 ]

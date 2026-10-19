@@ -812,5 +812,27 @@
   "votes": 1,
   "songId": "tN_1OM5BGws",
   "doneAt": "2026-10-19T15:21:20.381Z"
+ },
+ {
+  "id": "bf23c741",
+  "title": "とげとげサディアウティック",
+  "work": "魔法少女にあこがれて",
+  "artist": "エノルミータ",
+  "genre": "romcom",
+  "note": "",
+  "at": "2026-10-19T15:36:52.772Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "7e2f7e51",
+  "title": "LOVE or HATE?",
+  "work": "悪役令嬢レベル９９～私は裏ボスですが魔王ではありません",
+  "artist": "前島麻由",
+  "genre": "drama",
+  "note": "",
+  "at": "2026-10-19T15:42:40.767Z",
+  "status": "open",
+  "votes": 1
  }
 ]

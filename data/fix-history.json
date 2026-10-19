@@ -9510,5 +9510,124 @@
    "intro": 28.9,
    "chorus": 74.5
   }
+ },
+ {
+  "id": "IXOLvFxPF-Q",
+  "title": "イロドリ",
+  "work": "夜のクラゲは泳げない",
+  "channel": "カノエラナ Official",
+  "at": "2026-10-18T17:34:57.905Z",
+  "before": {
+   "intro": 0,
+   "chorus": 48,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 12,
+   "chorus": 48
+  }
+ },
+ {
+  "id": "K5T_aKoN31Q",
+  "title": "眠れ",
+  "work": "よふかしのうた Season2",
+  "channel": "【フジテレビ】アニメ公式チャンネル",
+  "at": "2026-10-18T17:44:06.409Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 79,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 51
+  }
+ },
+ {
+  "id": "mpb2pQtGb5A",
+  "title": "NO, Thank You!",
+  "work": "けいおん!!",
+  "channel": "Houkago Teatime - Topic",
+  "at": "2026-10-18T17:54:47.512Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 41,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 63.2
+  }
+ },
+ {
+  "id": "B4A-edPIz-s",
+  "title": "しっくおぶはうす!",
+  "work": "ボカロ（オゾン）",
+  "channel": "OZON Music",
+  "at": "2026-10-19T13:06:22.362Z",
+  "before": {
+   "intro": 0,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 101.5
+  }
+ },
+ {
+  "id": "hfY9-ROVfvg",
+  "title": "カラフルファンデーション",
+  "work": "ボカロ（プロセカ）",
+  "channel": "mikitoP  Official",
+  "at": "2026-10-19T13:18:59.700Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 74,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 52.2
+  }
+ },
+ {
+  "id": "ta9zslmSRqg",
+  "title": "ジグソーパズル",
+  "work": "ボカロ（まふまふ）",
+  "channel": "まふまふちゃんねる",
+  "at": "2026-10-19T13:22:13.628Z",
+  "before": {
+   "intro": 1,
+   "chorus": 124,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 61.2
+  }
+ },
+ {
+  "id": "PfX1hMWkB-I",
+  "title": "BRIGHT STREAM",
+  "work": "魔法少女リリカルなのは The MOVIE 2nd A's",
+  "channel": "水樹奈々",
+  "at": "2026-10-19T14:02:21.449Z",
+  "before": {
+   "intro": 26,
+   "chorus": 68,
+   "introMethod": null,
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 26,
+   "chorus": 74
+  }
  }
 ]

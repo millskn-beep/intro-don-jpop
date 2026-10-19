@@ -10,6 +10,7 @@ const collator = new Intl.Collator('ja');
 async function load() {
   const data = await fetch('/api/catalog').then(r => r.json());
   songs = data.songs;
+  songs.forEach((s, i) => { s.order = i; }); // 曲データに入れた順（あとに入れた曲ほど大きい）。「追加順」に使う
   // 流れた回数・正解率（公開サイトの統計）。なくても動く
   try { const st = (await fetch('/api/play-stats').then(r => r.json()))['play-stats'].songs; for (const s of songs) { const r = st[s.id]; s.plays = r ? r[0] : 0; s.ans = r ? r[1] : 0; s.cor = r ? r[2] : 0; } } catch (e) { for (const s of songs) { s.plays = s.ans = s.cor = 0; } }
   data.genres.forEach(g => { genreLabel[g.key] = g.label; $('genre').insertAdjacentHTML('beforeend', `<option value="${g.key}">${esc(g.label)}</option>`); });
@@ -31,6 +32,7 @@ const KEY = {
   title: s => s.title, work: s => s.work, artist: s => s.artist, year: s => s.year,
   genre: s => genreOf(s) || '￿', fame: s => fameOrder[s.fame] ?? 9,
   plays: s => s.plays || 0, rate: s => (s.ans >= 3 ? s.cor / s.ans : -1),
+  added: s => -s.order, // 追加順：新しく入れた曲から
 };
 function filtered() {
   const q = $('q').value.trim().toLowerCase(), g = $('genre').value, f = $('fame').value, d = $('decade').value;

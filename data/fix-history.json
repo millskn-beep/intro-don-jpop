@@ -10037,5 +10037,73 @@
    "intro": 0.5,
    "chorus": 59
   }
+ },
+ {
+  "id": "MfDNO4C-nSs",
+  "title": "Invisible Heat",
+  "work": "魔法少女リリカルなのは Reflection",
+  "channel": "水樹奈々",
+  "at": "2026-10-20T14:14:29.300Z",
+  "before": {
+   "intro": 0,
+   "chorus": 75,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 69
+  }
+ },
+ {
+  "id": "CHtlavcvLbg",
+  "title": "FIRE SCREAM",
+  "work": "戦姫絶唱シンフォギアXD UNLIMITED",
+  "channel": "水樹奈々",
+  "at": "2026-10-20T14:46:42.833Z",
+  "before": {
+   "intro": 0,
+   "chorus": 68,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 68.7,
+   "chorus": 81.1
+  }
+ },
+ {
+  "id": "0XQ2ISpKnkY",
+  "title": "marshmallow justice",
+  "work": "偽物語",
+  "channel": "StiylMagnus",
+  "at": "2026-10-20T15:17:31.966Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 0,
+   "introMethod": "v2",
+   "chorusSource": null
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 59.6
+  }
+ },
+ {
+  "id": "ZWjbvYWUMHo",
+  "title": "革命道中",
+  "work": "ダンダダン 第2期",
+  "channel": "MBS animation 公式チャンネル",
+  "at": "2026-10-20T16:27:18.508Z",
+  "before": {
+   "intro": 2,
+   "chorus": 61,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 61
+  }
  }
 ]

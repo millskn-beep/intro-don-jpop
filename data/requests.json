@@ -821,8 +821,10 @@
   "genre": "romcom",
   "note": "",
   "at": "2026-10-19T15:36:52.772Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "KPUqFAZFK9M",
+  "doneAt": "2026-10-20T17:30:00.208Z"
  },
  {
   "id": "7e2f7e51",
@@ -832,7 +834,9 @@
   "genre": "drama",
   "note": "",
   "at": "2026-10-19T15:42:40.767Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "4noCHoUpWFY",
+  "doneAt": "2026-10-20T17:30:00.341Z"
  }
 ]

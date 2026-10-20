@@ -1375,9 +1375,11 @@ socket.on('restartIntro', ({ n, plays }) => {
   setPhase('intro', `イントロ再生中…（${n}回目！）`); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen');
 });
 let hintSeen = false; // この問題でサビ（ヒント）まで流したか。流していなければ、答え合わせでサビへ移動する
-socket.on('hint', ({ chorus, known = true, intro = 0, seek = true }) => {
+socket.on('hint', ({ chorus, known = true, intro = 0, seek = true, flow = false }) => {
   hintSeen = true;
-  if (seek) player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); // サビ前問題は流れのままサビに入る
+  // flow：3つ埋めバトルで流し続けている曲。サビの位置より前ならサビへ、もう過ぎていればそのまま流す
+  if (flow) { const c = known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration()); if (seek && player.time() < c - 1) player.hint(c); }
+  else if (seek) player.hint(known && chorus !== intro + 50 ? chorus : guessChorus(intro, player.duration())); // サビ前問題は流れのままサビに入る
   cue('サビ！', 'fx-burst');
   setPhase('chorus', 'サビ再生中 ✨（得点×0.7）'); coverFx('fx-chorus'); stageMascot('chorus'); charFx.pose('chorus'); charFx.say('chorus');
 });

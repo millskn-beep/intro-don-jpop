@@ -3193,7 +3193,8 @@ function go(room) {
   later(room, () => {
     if (q.phase !== 'intro') return;
     q.phase = 'chorus';
-    if (q.flowOn) return broadcastRoom(room); // 3つ埋めバトル：イントロ中に押されたら、サビへ飛ばずに流し続ける（点数はサビ扱い）
+    // 3つ埋めバトル：イントロ中に押されて流し続けている曲は、まだサビまで来ていなければサビへ移る（もう過ぎていればそのまま）
+    if (q.flowOn) { io.to(room.code).emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae', flow: true }); return broadcastRoom(room); }
     io.to(room.code).emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' }); // どこから問題はサビへ移動する
     if (q.rush?.hit) io.to(room.code).emit('rushReach', { color: q.rush.color }); // 激アツRUSH：当たりの問題は「リーチ！」
     broadcastRoom(room);

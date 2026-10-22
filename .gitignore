@@ -28,3 +28,6 @@ data/struct-ai/
 data/struct-tmp/
 data/struct-*.log
 data/ids.tmp
+
+# 再起動なしの反映（tools/push-live.js）の鍵。公開しない（ハッシュだけ data/live-key.sha256 に置く）
+.live-key

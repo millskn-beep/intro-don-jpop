@@ -9,7 +9,7 @@
     "confidence": "中",
     "source": "ザ・ゴールデン・カップス（Topic）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 43.9,
     "aliases": [],
     "embeddable": null,
     "chorusChecked": true,
@@ -21,7 +21,8 @@
       "きょじんのほし"
     ],
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "hsQTrgfdqRM",
@@ -182,7 +183,7 @@
     "confidence": "中",
     "source": "Susumu Ishikawa（Topic）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 38,
     "aliases": [
       "どこんじょうでやんす"
     ],
@@ -201,7 +202,8 @@
       "いしかわすすむ",
       "石川",
       "いしかわ"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "lCQ392MwsYo",
@@ -297,7 +299,7 @@
       "アニキ"
     ],
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 51.2,
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
@@ -305,7 +307,8 @@
     "views": 86014,
     "channel": "西の丸",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "WTwdil-yaEE",
@@ -830,7 +833,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 75.7,
     "aliases": [
       "くっくろびんおんど"
     ],
@@ -850,7 +853,8 @@
     "views": 365258,
     "channel": "Warui Boya",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "oSrVLQa4-EU",
@@ -897,7 +901,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [
       "ぱたりろ"
     ],
@@ -916,7 +920,8 @@
     "views": 790395,
     "channel": "aynoh8021",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "1-d8U3kt-fM",
@@ -1185,7 +1190,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 7.7,
-    "chorus": 0,
+    "chorus": 64.7,
     "aliases": [
       "うつくしさはつみ"
     ],
@@ -1204,7 +1209,8 @@
     "views": 61428,
     "channel": "Boku Patalliro! Soundtrack",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "m1ZZwp-39UY",
@@ -1338,7 +1344,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 138.8,
     "aliases": [
       "こんがらこねくしょん"
     ],
@@ -1358,7 +1364,8 @@
     "views": 13990,
     "channel": "いやいやえんのケサランパサランチャンネル",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "FbEVXulYEFc",
@@ -1714,7 +1721,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 41.9,
     "aliases": [
       "がんもどきっ"
     ],
@@ -1733,7 +1740,8 @@
     "views": 504766,
     "channel": "Penguin Video Store",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "Re8l4a48R70",
@@ -1774,7 +1782,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 44.3,
     "aliases": [
       "ひょこぽんかんけい"
     ],
@@ -1793,7 +1801,8 @@
     "views": 30027,
     "channel": "Miki Matsubara 松原みき",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "T_lC2O1oIew",
@@ -2096,7 +2105,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 5.5,
-    "chorus": 0,
+    "chorus": 61.2,
     "aliases": [
       "ぼうけんのありばい"
     ],
@@ -2115,7 +2124,8 @@
     "views": 47898,
     "channel": "ShowA-Mang",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "N7MHXbsT3J4",
@@ -2630,7 +2640,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 51.3,
     "aliases": [
       "ダンスアウェイ",
       "ダンスアウェー"
@@ -2651,7 +2661,8 @@
     "views": 19119,
     "channel": "Ray Ho",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "CCfRM-2M62k",
@@ -2691,7 +2702,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 62.3,
     "aliases": [
       "フォローユアドリーム"
     ],
@@ -2711,7 +2722,8 @@
     "views": 138902,
     "channel": "genesis2525",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "EwTZwtGnc-c",
@@ -3198,7 +3210,7 @@
     "views": 625755,
     "channel": "Masanori Ikeda - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "otaku",
     "workAliases": [
       "きまぐれおれんじろーど",
       "きまオレ"
@@ -3401,7 +3413,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 63.2,
     "aliases": [
       "ラブアフェア"
     ],
@@ -3417,7 +3429,8 @@
     "views": 9318,
     "channel": "Kojiro Shimizu - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "KWZf8MrUm2U",
@@ -4120,7 +4133,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 45.6,
     "aliases": [
       "おれたるるーと"
     ],
@@ -4139,7 +4152,8 @@
     "views": 229,
     "channel": "AnimeSongs Official",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "uHT0LcaB3bI",
@@ -4151,7 +4165,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 30.7,
     "aliases": [
       "きみとせかいせいふく"
     ],
@@ -4172,7 +4186,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "gQxQYfFWlPA",
@@ -4608,7 +4623,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 53.2,
     "aliases": [
       "ときのかわ"
     ],
@@ -4628,7 +4643,8 @@
     "views": 497314,
     "channel": "hanada01",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "uNOHdaYMpHE",
@@ -4673,7 +4689,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.5,
-    "chorus": 0,
+    "chorus": 83.8,
     "aliases": [
       "スタンディングアローン"
     ],
@@ -4693,7 +4709,8 @@
     "views": 33128,
     "channel": "Fence Of Defense - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "9Ok6k3ynIss",
@@ -4865,7 +4882,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 87.8,
     "aliases": [
       "えいえんのこどく"
     ],
@@ -4886,7 +4903,8 @@
     "views": 1104768,
     "channel": "test",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "xGccMCNqTik",
@@ -5344,7 +5362,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.5,
-    "chorus": 0,
+    "chorus": 63.2,
     "aliases": [
       "だうんたうんだんす"
     ],
@@ -5364,7 +5382,8 @@
     "views": 131105,
     "channel": "• Sakurima San AMV ™ •",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "N-zNTXdysjI",
@@ -5946,7 +5965,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 86.1,
     "aliases": [
       "もしもあなたにあわなければ"
     ],
@@ -5970,7 +5989,8 @@
     "views": 10109,
     "channel": "高尾直樹 - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "W8ONcV-AaVU",
@@ -6073,7 +6093,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 33.9,
     "aliases": [
       "えがおはきみのわすれもの"
     ],
@@ -6097,7 +6117,8 @@
     "views": 34718,
     "channel": "Yuka Sato - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "1Bk9YpwWEsg",
@@ -6244,7 +6265,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 154.8,
     "aliases": [
       "ぼくらのすてき"
     ],
@@ -6268,7 +6289,8 @@
     "viewsAt": "2026-10-10",
     "fame": "minor",
     "introSource": "auto",
-    "introBefore": 0.2
+    "introBefore": 0.2,
+    "chorusSource": "audio"
   },
   {
     "id": "QGYfX8z4goE",
@@ -6340,7 +6362,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 4,
-    "chorus": 0,
+    "chorus": 175.1,
     "aliases": [
       "ビーパーラブ"
     ],
@@ -6358,7 +6380,8 @@
     "views": 979,
     "channel": "Dazai",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "wNhuXQyyBr8",
@@ -6475,7 +6498,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 90.2,
     "aliases": [
       "イリュージョン"
     ],
@@ -6493,7 +6516,8 @@
     "views": 45458,
     "channel": "INVOICE - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "9RwxXS7G_Qc",
@@ -6694,7 +6718,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 76.2,
     "aliases": [
       "らうんどとりっぷそのてをはなさないで",
       "ラウンドトリップ",
@@ -6714,7 +6738,8 @@
     "views": 218500,
     "channel": "Anjinewabe",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "wzcm_awsZeQ",
@@ -6874,7 +6899,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 83.8,
     "aliases": [
       "きらくにいこう"
     ],
@@ -6898,7 +6923,8 @@
     "views": 29228,
     "channel": "村田和美 - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "cMuOjZtRmkc",
@@ -7078,7 +7104,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 111.7,
     "aliases": [
       "じゅんしん"
     ],
@@ -7098,7 +7124,8 @@
     "views": 39862,
     "channel": "Shoko Inoue - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "DBUNkKOjUK8",
@@ -7544,7 +7571,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 6.2,
-    "chorus": 0,
+    "chorus": 60.8,
     "aliases": [
       "マジカルラビリンス"
     ],
@@ -7562,7 +7589,8 @@
     "views": 57626,
     "channel": "Music style",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "DIcDCwcERDU",
@@ -7745,7 +7773,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 87,
     "aliases": [
       "あついきもち"
     ],
@@ -7763,7 +7791,8 @@
     "views": 35396,
     "channel": "ONE STEP communicate - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "wv78j40_tg0",
@@ -7851,7 +7880,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 54.9,
     "aliases": [
       "すぱいしーらいふ"
     ],
@@ -7871,7 +7900,8 @@
     "views": 14323,
     "channel": "Touzoku-NO",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "HvcsDb697iw",
@@ -7905,7 +7935,7 @@
     "views": 1610735,
     "channel": "Release - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "famous"
   },
   {
     "id": "ewphY7jULL0",
@@ -8070,7 +8100,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 93.1,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -8086,7 +8116,8 @@
     "views": 45543,
     "channel": "Oiishax3",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "vAxd7GVEtOE",
@@ -8164,7 +8195,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 23.5,
     "aliases": [
       "せのびをしてふぉろーゆー"
     ],
@@ -8182,7 +8213,8 @@
     "views": 711,
     "channel": "MUSICANIME ",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "dFiRd5iimdI",
@@ -8289,7 +8321,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 95.6,
     "aliases": [
       "あしたははれるね",
       "あすははれるね"
@@ -8314,7 +8346,8 @@
     "views": 1580,
     "channel": "Release - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "CWLnpHe9B-Q",
@@ -8597,7 +8630,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 29.8,
     "aliases": [
       "ハニービー"
     ],
@@ -8617,7 +8650,8 @@
     "views": 7678,
     "channel": "lol.",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "gPcPseeICjs",
@@ -8687,7 +8721,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 7.5,
-    "chorus": 0,
+    "chorus": 83.8,
     "aliases": [
       "スピリット"
     ],
@@ -8705,7 +8739,8 @@
     "views": 1006945,
     "channel": "alka",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "xm8Hyk3oGS4",
@@ -9303,7 +9338,7 @@
     "confidence": "中",
     "source": "Euromania",
     "intro": 14,
-    "chorus": 0,
+    "chorus": 76,
     "aliases": [
       "ダンシング"
     ],
@@ -9324,7 +9359,8 @@
       "ヴィッキーヴェイル"
     ],
     "introSource": "auto",
-    "introBefore": 1.7
+    "introBefore": 1.7,
+    "chorusSource": "audio"
   },
   {
     "id": "s0NME1GfbIc",
@@ -9852,7 +9888,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 84,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -9868,7 +9904,8 @@
     "views": 120427,
     "channel": "the castanets unofficial movie",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "gNod5q2FGag",
@@ -10193,7 +10230,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 3.2,
-    "chorus": 0,
+    "chorus": 92,
     "aliases": [
       "ふびのそうごうしょうしゃ"
     ],
@@ -10213,7 +10250,8 @@
     "views": 48384,
     "channel": "shiyodekirukakakunin",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "qDwO4_kMaTc",
@@ -10261,7 +10299,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 5,
-    "chorus": 0,
+    "chorus": 70.5,
     "aliases": [
       "かぜのねむるしま"
     ],
@@ -10284,7 +10322,8 @@
     "viewsAt": "2026-10-10",
     "fame": "minor",
     "introSource": "auto",
-    "introBefore": 0.2
+    "introBefore": 0.2,
+    "chorusSource": "audio"
   },
   {
     "id": "iY_WqX5VaL4",
@@ -10491,7 +10530,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 47.3,
     "aliases": [
       "ハイホー"
     ],
@@ -10510,7 +10549,8 @@
     "views": 16386,
     "channel": "Release - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "sA0lbCoSCOQ",
@@ -10653,7 +10693,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 73.8,
     "aliases": [
       "セイブマイハート",
       "セーブマイハート"
@@ -10674,7 +10714,8 @@
     "viewsAt": "2026-10-10",
     "fame": "minor",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "6QouPXYYxTo",
@@ -10754,7 +10795,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 88.9,
     "aliases": [
       "おあしす"
     ],
@@ -10773,7 +10814,8 @@
     "views": 317,
     "channel": "amenohayasi",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "BWG_OOCRoQo",
@@ -10956,7 +10998,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 46.1,
     "aliases": [
       "やっぱりきみがすき"
     ],
@@ -10975,7 +11017,8 @@
     "views": 1979473,
     "channel": "aramaki0612",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "KgJvSGEO_Nw",
@@ -11117,7 +11160,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 69.9,
     "aliases": [
       "いえじ"
     ],
@@ -11138,7 +11181,8 @@
     "views": 55995,
     "channel": "petatoron",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "yEVEKekvbFo",
@@ -11612,7 +11656,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 66,
     "aliases": [
       "スーパーガイズ"
     ],
@@ -11632,7 +11676,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "xRyL5BPOWfE",
@@ -11670,7 +11715,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 48,
     "aliases": [
       "タンブリングダイス"
     ],
@@ -11691,7 +11736,8 @@
     "views": 46070,
     "channel": "Tsuneo Imahori - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "j3xV8yfBC2A",
@@ -12117,7 +12163,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 34.6,
     "aliases": [
       "かぜのあおうみのみどり"
     ],
@@ -12137,7 +12183,8 @@
     "views": 47713,
     "channel": "Ikuko - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "rdcH39hzT7A",
@@ -12149,7 +12196,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 56.2,
     "aliases": [
       "かぜまかせ"
     ],
@@ -12170,7 +12217,8 @@
     "views": 37039,
     "channel": "saba123987",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "taF9Jv46NZc",
@@ -13357,7 +13405,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 4.5,
-    "chorus": 0,
+    "chorus": 95,
     "aliases": [
       "エバーラスティングラブ"
     ],
@@ -13375,7 +13423,8 @@
     "views": 25641,
     "channel": "SeYUN - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "K5hMzC-ST6A",
@@ -13420,7 +13469,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 66,
     "aliases": [
       "フェイントラブ"
     ],
@@ -13439,7 +13488,8 @@
     "viewsAt": "2026-10-10",
     "fame": "minor",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "dkuLvv9nHuw",
@@ -13451,7 +13501,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 33.7,
     "aliases": [
       "グランブルー",
       "グランドブルー"
@@ -13471,7 +13521,8 @@
     "views": 35021,
     "channel": "アニメ映画予告編アーカイブ",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "ofYTAoS4LzE",
@@ -13590,7 +13641,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 8.2,
-    "chorus": 0,
+    "chorus": 70.8,
     "aliases": [
       "イッツマイスタイル"
     ],
@@ -13611,7 +13662,8 @@
     "viewsAt": "2026-10-10",
     "fame": "minor",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "YWOWz2_otYU",
@@ -13623,7 +13675,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 184.5,
     "aliases": [
       "こいぶみ"
     ],
@@ -13642,7 +13694,8 @@
     "views": 44981,
     "channel": "Megumi Hayashibara - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "cDILVWma8Sk",
@@ -13686,7 +13739,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 74.9,
     "aliases": [
       "レットミービーウィズユー",
       "レットミービーウィズユーニューステップミックス"
@@ -13705,7 +13758,8 @@
     "views": 477728,
     "channel": "みけたまちゃんねる",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "IwYcU3RSgWI",
@@ -13786,7 +13840,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 70.1,
     "aliases": [
       "プリズム"
     ],
@@ -13807,7 +13861,8 @@
     "views": 9925,
     "channel": "Miki Ashihara from Little Voice - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "0Ms8OU1bFhk",
@@ -13819,7 +13874,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 62.1,
     "aliases": [
       "プリズム"
     ],
@@ -13840,7 +13895,8 @@
     "views": 2970,
     "channel": "T.L.Signal (CV:Shinji Kakijima) - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "ZOvvqko2gT4",
@@ -14391,7 +14447,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 59.5,
     "aliases": [
       "たびのとちゅう"
     ],
@@ -14402,7 +14458,8 @@
     "views": 32790,
     "channel": "紗波羅 砂漠",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "g1-MKI-WhkE",
@@ -14648,7 +14705,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 99.6,
     "aliases": [
       "セカンドフライト"
     ],
@@ -14670,7 +14727,8 @@
     "views": 646,
     "channel": "Uta~i music",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "XvollsAzwEE",
@@ -15663,7 +15721,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 163.2,
     "aliases": [
       "ゴーイングマイウェイ"
     ],
@@ -15681,7 +15739,8 @@
     "viewsAt": "2026-10-10",
     "fame": "minor",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "qjjy0w_m0DU",
@@ -15792,7 +15851,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 65.8,
     "aliases": [
       "アイウィル"
     ],
@@ -15811,7 +15870,8 @@
     "views": 14282,
     "channel": "Sony Music Japan",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "my7Rtb6ToZ4",
@@ -16011,7 +16071,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 68.2,
     "aliases": [
       "マザーランド"
     ],
@@ -16031,7 +16091,8 @@
     "views": 828824,
     "channel": "CrystalKayKodaKumiJpop",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "ADo7PZy4yOg",
@@ -16436,7 +16497,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 69.2,
     "aliases": [
       "ここにいるから"
     ],
@@ -16456,7 +16517,8 @@
     "views": 34400,
     "channel": "橋本みゆき Official Channel",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "8pQuRe_2gBs",
@@ -16995,7 +17057,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 43.5,
     "aliases": [
       "ちょうへんしんこすぷれいやー",
       "こすぷれいやー"
@@ -17014,7 +17076,8 @@
     "views": 18023,
     "channel": "SUZUSIRA110",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "EqVoCfSwfUY",
@@ -17427,7 +17490,7 @@
     "views": 1596441,
     "channel": "Mika Arisaka - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "きどうせんしがんだむしーど",
       "がんだむしーど",
@@ -17789,7 +17852,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 57.8,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
@@ -17804,7 +17867,8 @@
     "views": 6448495,
     "channel": "zadkiel",
     "viewsAt": "2026-10-10",
-    "fame": "top"
+    "fame": "top",
+    "chorusSource": "audio"
   },
   {
     "id": "ZVHQa-d0vZI",
@@ -20048,7 +20112,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 69.5,
     "aliases": [
       "きおくのかけら"
     ],
@@ -20067,7 +20131,8 @@
     "views": 38523,
     "channel": "nobuko - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "CPk_0MTfgQ4",
@@ -20259,7 +20324,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 62.9,
     "aliases": [
       "あおいこうふく"
     ],
@@ -20278,7 +20343,8 @@
     "views": 48245,
     "channel": "nobuko - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "v0jR6L0znLY",
@@ -21702,7 +21768,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 7.7,
-    "chorus": 0,
+    "chorus": 79.2,
     "aliases": [
       "かくせいひろいずむ",
       "かくせいひろいずむざひーろーうぃずあうとあねーむ"
@@ -21722,7 +21788,8 @@
     "views": 134642,
     "channel": "xFlamingIcex",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "iG5zIolY72w",
@@ -21734,7 +21801,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 66.2,
     "aliases": [
       "あかつきのそらをかける"
     ],
@@ -21754,7 +21821,8 @@
     "views": 42069,
     "channel": "Hiromi Sato - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "9US7wh4oOjE",
@@ -22623,7 +22691,7 @@
     "confidence": "低",
     "source": "zoeyichigo1",
     "intro": 13,
-    "chorus": 0,
+    "chorus": 71.8,
     "aliases": [
       "フラワーオブブレイバリー"
     ],
@@ -22642,7 +22710,8 @@
     ],
     "artistAliases": [
       "フリップサイド"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "l8KIJCrr0_o",
@@ -22746,7 +22815,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 65.3,
     "aliases": [
       "アイウィッシュ"
     ],
@@ -22762,7 +22831,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "coupling": true,
-    "couplingOf": "NO RAIN NO RAINBOW"
+    "couplingOf": "NO RAIN NO RAINBOW",
+    "chorusSource": "audio"
   },
   {
     "id": "3hblnJc3Nn0",
@@ -24176,7 +24246,7 @@
     "confidence": "中",
     "source": "Release（Topic）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 44.5,
     "aliases": [
       "やっぱりせかいはあたしれじぇんど"
     ],
@@ -24197,7 +24267,8 @@
       "ふりっぷさいどなおぷろじぇくと",
       "fripSide",
       "フリップサイド"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "fGGTf044UPI",
@@ -24608,7 +24679,7 @@
     "confidence": "低",
     "source": "田中太郎",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 66.2,
     "aliases": [
       "みはてぬゆめ"
     ],
@@ -24631,7 +24702,8 @@
       "たむら",
       "織田信長",
       "おだのぶなが"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "1UAkQP8tytM",
@@ -25474,7 +25546,7 @@
     "confidence": "低",
     "source": "MayoiKoneko",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 47.6,
     "aliases": [
       "ブルーミン"
     ],
@@ -25491,7 +25563,8 @@
     ],
     "artistAliases": [
       "リトルノン"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "YBVQcTE2Z08",
@@ -25856,7 +25929,7 @@
     "confidence": "低",
     "source": "Sierra118Production",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 64.2,
     "aliases": [
       "ゲットザドア"
     ],
@@ -25878,7 +25951,8 @@
       "おおはしりえ",
       "大橋",
       "おおはし"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "s3_jpPKEQxE",
@@ -26091,7 +26165,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 69.4,
     "aliases": [
       "ジョイント"
     ],
@@ -26110,7 +26184,8 @@
     "views": 13644,
     "channel": "Yu Asakura - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "li1WjKl2boY",
@@ -27315,7 +27390,7 @@
     "views": 1616258,
     "channel": "Stereopony - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "だーかーざんぶらっく",
       "ダカブラ"
@@ -28202,7 +28277,7 @@
     "confidence": "低",
     "source": "SilverNightx1",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 62.1,
     "aliases": [
       "おちないそら"
     ],
@@ -28222,7 +28297,8 @@
     ],
     "artistAliases": [
       "エナ"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "bGPA9QXcqBU",
@@ -28660,7 +28736,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 43.7,
     "aliases": [
       "バカゴーホーム"
     ],
@@ -28678,7 +28754,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "D8cCyfV3O0c",
@@ -30248,7 +30325,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 73.1,
     "aliases": [
       "サウザンドエネミーズ"
     ],
@@ -30265,7 +30342,8 @@
     "views": 46145,
     "channel": "LiSA Official YouTube",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "prlFUuAEHw0",
@@ -31040,7 +31118,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 79.4,
     "aliases": [
       "ふゆこい"
     ],
@@ -31054,7 +31132,8 @@
     "views": 1116,
     "channel": "YA-KYIM - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "QsBOXebApZY",
@@ -31322,7 +31401,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.7,
-    "chorus": 0,
+    "chorus": 88.9,
     "aliases": [
       "れいん"
     ],
@@ -31338,7 +31417,8 @@
     "views": 5452831,
     "channel": "elfishtune",
     "viewsAt": "2026-10-10",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "vnw8zURAxkU",
@@ -33118,7 +33198,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 80.9,
     "aliases": [
       "ディパーチャーズ",
       "でぃぱーちゃーずあなたにおくるあいのうた",
@@ -33138,7 +33218,8 @@
     "views": 21759,
     "channel": "Orion League",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "ty9F3qkwUhM",
@@ -33271,7 +33352,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 67.3,
     "aliases": [
       "エンドレススター"
     ],
@@ -33290,7 +33371,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "coupling": true,
-    "couplingOf": "PRESENTER"
+    "couplingOf": "PRESENTER",
+    "chorusSource": "audio"
   },
   {
     "id": "peJg9IxA87o",
@@ -33561,7 +33643,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 57.8,
     "aliases": [
       "ハイステッパー"
     ],
@@ -33579,7 +33661,8 @@
     "introMeasured": true,
     "introMethod": "v2",
     "coupling": true,
-    "couplingOf": "SCARLET KNIGHT"
+    "couplingOf": "SCARLET KNIGHT",
+    "chorusSource": "audio"
   },
   {
     "id": "mhu4Axq1LPw",
@@ -33630,7 +33713,7 @@
       "ちはら"
     ],
     "intro": 0,
-    "chorus": 0,
+    "chorus": 98.2,
     "embeddable": null,
     "chorusChecked": true,
     "views": 18532,
@@ -33640,7 +33723,8 @@
     "introMeasured": true,
     "introMethod": "v2",
     "coupling": true,
-    "couplingOf": "TERMINATED"
+    "couplingOf": "TERMINATED",
+    "chorusSource": "audio"
   },
   {
     "id": "vWX80P9U4W8",
@@ -34338,7 +34422,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 63.2,
     "aliases": [
       "セイムラブディファレントハート"
     ],
@@ -34354,7 +34438,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "coupling": true,
-    "couplingOf": "YOUTHFUL"
+    "couplingOf": "YOUTHFUL",
+    "chorusSource": "audio"
   },
   {
     "id": "jFdOCaivjKQ",
@@ -34823,7 +34908,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 57.1,
     "aliases": [
       "スパイラル"
     ],
@@ -34840,7 +34925,8 @@
     "views": 228607,
     "channel": "J-Music Centre",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "2oK45vJ3Jq4",
@@ -35042,7 +35128,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 58.8,
     "aliases": [
       "トランジションピリオド"
     ],
@@ -35057,7 +35143,8 @@
     "views": 11484,
     "channel": "School Food Punishment - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "VZ13Ui8TjUk",
@@ -35237,7 +35324,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 32.6,
     "aliases": [
       "ユースフル",
       "ユースフルフロムスタジオヤマト"
@@ -35255,7 +35342,8 @@
     "views": 9690,
     "channel": "99RadioService",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "xQOXxmznGPg",
@@ -35301,7 +35389,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 4.7,
-    "chorus": 0,
+    "chorus": 64.9,
     "aliases": [
       "あなたにふぃっと"
     ],
@@ -35317,7 +35405,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "coupling": true,
-    "couplingOf": "nexus"
+    "couplingOf": "nexus",
+    "chorusSource": "audio"
   },
   {
     "id": "uMlv9VWAxko",
@@ -35676,7 +35765,7 @@
     "type": "ED",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 10.2,
+    "intro": 38.8,
     "chorus": 96,
     "aliases": [
       "おるふぇ"
@@ -35701,8 +35790,7 @@
     "channel": "宮野 真守",
     "viewsAt": "2026-10-10",
     "fame": "normal",
-    "introMeasured": true,
-    "introMethod": "v2"
+    "introMeasured": false
   },
   {
     "id": "QBzPTVFXD64",
@@ -35877,7 +35965,7 @@
       "ガリレオガリレイ"
     ],
     "intro": 0,
-    "chorus": 0,
+    "chorus": 128.4,
     "embeddable": null,
     "chorusChecked": true,
     "views": 26767,
@@ -35885,7 +35973,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "kfC3xjNX_E0",
@@ -36525,7 +36614,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 10.2,
-    "chorus": 0,
+    "chorus": 59.7,
     "aliases": [
       "つきのみえないよるに"
     ],
@@ -36539,7 +36628,8 @@
     "views": 4319,
     "channel": "藤原鞠菜 - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "A02UniwCM9w",
@@ -36676,7 +36766,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 64.7,
     "aliases": [
       "めぐりあい",
       "めぐりあいかけがえのないもの"
@@ -36695,7 +36785,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "coupling": true,
-    "couplingOf": "TERMINATED"
+    "couplingOf": "TERMINATED",
+    "chorusSource": "audio"
   },
   {
     "id": "G_IEr6P0hH4",
@@ -37092,7 +37183,7 @@
       "あやねる"
     ],
     "intro": 0,
-    "chorus": 0,
+    "chorus": 76.4,
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
@@ -37100,7 +37191,8 @@
     "views": 4827,
     "channel": "Ayane Sakura - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "4tAfx7iKkhI",
@@ -37112,7 +37204,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 71.4,
     "aliases": [
       "やくそくのぱらだいむ"
     ],
@@ -37135,7 +37227,8 @@
     "views": 45672,
     "channel": "Open The Steins Gate",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "_qLhYVOAM70",
@@ -37245,7 +37338,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 58.4,
     "aliases": [
       "アスイートタイフーン",
       "スイートタイフーン"
@@ -37262,7 +37355,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "DOKM9QWJG3g",
@@ -37638,7 +37732,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 87.2,
     "aliases": [
       "デイズ"
     ],
@@ -37654,7 +37748,8 @@
     "viewsAt": "2026-10-10",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "EPTkvXZhqwo",
@@ -37706,7 +37801,7 @@
       "なかがわ"
     ],
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 49.7,
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
@@ -37714,7 +37809,8 @@
     "views": 9963,
     "channel": "deadaune",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "_hi7okG2wCE",
@@ -37758,7 +37854,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 102.1,
     "aliases": [
       "エラ",
       "イーラ"
@@ -37773,7 +37869,8 @@
     "views": 597,
     "channel": "Epa - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "0oqzByhQ8mI",
@@ -37785,7 +37882,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 4.5,
-    "chorus": 0,
+    "chorus": 174.9,
     "aliases": [
       "エグゼク",
       "イグゼク"
@@ -37800,7 +37897,8 @@
     "views": 95,
     "channel": "Daily News",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "n6-Z6fjQtX8",
@@ -37904,7 +38002,7 @@
     "confidence": "低",
     "source": "sola0051",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 55.2,
     "aliases": [
       "フューチャーイズシリアス"
     ],
@@ -37924,7 +38022,8 @@
       "小林",
       "こばやし",
       "あいきゃん"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "ZBm5e7O11rg",
@@ -37936,7 +38035,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 3.5,
-    "chorus": 0,
+    "chorus": 53.2,
     "aliases": [
       "ゲーム"
     ],
@@ -37953,7 +38052,8 @@
     "views": 7862,
     "channel": "Mizuki7320",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "6eHuPYOJ2ZE",
@@ -38000,7 +38100,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 66,
     "aliases": [
       "ハーベスト"
     ],
@@ -38019,7 +38119,8 @@
     "views": 26200,
     "channel": "Aoi Tada - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "tVmyuR_KYIQ",
@@ -38031,7 +38132,7 @@
     "confidence": "中",
     "source": "中島愛公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 80.5,
     "aliases": [
       "ハロー"
     ],
@@ -38055,7 +38156,8 @@
       "まめぐ",
       "ランカ・リー",
       "ランカ"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "QNpdj3gzyq8",
@@ -38131,7 +38233,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2.7,
-    "chorus": 0,
+    "chorus": 79.9,
     "aliases": [
       "アイムインラブ"
     ],
@@ -38147,7 +38249,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "coupling": true,
-    "couplingOf": "ないしょの話"
+    "couplingOf": "ないしょの話",
+    "chorusSource": "audio"
   },
   {
     "id": "vdPPA-2ErW8",
@@ -38227,7 +38330,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 39.1,
     "aliases": [
       "イントロン"
     ],
@@ -38241,7 +38344,8 @@
     "views": 17180,
     "channel": "soundslikematsuda",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "CFWku15Nlps",
@@ -38343,7 +38447,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 53.9,
     "aliases": [
       "キスミーパラドックス"
     ],
@@ -38357,7 +38461,8 @@
     "views": 39348,
     "channel": "LiSA Official YouTube",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "cE69xAWdTq8",
@@ -38827,7 +38932,7 @@
     "confidence": "低",
     "source": "oreomonogatari",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 70.3,
     "aliases": [
       "パーフェクトスランバーズ"
     ],
@@ -38856,7 +38961,8 @@
       "ほっちゃん",
       "羽川翼",
       "はねかわつばさ"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "q2dbhaEEpiw",
@@ -39373,7 +39479,7 @@
     "confidence": "中",
     "source": "Larval Stage Planning公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 48.6,
     "aliases": [
       "トリップイノセントオブディー",
       "トリップ"
@@ -39392,7 +39498,8 @@
     ],
     "artistAliases": [
       "ラーヴァルステージプランニング"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "2CwPXJGRJIM",
@@ -39778,7 +39885,7 @@
       "ごむ"
     ],
     "intro": 0,
-    "chorus": 0,
+    "chorus": 73.4,
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
@@ -39786,7 +39893,8 @@
     "views": 764,
     "channel": "MP3TUBE公式チャンネル",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "WBDDwql7Dkw",
@@ -40265,7 +40373,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 6.7,
-    "chorus": 0,
+    "chorus": 64.3,
     "aliases": [
       "ぼくらのほうふくせいさく"
     ],
@@ -40279,7 +40387,8 @@
     "views": 2552,
     "channel": "ゆるり / Yururi Official Channel",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "AnAghUtXXjQ",
@@ -40360,7 +40469,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 41.3,
     "aliases": [
       "もっぷひろいずむ"
     ],
@@ -40374,7 +40483,8 @@
     "views": 26565,
     "channel": "hell world",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "LxNWdh3n-VQ",
@@ -40669,7 +40779,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 80.1,
     "aliases": [
       "うちゅうでぷろぽーず"
     ],
@@ -40686,7 +40796,8 @@
     "views": 5059,
     "channel": "そなたん",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "6_bZCNcwZyw",
@@ -41311,7 +41422,7 @@
     "confidence": "低",
     "source": "oreomonogatari",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 69.7,
     "aliases": [
       "きえるでいどりーむ"
     ],
@@ -41337,7 +41448,8 @@
       "河野万里奈"
     ],
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "MaD5yUjgGl8",
@@ -41499,7 +41611,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 76.8,
     "aliases": [
       "あおぞらのこどう"
     ],
@@ -41515,7 +41627,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "coupling": true,
-    "couplingOf": "優しさの理由"
+    "couplingOf": "優しさの理由",
+    "chorusSource": "audio"
   },
   {
     "id": "ns0InUj1L-w",
@@ -41556,7 +41669,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 71.6,
     "aliases": [
       "そうまとう"
     ],
@@ -41569,7 +41682,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "coupling": true,
-    "couplingOf": "V.I.P"
+    "couplingOf": "V.I.P",
+    "chorusSource": "audio"
   },
   {
     "id": "0y13j5JfKlQ",
@@ -41983,7 +42097,7 @@
       "クラリス"
     ],
     "intro": 3,
-    "chorus": 0,
+    "chorus": 77.3,
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
@@ -41993,7 +42107,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "coupling": true,
-    "couplingOf": "ないしょの話"
+    "couplingOf": "ないしょの話",
+    "chorusSource": "audio"
   },
   {
     "id": "54CgKKJd4WQ",
@@ -42167,7 +42282,7 @@
     "confidence": "低",
     "source": "sola0051",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 72.1,
     "aliases": [
       "いのちのうたがきこえる"
     ],
@@ -42186,7 +42301,8 @@
       "たむらなおみ",
       "田村",
       "たむら"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "TTjd45KUu7w",
@@ -42204,7 +42320,7 @@
       "ちょうちょ"
     ],
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 70.5,
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
@@ -42214,7 +42330,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "coupling": true,
-    "couplingOf": "優しさの理由"
+    "couplingOf": "優しさの理由",
+    "chorusSource": "audio"
   },
   {
     "id": "asCFzN3HXZU",
@@ -42381,7 +42498,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 57.7,
     "aliases": [
       "アリスマジック"
     ],
@@ -42399,7 +42516,8 @@
     "views": 2846,
     "channel": "rita - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "E3GJ5_iYj10",
@@ -42648,7 +42766,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 73.1,
     "aliases": [
       "データベース"
     ],
@@ -42667,7 +42785,8 @@
     "views": 24113823,
     "channel": "OSTAbove",
     "viewsAt": "2026-10-10",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "I1wkvcoz6Mg",
@@ -42743,7 +42862,7 @@
     "confidence": "中",
     "source": "Sweet Diva(萩原さくら(CV:竹達彩奈) 宮澤エレナ(CV:阿澄佳奈) 菅野七海(CV:大坪由佳) 望月悠歩(CV:伊藤美来) ...（Topic）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 60.3,
     "aliases": [
       "ファンファンファーレ"
     ],
@@ -42762,7 +42881,8 @@
     "artistAliases": [
       "スウィートディーヴァ",
       "スイートディーバ"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "iatCkK7u1PI",
@@ -43937,7 +44057,7 @@
     "confidence": "低",
     "source": "Iván Monroy",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 54.9,
     "aliases": [
       "ザラストデイオブマイアドレセンス"
     ],
@@ -43963,7 +44083,8 @@
       "みゆきち",
       "神原駿河",
       "かんばるするが"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "3_MMEKaN_kw",
@@ -45275,7 +45396,7 @@
     "confidence": "高",
     "source": "Topic",
     "intro": 0.5,
-    "chorus": 56,
+    "chorus": 76,
     "aliases": [
       "まじらぶせんぱーせんと",
       "マジラブ1000%",
@@ -45286,7 +45407,7 @@
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 3056537,
     "channel": "ST☆RISH - Topic",
@@ -45705,7 +45826,7 @@
     "confidence": "中",
     "source": "リクエスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 65.8,
     "aliases": [
       "ねがいのひいのりのおと",
       "ねがいのひ"
@@ -45720,7 +45841,8 @@
     "fame": "otaku",
     "workAliases": [
       "じごくしょうじょ"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "Ztt4JKdbygw",
@@ -46472,7 +46594,7 @@
     "confidence": "低",
     "source": "mojr",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 51.2,
     "aliases": [
       "こがらしせんてぃめんと"
     ],
@@ -46499,7 +46621,8 @@
       "せんじょうがはらひたぎ",
       "貝木泥舟",
       "かいきでいしゅう"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "jNCo1T0QmEo",
@@ -46686,7 +46809,7 @@
     "views": 118619,
     "channel": "Wake Up, Girls! - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "うぇいくあっぷがーるず",
       "WUG",
@@ -47439,7 +47562,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 68.6,
     "aliases": [
       "ドリームジャンプ"
     ],
@@ -47459,7 +47582,8 @@
     "introMeasured": true,
     "introMethod": "v2",
     "coupling": true,
-    "couplingOf": "花ハ踊レヤいろはにほ"
+    "couplingOf": "花ハ踊レヤいろはにほ",
+    "chorusSource": "audio"
   },
   {
     "id": "BK7IkNyMmms",
@@ -48257,7 +48381,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 56.5,
     "aliases": [
       "オーバーラッパーズ"
     ],
@@ -48273,7 +48397,8 @@
     "views": 3305473,
     "channel": "Alfenseil",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "hF-YItYEQbU",
@@ -49825,7 +49950,7 @@
     "confidence": "中",
     "source": "Risa Yoshiki（Topic）",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 53.9,
     "aliases": [],
     "embeddable": null,
     "fame": "otaku",
@@ -49843,7 +49968,8 @@
       "よしきりさ",
       "吉木",
       "よしき"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "vnhQwxGvS3s",
@@ -52013,7 +52139,7 @@
     "views": 119046,
     "channel": "Rhodanthe* - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "minor"
   },
   {
     "id": "I9HeEdGb4-Q",
@@ -52462,7 +52588,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 44.8,
     "aliases": [
       "ターミナルターミナル"
     ],
@@ -52484,7 +52610,8 @@
     "views": 987744,
     "channel": "oreomonogatari",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "oZU6QvWHBxY",
@@ -54568,7 +54695,7 @@
       "青春はノンストップ"
     ],
     "embeddable": null,
-    "fame": "normal",
+    "fame": "minor",
     "introMeasured": true,
     "introMethod": "v2",
     "chorusSource": "heatmap",
@@ -54661,7 +54788,7 @@
     "confidence": "中",
     "source": "影山ヒロノブ公式",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 68.1,
     "aliases": [
       "はしるぜじゅうおう"
     ],
@@ -54681,7 +54808,8 @@
       "かげやまひろのぶ",
       "影山",
       "かげやま"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "uO5TYG4BBOk",
@@ -54758,7 +54886,7 @@
     "confidence": "中",
     "source": "Suara（Topic）",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 61.9,
     "aliases": [
       "あまかけるほし"
     ],
@@ -54779,7 +54907,8 @@
     ],
     "artistAliases": [
       "スアラ"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "IYks_f2OYJQ",
@@ -54991,7 +55120,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 63,
     "aliases": [
       "ゆめいろぱれーど"
     ],
@@ -55010,7 +55139,8 @@
     "views": 14743,
     "channel": "Rhodanthe* - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "en8jbz3aVJE",
@@ -57640,7 +57770,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 64,
     "aliases": [
       "にゅーげーむ"
     ],
@@ -57654,7 +57784,8 @@
     "views": 37645,
     "channel": "go!go!vanillas",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "T8y_RsF4TSw",
@@ -59125,7 +59256,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 58.2,
     "aliases": [
       "ビューティフルフューチャー"
     ],
@@ -59139,7 +59270,8 @@
     "views": 6285,
     "channel": "YURiKA Official YouTube",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "VSucxMB_Z6k",
@@ -59508,7 +59640,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 78.3,
     "aliases": [
       "フェアリーウェイ"
     ],
@@ -59522,7 +59654,8 @@
     "views": 23552,
     "channel": "YURiKA Official YouTube",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "9AGMvhn__XU",
@@ -62294,7 +62427,7 @@
     "confidence": "中",
     "source": "ニューギンチャンネル",
     "intro": 43,
-    "chorus": 0,
+    "chorus": 101.9,
     "aliases": [
       "かぶきくるいうた"
     ],
@@ -62318,7 +62451,8 @@
       "かくだ"
     ],
     "introSource": "auto",
-    "introBefore": 6.5
+    "introBefore": 6.5,
+    "chorusSource": "audio"
   },
   {
     "id": "S7QsHpLU1Sw",
@@ -64552,7 +64686,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 80.1,
     "aliases": [
       "ポップスターズ"
     ],
@@ -64574,7 +64708,8 @@
     "views": 18617,
     "channel": "Scraton Music Official",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "bNY1fd0FsJw",
@@ -64929,7 +65064,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 73.3,
     "aliases": [
       "スターライト"
     ],
@@ -64949,7 +65084,8 @@
     "views": 20138,
     "channel": "Erii Yamazaki - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "-6MEM_M23UE",
@@ -68019,7 +68155,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 82.2,
     "aliases": [
       "アイスウェア"
     ],
@@ -68038,7 +68174,8 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "g9biTrDIHNs",
@@ -72662,7 +72799,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 83.1,
     "aliases": [
       "オーディナリーラブ"
     ],
@@ -72682,7 +72819,8 @@
     "views": 376363,
     "channel": "renge camp",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "b5lsuPxMFmw",
@@ -73269,7 +73407,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 3,
-    "chorus": 0,
+    "chorus": 98.3,
     "aliases": [
       "アンリミテッドブレイドワークス",
       "UBW"
@@ -73295,7 +73433,8 @@
     "viewsAt": "2026-10-10",
     "fame": "otaku",
     "introSource": "auto",
-    "introBefore": 0.2
+    "introBefore": 0.2,
+    "chorusSource": "audio"
   },
   {
     "id": "wBB0OoQlXy4",
@@ -74053,7 +74192,7 @@
     "confidence": "中",
     "source": "SANYO MUSIC（Topic）",
     "intro": 0.5,
-    "chorus": 0,
+    "chorus": 59.9,
     "aliases": [
       "ふたりのうみものがたり"
     ],
@@ -74068,7 +74207,8 @@
     "workAliases": [
       "うみものがたり",
       "海物語"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "tCiIq8-rKrw",
@@ -75411,7 +75551,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 9.2,
-    "chorus": 0,
+    "chorus": 144.4,
     "aliases": [
       "こいのうた"
     ],
@@ -75429,7 +75569,8 @@
     "views": 5902172,
     "channel": "REMEMBER",
     "viewsAt": "2026-10-10",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "Vobu0OJXQB8",
@@ -75663,7 +75804,7 @@
     "views": 53358247,
     "channel": "King Gnu official YouTube channel  ",
     "viewsAt": "2026-10-05",
-    "fame": "top",
+    "fame": "famous",
     "workAliases": [
       "おうさまらんきんぐ",
       "王様ランキング"
@@ -78010,7 +78151,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 3.2,
-    "chorus": 0,
+    "chorus": 59,
     "aliases": [
       "ゆめをかける"
     ],
@@ -78033,7 +78174,8 @@
     "views": 20551,
     "channel": "ウマ娘のソロ曲をあげてた垢",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "otaku",
+    "chorusSource": "audio"
   },
   {
     "id": "iZHOLVmUMCU",
@@ -83488,7 +83630,7 @@
     "confidence": "中",
     "source": "Suara（Topic）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 89.2,
     "aliases": [
       "ひとなんだ"
     ],
@@ -83509,7 +83651,8 @@
     ],
     "artistAliases": [
       "スアラ"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "HEwAiwttN10",
@@ -93155,7 +93298,7 @@
     "confidence": "中",
     "source": "佐咲紗花 Official Channel",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 58.2,
     "aliases": [
       "チェックメイクメイト"
     ],
@@ -93175,7 +93318,8 @@
       "ささきさやか",
       "佐咲",
       "ささき"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "PEP7a_FoIi4",
@@ -95592,7 +95736,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 5.2,
-    "chorus": 0,
+    "chorus": 76,
     "aliases": [
       "すぱいす"
     ],
@@ -95612,7 +95756,8 @@
     "views": 6769,
     "channel": "music　【歌詞付き】",
     "viewsAt": "2026-10-10",
-    "fame": "minor"
+    "fame": "minor",
+    "chorusSource": "audio"
   },
   {
     "id": "aUDgQs0lvRM",
@@ -97714,7 +97859,7 @@
     "confidence": "中",
     "source": "May'n公式",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 46.7,
     "aliases": [
       "ふらいみーとぅーざえんど"
     ],
@@ -97733,7 +97878,8 @@
       "シェリル"
     ],
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "PmkN1iH4Ci4",
@@ -98791,7 +98937,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 59.1,
     "aliases": [
       "しーずんいんざさん"
     ],
@@ -98805,7 +98951,8 @@
     "views": 758,
     "channel": "Kenny.T - City Pop Track",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "uf76bJBzqEQ",
@@ -99335,7 +99482,7 @@
     "views": 4375590,
     "channel": "ヨルシカ / n-buna Official",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "僕の心のヤバイやつ",
       "ぼくのこころのやばいやつ",
@@ -99741,7 +99888,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 72.5,
     "aliases": [
       "あつすぎてわらっちゃうね"
     ],
@@ -99755,7 +99902,8 @@
     "views": 57271,
     "channel": "miwa official YouTube channel",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "j-6s1L3MIbI",
@@ -101177,7 +101325,7 @@
     "confidence": "中",
     "source": "niconikomirror",
     "intro": 3.7,
-    "chorus": 0,
+    "chorus": 79.9,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
@@ -101191,7 +101339,8 @@
     "vocal": [
       "初音ミク",
       "鏡音リン"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "OQz8nEKzgZs",
@@ -102826,7 +102975,7 @@
     "confidence": "中",
     "source": "baker",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 51.7,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
@@ -102839,7 +102988,8 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "aX4H1rOzbow",
@@ -103455,7 +103605,7 @@
     "confidence": "中",
     "source": "mikufan",
     "intro": 2.5,
-    "chorus": 0,
+    "chorus": 74.7,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
@@ -103468,7 +103618,8 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "i_UIEIYNIYg",
@@ -104106,7 +104257,7 @@
     "confidence": "中",
     "source": "V-Breeze",
     "intro": 4.5,
-    "chorus": 0,
+    "chorus": 50.8,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
@@ -104119,7 +104270,8 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "hOuteh4pm1I",
@@ -104287,7 +104439,7 @@
     "confidence": "中",
     "source": "r-dash l-down",
     "intro": 1,
-    "chorus": 0,
+    "chorus": 15.7,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
@@ -104301,7 +104453,8 @@
     "vocal": [
       "鏡音リン",
       "鏡音レン"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "DbWy8wsuNPc",
@@ -104548,7 +104701,7 @@
     "confidence": "中",
     "source": "플스한거 올림",
     "intro": 3.7,
-    "chorus": 0,
+    "chorus": 28.3,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
@@ -104561,7 +104714,8 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "ObZMtleyMJs",
@@ -104650,7 +104804,7 @@
     "confidence": "中",
     "source": "TOKOTOKO(NishizawasanP) - Topic",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 60.4,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
@@ -104663,7 +104817,8 @@
     "introMethod": "v2",
     "vocal": [
       "鏡音リン"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "UCAKuOECgjE",
@@ -104780,7 +104935,7 @@
     "confidence": "中",
     "source": "VocaloidAlbums",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 64.2,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
@@ -104793,7 +104948,8 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "iLlLcfvBgSI",
@@ -105431,7 +105587,7 @@
     "confidence": "中",
     "source": "popopopopepopo",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 43.5,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
@@ -105444,7 +105600,8 @@
     "fame": "normal",
     "vocal": [
       "巡音ルカ"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "W8KWM6L-pjU",
@@ -107495,7 +107652,7 @@
     "confidence": "中",
     "source": "Siriuslex",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 56.5,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -107508,7 +107665,8 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "SiqjnFhLq2U",
@@ -108415,7 +108573,7 @@
     "confidence": "中",
     "source": "BIGHEAD",
     "intro": 2.2,
-    "chorus": 0,
+    "chorus": 63.6,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -108428,7 +108586,8 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "eyn9Bvr4UQ4",
@@ -108828,7 +108987,7 @@
     "confidence": "中",
     "source": "xichlotour",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 78.5,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -108841,7 +109000,8 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "kAAt-qVxCjc",
@@ -110081,7 +110241,7 @@
     "confidence": "中",
     "source": "異音緋色",
     "intro": 0.7,
-    "chorus": 0,
+    "chorus": 74.2,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -110094,7 +110254,8 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "uB_jQ8H2Yeg",
@@ -112186,7 +112347,7 @@
     "confidence": "中",
     "source": "BestVocaloidPV",
     "intro": 2,
-    "chorus": 0,
+    "chorus": 57.8,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -112199,7 +112360,8 @@
     "views": 4743499,
     "channel": "BestVocaloidPV",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "p5hojvz0Y8g",
@@ -112471,7 +112633,7 @@
     "confidence": "中",
     "source": "yuichi NAGAO - Topic",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 54.5,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -112484,7 +112646,8 @@
     "views": 14265,
     "channel": "yuichi NAGAO - Topic",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "79N1O0lF0GY",
@@ -113146,7 +113309,7 @@
     "confidence": "中",
     "source": "りョう",
     "intro": 1.5,
-    "chorus": 0,
+    "chorus": 76.6,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -113159,7 +113322,8 @@
     "views": 2362676,
     "channel": "りョう",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "91R2hdV_-aQ",
@@ -113428,7 +113592,7 @@
     "confidence": "中",
     "source": "KnightNovamon",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 74,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -113441,7 +113605,8 @@
     "views": 298107,
     "channel": "KnightNovamon",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "YHbr4iWvdSc",
@@ -114183,7 +114348,7 @@
     "confidence": "中",
     "source": "タイコdeミュージック",
     "intro": 1.7,
-    "chorus": 0,
+    "chorus": 41.7,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -114193,7 +114358,8 @@
     "views": 391631,
     "channel": "タイコdeミュージック",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "0xOwiA2gCtw",
@@ -114329,7 +114495,7 @@
     "confidence": "中",
     "source": "アリアダヨー",
     "intro": 0.2,
-    "chorus": 0,
+    "chorus": 56.4,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -114342,7 +114508,8 @@
     "views": 1799875,
     "channel": "アリアダヨー",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "chorusSource": "audio"
   },
   {
     "id": "_a-eNWjvw1g",
@@ -114746,7 +114913,7 @@
     "confidence": "中",
     "source": "mekimeki jizou",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 66.6,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -114759,7 +114926,8 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "chorusSource": "audio"
   },
   {
     "id": "jMEw5D74WQg",
@@ -114916,7 +115084,7 @@
     "confidence": "中",
     "source": "edword records",
     "intro": 13.5,
-    "chorus": 0,
+    "chorus": 62.1,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -114929,7 +115097,8 @@
     "views": 18720279,
     "channel": "edword records",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "chorusSource": "audio"
   },
   {
     "id": "pLYKKC-EpjA",
@@ -115483,7 +115652,7 @@
     "confidence": "中",
     "source": "imie",
     "intro": 3.5,
-    "chorus": 0,
+    "chorus": 41.9,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -115496,7 +115665,8 @@
     "views": 14509,
     "channel": "imie",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "chorusSource": "audio"
   },
   {
     "id": "j5UzDdUmI7s",
@@ -117585,7 +117755,7 @@
     "confidence": "中",
     "source": "Nanou Official",
     "intro": 1.2,
-    "chorus": 0,
+    "chorus": 79.2,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -117598,7 +117768,8 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "Ws3B-ozOXDU",
@@ -120031,7 +120202,7 @@
     "confidence": "中",
     "source": "キタニタツヤ / Tatsuya Kitani",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 49.5,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -120044,7 +120215,8 @@
     "introMethod": "v2",
     "singer": [
       "キタニタツヤ"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "eu3yoLa3dgs",
@@ -120378,7 +120550,7 @@
     "confidence": "中",
     "source": "黒魔 / Chroma",
     "intro": 12,
-    "chorus": 0,
+    "chorus": 93.7,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -120391,7 +120563,8 @@
     "introMethod": "v2",
     "vocal": [
       "鏡音リン"
-    ]
+    ],
+    "chorusSource": "audio"
   },
   {
     "id": "d8Zh7OmqQd4",
@@ -121629,5 +121802,643 @@
     "channel": "Cyberpunk 2077",
     "viewsAt": "2026-10-22",
     "fame": "top"
+  },
+  {
+    "id": "KvMY1uzSC1E",
+    "title": "I Really Want to Stay At Your House",
+    "work": "サイバーパンク エッジランナーズ",
+    "artist": "Rosa Walton",
+    "year": 2022,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Netflix公式MV",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 92693857,
+    "channel": "Netflix",
+    "viewsAt": "2026-10-22",
+    "fame": "top"
+  },
+  {
+    "id": "JVTS3fyoAEQ",
+    "title": "Who's Ready for Tomorrow",
+    "work": "サイバーパンク エッジランナーズ",
+    "artist": "Rat Boy & IBDY",
+    "year": 2020,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "RAT BOY公式",
+    "intro": 12.2,
+    "chorus": 22,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 33553313,
+    "channel": "RAT BOY",
+    "viewsAt": "2026-10-22",
+    "fame": "famous"
+  },
+  {
+    "id": "Igq3d6XA75Y",
+    "title": "Chippin' In",
+    "work": "サイバーパンク エッジランナーズ",
+    "artist": "SAMURAI (Refused)",
+    "year": 2020,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Cyberpunk 2077公式",
+    "intro": 0.7,
+    "chorus": 50,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 30636886,
+    "channel": "Cyberpunk 2077",
+    "viewsAt": "2026-10-22",
+    "fame": "famous"
+  },
+  {
+    "id": "AN1RJF55NXI",
+    "title": "Never Fade Away",
+    "work": "サイバーパンク エッジランナーズ",
+    "artist": "SAMURAI (Refused)",
+    "year": 2020,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "Cyberpunk 2077公式",
+    "intro": 0,
+    "chorus": 124,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 12878788,
+    "channel": "Cyberpunk 2077",
+    "viewsAt": "2026-10-22",
+    "fame": "otaku"
+  },
+  {
+    "id": "kygFpbj8fDw",
+    "title": "カノン",
+    "work": "うたの☆プリンスさまっ♪ マジLOVE2000%",
+    "artist": "宮野真守",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "中",
+    "source": "宮野 真守",
+    "intro": 0.7,
+    "chorus": 39,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 703842,
+    "channel": "宮野 真守",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "hWvhGNMF-ts",
+    "title": "マジLOVE2000%",
+    "work": "うたの☆プリンスさまっ♪ マジLOVE2000%",
+    "artist": "ST☆RISH",
+    "year": 2013,
+    "type": "ED",
+    "confidence": "中",
+    "source": "STARISH - Topic",
+    "intro": 0.5,
+    "chorus": 46,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2063144,
+    "channel": "STARISH - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "famous"
+  },
+  {
+    "id": "x05rG9v3UwU",
+    "title": "The dice are cast",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEレボリューションズ",
+    "artist": "QUARTET NIGHT",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "QUARTET NIGHT - Topic",
+    "intro": 0,
+    "chorus": 55,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 502633,
+    "channel": "QUARTET NIGHT - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "j3BaCQn03UI",
+    "title": "シャイン",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEレボリューションズ",
+    "artist": "宮野真守",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "中",
+    "source": "宮野 真守",
+    "intro": 0.2,
+    "chorus": 56,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 273209,
+    "channel": "宮野 真守",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "Knmk6JjtfJc",
+    "title": "マジLOVEレボリューションズ",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEレボリューションズ",
+    "artist": "ST☆RISH",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "中",
+    "source": "STARISH - Topic",
+    "intro": 0.7,
+    "chorus": 75,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1502294,
+    "channel": "STARISH - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "rA-0UlAexeo",
+    "title": "エボリューション・イヴ",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEレボリューションズ",
+    "artist": "QUARTET NIGHT",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "中",
+    "source": "QUARTET NIGHT - Topic",
+    "intro": 0,
+    "chorus": 71,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 547593,
+    "channel": "QUARTET NIGHT - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "KCSUU6doWGo",
+    "title": "HE★VENS GATE -Beginning of the Legend-",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEレボリューションズ",
+    "artist": "HE★VENS",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "中",
+    "source": "HE★VENS - Topic",
+    "intro": 0,
+    "chorus": 50,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 389074,
+    "channel": "HE★VENS - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "Gx-QyznUEE4",
+    "title": "テンペスト",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEレジェンドスター",
+    "artist": "宮野真守",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "中",
+    "source": "宮野 真守",
+    "intro": 1,
+    "chorus": 98.7,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 43951,
+    "channel": "宮野 真守",
+    "viewsAt": "2026-10-22",
+    "fame": "minor",
+    "chorusSource": "audio"
+  },
+  {
+    "id": "YLts8XjCSbA",
+    "title": "マジLOVEレジェンドスター",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEレジェンドスター",
+    "artist": "ST☆RISH",
+    "year": 2016,
+    "type": "ED",
+    "confidence": "中",
+    "source": "STARISH - Topic",
+    "intro": 1.5,
+    "chorus": 44,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 805122,
+    "channel": "STARISH - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "ucInMYCXXig",
+    "title": "アンコール",
+    "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEキングダム",
+    "artist": "宮野真守",
+    "year": 2019,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "宮野 真守",
+    "intro": 1,
+    "chorus": 127,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1294385,
+    "channel": "宮野 真守",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "oagFEc6usno",
+    "title": "マジLOVEキングダム",
+    "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEキングダム",
+    "artist": "ST☆RISH",
+    "year": 2019,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "STARISH - Topic",
+    "intro": 0,
+    "chorus": 44,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 287841,
+    "channel": "STARISH - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "RB2LU9ea2HY",
+    "title": "ウルトラブラスト",
+    "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEキングダム",
+    "artist": "ST☆RISH",
+    "year": 2019,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "STARISH - Topic",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1048085,
+    "channel": "STARISH - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "y2N9NsBpldc",
+    "title": "FLY TO THE FUTURE",
+    "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEキングダム",
+    "artist": "QUARTET NIGHT",
+    "year": 2019,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "QUARTET NIGHT - Topic",
+    "intro": 0,
+    "chorus": 89,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1084758,
+    "channel": "QUARTET NIGHT - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "iiTp7kGmtBY",
+    "title": "愛を捧げよ ～the secret Shangri-la～",
+    "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEキングダム",
+    "artist": "HE★VENS",
+    "year": 2019,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "HE★VENS - Topic",
+    "intro": 4,
+    "chorus": 90,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1408685,
+    "channel": "HE★VENS - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "2cyHMq4JPik",
+    "title": "ジャーニー",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEスターリッシュツアーズ 〜旅の始まり〜",
+    "artist": "宮野真守",
+    "year": 2022,
+    "type": "OP",
+    "confidence": "中",
+    "source": "宮野 真守",
+    "intro": 1,
+    "chorus": 69,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 139104,
+    "channel": "宮野 真守",
+    "viewsAt": "2026-10-22",
+    "fame": "minor"
+  },
+  {
+    "id": "ayzMV3KcvwA",
+    "title": "マジLOVEスターリッシュツアーズ",
+    "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEスターリッシュツアーズ",
+    "artist": "ST☆RISH",
+    "year": 2022,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "STARISH - Topic",
+    "intro": 0.5,
+    "chorus": 91,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1992936,
+    "channel": "STARISH - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "famous"
+  },
+  {
+    "id": "2vIsxI0W6_I",
+    "title": "ST☆RT OURS",
+    "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEスターリッシュツアーズ",
+    "artist": "ST☆RISH",
+    "year": 2022,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "STARISH - Topic",
+    "intro": 0.2,
+    "chorus": 76,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1260698,
+    "channel": "STARISH - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "K-DEwR2FQtM",
+    "title": "TABOO NIGHT XXXX",
+    "work": "劇場版 うたの☆プリンスさまっ♪ TABOO NIGHT XXXX",
+    "artist": "QUARTET NIGHT",
+    "year": 2025,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "QUARTET NIGHT - Topic",
+    "intro": 0.5,
+    "chorus": 87,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1103711,
+    "channel": "QUARTET NIGHT - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "jxOaKTM-XBs",
+    "title": "未来地図",
+    "work": "うたの☆プリンスさまっ♪ マジLOVE1000%",
+    "artist": "ST☆RISH",
+    "year": 2011,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "STARISH - Topic",
+    "intro": 0.2,
+    "chorus": 60,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 823230,
+    "channel": "STARISH - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "WTDYIc-8A_s",
+    "title": "ポワゾンKISS",
+    "work": "うたの☆プリンスさまっ♪ マジLOVE2000%",
+    "artist": "QUARTET NIGHT",
+    "year": 2013,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "QUARTET NIGHT - Topic",
+    "intro": 4,
+    "chorus": 32,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1374440,
+    "channel": "QUARTET NIGHT - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "MbimWrzEgjI",
+    "title": "夢追人へのSymphony",
+    "work": "うたの☆プリンスさまっ♪ マジLOVE2000%",
+    "artist": "ST☆RISH",
+    "year": 2013,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "STARISH - Topic",
+    "intro": 0.2,
+    "chorus": 46,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 664030,
+    "channel": "STARISH - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "kWYxq4if49Q",
+    "title": "God's S.T.A.R.",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEレジェンドスター",
+    "artist": "QUARTET NIGHT",
+    "year": 2016,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "QUARTET NIGHT - Topic",
+    "intro": 7.7,
+    "chorus": 75,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1336391,
+    "channel": "QUARTET NIGHT - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "3Y-JcR10NRw",
+    "title": "不滅のインフェルノ",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEレジェンドスター",
+    "artist": "HE★VENS",
+    "year": 2016,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "HE★VENS - Topic",
+    "intro": 0,
+    "chorus": 39,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 470478,
+    "channel": "HE★VENS - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "MUadPjBWPxs",
+    "title": "WE ARE ST☆RISH!!",
+    "work": "うたの☆プリンスさまっ♪ マジLOVEレジェンドスター",
+    "artist": "ST☆RISH",
+    "year": 2016,
+    "type": "挿入歌",
+    "confidence": "中",
+    "source": "STARISH - Topic",
+    "intro": 1,
+    "chorus": 92,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 498322,
+    "channel": "STARISH - Topic",
+    "viewsAt": "2026-10-22",
+    "fame": "normal"
+  },
+  {
+    "id": "XsimltGsNQg",
+    "title": "いつでも誰かが",
+    "work": "平成狸合戦ぽんぽこ",
+    "artist": "上々颱風",
+    "year": 1994,
+    "type": "映画主題歌",
+    "confidence": "中",
+    "source": "上々颱風（55shangshang）",
+    "intro": 2,
+    "chorus": 93.9,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 1866133,
+    "channel": "55shangshang",
+    "viewsAt": "2026-10-22",
+    "fame": "normal",
+    "chorusSource": "audio"
   }
 ]

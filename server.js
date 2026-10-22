@@ -23,6 +23,7 @@ const DECOYS = require('./data/decoys.json');
 let ALL_SONGS = [], SONGS = [], STAGED = [];
 function loadSongs() {
   ALL_SONGS = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
+  try { applyLiveSongs(); } catch (e) { /* 起動直後は何もしない（再起動なしで足した曲） */ }
   try { applyFixes(); } catch (e) { /* 起動直後（修正の一覧を読む前）は何もしない */ }
   try { applyFame(); } catch (e) { /* 同上 */ }
   try { applyInfoFixes(); if (typeof CATS !== 'undefined') CATS = null; } catch (e) { /* 同上（曲の情報の直し） */ }
@@ -199,6 +200,22 @@ function canEdit(req) {
   if (process.env.RENDER || req.get('x-forwarded-for') || req.get('forwarded')) return false;
   const ip = req.socket.remoteAddress || '';
   return ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1';
+}
+// ── 再起動なしの反映（tools/push-live.js）：手元で足した曲・計測した曲のデータと、リクエストの状態を、公開サーバーにそのまま送る ──
+// 鍵：手元の .live-key（git に入れない）の SHA-256 を data/live-key.sha256 に置き、送るときは x-live-key で鍵を付ける。
+// 送られた曲は LIVE_SONGS に入れて記録（data-log）にも残す（反映前の再起動でも消えない）。次の「反映して」で songs.json に入ったら、ファイルの方を使う
+let LIVE_HASH = '';
+try { LIVE_HASH = fs.readFileSync(path.join(__dirname, 'data', 'live-key.sha256'), 'utf8').trim(); } catch (e) { /* なければ手元からだけ */ }
+const liveOk = req => canEdit(req) || (!!LIVE_HASH && crypto.createHash('sha256').update(String(req.get('x-live-key') || '')).digest('hex') === LIVE_HASH);
+let LIVE_SONGS = {}; // id → 曲データ
+const LIVE_BASE = process.env.RENDER_GIT_COMMIT || ''; // いま動いている版
+function applyLiveSongs() {
+  const byId = new Map(ALL_SONGS.map((s, i) => [s.id, i]));
+  for (const [id, row] of Object.entries(LIVE_SONGS)) {
+    if ((row.liveBase || '') !== LIVE_BASE) { delete LIVE_SONGS[id]; continue; } // 送ったあとに反映（新しい版）があった：曲はファイルに入っているので、ファイルの方を使う
+    if (byId.has(id)) ALL_SONGS[byId.get(id)] = { ...row }; else ALL_SONGS.push({ ...row });
+  }
+  for (const s of ALL_SONGS) if (s.dur > 0 && !DURATIONS.has(s.id)) DURATIONS.set(s.id, s.dur);
 }
 // ファイルを直接編集・取り込みした内容も反映されるよう、毎回読み直す
 // 待機画面のお題の選択肢（ジャンルと、曲が5曲以上ある作品）
@@ -542,6 +559,27 @@ app.post('/api/song-info', (req, res) => {
   res.json({ ok: true, song: { work: song.work, artist: song.artist }, message: `「${song.title}」を直しました（${after.work ? '作品：' + song.work : ''}${after.work && after.artist ? '／' : ''}${after.artist ? '歌：' + song.artist : ''}）` });
 });
 
+app.post('/api/live/push', (req, res) => {
+  if (!liveOk(req)) return res.status(403).json({ error: '鍵が正しくありません' });
+  const b = req.body || {}, out = { songs: 0, requests: 0, candidates: 0 };
+  const fileIds = new Set(JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8')).map(s => s.id));
+  for (const s of Array.isArray(b.songs) ? b.songs : []) {
+    if (!s || typeof s.id !== 'string' || !s.title) continue;
+    LIVE_SONGS[s.id] = { ...s, liveBase: LIVE_BASE }; out.songs++; if (!fileIds.has(s.id)) out.added = (out.added || 0) + 1;
+  }
+  for (const m of Array.isArray(b.requests) ? b.requests : []) {
+    const r = REQUESTS.find(x => x.id === m.id); if (!r || !['open', 'added', 'notfound'].includes(m.status)) continue;
+    r.status = m.status; if (m.songId) r.songId = m.songId; r.doneAt = m.doneAt || new Date().toISOString(); out.requests++;
+  }
+  if (Array.isArray(b.candidates)) {
+    const votes = new Map(CANDIDATES.map(c => [c.id, c.votes || 0]));
+    CANDIDATES = b.candidates.map(c => ({ ...c, votes: Math.max(c.votes || 0, votes.get(c.id) || 0) })); out.candidates = CANDIDATES.length; saveCandidates();
+  }
+  if (out.requests) saveRequests();
+  loadSongs(); if (typeof CATS !== 'undefined') CATS = null; GZ_CATALOG = null;
+  datalog.touch();
+  res.json({ ok: true, ...out, total: SONGS.length });
+});
 app.get('/api/catalog', (req, res) => {
   loadSongs();
   // 自動チェック（tools/scan_videos.py）で「原曲でない・サビの位置がずれているかも」とされた曲
@@ -4578,7 +4616,7 @@ setInterval(() => {
 }, 60 * 1000);
 
 const restored = Promise.race([
-  datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES, songFame: SONG_FAME, fameResets: SONG_FAME_RESETS, couplingReports: CW_REPORTS, playStats: PSTATS, infoFixes: INFO_FIXES }), () => USERS),
+  datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES, songFame: SONG_FAME, fameResets: SONG_FAME_RESETS, couplingReports: CW_REPORTS, playStats: PSTATS, infoFixes: INFO_FIXES, liveSongs: LIVE_SONGS }), () => USERS),
   new Promise(res => setTimeout(() => res({}), 8000)), // GitHub が遅いときは待ちすぎない
 ]).then(({ data: d, users } = {}) => {
   if (users && typeof users === 'object') { USERS = { ...USERS, ...users }; console.log(`マイページを記録から戻しました（${Object.keys(users).length}人）`); }
@@ -4587,6 +4625,7 @@ const restored = Promise.race([
   if (Array.isArray(d.candidates)) CANDIDATES = d.candidates;
   if (d.promotes) PROMOTES = d.promotes;
   if (d.fixes) { FIXES = d.fixes; applyFixes(); }
+  if (d.liveSongs) { LIVE_SONGS = d.liveSongs; loadSongs(); }
   if (d.infoFixes) { INFO_FIXES = d.infoFixes; applyInfoFixes(); CATS = null; buildSeries(); }
   if (d.reports) REPORTS = d.reports;
   if (d.songGenres) { SONG_GENRES = d.songGenres; buildSeries(); }

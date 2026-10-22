@@ -10173,5 +10173,39 @@
    "intro": 0.5,
    "chorus": 73
   }
+ },
+ {
+  "id": "PvqGZhOgUBM",
+  "title": "オルフェ",
+  "work": "うたの☆プリンスさまっ♪ マジLOVE1000%",
+  "channel": "宮野 真守",
+  "at": "2026-10-22T18:09:18.486Z",
+  "before": {
+   "intro": 10.2,
+   "chorus": 96,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 38.8,
+   "chorus": 96
+  }
+ },
+ {
+  "id": "ein8in8zJro",
+  "title": "マジLOVE1000%",
+  "work": "うたの☆プリンスさまっ♪ マジLOVE1000%",
+  "channel": "ST☆RISH - Topic",
+  "at": "2026-10-22T18:09:50.930Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 56,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 76
+  }
  }
 ]

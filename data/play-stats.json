@@ -5900,6 +5900,11 @@
    1,
    1,
    1
+  ],
+  "XTdRNjuGE_k": [
+   1,
+   0,
+   0
   ]
  },
  "days": {
@@ -5920,8 +5925,8 @@
    "plays": 150
   },
   "2026-10-21": {
-   "games": 7,
-   "plays": 201
+   "games": 8,
+   "plays": 202
   }
  },
  "byPlay": {
@@ -5950,8 +5955,8 @@
    "plays": 32
   },
   "fill": {
-   "games": 20,
-   "plays": 415
+   "games": 21,
+   "plays": 416
   },
   "normal": {
    "games": 2,

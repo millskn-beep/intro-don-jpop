@@ -7,30 +7,78 @@
 <title>アニソンドライブ｜助手席で参加</title>
 <style>
   /* 車のアプリと同じ、落ち着いたすりガラス。音は出さない（曲は車のスピーカーで流れる） */
-  :root { --bg: #151517; --fg: rgba(255,255,255,.92); --sub: rgba(255,255,255,.55); --ter: rgba(255,255,255,.32); --glass: rgba(255,255,255,.07); --hair: rgba(255,255,255,.14); --acc: #d6c4a2; --ok: #a0cea0; --okf: rgba(150,196,150,.25); --bad: rgba(214,140,140,.22); }
-  @media (prefers-color-scheme: light) { :root { --bg: #eceae6; --fg: rgba(22,22,24,.9); --sub: rgba(22,22,24,.55); --ter: rgba(22,22,24,.32); --glass: rgba(255,255,255,.6); --hair: rgba(255,255,255,.9); --acc: #7a6444; --ok: #467d46; --okf: rgba(96,150,96,.25); --bad: rgba(170,90,90,.2); } }
+  :root { --bg: #151517; --fg: rgba(255,255,255,.92); --sub: rgba(255,255,255,.55); --ter: rgba(255,255,255,.32); --glass: rgba(255,255,255,.07); --glass2: rgba(255,255,255,.13); --hair: rgba(255,255,255,.14); --acc: #d6c4a2; --accf: rgba(214,196,162,.2); --ok: #a0cea0; --okf: rgba(150,196,150,.25); --bad: rgba(214,140,140,.22); --sheet: #232326; }
+  @media (prefers-color-scheme: light) { :root { --bg: #eceae6; --fg: rgba(22,22,24,.9); --sub: rgba(22,22,24,.55); --ter: rgba(22,22,24,.32); --glass: rgba(255,255,255,.6); --glass2: rgba(255,255,255,.85); --hair: rgba(255,255,255,.9); --acc: #7a6444; --accf: rgba(122,100,68,.16); --ok: #467d46; --okf: rgba(96,150,96,.25); --bad: rgba(170,90,90,.2); --sheet: #f6f4f0; } }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   body { margin: 0; min-height: 100dvh; background: var(--bg); color: var(--fg); font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; }
-  main { max-width: 520px; margin: 0 auto; padding: max(18px, env(safe-area-inset-top)) 18px 28px; display: grid; gap: 14px; }
-  h1 { font-size: 28px; font-weight: 600; margin: 4px 0 0; letter-spacing: -.01em; }
+  main { max-width: 560px; margin: 0 auto; padding: max(14px, env(safe-area-inset-top)) 16px 40px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  h1 { font-size: 26px; font-weight: 600; margin: 2px 0 0; letter-spacing: -.01em; }
   .sub { color: var(--sub); font-size: 13px; }
   .card { background: var(--glass); border: 1px solid var(--hair); border-radius: 22px; padding: 16px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
-  input { width: 100%; font: inherit; font-size: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--hair); background: var(--glass); color: var(--fg); }
+  input, select { font: inherit; color: var(--fg); background: var(--glass); border: 1px solid var(--hair); border-radius: 14px; }
+  input { width: 100%; font-size: 17px; padding: 12px 14px; }
+  select { padding: 8px 10px; font-size: 14px; max-width: 100%; }
+  select option { background: var(--sheet); color: var(--fg); }
   button { font: inherit; color: var(--fg); background: var(--glass); border: 1px solid var(--hair); border-radius: 18px; padding: 14px 16px; cursor: pointer; text-align: left; }
   button.main { background: var(--acc); color: #1a1a1a; text-align: center; font-weight: 600; border: 0; width: 100%; }
+  button:disabled { cursor: default; opacity: .5; }
   .choices { display: grid; gap: 10px; }
   .choice { min-height: 74px; display: grid; gap: 4px; transition: transform .1s; }
   .choice:active { transform: scale(.98); }
   .choice b { font-size: 18px; font-weight: 600; } .choice small { color: var(--sub); font-size: 13px; }
   .choice.sel { border-color: var(--acc); }
   .choice.ok { background: var(--okf); border-color: var(--ok); } .choice.ng { background: var(--bad); }
-  .choice:disabled { cursor: default; }
+  .choice:disabled { opacity: 1; }
   .big { font-size: 26px; font-weight: 600; }
   .timer { color: var(--sub); font-variant-numeric: tabular-nums; }
   .rank { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
   .rank li { display: flex; gap: 10px; align-items: baseline; } .rank li b { width: 1.8em; color: var(--acc); } .rank li span { flex: 1; } .rank li em { font-style: normal; color: var(--sub); font-variant-numeric: tabular-nums; }
   .me { color: var(--acc); }
   [hidden] { display: none !important; }
+  /* タブ */
+  .tabs { position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 4px; border-radius: 16px; background: var(--glass); border: 1px solid var(--hair); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); }
+  .tabs button { border: 0; background: transparent; text-align: center; padding: 10px 4px; border-radius: 12px; font-size: 15px; position: relative; }
+  .tabs button.on { background: var(--glass2); color: var(--acc); font-weight: 600; }
+  .tabs button .dot { position: absolute; top: 6px; right: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--acc); }
+  .banner { display: block; width: 100%; text-align: center; background: var(--accf); border-color: var(--acc); color: var(--acc); font-weight: 600; }
+  /* 選曲 */
+  .tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .tools label { display: flex; gap: 6px; align-items: center; color: var(--sub); font-size: 13px; white-space: nowrap; min-width: 0; }
+  .tools select { max-width: 210px; }
+  .list { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .song { display: flex; align-items: center; gap: 10px; padding: 10px 2px; border-bottom: 1px solid var(--hair); }
+  .song .info { flex: 1; min-width: 0; }
+  .song b { display: block; font-size: 16px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .song small { display: block; color: var(--sub); font-size: 12.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px; }
+  .song .tag { color: var(--ter); font-size: 11.5px; }
+  .song button { padding: 8px 12px; border-radius: 999px; font-size: 14px; flex: none; }
+  .song button.fav { padding: 8px 10px; background: transparent; border-color: transparent; color: var(--sub); font-size: 18px; line-height: 1; }
+  .song button.fav.on { color: var(--acc); }
+  .song button.res { background: var(--glass2); }
+  .group { padding: 16px 2px 4px; color: var(--acc); font-size: 13px; font-weight: 600; }
+  .more { text-align: center; margin-top: 12px; width: 100%; }
+  /* いま */
+  .now { display: flex; gap: 14px; align-items: center; }
+  .now img, .now .ph { width: 96px; height: 96px; border-radius: 14px; object-fit: cover; background: var(--glass2); flex: none; }
+  .now .t { font-size: 19px; font-weight: 600; }
+  .ctrl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 14px; }
+  .ctrl button { text-align: center; padding: 12px 4px; font-size: 14px; }
+  .q { display: flex; gap: 10px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--hair); }
+  .q:last-child { border-bottom: 0; }
+  .q .n { color: var(--acc); width: 1.4em; font-variant-numeric: tabular-nums; }
+  .q .info { flex: 1; min-width: 0; } .q b { display: block; font-size: 15px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .q small { color: var(--sub); font-size: 12px; }
+  .q button { padding: 6px 12px; border-radius: 999px; font-size: 13px; }
+  /* 設定 */
+  .sec { color: var(--sub); font-size: 13px; margin: 14px 2px 8px; }
+  .sec:first-child { margin-top: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { padding: 9px 14px; border-radius: 999px; font-size: 14px; }
+  .chip.on { background: var(--accf); border-color: var(--acc); color: var(--acc); font-weight: 600; }
+  /* 予約の出し方（下から出る） */
+  .sheet-bg { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 20; display: flex; align-items: flex-end; justify-content: center; }
+  .sheet { width: 100%; max-width: 560px; background: var(--sheet); border-radius: 22px 22px 0 0; padding: 18px 16px max(18px, env(safe-area-inset-bottom)); display: grid; gap: 10px; }
+  .sheet button { display: grid; gap: 3px; } .sheet button small { color: var(--sub); font-size: 12.5px; }
+  .flash { position: fixed; left: 50%; bottom: max(20px, env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 30; background: var(--sheet); border: 1px solid var(--hair); border-radius: 999px; padding: 10px 18px; font-size: 14px; box-shadow: 0 6px 24px rgba(0,0,0,.3); max-width: calc(100% - 32px); }
 </style>
 </head>
 <body>
@@ -44,16 +92,77 @@
       <div class="sub">曲は車のスピーカーで流れます。このページから音は出ません。</div>
     </div>
   </section>
-  <section id="play" hidden>
+
+  <nav class="tabs" id="tabs" hidden>
+    <button data-tab="quiz">クイズ<span class="dot" id="quizDot" hidden></span></button>
+    <button data-tab="pick">選曲</button>
+    <button data-tab="now">いま</button>
+    <button data-tab="set">設定</button>
+  </nav>
+  <button class="banner" id="quizBanner" hidden>問題が出ています → 答える</button>
+
+  <!-- クイズ -->
+  <section id="tab-quiz" hidden>
     <div class="card" style="display:grid;gap:12px">
       <div style="display:flex;justify-content:space-between;align-items:baseline"><div class="big" id="head">待っています…</div><div class="timer" id="timer"></div></div>
       <div class="sub" id="note">車で問題が出ると、ここに選択肢が出ます</div>
       <div class="choices" id="choices"></div>
     </div>
-    <div class="card" style="margin-top:14px"><div class="sub" style="margin-bottom:8px">順位</div><ol class="rank" id="rank"></ol></div>
+    <div class="card" style="margin-top:12px"><div class="sub" style="margin-bottom:8px">順位</div><ol class="rank" id="rank"></ol></div>
   </section>
+
+  <!-- 選曲 -->
+  <section id="tab-pick" hidden>
+    <div class="card" style="display:grid;gap:10px">
+      <input id="q" type="search" placeholder="曲名・アニメ名・歌っている人（ひらがなでも）" autocomplete="off">
+      <div class="tools">
+        <label>並べ方 <select id="sort">
+          <option value="genre">ジャンル</option><option value="work">アニメ名</option><option value="title">曲名</option><option value="fame">有名度</option>
+          <option value="new">年代（新しい順）</option><option value="old">年代（古い順）</option><option value="artist">歌っている人</option>
+        </select></label>
+        <label>ジャンル <select id="fgenre"><option value="">すべて</option></select></label>
+        <label>種類 <select id="fkind"><option value="">すべて</option><option value="anime">アニソン</option><option value="vocaloid">ボカロ</option><option value="jpop">J-POP</option><option value="slot">パチスロ</option></select></label>
+        <label>有名度 <select id="ffame"><option value="">すべて</option></select></label>
+        <label><input type="checkbox" id="fav" style="width:auto"> ♡だけ</label>
+      </div>
+      <div class="sub" id="count">曲の一覧を読み込んでいます…</div>
+    </div>
+    <div class="list" id="list"></div>
+    <button class="more" id="more" hidden>もっと見る</button>
+  </section>
+
+  <!-- いま -->
+  <section id="tab-now" hidden>
+    <div class="card">
+      <div class="sub" id="nowMode"></div>
+      <div class="now" style="margin-top:10px"><div class="ph" id="nowArt"></div><div style="min-width:0"><div class="t" id="nowT"></div><div class="sub" id="nowSub" style="margin-top:4px"></div></div></div>
+      <div class="ctrl">
+        <button id="cPause">一時停止</button><button id="cNext">次へ</button><button id="cChorus">サビへ</button><button id="cFav">♡</button>
+      </div>
+      <div class="sub" id="nowMsg" style="margin-top:12px"></div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <div class="sub" style="margin-bottom:6px">予約（上から順に流れます）</div>
+      <div id="queue"></div>
+    </div>
+  </section>
+
+  <!-- 設定 -->
+  <section id="tab-set" hidden>
+    <div class="card">
+      <div class="sec">遊び方</div><div class="chips" id="sMode"></div>
+      <div class="sec">流す曲</div><div class="chips" id="sSource"></div>
+      <div class="sec" id="sPresetHead">お気に入りの絞り込み</div><div class="chips" id="sPreset"></div>
+      <div class="sub" id="sSummary" style="margin-top:12px"></div>
+    </div>
+    <div class="card" style="margin-top:12px" id="sGroups"></div>
+    <div class="card" style="margin-top:12px" id="sOther"></div>
+  </section>
+
   <section class="card" id="err" hidden><div id="errText"></div></section>
 </main>
+<div class="sheet-bg" id="sheet" hidden><div class="sheet" id="sheetBody"></div></div>
+<div class="flash" id="flash" hidden></div>
 <script>
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -64,11 +173,18 @@ let pid = store?.getItem(KEY + ':pid') || '', myName = store?.getItem('drive:nam
 $('roomInfo').textContent = code ? `部屋 ${code}` : '部屋の番号がありません（車の画面のQRコードを読んでください）';
 $('name').value = myName;
 function showErr(m) { $('err').hidden = false; $('errText').textContent = m; }
+let flashTimer = null;
+function flash(m) { $('flash').textContent = m; $('flash').hidden = false; clearTimeout(flashTimer); flashTimer = setTimeout(() => $('flash').hidden = true, 2600); }
 async function api(path, body) {
   const r = await fetch(path, body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : {});
   const j = await r.json().catch(() => ({}));
   if (!r.ok) throw Object.assign(new Error(j.error || '通信できませんでした'), { status: r.status });
   return j;
+}
+/** 車への指示（選曲・設定・再生の操作） */
+async function cmd(c, done) {
+  try { const j = await api('/api/drive/cmd', { code, pid, cmd: c }); if (done) flash(done); setTimeout(poll, 700); return j; }
+  catch (e) { flash(e.message); }
 }
 $('joinBtn').onclick = async () => {
   const name = $('name').value.trim(); if (!name) return $('name').focus();
@@ -78,42 +194,254 @@ $('joinBtn').onclick = async () => {
     start();
   } catch (e) { showErr(e.message); }
 };
-function start() { $('join').hidden = true; $('play').hidden = false; poll(); polling = setInterval(poll, 1000); setInterval(tick, 250); }
+
+// ── タブ ──
+let tab = (() => { try { return sessionStorage.getItem('drive:tab') || 'quiz'; } catch (e) { return 'quiz'; } })();
+function setTab(t) {
+  tab = t; try { sessionStorage.setItem('drive:tab', t); } catch (e) {}
+  for (const b of $('tabs').querySelectorAll('button')) b.classList.toggle('on', b.dataset.tab === t);
+  for (const k of ['quiz', 'pick', 'now', 'set']) $('tab-' + k).hidden = k !== t;
+  if (t === 'pick') loadSongs();
+  render();
+}
+$('tabs').querySelectorAll('button').forEach(b => b.onclick = () => setTab(b.dataset.tab));
+$('quizBanner').onclick = () => setTab('quiz');
+
+function start() { $('join').hidden = true; $('tabs').hidden = false; setTab(tab); poll(); polling = setInterval(poll, 1000); setInterval(tick, 250); loadSongs(); }
 let state = null;
 async function poll() {
   try {
     const s = await api(`/api/drive/state?code=${encodeURIComponent(code)}&pid=${encodeURIComponent(pid)}`);
     skew = s.serverNow - Date.now();
-    if (!s.me) { clearInterval(polling); pid = ''; store?.removeItem(KEY + ':pid'); $('play').hidden = true; $('join').hidden = false; return; } // 部屋が作り直された
+    if (!s.me) { clearInterval(polling); pid = ''; store?.removeItem(KEY + ':pid'); $('tabs').hidden = true; for (const k of ['quiz', 'pick', 'now', 'set']) $('tab-' + k).hidden = true; $('join').hidden = false; return; } // 部屋が作り直された
     state = s; render();
   } catch (e) { if (e.status === 404) { clearInterval(polling); showErr('部屋が見つかりません。車の画面のQRコードをもう一度読んでください'); } }
 }
+const st = () => state?.status || null;
+const QUIZ_MODES = ['MIX', 'QUIZ', 'LISTEN'];
+const MODES = [['MIX', 'BGM＋ときどきクイズ'], ['QUIZ', 'クイズだけ'], ['BGM', 'BGMだけ'], ['LISTEN', '聴くだけクイズ']];
+
 function render() {
+  if (!state) return;
+  const q = state.q, open = q && q.phase === 'answer' && (q.answered ?? picked) == null && q.setter !== myName;
+  $('quizDot').hidden = !open; $('quizBanner').hidden = !open || tab === 'quiz';
+  if (tab === 'quiz') renderQuiz();
+  if (tab === 'now') renderNow();
+  if (tab === 'set') renderSet();
+  if (tab === 'pick') { const k = JSON.stringify([st()?.favs, st()?.mode]); if (k !== pickKey) { pickKey = k; renderList(false); } }
+}
+
+// ── クイズ ──
+function renderQuiz() {
   const s = state, q = s.q;
   $('rank').innerHTML = s.ranking.map(r => `<li class="${r.name === myName ? 'me' : ''}"><b>${r.rank}</b><span>${esc(r.name)}</span><em>${r.score}点</em></li>`).join('') || '<li class="sub">まだだれもいません</li>';
   if (!q) { $('head').textContent = '待っています…'; $('note').textContent = '車で問題が出ると、ここに選択肢が出ます'; $('choices').innerHTML = ''; return; }
   if (q.qid !== lastQ) { lastQ = q.qid; picked = null; }
   const mine = q.answered ?? picked;
   const reveal = q.phase === 'reveal';
-  $('head').textContent = reveal ? (mine === q.correct ? '正解！' : mine == null ? '時間切れ' : '残念…') : 'この曲は？';
+  const setterMe = q.setter && q.setter === myName;
+  $('head').textContent = setterMe && !reveal ? 'あなたの出題' : reveal ? (setterMe ? '答え合わせ' : mine === q.correct ? '正解！' : mine == null ? '時間切れ' : '残念…') : 'この曲は？';
   const res = reveal && s.results ? s.results.find(r => r.name === myName) : null;
-  $('note').textContent = reveal ? (res && res.ok ? `+${res.pts}点（${res.sec}秒）` : '次の問題を待っています') : (mine != null ? '答えました。答え合わせを待っています' : '曲を聴いて、タップで答える（1回だけ）');
+  $('note').textContent = setterMe && !reveal ? 'あなたが予約した曲の問題です。みんなの答えを待っています（点数は入りません）'
+    : reveal ? (res && res.ok ? `+${res.pts}点（${res.sec}秒）` : '次の問題を待っています')
+    : (q.setter ? `${q.setter}さんの出題　` : '') + (mine != null ? '答えました。答え合わせを待っています' : '曲を聴いて、タップで答える（1回だけ）');
   $('choices').innerHTML = q.choices.map((c, i) => {
     const cls = reveal ? (i === q.correct ? 'ok' : i === mine ? 'ng' : '') : (i === mine ? 'sel' : '');
-    return `<button class="choice ${cls}" data-i="${i}" ${reveal || mine != null ? 'disabled' : ''}><b>${esc(c.t)}</b><small>${esc(c.w)}</small></button>`;
+    return `<button class="choice ${cls}" data-i="${i}" ${reveal || mine != null || setterMe ? 'disabled' : ''}><b>${esc(c.t)}</b><small>${esc(c.w)}</small></button>`;
   }).join('');
   $('choices').querySelectorAll('button[data-i]').forEach(b => b.onclick = () => answer(+b.dataset.i));
 }
 async function answer(i) {
   if (!state?.q || picked != null) return;
   picked = i; render();
-  try { await api('/api/drive/answer', { code, pid, qid: state.q.qid, idx: i }); } catch (e) { /* 締め切り後など */ }
+  try { await api('/api/drive/answer', { code, pid, qid: state.q.qid, idx: i }); } catch (e) { flash(e.message); }
   poll();
 }
 function tick() {
   const q = state?.q;
   $('timer').textContent = q && q.phase === 'answer' ? `あと ${Math.max(0, Math.ceil((q.until - (Date.now() + skew)) / 1000))} 秒` : '';
 }
+
+// ── 選曲 ──
+let SONGS = null, BYID = new Map(), GENRES = [], FAMES = [], loading = null, shown = 120, pickKey = '';
+const norm = s => String(s || '').normalize('NFKC').toLowerCase()
+  .replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60))
+  .replace(/[\s・･\-ー〜~!！?？。、,.「」『』()（）\[\]【】'"’”:：;；/／☆★♪♡]/g, '');
+function loadSongs() {
+  if (loading) return loading;
+  loading = fetch('/api/drive/songs').then(r => r.json()).then(j => {
+    SONGS = j.songs; GENRES = j.genres || []; FAMES = j.fame || [];
+    for (const s of SONGS) { s._h = norm([s.t, s.w, s.a, s.r].join(' ')); BYID.set(s.id, s); }
+    $('fgenre').insertAdjacentHTML('beforeend', GENRES.map(g => `<option value="${esc(g.key)}">${esc(g.label)}</option>`).join(''));
+    $('ffame').insertAdjacentHTML('beforeend', FAMES.map(g => `<option value="${esc(g.key)}">${esc(g.label)}</option>`).join(''));
+    renderList(true); renderNow();
+  }).catch(() => { $('count').textContent = '曲の一覧を読み込めませんでした'; loading = null; });
+  return loading;
+}
+const famRank = k => { const i = FAMES.findIndex(f => f.key === k); return i < 0 ? 99 : i; };
+const famLabel = k => FAMES.find(f => f.key === k)?.label || '';
+const genreIdx = s => { let m = 999; for (const g of s.g || []) { const i = GENRES.findIndex(x => x.key === g); if (i >= 0 && i < m) m = i; } return m; };
+const ja = (a, b) => String(a || '').localeCompare(String(b || ''), 'ja');
+function filtered() {
+  const words = norm($('q').value).length ? $('q').value.split(/\s+/).map(norm).filter(Boolean) : [];
+  const g = $('fgenre').value, k = $('fkind').value, f = $('ffame').value, favOnly = $('fav').checked;
+  const favs = new Set(st()?.favs || []);
+  let list = SONGS.filter(s => (!g || (s.g || []).includes(g)) && (!k || s.k === k) && (!f || s.f === f) && (!favOnly || favs.has(s.id)) && words.every(w => s._h.includes(w)));
+  const sort = $('sort').value;
+  const cmp = {
+    genre: (a, b) => (g ? 0 : genreIdx(a) - genreIdx(b)) || ja(a.w, b.w) || ja(a.t, b.t),
+    work: (a, b) => ja(a.w, b.w) || a.y - b.y || ja(a.t, b.t),
+    title: (a, b) => ja(a.t, b.t),
+    fame: (a, b) => famRank(a.f) - famRank(b.f) || ja(a.w, b.w),
+    new: (a, b) => b.y - a.y || ja(a.w, b.w),
+    old: (a, b) => a.y - b.y || ja(a.w, b.w),
+    artist: (a, b) => ja(a.a, b.a) || ja(a.t, b.t),
+  }[sort];
+  list.sort(cmp);
+  return list;
+}
+function groupOf(s) {
+  switch ($('sort').value) {
+    case 'genre': { if ($('fgenre').value) return ''; const i = genreIdx(s); return GENRES[i]?.label || 'そのほか'; }
+    case 'work': return s.w;
+    case 'fame': return famLabel(s.f);
+    case 'new': case 'old': return s.y ? `${Math.floor(s.y / 10) * 10}年代` : '';
+    case 'artist': return s.a;
+  }
+  return '';
+}
+function renderList(reset) {
+  if (!SONGS) return;
+  if (reset) shown = 120;
+  const list = filtered(), favs = new Set(st()?.favs || []);
+  $('count').textContent = `${list.length}曲` + (list.length > shown ? `（${shown}曲まで表示）` : '');
+  let html = '', last = null;
+  for (const s of list.slice(0, shown)) {
+    const gr = groupOf(s);
+    if (gr && gr !== last) { html += `<div class="group">${esc(gr)}</div>`; last = gr; }
+    html += `<div class="song"><div class="info"><b>${esc(s.t)}</b><small>${esc(s.w)} · ${esc(s.a)}${s.y ? ' · ' + s.y : ''} <span class="tag">${esc(famLabel(s.f))}</span></small></div>`
+      + `<button class="fav ${favs.has(s.id) ? 'on' : ''}" data-fav="${esc(s.id)}" aria-label="お気に入り">${favs.has(s.id) ? '♥' : '♡'}</button>`
+      + `<button class="res" data-res="${esc(s.id)}">${st()?.mode ? '予約' : '流す'}</button></div>`;
+  }
+  $('list').innerHTML = html || '<div class="sub" style="padding:16px 2px">見つかりませんでした</div>';
+  $('more').hidden = list.length <= shown;
+}
+let typing = null;
+$('q').oninput = $('q').oncompositionend = $('q').onkeyup = () => { clearTimeout(typing); typing = setTimeout(() => renderList(true), 200); };
+for (const id of ['sort', 'fgenre', 'fkind', 'ffame', 'fav']) $(id).onchange = () => renderList(true);
+$('more').onclick = () => { shown += 200; renderList(false); };
+$('list').onclick = e => {
+  const r = e.target.closest('[data-res]'), f = e.target.closest('[data-fav]');
+  if (r) reserve(BYID.get(r.dataset.res));
+  if (f) { const s = BYID.get(f.dataset.fav); f.classList.toggle('on'); f.textContent = f.classList.contains('on') ? '♥' : '♡'; cmd({ type: 'fav', id: s.id }); }
+};
+/** 予約：クイズの遊び方のときは、出し方を選ぶ */
+function reserve(s) {
+  if (!s) return;
+  const m = st()?.mode || '';
+  if (!QUIZ_MODES.includes(m)) return cmd({ type: 'reserve', id: s.id, how: 'play' }, m ? `「${s.t}」を予約しました` : `「${s.t}」を流します`);
+  const opts = [
+    ['quiz', 'クイズの問題に出す', 'みんなに当ててもらう（あなたは答えられません）'],
+    ['after', '流してからクイズに戻る', '順番が来たらこの曲を流して、終わったらクイズを続ける'],
+    ['bgm', 'クイズをやめてBGMで流す', 'いまのクイズを止めて、すぐ流す（遊び方は「BGMだけ」になります）'],
+  ];
+  $('sheetBody').innerHTML = `<div style="font-weight:600;font-size:17px">${esc(s.t)}</div><div class="sub" style="margin-top:-4px">${esc(s.w)} · ${esc(s.a)}</div>`
+    + opts.map(([k, t, d]) => `<button data-how="${k}"><span>${t}</span><small>${d}</small></button>`).join('')
+    + `<button data-how="" style="text-align:center">やめる</button>`;
+  $('sheet').hidden = false;
+  $('sheetBody').onclick = e => {
+    const b = e.target.closest('[data-how]'); if (!b) return;
+    $('sheet').hidden = true;
+    if (b.dataset.how) cmd({ type: 'reserve', id: s.id, how: b.dataset.how }, b.dataset.how === 'quiz' ? 'クイズを1問予約しました' : `「${s.t}」を予約しました`);
+  };
+}
+$('sheet').onclick = e => { if (e.target === $('sheet')) $('sheet').hidden = true; };
+
+// ── いま ──
+const artCache = {};
+async function artOf(i) {
+  if (!i) return '';
+  if (i in artCache) return artCache[i];
+  artCache[i] = '';
+  try { const j = await (await fetch(`https://itunes.apple.com/lookup?id=${i}&country=jp`)).json(); artCache[i] = (j.results?.[0]?.artworkUrl100 || '').replace('100x100bb', '400x400bb'); } catch (e) {}
+  return artCache[i];
+}
+let nowArtId = null;
+const HOW = { quiz: 'クイズで出題', after: '流してからクイズへ', bgm: 'BGMで', play: '' };
+function renderNow() {
+  const s = st();
+  if (!s) { $('nowMode').textContent = '車のアプリとつながるのを待っています…'; return; }
+  $('nowMode').textContent = s.modeLabel + (s.paused ? '（一時停止中）' : '') + (s.score ? `　正解 ${s.score}` : '');
+  const n = s.now;
+  if (s.quiz) { $('nowT').textContent = '？'; $('nowSub').textContent = 'クイズの問題中（答え合わせのあとに曲名が出ます）'; }
+  else if (n) { $('nowT').textContent = n.t; $('nowSub').textContent = `${n.a} — ${n.w}${n.y ? '（' + n.y + '）' : ''}`; }
+  else { $('nowT').textContent = s.mode ? '…' : '止まっています'; $('nowSub').textContent = s.mode ? '' : '「選曲」で曲を選ぶか、「設定」で遊び方を選ぶと始まります'; }
+  const id = !s.quiz && n ? n.id : '';
+  if (id !== nowArtId) {
+    nowArtId = id;
+    const el = $('nowArt'), song = BYID.get(id);
+    el.outerHTML = '<div class="ph" id="nowArt"></div>';
+    if (song?.i) artOf(song.i).then(u => { if (u && nowArtId === id) $('nowArt').outerHTML = `<img id="nowArt" src="${esc(u)}" alt="">`; });
+    else if (id && !SONGS) nowArtId = null; // 一覧を読み込んだら、もう一度
+  }
+  const on = !!s.mode;
+  $('cPause').textContent = s.paused ? '再生' : '一時停止';
+  for (const b of ['cPause', 'cNext', 'cChorus']) $(b).disabled = !on;
+  const favOn = n && !s.quiz && (s.favs || []).includes(n.id);
+  $('cFav').textContent = favOn ? '♥ お気に入り' : '♡'; $('cFav').disabled = !n || s.quiz;
+  $('nowMsg').textContent = s.msg && Date.now() + skew - s.msg.at < 60000 ? s.msg.text : '';
+  const qs = s.queue || [];
+  $('queue').innerHTML = qs.length ? qs.map((r, i) => {
+    const hide = r.how === 'quiz' && QUIZ_MODES.includes(s.mode) && r.by !== myName; // クイズに出す曲は、ほかの人には曲名を見せない
+    return `<div class="q"><span class="n">${i + 1}</span><div class="info"><b>${hide ? '？？？（クイズ）' : esc(r.t)}</b><small>${hide ? '' : esc(r.w) + ' · '}${esc(r.by)}さん${HOW[r.how] ? ' · ' + HOW[r.how] : ''}</small></div><button data-rid="${esc(r.rid)}">取り消す</button></div>`;
+  }).join('') : '<div class="sub">まだありません。「選曲」で曲を探して予約できます</div>';
+}
+$('cPause').onclick = () => cmd({ type: 'pause' });
+$('cNext').onclick = () => cmd({ type: 'next' }, '次へ');
+$('cChorus').onclick = () => cmd({ type: 'chorus' }, 'サビへ');
+$('cFav').onclick = () => { const n = st()?.now; if (n) cmd({ type: 'fav', id: n.id }); };
+$('queue').onclick = e => { const b = e.target.closest('[data-rid]'); if (b) cmd({ type: 'unreserve', rid: b.dataset.rid }, '予約を取り消しました'); };
+
+// ── 設定 ──
+const chip = (label, on, attrs) => `<button class="chip ${on ? 'on' : ''}" ${attrs}>${esc(label)}</button>`;
+let setKey = '';
+function renderSet() {
+  const s = st();
+  if (!s) { $('sSummary').textContent = '車のアプリとつながるのを待っています…'; return; }
+  const k = JSON.stringify([s.mode, s.source, s.playlists, s.presets, s.picked, s.set, s.summary]);
+  if (k === setKey) return; setKey = k;
+  $('sMode').innerHTML = MODES.map(([m, l]) => chip(l, s.mode === m, `data-mode="${m}"`)).join('') + (s.mode ? chip('止める', false, 'data-stop="1"') : '');
+  $('sSource').innerHTML = chip('絞り込み（いつもの）', !s.source, 'data-src=""') + (s.playlists || []).filter(p => p.n >= 4).map(p => chip(`${p.name}（${p.n}曲）`, s.source === p.name, `data-src="${esc(p.name)}"`)).join('');
+  $('sPresetHead').hidden = !(s.presets || []).length;
+  $('sPreset').innerHTML = (s.presets || []).map(p => chip(p.name, p.cur && !s.source, `data-preset="${esc(p.name)}"`)).join('');
+  $('sSummary').textContent = s.summary || '';
+  const names = { kind: '種類', era: '年代', fame: '知名度', genre: 'ジャンル' };
+  $('sGroups').innerHTML = '<div class="sub">絞り込み（次の曲から。何も選ばないと「すべて」）</div>' + Object.keys(names).map(g => {
+    const pk = new Set(s.picked?.[g] || []);
+    return `<div class="sec">${names[g]}</div><div class="chips">${chip('すべて', !pk.size, `data-clear="${g}"`)}${(s.opts?.[g] || []).map(([key, label]) => chip(label, pk.has(key), `data-g="${g}" data-k="${esc(key)}"`)).join('')}</div>`;
+  }).join('');
+  const set = s.set || {};
+  const row = (title, name, vals) => `<div class="sec">${title}</div><div class="chips">${vals.map(([v, l]) => chip(l, set[name] === v, `data-set="${name}" data-v='${JSON.stringify(v)}'`)).join('')}</div>`;
+  $('sOther').innerHTML = row('BGM＋ときどきクイズ：クイズを出す間隔', 'quizEvery', [[2, '2曲ごと'], [3, '3曲ごと'], [5, '5曲ごと']])
+    + row('BGM＋ときどきクイズ：クイズの出し方', 'mixListen', [[false, '4択'], [true, '聴くだけ']])
+    + row('クイズ：イントロを聴く秒数', 'introSec', [[10, '10秒'], [15, '15秒'], [20, '20秒'], [30, '30秒']])
+    + row('クイズ：「サビを聴く」でのばす秒数', 'chorusSec', [[10, '10秒'], [20, '20秒'], [30, '30秒']])
+    + row('聴くだけクイズ：答えのあと', 'listenKeep', [[false, '少し流して次へ'], [true, '最後まで流す']])
+    + row('曲の順番', 'shuffle', [[true, 'シャッフル（同じ曲を流さない）'], [false, 'リストの順']]);
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('#tab-set [class~="chip"]'); if (!b) return;
+  const d = b.dataset;
+  if (d.mode) cmd({ type: 'mode', m: d.mode }, '遊び方を変えました');
+  else if (d.stop) { if (confirm('車の音楽を止めますか？')) cmd({ type: 'stop' }, '止めました'); }
+  else if ('src' in d) cmd({ type: 'source', name: d.src });
+  else if (d.preset) cmd({ type: 'preset', name: d.preset });
+  else if (d.clear) cmd({ type: 'clear', group: d.clear });
+  else if (d.g) cmd({ type: 'toggle', group: d.g, key: d.k });
+  else if (d.set) cmd({ type: 'setting', name: d.set, value: JSON.parse(d.v) });
+  setKey = '';
+});
+
 if (!code) showErr('車の画面のQRコードを読んで開いてください');
 else if (pid) start(); else $('join').hidden = false;
 </script>

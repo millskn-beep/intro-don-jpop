@@ -838,5 +838,27 @@
   "votes": 1,
   "songId": "4noCHoUpWFY",
   "doneAt": "2026-10-20T17:30:00.341Z"
+ },
+ {
+  "id": "418fb7a8",
+  "title": "This Fffire",
+  "work": "サイバーパンク エッジランナーズ",
+  "artist": "フランツ・フェルディナンド",
+  "genre": "",
+  "note": "１期OP",
+  "at": "2026-10-21T03:48:42.284Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "a7a82e40",
+  "title": "Let You Down",
+  "work": "サイバーパンク エッジランナーズ",
+  "artist": "ダヴィド・ポドシアドウ",
+  "genre": "sf",
+  "note": "ED",
+  "at": "2026-10-21T03:49:42.237Z",
+  "status": "open",
+  "votes": 1
  }
 ]

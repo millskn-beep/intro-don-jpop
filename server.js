@@ -1731,13 +1731,14 @@ const wolfFam = s => bingoLabel(s.work); // 作品（シリーズ）の名前
 function wolfSongFor(room, song) {
   const pool = room.game.pool.length > 10 ? room.game.pool : SONGS, ctx = userCtx(room);
   const ok = s => s.id !== song.id && wolfKey(s.title) !== wolfKey(song.title) && !ctx.block.has(s.id) && workKey(s.work) !== workKey(song.work) && wolfFam(s) !== wolfFam(song);
-  const gs = genresOf(song), diffArtist = s => wolfArtist(s) !== wolfArtist(song);
-  const tiers = [
+  const gs = genresOf(song), diffArtist = s => wolfArtist(s) !== wolfArtist(song), sameKind = s => kindOf(s) === kindOf(song);
+  const tiers0 = [
     pool.filter(s => ok(s) && diffArtist(s) && Math.abs(s.year - song.year) <= 5 && genresOf(s).some(k => gs.includes(k))),
     pool.filter(s => ok(s) && diffArtist(s) && Math.abs(s.year - song.year) <= 10),
     pool.filter(s => ok(s) && diffArtist(s)),
     SONGS.filter(ok),
   ];
+  const tiers = [...tiers0.map(l => l.filter(sameKind)), ...tiers0]; // 同じ種類（アニメ・ボカロ・J-POP・パチスロ）の曲を先に
   const list = tiers.find(l => l.length) || [];
   return list[crypto.randomInt(list.length)];
 }
@@ -1752,12 +1753,13 @@ function startWolfRound(room, song) {
   const works = new Set([workKey(song.work), workKey(other.work), wolfFam(song), wolfFam(other)]);
   const gs = new Set([...genresOf(song), ...genresOf(other)]);
   const artists = new Set([wolfArtist(song), wolfArtist(other)]); // 歌手もできるだけ重ならないように（1歌手1曲）
-  const ok = s => !ctx.block.has(s.id) && !taken.has(wolfKey(s.title));
-  const tiers = [
+  const ok = s => !ctx.block.has(s.id) && !taken.has(wolfKey(s.title)), sameKind = s => kindOf(s) === kindOf(song);
+  const tiers0 = [
     room.game.pool.filter(s => ok(s) && Math.abs(s.year - song.year) <= 6 && genresOf(s).some(k => gs.has(k))),
     room.game.pool.filter(ok),
     SONGS.filter(ok),
   ];
+  const tiers = [...tiers0.map(l => l.filter(sameKind)), ...tiers0]; // 候補も同じ種類の曲を先に（ちがう種類が混ざって浮かないように）
   const base = [];
   // 1周目：作品も歌手も重ならない曲だけ／足りなければ2周目：歌手は重なってもよい（作品は必ず別）
   for (const strict of [true, false]) {
@@ -2785,8 +2787,11 @@ function buildArtistChoices(song, count, pool) {
   const near = s => Math.abs(s.year - song.year) <= NEAR_YEARS;
   const seen = new Set([artistKey(song.artist)]);
   const picks = [];
-  const candidates = sameVoiceFirst(song.artist, [
-    ...similarFirst(song, [...shuffle(pool.filter(s => s !== song)), ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !choiceBlocked(s, pool))))], near).map(s => s.artist), // ジャンル・作品のお題では、そのお題の曲だけ
+  // 曲の種類（アニメ・ボカロ・J-POP・パチスロ）がそろうのを先に（ちがう種類が1つだけ混ざって浮かないように）、その中で同じ声の歌手を先に
+  const k = kindOf(song), voice = GENDER.get(song.artist);
+  const candidates = ([
+    ...similarFirst(song, [...shuffle(pool.filter(s => s !== song)), ...(pool.strict ? [] : shuffle(SONGS.filter(s => !pool.includes(s) && !choiceBlocked(s, pool))))], near)
+      .map((s, i) => [s, (kindOf(s) === k ? 0 : 2) + (voice && GENDER.get(s.artist) !== voice ? 1 : 0), i]).sort((a, b) => a[1] - b[1] || a[2] - b[2]).map(([s]) => s.artist), // ジャンル・作品のお題では、そのお題の曲だけ
   ]);
   for (const a of candidates) {
     if (picks.length >= count - 1) break;
@@ -2933,7 +2938,9 @@ function buildFill(song, pool) {
       slots.push(slot('vocal', 'VOCALOID', 'vocal', ch));
     } else if (song.singer?.length) {
       // 本人が歌っている動画（米津玄師・Eve など）は、3つ目の枠を「歌手」にする
-      const ch = fillChoices(song.singer[0], sameVoiceFirst(song.singer[0], shuffle([...new Set((pool.strict ? pool : SONGS).filter(s => s !== song).map(s => s.artist))])), FILL_CHOICES);
+      const src = (pool.strict ? pool : SONGS).filter(s => s !== song), same = shuffle(src.filter(s => kindOf(s) === kindOf(song))), rest = shuffle(src.filter(s => kindOf(s) !== kindOf(song)));
+      const names = [...new Set([...same.flatMap(s => s.singer?.length ? s.singer : [s.artist]), ...rest.map(s => s.artist)])]; // 同じ種類（ボカロ）の歌手を先に
+      const ch = fillChoices(song.singer[0], [...sameVoiceFirst(song.singer[0], names.slice(0, Math.max(30, same.length)))], FILL_CHOICES);
       slots.push(slot('singer', '歌手', 'singer', ch));
     } else {
       // ボーカルも歌手も分からない曲：3つ目の枠は最初から「ボーカルなし」で埋まっている（押せない・点数なし）
@@ -3038,15 +3045,23 @@ function startQuestion(room, song, picker = null) {
   const years = S.target === 'year' ? yearRange(S, song) : null;
   g.pool.strict = !['all', 'multi'].includes(S.topic || 'all'); // ジャンル・作品のお題では、選択肢もそのお題の曲だけから作る
   if (isGz(S.play)) g.pool.ex = []; // ジャンル制覇は、出題しないジャンルに入っている種類（ボカロ・J-POP など）が選ばれることがある。選択肢はその種類の曲から作るので、除外はかけない
+  // ジャンル制覇：いまのジャンル（種類）はみんなに見えているので、選択肢もそのジャンルの曲から作る（そのジャンルの曲が正解だけで浮かないように）
+  let cpool = g.pool;
+  if (isGz(S.play) && g.gz?.cur) {
+    const cat = gzCatOf(g.gz, g.gz.cur), ctxC = userCtx(room);
+    const need = Math.max(S.choices || 8, 8) * 2, inPool = cat ? g.pool.filter(s => cat.test(s) && !ctxC.block.has(s.id)) : [];
+    const cp = inPool.length >= need ? inPool : cat ? SONGS.filter(s => cat.test(s) && !ctxC.block.has(s.id)) : []; // 部屋の曲の範囲から。足りなければ全曲から
+    if (cp.length >= need) { cp.strict = true; cp.ex = []; cpool = cp; }
+  }
   const input = S.answerMode === 'input' && !years;
   const { choices, correctIndex } = S.play === 'nenpyo' ? { choices: null, correctIndex: null } // 年表は置く場所を選ぶ
     : S.play === 'karuta' ? karutaChoices(room, song) // かるたは場に並べた16枚の札
     : S.play === 'fill' ? { choices: null, correctIndex: null } // 3つ埋めバトルは枠ごとの選択肢（buildFill）
     : years ? { choices: null, correctIndex: years.indexOf(song.year) }
     : input ? { choices: null, correctIndex: null }
-    : S.target === 'work' ? buildWorkChoices(song, S.choices, g.pool)
-    : S.target === 'artist' ? buildArtistChoices(song, S.choices, g.pool)
-    : buildChoices(song, S.choices, g.pool);
+    : S.target === 'work' ? buildWorkChoices(song, S.choices, cpool)
+    : S.target === 'artist' ? buildArtistChoices(song, S.choices, cpool)
+    : buildChoices(song, S.choices, cpool);
   g.q = {
     attack: S.play === 'panel' && !!g.panel && g.attackCell != null && g.qi === g.attackQi, // アニソン陣取り：20問目のあと白いマスができた、次の問題が「アタックチャンス」
     song, choices, correctIndex, kind, start, years,

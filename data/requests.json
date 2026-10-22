@@ -847,8 +847,10 @@
   "genre": "",
   "note": "１期OP",
   "at": "2026-10-21T03:48:42.284Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "mH2wmyeiIpA",
+  "doneAt": "2026-10-22T17:54:13.973Z"
  },
  {
   "id": "a7a82e40",
@@ -858,7 +860,9 @@
   "genre": "sf",
   "note": "ED",
   "at": "2026-10-21T03:49:42.237Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "BnnbP7pCIvQ",
+  "doneAt": "2026-10-22T17:54:14.124Z"
  }
 ]

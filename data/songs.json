@@ -33402,7 +33402,7 @@
     "confidence": "高",
     "source": "Topic",
     "intro": 1.2,
-    "chorus": 36,
+    "chorus": 61.9,
     "aliases": [
       "はっきんぐとぅざげーと"
     ],
@@ -33410,7 +33410,7 @@
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
     "introMeasured": true,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMethod": "v2",
     "views": 3096634,
     "channel": "Ito Kanako - Topic",
@@ -51911,7 +51911,7 @@
     "views": 20008763,
     "channel": "Animeshon Beats",
     "viewsAt": "2026-10-10",
-    "fame": "famous"
+    "fame": "otaku"
   },
   {
     "id": "_Agdmq0v8zo",
@@ -60043,12 +60043,12 @@
     "confidence": "高",
     "source": "League of Legends公式",
     "intro": 0.5,
-    "chorus": 59,
+    "chorus": 73,
     "aliases": [
       "レジェンズネバーダイ"
     ],
     "embeddable": true,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
     "introMeasured": false,
@@ -67112,7 +67112,7 @@
     "views": 4362526,
     "channel": "Lantis Channel",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "ぶんごうすとれいどっぐす",
       "文スト",
@@ -80727,7 +80727,7 @@
     "views": 4306780,
     "channel": "KADOKAWAanime",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "おーばーろーど",
       "OVERLORD"
@@ -90657,20 +90657,17 @@
     "type": "映画主題歌",
     "confidence": "高",
     "source": "米津玄師公式MV",
-    "intro": 28,
+    "intro": 20,
     "chorus": 100,
     "aliases": [],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 16994943,
     "channel": "Kenshi Yonezu  米津玄師",
     "viewsAt": "2026-10-05",
     "fame": "famous",
-    "introSource": "auto",
-    "introBefore": 15.2,
     "workAliases": [
       "らすとまいる"
     ],
@@ -92602,7 +92599,7 @@
     "views": 52629453,
     "channel": "Sony Music Japan",
     "viewsAt": "2026-10-05",
-    "fame": "top",
+    "fame": "famous",
     "workAliases": [
       "きめつのやいば",
       "鬼滅",
@@ -97429,7 +97426,7 @@
     "views": 216526,
     "channel": "MYTH & ROID Official Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "introSource": "auto",
     "introBefore": 0.5,
     "workAliases": [
@@ -110661,7 +110658,7 @@
     "confidence": "中",
     "source": "gojimajiP - Topic",
     "intro": 0.2,
-    "chorus": 50,
+    "chorus": 55,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -110670,7 +110667,7 @@
     ],
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 412089,
     "channel": "gojimajiP - Topic",
@@ -121588,5 +121585,49 @@
     "channel": "MAYU MAESHIMA YouTube Official Channel",
     "viewsAt": "2026-10-20",
     "fame": "normal"
+  },
+  {
+    "id": "mH2wmyeiIpA",
+    "title": "This Fffire",
+    "work": "サイバーパンク エッジランナーズ",
+    "artist": "Franz Ferdinand",
+    "year": 2022,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Cyberpunk 2077公式",
+    "intro": 0.5,
+    "chorus": 127,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 16680350,
+    "channel": "Cyberpunk 2077",
+    "viewsAt": "2026-10-22",
+    "fame": "famous"
+  },
+  {
+    "id": "BnnbP7pCIvQ",
+    "title": "Let You Down",
+    "work": "サイバーパンク エッジランナーズ",
+    "artist": "Dawid Podsiadło",
+    "year": 2022,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Cyberpunk 2077公式",
+    "intro": 4.7,
+    "chorus": 85,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 58843204,
+    "channel": "Cyberpunk 2077",
+    "viewsAt": "2026-10-22",
+    "fame": "top"
   }
 ]

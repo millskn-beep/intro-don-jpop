@@ -208,14 +208,28 @@ $('tabs').querySelectorAll('button').forEach(b => b.onclick = () => setTab(b.dat
 $('quizBanner').onclick = () => setTab('quiz');
 
 function start() { $('join').hidden = true; $('tabs').hidden = false; setTab(tab); poll(); polling = setInterval(poll, 1000); setInterval(tick, 250); loadSongs(); }
-let state = null;
+let state = null, rejoining = false;
 async function poll() {
   try {
     const s = await api(`/api/drive/state?code=${encodeURIComponent(code)}&pid=${encodeURIComponent(pid)}`);
     skew = s.serverNow - Date.now();
-    if (!s.me) { clearInterval(polling); pid = ''; store?.removeItem(KEY + ':pid'); $('tabs').hidden = true; for (const k of ['quiz', 'pick', 'now', 'set']) $('tab-' + k).hidden = true; $('join').hidden = false; return; } // 部屋が作り直された
+    $('err').hidden = true;
+    if (!s.me) { // 部屋が作り直された（エンジンをかけ直したときなど）：同じ名前で自動で入り直す
+      if (myName && !rejoining) {
+        rejoining = true;
+        try { const j = await api('/api/drive/join', { code, name: myName }); pid = j.pid; myName = j.name; store?.setItem(KEY + ':pid', pid); flash('部屋に入り直しました'); }
+        catch (e) { /* 次の確認でもう一度 */ }
+        rejoining = false;
+        return;
+      }
+      if (!myName) { clearInterval(polling); pid = ''; store?.removeItem(KEY + ':pid'); $('tabs').hidden = true; for (const k of ['quiz', 'pick', 'now', 'set']) $('tab-' + k).hidden = true; $('join').hidden = false; }
+      return;
+    }
     state = s; render();
-  } catch (e) { if (e.status === 404) { clearInterval(polling); showErr('部屋が見つかりません。車の画面のQRコードをもう一度読んでください'); } }
+  } catch (e) {
+    // 部屋がない：車のアプリが同じ番号で部屋を開き直すのを待つ（エンジンを切っていた・サーバーが止まっていたとき）
+    if (e.status === 404) showErr('車のアプリが部屋を開くのを待っています…（エンジンをかけて曲が流れ始めると、このページのまま戻ります）');
+  }
 }
 const st = () => state?.status || null;
 const QUIZ_MODES = ['MIX', 'QUIZ', 'LISTEN'];

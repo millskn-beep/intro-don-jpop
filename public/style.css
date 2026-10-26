@@ -1399,3 +1399,4 @@ body.rush-machine .stage-tools { overflow: visible; }
 @keyframes lyblink { 50% { opacity: 0; } }
 .ly-kinds-box { grid-column: 1 / -1; display: grid; gap: 4px; font-size: 13px; }
 .ly-kinds { display: flex; flex-wrap: wrap; gap: 4px 12px; } .ly-kinds label { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; cursor: pointer; } .ly-kinds input { width: auto; margin: 0; }
+.ly-box .ly-text.ly-scroll { min-height: calc(1.7em * 3); }

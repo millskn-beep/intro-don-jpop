@@ -1280,8 +1280,8 @@ socket.on('question', q => {
     $('lyBox').innerHTML = `<p class="ly-ask">${esc(ly.ask)}</p><div class="ly-text" id="lyText">${body}</div>`;
     if (ly.progressive) { // 歌詞が1文字ずつ出る（曲が流れ始めるのと同じころから）
       const full = (ly.show || []).join('\n'), chars = [...full]; let k = 0;
-      $('lyText').innerHTML = '<span class="ly-cursor">▍</span>';
-      lyRevealTick = setInterval(() => { k++; $('lyText').innerHTML = esc(chars.slice(0, k).join('')).replace(/\n/g, '<br>') + (k < chars.length ? '<span class="ly-cursor">▍</span>' : ''); if (k >= chars.length) clearInterval(lyRevealTick); }, 260);
+      $('lyText').innerHTML = '<span class="ly-cursor">▍</span>'; $('lyText').classList.add('ly-scroll'); // 長い歌詞は枠の中で下へ送る
+      lyRevealTick = setInterval(() => { k++; $('lyText').innerHTML = chars.slice(0, k).join('').split('\n').slice(-3).map(esc).join('<br>') + (k < chars.length ? '<span class="ly-cursor">▍</span>' : ''); /* いま出ている最後の3行だけ（古い行は上へ流れて消える） */ if (k >= chars.length) clearInterval(lyRevealTick); }, 200);
     }
   }
   stopTick();

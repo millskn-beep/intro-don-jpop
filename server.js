@@ -852,7 +852,7 @@ const OPTIONS = {
   lessPlayed: [false, true],            // 統計（流れた回数）が少ない曲を優先して出す
   noCoupling: [false, true],            // カップリング曲（シングルのB面）を出さない（曲データの coupling が true の曲）
   dtChoices: [4, 8, 12], // 伝達クイズ：選択肢の数
-  lyKind: ['mix', 'which', 'blank', 'next', 'reveal', 'whichWork', 'whichArtist', 'type', 'order', 'wrong', 'shiritori', 'keyword'], // 歌詞クイズ：出題の種類
+  lyKind: ['mix', 'which', 'blank', 'next', 'reveal', 'whichWork', 'whichArtist', 'wrong', 'keyword'], // 歌詞クイズ：出題の種類
   lyFocus: ['chorus', 'any'],             // 歌詞クイズ：サビの歌詞を中心に出す／どこからでも
   kmTop: [10, 15, 20], // 帰れま10：当てる順位の数（トップ10／15／20）
   gzSet: ['fixed', 'random', 'choose'], // ジャンル制覇：集めるジャンルの決め方（fixed：今の6つ／random：ゲームごとにランダム／choose：選ぶ）
@@ -1133,8 +1133,8 @@ const LY_ASK = { which: 'この歌詞の曲は？', blank: '曲を聴いて、�
   reveal: '歌詞が少しずつ出ます。わかったら曲を選んで！（早いほど高得点）', whichWork: 'この歌詞の曲の作品は？', whichArtist: 'この歌詞の曲を歌っているのは？',
   type: '止まったところの続きの歌詞を打ってください（最初の数文字でOK）', order: '歌われる順に並べると？', wrong: '曲を聴いて、歌詞と違う言葉はどれ？',
   shiritori: '歌詞しりとり：この歌詞の最後の文字から始まる歌詞は？', keyword: 'この曲の歌詞でいちばん多く出てくる言葉は？' };
-const lyKindsOf = S => (Array.isArray(S.lyKinds) && S.lyKinds.length ? S.lyKinds : S.lyKind === 'mix' || !S.lyKind ? LY_KINDS : [S.lyKind]); // 部屋で選んだ出題の種類
-const LY_KINDS = ['which', 'blank', 'next', 'reveal', 'whichWork', 'whichArtist', 'type', 'order', 'wrong', 'shiritori', 'keyword'];
+const lyKindsOf = S => (Array.isArray(S.lyKinds) && S.lyKinds.some(k => LY_KINDS.includes(k)) ? S.lyKinds.filter(k => LY_KINDS.includes(k)) : S.lyKind === 'mix' || !LY_KINDS.includes(S.lyKind) ? LY_KINDS : [S.lyKind]); // 部屋で選んだ出題の種類
+const LY_KINDS = ['which', 'blank', 'next', 'reveal', 'whichWork', 'whichArtist', 'wrong', 'keyword']; // カラオケ止め（type）・しりとり（shiritori）・並べかえ（order）は難しすぎるので出さない（2026-10-27）
 // 歌詞の言葉のまとまり（漢字・カタカナ・英語）
 const LY_WORD = /[\u4E00-\u9FFF々]{2,}|[\u30A0-\u30FF]{3,}|[A-Za-z]{4,}/g;
 const toHira = c => String(c || '').normalize('NFKC').replace(/[ァ-ヶ]/g, x => String.fromCharCode(x.charCodeAt(0) - 0x60));
@@ -1176,7 +1176,9 @@ function lyricQuestion(kind, song, n, pool, focus = 'chorus') {
   const chorusPlay = () => { const f = Math.max(song.intro || 0, (hasChorus(song) ? chorusOf(song) : (song.intro || 0) + 40) - 1); return { from: f, until: f + 40 }; }; // 問題の間、サビを流す
   const playLine = i => (LYRICS_MEM.get(song.id).sync && L[i]?.t != null ? { from: Math.max(0, L[i].t - 0.3), until: (L[i + 2]?.t ?? L[i].t + 10) } : null);
   if (kind === 'reveal') { // 1. 歌詞が1文字ずつ出る → 曲を当てる（早いほど高得点）
-    const { show } = twoLines(), ch = buildChoices(song, n, strictPool);
+    // 2行だけでなく、そこから10行くらいを続けて出す（画面では流れるように下へ送る）。同じ行が続くところは1回に
+    // 後ろに10行くらい残る所から
+    const late = okRow.filter(k => k + 10 <= L.length), i = late.length ? pickR(late) : Math.max(0, Math.min(twoLines().i, L.length - 10)), show = L.slice(i, i + 12).map(x => x.text).filter((x, k, a) => k === 0 || x !== a[k - 1]).slice(0, 10), ch = buildChoices(song, n, strictPool);
     return silent({ lyric: { ask: LY_ASK.reveal, show, progressive: true }, choices: ch.choices, correctIndex: ch.correctIndex, play: null });
   }
   if (kind === 'whichWork' || kind === 'whichArtist') { // 2. 歌詞から作品・歌手を当てる

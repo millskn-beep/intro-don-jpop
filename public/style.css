@@ -1391,3 +1391,9 @@ body.rush-machine .stage-tools { overflow: visible; }
 .req-nearadd { width: 100%; font-size: 11.5px; color: var(--sub); } .req-nearadd a { color: #8dffc8; }
 .req-body em { overflow-wrap: anywhere; } .req-body em a { color: #7ab8ff; }
 #reqList li { flex-wrap: wrap; } #reqList .req-nearadd { flex: 1 0 100%; order: 9; padding-left: 4px; }
+/* 歌詞クイズの追加の形 */
+.ly-box .ly-rows { display: grid; gap: 3px; text-align: left; max-width: 640px; margin: 0 auto; } .ly-box .ly-rows p { margin: 0; font-size: clamp(14px, 2.6vw, 19px); }
+.ly-box .ly-title { display: block; font-size: clamp(15px, 2.8vw, 20px); color: var(--accent); }
+.ly-box .ly-from { color: var(--sub); font-size: 12px; font-weight: 400; } .ly-box .ly-cursor { color: var(--accent); animation: lyblink .8s steps(1) infinite; }
+.ly-box .ly-answer { margin: 4px 0 0; color: #8dffc8; font-weight: 700; }
+@keyframes lyblink { 50% { opacity: 0; } }

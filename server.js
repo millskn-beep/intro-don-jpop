@@ -851,7 +851,7 @@ const OPTIONS = {
   lessPlayed: [false, true],            // 統計（流れた回数）が少ない曲を優先して出す
   noCoupling: [false, true],            // カップリング曲（シングルのB面）を出さない（曲データの coupling が true の曲）
   dtChoices: [4, 8, 12], // 伝達クイズ：選択肢の数
-  lyKind: ['mix', 'which', 'blank', 'next'], // 歌詞クイズ：出題の種類
+  lyKind: ['mix', 'which', 'blank', 'next', 'reveal', 'whichWork', 'whichArtist', 'type', 'order', 'wrong', 'shiritori', 'keyword'], // 歌詞クイズ：出題の種類
   lyFocus: ['chorus', 'any'],             // 歌詞クイズ：サビの歌詞を中心に出す／どこからでも
   kmTop: [10, 15, 20], // 帰れま10：当てる順位の数（トップ10／15／20）
   gzSet: ['fixed', 'random', 'choose'], // ジャンル制覇：集めるジャンルの決め方（fixed：今の6つ／random：ゲームごとにランダム／choose：選ぶ）
@@ -1127,7 +1127,18 @@ let LY_PASS_HASH = '';
 try { LY_PASS_HASH = fs.readFileSync(path.join(__dirname, 'data', 'lyrics-pass.sha256'), 'utf8').trim(); } catch (e) { /* なければ歌詞クイズは使えない */ }
 const lyricsPassOk = p => !!LY_PASS_HASH && typeof p === 'string' && p.length > 0 && crypto.createHash('sha256').update(p.trim()).digest('hex') === LY_PASS_HASH;
 const LY_MAX = 10;
-const LY_ASK = { which: 'この歌詞の曲は？', blank: '曲を聴いて、？に入る言葉は？', next: '続きの歌詞はどれ？' };
+const LY_ASK = { which: 'この歌詞の曲は？', blank: '曲を聴いて、？に入る言葉は？', next: '続きの歌詞はどれ？',
+  reveal: '歌詞が少しずつ出ます。わかったら曲を選んで！（早いほど高得点）', whichWork: 'この歌詞の曲の作品は？', whichArtist: 'この歌詞の曲を歌っているのは？',
+  type: '止まったところの続きの歌詞を打ってください（最初の数文字でOK）', order: '歌われる順に並べると？', wrong: '曲を聴いて、歌詞と違う言葉はどれ？',
+  shiritori: '歌詞しりとり：この歌詞の最後の文字から始まる歌詞は？', keyword: 'この曲の歌詞でいちばん多く出てくる言葉は？' };
+const LY_KINDS = ['which', 'blank', 'next', 'reveal', 'whichWork', 'whichArtist', 'type', 'order', 'wrong', 'shiritori', 'keyword'];
+// 歌詞の言葉のまとまり（漢字・カタカナ・英語）
+const LY_WORD = /[\u4E00-\u9FFF々]{2,}|[\u30A0-\u30FF]{3,}|[A-Za-z]{4,}/g;
+const toHira = c => String(c || '').normalize('NFKC').replace(/[ァ-ヶ]/g, x => String.fromCharCode(x.charCodeAt(0) - 0x60));
+const KANA_SMALL = { 'ぁ': 'あ', 'ぃ': 'い', 'ぅ': 'う', 'ぇ': 'え', 'ぉ': 'お', 'っ': 'つ', 'ゃ': 'や', 'ゅ': 'ゆ', 'ょ': 'よ', 'ゎ': 'わ' };
+// しりとりの文字：行の最後（記号・のばし棒は飛ばす）／最初の、かなの1文字（かなでなければ null）
+const lastKana = s => { const a = [...toHira(s).replace(/[\s\p{P}\p{S}ー〜～]+$/u, '')]; const c = a[a.length - 1]; return /[ぁ-ゖ]/.test(c || '') ? (KANA_SMALL[c] || c) : null; };
+const firstKana = s => { const c = [...toHira(s).replace(/^[\s\p{P}\p{S}]+/u, '')][0]; return /[ぁ-ゖ]/.test(c || '') ? (KANA_SMALL[c] || c) : null; };
 // 歌詞の問題：kind = which（この歌詞の曲は？）／blank（穴あき）／next（続きはどれ？）。曲を流す問題は、動画と時刻が合う曲だけ
 // サビの行：くり返し出てくる行（4文字以上）と、動画と時刻が合う曲ならサビの時刻（chorus）から25秒の間の行
 function chorusLines(song, L) {
@@ -1147,6 +1158,57 @@ function lyricQuestion(kind, song, n, pool, focus = 'chorus') {
   // サビ中心：サビの行が見つかれば、そこから出す（なければ、どこからでも）
   const CH = focus === 'chorus' ? chorusLines(song, L) : null;
   const inCh = i => !CH || !CH.size || CH.has(i);
+  const okRow = L.map((x, i) => i).filter(i => i >= 1 && i + 1 < L.length && inCh(i));
+  const twoLines = () => { const i = okRow.length ? pickR(okRow) : 1 + crypto.randomInt(Math.max(1, L.length - 3)); return { i, show: L.slice(i, i + 2).map(x => x.text) }; };
+  const strictPool = pool.length >= n * 2 ? Object.assign(pool.slice(), { strict: true, ex: [] }) : pool;
+  const playLine = i => (LYRICS_MEM.get(song.id).sync && L[i]?.t != null ? { from: Math.max(0, L[i].t - 0.3), until: (L[i + 2]?.t ?? L[i].t + 10) } : null);
+  if (kind === 'reveal') { // 1. 歌詞が1文字ずつ出る → 曲を当てる（早いほど高得点）
+    const { show } = twoLines(), ch = buildChoices(song, n, strictPool);
+    return { lyric: { ask: LY_ASK.reveal, show, progressive: true }, choices: ch.choices, correctIndex: ch.correctIndex, play: null };
+  }
+  if (kind === 'whichWork' || kind === 'whichArtist') { // 2. 歌詞から作品・歌手を当てる
+    const { show } = twoLines();
+    const ch = kind === 'whichWork' ? buildWorkChoices(song, n, strictPool) : buildArtistChoices(song, n, strictPool);
+    return { lyric: { ask: LY_ASK[kind], show }, choices: ch.choices, correctIndex: ch.correctIndex, play: null };
+  }
+  if (kind === 'keyword') { // 8. いちばん多く出てくる言葉
+    const cnt = new Map(); for (const x of L) for (const m of x.text.matchAll(LY_WORD)) cnt.set(m[0], (cnt.get(m[0]) || 0) + 1);
+    const top = [...cnt].sort((a, b) => b[1] - a[1]); if (!top.length || top[0][1] < 2) return null; // 2回以上出てくる言葉がない曲は出さない（同点の言葉は、この曲に出てくるので選択肢には入らない）
+    const w = top[0][0], inSong = new Set(cnt.keys()), latin = /[A-Za-z]/.test(w), others = new Set();
+    for (const s of shuffle(pool.filter(x => x !== song && LYRICS_MEM.has(x.id))).slice(0, 40)) {
+      const c2 = new Map(); for (const x of LYRICS_MEM.get(s.id).lines) for (const m of x.text.matchAll(LY_WORD)) c2.set(m[0], (c2.get(m[0]) || 0) + 1);
+      const best = [...c2].sort((a, b) => b[1] - a[1]).find(([x]) => !inSong.has(x) && /[A-Za-z]/.test(x) === latin); if (best) others.add(best[0]);
+    }
+    if (others.size < n - 1) return null;
+    const choices = shuffle([w, ...shuffle([...others]).slice(0, n - 1)]).map(x => ({ title: x, work: '' }));
+    return { lyric: { ask: LY_ASK.keyword, title: `「${song.title}」（${song.work}）`, show: [] }, choices, correctIndex: choices.findIndex(x => x.title === w), play: null };
+  }
+  if (kind === 'order') { // 4. 4行を歌われる順に並べる（並べ方の4択）
+    const ok = L.map((x, i) => i).filter(i => i + 3 < L.length && new Set(L.slice(i, i + 4).map(x => x.text)).size === 4 && [0, 1, 2, 3].some(k => inCh(i + k)));
+    if (!ok.length) return null;
+    const i = pickR(ok), rows = L.slice(i, i + 4).map(x => x.text), labels = ['A', 'B', 'C', 'D'];
+    const shown = shuffle([0, 1, 2, 3]); // shown[k] = 表示の k 番目（ラベル labels[k]）は本当は何行目か
+    const right = [0, 1, 2, 3].map(r => labels[shown.indexOf(r)]).join('→');
+    const perms = new Set([right]); while (perms.size < Math.min(n, 24)) perms.add(shuffle(labels).join('→'));
+    const choices = shuffle([...perms]).map(x => ({ title: x, work: '' }));
+    return { lyric: { ask: LY_ASK.order, rows: shown.map((r, k) => `${labels[k]}：${rows[r]}`), show: [] }, choices, correctIndex: choices.findIndex(x => x.title === right), play: null,
+             reveal: playLine(i) };
+  }
+  if (kind === 'shiritori') { // 7. しりとり：ほかの曲の歌詞の最後の文字 → この曲の、その文字から始まる行
+    const mine = shuffle(L.map((x, i) => i).filter(i => firstKana(L[i].text) && inCh(i)).concat(L.map((x, i) => i).filter(i => firstKana(L[i].text))));
+    for (const bi of mine.slice(0, 12)) {
+      const k = firstKana(L[bi].text);
+      let a = null;
+      for (const s of shuffle(pool.filter(x => x !== song && LYRICS_MEM.has(x.id))).slice(0, 60)) { const hit = LYRICS_MEM.get(s.id).lines.find(x => lastKana(x.text) === k && x.text.length >= 6); if (hit) { a = { s, line: hit.text }; break; } }
+      if (!a) continue;
+      const wrongs = new Set();
+      for (const s of shuffle(pool.filter(x => x !== song && x !== a.s && LYRICS_MEM.has(x.id))).slice(0, 40)) { const w = LYRICS_MEM.get(s.id).lines.find(x => firstKana(x.text) && firstKana(x.text) !== k && x.text.length >= 6); if (w) wrongs.add(w.text); if (wrongs.size >= n - 1) break; }
+      if (wrongs.size < n - 1) return null;
+      const right = L[bi].text, choices = shuffle([right, ...wrongs]).map(x => ({ title: x, work: '' }));
+      return { lyric: { ask: LY_ASK.shiritori, show: [a.line], from: `（${a.s.title}）` }, choices, correctIndex: choices.findIndex(x => x.title === right), play: null, reveal: playLine(bi) };
+    }
+    return null;
+  }
   if (kind === 'which') {
     const okW = L.map((x, i) => i).filter(i => i >= 1 && i + 1 < L.length && inCh(i));
     const i = okW.length ? pickR(okW) : 1 + crypto.randomInt(Math.max(1, L.length - 3));
@@ -1164,6 +1226,33 @@ function lyricQuestion(kind, song, n, pool, focus = 'chorus') {
     const choices = shuffle([c.w, ...shuffle([...words]).slice(0, n - 1)]).map(w => ({ title: w, work: '' }));
     return { lyric: { ask: LY_ASK.blank, before: line.text.slice(0, c.at), after: line.text.slice(c.at + c.w.length) }, choices, correctIndex: choices.findIndex(x => x.title === c.w),
              play: { from: Math.max(0, (L[c.i - 1]?.t ?? line.t) - 0.3), until: L[c.i + 1]?.t ?? line.t + 6 } };
+  }
+  if (kind === 'type') { // 3. カラオケ止め：その行まで流して止める → 続きを打つ
+    const ok0 = L.map((x, i) => i).filter(i => i >= 1 && i + 1 < L.length && L[i + 1].text !== L[i].text && normText(L[i + 1].text).length >= 3), okC = ok0.filter(i => inCh(i + 1));
+    const ok = okC.length ? okC : ok0; if (!ok.length) return null;
+    const i = pickR(ok);
+    return { lyric: { ask: LY_ASK.type, show: [L[i - 1].text, L[i].text], tail: true }, choices: null, correctIndex: null, typeAnswer: L[i + 1].text,
+             play: { from: Math.max(0, L[i - 1].t - 0.3), until: L[i + 1].t - 0.2 } };
+  }
+  if (kind === 'wrong') { // 5. 間違い探し：2行のうち1つの言葉が入れ替わっている。曲を聴いてどれか当てる
+    // 選択肢が多いとき（8択以上）は、言葉の数が足りるように歌詞を4行出す（足りなければ2行）
+    const nl = n >= 8 ? 4 : 2, wc = i => [...L.slice(i, i + nl).map(x => x.text).join(' ').matchAll(LY_WORD)].length;
+    const enough = i => i + nl < L.length && wc(i) >= Math.min(n, nl === 4 ? 5 : 3);
+    const okC = L.map((x, i) => i).filter(i => enough(i) && inCh(i)), ok = okC.length ? okC : L.map((x, i) => i).filter(enough); // サビの行で作れなければ、ほかの行で
+    if (!ok.length) return null;
+    const i = pickR(ok), text = L.slice(i, i + nl).map(x => x.text);
+    const words = []; text.forEach((x, r) => { for (const m of x.matchAll(LY_WORD)) words.push({ r, w: m[0], at: m.index }); });
+    const target = pickR(words), latin = /[A-Za-z]/.test(target.w), cand = new Set();
+    for (const s of shuffle(pool.filter(x => x !== song && LYRICS_MEM.has(x.id))).slice(0, 40)) for (const l of LYRICS_MEM.get(s.id).lines) for (const m of l.text.matchAll(LY_WORD))
+      if (/[A-Za-z]/.test(m[0]) === latin && m[0] !== target.w && Math.abs(m[0].length - target.w.length) <= 1 && !text.join('').includes(m[0])) cand.add(m[0]);
+    if (!cand.size) return null;
+    const fake = pickR([...cand]);
+    text[target.r] = text[target.r].slice(0, target.at) + fake + text[target.r].slice(target.at + target.w.length);
+    const others = shuffle([...new Set(words.filter(x => x !== target).map(x => x.w))].filter(x => x !== fake)).slice(0, n - 1);
+    if (others.length < 2) return null; // 選択肢は3つ以上
+    const choices = shuffle([fake, ...others]).map(x => ({ title: x, work: '' }));
+    return { lyric: { ask: LY_ASK.wrong, show: text, fixed: `正しくは「${target.w}」` }, choices, correctIndex: choices.findIndex(x => x.title === fake),
+             play: { from: Math.max(0, L[i].t - 0.3), until: L[i + nl].t - 0.2 } };
   }
   if (kind === 'next') {
     const ok0 = L.map((x, i) => i).filter(i => i >= 1 && i + 1 < L.length && L[i + 1].text !== L[i].text), okC = ok0.filter(i => inCh(i + 1));
@@ -3192,8 +3281,17 @@ function startQuestion(room, song, picker = null) {
   // 歌詞クイズ：その曲で作れる種類から（流す問題は時刻が合う曲だけ。作れなければ「この歌詞の曲は？」）
   let lyq = null;
   if (S.play === 'lyrics' && room.lyricsOk) {
-    const want = S.lyKind === 'mix' ? shuffle(['which', 'blank', 'next']) : [S.lyKind, 'which'];
-    for (const k of want) { lyq = lyricQuestion(k, song, Math.min(S.choices || 4, 8), g.pool, S.lyFocus); if (lyq) { kind = 'ly-' + k; break; } }
+    const want = S.lyKind === 'mix' ? shuffle(LY_KINDS.slice()) : [S.lyKind, 'which'];
+    const nC = Math.min(S.choices || 4, 12); // 部屋の「選択肢の数」どおり（12択まで）
+    // 選んだ種類がこの曲で作れないときは、まだ出ていないほかの曲で作ってみる（それでもだめなら「この歌詞の曲は？」）
+    if (S.lyKind !== 'mix' && !lyricQuestion(S.lyKind, song, nC, g.pool, S.lyFocus)) {
+      const used = new Set(g.order.slice(0, g.qi + 1).map(s => s.id));
+      for (const alt of shuffle(g.pool.filter(s => LYRICS_MEM.has(s.id) && !used.has(s.id))).slice(0, 12)) {
+        const q2 = lyricQuestion(S.lyKind, alt, nC, g.pool, S.lyFocus);
+        if (q2) { song = alt; g.order[g.qi] = alt; lyq = q2; kind = 'ly-' + S.lyKind; break; }
+      }
+    }
+    if (!lyq) for (const k of want) { lyq = lyricQuestion(k, song, nC, g.pool, S.lyFocus); if (lyq) { kind = 'ly-' + k; break; } }
   }
   const ly = LYRIC_KINDS.includes(kind) ? lyricStart(song, kind, S) : null;
   if (LYRIC_KINDS.includes(kind) && !ly) kind = 'intro'; // 歌詞の時刻がない曲はイントロで
@@ -3224,7 +3322,7 @@ function startQuestion(room, song, picker = null) {
     : buildChoices(song, S.choices, cpool);
   g.q = {
     attack: S.play === 'panel' && !!g.panel && g.attackCell != null && g.qi === g.attackQi, // アニソン陣取り：20問目のあと白いマスができた、次の問題が「アタックチャンス」
-    song, choices, correctIndex, kind, start, years, introLen: lyq ? (lyq.play ? Math.max(2, lyq.play.until - lyq.play.from) : 0.1) : ly?.len || null, lyric: lyq?.lyric || null, // introLen：歌詞の一行だけの問題は、その行の長さ
+    song, choices, correctIndex, kind, start, years, introLen: lyq ? (lyq.play ? Math.max(2, lyq.play.until - lyq.play.from) : 0.1) : ly?.len || null, lyric: lyq?.lyric || null, lyType: lyq?.typeAnswer || null, lyReveal: lyq?.reveal || null, lyFixed: lyq?.lyric?.fixed || null, // lyType：カラオケ止めの答え（画面には送らない）／lyReveal：答え合わせで流す所 // introLen：歌詞の一行だけの問題は、その行の長さ
     phase: 'loading', t0: 0,
     rush: g.rushPlan?.[g.qi] || null, // 激アツRUSH：この問題の保留の色と当たり
     ready: new Set(),
@@ -3252,10 +3350,10 @@ function questionPayload(room) {
   return {
     qNo: g.qi + 1, qTotal: g.order.length, endless: isGz(room.settings.play), // endless：全部そろうまで続く（問題数なし）
     videoId: q.song.id, intro: LYRIC_KINDS.includes(q.kind) || q.kind?.startsWith('ly-') ? q.start : q.song.intro || 0, start: q.start, kind: q.kind,
-    lyric: q.lyric || null, // 歌詞クイズの歌詞（非公開の部屋の人にだけ）
+    lyric: q.lyric ? { ...q.lyric, fixed: undefined } : null, // 歌詞クイズの歌詞（非公開の部屋の人にだけ。間違い探しの答えは送らない）
     final: room.settings.bonus && isFinalQuestion(room),
     attack: !!q.attack,
-    answerMode: room.settings.play === 'lyrics' ? 'choice' : room.settings.play === 'nenpyo' ? 'nenpyo' : q.years ? 'year' : room.settings.answerMode === 'input' && room.settings.play !== 'karuta' ? 'input' : 'choice',
+    answerMode: room.settings.play === 'lyrics' ? (q.lyType ? 'input' : 'choice') : room.settings.play === 'nenpyo' ? 'nenpyo' : q.years ? 'year' : room.settings.answerMode === 'input' && room.settings.play !== 'karuta' ? 'input' : 'choice',
     rest: room.settings.play === 'karuta' ? [...room.players.values()].filter(p => p.karutaRest === g.qi).map(p => p.id) : null, // かるた：お手つきで1回休みの人
     choices: q.choices, years: q.years, settings: room.settings,
     play: room.settings.play, target: room.settings.target, speed: q.speed || 1,
@@ -3418,6 +3516,11 @@ function onAnswer(room, player, payload) {
     if (!Number.isInteger(y) || !q.years.includes(y)) return;
     index = q.years.indexOf(y); given = `${y}年`;
     diff = Math.abs(y - q.song.year); correct = diff === 0;
+  } else if (q.lyType) {
+    if (typeof payload?.text !== 'string') return;
+    given = payload.text.trim().slice(0, 50); if (!given) return;
+    const want = normText(q.lyType), got = normText(given);
+    correct = got.length >= Math.min(3, want.length) && want.startsWith(got);
   } else if (S.answerMode === 'input') {
     if (typeof payload?.text !== 'string') return;
     given = payload.text.trim().slice(0, 50);
@@ -3859,6 +3962,7 @@ function reveal(room) {
     rush, poker: pokerInfo,
     eliminated, picker, bingo, bingoBonus, coop: room.game.coop || null, reach: (q.reach || []).filter(n => !bingo.includes(n)),
     correctIndex: q.correctIndex,
+    lyAnswer: q.lyType || q.lyFixed || null, // 歌詞クイズ：カラオケ止めの続き／間違い探しの正しい言葉
     qlog: (q.qlog || []).map(({ token, ...e }) => e), // 出題中の記録（全員分。パスの下）
     // 3つ埋めバトル：枠ごとの正解・埋めた人・10択の正解の番号
     fill: q.fill ? q.fill.map(f => ({ key: f.key, label: f.label, by: f.by ? room.players.get(f.by)?.name || '' : null, given: f.given,

@@ -1259,6 +1259,7 @@ function cue(text, fx) {
 // ── 出題 ──
 const isInput = () => question?.answerMode === 'input';
 
+let lyRevealTick = null; // 歌詞クイズ：歌詞が1文字ずつ出る問題のタイマー
 socket.on('question', q => {
   hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz();
   if (q.attack) setTimeout(() => charFx.cutin('アタックチャンス！', '白いマスを、この問題の正解者がどこからでも取れます', 'cutin'), 400);
@@ -1266,7 +1267,18 @@ socket.on('question', q => {
   question = q; myAnswer = null; answering = false;
   // 歌詞クイズ：歌詞（穴あきは？、続きは……？）
   const ly = q.lyric; $('lyBox').hidden = !ly;
-  if (ly) $('lyBox').innerHTML = `<p class="ly-ask">${esc(ly.ask)}</p><div class="ly-text">${ly.before != null ? `${esc(ly.before)}<span class="hole">？</span>${esc(ly.after)}` : ly.show.map(esc).join('<br>') + (ly.tail ? '<br><span class="hole">……？</span>' : '')}</div>`;
+  clearInterval(lyRevealTick);
+  if (ly) {
+    const body = ly.before != null ? `${esc(ly.before)}<span class="hole">？</span>${esc(ly.after)}`
+      : ly.rows ? `<div class="ly-rows">${ly.rows.map(x => `<p>${esc(x)}</p>`).join('')}</div>` // 並べかえ：A〜D の4行
+      : (ly.title ? `<span class="ly-title">${esc(ly.title)}</span>` : '') + (ly.show || []).map(esc).join('<br>') + (ly.from ? ` <small class="ly-from">${esc(ly.from)}</small>` : '') + (ly.tail ? '<br><span class="hole">……？</span>' : '');
+    $('lyBox').innerHTML = `<p class="ly-ask">${esc(ly.ask)}</p><div class="ly-text" id="lyText">${body}</div>`;
+    if (ly.progressive) { // 歌詞が1文字ずつ出る（曲が流れ始めるのと同じころから）
+      const full = (ly.show || []).join('\n'), chars = [...full]; let k = 0;
+      $('lyText').innerHTML = '<span class="ly-cursor">▍</span>';
+      lyRevealTick = setInterval(() => { k++; $('lyText').innerHTML = esc(chars.slice(0, k).join('')).replace(/\n/g, '<br>') + (k < chars.length ? '<span class="ly-cursor">▍</span>' : ''); if (k >= chars.length) clearInterval(lyRevealTick); }, 260);
+    }
+  }
   stopTick();
   showBigChoices(); hintSeen = false; introLeft = 0;
   document.body.classList.remove('rush-reach'); // 激アツRUSH：前の問題のリーチの光を消す
@@ -2528,6 +2540,9 @@ socket.on('lifelineResult', r => {
 socket.on('promoted', p => toast(`${p.by}さんが「${p.title}」をゲームデータに入れる候補にしました（${p.votes}人）`));
 
 socket.on('reveal', r => {
+  clearInterval(lyRevealTick);
+  if (r.lyAnswer && !$('lyBox').hidden) { const ly = question?.lyric; if (ly?.progressive) $('lyText').innerHTML = (ly.show || []).map(esc).join('<br>'); $('lyBox').insertAdjacentHTML('beforeend', `<p class="ly-answer">答え：${esc(r.lyAnswer)}</p>`); }
+  else if (question?.lyric?.progressive && $('lyText')) $('lyText').innerHTML = (question.lyric.show || []).map(esc).join('<br>');
   player.setRate(1);
   stopTick(); if (clearBuzz()) player.resume(); buzzOpen = false; $('buzzBtn').disabled = true;
   if (!practice) { // テスト1問は曲ログ・端末の記録に残さない

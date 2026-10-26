@@ -19,7 +19,7 @@ function parse(txt) { // [{ t: 秒, text }]（時刻のない .txt は t: null�
   for (const l of txt.split(/\r?\n/)) {
     const tags = [...l.matchAll(/\[(\d+):(\d+(?:\.\d+)?)\]/g)];
     const text = l.replace(/\[[^\]]*\]/g, '').trim();
-    if (!text || /^(作詞|作曲|編曲|歌|vocal|lyrics|music)\s*[:：]/i.test(text)) continue;
+    if (!text || /作詞|作曲|編曲|作編曲|^\s*(歌|唄|歌唱|vocals?|vo\.?|lyrics?|music|composed?|arrange(d|ment)?|written|composition|lyricist|composer)\s*(by\b|[:：／\/])/i.test(text)) continue; // 作詞・作曲などのクレジットの行は外す
     if (tags.length) for (const x of tags) out.push({ t: Math.round((+x[1] * 60 + +x[2]) * 100) / 100, text }); else out.push({ t: null, text });
   }
   return out.sort((a, b) => (a.t ?? 0) - (b.t ?? 0));

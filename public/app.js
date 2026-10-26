@@ -274,6 +274,7 @@ function sendSettings(extra = {}) {
     s[k] = STRING_KEYS.includes(k) ? x.value : BOOL_KEYS.includes(k) ? x.value === 'true' : +x.value;
   });
   s.lessPlayed = $('lessPlayed').checked; // 流れた回数が少ない曲を優先
+  const lyk = [...document.querySelectorAll('#lyKinds input:checked')].map(x => x.value); if (lyk.length) s.lyKinds = lyk; // 歌詞クイズ：出題の種類（複数）
   // 知名度のチェック（複数）
   const fame = [...$('fameList').querySelectorAll('input:checked')].map(x => x.value);
   if ($('fameList').querySelector('input')) s.fame = fame;
@@ -643,6 +644,8 @@ socket.on('aborted', () => {
 
 // ── 部屋の状態 ──
 $('lessPlayed').onchange = () => sendSettings();
+// 歌詞クイズの出題の種類（複数）：全部外すことはできない（最後の1つは残す）
+document.querySelectorAll('#lyKinds input').forEach(x => x.onchange = () => { if (!document.querySelector('#lyKinds input:checked')) { x.checked = true; return toast('出題の種類は1つ以上えらんでください'); } sendSettings(); });
 socket.on('room', r => { renderRoom(r); refreshScoreStrips(); updateFixFab(); });
 // ── ボードゲーム風の窓：後ろの点数表が隠れるので、窓の見出しの下に全員の点数を出す（ディクシットは自分の欄に出している）──
 const SCORE_POPS = ['wolfPop', 'dtPop', 'babaPop', 'cnPop', 'dfPop', 'wwPop', 'kmPop', 'azPop', 'dkPop'];
@@ -721,6 +724,8 @@ function renderRoom(r) {
   $('kmTopLabel').hidden = r.settings.play !== 'kaerema';
   $('lyKindLabel').hidden = r.settings.play !== 'lyrics'; // 歌詞クイズ：出題の種類
   $('lyFocusLabel').hidden = r.settings.play !== 'lyrics'; // 歌詞クイズ：サビ中心／どこからでも
+  { const on = new Set(r.settings.lyKinds?.length ? r.settings.lyKinds : r.settings.lyKind && r.settings.lyKind !== 'mix' ? [r.settings.lyKind] : [...document.querySelectorAll('#lyKinds input')].map(x => x.value));
+    document.querySelectorAll('#lyKinds input').forEach(x => { x.checked = on.has(x.value); x.disabled = r.state === 'playing' && !r.paused; }); }
   document.querySelector('[data-key="play"] option[value="lyrics"]').disabled = !r.lyricsOk;
   $('lessPlayed').checked = !!r.settings.lessPlayed; $('lessPlayed').disabled = r.state === 'playing' && !r.paused;
   $('dtChoicesLabel').hidden = r.settings.play !== 'dentatsu';
@@ -1365,10 +1370,10 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
     } else {
       // 戻ってきた人は、いま何回目のイントロのどこかを計算して、その位置から
       const cycle = introLen + gap, k = Math.floor(off / cycle), within = off - k * cycle;
-      if (kind === 'ly-which') { /* 歌詞クイズ「この歌詞の曲は？」：曲は流さない（答えが分かってしまう） */ }
+      if (question?.lyric?.silent) { player.pause(); /* 歌詞クイズ：曲名が答えになる種類は、問題の間は曲を流さない（答えが分かってしまう） */ }
       else if (!off) player.start(intro);
       else if (k < plays && within < introLen && off < hintAt) player.start(intro + within);
-      if (kind !== 'ly-which' && k === 0 && within < introLen) syncPlay(intro, introLen - 0.3); // 1回目のイントロの間だけ合わせる
+      if (!question?.lyric?.silent && k === 0 && within < introLen) syncPlay(intro, introLen - 0.3); // 1回目のイントロの間だけ合わせる
       // 戻ってきた人は、いま何回目かを表示する
       const nth = off ? Math.min(plays, k + 1) : 1;
       introLeft = Math.max(0, plays - nth);

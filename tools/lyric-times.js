@@ -22,7 +22,7 @@ function parse(txt) {
   for (const l of txt.split(/\r?\n/)) {
     const tags = [...l.matchAll(/\[(\d+):(\d+(?:\.\d+)?)\]/g)];
     const body = l.replace(/\[[^\]]*\]/g, '').normalize('NFKC').replace(/\s/g, '').toLowerCase();
-    if (!body || /^(作詞|作曲|編曲|歌|vocal|lyrics|music)/i.test(body)) continue;
+    if (!body || /作詞|作曲|編曲|作編曲|^\s*(歌|唄|歌唱|vocals?|vo\.?|lyrics?|music|composed?|arrange(d|ment)?|written|composition|lyricist|composer)\s*(by\b|[:：／\/])/i.test(l.replace(/\[[^\]]*\]/g, '').trim())) continue; // 作詞・作曲などのクレジットの行は外す
     for (const x of tags) out.push({ t: +x[1] * 60 + +x[2], key: body });
   }
   return out.sort((a, b) => a.t - b.t);

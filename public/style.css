@@ -1397,3 +1397,5 @@ body.rush-machine .stage-tools { overflow: visible; }
 .ly-box .ly-from { color: var(--sub); font-size: 12px; font-weight: 400; } .ly-box .ly-cursor { color: var(--accent); animation: lyblink .8s steps(1) infinite; }
 .ly-box .ly-answer { margin: 4px 0 0; color: #8dffc8; font-weight: 700; }
 @keyframes lyblink { 50% { opacity: 0; } }
+.ly-kinds-box { grid-column: 1 / -1; display: grid; gap: 4px; font-size: 13px; }
+.ly-kinds { display: flex; flex-wrap: wrap; gap: 4px 12px; } .ly-kinds label { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; cursor: pointer; } .ly-kinds input { width: auto; margin: 0; }

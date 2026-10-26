@@ -581,6 +581,8 @@ app.post('/api/live/push', (req, res) => {
   for (const m of Array.isArray(b.requests) ? b.requests : []) {
     const r = REQUESTS.find(x => x.id === m.id); if (!r || !['open', 'added', 'notfound'].includes(m.status)) continue;
     r.status = m.status; if (m.songId) r.songId = m.songId; r.doneAt = m.doneAt || new Date().toISOString(); out.requests++;
+    // near：このリクエストのまわりとして追加した曲（リクエスト一覧に出す）
+    if (Array.isArray(m.near)) r.near = m.near.slice(0, 20).map(x => ({ title: String(x.title || '').slice(0, 80), work: String(x.work || '').slice(0, 80), artist: String(x.artist || '').slice(0, 80), songId: String(x.songId || '').slice(0, 20) }));
   }
   if (Array.isArray(b.candidates)) {
     const votes = new Map(CANDIDATES.map(c => [c.id, c.votes || 0]));
@@ -4283,6 +4285,24 @@ io.on('connection', socket => {
     const res = enter(r, token, cleanName(name));
     linkUser(r, token, user); ack(res);
     socket.emit('fixSongs', r.fixRecent || []); // このゲームで出た曲（「🛠 修正」用）
+  });
+
+  // 歌詞クイズの部屋（非公開・一覧に出ない）：部屋の番号を知らなくても、その部屋のパスワードだけで入れる
+  let pwTries = [];
+  socket.on('joinByPassword', ({ token, name, password, user } = {}, ack) => {
+    if (typeof ack !== 'function' || typeof token !== 'string' || token.length < 8) return;
+    const now = Date.now(); pwTries = pwTries.filter(x => now - x < 60 * 1000);
+    if (pwTries.length >= 6) return ack({ ok: false, error: '少し時間をおいてから入れてください（1分に6回まで）' }); // 当てずっぽうを防ぐ
+    pwTries.push(now);
+    const pw = cleanPassword(password);
+    if (!pw) return ack({ ok: false, error: 'パスワードを入力してください' });
+    const r = [...rooms.values()].filter(x => x.lyricsOk && x.passwordHash && hashPassword(x.salt, pw) === x.passwordHash)
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))[0];
+    if (!r) return ack({ ok: false, error: 'このパスワードの部屋は見つかりません' });
+    socket.leave('home');
+    const res = enter(r, token, cleanName(name));
+    linkUser(r, token, user); ack(res);
+    socket.emit('fixSongs', r.fixRecent || []);
   });
 
   // ホーム画面の部屋一覧

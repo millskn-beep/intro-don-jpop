@@ -1388,3 +1388,4 @@ body.rush-machine .stage-tools { overflow: visible; }
 .ly-box .ly-text { font-size: clamp(16px, 3.2vw, 23px); line-height: 1.7; font-weight: 700; }
 .ly-box .hole { display: inline-block; min-width: 3em; border-bottom: 3px solid var(--accent); color: var(--accent); }
 .ly-pass input { letter-spacing: .05em; }
+.req-nearadd { width: 100%; font-size: 11.5px; color: var(--sub); } .req-nearadd a { color: #8dffc8; }

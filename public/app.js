@@ -99,7 +99,8 @@ function createRoom() {
   const roomName = $('roomNameInput').value.trim(), password = $('roomPassInput').value;
   store.set('aq-room-name', roomName); store.set('aq-host-pass', password);
   player.prime(WARMUP_VIDEO); // タップの中で一度再生して、スマホの音声制限を解除する
-  const lyricsPass = $('lyricsPassInput').value.trim(); // 歌詞の合言葉（保存しない）
+  const lyricsPass = $('lyricsPassInput').value.trim(); // 歌詞の合言葉：この端末（ブラウザ）に覚えておき、次から入力しなくてよい（消すと覚えたものも消える）
+  store.set('aq-lyrics-pass', lyricsPass);
   socket.emit('create', { token, name, roomName, password, user: meUser(), lyricsPass }, res => {
     if (!res.ok) { $('homeError').textContent = res.error; return; }
     savePassword({ code: res.code, name: res.room.name }, password);
@@ -124,6 +125,7 @@ function joinRoom(info, password, errEl, onNeedPassword) {
   });
 }
 $('createBtn').onclick = createRoom;
+try { $('lyricsPassInput').value = store.get('aq-lyrics-pass') || ''; } catch (e) { /* 覚えていなければ空 */ }
 $('joinBtn').onclick = () => {
   const code = $('codeInput').value.trim().toUpperCase();
   joinRoom({ code }, undefined, null, msg => {
@@ -132,6 +134,19 @@ $('joinBtn').onclick = () => {
   });
 };
 $('codeInput').onkeydown = e => { if (e.key === 'Enter') $('joinBtn').click(); };
+// 歌詞クイズの部屋（非公開・一覧に出ない）：部屋のパスワードだけで入る
+$('pwJoinBtn').onclick = () => {
+  const name = myName(); if (!name) return;
+  const password = $('pwJoinInput').value;
+  if (!password) { $('homeError').textContent = 'パスワードを入力してください'; return; }
+  player.prime(WARMUP_VIDEO);
+  socket.emit('joinByPassword', { token, name, password, user: meUser() }, res => {
+    if (!res.ok) { $('homeError').textContent = res.error; return; }
+    savePassword({ code: res.code, name: res.room.name }, password);
+    joined(res);
+  });
+};
+$('pwJoinInput').onkeydown = e => { if (e.key === 'Enter') $('pwJoinBtn').click(); };
 
 // ── 部屋一覧 ──
 let roomsCache = [], listFilter = 'all';
@@ -1153,6 +1168,7 @@ function renderRequests() {
     <span class="req-body"><b>${esc(r.title)}</b>${r.work ? `<small>${esc(r.work)}</small>` : ''}${r.artist ? `<small>${esc(r.artist)}</small>` : ''}${r.genre && reqGenres[r.genre] ? `<small class="req-genre">${esc(reqGenres[r.genre])}</small>` : ''}${r.note ? `<em>${esc(r.note)}</em>` : ''}</span>
     ${(r.votes || 1) > 1 ? `<span class="req-votes">${r.votes}票</span>` : ''}
     ${r.status === 'added' && r.songId ? `<a class="btn-sub req-edit" href="songs.html?song=${encodeURIComponent(r.songId)}" title="試し聴きして、イントロ・サビの位置を直して送れます">✏ 位置を直す</a>` : ''}
+    ${r.near?.length ? `<span class="req-nearadd">まわりで追加：${r.near.map(n => `<a href="songs.html?song=${encodeURIComponent(n.songId)}">${esc(n.title)}</a>`).join('・')}</span>` : ''}
     ${candCountOf(r.id) ? `<button class="btn-sub req-near${candFor === r.id ? ' on' : ''}" data-req="${esc(r.id)}">🔎 まわりの曲 ${candCountOf(r.id)}</button>` : ''}</li>`).join('') || '<li class="empty">まだリクエストはありません</li>';
   $('reqMore').hidden = reqAll.length <= reqShown;
 }

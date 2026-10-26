@@ -6627,7 +6627,7 @@
    1
   ],
   "gNod5q2FGag": [
-   1,
+   2,
    4,
    4
   ],
@@ -7656,8 +7656,8 @@
    "plays": 17
   },
   "2026-10-26": {
-   "games": 4,
-   "plays": 93
+   "games": 5,
+   "plays": 94
   }
  },
  "byPlay": {
@@ -7698,6 +7698,10 @@
    "plays": 0
   },
   "genre": {
+   "games": 1,
+   "plays": 1
+  },
+  "lyrics": {
    "games": 1,
    "plays": 1
   }

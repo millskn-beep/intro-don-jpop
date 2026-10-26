@@ -33,9 +33,9 @@ const idsArg = args.includes('--ids') ? String(args[args.indexOf('--ids') + 1] |
     .map(s => (scan[s.id]?.dur > 0 && !s.dur ? { ...s, dur: scan[s.id].dur } : s)); // 曲の長さ（3つ埋めなどで使う）も付ける
   // リクエスト：手元で状態を変えたもの（追加済み・見つからず）
   const rreq = await fetch(`${SITE}/api/requests`).then(r => r.json()).then(j => j.requests || []).catch(() => []);
-  const rst = new Map(rreq.map(r => [r.id, r.status]));
-  const marks = readJson(path.join(ROOT, 'data', 'requests.json'), []).filter(r => rst.has(r.id) && rst.get(r.id) !== r.status)
-    .map(r => ({ id: r.id, status: r.status, songId: r.songId, doneAt: r.doneAt }));
+  const rst = new Map(rreq.map(r => [r.id, r.status + '|' + JSON.stringify(r.near || [])])); // 状態と「まわりで追加した曲」
+  const marks = readJson(path.join(ROOT, 'data', 'requests.json'), []).filter(r => rst.has(r.id) && rst.get(r.id) !== r.status + '|' + JSON.stringify(r.near || []))
+    .map(r => ({ id: r.id, status: r.status, songId: r.songId, doneAt: r.doneAt, near: r.near }));
   const candidates = readJson(path.join(ROOT, 'data', 'candidates.json'), []);
   console.log(`送る曲 ${send.length} 曲${send.length ? '：' + send.slice(0, 30).map(s => s.title).join('、') + (send.length > 30 ? ' …' : '') : ''}`);
   console.log(`リクエストの状態 ${marks.length} 件、検討中 ${candidates.length} 曲`);

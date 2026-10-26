@@ -899,8 +899,10 @@
   "genre": "slot",
   "note": "",
   "at": "2026-10-25T16:18:34.947Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "dlvd8rBO-IE",
+  "doneAt": "2026-10-26T12:23:18.621Z"
  },
  {
   "id": "d1b4ef42",
@@ -910,8 +912,10 @@
   "genre": "slot",
   "note": "https://www.youtube.com/watch?v=cOIsVFp7wnc&list=RDcOIsVFp7wnc&start_radio=1",
   "at": "2026-10-25T16:28:30.775Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "cOIsVFp7wnc",
+  "doneAt": "2026-10-26T12:23:18.622Z"
  },
  {
   "id": "b87d2fc2",
@@ -921,8 +925,10 @@
   "genre": "vocaloid",
   "note": "https://www.youtube.com/watch?v=I7HYL2D2VsA&list=RDI7HYL2D2VsA&start_radio=1",
   "at": "2026-10-25T16:29:56.691Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "I7HYL2D2VsA",
+  "doneAt": "2026-10-26T12:23:18.622Z"
  },
  {
   "id": "d13e421e",
@@ -932,8 +938,10 @@
   "genre": "vocaloid",
   "note": "https://www.youtube.com/watch?v=72e5YvTmgz8&list=RD72e5YvTmgz8&start_radio=1",
   "at": "2026-10-25T16:31:41.852Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "XTJVJxWCT0s",
+  "doneAt": "2026-10-26T12:23:18.622Z"
  },
  {
   "id": "16fe33e4",
@@ -943,8 +951,10 @@
   "genre": "",
   "note": "https://www.youtube.com/watch?v=sqXgzDt5rzI&list=RDsqXgzDt5rzI&start_radio=1",
   "at": "2026-10-25T16:36:34.293Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "4qb5wqvXzZo",
+  "doneAt": "2026-10-26T12:23:18.622Z"
  },
  {
   "id": "32a0ff2e",
@@ -954,8 +964,10 @@
   "genre": "vocaloid",
   "note": "https://www.youtube.com/watch?v=EZFytNhUyzU&list=RDEZFytNhUyzU&start_radio=1",
   "at": "2026-10-25T16:45:46.414Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "EZFytNhUyzU",
+  "doneAt": "2026-10-26T12:23:18.622Z"
  },
  {
   "id": "104056dd",
@@ -965,8 +977,10 @@
   "genre": "vocaloid",
   "note": "https://www.youtube.com/watch?v=LGDxQ3hHN6c&list=PLR68YuieOljhq48b5crAExBNVgBw3J",
   "at": "2026-10-25T16:50:02.402Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "Phj-9Wm1Qxo",
+  "doneAt": "2026-10-26T12:23:18.622Z"
  },
  {
   "id": "9b7ff1b1",
@@ -976,8 +990,18 @@
   "genre": "vocaloid",
   "note": "https://www.youtube.com/watch?v=iPP8DNoRBJY&list=PLR68YuieOljhq48b5crAExBNVgBw3J",
   "at": "2026-10-25T16:50:42.163Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "OKlZjKSP8PQ",
+  "doneAt": "2026-10-26T12:23:18.622Z",
+  "near": [
+   {
+    "title": "URUSaaA愛",
+    "work": "ボカロ（YM）",
+    "artist": "YM",
+    "songId": "SiIwhJMZORI"
+   }
+  ]
  },
  {
   "id": "faea72f3",
@@ -987,8 +1011,10 @@
   "genre": "slot",
   "note": "https://www.youtube.com/watch?v=7UgZFZqXMDg&list=RD7UgZFZqXMDg&start_radio=1",
   "at": "2026-10-25T16:53:49.114Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "7UgZFZqXMDg",
+  "doneAt": "2026-10-26T12:23:18.622Z"
  },
  {
   "id": "913c6ab8",
@@ -998,8 +1024,10 @@
   "genre": "",
   "note": "https://www.youtube.com/watch?v=Vjs17Vc8kYg&list=RDVjs17Vc8kYg&start_radio=1",
   "at": "2026-10-25T16:56:29.171Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "Vjs17Vc8kYg",
+  "doneAt": "2026-10-26T12:23:18.622Z"
  },
  {
   "id": "be4eab7b",
@@ -1009,8 +1037,10 @@
   "genre": "slot",
   "note": "https://www.youtube.com/watch?v=F9HRK2J6YqY&list=RDVjs17Vc8kYg&index=3",
   "at": "2026-10-25T16:57:22.709Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "F9HRK2J6YqY",
+  "doneAt": "2026-10-26T12:23:18.622Z"
  },
  {
   "id": "bd92b2e7",
@@ -1020,8 +1050,10 @@
   "genre": "slot",
   "note": "https://www.youtube.com/watch?v=pektrBAjWIA&list=RDVjs17Vc8kYg&index=4",
   "at": "2026-10-25T16:58:07.935Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "pektrBAjWIA",
+  "doneAt": "2026-10-26T12:23:18.622Z"
  },
  {
   "id": "f76e97e0",
@@ -1031,8 +1063,18 @@
   "genre": "slot",
   "note": "https://www.youtube.com/watch?v=UhDFTCq4ZTk",
   "at": "2026-10-25T16:59:05.666Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "UhDFTCq4ZTk",
+  "doneAt": "2026-10-26T12:23:18.623Z",
+  "near": [
+   {
+    "title": "Come",
+    "work": "犬夜叉",
+    "artist": "安室奈美恵",
+    "songId": "QlkBGDUsANo"
+   }
+  ]
  },
  {
   "id": "10c5f2aa",
@@ -1042,8 +1084,18 @@
   "genre": "game",
   "note": "https://www.youtube.com/watch?v=5K3Zz_PQGzo&list=RD5K3Zz_PQGzo&start_radio=1",
   "at": "2026-10-25T17:01:35.769Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "5K3Zz_PQGzo",
+  "doneAt": "2026-10-26T12:23:18.623Z",
+  "near": [
+   {
+    "title": "しゅわスパ大作戦☆",
+    "work": "東方Project（アレンジ）",
+    "artist": "SOUND HOLIC feat. Nana Takahashi",
+    "songId": "3TRunguCf58"
+   }
+  ]
  },
  {
   "id": "2d4d47af",
@@ -1053,8 +1105,18 @@
   "genre": "game",
   "note": "https://www.youtube.com/watch?v=NpgaGhAW9So&list=RDEM03hHy7eTLgbPDbqBrhcW8w&star",
   "at": "2026-10-25T17:02:33.415Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "NpgaGhAW9So",
+  "doneAt": "2026-10-26T12:23:18.623Z",
+  "near": [
+   {
+    "title": "零れずの願いゴト",
+    "work": "東方Project（アレンジ）",
+    "artist": "幽閉サテライト",
+    "songId": "fBO8T2PLrrY"
+   }
+  ]
  },
  {
   "id": "e2f2736b",
@@ -1064,8 +1126,24 @@
   "genre": "game",
   "note": "https://www.youtube.com/watch?v=7h7bnYA1LXE&list=PLkHRVpklU_JB8zBc_WHaFQzr9-gb1h",
   "at": "2026-10-25T17:05:20.575Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "7h7bnYA1LXE",
+  "doneAt": "2026-10-26T12:23:18.623Z",
+  "near": [
+   {
+    "title": "魔理沙は大変なものを盗んでいきました",
+    "work": "東方Project（アレンジ）",
+    "artist": "IOSYS",
+    "songId": "shmAGOTo824"
+   },
+   {
+    "title": "チルノのパーフェクトさんすう教室",
+    "work": "東方Project（アレンジ）",
+    "artist": "IOSYS",
+    "songId": "V_bQNPG2OyE"
+   }
+  ]
  },
  {
   "id": "161952f3",
@@ -1075,8 +1153,18 @@
   "genre": "game",
   "note": "https://www.youtube.com/watch?v=O4kSkkiPL98&list=PLkHRVpklU_JB8zBc_WHaFQzr9-gb1h",
   "at": "2026-10-25T17:05:55.450Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "GeAh0SxtXQ8",
+  "doneAt": "2026-10-26T12:23:18.623Z",
+  "near": [
+   {
+    "title": "ナイト・オブ・ナイツ",
+    "work": "東方Project（アレンジ）",
+    "artist": "ビートまりお",
+    "songId": "QZybHcwvY6Y"
+   }
+  ]
  },
  {
   "id": "e182c2cf",
@@ -1086,8 +1174,10 @@
   "genre": "game",
   "note": "https://www.youtube.com/watch?v=Mu_ssXbPltM&list=RDMu_ssXbPltM&start_radio=1",
   "at": "2026-10-25T17:06:32.625Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "AUg18h3HaOI",
+  "doneAt": "2026-10-26T12:23:18.623Z"
  },
  {
   "id": "e89014db",
@@ -1097,8 +1187,10 @@
   "genre": "game",
   "note": "https://www.youtube.com/watch?v=AdfwNozhH7Q&list=RDAdfwNozhH7Q&start_radio=1",
   "at": "2026-10-25T17:10:04.757Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "AdfwNozhH7Q",
+  "doneAt": "2026-10-26T12:23:18.623Z"
  },
  {
   "id": "9bdbebef",
@@ -1108,7 +1200,23 @@
   "genre": "",
   "note": "https://www.youtube.com/watch?v=ZZvJY7_gyfw&list=RDZZvJY7_gyfw&start_radio=1",
   "at": "2026-10-25T17:41:45.391Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "ZZvJY7_gyfw",
+  "doneAt": "2026-10-26T12:23:18.623Z",
+  "near": [
+   {
+    "title": "Dead END",
+    "work": "未来日記",
+    "artist": "飛蘭",
+    "songId": "js0I1r8ARhs"
+   },
+   {
+    "title": "Blood teller",
+    "work": "未来日記",
+    "artist": "飛蘭",
+    "songId": "nAgy2U7US0I"
+   }
+  ]
  }
 ]

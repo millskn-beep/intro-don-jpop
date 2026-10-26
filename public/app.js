@@ -266,7 +266,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'lyFocus', 'lyKind'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -479,7 +479,9 @@ const PLAY_INFO = {
   wits: ['💰', '年当てベット', '発売年を予想して、いちばん近い予想に賭ける', '2人〜', 'quiz'],
   kaerema: ['🍜', '帰れま10', 'お題の曲の再生回数トップ10を、全部当てたら帰れる', '1人〜', 'board'],
   wolf: ['🐺', '人狼', '1人だけ別の曲。ヒントと話し合いで、だれが違うか当てる', '3人〜', 'board'],
+  lyrics2: ['🎙️', '歌詞クイズ2', 'YouTube の歌詞字幕がある曲だけで、歌詞と曲がぴったり合う。答え合わせは歌詞を見ながら聴ける。合言葉の部屋だけ', '1人〜', 'quiz'],
   lyrics: ['🎤', '歌詞クイズ', '歌詞を見て・聴いて当てる（この歌詞の曲は？／穴あき／続きはどれ？）。合言葉の部屋だけ', '1人〜', 'quiz'],
+  tanshuku: ['🚃', '短縮鉄道', '略称を見て、元の作品名・歌手名を4択で。だんだん速くなる。間違えたら脱落', '1人〜', 'board'],
   dentatsu: ['📨', '伝達クイズ', '伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる', '2人〜', 'board'],
   dixit: ['🖼️', 'ディクシット', '語り手のヒントに合う曲を手札から出し、語り手の曲を当てる', '3人〜', 'board'],
   baba: ['😈', 'ババ抜き', '同じ作品の曲2枚がペア。最後までババを持っていたら負け', '3人〜', 'board'],
@@ -495,7 +497,7 @@ function renderPlayPick(play) {
 $('playPick').onclick = () => {
   const cur = room?.settings?.play;
   $('playPop').innerHTML = `<div class="wf-field pl-field"><div class="wf-head"><b>🎮 遊び方を選ぶ</b><span>カードを押すと、その遊び方になります</span><button class="btn-sub pl-close" id="plClose" type="button">閉じる</button></div>
-    <div class="pl-body">${PLAY_GROUPS.map(([g, label]) => `<h4>${label}</h4><div class="pl-grid">${Object.entries(PLAY_INFO).filter(([k, v]) => v[4] === g && (k !== 'lyrics' || room?.lyricsOk)).map(([k, v]) => `<button type="button" class="pl-card${k === cur ? ' on' : ''}" data-play="${k}" title="${esc(PLAY_DESC[k] || '')}"><span class="pl-icon">${v[0]}</span><b>${esc(v[1])}</b><small>${esc(v[2])}</small><i>${esc(v[3])}</i></button>`).join('')}</div>`).join('')}</div></div>`;
+    <div class="pl-body">${PLAY_GROUPS.map(([g, label]) => `<h4>${label}</h4><div class="pl-grid">${Object.entries(PLAY_INFO).filter(([k, v]) => v[4] === g && (!['lyrics', 'lyrics2'].includes(k) || room?.lyricsOk)).map(([k, v]) => `<button type="button" class="pl-card${k === cur ? ' on' : ''}" data-play="${k}" title="${esc(PLAY_DESC[k] || '')}"><span class="pl-icon">${v[0]}</span><b>${esc(v[1])}</b><small>${esc(v[2])}</small><i>${esc(v[3])}</i></button>`).join('')}</div>`).join('')}</div></div>`;
   $('playPop').hidden = false;
   $('plClose').onclick = () => { $('playPop').hidden = true; };
   $('playPop').onclick = e => { if (e.target === $('playPop')) $('playPop').hidden = true; };
@@ -504,6 +506,8 @@ $('playPick').onclick = () => {
   });
 };
 const PLAY_DESC = {
+  tanshuku: 'はねるのトびら「短縮鉄道の夜」のアニソン版。順番に1人ずつ、アニメや歌手の略称（例：まどマギ）が出るので、元の名前を4択から選びます。一周するごとに制限時間が短くなります（6秒→最短2.5秒）。間違えるか時間切れで脱落、最後まで残った人の勝ち（+1000点）。正解すると+100点で、その作品・歌手の曲が少し流れます。1人で遊ぶときは、間違えるまで続けます。',
+  lyrics2: '歌詞の合言葉で作った非公開の部屋だけで遊べます。歌詞クイズと同じ問題ですが、YouTube の動画に歌詞字幕（手動の日本語字幕）が付いている曲だけを使うので、曲と歌詞の時刻がぴったり合います。答え合わせではサビが流れるあいだ、歌詞がカラオケのように進みます。',
   lyrics: '歌詞の合言葉で作った非公開の部屋だけで遊べます。「この歌詞の曲は？」（歌詞を見て曲を当てる）、「穴あき歌詞」（曲を聴いて伏せた言葉を当てる）、「続きはどれ？」（止まったところの次の歌詞を当てる）。早く正解するほど高得点です。歌詞はこの部屋の人にだけ送られます。',
   dentatsu: '2人以上で遊びます。毎回、順番に1人が「伝える人」になり、その人だけがイントロとサビを聴けます（曲名も見えます）。伝える人は、曲名・作品名・歌手名を使わずに、文字のヒント（1つ30文字まで・10個まで）で曲を伝えます。ほかの人は、ヒントを見ながら選択肢から曲を当てます（選択肢は伝える人には見えません）。正解すると100点（早いほど最大+50点）、伝える人は正解した人1人につき100点です。',
   azul: 'ボードゲーム「アズール」の曲版（2〜4人）。工房に並んだ曲カード（曲名と色＝ジャンルが見える。年代は見えない）から、同じ色を全部取り、自分の棚の年代別の段（〜80年代／90年代／00年代／10年代／20年代）に1枚ずつ置きます。年代ちがい・段があふれたカードは床に落ちて失点。段がいっぱいになると、ラウンドの終わりに 1枚2点（同じ色だけなら+3点）。3ラウンドで終わり。置いた曲はサビが流れます。',
@@ -648,7 +652,7 @@ $('lessPlayed').onchange = () => sendSettings();
 document.querySelectorAll('#lyKinds input').forEach(x => x.onchange = () => { if (!document.querySelector('#lyKinds input:checked')) { x.checked = true; return toast('出題の種類は1つ以上えらんでください'); } sendSettings(); });
 socket.on('room', r => { renderRoom(r); refreshScoreStrips(); updateFixFab(); });
 // ── ボードゲーム風の窓：後ろの点数表が隠れるので、窓の見出しの下に全員の点数を出す（ディクシットは自分の欄に出している）──
-const SCORE_POPS = ['wolfPop', 'dtPop', 'babaPop', 'cnPop', 'dfPop', 'wwPop', 'kmPop', 'azPop', 'dkPop'];
+const SCORE_POPS = ['wolfPop', 'dtPop', 'tsPop', 'babaPop', 'cnPop', 'dfPop', 'wwPop', 'kmPop', 'azPop', 'dkPop'];
 function scoreStripHtml() {
   const ps = (room?.players || []).filter(p => p.connected !== false || p.score);
   if (!ps.length) return '';
@@ -700,7 +704,7 @@ function renderRoom(r) {
   const prevScores = new Map((room?.players || []).map(p => [p.id, p.score]));
   room = r;
   if (practice) return; // テスト1問の間は画面を切り替えない（終わったら最新の部屋の状態で描き直す）
-  if (prevState === 'playing' && r.state !== 'playing') { hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); } // 中止して部屋に戻ったら、ボードゲーム風の窓を閉じる
+  if (prevState === 'playing' && r.state !== 'playing') { hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); } // 中止して部屋に戻ったら、ボードゲーム風の窓を閉じる
   const isHost = r.hostId === me;
   const canSet = !(r.state === 'playing' && !r.paused); // 設定はだれでも変えられる（ゲーム中は一時停止のときだけ）
   if (!lobbyTabChosen) setLobbyTab(isHost ? 'settings' : 'members');
@@ -722,13 +726,15 @@ function renderRoom(r) {
   $('karutaFaceLabel').hidden = r.settings.play !== 'karuta'; // かるた：札に書くもの
   $('prefRow').hidden = !meUser() || (r.state === 'playing' && !r.paused);
   $('kmTopLabel').hidden = r.settings.play !== 'kaerema';
-  $('lyKindLabel').hidden = r.settings.play !== 'lyrics'; // 歌詞クイズ：出題の種類
-  $('lyFocusLabel').hidden = r.settings.play !== 'lyrics'; // 歌詞クイズ：サビ中心／どこからでも
+  $('lyKindLabel').hidden = !['lyrics', 'lyrics2'].includes(r.settings.play); // 歌詞クイズ：出題の種類
+  $('lyFocusLabel').hidden = !['lyrics', 'lyrics2'].includes(r.settings.play); // 歌詞クイズ：サビ中心／どこからでも
   { const on = new Set(r.settings.lyKinds?.length ? r.settings.lyKinds : r.settings.lyKind && r.settings.lyKind !== 'mix' ? [r.settings.lyKind] : [...document.querySelectorAll('#lyKinds input')].map(x => x.value));
     document.querySelectorAll('#lyKinds input').forEach(x => { x.checked = on.has(x.value); x.disabled = r.state === 'playing' && !r.paused; }); }
   document.querySelector('[data-key="play"] option[value="lyrics"]').disabled = !r.lyricsOk;
+  document.querySelector('[data-key="play"] option[value="lyrics2"]').disabled = !r.lyricsOk;
   $('lessPlayed').checked = !!r.settings.lessPlayed; $('lessPlayed').disabled = r.state === 'playing' && !r.paused;
   $('dtChoicesLabel').hidden = r.settings.play !== 'dentatsu';
+  $('tsKindLabel').hidden = $('tsAnsLabel').hidden = r.settings.play !== 'tanshuku';
   const isGzP = ['genre', 'genreex'].includes(r.settings.play), isEx = r.settings.play === 'genreex';
   $('gzPickLabel').hidden = !isGzP;
   $('gzSetLabel').hidden = !isGzP;
@@ -748,7 +754,7 @@ function renderRoom(r) {
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
-  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'genreex', 'daifugo', 'wits', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'dentatsu'].includes(r.settings.play);
+  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'genreex', 'daifugo', 'wits', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
@@ -1266,13 +1272,13 @@ const isInput = () => question?.answerMode === 'input';
 
 let lyRevealTick = null; // 歌詞クイズ：歌詞が1文字ずつ出る問題のタイマー
 socket.on('question', q => {
-  hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz();
+  hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz();
   if (q.attack) setTimeout(() => charFx.cutin('アタックチャンス！', '白いマスを、この問題の正解者がどこからでも取れます', 'cutin'), 400);
   if (q.qNo === 1 && !practice) playLog = []; // 新しいゲーム（テスト1問では曲ログを消さない）
   question = q; myAnswer = null; answering = false;
   // 歌詞クイズ：歌詞（穴あきは？、続きは……？）
   const ly = q.lyric; $('lyBox').hidden = !ly;
-  clearInterval(lyRevealTick);
+  clearInterval(lyRevealTick); clearInterval(karaTick); // 前の問題のカラオケを止める
   if (ly) {
     const body = ly.before != null ? `${esc(ly.before)}<span class="hole">？</span>${esc(ly.after)}`
       : ly.rows ? `<div class="ly-rows">${ly.rows.map(x => `<p>${esc(x)}</p>`).join('')}</div>` // 並べかえ：A〜D の4行
@@ -1836,6 +1842,58 @@ function renderBaba() {
     renderBaba();
   });
   const rb = $('bbReadyBtn'); if (rb) rb.onclick = () => { socket.emit('bbReady'); rb.disabled = true; rb.textContent = 'ほかの人を待っています…'; };
+}
+
+// ── アニソン短縮鉄道：順番に、略称の元の名前を答える（4択・手打ち・VC）。間違えたら脱落 ──
+let tsData = null, tsTick = null, tsSeKey = '';
+const TS_CAT = { shop: 'お店・会社・商品', daily: '日常の言葉', net: 'ネット・若者言葉', tv: 'テレビ・芸能・ゲーム' };
+function hideTs() { clearInterval(tsTick); $('tsPop').hidden = true; $('tsPop').innerHTML = ''; tsData = null; }
+socket.on('tsPhase', d => { if (!d) return hideTs(); tsData = d; renderTs(); });
+// 曲が流れないとき（一般の略称・不正解）の効果音：ピンポン／ブブー
+function tsSe(ok) {
+  try {
+    const ac = tsSe.ac || (tsSe.ac = new AudioContext()), now = ac.currentTime;
+    (ok ? [[880, 0], [698, .18]] : [[150, 0], [150, .22]]).forEach(([f, at]) => {
+      const o = ac.createOscillator(), g = ac.createGain(); o.type = ok ? 'sine' : 'square'; o.frequency.value = f;
+      g.gain.setValueAtTime(.18, now + at); g.gain.exponentialRampToValueAtTime(.001, now + at + (ok ? .45 : .2));
+      o.connect(g).connect(ac.destination); o.start(now + at); o.stop(now + at + .5);
+    });
+  } catch (e) { /* 音が出せない環境 */ }
+}
+function renderTs() {
+  const d = tsData; if (!d) return;
+  const pop = $('tsPop'); pop.hidden = false;
+  const turnName = d.players.find(p => p.id === d.turn)?.name || '', mine = d.turn === me && d.step === 'ask';
+  const cars = d.players.map(p => `<span class="ts-car${p.id === d.turn ? ' on' : ''}${p.alive ? '' : ' out'}">${p.alive ? '🚃' : '💥'} ${esc(p.name)}</span>`).join('');
+  const r = d.result;
+  const how = r?.given ? `「${esc(r.given)}」` : r?.judge ? `（判定：${esc(r.judge)}）` : '';
+  const res = d.step === 'result' ? `<p class="ts-res ${r.ok ? 'ok' : 'ng'}">${r.ok ? `⭕ ${esc(r.name)}：${esc(d.abbr)} → ${esc(r.answer)}${d.mode === 'type' ? '' : how}` : `💥 ${esc(r.name)} 脱落！${r.timeout ? '（時間切れ）' : how}　正解は「${esc(r.answer)}」`}${r.winner ? `<br>🏆 ${esc(r.winner)} の勝ち！` : ''}</p>` : '';
+  const kindLabel = d.kind === 'work' ? 'アニメの略称' : d.kind === 'artist' ? '歌手の略称' : `一般の略称（${TS_CAT[d.cat] || ''}）`;
+  let body = '';
+  if (d.mode === 'type') {
+    body = mine ? '<form class="ts-type" id="tsForm"><input id="tsInput" autocomplete="off" maxlength="60" placeholder="元の名前を入力して Enter"><button type="submit">答える</button></form>'
+      : d.step === 'ask' ? `<p class="ts-wait">${esc(turnName)} さんが入力中…</p>` : '';
+  } else if (d.mode === 'vc') {
+    if (d.step === 'ask' && d.judge) {
+      const hide = d.solo; // 1人のときは、言ってから「答えを見る」→ 自分で判定
+      body = `<div class="ts-judge"><span class="ts-secret"${hide ? ' hidden' : ''}>正解：<b>${esc(d.secret)}</b></span>${hide ? '<button type="button" id="tsReveal">答えを見る</button>' : ''}
+        <span class="ts-jbtns"${hide ? ' hidden' : ''}><button type="button" class="ts-ok" data-j="1">⭕ 正解</button><button type="button" class="ts-ng" data-j="0">❌ ちがう</button></span></div>`;
+    } else if (d.step === 'ask') body = `<p class="ts-wait">${mine ? '声で答えてください（ほかの人が判定します）' : '判定待ち…'}</p>`;
+  } else {
+    body = `<div class="ts-choices">${(d.choices || []).map((c, i) => `<button type="button" class="ts-choice${d.step === 'result' && c === r.answer ? ' right' : ''}${d.step === 'result' && c === r.given && !r.ok ? ' wrong' : ''}" data-i="${i}"${mine ? '' : ' disabled'}>${esc(c)}</button>`).join('')}</div>`;
+  }
+  pop.innerHTML = `<div class="wf-field ts-field"><div class="wf-head"><b>🚃 アニソン短縮鉄道</b><span>${d.lap}周目　制限 ${d.sec}秒</span><span class="wf-left" id="tsLeft"></span></div>
+    <div class="ts-train">${cars}</div>
+    <p class="ts-who">${mine ? 'あなたの番！' : `${esc(turnName)} さんの番`}　<small>${kindLabel}</small></p>
+    <div class="ts-abbr">${esc(d.abbr)} <span>→ ？</span></div>
+    <div class="ts-bar"><i id="tsBar"></i></div>${body}${res}</div>`;
+  pop.querySelectorAll('[data-i]').forEach(b => b.onclick = () => { socket.emit('tsAnswer', +b.dataset.i); pop.querySelectorAll('[data-i]').forEach(x => { x.disabled = true; }); });
+  pop.querySelectorAll('[data-j]').forEach(b => b.onclick = () => { socket.emit('tsJudge', b.dataset.j === '1'); pop.querySelectorAll('[data-j]').forEach(x => { x.disabled = true; }); });
+  const rv = $('tsReveal'); if (rv) rv.onclick = () => { rv.hidden = true; pop.querySelector('.ts-secret').hidden = false; pop.querySelector('.ts-jbtns').hidden = false; };
+  const f = $('tsForm'); if (f) { $('tsInput').focus(); f.onsubmit = e => { e.preventDefault(); const v = $('tsInput').value.trim(); if (!v) return; socket.emit('tsAnswer', v); f.querySelectorAll('input,button').forEach(x => { x.disabled = true; }); }; }
+  if (d.step === 'result') { const key = d.turn + d.abbr + d.lap; if (key !== tsSeKey) { tsSeKey = key; if (!r.ok || !r.snip) tsSe(r.ok); } }
+  const tick = () => { const left = Math.max(0, (d.until - (Date.now() + (clockOffset || 0))) / 1000); const el = $('tsLeft'); if (el) el.textContent = d.step !== 'ask' ? '' : left > 0 ? `あと ${left.toFixed(1)} 秒` : d.mode === 'vc' ? '判定待ち' : ''; const bar = $('tsBar'); if (bar) bar.style.width = (d.step === 'ask' ? left / d.sec * 100 : 0) + '%'; };
+  clearInterval(tsTick); tick(); tsTick = setInterval(tick, 100);
 }
 
 // ── アニソン伝達クイズ：伝える人がヒントを打つ → ほかの人は選択肢から選ぶ → 結果（曲は人狼と同じ wolfSong で、伝える人だけに流れる） ──
@@ -2544,8 +2602,20 @@ socket.on('lifelineResult', r => {
 // ── 答え合わせ ──
 socket.on('promoted', p => toast(`${p.by}さんが「${p.title}」をゲームデータに入れる候補にしました（${p.votes}人）`));
 
+let karaTick = null;
 socket.on('reveal', r => {
-  clearInterval(lyRevealTick);
+  clearInterval(lyRevealTick); clearInterval(karaTick);
+  $('lyKara')?.remove();
+  if (r.karaoke?.length) {
+    const K = r.karaoke;
+    $('answer')?.insertAdjacentHTML('afterend', `<div class="ly-kara" id="lyKara">${K.map((x, i) => `<p data-k="${i}">${esc(x.text)}</p>`).join('')}</div>`);
+    let last = -2;
+    karaTick = setInterval(() => { // いま流れている位置の行を明るくして、前後1行ずつだけ見せる
+      const now = player.time(); let k = -1; K.forEach((x, i) => { if (x.t <= now + 0.15) k = i; });
+      if (k === last || !$('lyKara')) return; last = k;
+      $('lyKara').querySelectorAll('p').forEach((p, i) => { p.classList.toggle('now', i === k); p.hidden = Math.abs(i - Math.max(k, 0)) > 1; });
+    }, 150);
+  }
   if (r.lyAnswer && !$('lyBox').hidden) { const ly = question?.lyric; if (ly?.progressive) $('lyText').innerHTML = (ly.show || []).map(esc).join('<br>'); $('lyBox').insertAdjacentHTML('beforeend', `<p class="ly-answer">答え：${esc(r.lyAnswer)}</p>`); }
   else if (question?.lyric?.progressive && $('lyText')) $('lyText').innerHTML = (question.lyric.show || []).map(esc).join('<br>');
   player.setRate(1);
@@ -2681,7 +2751,7 @@ socket.on('react', ({ id, name, kind }) => {
 });
 
 socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, survival, coop, bingo, showdown }) => {
-  hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); renderShowdown(showdown);
+  hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); renderShowdown(showdown);
   pokerHandData = { hand: [], over: false, usedIds: [], kept: [] }; pokerDrop.clear();
   $('pickPanel').hidden = true; clearInterval(pickTick); $('coopBar').hidden = true; $('bingoBox').hidden = true;
   if (Array.isArray(log)) playLog = log;

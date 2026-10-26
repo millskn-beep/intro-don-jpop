@@ -1400,3 +1400,20 @@ body.rush-machine .stage-tools { overflow: visible; }
 .ly-kinds-box { grid-column: 1 / -1; display: grid; gap: 4px; font-size: 13px; }
 .ly-kinds { display: flex; flex-wrap: wrap; gap: 4px 12px; } .ly-kinds label { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; cursor: pointer; } .ly-kinds input { width: auto; margin: 0; }
 .ly-box .ly-text.ly-scroll { min-height: calc(1.7em * 3); }
+/* 歌詞クイズ2：答え合わせのカラオケ */
+.ly-kara { margin-top: 6px; display: grid; gap: 2px; min-height: calc(1.6em * 3); }
+.ly-kara p { margin: 0; color: var(--sub); font-size: clamp(13px, 2.4vw, 17px); transition: color .15s, transform .15s; }
+.ly-kara p.now { color: #ffd36b; font-weight: 800; transform: scale(1.06); }
+/* アニソン短縮鉄道 */
+#tsPop .ts-field { width: min(820px, 100%); max-height: 98dvh; overflow: hidden; gap: clamp(4px, 1.2dvh, 10px); padding: clamp(8px, 1.8dvh, 16px); }
+.ts-train { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; } .ts-car { padding: 2px 10px; border-radius: 99px; border: 1px solid var(--line); font-size: 12px; } .ts-car.on { border-color: #ffd36b; background: rgba(255, 211, 107, .15); } .ts-car.out { opacity: .4; text-decoration: line-through; }
+.ts-who { margin: 0; text-align: center; font-weight: 700; } .ts-who small { color: var(--sub); font-weight: 400; }
+.ts-abbr { text-align: center; font-size: clamp(28px, 7dvh, 54px); font-weight: 900; color: #ffd36b; letter-spacing: .04em; } .ts-abbr span { color: var(--sub); font-size: .5em; }
+.ts-bar { height: 8px; border-radius: 4px; background: rgba(255, 255, 255, .08); overflow: hidden; } .ts-bar i { display: block; height: 100%; background: linear-gradient(90deg, #ff7a8a, #ffd36b); transition: width .1s linear; }
+.ts-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; } .ts-choice { margin: 0; width: 100%; padding: clamp(6px, 1.6dvh, 12px) 10px; border-radius: 12px; border: 1px solid var(--line); background: rgba(255, 255, 255, .05); color: inherit; font-size: clamp(13px, 2.3dvh, 17px); font-weight: 700; cursor: pointer; }
+.ts-choice:disabled { cursor: default; } .ts-choice.right { border-color: #8dffc8; background: rgba(141, 255, 200, .15); } .ts-choice.wrong { border-color: #ff7a8a; background: rgba(255, 122, 138, .15); }
+.ts-res { margin: 0; text-align: center; font-weight: 700; } .ts-res.ok { color: #8dffc8; } .ts-res.ng { color: #ff7a8a; }
+.ts-type { display: flex; gap: 6px; } .ts-type input { flex: 1; min-width: 0; font-size: 18px; padding: 8px 12px; border-radius: 10px; } .ts-type button { margin: 0; }
+.ts-wait { margin: 0; text-align: center; color: var(--sub); } .ts-judge { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; } .ts-secret b { color: #8dffc8; font-size: 1.15em; }
+.ts-jbtns { display: flex; gap: 6px; } .ts-judge button { margin: 0; } .ts-ok { border-color: #8dffc8 !important; } .ts-ng { border-color: #ff7a8a !important; }
+.ts-judge .ts-ok, .ts-judge .ts-ng { color: #1a1a24; font-weight: 700; }

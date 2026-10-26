@@ -60886,28 +60886,14 @@
     "fameManual": true
   },
   {
-    "id": "cREAHvB02RQ",
     "title": "THERE IS A REASON",
     "work": "ノーゲーム・ノーライフ ゼロ",
     "artist": "鈴木このみ",
     "year": 2017,
     "type": "主題歌",
-    "confidence": "中",
-    "source": "KADOKAWA公式",
-    "intro": 24,
-    "chorus": 124,
     "aliases": [
       "ゼアイズアリーズン"
     ],
-    "embeddable": true,
-    "checkedAt": "2026-10-04",
-    "checkedOrigin": "localhost:3000",
-    "introMeasured": false,
-    "chorusSource": "heatmap",
-    "chorusChecked": true,
-    "views": 3190815,
-    "channel": "KADOKAWAanime",
-    "viewsAt": "2026-10-05",
     "fame": "top",
     "workAliases": [
       "のーげーむのーらいふ",
@@ -60917,7 +60903,21 @@
       "すずきこのみ",
       "鈴木",
       "すずき"
-    ]
+    ],
+    "id": "wrpRv1pyV6I",
+    "confidence": "中",
+    "source": "Kiranime（フル・非公式）",
+    "intro": 0,
+    "chorus": 68.4,
+    "embeddable": null,
+    "replacedFrom": "cREAHvB02RQ",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 26644565,
+    "channel": "Kiranime",
+    "viewsAt": "2026-10-26",
+    "chorusSource": "audio"
   },
   {
     "id": "Du3tQ2SXezA",
@@ -123093,5 +123093,41 @@
     "channel": "Namie Amuro - Topic",
     "viewsAt": "2026-10-26",
     "fame": "famous"
+  },
+  {
+    "id": "cREAHvB02RQ",
+    "title": "THERE IS A REASON",
+    "work": "ノーゲーム・ノーライフ ゼロ",
+    "artist": "鈴木このみ",
+    "year": 2017,
+    "type": "主題歌",
+    "confidence": "中",
+    "source": "KADOKAWA公式",
+    "intro": 24,
+    "chorus": 124,
+    "aliases": [
+      "ゼアイズアリーズン"
+    ],
+    "embeddable": true,
+    "checkedAt": "2026-10-04",
+    "checkedOrigin": "localhost:3000",
+    "introMeasured": false,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3190815,
+    "channel": "KADOKAWAanime",
+    "viewsAt": "2026-10-05",
+    "fame": "top",
+    "workAliases": [
+      "のーげーむのーらいふ",
+      "ノゲノラ"
+    ],
+    "artistAliases": [
+      "すずきこのみ",
+      "鈴木",
+      "すずき"
+    ],
+    "retired": true,
+    "retiredNote": "フルの動画（wrpRv1pyV6I）に差し替え"
   }
 ]

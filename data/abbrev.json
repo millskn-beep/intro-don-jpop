@@ -1,0 +1,2645 @@
+[
+ {
+  "kind": "work",
+  "abbr": "LoL",
+  "full": "リーグ・オブ・レジェンド",
+  "yomi": "りーぐおぶれじぇんど"
+ },
+ {
+  "kind": "work",
+  "abbr": "ドメカノ",
+  "full": "ドメスティックな彼女",
+  "yomi": "どめすてぃっくなかのじょ"
+ },
+ {
+  "kind": "work",
+  "abbr": "スパファミ",
+  "full": "SPY×FAMILY",
+  "yomi": "すぱいふぁみりー"
+ },
+ {
+  "kind": "work",
+  "abbr": "泣き猫",
+  "full": "泣きたい私は猫をかぶる",
+  "yomi": "なきたいわたしはねこをかぶる"
+ },
+ {
+  "kind": "work",
+  "abbr": "ぼざろ",
+  "full": "ぼっち・ざ・ろっく!",
+  "yomi": "ぼっちざろっく"
+ },
+ {
+  "kind": "work",
+  "abbr": "エヴァ",
+  "full": "新世紀エヴァンゲリオン",
+  "yomi": "しんせいきえゔぁんげりおん"
+ },
+ {
+  "kind": "work",
+  "abbr": "ヒロアカ",
+  "full": "僕のヒーローアカデミア",
+  "yomi": "ぼくのひーろーあかでみあ"
+ },
+ {
+  "kind": "work",
+  "abbr": "シンエヴァ",
+  "full": "シン・エヴァンゲリオン劇場版",
+  "yomi": "しんえゔぁんげりおんげきじょうばん"
+ },
+ {
+  "kind": "work",
+  "abbr": "リケ恋",
+  "full": "理系が恋に落ちたので証明してみた。",
+  "yomi": "りけいがこいにおちたのでしょうめいしてみた"
+ },
+ {
+  "kind": "work",
+  "abbr": "ハガレン",
+  "full": "鋼の錬金術師",
+  "yomi": "はがねのれんきんじゅつし"
+ },
+ {
+  "kind": "work",
+  "abbr": "ポケモン",
+  "full": "ポケットモンスター",
+  "yomi": "ぽけっともんすたー"
+ },
+ {
+  "kind": "work",
+  "abbr": "スラダン",
+  "full": "SLAM DUNK",
+  "yomi": "すらむだんく"
+ },
+ {
+  "kind": "work",
+  "abbr": "リゼロ",
+  "full": "Re:ゼロから始める異世界生活",
+  "yomi": "りぜろからはじめるいせかいせいかつ"
+ },
+ {
+  "kind": "work",
+  "abbr": "閃ハサ",
+  "full": "機動戦士ガンダム 閃光のハサウェイ",
+  "yomi": "きどうせんしがんだむせんこうのはさうぇい"
+ },
+ {
+  "kind": "work",
+  "abbr": "ブラクロ",
+  "full": "ブラッククローバー",
+  "yomi": "ぶらっくくろーばー"
+ },
+ {
+  "kind": "work",
+  "abbr": "竜そば",
+  "full": "竜とそばかすの姫",
+  "yomi": "りゅうとそばかすのひめ"
+ },
+ {
+  "kind": "work",
+  "abbr": "TOA",
+  "full": "テイルズ オブ ジ アビス",
+  "yomi": "ているずおぶじあびす"
+ },
+ {
+  "kind": "work",
+  "abbr": "王ラン",
+  "full": "王様ランキング",
+  "yomi": "おうさまらんきんぐ"
+ },
+ {
+  "kind": "work",
+  "abbr": "君どう",
+  "full": "君たちはどう生きるか",
+  "yomi": "きみたちはどういきるか"
+ },
+ {
+  "kind": "work",
+  "abbr": "ウィンブレ",
+  "full": "WIND BREAKER",
+  "yomi": "うぃんどぶれいかー"
+ },
+ {
+  "kind": "work",
+  "abbr": "DB超",
+  "full": "ドラゴンボール超",
+  "yomi": "どらごんぼーるすーぱー"
+ },
+ {
+  "kind": "work",
+  "abbr": "DBZ",
+  "full": "ドラゴンボールZ",
+  "yomi": "どらごんぼーるぜっと"
+ },
+ {
+  "kind": "work",
+  "abbr": "セラムン",
+  "full": "美少女戦士セーラームーン",
+  "yomi": "びしょうじょせんしせーらーむーん"
+ },
+ {
+  "kind": "work",
+  "abbr": "ドクスト",
+  "full": "Dr.STONE",
+  "yomi": "どくたーすとーん"
+ },
+ {
+  "kind": "work",
+  "abbr": "デスノ",
+  "full": "DEATH NOTE",
+  "yomi": "ですのーと"
+ },
+ {
+  "kind": "work",
+  "abbr": "ログホラ",
+  "full": "ログ・ホライズン",
+  "yomi": "ろぐほらいずん"
+ },
+ {
+  "kind": "work",
+  "abbr": "イニD",
+  "full": "頭文字D",
+  "yomi": "いにしゃるでぃー"
+ },
+ {
+  "kind": "work",
+  "abbr": "転スラ",
+  "full": "転生したらスライムだった件 第2期",
+  "yomi": "てんせいしたらすらいむだったけんだいにき"
+ },
+ {
+  "kind": "work",
+  "abbr": "僕ヤバ",
+  "full": "僕の心のヤバイやつ",
+  "yomi": "ぼくのこころのやばいやつ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ヲタ恋",
+  "full": "ヲタクに恋は難しい",
+  "yomi": "をたくにこいはむずかしい"
+ },
+ {
+  "kind": "work",
+  "abbr": "東リベ",
+  "full": "東京リベンジャーズ",
+  "yomi": "とうきょうりべんじゃーず"
+ },
+ {
+  "kind": "work",
+  "abbr": "SAO",
+  "full": "ソードアート・オンライン",
+  "yomi": "そーどあーとおんらいん"
+ },
+ {
+  "kind": "work",
+  "abbr": "FGO",
+  "full": "Fate/Grand Order",
+  "yomi": "ふぇいとぐらんどおーだー"
+ },
+ {
+  "kind": "work",
+  "abbr": "きらレボ",
+  "full": "きらりん☆レボリューション",
+  "yomi": "きらりんれぼりゅーしょん"
+ },
+ {
+  "kind": "work",
+  "abbr": "グラブル",
+  "full": "GRANBLUE FANTASY The Animation",
+  "yomi": "ぐらんぶるーふぁんたじーじあにめーしょん"
+ },
+ {
+  "kind": "work",
+  "abbr": "種死",
+  "full": "機動戦士ガンダムSEED DESTINY",
+  "yomi": "きどうせんしがんだむしーどですてぃにー"
+ },
+ {
+  "kind": "work",
+  "abbr": "プロセカ",
+  "full": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
+  "yomi": "ぷろじぇくとせかいからふるすてーじふぃーちゃりんぐはつねみく"
+ },
+ {
+  "kind": "work",
+  "abbr": "けもフレ",
+  "full": "けものフレンズ",
+  "yomi": "けものふれんず"
+ },
+ {
+  "kind": "work",
+  "abbr": "イナイレ",
+  "full": "イナズマイレブン",
+  "yomi": "いなずまいれぶん"
+ },
+ {
+  "kind": "work",
+  "abbr": "恋雨",
+  "full": "恋は雨上がりのように",
+  "yomi": "こいはあめあがりのように"
+ },
+ {
+  "kind": "work",
+  "abbr": "ノゲノラ",
+  "full": "ノーゲーム・ノーライフ",
+  "yomi": "のーげーむのーらいふ"
+ },
+ {
+  "kind": "work",
+  "abbr": "FF16",
+  "full": "FINAL FANTASY XVI",
+  "yomi": "ふぁいなるふぁんたじーしっくすてぃーん"
+ },
+ {
+  "kind": "work",
+  "abbr": "リコリコ",
+  "full": "リコリス・リコイル",
+  "yomi": "りこりすりこいる"
+ },
+ {
+  "kind": "work",
+  "abbr": "約ネバ",
+  "full": "約束のネバーランド",
+  "yomi": "やくそくのねばーらんど"
+ },
+ {
+  "kind": "work",
+  "abbr": "幽白",
+  "full": "幽☆遊☆白書",
+  "yomi": "ゆうゆうはくしょ"
+ },
+ {
+  "kind": "work",
+  "abbr": "文スト",
+  "full": "文豪ストレイドッグス",
+  "yomi": "ぶんごうすとれいどっぐす"
+ },
+ {
+  "kind": "work",
+  "abbr": "ギルクラ",
+  "full": "ギルティクラウン",
+  "yomi": "ぎるてぃくらうん"
+ },
+ {
+  "kind": "work",
+  "abbr": "SBR",
+  "full": "スティール・ボール・ラン ジョジョの奇妙な冒険",
+  "yomi": "すてぃーるぼーるらんじょじょのきみょうなぼうけん"
+ },
+ {
+  "kind": "work",
+  "abbr": "ブルロ",
+  "full": "ブルーロック",
+  "yomi": "ぶるーろっく"
+ },
+ {
+  "kind": "work",
+  "abbr": "ひろプリ",
+  "full": "ひろがるスカイ!プリキュア",
+  "yomi": "ひろがるすかいぷりきゅあ"
+ },
+ {
+  "kind": "work",
+  "abbr": "俺レベ",
+  "full": "俺だけレベルアップな件",
+  "yomi": "おれだけれべるあっぷなけん"
+ },
+ {
+  "kind": "work",
+  "abbr": "CCさくら",
+  "full": "カードキャプターさくら",
+  "yomi": "かーどきゃぷたーさくら"
+ },
+ {
+  "kind": "work",
+  "abbr": "こち亀",
+  "full": "こちら葛飾区亀有公園前派出所",
+  "yomi": "こちらかつしかくかめありこうえんまえはしゅつじょ"
+ },
+ {
+  "kind": "work",
+  "abbr": "黒バス",
+  "full": "黒子のバスケ",
+  "yomi": "くろこのばすけ"
+ },
+ {
+  "kind": "work",
+  "abbr": "マケイン",
+  "full": "負けヒロインが多すぎる!",
+  "yomi": "まけひろいんがおおすぎる"
+ },
+ {
+  "kind": "work",
+  "abbr": "時かけ",
+  "full": "時をかける少女",
+  "yomi": "ときをかけるしょうじょ"
+ },
+ {
+  "kind": "work",
+  "abbr": "金カム",
+  "full": "ゴールデンカムイ",
+  "yomi": "ごーるでんかむい"
+ },
+ {
+  "kind": "work",
+  "abbr": "ドラクエ",
+  "full": "ドラゴンクエスト",
+  "yomi": "どらごんくえすと"
+ },
+ {
+  "kind": "work",
+  "abbr": "君嘘",
+  "full": "四月は君の嘘",
+  "yomi": "しがつはきみのうそ"
+ },
+ {
+  "kind": "work",
+  "abbr": "逃げ若",
+  "full": "逃げ上手の若君",
+  "yomi": "にげじょうずのわかぎみ"
+ },
+ {
+  "kind": "work",
+  "abbr": "シュタゲ",
+  "full": "STEINS;GATE",
+  "yomi": "しゅたいんずげーと"
+ },
+ {
+  "kind": "work",
+  "abbr": "クレしん",
+  "full": "クレヨンしんちゃん",
+  "yomi": "くれよんしんちゃん"
+ },
+ {
+  "kind": "work",
+  "abbr": "アンデラ",
+  "full": "アンデッドアンラック",
+  "yomi": "あんでっどあんらっく"
+ },
+ {
+  "kind": "work",
+  "abbr": "ごとよめ",
+  "full": "五等分の花嫁",
+  "yomi": "ごとうぶんのはなよめ"
+ },
+ {
+  "kind": "work",
+  "abbr": "禁書",
+  "full": "とある魔術の禁書目録II",
+  "yomi": "とあるまじゅつのいんでっくすつー"
+ },
+ {
+  "kind": "work",
+  "abbr": "メイアビ",
+  "full": "メイドインアビス 烈日の黄金郷",
+  "yomi": "めいどいんあびすれつじつのおうごんきょう"
+ },
+ {
+  "kind": "work",
+  "abbr": "タイバニ",
+  "full": "TIGER & BUNNY",
+  "yomi": "たいがーあんどばにー"
+ },
+ {
+  "kind": "work",
+  "abbr": "マンキン",
+  "full": "シャーマンキング",
+  "yomi": "しゃーまんきんぐ"
+ },
+ {
+  "kind": "work",
+  "abbr": "よう実",
+  "full": "ようこそ実力至上主義の教室へ",
+  "yomi": "ようこそじつりょくしじょうしゅぎのきょうしつへ"
+ },
+ {
+  "kind": "work",
+  "abbr": "レールガン",
+  "full": "とある科学の超電磁砲",
+  "yomi": "とあるかがくのれーるがん"
+ },
+ {
+  "kind": "work",
+  "abbr": "陰実",
+  "full": "陰の実力者になりたくて!",
+  "yomi": "かげのじつりょくしゃになりたくて"
+ },
+ {
+  "kind": "work",
+  "abbr": "ロザバン",
+  "full": "ロザリオとバンパイア CAPU2",
+  "yomi": "ろざりおとばんぱいあかぷっちゅー"
+ },
+ {
+  "kind": "work",
+  "abbr": "ヒカ碁",
+  "full": "ヒカルの碁",
+  "yomi": "ひかるのご"
+ },
+ {
+  "kind": "work",
+  "abbr": "着せ恋",
+  "full": "その着せ替え人形は恋をする",
+  "yomi": "そのびすくどーるはこいをする"
+ },
+ {
+  "kind": "work",
+  "abbr": "青ブタ",
+  "full": "青春ブタ野郎はバニーガール先輩の夢を見ない",
+  "yomi": "せいしゅんぶたやろうはばにーがーるせんぱいのゆめをみない"
+ },
+ {
+  "kind": "work",
+  "abbr": "ふりふら",
+  "full": "思い、思われ、ふり、ふられ（アニメーション映画）",
+  "yomi": "おもいおもわれふりふられ"
+ },
+ {
+  "kind": "work",
+  "abbr": "弱ペダ",
+  "full": "弱虫ペダル GLORY LINE",
+  "yomi": "よわむしぺだるぐろーりーらいん"
+ },
+ {
+  "kind": "work",
+  "abbr": "100カノ",
+  "full": "君のことが大大大大大好きな100人の彼女",
+  "yomi": "きみのことがだいだいだいだいだいすきなひゃくにんのかのじょ"
+ },
+ {
+  "kind": "work",
+  "abbr": "デアラ",
+  "full": "デート・ア・ライブ",
+  "yomi": "でーとあらいぶ"
+ },
+ {
+  "kind": "work",
+  "abbr": "わたなれ",
+  "full": "わたしが恋人になれるわけないじゃん、ムリムリ!（※ムリじゃなかった!?）",
+  "yomi": "わたしがこいびとになれるわけないじゃんむりむりむりじゃなかった"
+ },
+ {
+  "kind": "work",
+  "abbr": "艦これ",
+  "full": "艦隊これくしょん -艦これ-",
+  "yomi": "かんたいこれくしょんかんこれ"
+ },
+ {
+  "kind": "work",
+  "abbr": "HOTD",
+  "full": "学園黙示録 HIGHSCHOOL OF THE DEAD",
+  "yomi": "がくえんもくしろくはいすくーるおぶざでっど"
+ },
+ {
+  "kind": "work",
+  "abbr": "逆シャア",
+  "full": "機動戦士ガンダム 逆襲のシャア",
+  "yomi": "きどうせんしがんだむぎゃくしゅうのしゃあ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ゴブスレ",
+  "full": "ゴブリンスレイヤー",
+  "yomi": "ごぶりんすれいやー"
+ },
+ {
+  "kind": "work",
+  "abbr": "おお振り",
+  "full": "おおきく振りかぶって",
+  "yomi": "おおきくふりかぶって"
+ },
+ {
+  "kind": "work",
+  "abbr": "バンドリ",
+  "full": "BanG Dream!",
+  "yomi": "ばんどりーむ"
+ },
+ {
+  "kind": "work",
+  "abbr": "花君",
+  "full": "花ざかりの君たちへ",
+  "yomi": "はなざかりのきみたちへ"
+ },
+ {
+  "kind": "work",
+  "abbr": "トロプリ",
+  "full": "トロピカル～ジュ!プリキュア",
+  "yomi": "とろぴかるーじゅぷりきゅあ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ロシデレ",
+  "full": "時々ボソッとロシア語でデレる隣のアーリャさん",
+  "yomi": "ときどきぼそっとろしあごででれるとなりのありゃさん"
+ },
+ {
+  "kind": "work",
+  "abbr": "ゼロ魔",
+  "full": "ゼロの使い魔 〜双月の騎士〜",
+  "yomi": "ぜろのつかいまふたつきのきし"
+ },
+ {
+  "kind": "work",
+  "abbr": "シングレ",
+  "full": "ウマ娘 シンデレラグレイ",
+  "yomi": "うまむすめしんでれらぐれい"
+ },
+ {
+  "kind": "work",
+  "abbr": "スパスタ",
+  "full": "ラブライブ!スーパースター!!",
+  "yomi": "らぶらいぶすーぱーすたー"
+ },
+ {
+  "kind": "work",
+  "abbr": "イタキス",
+  "full": "イタズラなKiss",
+  "yomi": "いたずらなきす"
+ },
+ {
+  "kind": "work",
+  "abbr": "スキロー",
+  "full": "スキップとローファー",
+  "yomi": "すきっぷとろーふぁー"
+ },
+ {
+  "kind": "work",
+  "abbr": "トニカワ",
+  "full": "トニカクカワイイ",
+  "yomi": "とにかくかわいい"
+ },
+ {
+  "kind": "work",
+  "abbr": "ストブラ",
+  "full": "ストライク・ザ・ブラッド",
+  "yomi": "すとらいくざぶらっど"
+ },
+ {
+  "kind": "work",
+  "abbr": "わんぷり",
+  "full": "わんだふるぷりきゅあ!",
+  "yomi": "わんだふるぷりきゅあ"
+ },
+ {
+  "kind": "work",
+  "abbr": "サカデイ",
+  "full": "SAKAMOTO DAYS",
+  "yomi": "さかもとでいず"
+ },
+ {
+  "kind": "work",
+  "abbr": "あの花",
+  "full": "あの日見た花の名前を僕達はまだ知らない。",
+  "yomi": "あのひみたはなのなまえをぼくたちはまだしらない"
+ },
+ {
+  "kind": "work",
+  "abbr": "プリヤ",
+  "full": "Fate/kaleid liner プリズマ☆イリヤ ツヴァイ ヘルツ!",
+  "yomi": "ふぇいとかれいどらいなーぷりずまいりやつゔぁいへるつ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ゾンサガ",
+  "full": "ゾンビランドサガ",
+  "yomi": "ぞんびらんどさが"
+ },
+ {
+  "kind": "work",
+  "abbr": "そらメソ",
+  "full": "天体のメソッド",
+  "yomi": "そらのめそっど"
+ },
+ {
+  "kind": "work",
+  "abbr": "このすば",
+  "full": "この素晴らしい世界に祝福を!",
+  "yomi": "このすばらしいせかいにしゅくふくを"
+ },
+ {
+  "kind": "work",
+  "abbr": "うたプリ",
+  "full": "うたの☆プリンスさまっ♪ マジLOVE1000%",
+  "yomi": "うたのぷりんすさままじらぶせんぱーせんと"
+ },
+ {
+  "kind": "work",
+  "abbr": "愛おぼ",
+  "full": "超時空要塞マクロス 愛・おぼえていますか",
+  "yomi": "ちょうじくうようさいまくろすあいおぼえていますか"
+ },
+ {
+  "kind": "work",
+  "abbr": "青エク",
+  "full": "青の祓魔師",
+  "yomi": "あおのえくそしすと"
+ },
+ {
+  "kind": "work",
+  "abbr": "ダンまち",
+  "full": "ダンジョンに出会いを求めるのは間違っているだろうかIV 新章 迷宮篇",
+  "yomi": "だんじょんにであいをもとめるのはまちがっているだろうかふぉーしんしょうめいきゅうへん"
+ },
+ {
+  "kind": "work",
+  "abbr": "まほよめ",
+  "full": "魔法使いの嫁",
+  "yomi": "まほうつかいのよめ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ワートリ",
+  "full": "ワールドトリガー",
+  "yomi": "わーるどとりがー"
+ },
+ {
+  "kind": "work",
+  "abbr": "ニジガク",
+  "full": "ラブライブ!虹ヶ咲学園スクールアイドル同好会",
+  "yomi": "らぶらいぶにじがさきがくえんすくーるあいどるどうこうかい"
+ },
+ {
+  "kind": "work",
+  "abbr": "Gガン",
+  "full": "機動武闘伝Gガンダム",
+  "yomi": "きどうぶとうでんじーがんだむ"
+ },
+ {
+  "kind": "work",
+  "abbr": "耳すま",
+  "full": "耳をすませば",
+  "yomi": "みみをすませば"
+ },
+ {
+  "kind": "work",
+  "abbr": "僕街",
+  "full": "僕だけがいない街",
+  "yomi": "ぼくだけがいないまち"
+ },
+ {
+  "kind": "work",
+  "abbr": "まどマギ",
+  "full": "魔法少女まどか☆マギカ",
+  "yomi": "まほうしょうじょまどかまぎか"
+ },
+ {
+  "kind": "work",
+  "abbr": "ヒープリ",
+  "full": "ヒーリングっど♥プリキュア",
+  "yomi": "ひーりんぐっどぷりきゅあ"
+ },
+ {
+  "kind": "work",
+  "abbr": "シャンフロ",
+  "full": "シャングリラ・フロンティア",
+  "yomi": "しゃんぐりらふろんてぃあ"
+ },
+ {
+  "kind": "work",
+  "abbr": "俺ガイル",
+  "full": "やはり俺の青春ラブコメはまちがっている。",
+  "yomi": "やはりおれのせいしゅんらぶこめはまちがっている"
+ },
+ {
+  "kind": "work",
+  "abbr": "アズレン",
+  "full": "アズールレーン",
+  "yomi": "あずーるれーん"
+ },
+ {
+  "kind": "work",
+  "abbr": "バカテス",
+  "full": "バカとテストと召喚獣",
+  "yomi": "ばかとてすととしょうかんじゅう"
+ },
+ {
+  "kind": "work",
+  "abbr": "ハトプリ",
+  "full": "ハートキャッチプリキュア!",
+  "yomi": "はーときゃっちぷりきゅあ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ユーフォ",
+  "full": "響け!ユーフォニアム",
+  "yomi": "ひびけゆーふぉにあむ"
+ },
+ {
+  "kind": "work",
+  "abbr": "サマレン",
+  "full": "サマータイムレンダ",
+  "yomi": "さまーたいむれんだ"
+ },
+ {
+  "kind": "work",
+  "abbr": "アイマス",
+  "full": "アイドルマスター",
+  "yomi": "あいどるますたー"
+ },
+ {
+  "kind": "work",
+  "abbr": "デレマス",
+  "full": "アイドルマスター シンデレラガールズ",
+  "yomi": "あいどるますたーしんでれらがーるず"
+ },
+ {
+  "kind": "work",
+  "abbr": "GGO",
+  "full": "ソードアート・オンライン オルタナティブ ガンゲイル・オンライン",
+  "yomi": "そーどあーとおんらいんおるたなてぃぶがんげいるおんらいん"
+ },
+ {
+  "kind": "work",
+  "abbr": "スマプリ",
+  "full": "スマイルプリキュア!",
+  "yomi": "すまいるぷりきゅあ"
+ },
+ {
+  "kind": "work",
+  "abbr": "マギレコ",
+  "full": "マギアレコード 魔法少女まどか☆マギカ外伝",
+  "yomi": "まぎあれこーどまほうしょうじょまどかまぎかがいでん"
+ },
+ {
+  "kind": "work",
+  "abbr": "ぼく勉",
+  "full": "ぼくたちは勉強ができない",
+  "yomi": "ぼくたちはべんきょうができない"
+ },
+ {
+  "kind": "work",
+  "abbr": "Gレコ",
+  "full": "ガンダム Gのレコンギスタ",
+  "yomi": "がんだむじーのれこんぎすた"
+ },
+ {
+  "kind": "work",
+  "abbr": "はがない",
+  "full": "僕は友達が少ない",
+  "yomi": "ぼくはともだちがすくない"
+ },
+ {
+  "kind": "work",
+  "abbr": "ロクアカ",
+  "full": "ロクでなし魔術講師と禁忌教典",
+  "yomi": "ろくでなしまじゅつこうしとあかしっくれこーど"
+ },
+ {
+  "kind": "work",
+  "abbr": "ガルパ",
+  "full": "バンドリ! ガールズバンドパーティ!",
+  "yomi": "ばんどりがーるずばんどぱーてぃ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ダン飯",
+  "full": "ダンジョン飯",
+  "yomi": "だんじょんめし"
+ },
+ {
+  "kind": "work",
+  "abbr": "るろ剣",
+  "full": "るろうに剣心",
+  "yomi": "るろうにけんしん"
+ },
+ {
+  "kind": "work",
+  "abbr": "ワンピ",
+  "full": "ONE PIECE",
+  "yomi": "わんぴーす"
+ },
+ {
+  "kind": "work",
+  "abbr": "ファンパレ",
+  "full": "呪術廻戦 ファントムパレード",
+  "yomi": "じゅじゅつかいせんふぁんとむぱれーど"
+ },
+ {
+  "kind": "work",
+  "abbr": "ポケモンSV",
+  "full": "ポケットモンスター スカーレット・バイオレット",
+  "yomi": "ぽけっともんすたーすかーれっとばいおれっと"
+ },
+ {
+  "kind": "work",
+  "abbr": "旧劇",
+  "full": "新世紀エヴァンゲリオン劇場版",
+  "yomi": "しんせいきえゔぁんげりおんげきじょうばん"
+ },
+ {
+  "kind": "work",
+  "abbr": "ハピシュガ",
+  "full": "ハッピーシュガーライフ",
+  "yomi": "はっぴーしゅがーらいふ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ナイツマ",
+  "full": "ナイツ&マジック",
+  "yomi": "ないつあんどまじっく"
+ },
+ {
+  "kind": "work",
+  "abbr": "魔女宅",
+  "full": "魔女の宅急便",
+  "yomi": "まじょのたっきゅうびん"
+ },
+ {
+  "kind": "work",
+  "abbr": "君届",
+  "full": "君に届け",
+  "yomi": "きみにとどけ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ラッド",
+  "full": "RADWIMPS",
+  "yomi": "らっどうぃんぷす"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ミセス",
+  "full": "Mrs. GREEN APPLE",
+  "yomi": "みせすぐりーんあっぷる"
+ },
+ {
+  "kind": "artist",
+  "abbr": "バンプ",
+  "full": "BUMP OF CHICKEN",
+  "yomi": "ばんぷおぶちきん"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ヒゲダン",
+  "full": "Official髭男dism",
+  "yomi": "おふぃしゃるひげだんでぃずむ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ワンオク",
+  "full": "ONE OK ROCK",
+  "yomi": "わんおくろっく"
+ },
+ {
+  "kind": "artist",
+  "abbr": "オーラル",
+  "full": "THE ORAL CIGARETTES",
+  "yomi": "じおーらるしがれっつ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "マンウィズ",
+  "full": "MAN WITH A MISSION",
+  "yomi": "まんうぃずあみっしょん"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ユニゾン",
+  "full": "UNISON SQUARE GARDEN",
+  "yomi": "ゆにぞんすくえあがーでん"
+ },
+ {
+  "kind": "artist",
+  "abbr": "チコハニ",
+  "full": "CHiCO with HoneyWorks",
+  "yomi": "ちこうぃずはにーわーくす"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ハニワ",
+  "full": "HoneyWorks",
+  "yomi": "はにーわーくす"
+ },
+ {
+  "kind": "artist",
+  "abbr": "リョクシャカ",
+  "full": "緑黄色社会",
+  "yomi": "りょくおうしょくしゃかい"
+ },
+ {
+  "kind": "artist",
+  "abbr": "リンホラ",
+  "full": "Linked Horizon",
+  "yomi": "りんくどほらいずん"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ドロス",
+  "full": "[Alexandros]",
+  "yomi": "あれきさんどろす"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ウーバー",
+  "full": "UVERworld",
+  "yomi": "うーばーわーるど"
+ },
+ {
+  "kind": "artist",
+  "abbr": "TMR",
+  "full": "T.M.Revolution",
+  "yomi": "てぃーえむれぼりゅーしょん"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ラルク",
+  "full": "L'Arc~en~Ciel",
+  "yomi": "らるくあんしえる"
+ },
+ {
+  "kind": "artist",
+  "abbr": "HTT",
+  "full": "放課後ティータイム",
+  "yomi": "ほうかごてぃーたいむ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "TMN",
+  "full": "TM NETWORK",
+  "yomi": "てぃーえむねっとわーく"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ずとまよ",
+  "full": "ずっと真夜中でいいのに。",
+  "yomi": "ずっとまよなかでいいのに"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ポルノ",
+  "full": "ポルノグラフィティ",
+  "yomi": "ぽるのぐらふぃてぃ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ももクロ",
+  "full": "ももいろクローバーZ",
+  "yomi": "ももいろくろーばーぜっと"
+ },
+ {
+  "kind": "artist",
+  "abbr": "サバプロ",
+  "full": "Survive Said The Prophet",
+  "yomi": "さばいぶせっどざぷろふぇっと"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ブルエン",
+  "full": "BLUE ENCOUNT",
+  "yomi": "ぶるーえんかうんと"
+ },
+ {
+  "kind": "artist",
+  "abbr": "アジカン",
+  "full": "ASIAN KUNG-FU GENERATION",
+  "yomi": "あじあんかんふーじぇねれーしょん"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ユーミン",
+  "full": "荒井由実",
+  "yomi": "あらいゆみ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ジェネ",
+  "full": "GENERATIONS from EXILE TRIBE",
+  "yomi": "じぇねれーしょんずふろむえぐざいるとらいぶ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "セカオワ",
+  "full": "SEKAI NO OWARI",
+  "yomi": "せかいのおわり"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ジュディマリ",
+  "full": "JUDY AND MARY",
+  "yomi": "じゅでぃあんどまりー"
+ },
+ {
+  "kind": "artist",
+  "abbr": "チャトモン",
+  "full": "チャットモンチー",
+  "yomi": "ちゃっともんちー"
+ },
+ {
+  "kind": "artist",
+  "abbr": "リトグリ",
+  "full": "Little Glee Monster",
+  "yomi": "りとるぐりーもんすたー"
+ },
+ {
+  "kind": "artist",
+  "abbr": "あゆ",
+  "full": "浜崎あゆみ",
+  "yomi": "はまさきあゆみ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ガルネリ",
+  "full": "GALNERYUS",
+  "yomi": "がるねりあす"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ベリーズ",
+  "full": "Berryz工房",
+  "yomi": "べりーずこうぼう"
+ },
+ {
+  "kind": "artist",
+  "abbr": "水カン",
+  "full": "水曜日のカンパネラ",
+  "yomi": "すいようびのかんぱねら"
+ },
+ {
+  "kind": "artist",
+  "abbr": "マカえん",
+  "full": "マカロニえんぴつ",
+  "yomi": "まかろにえんぴつ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ELT",
+  "full": "Every Little Thing",
+  "yomi": "えぶりりとるしんぐ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "アリプロ",
+  "full": "ALI PROJECT",
+  "yomi": "ありぷろじぇくと"
+ },
+ {
+  "kind": "artist",
+  "abbr": "電グル",
+  "full": "電気グルーヴ",
+  "yomi": "でんきぐるーゔ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ブリグリ",
+  "full": "the brilliant green",
+  "yomi": "ざぶりりあんとぐりーん"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ポピパ",
+  "full": "Poppin'Party",
+  "yomi": "ぽっぴんぱーてぃー"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ガルデモ",
+  "full": "Girls Dead Monster",
+  "yomi": "がーるずでっどもんすたー"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ホルモン",
+  "full": "マキシマム ザ ホルモン",
+  "yomi": "まきしまむざほるもん"
+ },
+ {
+  "kind": "artist",
+  "abbr": "スト",
+  "full": "SixTONES",
+  "yomi": "すとーんず"
+ },
+ {
+  "kind": "artist",
+  "abbr": "リンキン",
+  "full": "Linkin Park",
+  "yomi": "りんきんぱーく"
+ },
+ {
+  "kind": "artist",
+  "abbr": "イマドラ",
+  "full": "Imagine Dragons",
+  "yomi": "いまじんどらごんず"
+ },
+ {
+  "kind": "artist",
+  "abbr": "フィロのス",
+  "full": "フィロソフィーのダンス",
+  "yomi": "ふぃろそふぃーのだんす"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ニジガク",
+  "full": "虹ヶ咲学園スクールアイドル同好会",
+  "yomi": "にじがさきがくえんすくーるあいどるどうこうかい"
+ },
+ {
+  "kind": "work",
+  "abbr": "ギルます",
+  "full": "ギルドの受付嬢ですが、残業は嫌なのでボスをソロ討伐しようと思います",
+  "yomi": "ぎるどのうけつけじょうですがざんぎょうはいやなのでぼすをそろとうばつしようとおもいます"
+ },
+ {
+  "kind": "work",
+  "abbr": "にごリリ",
+  "full": "2.5次元の誘惑",
+  "yomi": "にてんごじげんのりりさ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ひかなつ",
+  "full": "光が死んだ夏",
+  "yomi": "ひかるがしんだなつ"
+ },
+ {
+  "kind": "work",
+  "abbr": "どさこい",
+  "full": "道産子ギャルはなまらめんこい",
+  "yomi": "どさんこぎゃるはなまらめんこい"
+ },
+ {
+  "kind": "work",
+  "abbr": "多田恋",
+  "full": "多田くんは恋をしない",
+  "yomi": "ただくんはこいをしない"
+ },
+ {
+  "kind": "work",
+  "abbr": "暗殺貴族",
+  "full": "世界最高の暗殺者、異世界貴族に転生する",
+  "yomi": "せかいさいこうのあんさつしゃいせかいきぞくにてんせいする"
+ },
+ {
+  "kind": "work",
+  "abbr": "ロックレディ",
+  "full": "ロックは淑女の嗜みでして",
+  "yomi": "ろっくはれでぃのたしなみでして"
+ },
+ {
+  "kind": "work",
+  "abbr": "キミプリ",
+  "full": "キミとアイドルプリキュア♪",
+  "yomi": "きみとあいどるぷりきゅあ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ぱいのこ",
+  "full": "先輩はおとこのこ",
+  "yomi": "せんぱいはおとこのこ"
+ },
+ {
+  "kind": "work",
+  "abbr": "ヤニすう",
+  "full": "スーパーの裏でヤニ吸うふたり",
+  "yomi": "すーぱーのうらでやにすうふたり"
+ },
+ {
+  "kind": "work",
+  "abbr": "H×H",
+  "full": "HUNTER×HUNTER",
+  "yomi": "はんたーはんたー"
+ },
+ {
+  "kind": "artist",
+  "abbr": "バクナン",
+  "full": "back number",
+  "yomi": "ばっくなんばー"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ロデオ",
+  "full": "GRANRODEO",
+  "yomi": "ぐらんろでお"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ビーバー",
+  "full": "SUPER BEAVER",
+  "yomi": "すーぱーびーばー"
+ },
+ {
+  "kind": "artist",
+  "abbr": "ガルニデ",
+  "full": "GARNiDELiA",
+  "yomi": "がるにでりあ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "感エロ",
+  "full": "感覚ピエロ",
+  "yomi": "かんかくぴえろ"
+ },
+ {
+  "kind": "artist",
+  "abbr": "きゅーすと",
+  "full": "CUTIE STREET",
+  "yomi": "きゅーてぃーすとりーと"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ファミマ",
+  "full": "ファミリーマート",
+  "yomi": "ふぁみりーまーと"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "スタバ",
+  "full": "スターバックス コーヒー",
+  "yomi": "すたーばっくすこーひー"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ミスド",
+  "full": "ミスタードーナツ",
+  "yomi": "みすたーどーなつ"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ポカリ",
+  "full": "ポカリスエット",
+  "yomi": "ぽかりすえっと"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "マック",
+  "full": "マクドナルド",
+  "yomi": "まくどなるど"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ケンタ",
+  "full": "ケンタッキーフライドチキン",
+  "yomi": "けんたっきーふらいどちきん"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ドンキ",
+  "full": "ドン・キホーテ",
+  "yomi": "どんきほーて"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ロイホ",
+  "full": "ロイヤルホスト",
+  "yomi": "ろいやるほすと"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "サイゼ",
+  "full": "サイゼリヤ",
+  "yomi": "さいぜりや"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "吉牛",
+  "full": "吉野家の牛丼",
+  "yomi": "よしのやのぎゅうどん"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "マツキヨ",
+  "full": "マツモトキヨシ",
+  "yomi": "まつもときよし"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "アクエリ",
+  "full": "アクエリアス",
+  "yomi": "あくえりあす"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "午後ティー",
+  "full": "午後の紅茶",
+  "yomi": "ごごのこうちゃ"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "モス",
+  "full": "モスバーガー",
+  "yomi": "もすばーがー"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "バーキン",
+  "full": "バーガーキング",
+  "yomi": "ばーがーきんぐ"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ミニスト",
+  "full": "ミニストップ",
+  "yomi": "みにすとっぷ"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "セコマ",
+  "full": "セイコーマート",
+  "yomi": "せいこーまーと"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ココイチ",
+  "full": "カレーハウスCoCo壱番屋",
+  "yomi": "かれーはうすここいちばんや"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "びくドン",
+  "full": "びっくりドンキー",
+  "yomi": "びっくりどんきー"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "天一",
+  "full": "天下一品",
+  "yomi": "てんかいっぴん"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "いきステ",
+  "full": "いきなり！ステーキ",
+  "yomi": "いきなりすてーき"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "トリキ",
+  "full": "鳥貴族",
+  "yomi": "とりきぞく"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "業スー",
+  "full": "業務スーパー",
+  "yomi": "ぎょうむすーぱー"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ラウワン",
+  "full": "ラウンドワン",
+  "yomi": "らうんどわん"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ヴィレヴァン",
+  "full": "ヴィレッジヴァンガード",
+  "yomi": "ゔぃれっじゔぁんがーど"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ジョーシン",
+  "full": "上新電機",
+  "yomi": "じょうしんでんき"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "プリクラ",
+  "full": "プリント倶楽部",
+  "yomi": "ぷりんとくらぶ"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ユニバ",
+  "full": "ユニバーサル・スタジオ・ジャパン",
+  "yomi": "ゆにばーさるすたじおじゃぱん"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "TDL",
+  "full": "東京ディズニーランド",
+  "yomi": "とうきょうでぃずにーらんど"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "TDS",
+  "full": "東京ディズニーシー",
+  "yomi": "とうきょうでぃずにーしー"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ヤフオク",
+  "full": "Yahoo!オークション",
+  "yomi": "やふーおーくしょん"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ソフバン",
+  "full": "ソフトバンク",
+  "yomi": "そふとばんく"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "JAL",
+  "full": "日本航空",
+  "yomi": "にほんこうくう"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ANA",
+  "full": "全日本空輸",
+  "yomi": "ぜんにっぽんくうゆ"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "NTT",
+  "full": "日本電信電話",
+  "yomi": "にっぽんでんしんでんわ"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "JT",
+  "full": "日本たばこ産業",
+  "yomi": "にほんたばこさんぎょう"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "NEC",
+  "full": "日本電気",
+  "yomi": "にっぽんでんき"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "TDK",
+  "full": "東京電気化学工業",
+  "yomi": "とうきょうでんきかがくこうぎょう"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "農協",
+  "full": "農業協同組合",
+  "yomi": "のうぎょうきょうどうくみあい"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "生協",
+  "full": "生活協同組合",
+  "yomi": "せいかつきょうどうくみあい"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "H&M",
+  "full": "ヘネス・アンド・マウリッツ",
+  "yomi": "へねすあんどまうりっつ"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "リポD",
+  "full": "リポビタンD",
+  "yomi": "りぽびたんでぃー"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ベビスタ",
+  "full": "ベビースターラーメン",
+  "yomi": "べびーすたーらーめん"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "Suica",
+  "full": "Super Urban Intelligent CArd",
+  "yomi": "すーぱーあーばんいんてりじぇんとかーど"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ICOCA",
+  "full": "IC Operating CArd",
+  "yomi": "あいしーおぺれーてぃんぐかーど"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ホンダ",
+  "full": "本田技研工業",
+  "yomi": "ほんだぎけんこうぎょう"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "東電",
+  "full": "東京電力",
+  "yomi": "とうきょうでんりょく"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "関電",
+  "full": "関西電力",
+  "yomi": "かんさいでんりょく"
+ },
+ {
+  "kind": "general",
+  "cat": "shop",
+  "abbr": "ニッセイ",
+  "full": "日本生命保険",
+  "yomi": "にほんせいめいほけん"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "スマホ",
+  "full": "スマートフォン",
+  "yomi": "すまーとふぉん"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "コンビニ",
+  "full": "コンビニエンスストア",
+  "yomi": "こんびにえんすすとあ"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "リモコン",
+  "full": "リモートコントローラー",
+  "yomi": "りもーとこんとろーらー"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "エアコン",
+  "full": "エアコンディショナー",
+  "yomi": "えあこんでぃしょなー"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "パソコン",
+  "full": "パーソナルコンピューター",
+  "yomi": "ぱーそなるこんぴゅーたー"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "デジカメ",
+  "full": "デジタルカメラ",
+  "yomi": "でじたるかめら"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ファミレス",
+  "full": "ファミリーレストラン",
+  "yomi": "ふぁみりーれすとらん"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "セクハラ",
+  "full": "セクシャルハラスメント",
+  "yomi": "せくしゃるはらすめんと"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "パワハラ",
+  "full": "パワーハラスメント",
+  "yomi": "ぱわーはらすめんと"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "マスコミ",
+  "full": "マスコミュニケーション",
+  "yomi": "ますこみゅにけーしょん"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ゼネコン",
+  "full": "ゼネラルコントラクター",
+  "yomi": "ぜねらるこんとらくたー"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "アポ",
+  "full": "アポイントメント",
+  "yomi": "あぽいんとめんと"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "コスパ",
+  "full": "コストパフォーマンス",
+  "yomi": "こすとぱふぉーまんす"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "タイパ",
+  "full": "タイムパフォーマンス",
+  "yomi": "たいむぱふぉーまんす"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "インフラ",
+  "full": "インフラストラクチャー",
+  "yomi": "いんふらすとらくちゃー"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "リストラ",
+  "full": "リストラクチャリング",
+  "yomi": "りすとらくちゃりんぐ"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "アメフト",
+  "full": "アメリカンフットボール",
+  "yomi": "あめりかんふっとぼーる"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ラジカセ",
+  "full": "ラジオカセットレコーダー",
+  "yomi": "らじおかせっとれこーだー"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ワープロ",
+  "full": "ワードプロセッサー",
+  "yomi": "わーどぷろせっさー"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "エンタメ",
+  "full": "エンターテインメント",
+  "yomi": "えんたーていんめんと"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "シャーペン",
+  "full": "シャープペンシル",
+  "yomi": "しゃーぷぺんしる"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ドタキャン",
+  "full": "土壇場でキャンセル",
+  "yomi": "どたんばできゃんせる"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ゲーセン",
+  "full": "ゲームセンター",
+  "yomi": "げーむせんたー"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "カーナビ",
+  "full": "カーナビゲーションシステム",
+  "yomi": "かーなびげーしょんしすてむ"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ポテチ",
+  "full": "ポテトチップス",
+  "yomi": "ぽてとちっぷす"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "メアド",
+  "full": "メールアドレス",
+  "yomi": "めーるあどれす"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ケータイ",
+  "full": "携帯電話",
+  "yomi": "けいたいでんわ"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ガラケー",
+  "full": "ガラパゴスケータイ",
+  "yomi": "がらぱごすけーたい"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ネカフェ",
+  "full": "インターネットカフェ",
+  "yomi": "いんたーねっとかふぇ"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "デパ地下",
+  "full": "デパートの地下食品売り場",
+  "yomi": "でぱーとのちかしょくひんうりば"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "就活",
+  "full": "就職活動",
+  "yomi": "しゅうしょくかつどう"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "婚活",
+  "full": "結婚活動",
+  "yomi": "けっこんかつどう"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "合コン",
+  "full": "合同コンパ",
+  "yomi": "ごうどうこんぱ"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "学割",
+  "full": "学生割引",
+  "yomi": "がくせいわりびき"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "原付",
+  "full": "原動機付自転車",
+  "yomi": "げんどうきつきじてんしゃ"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "パトカー",
+  "full": "パトロールカー",
+  "yomi": "ぱとろーるかー"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "筋トレ",
+  "full": "筋力トレーニング",
+  "yomi": "きんりょくとれーにんぐ"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "メタボ",
+  "full": "メタボリックシンドローム",
+  "yomi": "めたぼりっくしんどろーむ"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ATM",
+  "full": "現金自動預け払い機",
+  "yomi": "げんきんじどうあずけばらいき"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ラジコン",
+  "full": "ラジオコントロール",
+  "yomi": "らじおこんとろーる"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "アコギ",
+  "full": "アコースティックギター",
+  "yomi": "あこーすてぃっくぎたー"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "サボる",
+  "full": "サボタージュする",
+  "yomi": "さぼたーじゅする"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "プラモ",
+  "full": "プラモデル",
+  "yomi": "ぷらもでる"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "食洗機",
+  "full": "食器洗い乾燥機",
+  "yomi": "しょっきあらいかんそうき"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "フリマ",
+  "full": "フリーマーケット",
+  "yomi": "ふりーまーけっと"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "チューハイ",
+  "full": "焼酎ハイボール",
+  "yomi": "しょうちゅうはいぼーる"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "天丼",
+  "full": "天ぷら丼",
+  "yomi": "てんぷらどん"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ハンバーグ",
+  "full": "ハンバーグステーキ",
+  "yomi": "はんばーぐすてーき"
+ },
+ {
+  "kind": "general",
+  "cat": "daily",
+  "abbr": "ワンオペ",
+  "full": "ワンオペレーション",
+  "yomi": "わんおぺれーしょん"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "あけおめ",
+  "full": "あけましておめでとう",
+  "yomi": "あけましておめでとう"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ことよろ",
+  "full": "今年もよろしく",
+  "yomi": "ことしもよろしく"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "りょ",
+  "full": "了解",
+  "yomi": "りょうかい"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ワンチャン",
+  "full": "ワンチャンス",
+  "yomi": "わんちゃんす"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ググる",
+  "full": "Googleで検索する",
+  "yomi": "ぐーぐるでけんさくする"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ディスる",
+  "full": "ディスリスペクトする",
+  "yomi": "でぃすりすぺくとする"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "KY",
+  "full": "空気が読めない",
+  "yomi": "くうきがよめない"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "JK",
+  "full": "女子高生",
+  "yomi": "じょしこうせい"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ちな",
+  "full": "ちなみに",
+  "yomi": "ちなみに"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "あざす",
+  "full": "ありがとうございます",
+  "yomi": "ありがとうございます"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "エモい",
+  "full": "エモーショナル",
+  "yomi": "えもーしょなる"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "リア充",
+  "full": "リアル（現実）の生活が充実している",
+  "yomi": "りあるのせいかつがじゅうじつしている"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ぼっち",
+  "full": "ひとりぼっち",
+  "yomi": "ひとりぼっち"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "パリピ",
+  "full": "パーティーピープル",
+  "yomi": "ぱーてぃーぴーぷる"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "インスタ",
+  "full": "インスタグラム",
+  "yomi": "いんすたぐらむ"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ニコ動",
+  "full": "ニコニコ動画",
+  "yomi": "にこにこどうが"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ニコ生",
+  "full": "ニコニコ生放送",
+  "yomi": "にこにこなまほうそう"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "スクショ",
+  "full": "スクリーンショット",
+  "yomi": "すくりーんしょっと"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ネトゲ",
+  "full": "ネットゲーム",
+  "yomi": "ねっとげーむ"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ソシャゲ",
+  "full": "ソーシャルゲーム",
+  "yomi": "そーしゃるげーむ"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ネタバレ",
+  "full": "ネタばらし",
+  "yomi": "ねたばらし"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ステマ",
+  "full": "ステルスマーケティング",
+  "yomi": "すてるすまーけてぃんぐ"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "アフィ",
+  "full": "アフィリエイト",
+  "yomi": "あふぃりえいと"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ブログ",
+  "full": "ウェブログ",
+  "yomi": "うぇぶろぐ"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "裏垢",
+  "full": "裏アカウント",
+  "yomi": "うらあかうんと"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "DM",
+  "full": "ダイレクトメッセージ",
+  "yomi": "だいれくとめっせーじ"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "SNS",
+  "full": "ソーシャル・ネットワーキング・サービス",
+  "yomi": "そーしゃるねっとわーきんぐさーびす"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "オワコン",
+  "full": "終わったコンテンツ",
+  "yomi": "おわったこんてんつ"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "kwsk",
+  "full": "詳しく",
+  "yomi": "くわしく"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "wktk",
+  "full": "ワクワクテカテカ",
+  "yomi": "わくわくてかてか"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "めんどい",
+  "full": "面倒くさい",
+  "yomi": "めんどうくさい"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ムズい",
+  "full": "難しい",
+  "yomi": "むずかしい"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ハズい",
+  "full": "恥ずかしい",
+  "yomi": "はずかしい"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "あーね",
+  "full": "あーなるほどね",
+  "yomi": "あーなるほどね"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "おつ",
+  "full": "お疲れさま",
+  "yomi": "おつかれさま"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "なるはや",
+  "full": "なるべく早く",
+  "yomi": "なるべくはやく"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "きょどる",
+  "full": "挙動不審になる",
+  "yomi": "きょどうふしんになる"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "タピる",
+  "full": "タピオカドリンクを飲む",
+  "yomi": "たぴおかどりんくをのむ"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "リムる",
+  "full": "リムーブする",
+  "yomi": "りむーぶする"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "エゴサ",
+  "full": "エゴサーチ",
+  "yomi": "えごさーち"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ネトフリ",
+  "full": "ネットフリックス",
+  "yomi": "ねっとふりっくす"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "アマプラ",
+  "full": "Amazonプライム・ビデオ",
+  "yomi": "あまぞんぷらいむびでお"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ブクマ",
+  "full": "ブックマーク",
+  "yomi": "ぶっくまーく"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ログボ",
+  "full": "ログインボーナス",
+  "yomi": "ろぐいんぼーなす"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "リセマラ",
+  "full": "リセットマラソン",
+  "yomi": "りせっとまらそん"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "レスバ",
+  "full": "レスバトル",
+  "yomi": "れすばとる"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "VTuber",
+  "full": "バーチャルYouTuber",
+  "yomi": "ばーちゃるゆーちゅーばー"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "陰キャ",
+  "full": "陰気なキャラクター",
+  "yomi": "いんきなきゃらくたー"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "陽キャ",
+  "full": "陽気なキャラクター",
+  "yomi": "ようきなきゃらくたー"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "推しメン",
+  "full": "推しメンバー",
+  "yomi": "おしめんばー"
+ },
+ {
+  "kind": "general",
+  "cat": "net",
+  "abbr": "ラスボス",
+  "full": "ラストボス",
+  "yomi": "らすとぼす"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "めちゃイケ",
+  "full": "めちゃ²イケてるッ！",
+  "yomi": "めちゃめちゃいけてる"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "みなおか",
+  "full": "とんねるずのみなさんのおかげでした",
+  "yomi": "とんねるずのみなさんのおかげでした"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ごっつ",
+  "full": "ダウンタウンのごっつええ感じ",
+  "yomi": "だうんたうんのごっつええかんじ"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ガキ使",
+  "full": "ダウンタウンのガキの使いやあらへんで！",
+  "yomi": "だうんたうんのがきのつかいやあらへんで"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "はねトび",
+  "full": "はねるのトびら",
+  "yomi": "はねるのとびら"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "いいとも",
+  "full": "森田一義アワー 笑っていいとも！",
+  "yomi": "もりたかずよしあわーわらっていいとも"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "Mステ",
+  "full": "ミュージックステーション",
+  "yomi": "みゅーじっくすてーしょん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "スマスマ",
+  "full": "SMAP×SMAP",
+  "yomi": "すますま"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ロンバケ",
+  "full": "ロングバケーション",
+  "yomi": "ろんぐばけーしょん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "逃げ恥",
+  "full": "逃げるは恥だが役に立つ",
+  "yomi": "にげるははじだがやくにたつ"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "イッテQ",
+  "full": "世界の果てまでイッテQ！",
+  "yomi": "せかいのはてまでいってきゅー"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ロンハー",
+  "full": "ロンドンハーツ",
+  "yomi": "ろんどんはーつ"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ぐるナイ",
+  "full": "ぐるぐるナインティナイン",
+  "yomi": "ぐるぐるないんてぃないん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "Qさま",
+  "full": "クイズプレゼンバラエティー Qさま!!",
+  "yomi": "くいずぷれぜんばらえてぃーきゅーさま"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "テラハ",
+  "full": "テラスハウス",
+  "yomi": "てらすはうす"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ウリナリ",
+  "full": "ウッチャンナンチャンのウリナリ!!",
+  "yomi": "うっちゃんなんちゃんのうりなり"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "全員集合",
+  "full": "8時だョ！全員集合",
+  "yomi": "はちじだよぜんいんしゅうごう"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "欽ドン",
+  "full": "欽ちゃんのドンとやってみよう！",
+  "yomi": "きんちゃんのどんとやってみよう"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "FF",
+  "full": "ファイナルファンタジー",
+  "yomi": "ふぁいなるふぁんたじー"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "スマブラ",
+  "full": "大乱闘スマッシュブラザーズ",
+  "yomi": "だいらんとうすまっしゅぶらざーず"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "マリカ",
+  "full": "マリオカート",
+  "yomi": "まりおかーと"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "モンハン",
+  "full": "モンスターハンター",
+  "yomi": "もんすたーはんたー"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "パズドラ",
+  "full": "パズル&ドラゴンズ",
+  "yomi": "ぱずるあんどどらごんず"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "モンスト",
+  "full": "モンスターストライク",
+  "yomi": "もんすたーすとらいく"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "桃鉄",
+  "full": "桃太郎電鉄",
+  "yomi": "ももたろうでんてつ"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ファミコン",
+  "full": "ファミリーコンピュータ",
+  "yomi": "ふぁみりーこんぴゅーた"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "スーファミ",
+  "full": "スーパーファミコン",
+  "yomi": "すーぱーふぁみこん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "プレステ",
+  "full": "プレイステーション",
+  "yomi": "ぷれいすてーしょん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ときメモ",
+  "full": "ときめきメモリアル",
+  "yomi": "ときめきめもりある"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "あつ森",
+  "full": "あつまれ どうぶつの森",
+  "yomi": "あつまれどうぶつのもり"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "マイクラ",
+  "full": "マインクラフト",
+  "yomi": "まいんくらふと"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "パワプロ",
+  "full": "実況パワフルプロ野球",
+  "yomi": "じっきょうぱわふるぷろやきゅう"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ダビスタ",
+  "full": "ダービースタリオン",
+  "yomi": "だーびーすたりおん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ミスチル",
+  "full": "Mr.Children",
+  "yomi": "みすたーちるどれん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ドリカム",
+  "full": "DREAMS COME TRUE",
+  "yomi": "どりーむずかむとぅるー"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "サザン",
+  "full": "サザンオールスターズ",
+  "yomi": "さざんおーるすたーず"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ナイナイ",
+  "full": "ナインティナイン",
+  "yomi": "ないんてぃないん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ウンナン",
+  "full": "ウッチャンナンチャン",
+  "yomi": "うっちゃんなんちゃん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ドランク",
+  "full": "ドランクドラゴン",
+  "yomi": "どらんくどらごん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "キンコン",
+  "full": "キングコング",
+  "yomi": "きんぐこんぐ"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ブラマヨ",
+  "full": "ブラックマヨネーズ",
+  "yomi": "ぶらっくまよねーず"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ロンブー",
+  "full": "ロンドンブーツ1号2号",
+  "yomi": "ろんどんぶーついちごうにごう"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "オリラジ",
+  "full": "オリエンタルラジオ",
+  "yomi": "おりえんたるらじお"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "キムタク",
+  "full": "木村拓哉",
+  "yomi": "きむらたくや"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "マツジュン",
+  "full": "松本潤",
+  "yomi": "まつもとじゅん"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "キョンキョン",
+  "full": "小泉今日子",
+  "yomi": "こいずみきょうこ"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "フカキョン",
+  "full": "深田恭子",
+  "yomi": "ふかだきょうこ"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ハセキョー",
+  "full": "長谷川京子",
+  "yomi": "はせがわきょうこ"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ゴマキ",
+  "full": "後藤真希",
+  "yomi": "ごとうまき"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ガッキー",
+  "full": "新垣結衣",
+  "yomi": "あらがきゆい"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "クドカン",
+  "full": "宮藤官九郎",
+  "yomi": "くどうかんくろう"
+ },
+ {
+  "kind": "general",
+  "cat": "tv",
+  "abbr": "ヨン様",
+  "full": "ペ・ヨンジュン",
+  "yomi": "ぺよんじゅん"
+ }
+]

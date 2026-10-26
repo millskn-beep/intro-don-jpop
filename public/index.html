@@ -237,6 +237,8 @@
           <option value="codenames">アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる・4人以上）</option>
           <option value="baba">アニソン・ババ抜き（同じ作品の曲2枚をペアにして出す・3人以上）</option>
           <option value="lyrics" disabled>歌詞クイズ（歌詞の合言葉で作った部屋だけ）</option>
+          <option value="lyrics2" disabled>歌詞クイズ2（YouTube の字幕の曲・合言葉の部屋だけ）</option>
+          <option value="tanshuku">アニソン短縮鉄道（略称を元の名前に戻す・4択・脱落制）</option>
           <option value="dentatsu">アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える・2人以上）</option>
           <option value="dixit">アニソン・ディクシット（語り手のヒントに合う曲を出して、語り手の曲を当てる・3人以上）</option>
           <option value="wolf">アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる・3人以上）</option>
@@ -252,6 +254,8 @@
         <label id="wolfWorkLabel" hidden>人狼：候補に作品名（タイトル）<select data-key="wolfWork"><option value="hide">出さない</option><option value="show">出す</option></select></label>
         <label id="lyFocusLabel" hidden>歌詞クイズ：出す場所<select data-key="lyFocus"><option value="chorus">サビの歌詞を中心に</option><option value="any">どこからでも</option></select></label>
         <div id="lyKindLabel" class="ly-kinds-box" hidden><span>歌詞クイズ：出題の種類（いくつでも。毎問この中からランダム）</span><div id="lyKinds" class="ly-kinds"><label><input type="checkbox" value="which" checked> この歌詞の曲は？</label><label><input type="checkbox" value="blank" checked> 穴あき歌詞（曲を聴いて）</label><label><input type="checkbox" value="next" checked> 続きはどれ？（曲を聴いて）</label><label><input type="checkbox" value="reveal" checked> 歌詞が少しずつ出る</label><label><input type="checkbox" value="whichWork" checked> 歌詞で作品当て</label><label><input type="checkbox" value="whichArtist" checked> 歌詞で歌手当て</label><label><input type="checkbox" value="wrong" checked> 間違い探し（曲を聴いて）</label><label><input type="checkbox" value="keyword" checked> キーワード</label></div></div>
+        <label id="tsKindLabel" hidden>短縮鉄道：お題<select data-key="tsKind"><option value="both">アニメと歌手の略称</option><option value="work">アニメの略称だけ</option><option value="artist">歌手の略称だけ</option><option value="general">一般の略称だけ</option><option value="all">ぜんぶ（アニメ・歌手・一般）</option></select></label>
+        <label id="tsAnsLabel" hidden>短縮鉄道：答え方<select data-key="tsAns"><option value="choice">4択</option><option value="type">手打ち</option><option value="vc">VC（口で答えて、ほかの人が判定）</option></select></label>
         <label id="dtChoicesLabel" hidden>伝達クイズ：選択肢の数<select data-key="dtChoices"><option value="4">4択</option><option value="8">8択</option><option value="12">12択</option></select></label>
         <label id="kmTopLabel" hidden>帰れま10：当てる順位<select data-key="kmTop"><option value="10">トップ10（候補20曲・外れ6回まで）</option><option value="15">トップ15（候補28曲・外れ8回まで）</option><option value="20">トップ20（候補36曲・外れ10回まで）</option></select></label>
         <label id="gzSetLabel" hidden>ジャンル制覇：集めるジャンル<select data-key="gzSet"><option value="fixed">固定（今の6つ）</option><option value="random">ランダム（ゲームごとに決める）</option><option value="choose">選択（自分たちで選ぶ）</option></select></label>
@@ -434,6 +438,7 @@
   <div class="pk-modal wf-modal" id="wolfPop" hidden></div>
   <div class="pk-modal wf-modal" id="dixitPop" hidden></div>
   <div class="pk-modal wf-modal" id="dtPop" hidden></div>
+  <div class="pk-modal wf-modal" id="tsPop" hidden></div>
   <div class="pk-modal wf-modal" id="fixPop" hidden></div>
   <button class="fix-fab" id="fixFab" type="button" hidden title="このゲームで出た曲の、位置・曲名・アニメ名・歌手などの修正を依頼">🛠 修正</button>
   <div class="pk-modal wf-modal" id="babaPop" hidden></div>

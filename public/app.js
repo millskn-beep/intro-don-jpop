@@ -266,7 +266,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'lyFocus', 'lyKind'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -720,6 +720,7 @@ function renderRoom(r) {
   $('prefRow').hidden = !meUser() || (r.state === 'playing' && !r.paused);
   $('kmTopLabel').hidden = r.settings.play !== 'kaerema';
   $('lyKindLabel').hidden = r.settings.play !== 'lyrics'; // 歌詞クイズ：出題の種類
+  $('lyFocusLabel').hidden = r.settings.play !== 'lyrics'; // 歌詞クイズ：サビ中心／どこからでも
   document.querySelector('[data-key="play"] option[value="lyrics"]').disabled = !r.lyricsOk;
   $('lessPlayed').checked = !!r.settings.lessPlayed; $('lessPlayed').disabled = r.state === 'playing' && !r.paused;
   $('dtChoicesLabel').hidden = r.settings.play !== 'dentatsu';

@@ -1160,12 +1160,14 @@ async function loadRequests() {
   }
   renderRequests();
 }
+// ひとことの中の URL（YouTube など）は、長いまま出すと欄がつぶれるので「▶ 動画」の短いリンクにする
+const noteHtml = s => esc(s).replace(/https?:\/\/[^\s<]+/g, u => `<a href="${u}" target="_blank" rel="noopener">▶ 動画</a>`);
 function renderRequests() {
   const open = reqAll.filter(r => r.status === 'open').length;
   $('reqCount').textContent = reqAll.length ? `（受付中 ${open}件）` : '';
   $('reqList').innerHTML = reqAll.slice(0, reqShown).map(r => `<li class="req-${r.status}">
     <span class="req-status">${REQ_LABEL[r.status] || ''}</span>
-    <span class="req-body"><b>${esc(r.title)}</b>${r.work ? `<small>${esc(r.work)}</small>` : ''}${r.artist ? `<small>${esc(r.artist)}</small>` : ''}${r.genre && reqGenres[r.genre] ? `<small class="req-genre">${esc(reqGenres[r.genre])}</small>` : ''}${r.note ? `<em>${esc(r.note)}</em>` : ''}</span>
+    <span class="req-body"><b>${esc(r.title)}</b>${r.work ? `<small>${esc(r.work)}</small>` : ''}${r.artist ? `<small>${esc(r.artist)}</small>` : ''}${r.genre && reqGenres[r.genre] ? `<small class="req-genre">${esc(reqGenres[r.genre])}</small>` : ''}${r.note ? `<em>${noteHtml(r.note)}</em>` : ''}</span>
     ${(r.votes || 1) > 1 ? `<span class="req-votes">${r.votes}票</span>` : ''}
     ${r.status === 'added' && r.songId ? `<a class="btn-sub req-edit" href="songs.html?song=${encodeURIComponent(r.songId)}" title="試し聴きして、イントロ・サビの位置を直して送れます">✏ 位置を直す</a>` : ''}
     ${r.near?.length ? `<span class="req-nearadd">まわりで追加：${r.near.map(n => `<a href="songs.html?song=${encodeURIComponent(n.songId)}">${esc(n.title)}</a>`).join('・')}</span>` : ''}

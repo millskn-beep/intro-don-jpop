@@ -45,6 +45,7 @@
     <label class="char-pick">いっしょに遊ぶキャラ（自分の画面の見た目も変わります）<select class="char-sel" id="charSelHome"><option value="twins">双子</option><option value="rabbit">うさぎ</option><option value="cat">ねこ</option></select></label>
     <div class="create-row">
       <label>部屋名（任意）<input id="roomNameInput" maxlength="20" placeholder="〇〇の部屋"></label>
+      <label class="ly-pass" title="知っている人だけ：合言葉を入れると、歌詞クイズが遊べる非公開の部屋になります（パスワードも必要）">歌詞の合言葉（任意）<input id="lyricsPassInput" maxlength="40" placeholder="知っている人だけ" autocomplete="off"></label>
       <label>パスワード（任意）<input id="roomPassInput" maxlength="32" placeholder="なしなら誰でも入れます" autocomplete="off"></label>
     </div>
     <button class="btn-main" id="createBtn">部屋を立てる</button>
@@ -197,6 +198,7 @@
       <div class="presets" id="presets"></div>
       <div class="fame-row"><span>カップリング曲</span><label class="cw-sel"><select data-key="noCoupling"><option value="false">出す</option><option value="true">出さない（シングルのB面の曲）</option></select></label><small id="cwInfo"></small></div>
       <div class="fame-row"><span>知名度</span><span class="fame-list" id="fameList"></span></div>
+      <div class="fame-row"><span>出しかた</span><label class="lp-check"><input type="checkbox" id="lessPlayed"> 流れた回数が少ない曲を優先（みんなの遊びの統計から）</label></div>
       <details class="genre-ex">
         <summary>出題しないジャンル <span id="genreExInfo"></span></summary>
         <div class="genre-ex-bulk"><button class="btn-sub" id="genreExAll" type="button">全部チェック（全部出さない）</button><button class="btn-sub" id="genreExNone" type="button">チェックを全部外す（全部出す）</button></div>
@@ -230,6 +232,7 @@
           <option value="daifugo">アニソン大富豪（発売年が新しい曲ほど強い。年は見えない・3人以上）</option>
           <option value="codenames">アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる・4人以上）</option>
           <option value="baba">アニソン・ババ抜き（同じ作品の曲2枚をペアにして出す・3人以上）</option>
+          <option value="lyrics" disabled>歌詞クイズ（歌詞の合言葉で作った部屋だけ）</option>
           <option value="dentatsu">アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える・2人以上）</option>
           <option value="dixit">アニソン・ディクシット（語り手のヒントに合う曲を出して、語り手の曲を当てる・3人以上）</option>
           <option value="wolf">アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる・3人以上）</option>
@@ -243,6 +246,7 @@
         <label id="rushRateLabel" hidden>当たりやすさ<select data-key="rushRate"><option value="normal">ふつう</option><option value="high">出やすい（×1.5）</option><option value="low">出にくい（×0.6）</option></select></label>
         <label id="lockSecLabel" hidden>お手つき後に押せない秒数<select data-key="lockSec"><option value="3">3秒</option><option value="5">5秒</option><option value="10">10秒</option><option value="15">15秒</option><option value="20">20秒</option><option value="30">30秒</option></select></label>
         <label id="wolfWorkLabel" hidden>人狼：候補に作品名（タイトル）<select data-key="wolfWork"><option value="hide">出さない</option><option value="show">出す</option></select></label>
+        <label id="lyKindLabel" hidden>歌詞クイズ：出題の種類<select data-key="lyKind"><option value="mix">ミックス（毎問ランダム）</option><option value="which">この歌詞の曲は？</option><option value="blank">穴あき歌詞（曲を聴いて）</option><option value="next">続きはどれ？（曲を聴いて）</option></select></label>
         <label id="dtChoicesLabel" hidden>伝達クイズ：選択肢の数<select data-key="dtChoices"><option value="4">4択</option><option value="8">8択</option><option value="12">12択</option></select></label>
         <label id="kmTopLabel" hidden>帰れま10：当てる順位<select data-key="kmTop"><option value="10">トップ10（候補20曲・外れ6回まで）</option><option value="15">トップ15（候補28曲・外れ8回まで）</option><option value="20">トップ20（候補36曲・外れ10回まで）</option></select></label>
         <label id="gzSetLabel" hidden>ジャンル制覇：集めるジャンル<select data-key="gzSet"><option value="fixed">固定（今の6つ）</option><option value="random">ランダム（ゲームごとに決める）</option><option value="choose">選択（自分たちで選ぶ）</option></select></label>
@@ -272,7 +276,7 @@
       <section class="set-group" data-sec="ask" hidden>
       <p class="set-desc">曲のどこを、どのくらい、どんな速さで流すかを決めます。</p>
       <div class="settings">
-        <label>出題タイプ<select data-key="quizType"><option value="intro">イントロ</option><option value="sabimae">サビ前</option><option value="mix">イントロ＋サビ前（ランダム）</option><option value="random">どこから？（曲の途中から）</option><option value="outro">アウトロ（曲の終わりから）</option></select></label>
+        <label>出題タイプ<select data-key="quizType"><option value="intro">イントロ</option><option value="sabimae">サビ前</option><option value="mix">イントロ＋サビ前（ランダム）</option><option value="random">どこから？（曲の途中から）</option><option value="outro">アウトロ（曲の終わりから）</option><option value="utaidashi">歌い出し（最初の歌詞から）</option><option value="notchorus">サビ以外（2番・Cメロなどの歌詞から）</option><option value="oneline">一行だけ（歌詞の一行分だけ）</option></select></label>
         <label>再生速度<select data-key="speed"><option value="1">ふつう</option><option value="1.5">1.5倍</option><option value="2">2倍</option><option value="0.75">0.75倍（スロー）</option><option value="0.5">0.5倍（スロー）</option><option value="random">ランダム（1問ごとに変わる）</option></select></label>
         <label>イントロの長さ<select data-key="introLen"></select></label>
         <label title="わからなかったときのため、イントロを頭から流し直す回数（サビのヒントはその後）">イントロの回数<select data-key="introPlays"></select></label>
@@ -362,6 +366,7 @@
           <div class="choices fill-choices" id="fillChoices"></div>
         </div>
       </div>
+      <div class="ly-box" id="lyBox" hidden></div>
       <ul class="clues" id="clues"></ul>
       <div class="choices" id="choices"></div>
       <form class="answer-input" id="inputForm" hidden autocomplete="off">

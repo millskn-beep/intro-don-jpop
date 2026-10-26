@@ -10207,5 +10207,1416 @@
    "intro": 0.5,
    "chorus": 76
   }
+ },
+ {
+  "id": "y2N9NsBpldc",
+  "title": "FLY TO THE FUTURE",
+  "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEキングダム",
+  "channel": "QUARTET NIGHT - Topic",
+  "at": "2026-10-23T13:54:37.719Z",
+  "before": {
+   "intro": 0,
+   "chorus": 89,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 96
+  }
+ },
+ {
+  "id": "KCSUU6doWGo",
+  "title": "HE★VENS GATE -Beginning of the Legend-",
+  "work": "うたの☆プリンスさまっ♪ マジLOVEレボリューションズ",
+  "channel": "HE★VENS - Topic",
+  "at": "2026-10-23T13:55:29.796Z",
+  "before": {
+   "intro": 0,
+   "chorus": 50,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 62.5
+  }
+ },
+ {
+  "id": "MUadPjBWPxs",
+  "title": "WE ARE ST☆RISH!!",
+  "work": "うたの☆プリンスさまっ♪ マジLOVEレジェンドスター",
+  "channel": "STARISH - Topic",
+  "at": "2026-10-23T13:56:36.392Z",
+  "before": {
+   "intro": 1,
+   "chorus": 92,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 91
+  }
+ },
+ {
+  "id": "ucInMYCXXig",
+  "title": "アンコール",
+  "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEキングダム",
+  "channel": "宮野 真守",
+  "at": "2026-10-23T13:57:26.988Z",
+  "before": {
+   "intro": 1,
+   "chorus": 127,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 23.3,
+   "chorus": 129
+  }
+ },
+ {
+  "id": "rA-0UlAexeo",
+  "title": "エボリューション・イヴ",
+  "work": "うたの☆プリンスさまっ♪ マジLOVEレボリューションズ",
+  "channel": "QUARTET NIGHT - Topic",
+  "at": "2026-10-23T13:57:58.898Z",
+  "before": {
+   "intro": 0,
+   "chorus": 71,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 74.8
+  }
+ },
+ {
+  "id": "kygFpbj8fDw",
+  "title": "カノン",
+  "work": "うたの☆プリンスさまっ♪ マジLOVE2000%",
+  "channel": "宮野 真守",
+  "at": "2026-10-23T13:58:47.240Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 39,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 65.7
+  }
+ },
+ {
+  "id": "j3BaCQn03UI",
+  "title": "シャイン",
+  "work": "うたの☆プリンスさまっ♪ マジLOVEレボリューションズ",
+  "channel": "宮野 真守",
+  "at": "2026-10-23T13:59:29.497Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 56,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 69.8
+  }
+ },
+ {
+  "id": "Gx-QyznUEE4",
+  "title": "テンペスト",
+  "work": "うたの☆プリンスさまっ♪ マジLOVEレジェンドスター",
+  "channel": "宮野 真守",
+  "at": "2026-10-23T14:00:34.781Z",
+  "before": {
+   "intro": 1,
+   "chorus": 98.7,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 48.4,
+   "chorus": 106.7
+  }
+ },
+ {
+  "id": "WTDYIc-8A_s",
+  "title": "ポワゾンKISS",
+  "work": "うたの☆プリンスさまっ♪ マジLOVE2000%",
+  "channel": "QUARTET NIGHT - Topic",
+  "at": "2026-10-23T14:01:14.749Z",
+  "before": {
+   "intro": 4,
+   "chorus": 32,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 4,
+   "chorus": 51.5
+  }
+ },
+ {
+  "id": "hWvhGNMF-ts",
+  "title": "マジLOVE2000%",
+  "work": "うたの☆プリンスさまっ♪ マジLOVE2000%",
+  "channel": "STARISH - Topic",
+  "at": "2026-10-23T14:01:44.491Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 46,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 67
+  }
+ },
+ {
+  "id": "oagFEc6usno",
+  "title": "マジLOVEキングダム",
+  "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEキングダム",
+  "channel": "STARISH - Topic",
+  "at": "2026-10-23T14:02:53.304Z",
+  "before": {
+   "intro": 0,
+   "chorus": 44,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 69.4
+  }
+ },
+ {
+  "id": "1Z6CHioIn3s",
+  "title": "Burn It All Down",
+  "work": "リーグ・オブ・レジェンド",
+  "channel": "League of Legends",
+  "at": "2026-10-23T14:05:24.442Z",
+  "before": {
+   "intro": 1.2,
+   "chorus": 57,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.2,
+   "chorus": 60.7
+  }
+ },
+ {
+  "id": "YLts8XjCSbA",
+  "title": "マジLOVEレジェンドスター",
+  "work": "うたの☆プリンスさまっ♪ マジLOVEレジェンドスター",
+  "channel": "STARISH - Topic",
+  "at": "2026-10-23T14:05:32.979Z",
+  "before": {
+   "intro": 1.5,
+   "chorus": 44,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.5,
+   "chorus": 62.5
+  }
+ },
+ {
+  "id": "Knmk6JjtfJc",
+  "title": "マジLOVEレボリューションズ",
+  "work": "うたの☆プリンスさまっ♪ マジLOVEレボリューションズ",
+  "channel": "STARISH - Topic",
+  "at": "2026-10-23T14:06:25.896Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 75,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 61.2
+  }
+ },
+ {
+  "id": "wHRUDL7GKmI",
+  "title": "League of Legends",
+  "work": "リーグ・オブ・レジェンド",
+  "channel": "League of Legends",
+  "at": "2026-10-23T14:06:32.859Z",
+  "before": {
+   "intro": 6.5,
+   "chorus": 141.8,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 43.7
+  }
+ },
+ {
+  "id": "iiTp7kGmtBY",
+  "title": "愛を捧げよ ～the secret Shangri-la～",
+  "work": "劇場版 うたの☆プリンスさまっ♪ マジLOVEキングダム",
+  "channel": "HE★VENS - Topic",
+  "at": "2026-10-23T14:06:44.719Z",
+  "before": {
+   "intro": 4,
+   "chorus": 90,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 90
+  }
+ },
+ {
+  "id": "RkID8_gnTxw",
+  "title": "THE BADDEST",
+  "work": "K/DA",
+  "channel": "League of Legends",
+  "at": "2026-10-23T14:07:34.302Z",
+  "before": {
+   "intro": 0,
+   "chorus": 76.7,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 88.7
+  }
+ },
+ {
+  "id": "3Y-JcR10NRw",
+  "title": "不滅のインフェルノ",
+  "work": "うたの☆プリンスさまっ♪ マジLOVEレジェンドスター",
+  "channel": "HE★VENS - Topic",
+  "at": "2026-10-23T14:07:36.832Z",
+  "before": {
+   "intro": 0,
+   "chorus": 39,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 50
+  }
+ },
+ {
+  "id": "jxOaKTM-XBs",
+  "title": "未来地図",
+  "work": "うたの☆プリンスさまっ♪ マジLOVE1000%",
+  "channel": "STARISH - Topic",
+  "at": "2026-10-23T14:08:13.553Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 60,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 61.3
+  }
+ },
+ {
+  "id": "3jf6xOg6e7Y",
+  "title": "Come Play",
+  "work": "Arcane シーズン2",
+  "channel": "Riot Games Music",
+  "at": "2026-10-23T14:08:30.417Z",
+  "before": {
+   "intro": 1,
+   "chorus": 71,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 104.6
+  }
+ },
+ {
+  "id": "MbimWrzEgjI",
+  "title": "夢追人へのSymphony",
+  "work": "うたの☆プリンスさまっ♪ マジLOVE2000%",
+  "channel": "STARISH - Topic",
+  "at": "2026-10-23T14:08:53.713Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 46,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 53.9
+  }
+ },
+ {
+  "id": "w88d-uKh_Uw",
+  "title": "Dirty Little Animals",
+  "work": "Arcane",
+  "channel": "Riot Games Music",
+  "at": "2026-10-23T14:09:00.012Z",
+  "before": {
+   "intro": 0,
+   "chorus": 27,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 81.2
+  }
+ },
+ {
+  "id": "UqcE-IIevf0",
+  "title": "Enemy",
+  "work": "Arcane",
+  "channel": "Riot Games Music",
+  "at": "2026-10-23T14:09:23.989Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 37,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 38
+  }
+ },
+ {
+  "id": "MDErQ1KTzaI",
+  "title": "PARANOIA",
+  "work": "HEARTSTEEL",
+  "channel": "League of Legends",
+  "at": "2026-10-23T14:11:44.086Z",
+  "before": {
+   "intro": 0,
+   "chorus": 48.4,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 9.7,
+   "chorus": 48.4
+  }
+ },
+ {
+  "id": "IQpGoQ7oDLY",
+  "title": "0.0000034",
+  "work": "ボカロ（むさぬりゆ）",
+  "channel": "むさぬりゆ / Musanuriyu",
+  "at": "2026-10-23T14:12:26.080Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 126
+  }
+ },
+ {
+  "id": "HxTQF1bCyag",
+  "title": "Ah Yeah!!",
+  "work": "ハイキュー!!",
+  "channel": "スキマスイッチ / SUKIMASWITCH",
+  "at": "2026-10-23T14:14:56.794Z",
+  "before": {
+   "intro": 5.5,
+   "chorus": 80,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 5.5,
+   "chorus": 82.1
+  }
+ },
+ {
+  "id": "gtYydJJtQdg",
+  "title": "Awake Now",
+  "work": "ボカロ（プロセカ）",
+  "channel": "雄之助/Yunosuke",
+  "at": "2026-10-23T14:16:42.248Z",
+  "before": {
+   "intro": 0,
+   "chorus": 55,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 57
+  }
+ },
+ {
+  "id": "WDUA7z3703g",
+  "title": "Bad ∞ End ∞ Night",
+  "work": "ボカロ（ひとしずく×やま△）",
+  "channel": "ひとしずく×やま△ （Hitoshizuku_Yamasankakkei）",
+  "at": "2026-10-23T14:18:41.184Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 139.4
+  }
+ },
+ {
+  "id": "yIc8j0oMAW8",
+  "title": "Blackjack",
+  "work": "ボカロ（ゆちゃＰ）",
+  "channel": "ゆちゃ(ボカロP)",
+  "at": "2026-10-23T14:19:43.120Z",
+  "before": {
+   "intro": 1,
+   "chorus": 124,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 60.2
+  }
+ },
+ {
+  "id": "E4tIHBx7bqc",
+  "title": "Blessing",
+  "work": "ボカロ（halyosy）",
+  "channel": "halyosy",
+  "at": "2026-10-23T14:20:29.254Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 118,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 132
+  }
+ },
+ {
+  "id": "kEMLqgcxrM0",
+  "title": "BLUE BACK",
+  "work": "ボカロ（じん）",
+  "channel": "じん OFFICIAL YOUTUBE CHANNEL",
+  "at": "2026-10-23T14:21:04.324Z",
+  "before": {
+   "intro": 6,
+   "chorus": 123,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 6,
+   "chorus": 63.8
+  }
+ },
+ {
+  "id": "2KrCmAWrrKI",
+  "title": "Brand New Day",
+  "work": "ボカロ（いるかアイス）",
+  "channel": "irucaice / いるかアイス",
+  "at": "2026-10-23T14:21:44.739Z",
+  "before": {
+   "intro": 0,
+   "chorus": 66,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 65.2
+  }
+ },
+ {
+  "id": "m-OlTQ0f9GE",
+  "title": "break;down",
+  "work": "ボカロ（hmtk）",
+  "channel": "hmtk (はまたく)",
+  "at": "2026-10-23T14:22:31.622Z",
+  "before": {
+   "intro": 1,
+   "chorus": 32.2,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 58
+  }
+ },
+ {
+  "id": "9YV3ic-dyOQ",
+  "title": "CHAOS",
+  "work": "ボカロ（Æsir）",
+  "channel": "KIVΛMKII",
+  "at": "2026-10-23T14:24:18.556Z",
+  "before": {
+   "intro": 0,
+   "chorus": 130,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 145.1
+  }
+ },
+ {
+  "id": "v9sR1Tm1diQ",
+  "title": "Connecting",
+  "work": "ボカロ（halyosy）",
+  "channel": "halyosy",
+  "at": "2026-10-23T14:25:00.934Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 54,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 53.8
+  }
+ },
+ {
+  "id": "tjL4KK2RWgQ",
+  "title": "CRASH THE PARTY",
+  "work": "ボカロ（プロセカ）",
+  "channel": "KIRA",
+  "at": "2026-10-23T14:26:15.415Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 140.1
+  }
+ },
+ {
+  "id": "F67oeSVgo5Y",
+  "title": "Don't Fight The Music",
+  "work": "ボカロ（黒魔）",
+  "channel": "黒魔 / Chroma",
+  "at": "2026-10-23T14:28:05.399Z",
+  "before": {
+   "intro": 1,
+   "chorus": 126,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 52.1
+  }
+ },
+ {
+  "id": "myEsj-qf73A",
+  "title": "Fire◎Flower",
+  "work": "ボカロ（halyosy）",
+  "channel": "halyosy",
+  "at": "2026-10-23T14:31:12.811Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 117,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 72.6
+  }
+ },
+ {
+  "id": "bUbOc97FpUA",
+  "title": "flos",
+  "work": "ボカロ（R Sound Design）",
+  "channel": "R Sound Design",
+  "at": "2026-10-23T14:31:42.183Z",
+  "before": {
+   "intro": 2.2,
+   "chorus": 94,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2.2,
+   "chorus": 91.7
+  }
+ },
+ {
+  "id": "nfpYhYtHuKo",
+  "title": "Flyer!",
+  "work": "ボカロ（プロセカ）",
+  "channel": "Chinozo",
+  "at": "2026-10-23T14:32:22.722Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 62,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 51.4
+  }
+ },
+ {
+  "id": "pXLnKaiDeVw",
+  "title": "Flyway",
+  "work": "ボカロ（プロセカ）",
+  "channel": "halyosy",
+  "at": "2026-10-23T14:32:48.420Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 114,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 53.4
+  }
+ },
+ {
+  "id": "vNhvnj33foU",
+  "title": "Fondant Step",
+  "work": "ボカロ（Heavenz）",
+  "channel": "Hatsune Miku",
+  "at": "2026-10-23T14:33:25.183Z",
+  "before": {
+   "intro": 17.2,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 17.2,
+   "chorus": 70.1
+  }
+ },
+ {
+  "id": "crCS77wqxTI",
+  "title": "Forward",
+  "work": "ボカロ（プロセカ）",
+  "channel": "R Sound Design",
+  "at": "2026-10-23T14:33:44.746Z",
+  "before": {
+   "intro": 0,
+   "chorus": 64,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 63
+  }
+ },
+ {
+  "id": "KmvydnVTriE",
+  "title": "FREELY TOMORROW",
+  "work": "ボカロ（Mitchie M）",
+  "channel": "Mitchie M",
+  "at": "2026-10-23T14:34:02.911Z",
+  "before": {
+   "intro": 4.5,
+   "chorus": 108,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 4.5,
+   "chorus": 80.4
+  }
+ },
+ {
+  "id": "C6TAZ8Elbao",
+  "title": "FUN!!",
+  "work": "ボカロ（プロセカ）",
+  "channel": "プロジェクトセカイ カラフルステージ! feat. 初音ミク",
+  "at": "2026-10-23T14:34:34.549Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 127,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 54.6
+  }
+ },
+ {
+  "id": "ERo-sPa1a5g",
+  "title": "Gimme×Gimme",
+  "work": "ボカロ（八王子P / Giga）",
+  "channel": "八王子P",
+  "at": "2026-10-23T14:35:13.282Z",
+  "before": {
+   "intro": 3.7,
+   "chorus": 44,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 45.8
+  }
+ },
+ {
+  "id": "JnmVJKX2JQA",
+  "title": "Glory 3usi9",
+  "work": "ボカロ（ナノウ）",
+  "channel": "Manuel Alexis Merlín Román",
+  "at": "2026-10-23T14:35:24.471Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 69,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 72
+  }
+ },
+ {
+  "id": "Y-QhzXC9NbI",
+  "title": "Glory Steady Go!",
+  "work": "ボカロ（プロセカ）",
+  "channel": "キノシタ/kinoshita",
+  "at": "2026-10-23T14:35:55.209Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 60,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 57.7
+  }
+ },
+ {
+  "id": "L13gCEZJVRU",
+  "title": "Henceforth",
+  "work": "ボカロ（Orangestar）",
+  "channel": "Orangestar",
+  "at": "2026-10-23T14:37:21.538Z",
+  "before": {
+   "intro": 0,
+   "chorus": 59,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 60.8
+  }
+ },
+ {
+  "id": "6DBLeD9OU9Y",
+  "title": "I know 愛脳.",
+  "work": "ボカロ（吉田夜世）",
+  "channel": "吉田夜世",
+  "at": "2026-10-23T14:38:27.749Z",
+  "before": {
+   "intro": 0,
+   "chorus": 78,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 76.4
+  }
+ },
+ {
+  "id": "jsQXgDZIIrY",
+  "title": "Intergalactic Bound",
+  "work": "ボカロ（雄之助 / CircusP）",
+  "channel": "Hatsune Miku",
+  "at": "2026-10-23T14:39:41.935Z",
+  "before": {
+   "intro": 0,
+   "chorus": 126,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 98.8
+  }
+ },
+ {
+  "id": "QYpL88jiWFs",
+  "title": "Iなんです",
+  "work": "ボカロ（プロセカ）",
+  "channel": "れるりり, rerulili",
+  "at": "2026-10-23T14:40:34.550Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 118,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 47.4
+  }
+ },
+ {
+  "id": "cm-l2h6GB8Q",
+  "title": "KING",
+  "work": "ボカロ（Kanaria）",
+  "channel": "Kanaria",
+  "at": "2026-10-23T14:41:29.413Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 46.7,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 52.2
+  }
+ },
+ {
+  "id": "e0ddGWxyhUQ",
+  "title": "Leia",
+  "work": "ボカロ（ゆよゆっぺ）",
+  "channel": "ゆよゆっぺ",
+  "at": "2026-10-23T14:42:32.958Z",
+  "before": {
+   "intro": 1,
+   "chorus": 77,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 76.4
+  }
+ },
+ {
+  "id": "m2a51Bx7WoU",
+  "title": "LEO",
+  "work": "ハイキュー!!",
+  "channel": "tacica",
+  "at": "2026-10-23T14:43:27.033Z",
+  "before": {
+   "intro": 5.7,
+   "chorus": 79,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 5.7,
+   "chorus": 87
+  }
+ },
+ {
+  "id": "hr_w8F_YeXM",
+  "title": "limbo",
+  "work": "ボカロ（プロセカ）",
+  "channel": "Sheeno Mirin",
+  "at": "2026-10-23T14:44:10.770Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 130,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 137.4
+  }
+ },
+ {
+  "id": "FTGqYnjOHkA",
+  "title": "LOL -lots of laugh-",
+  "work": "ボカロ（KeN）",
+  "channel": "lordxwillie",
+  "at": "2026-10-23T14:44:54.902Z",
+  "before": {
+   "intro": 0,
+   "chorus": 42.4,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 69
+  }
+ },
+ {
+  "id": "RiV7hbyJ0bQ",
+  "title": "magic number",
+  "work": "ボカロ（プロセカ）",
+  "channel": "伊東健人 / Kent Ito Official YouTube Channel",
+  "at": "2026-10-23T14:45:35.808Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 47.1
+  }
+ },
+ {
+  "id": "6wLTYhh44Ek",
+  "title": "Mellow Yellow",
+  "work": "ボカロ（めりっさP）",
+  "channel": "MEIKO Upload Channel",
+  "at": "2026-10-23T14:46:16.473Z",
+  "before": {
+   "intro": 0,
+   "chorus": 81.6,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 94.7
+  }
+ },
+ {
+  "id": "NocXEwsJGOQ",
+  "title": "Miku",
+  "work": "ボカロ（Anamanaguchi）",
+  "channel": "Hatsune Miku",
+  "at": "2026-10-23T14:47:16.320Z",
+  "before": {
+   "intro": 14.7,
+   "chorus": 36,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 14.7,
+   "chorus": 45
+  }
+ },
+ {
+  "id": "94r98Y1CsXg",
+  "title": "MOTTO!!!",
+  "work": "ボカロ（プロセカ）",
+  "channel": "MORE MORE JUMP! - Topic",
+  "at": "2026-10-23T14:48:11.206Z",
+  "before": {
+   "intro": 2.2,
+   "chorus": 67,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2.2,
+   "chorus": 82
+  }
+ },
+ {
+  "id": "ZDfedFXfb3w",
+  "title": "『んっあっあっ。』",
+  "work": "ボカロ（SLAVE.V-V-R）",
+  "channel": "SLAVE.V-V-R",
+  "at": "2026-10-23T14:48:43.521Z",
+  "before": {
+   "intro": 9.7,
+   "chorus": 45,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 9.7,
+   "chorus": 46
+  }
+ },
+ {
+  "id": "EUsU8kDOv_g",
+  "title": "1/6 -out of the gravity-",
+  "work": "ボカロ（ぼーかりおどP(noa)）",
+  "channel": "Vocaliod-P / ぼーかりおどP(noa) ",
+  "at": "2026-10-23T14:49:31.525Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 69,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 56.7
+  }
+ },
+ {
+  "id": "QvGLt5CUBVo",
+  "title": "1925",
+  "work": "ボカロ（T-POCKET）",
+  "channel": "冨田悠斗 / サクラレイ",
+  "at": "2026-10-23T14:49:58.016Z",
+  "before": {
+   "intro": 4.5,
+   "chorus": 91,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 4.5,
+   "chorus": 101.6
+  }
+ },
+ {
+  "id": "RifILHUOV_w",
+  "title": "25時の情熱",
+  "work": "ボカロ（プロセカ）",
+  "channel": "Iori Kanzaki",
+  "at": "2026-10-23T14:50:34.692Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 127,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.7,
+   "chorus": 80.3
+  }
+ },
+ {
+  "id": "505rBX9MNcQ",
+  "title": "88☆彡",
+  "work": "ボカロ（プロセカ）",
+  "channel": "marasy8",
+  "at": "2026-10-23T14:51:14.142Z",
+  "before": {
+   "intro": 5,
+   "chorus": 77,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 5,
+   "chorus": 38.2
+  }
+ },
+ {
+  "id": "Wfn7qKPMPyE",
+  "title": "a sweet typhoon",
+  "work": "ボカロ（Nem feat. amu）",
+  "channel": "Nem",
+  "at": "2026-10-23T14:52:03.041Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 58.4,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 67.1
+  }
+ },
+ {
+  "id": "4fJLLOv62aY",
+  "title": "About me",
+  "work": "ボカロ（蝶々P）",
+  "channel": "りョう",
+  "at": "2026-10-23T14:52:12.535Z",
+  "before": {
+   "intro": 1.5,
+   "chorus": 76.6,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 1.5,
+   "chorus": 79.7
+  }
+ },
+ {
+  "id": "sWzK9nTiUWA",
+  "title": "Absolunote",
+  "work": "ボカロ（Lemm）",
+  "channel": "Lemm sounds",
+  "at": "2026-10-23T14:52:42.163Z",
+  "before": {
+   "intro": 0,
+   "chorus": 74,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 72.7
+  }
+ },
+ {
+  "id": "WHzOugrtQsk",
+  "title": "Afterglow",
+  "work": "ボカロ（ジミーサムP）",
+  "channel": "OneRoom",
+  "at": "2026-10-23T14:53:16.902Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.7,
+   "chorus": 126.9
+  }
+ },
+ {
+  "id": "p6snD1650ck",
+  "title": "ÅMARA(大未来電脳)",
+  "work": "ボカロ（プロセカ）",
+  "channel": "sasakure. UK",
+  "at": "2026-10-23T14:54:11.472Z",
+  "before": {
+   "intro": 0,
+   "chorus": 126,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 139.9
+  }
+ },
+ {
+  "id": "SJcgOWsDwi4",
+  "title": "Beyond the way",
+  "work": "ボカロ（プロセカ）",
+  "channel": "Giga",
+  "at": "2026-10-23T14:54:58.159Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 101,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 143.1
+  }
+ },
+ {
+  "id": "LbO4pg_LHUI",
+  "title": "CH4NGE",
+  "work": "ボカロ（Giga）",
+  "channel": "Giga",
+  "at": "2026-10-23T14:55:54.752Z",
+  "before": {
+   "intro": 0,
+   "chorus": 98,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 96.1
+  }
+ },
+ {
+  "id": "emrt46SRyYs",
+  "title": "DAYBREAK FRONTLINE",
+  "work": "ボカロ（Orangestar）",
+  "channel": "Orangestar",
+  "at": "2026-10-23T14:57:05.303Z",
+  "before": {
+   "intro": 2,
+   "chorus": 70,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 70
+  }
+ },
+ {
+  "id": "T8lhBMLBSWo",
+  "title": "Daze",
+  "work": "ボカロ（じん）",
+  "channel": "raw bin YT",
+  "at": "2026-10-23T14:57:25.159Z",
+  "before": {
+   "intro": 1,
+   "chorus": 87.2,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 55.6
+  }
+ },
+ {
+  "id": "_HlF-2K1WhQ",
+  "title": "DYE",
+  "work": "ボカロ（AVTechNO!）",
+  "channel": "AVTechNO",
+  "at": "2026-10-23T14:59:09.182Z",
+  "before": {
+   "intro": 4.7,
+   "chorus": 54.3,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 4.7,
+   "chorus": 97
+  }
+ },
+ {
+  "id": "HNQhNY_ks2I",
+  "title": "ECHO",
+  "work": "ボカロ（Crusher-P）",
+  "channel": "Circrush (Circusp+Crusher-P) - Topic",
+  "at": "2026-10-23T14:59:33.877Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 34,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 48
+  }
+ },
+ {
+  "id": "eN_rq3FvJUs",
+  "title": "美しき残酷な世界",
+  "work": "進撃の巨人",
+  "channel": "ぽにきゃん-Anime PONY CANYON",
+  "at": "2026-10-24T08:10:37.050Z",
+  "before": {
+   "intro": 4.2,
+   "chorus": 49,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 4.2,
+   "chorus": 58.6
+  }
+ },
+ {
+  "id": "F2qSrxsJnnw",
+  "title": "Get My World",
+  "work": "モンスターハンター 月下雷鳴（パチスロ）",
+  "channel": "遊戯館パチンコ",
+  "at": "2026-10-25T16:14:27.770Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 149.1,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 127
+  }
+ },
+ {
+  "id": "rEVXQH42_IU",
+  "title": "禍群の息吹",
+  "work": "モンスターハンターライズ",
+  "channel": "B",
+  "at": "2026-10-25T16:15:08.441Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 100.9,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 1.7,
+   "chorus": 72.1
+  }
+ },
+ {
+  "id": "XTdRNjuGE_k",
+  "title": "The Everlasting Guilty Crown",
+  "work": "ギルティクラウン",
+  "channel": "EGOIST Official YouTube Channel",
+  "at": "2026-10-25T16:27:26.373Z",
+  "before": {
+   "intro": 3.7,
+   "chorus": 44,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 3.7,
+   "chorus": 48.9
+  }
+ },
+ {
+  "id": "Wz4T8lZg6XE",
+  "title": "エウテルペ",
+  "work": "ギルティクラウン",
+  "channel": "DAZBEE official",
+  "at": "2026-10-25T16:28:03.522Z",
+  "before": {
+   "intro": 5,
+   "chorus": 130,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 5,
+   "chorus": 174.6
+  }
+ },
+ {
+  "id": "twP2xoYMezQ",
+  "title": "告白",
+  "work": "ギルティクラウン",
+  "channel": "ryo (supercell)",
+  "at": "2026-10-25T16:28:28.326Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 106,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.7,
+   "chorus": 96.1
+  }
  }
 ]

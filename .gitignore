@@ -31,3 +31,5 @@ data/ids.tmp
 
 # 再起動なしの反映（tools/push-live.js）の鍵。公開しない（ハッシュだけ data/live-key.sha256 に置く）
 .live-key
+# 歌詞クイズの合言葉の控え（公開しない。ハッシュだけ data/lyrics-pass.sha256 に置く）
+.lyrics-pass

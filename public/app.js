@@ -99,7 +99,8 @@ function createRoom() {
   const roomName = $('roomNameInput').value.trim(), password = $('roomPassInput').value;
   store.set('aq-room-name', roomName); store.set('aq-host-pass', password);
   player.prime(WARMUP_VIDEO); // タップの中で一度再生して、スマホの音声制限を解除する
-  socket.emit('create', { token, name, roomName, password, user: meUser() }, res => {
+  const lyricsPass = $('lyricsPassInput').value.trim(); // 歌詞の合言葉（保存しない）
+  socket.emit('create', { token, name, roomName, password, user: meUser(), lyricsPass }, res => {
     if (!res.ok) { $('homeError').textContent = res.error; return; }
     savePassword({ code: res.code, name: res.room.name }, password);
     joined(res);
@@ -257,6 +258,7 @@ function sendSettings(extra = {}) {
     const k = x.dataset.key;
     s[k] = STRING_KEYS.includes(k) ? x.value : BOOL_KEYS.includes(k) ? x.value === 'true' : +x.value;
   });
+  s.lessPlayed = $('lessPlayed').checked; // 流れた回数が少ない曲を優先
   // 知名度のチェック（複数）
   const fame = [...$('fameList').querySelectorAll('input:checked')].map(x => x.value);
   if ($('fameList').querySelector('input')) s.fame = fame;
@@ -461,6 +463,7 @@ const PLAY_INFO = {
   wits: ['💰', '年当てベット', '発売年を予想して、いちばん近い予想に賭ける', '2人〜', 'quiz'],
   kaerema: ['🍜', '帰れま10', 'お題の曲の再生回数トップ10を、全部当てたら帰れる', '1人〜', 'board'],
   wolf: ['🐺', '人狼', '1人だけ別の曲。ヒントと話し合いで、だれが違うか当てる', '3人〜', 'board'],
+  lyrics: ['🎤', '歌詞クイズ', '歌詞を見て・聴いて当てる（この歌詞の曲は？／穴あき／続きはどれ？）。合言葉の部屋だけ', '1人〜', 'quiz'],
   dentatsu: ['📨', '伝達クイズ', '伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる', '2人〜', 'board'],
   dixit: ['🖼️', 'ディクシット', '語り手のヒントに合う曲を手札から出し、語り手の曲を当てる', '3人〜', 'board'],
   baba: ['😈', 'ババ抜き', '同じ作品の曲2枚がペア。最後までババを持っていたら負け', '3人〜', 'board'],
@@ -476,7 +479,7 @@ function renderPlayPick(play) {
 $('playPick').onclick = () => {
   const cur = room?.settings?.play;
   $('playPop').innerHTML = `<div class="wf-field pl-field"><div class="wf-head"><b>🎮 遊び方を選ぶ</b><span>カードを押すと、その遊び方になります</span><button class="btn-sub pl-close" id="plClose" type="button">閉じる</button></div>
-    <div class="pl-body">${PLAY_GROUPS.map(([g, label]) => `<h4>${label}</h4><div class="pl-grid">${Object.entries(PLAY_INFO).filter(([, v]) => v[4] === g).map(([k, v]) => `<button type="button" class="pl-card${k === cur ? ' on' : ''}" data-play="${k}" title="${esc(PLAY_DESC[k] || '')}"><span class="pl-icon">${v[0]}</span><b>${esc(v[1])}</b><small>${esc(v[2])}</small><i>${esc(v[3])}</i></button>`).join('')}</div>`).join('')}</div></div>`;
+    <div class="pl-body">${PLAY_GROUPS.map(([g, label]) => `<h4>${label}</h4><div class="pl-grid">${Object.entries(PLAY_INFO).filter(([k, v]) => v[4] === g && (k !== 'lyrics' || room?.lyricsOk)).map(([k, v]) => `<button type="button" class="pl-card${k === cur ? ' on' : ''}" data-play="${k}" title="${esc(PLAY_DESC[k] || '')}"><span class="pl-icon">${v[0]}</span><b>${esc(v[1])}</b><small>${esc(v[2])}</small><i>${esc(v[3])}</i></button>`).join('')}</div>`).join('')}</div></div>`;
   $('playPop').hidden = false;
   $('plClose').onclick = () => { $('playPop').hidden = true; };
   $('playPop').onclick = e => { if (e.target === $('playPop')) $('playPop').hidden = true; };
@@ -485,6 +488,7 @@ $('playPick').onclick = () => {
   });
 };
 const PLAY_DESC = {
+  lyrics: '歌詞の合言葉で作った非公開の部屋だけで遊べます。「この歌詞の曲は？」（歌詞を見て曲を当てる）、「穴あき歌詞」（曲を聴いて伏せた言葉を当てる）、「続きはどれ？」（止まったところの次の歌詞を当てる）。早く正解するほど高得点です。歌詞はこの部屋の人にだけ送られます。',
   dentatsu: '2人以上で遊びます。毎回、順番に1人が「伝える人」になり、その人だけがイントロとサビを聴けます（曲名も見えます）。伝える人は、曲名・作品名・歌手名を使わずに、文字のヒント（1つ30文字まで・10個まで）で曲を伝えます。ほかの人は、ヒントを見ながら選択肢から曲を当てます（選択肢は伝える人には見えません）。正解すると100点（早いほど最大+50点）、伝える人は正解した人1人につき100点です。',
   azul: 'ボードゲーム「アズール」の曲版（2〜4人）。工房に並んだ曲カード（曲名と色＝ジャンルが見える。年代は見えない）から、同じ色を全部取り、自分の棚の年代別の段（〜80年代／90年代／00年代／10年代／20年代）に1枚ずつ置きます。年代ちがい・段があふれたカードは床に落ちて失点。段がいっぱいになると、ラウンドの終わりに 1枚2点（同じ色だけなら+3点）。3ラウンドで終わり。置いた曲はサビが流れます。',
   kaerema: 'テレビの「帰れま10」のアニソン版。お題（歌手・作品・年・ジャンル・年代・曲の種類・それらの組み合わせ）の曲20曲から、再生回数トップ10に入っている曲を順番に1曲ずつ選びます（選ぶとサビが流れて順位が出ます）。トップ10を全部当てたら帰れる！ 外れが6回で帰れません…。当たり +500点（1位は +1000点）、10曲目を当てた人 +2000点、帰れたら全員 +1000点。問題数＝お題の数です。',
@@ -623,6 +627,7 @@ socket.on('aborted', () => {
 });
 
 // ── 部屋の状態 ──
+$('lessPlayed').onchange = () => sendSettings();
 socket.on('room', r => { renderRoom(r); refreshScoreStrips(); updateFixFab(); });
 // ── ボードゲーム風の窓：後ろの点数表が隠れるので、窓の見出しの下に全員の点数を出す（ディクシットは自分の欄に出している）──
 const SCORE_POPS = ['wolfPop', 'dtPop', 'babaPop', 'cnPop', 'dfPop', 'wwPop', 'kmPop', 'azPop', 'dkPop'];
@@ -699,6 +704,9 @@ function renderRoom(r) {
   $('karutaFaceLabel').hidden = r.settings.play !== 'karuta'; // かるた：札に書くもの
   $('prefRow').hidden = !meUser() || (r.state === 'playing' && !r.paused);
   $('kmTopLabel').hidden = r.settings.play !== 'kaerema';
+  $('lyKindLabel').hidden = r.settings.play !== 'lyrics'; // 歌詞クイズ：出題の種類
+  document.querySelector('[data-key="play"] option[value="lyrics"]').disabled = !r.lyricsOk;
+  $('lessPlayed').checked = !!r.settings.lessPlayed; $('lessPlayed').disabled = r.state === 'playing' && !r.paused;
   $('dtChoicesLabel').hidden = r.settings.play !== 'dentatsu';
   const isGzP = ['genre', 'genreex'].includes(r.settings.play), isEx = r.settings.play === 'genreex';
   $('gzPickLabel').hidden = !isGzP;
@@ -1237,6 +1245,9 @@ socket.on('question', q => {
   if (q.attack) setTimeout(() => charFx.cutin('アタックチャンス！', '白いマスを、この問題の正解者がどこからでも取れます', 'cutin'), 400);
   if (q.qNo === 1 && !practice) playLog = []; // 新しいゲーム（テスト1問では曲ログを消さない）
   question = q; myAnswer = null; answering = false;
+  // 歌詞クイズ：歌詞（穴あきは？、続きは……？）
+  const ly = q.lyric; $('lyBox').hidden = !ly;
+  if (ly) $('lyBox').innerHTML = `<p class="ly-ask">${esc(ly.ask)}</p><div class="ly-text">${ly.before != null ? `${esc(ly.before)}<span class="hole">？</span>${esc(ly.after)}` : ly.show.map(esc).join('<br>') + (ly.tail ? '<br><span class="hole">……？</span>' : '')}</div>`;
   stopTick();
   showBigChoices(); hintSeen = false; introLeft = 0;
   document.body.classList.remove('rush-reach'); // 激アツRUSH：前の問題のリーチの光を消す
@@ -1323,13 +1334,15 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
     } else {
       // 戻ってきた人は、いま何回目のイントロのどこかを計算して、その位置から
       const cycle = introLen + gap, k = Math.floor(off / cycle), within = off - k * cycle;
-      if (!off) player.start(intro);
+      if (kind === 'ly-which') { /* 歌詞クイズ「この歌詞の曲は？」：曲は流さない（答えが分かってしまう） */ }
+      else if (!off) player.start(intro);
       else if (k < plays && within < introLen && off < hintAt) player.start(intro + within);
-      if (k === 0 && within < introLen) syncPlay(intro, introLen - 0.3); // 1回目のイントロの間だけ合わせる
+      if (kind !== 'ly-which' && k === 0 && within < introLen) syncPlay(intro, introLen - 0.3); // 1回目のイントロの間だけ合わせる
       // 戻ってきた人は、いま何回目かを表示する
       const nth = off ? Math.min(plays, k + 1) : 1;
       introLeft = Math.max(0, plays - nth);
-      setPhase('intro', nth > 1 ? `イントロ再生中…（${nth}回目！）` : 'イントロ再生中…（わかるかな？）'); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen'); if (!off) charFx.say('intro');
+      const LYK = { utaidashi: '歌い出し', notchorus: '歌詞の途中', oneline: '歌詞の一行', 'ly-which': '歌詞を見て答えよう', 'ly-blank': '歌詞クイズ', 'ly-next': '歌詞クイズ' }[kind]; // 歌詞の時刻を使う問題
+      setPhase('intro', kind === 'ly-which' ? '歌詞を見て答えよう' : kind?.startsWith('ly-') ? '曲を聴いて答えよう' : nth > 1 ? `${LYK || 'イントロ'}再生中…（${nth}回目！）` : `${LYK || 'イントロ'}再生中…（わかるかな？）`); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen'); if (!off) charFx.say('intro');
     }
     if (myAnswer === null && !amOut() && question?.pickerId !== me) {
       if (question?.play === 'buzzer' || question?.play === 'fill') {

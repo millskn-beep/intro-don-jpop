@@ -1381,3 +1381,10 @@ body.rush-machine .stage-tools { overflow: visible; }
 .fix-sugg button:hover { background: rgba(255, 255, 255, .08); } .fix-sugg small { padding: 6px 10px; color: var(--sub); }
 .fix-sep { margin-top: 10px; border-top: 1px dashed var(--line); padding-top: 8px; }
 .fix-fab { z-index: 310; } #fixPop { z-index: 320; }
+.lp-check { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer; } .lp-check input { width: auto; margin: 0; }
+/* 歌詞クイズ（非公開の部屋）：歌詞の表示 */
+.ly-box { text-align: center; display: grid; gap: 4px; margin-bottom: 8px; }
+.ly-box .ly-ask { margin: 0; color: var(--sub); font-size: 13px; }
+.ly-box .ly-text { font-size: clamp(16px, 3.2vw, 23px); line-height: 1.7; font-weight: 700; }
+.ly-box .hole { display: inline-block; min-width: 3em; border-bottom: 3px solid var(--accent); color: var(--accent); }
+.ly-pass input { letter-spacing: .05em; }

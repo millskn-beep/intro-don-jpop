@@ -234,7 +234,7 @@ $('qBtn').onclick = () => { if (!$('qBox').hidden) return showPanel(null); showP
 const Q_PAST = 10, Q_NEXT = 20;
 function renderQueue() {
   if ($('qBox').hidden) return;
-  const row = (s, cls, at, tag = '') => `<button class="q ${cls}" data-at="${at}"><img loading="lazy" ${saving() ? "" : `src="https://i.ytimg.com/vi/${esc(s.id)}/default.jpg"`} alt=""><span class="info"><b>${esc(s.title)}</b><small>${esc(s.work)}／${esc(s.artist)}</small></span>${tag}</button>`;
+  const row = (s, cls, at, tag = '') => `<button class="q ${cls}" data-at="${at}"><img loading="lazy" src="https://i.ytimg.com/vi/${esc(s.id)}/default.jpg" alt=""><span class="info"><b>${esc(s.title)}</b><small>${esc(s.work)}／${esc(s.artist)}</small></span>${tag}</button>`;
   const past = history.slice(-Q_PAST).map((id, i, a) => [byId.get(id), history.length - a.length + i]).filter(x => x[0]);
   const nexts = []; for (let k = 1; k <= Q_NEXT && qi + k < queue.length; k++) nexts.push([queue[qi + k], qi + k]);
   let h = '';

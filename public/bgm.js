@@ -24,7 +24,11 @@ const typeOf = s => (/^OP/i.test(s.type) ? 'OP' : /^ED/i.test(s.type) ? 'ED' : /
 
 let cat = { songs: [], genres: [], fame: [] }, byId = new Map();
 let user = null;
-let cfg = Object.assign({ src: 'all', genres: [], decades: [], types: [], fame: [], work: '', len: 'full', order: 'shuffle', save: 'auto', pip: 'off', rep: false, vol: 80 }, store.get('aq-bgm', {}));
+// spans：年代は5年ずつ（1985 = 1985〜1989年）
+const spanOf = y => Math.floor(y / 5) * 5;
+const spanLabel = x => `${String(Math.floor(x / 10) * 10).slice(2)}年代${x % 10 ? '後半' : '前半'}`;
+let cfg = Object.assign({ src: 'all', genres: [], spans: [], types: [], fame: [], work: '', len: 'full', order: 'shuffle', save: 'auto', pip: 'off', rep: false, vol: 80 }, store.get('aq-bgm', {}));
+delete cfg.decades; // 前の10年ずつの設定は使わない
 const saveCfg = () => store.set('aq-bgm', cfg);
 let queue = [], qi = -1, history = [], cur = null, seg = { start: 0, end: null };
 let yt = null, ytReady = false, playing = false;
@@ -51,8 +55,8 @@ function filtered() {
   if (cfg.src === 'fav') list = (user?.fav || []).map(id => byId.get(id)).filter(Boolean);
   else if (cfg.src.startsWith('pl:')) list = (user?.playlists?.[cfg.src.slice(3)] || []).map(id => byId.get(id)).filter(Boolean);
   else list = cat.songs.filter(s => !block.has(s.id));
-  const g = new Set(cfg.genres), d = new Set(cfg.decades), t = new Set(cfg.types), f = new Set(cfg.fame), w = norm(cfg.work);
-  return list.filter(s => (!g.size || s.genres.some(x => g.has(x))) && (!d.size || d.has(Math.floor(s.year / 10) * 10)) && (!t.size || t.has(typeOf(s))) && (!f.size || f.has(s.fame)) && (!w || norm(s.work).includes(w)));
+  const g = new Set(cfg.genres), d = new Set(cfg.spans), t = new Set(cfg.types), f = new Set(cfg.fame), w = norm(cfg.work);
+  return list.filter(s => (!g.size || s.genres.some(x => g.has(x))) && (!d.size || d.has(spanOf(s.year))) && (!t.size || t.has(typeOf(s))) && (!f.size || f.has(s.fame)) && (!w || norm(s.work).includes(w)));
 }
 function buildQueue() {
   const list = filtered();
@@ -72,7 +76,7 @@ function srcLabel() { return cfg.src === 'fav' ? 'お気に入り' : cfg.src.sta
 function summary() {
   const parts = [srcLabel()];
   if (cfg.genres.length) parts.push(cfg.genres.map(k => cat.genres.find(g => g.key === k)?.label || k).join('・'));
-  if (cfg.decades.length) parts.push(cfg.decades.map(x => `${x}年代`).join('・'));
+  if (cfg.spans.length) parts.push(cfg.spans.slice().sort().map(spanLabel).join('・'));
   if (cfg.types.length) parts.push(cfg.types.map(x => x === 'other' ? 'その他' : x).join('・'));
   if (cfg.fame.length) parts.push(cfg.fame.map(k => cat.fame.find(x => x.key === k)?.label || k).join('・'));
   if (cfg.work) parts.push(`「${cfg.work}」`);
@@ -383,7 +387,7 @@ function chips(id, items, key, one) {
   $(id).innerHTML = items.map(([k, label]) => `<button data-k="${esc(k)}" class="${(one ? val === k : val.includes(k)) ? 'on' : ''}">${esc(label)}</button>`).join('');
   $(id).onclick = e => {
     const b = e.target.closest('[data-k]'); if (!b) return;
-    const k = /^\d+$/.test(b.dataset.k) && key === 'decades' ? +b.dataset.k : b.dataset.k;
+    const k = /^\d+$/.test(b.dataset.k) && key === 'spans' ? +b.dataset.k : b.dataset.k;
     if (one) cfg[key] = k; else cfg[key] = cfg[key].includes(k) ? cfg[key].filter(x => x !== k) : [...cfg[key], k];
     renderPick();
   };
@@ -393,8 +397,8 @@ function renderPick() {
   if (!srcs.some(x => x[0] === cfg.src)) cfg.src = 'all';
   chips('srcChips', srcs, 'src', true);
   chips('genreChips', cat.genres.map(g => [g.key, g.label]), 'genres');
-  const decades = [...new Set(cat.songs.map(s => Math.floor(s.year / 10) * 10))].filter(Boolean).sort();
-  chips('decadeChips', decades.map(d => [d, `${String(d).slice(2)}年代`]), 'decades');
+  const spans = [...new Set(cat.songs.map(s => spanOf(s.year)))].filter(Boolean).sort();
+  chips('decadeChips', spans.map(x => [x, spanLabel(x)]), 'spans');
   chips('typeChips', TYPES, 'types');
   chips('fameChips', cat.fame.map(f => [f.key, f.label]), 'fame');
   chips('lenChips', LENS, 'len', true);

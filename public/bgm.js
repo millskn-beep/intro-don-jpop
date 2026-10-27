@@ -108,8 +108,9 @@ function next() {
   if (qi >= queue.length) { buildQueue(); qi = 0; }
   playSong(queue[qi]);
 }
+// ⏮：曲の頭から3秒以上たっていれば頭（0:00）に戻す。3秒未満なら前の曲へ
 function prev() {
-  if (yt && ytReady && yt.getCurrentTime() - seg.start > 5) return yt.seekTo(seg.start, true); // 曲の途中なら頭から
+  if (yt && ytReady && yt.getCurrentTime() - seg.start >= 3) return yt.seekTo(seg.start, true);
   const id = history.pop(); if (!id) return yt && ytReady && yt.seekTo(seg.start, true);
   const s = byId.get(id); const i = queue.indexOf(s); if (i >= 0) qi = i;
   playSong(s, false);
@@ -298,13 +299,44 @@ function markLine(t) {
   const p = box.querySelector(`p[data-i="${i}"]`);
   if (p) { p.classList.add('cur'); box.scrollTop = p.offsetTop - box.clientHeight / 4; }
 }
-// 時刻のある歌詞は、行を押すとそこへ（流している範囲の外なら、範囲を広げて流し直す）
+// 曲の中の t 秒へ（TVサイズ・サビだけで流している範囲の外なら、その曲はフルにして流し直す）
+function jumpTo(t) {
+  if (!ytReady || !cur) return;
+  t = Math.max(0, t);
+  if (t < seg.start || (seg.end && t > seg.end)) { seg = { start: Math.min(seg.start, t), end: null }; yt.loadVideoById({ videoId: cur.id, startSeconds: t }); }
+  else { yt.seekTo(t, true); yt.playVideo(); }
+}
+// 時刻のある歌詞は、行を押すとそこへ
 $('lyLines').onclick = e => {
   const p = e.target.closest('p[data-i]'); if (!p || !lyrics?.sync || !ytReady || !cur) return;
   const t = Math.max(0, lyrics.lines[+p.dataset.i].t - 0.3);
-  if (t < seg.start || (seg.end && t > seg.end)) { seg = { start: Math.min(seg.start, t), end: null }; yt.loadVideoById({ videoId: cur.id, startSeconds: t }); }
-  else { yt.seekTo(t, true); yt.playVideo(); }
+  jumpTo(t);
   curLine = -2; markLine(t + 0.3);
+};
+// サビへ（サビの1秒前から）
+$('toChorus').onclick = () => { if (cur) jumpTo((cur.chorus || (cur.intro || 0) + 50) - 1); };
+
+// ── イントロ・サビの位置を直す（/api/fixes。収録曲一覧と同じ） ──
+let fx = null;
+const r1 = x => Math.round(x * 10) / 10;
+const showFx = () => { $('fx_intro').textContent = `${fx.intro.toFixed(1)}秒`; $('fx_chorus').textContent = `${fx.chorus.toFixed(1)}秒`; };
+$('openFix').onclick = () => {
+  if (!cur) return toast('曲を流してから直してください');
+  fx = { id: cur.id, intro: r1(cur.intro || 0), chorus: r1(cur.chorus || 0), orig: { intro: r1(cur.intro || 0), chorus: r1(cur.chorus || 0) } };
+  $('fixTitle').textContent = `位置を直す：${cur.title}`; showFx(); openSheet('fixSheet');
+};
+$('fixSheet').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b || !fx) return;
+  if (b.dataset.d) { fx[b.dataset.k] = r1(Math.max(0, fx[b.dataset.k] + +b.dataset.d)); showFx(); }
+  if (b.dataset.now) { if (ytReady && cur?.id === fx.id) { fx[b.dataset.now] = r1(yt.getCurrentTime()); showFx(); } }
+  if (b.dataset.play) { if (cur?.id === fx.id) jumpTo(fx[b.dataset.play] - (b.dataset.play === 'chorus' ? 0.3 : 0)); }
+});
+$('fixReset').onclick = () => { if (fx) { fx.intro = fx.orig.intro; fx.chorus = fx.orig.chorus; showFx(); } };
+$('fixSend').onclick = async () => {
+  if (!fx) return;
+  const j = await api('/api/fixes', { id: fx.id, intro: fx.intro, chorus: fx.chorus }); if (!j) return;
+  const s = byId.get(fx.id); if (s) { s.intro = fx.intro; s.chorus = fx.chorus; }
+  closeSheets(); toast(j.message || '位置を直しました');
 };
 $('passForm').onsubmit = async e => {
   e.preventDefault(); const pass = $('passIn').value.trim(); if (!pass) return;

@@ -69,7 +69,7 @@
   <!-- 操作 -->
   <section class="ctrl">
     <div class="seek" id="seek" role="slider" aria-label="再生位置" tabindex="0"><div class="track"><div class="fill" id="seekFill"></div></div></div>
-    <div class="times"><span id="tCur">0:00</span><span id="tEnd">-0:00</span></div>
+    <div class="times"><span id="tCur">0:00</span><button class="chorus-btn" id="toChorus">サビへ</button><span id="tEnd">-0:00</span></div>
     <div class="transport">
       <button id="prev" aria-label="前の曲"><svg class="sk"><use href="#i-prev"/></svg></button>
       <button id="play" aria-label="再生・一時停止"><svg class="pp"><use id="playIcon" href="#i-play"/></svg></button>
@@ -89,8 +89,22 @@
   <div class="sheet-in">
     <div class="sheet-head"><b id="moreTitle">この曲</b><button class="pill" data-close>閉じる</button></div>
     <button class="menu" id="addPl">プレイリストに入れる</button>
+    <button class="menu" id="openFix">イントロ・サビの位置を直す</button>
     <button class="menu" id="morePick">流す曲を選ぶ</button>
     <small class="hint" id="pickSum"></small>
+  </div>
+</div>
+
+<!-- イントロ・サビの位置を直す（収録曲一覧の「位置を直す」と同じ。送るとゲームでも使われる） -->
+<div class="sheet" id="fixSheet" hidden>
+  <div class="sheet-in">
+    <div class="sheet-head"><b id="fixTitle">位置を直す</b><button class="pill" data-close>閉じる</button></div>
+    <small class="hint">「今の位置」で、流れている位置を入れられます。「▶ 聴く」でその位置から流します。送ると、イントロクイズでも次からこの位置を使います（1分に10曲まで）。</small>
+    <div class="fx-row"><div class="fx-head"><label>イントロ（曲が始まるところ）</label><b id="fx_intro">0.0秒</b></div>
+      <div class="fx-btns"><button data-k="intro" data-d="-1">−1</button><button data-k="intro" data-d="-0.1">−0.1</button><button data-k="intro" data-d="0.1">+0.1</button><button data-k="intro" data-d="1">+1</button><button data-now="intro">今の位置</button><button data-play="intro">▶ 聴く</button></div></div>
+    <div class="fx-row"><div class="fx-head"><label>サビ</label><b id="fx_chorus">0.0秒</b></div>
+      <div class="fx-btns"><button data-k="chorus" data-d="-1">−1</button><button data-k="chorus" data-d="-0.1">−0.1</button><button data-k="chorus" data-d="0.1">+0.1</button><button data-k="chorus" data-d="1">+1</button><button data-now="chorus">今の位置</button><button data-play="chorus">▶ 聴く</button></div></div>
+    <div class="inline"><button class="main" id="fixSend">この位置で送る</button><button class="pill" id="fixReset">元に戻す</button></div>
   </div>
 </div>
 

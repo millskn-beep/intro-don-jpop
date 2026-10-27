@@ -699,7 +699,7 @@ function saveUsers() {
 const userKey = n => String(n || '').normalize('NFKC').replace(/[\u0000-\u001f]/g, '').trim().toLowerCase();
 const freshUser = name => ({ name, created: new Date().toISOString(), fav: [], block: [], weak: {}, again: [], prefs: null,
                              stats: { games: 0, correct: 0, answered: 0, wins: 0, byPlay: {} }, titles: {} });
-const userPublic = u => u && { name: u.name, created: u.created, fav: u.fav, block: u.block, weak: u.weak, again: u.again, stats: u.stats, titles: u.titles, prefs: u.prefs || null };
+const userPublic = u => u && { name: u.name, created: u.created, fav: u.fav, block: u.block, weak: u.weak, again: u.again, stats: u.stats, titles: u.titles, prefs: u.prefs || null, playlists: u.playlists || {} };
 // マイページに保存する設定（曲の範囲・出題のしかた・答え方・得点・部屋の設定）。ゲームごとの「前に出た曲を除外しない／記録しない」は保存しない
 const prefKeys = () => [...new Set([...Object.keys(OPTIONS), 'questions', 'choices', 'maxPlayers', 'yearFrom', 'yearTo', 'typingExtra', 'coopGoal', 'fame', 'series', 'multiGenres', 'multiSeries', 'gzPicks', 'introLen', 'hintAt', 'chorusLen'])].filter(k => !['noExclude', 'noRecord'].includes(k));
 const prefsOf = (settings, excludeGenres) => {
@@ -767,6 +767,34 @@ app.post('/api/user/list', (req, res) => {
   }
   saveUsers();
   for (const r of rooms.values()) if ([...r.players.values()].some(p => p.user === userKey(u.name))) broadcastRoom(r); // 部屋の出題できる曲数を更新
+  res.json({ ok: true, user: userPublic(u) });
+});
+// BGMプレイヤーのプレイリスト：playlists { 名前: [曲ID] }。pl と id と on で出し入れ、del で消す、rename で名前を変える
+const PL_MAX = 30, PL_SONGS = 1000;
+app.post('/api/user/playlist', (req, res) => {
+  const u = USERS[userKey(req.body?.name)], b = req.body || {};
+  if (!u) return res.status(404).json({ error: 'その名前は登録されていません' });
+  if (userLimit(req, 120, 60 * 1000)) return res.status(429).json({ error: '少し時間をおいてからにしてください' });
+  const pl = String(b.pl || '').normalize('NFKC').replace(/[ -]/g, '').trim().slice(0, 20);
+  if (!pl) return res.status(400).json({ error: 'プレイリストの名前を入れてください' });
+  const P = u.playlists || (u.playlists = {});
+  if (b.del) delete P[pl];
+  else if (b.rename) {
+    const to = String(b.rename).normalize('NFKC').replace(/[ -]/g, '').trim().slice(0, 20);
+    if (!P[pl] || !to || P[to]) return res.status(400).json({ error: 'その名前にはできません' });
+    P[to] = P[pl]; delete P[pl];
+  } else {
+    if (!P[pl] && Object.keys(P).length >= PL_MAX) return res.status(400).json({ error: `プレイリストは${PL_MAX}個までです` });
+    const list = P[pl] || (P[pl] = []);
+    const id = String(b.id || '');
+    if (id) {
+      if (!ALL_SONGS.some(s => s.id === id)) return res.status(400).json({ error: '曲が見つかりません' });
+      const i = list.indexOf(id);
+      if (b.on && i < 0) { if (list.length >= PL_SONGS) return res.status(400).json({ error: `1つのプレイリストは${PL_SONGS}曲までです` }); list.push(id); }
+      if (!b.on && i >= 0) list.splice(i, 1);
+    }
+  }
+  saveUsers();
   res.json({ ok: true, user: userPublic(u) });
 });
 // 答え合わせ：間違えた・パスした曲は苦手に（回数）。正解したら苦手・もう一度出してほしいから外す
@@ -1144,6 +1172,21 @@ const LYRICS_MEM = new Map(); // 曲ID → { lines: [{ t, text }], sync }
 let LY_PASS_HASH = '';
 try { LY_PASS_HASH = fs.readFileSync(path.join(__dirname, 'data', 'lyrics-pass.sha256'), 'utf8').trim(); } catch (e) { /* なければ歌詞クイズは使えない */ }
 const lyricsPassOk = p => !!LY_PASS_HASH && typeof p === 'string' && p.length > 0 && crypto.createHash('sha256').update(p.trim()).digest('hex') === LY_PASS_HASH;
+// BGMプレイヤーの歌詞（合言葉が要る。合言葉は URL に入れず POST で受ける）。時刻の合う歌詞 → 字幕 → 時刻の合わない歌詞 の順
+const bgmLyHits = new Map();
+app.post('/api/bgm/lyrics', (req, res) => {
+  const ip = String(req.get('x-forwarded-for') || req.socket.remoteAddress || '').split(',')[0].trim();
+  const recent = (bgmLyHits.get(ip) || []).filter(t => Date.now() - t < 60 * 1000);
+  if (recent.length >= 30) return res.status(429).json({ error: '少し時間をおいてからにしてください' });
+  bgmLyHits.set(ip, [...recent, Date.now()]);
+  if (!lyricsPassOk(req.body?.pass)) return res.status(403).json({ error: '合言葉が違います' });
+  const id = String(req.body?.id || '');
+  if (!id) return res.json({ ok: true }); // 合言葉の確認だけ
+  const ly = LYRICS_MEM.get(id), sub = SUBS_MEM.get(id);
+  const v = ly?.sync ? ly : sub || ly;
+  if (!v) return res.json({ ok: true, lines: null });
+  res.json({ ok: true, lines: v.lines, sync: !!v.sync });
+});
 const LY_MAX = 10;
 const LY_ASK = { which: 'この歌詞の曲は？', blank: '曲を聴いて、？に入る言葉は？', next: '続きの歌詞はどれ？',
   reveal: '歌詞が少しずつ出ます。わかったら曲を選んで！（早いほど高得点）', whichWork: 'この歌詞の曲の作品は？', whichArtist: 'この歌詞の曲を歌っているのは？',

@@ -150,3 +150,5 @@ body[data-ltab="settings"] #lobby .reset-row, body[data-ltab="settings"] #lobby 
 /* 参加者タブでは、上のプレイヤーを折り返して全員見えるように */
 body.in-lobby[data-ltab="members"] .room-side .players { flex-wrap: wrap; overflow: visible; }
 body[data-ltab="members"] #lobby .invite { margin-top: 8px; }
+.top .me-link { padding: 6px 9px; margin-right: 4px; font-size: 15px; }
+.top .me-lbl { display: none; }

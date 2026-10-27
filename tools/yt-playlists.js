@@ -103,8 +103,16 @@ async function videoExists(id) {
 // ── 作るプレイリスト ──
 const spanOf = y => Math.floor(y / 5) * 5;
 const spanLabel = x => `${String(Math.floor(x / 10) * 10).slice(2)}年代${x % 10 ? '後半' : '前半'}`;
+// 本番が反映中・スリープ明け、PC起動直後でネットがまだのときは JSON が返らない → 30秒おきに10回まで待つ
+async function siteJson(p) {
+  for (let i = 0; ; i++) {
+    try { const r = await fetch(SITE + p); if (r.ok) return await r.json(); if (r.status === 404) return null; } catch (e) {}
+    if (i >= 10) throw new Error(`本番（${SITE}${p.split('?')[0]}）から読めませんでした`);
+    await sleep(30000);
+  }
+}
 async function plan() {
-  const cat = await (await fetch(SITE + '/api/catalog')).json();
+  const cat = await siteJson('/api/catalog');
   const songs = cat.songs.filter(s => s.year);
   const byId = new Map(songs.map(s => [s.id, s]));
   const gi = new Map(cat.genres.map((g, i) => [g.key, i])), fi = new Map(cat.fame.map((f, i) => [f.key, i]));
@@ -115,10 +123,10 @@ async function plan() {
   const fameNote = FAME.includes('all') ? '' : `（${FAME.map(k => cat.fame.find(f => f.key === k)?.label || k).join('・')}）`;
   const out = [];
   if (ONLY.includes('mine') && USER) {
-    const r = await fetch(SITE + '/api/user?name=' + encodeURIComponent(USER));
-    if (!r.ok) console.log(`マイページ「${USER}」が見つかりません`);
+    const j = await siteJson('/api/user?name=' + encodeURIComponent(USER));
+    if (!j?.user) console.log(`マイページ「${USER}」が見つかりません`);
     else {
-      const u = (await r.json()).user;
+      const u = j.user;
       const ids = l => l.map(id => byId.get(id)).filter(Boolean).map(s => s.id);
       out.push({ key: 'fav', title: PREFIX + 'お気に入り', ids: ids(u.fav || []) });
       for (const [n, l] of Object.entries(u.playlists || {})) out.push({ key: 'pl:' + n, title: PREFIX + n, ids: ids(l) });
@@ -177,4 +185,4 @@ async function main() {
     else { console.log('止まりました：' + e.message); process.exitCode = 1; }
   }
 }
-main();
+main().catch(e => { console.log("止まりました：" + e.message); process.exitCode = 1; });

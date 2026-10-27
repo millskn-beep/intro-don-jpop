@@ -57,6 +57,9 @@ body.v-ly .spacer, body.v-q .spacer { display: none; }
 .ly-lines { display: grid; align-content: start; gap: 22px; padding: 24px 0 55%; }
 .ly-lines p { margin: 0; font-size: 30px; font-weight: 800; line-height: 1.22; letter-spacing: -.01em; opacity: .3; filter: blur(1.4px); transition: opacity .35s, filter .35s; }
 .ly-lines p.cur { opacity: 1; filter: none; }
+.ly-lines:not(.plain) p { cursor: pointer; }
+.ly-lines:not(.plain) p:hover { opacity: .7; filter: none; }
+.ly-lines:not(.plain) p.cur:hover { opacity: 1; }
 .ly-lines.plain p { opacity: .92; filter: none; font-size: 22px; font-weight: 700; }
 .ly-note { color: var(--ter); font-size: 12px; text-align: center; min-height: 1em; }
 
@@ -79,20 +82,26 @@ body.v-ly .spacer, body.v-q .spacer { display: none; }
 
 /* 操作 */
 .ctrl { flex: none; display: grid; gap: 4px; padding-top: 14px; }
-.bar input { -webkit-appearance: none; appearance: none; height: 7px; padding: 0; border: 0; border-radius: 99px; background: linear-gradient(to right, rgba(255,255,255,.82) var(--p, 0%), rgba(255,255,255,.24) var(--p, 0%)); }
-.bar input::-webkit-slider-thumb { -webkit-appearance: none; width: 0; height: 18px; }
-.bar input::-moz-range-thumb { width: 0; height: 18px; border: 0; }
+/* 再生位置：バーのどこを触っても、そこへ動かせる（指で横に動かすあいだは太くなる） */
+.seek { height: 28px; display: flex; align-items: center; cursor: pointer; touch-action: none; margin: -10px 0; }
+.seek .track { position: relative; width: 100%; height: 7px; border-radius: 99px; background: rgba(255,255,255,.24); overflow: hidden; transition: height .15s; }
+.seek .fill { position: absolute; inset: 0 auto 0 0; width: 0; background: rgba(255,255,255,.82); }
+.seek.drag .track { height: 12px; }
+.seek.drag .fill { background: #fff; }
+.seek.drag + .times { color: var(--fg); }
 .times { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; color: var(--ter); font-variant-numeric: tabular-nums; margin-top: 4px; }
 .transport { display: flex; justify-content: space-around; align-items: center; height: 104px; }
 .transport button { display: grid; place-items: center; width: 84px; height: 84px; border-radius: 50%; transition: transform .12s, background .2s; }
 .transport button:active { transform: scale(.88); background: var(--fill); }
 .transport .sk { width: 46px; height: 36px; }
 .transport .pp { width: 52px; height: 52px; }
-.vol { display: flex; align-items: center; gap: 12px; color: var(--sub); }
-.vol svg { width: 20px; height: 20px; }
-.vol input { -webkit-appearance: none; appearance: none; height: 7px; padding: 0; border: 0; border-radius: 99px; background: linear-gradient(to right, rgba(255,255,255,.7) var(--p, 80%), rgba(255,255,255,.24) var(--p, 80%)); }
-.vol input::-webkit-slider-thumb { -webkit-appearance: none; width: 0; height: 18px; }
-.vol input::-moz-range-thumb { width: 0; height: 18px; border: 0; }
+/* 音量：両端のボタンで1段ずつ（10）、バーは触ったところへ */
+.vol { display: flex; align-items: center; gap: 4px; color: var(--sub); }
+.vol button { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; flex: none; }
+.vol button:active { background: var(--fill); color: var(--fg); }
+.vol svg { width: 22px; height: 22px; }
+.vol .seek { flex: 1; margin: 0; }
+.vol .fill { background: rgba(255,255,255,.7); }
 .tabs { display: flex; justify-content: space-between; padding: 14px 16px 4px; }
 .tabs button { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; color: var(--sub); transition: background .2s, color .2s; }
 .tabs button svg { width: 27px; height: 27px; }

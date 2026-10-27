@@ -21,7 +21,6 @@ const SAVE_SHORT = { auto: '節約 自動', on: '節約 オン', off: '節約 �
 const PIPS = [['off', 'オフ'], ['on', 'オン']];
 const TYPES = [['OP', 'OP'], ['ED', 'ED'], ['挿入歌', '挿入歌'], ['other', 'その他']];
 const typeOf = s => (/^OP/i.test(s.type) ? 'OP' : /^ED/i.test(s.type) ? 'ED' : /挿入/.test(s.type) ? '挿入歌' : 'other');
-const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // 音量はハードのボタンだけ
 
 let cat = { songs: [], genres: [], fame: [] }, byId = new Map();
 let user = null;
@@ -140,7 +139,7 @@ function makePlayer() {
     playerVars: ytPip ? { controls: 1, rel: 0, playsinline: 1, fs: 1, modestbranding: 1, iv_load_policy: 3, origin: location.origin }
       : { controls: 0, disablekb: 1, rel: 0, playsinline: 1, fs: 0, modestbranding: 1, iv_load_policy: 3, origin: location.origin },
     events: {
-      onReady: () => { ytReady = true; applySave(); yt.setVolume(cfg.vol); if (cur) playSong(cur, false); },
+      onReady: () => { ytReady = true; applySave(); setVol(cfg.vol, false); if (cur) playSong(cur, false); },
       onStateChange: e => {
         playing = e.data === YT.PlayerState.PLAYING;
         $('playIcon').setAttribute('href', playing ? '#i-pause' : '#i-play');
@@ -155,23 +154,59 @@ window.onYouTubeIframeAPIReady = makePlayer;
 const tag = document.createElement('script'); tag.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(tag);
 
 // 進み具合（0.25秒ごと）。右は残り時間。終わりの時刻を過ぎたら終わり（endSeconds が効かないときの保険）
-let seeking = false;
+let seekTo = null, segLen = 1; // 指で動かしている先（曲の頭からの秒）
 setInterval(() => {
   if (!ytReady || !cur) return;
   const t = yt.getCurrentTime() || 0, dur = yt.getDuration() || 0;
   const a = seg.start, b = seg.end ? Math.min(seg.end, dur || seg.end) : dur, len = Math.max(1, b - a);
-  if (!seeking) { $('seek').max = len; $('seek').value = Math.max(0, t - a); $('seek').style.setProperty('--p', `${Math.min(100, Math.max(0, (t - a) / len * 100))}%`); }
+  segLen = len;
+  if (seekTo != null) return; // 指で動かしているあいだは、指の位置を出す
+  $('seekFill').style.width = `${Math.min(100, Math.max(0, (t - a) / len * 100))}%`;
   $('tCur').textContent = fmt(t - a); $('tEnd').textContent = '-' + fmt(b - t);
   if (playing && seg.end && t >= seg.end + 0.5) ended();
   if (lyrics?.sync) markLine(t);
 }, 250);
-$('seek').addEventListener('input', () => { seeking = true; $('seek').style.setProperty('--p', `${$('seek').value / $('seek').max * 100}%`); });
-$('seek').addEventListener('change', () => { seeking = false; if (ytReady) yt.seekTo(seg.start + +$('seek').value, true); });
+// 再生位置のバー：触ったところへ。横に動かすあいだは時刻を出し、指を離したら動かす
+function seekAt(e) {
+  const r = $('seek').getBoundingClientRect(), p = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+  seekTo = p * segLen;
+  $('seekFill').style.width = `${p * 100}%`;
+  $('tCur').textContent = fmt(seekTo); $('tEnd').textContent = '-' + fmt(segLen - seekTo);
+}
+$('seek').addEventListener('pointerdown', e => {
+  if (!cur || !ytReady) return;
+  try { $('seek').setPointerCapture(e.pointerId); } catch (x) { /* 続ける */ } $('seek').classList.add('drag'); seekAt(e);
+});
+$('seek').addEventListener('pointermove', e => { if (seekTo != null) seekAt(e); });
+const seekEnd = () => {
+  if (seekTo == null) return;
+  $('seek').classList.remove('drag');
+  if (ytReady) yt.seekTo(seg.start + Math.min(seekTo, segLen - 0.5), true);
+  seekTo = null;
+};
+$('seek').addEventListener('pointerup', seekEnd);
+$('seek').addEventListener('pointercancel', seekEnd);
+$('seek').addEventListener('keydown', e => { // キーボード：← → で5秒
+  if (!ytReady || !cur || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+  yt.seekTo(Math.max(seg.start, yt.getCurrentTime() + (e.key === 'ArrowLeft' ? -5 : 5)), true);
+});
 // 音量（iPhone は本体のボタンだけなので出さない）
-$('volRow').hidden = IOS;
-const showVol = () => { $('vol').value = cfg.vol; $('vol').style.setProperty('--p', `${cfg.vol}%`); };
-$('vol').addEventListener('input', () => { cfg.vol = +$('vol').value; showVol(); if (ytReady) yt.setVolume(cfg.vol); });
-$('vol').addEventListener('change', saveCfg);
+// 音量：− ＋ のボタン（10ずつ）と、触ったところへ動くバー。0 で消音。iPhone は YouTube が音量を変えさせないことがあるので、0 のときは消音（mute）も使う
+const showVol = () => { $('volFill').style.width = `${cfg.vol}%`; $('volLoIcon').setAttribute('href', cfg.vol ? '#i-vol-lo' : '#i-mute'); };
+function setVol(v, save = true) {
+  cfg.vol = Math.round(Math.min(100, Math.max(0, v))); showVol();
+  if (ytReady) { yt.setVolume(cfg.vol); if (cfg.vol) yt.unMute(); else yt.mute(); }
+  if (save) saveCfg();
+}
+$('volDown').onclick = () => setVol(cfg.vol - 10);
+$('volUp').onclick = () => setVol(cfg.vol + 10);
+let volDrag = false;
+const volAt = e => { const r = $('vol').getBoundingClientRect(); setVol((e.clientX - r.left) / r.width * 100, false); };
+$('vol').addEventListener('pointerdown', e => { volDrag = true; try { $('vol').setPointerCapture(e.pointerId); } catch (x) { /* 続ける */ } $('vol').classList.add('drag'); volAt(e); });
+$('vol').addEventListener('pointermove', e => { if (volDrag) volAt(e); });
+const volEnd = () => { if (!volDrag) return; volDrag = false; $('vol').classList.remove('drag'); saveCfg(); };
+$('vol').addEventListener('pointerup', volEnd); $('vol').addEventListener('pointercancel', volEnd);
+$('vol').addEventListener('keydown', e => { if (e.key === 'ArrowLeft') setVol(cfg.vol - 10); if (e.key === 'ArrowRight') setVol(cfg.vol + 10); });
 showVol();
 
 $('play').onclick = toggle; $('next').onclick = next; $('prev').onclick = prev;
@@ -263,6 +298,14 @@ function markLine(t) {
   const p = box.querySelector(`p[data-i="${i}"]`);
   if (p) { p.classList.add('cur'); box.scrollTop = p.offsetTop - box.clientHeight / 4; }
 }
+// 時刻のある歌詞は、行を押すとそこへ（流している範囲の外なら、範囲を広げて流し直す）
+$('lyLines').onclick = e => {
+  const p = e.target.closest('p[data-i]'); if (!p || !lyrics?.sync || !ytReady || !cur) return;
+  const t = Math.max(0, lyrics.lines[+p.dataset.i].t - 0.3);
+  if (t < seg.start || (seg.end && t > seg.end)) { seg = { start: Math.min(seg.start, t), end: null }; yt.loadVideoById({ videoId: cur.id, startSeconds: t }); }
+  else { yt.seekTo(t, true); yt.playVideo(); }
+  curLine = -2; markLine(t + 0.3);
+};
 $('passForm').onsubmit = async e => {
   e.preventDefault(); const pass = $('passIn').value.trim(); if (!pass) return;
   const j = await api('/api/bgm/lyrics', { pass }); if (!j) return;

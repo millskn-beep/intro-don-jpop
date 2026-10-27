@@ -28,6 +28,7 @@
   <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="15" cy="7" r="2.3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="17" r="2.3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3 7h3.5c2 0 3.2.9 4.3 2.6l2.4 4.8c1.1 1.7 2.3 2.6 4.3 2.6H20M3 17h3.5c1.4 0 2.4-.4 3.2-1.2M13.3 8.2c.8-.8 1.8-1.2 3.2-1.2H20M17.5 4.5 20 7l-2.5 2.5M17.5 14.5 20 17l-2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-repeat" viewBox="0 0 24 24"><path d="M4 11V9.5A2.5 2.5 0 0 1 6.5 7H19M16.5 4.5 19 7l-2.5 2.5M20 13v1.5a2.5 2.5 0 0 1-2.5 2.5H5M7.5 19.5 5 17l2.5-2.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mute" viewBox="0 0 24 24"><path d="M3 9.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor"/><path d="M14.5 9.5l5 5M19.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
   <symbol id="i-vol-lo" viewBox="0 0 24 24"><path d="M5 9.5h3l4-3.5v12l-4-3.5H5z" fill="currentColor"/></symbol>
   <symbol id="i-vol-hi" viewBox="0 0 24 24"><path d="M3 9.5h3l4-3.5v12l-4-3.5H3z" fill="currentColor"/><path d="M13.5 9.2a3.5 3.5 0 0 1 0 5.6M16 7a6.6 6.6 0 0 1 0 10M18.5 4.8a9.8 9.8 0 0 1 0 14.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
 </svg>
@@ -67,14 +68,14 @@
 
   <!-- 操作 -->
   <section class="ctrl">
-    <div class="bar"><input type="range" id="seek" min="0" max="100" value="0" step="0.5" aria-label="再生位置"></div>
+    <div class="seek" id="seek" role="slider" aria-label="再生位置" tabindex="0"><div class="track"><div class="fill" id="seekFill"></div></div></div>
     <div class="times"><span id="tCur">0:00</span><span id="tEnd">-0:00</span></div>
     <div class="transport">
       <button id="prev" aria-label="前の曲"><svg class="sk"><use href="#i-prev"/></svg></button>
       <button id="play" aria-label="再生・一時停止"><svg class="pp"><use id="playIcon" href="#i-play"/></svg></button>
       <button id="next" aria-label="次の曲"><svg class="sk"><use href="#i-next"/></svg></button>
     </div>
-    <div class="vol" id="volRow"><svg><use href="#i-vol-lo"/></svg><input type="range" id="vol" min="0" max="100" value="80" aria-label="音量"><svg><use href="#i-vol-hi"/></svg></div>
+    <div class="vol" id="volRow"><button id="volDown" aria-label="音量を下げる"><svg><use id="volLoIcon" href="#i-vol-lo"/></svg></button><div class="seek" id="vol" role="slider" aria-label="音量" tabindex="0"><div class="track"><div class="fill" id="volFill"></div></div></div><button id="volUp" aria-label="音量を上げる"><svg><use href="#i-vol-hi"/></svg></button></div>
     <nav class="tabs">
       <button id="lyBtn" aria-label="歌詞"><svg><use href="#i-lyrics"/></svg></button>
       <button id="openPick" aria-label="流す曲を選ぶ"><svg><use href="#i-sliders"/></svg></button>

@@ -13,6 +13,9 @@ const key = fs.readFileSync(path.join(ROOT, '.live-key'), 'utf8').trim();
 const songs = readJson(path.join(ROOT, 'data', 'songs.json'), []);
 const scan = readJson(path.join(ROOT, 'data', 'scan-videos.json'), {});
 const apple = readJson('D:/AI/anison-drive/data/apple-map.json', {});
+const check = readJson(path.join(ROOT, 'data', 'lyric-check.json'), {}); // 字幕と比べた結果（tools/check-subs-lyrics.js）
+const voice = readJson(path.join(ROOT, 'data', 'lyric-offsets.json'), {}); // 歌声から求めたずれ（tools/align_lyrics.py）
+const VOICE_OK = v => v && v.score >= 0.5 && v.margin >= 0.05; // 長さが合う曲で確かめて、9割以上が合っていた目安
 
 function parse(txt) { // [{ t: 秒, text }]（時刻のない .txt は t: null）
   const out = [];
@@ -26,17 +29,25 @@ function parse(txt) { // [{ t: 秒, text }]（時刻のない .txt は t: null�
 }
 
 (async () => {
-  const all = {};
+  const all = {}, shifted = { subs: 0, voice: 0 }; let bad = 0;
   for (const s of songs) {
     if (s.retired) continue;
     let f = path.join(DIR, s.id + '.lrc'); if (!fs.existsSync(f)) f = path.join(DIR, s.id + '.txt');
     if (!fs.existsSync(f)) continue;
+    const c = check[s.id];
+    if (c?.verdict === 'mismatch') { bad++; continue; } // 動画の字幕と中身が違う＝別の曲の歌詞
     const lines = parse(fs.readFileSync(f, 'utf8')); if (lines.length < 6) continue;
-    const yd = scan[s.id]?.dur, ad = apple[s.id]?.dur;
-    all[s.id] = { lines, sync: !!(yd && ad && Math.abs(yd - ad) <= 2) }; // sync：動画と同じ音源（曲を流す問題に使える）
+    const yd = scan[s.id]?.dur, ad = apple[s.id]?.dur, lrc = f.endsWith('.lrc');
+    // sync：歌詞の時刻が動画と合う（曲を流す問題に使える）。字幕で分かったずれ → 長さが同じ → 歌声で求めたずれ の順
+    let off = 0, sync = false;
+    if (lrc && c?.off != null) { off = c.off; sync = true; shifted.subs++; }
+    else if (yd && ad && Math.abs(yd - ad) <= 2) sync = true;
+    else if (lrc && VOICE_OK(voice[s.id])) { off = voice[s.id].off; sync = true; shifted.voice++; }
+    if (off) for (const x of lines) if (x.t != null) x.t = Math.round((x.t + off) * 100) / 100;
+    all[s.id] = { lines, sync };
   }
   const ids = Object.keys(all);
-  console.log(`歌詞のある曲 ${ids.length} 曲（曲を流す問題に使える ${ids.filter(i => all[i].sync).length} 曲）を送ります`);
+  console.log(`歌詞のある曲 ${ids.length} 曲（曲を流す問題に使える ${ids.filter(i => all[i].sync).length} 曲。字幕でずれを直した ${shifted.subs}・歌声でずれを直した ${shifted.voice}・別の曲の歌詞で外した ${bad}）を送ります`);
   // 1回の大きさに上限があるので、小分けにして送る（最初の回で前の分を消す）
   let sent = 0;
   for (let i = 0; i < ids.length; i += 150) {

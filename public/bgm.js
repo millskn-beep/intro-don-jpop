@@ -1,6 +1,7 @@
 // アニソンBGM：収録曲を条件（ジャンル・年代・種類・知名度・アニメのタイトル・お気に入り・プレイリスト）で選んで流し続ける
+// 画面は3つ（ミュージックアプリの再生画面のような作り）：大きなジャケット／歌詞／次の曲。下のアイコンで切り替える。どの画面でも再生は止めない
 // お気に入り・プレイリストはマイページ（名前だけのログイン）に保存。歌詞は合言葉を入れた端末だけ（サーバーのメモリにある歌詞）
-// データ節約：YouTube は音だけを流せないので、プレーヤーを小さくして低い画質で送らせる
+// データ節約：YouTube は音だけを流せないので、プレーヤー（ジャケット）を小さくして低い画質で送らせる
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const store = { get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* 保存できなくても続ける */ } } };
@@ -10,17 +11,22 @@ let toastTimer = null;
 const toast = msg => { $('toast').textContent = msg; $('toast').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { $('toast').hidden = true; }, 2600); };
 const fmt = t => { t = Math.max(0, Math.floor(t || 0)); return `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`; };
 const norm = s => String(s || '').normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/[\s・！!？?「」『』（）()〜~ー－-]/g, '');
+const thumb = (id, q = 'mqdefault') => `https://i.ytimg.com/vi/${encodeURIComponent(id)}/${q}.jpg`;
 
 const LENS = [['full', 'フル'], ['tv', 'TVサイズ（約1分30秒）'], ['chorus', 'サビだけ（約45秒）']];
+const LEN_SHORT = { full: 'フル', tv: 'TVサイズ', chorus: 'サビだけ' };
 const ORDERS = [['shuffle', 'シャッフル'], ['new', '新しい順'], ['old', '古い順']];
 const SAVES = [['auto', '自動'], ['on', 'オン'], ['off', 'オフ']];
+const SAVE_SHORT = { auto: '節約 自動', on: '節約 オン', off: '節約 オフ' };
 const PIPS = [['off', 'オフ'], ['on', 'オン']];
 const TYPES = [['OP', 'OP'], ['ED', 'ED'], ['挿入歌', '挿入歌'], ['other', 'その他']];
 const typeOf = s => (/^OP/i.test(s.type) ? 'OP' : /^ED/i.test(s.type) ? 'ED' : /挿入/.test(s.type) ? '挿入歌' : 'other');
+const IOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1); // 音量はハードのボタンだけ
 
 let cat = { songs: [], genres: [], fame: [] }, byId = new Map();
 let user = null;
-let cfg = Object.assign({ src: 'all', genres: [], decades: [], types: [], fame: [], work: '', len: 'full', order: 'shuffle', save: 'auto', pip: 'off' }, store.get('aq-bgm', {}));
+let cfg = Object.assign({ src: 'all', genres: [], decades: [], types: [], fame: [], work: '', len: 'full', order: 'shuffle', save: 'auto', pip: 'off', rep: false, vol: 80 }, store.get('aq-bgm', {}));
+const saveCfg = () => store.set('aq-bgm', cfg);
 let queue = [], qi = -1, history = [], cur = null, seg = { start: 0, end: null };
 let yt = null, ytReady = false, playing = false;
 
@@ -34,7 +40,7 @@ function saving() {
 }
 function applySave() {
   const s = saving();
-  $('videoBox').classList.toggle('small', s && cfg.pip !== 'on'); // PiP用のときは小さくしない（全画面・PiP のボタンを押せるように）
+  document.body.classList.toggle('saving', s && cfg.pip !== 'on'); // PiP用のときは小さくしない（全画面・PiP のボタンを押せるように）
   $('saveHint').textContent = cfg.save === 'auto' ? `いまは${s ? 'オン（小さい画面・低い画質）' : 'オフ（ふつうの画質）'}。iPhone は回線を見分けられないので、Wi-Fi のときはオフにしてください` : '';
   if (yt && ytReady && yt.setPlaybackQuality) yt.setPlaybackQuality(s ? 'tiny' : 'default');
 }
@@ -55,6 +61,14 @@ function buildQueue() {
   else list.sort((a, b) => cfg.order === 'new' ? b.year - a.year : a.year - b.year);
   queue = list; qi = -1;
 }
+// 並べ直す（シャッフルの切り替えなど）。いまの曲はそのまま、続きを新しい順番にする
+function reorder() {
+  buildQueue();
+  if (!cur) return;
+  qi = queue.indexOf(cur);
+  if (qi < 0) { queue.unshift(cur); qi = 0; }
+  else if (cfg.order === 'shuffle') { queue.splice(qi, 1); queue.unshift(cur); qi = 0; }
+}
 function srcLabel() { return cfg.src === 'fav' ? 'お気に入り' : cfg.src.startsWith('pl:') ? `プレイリスト「${cfg.src.slice(3)}」` : 'すべての曲'; }
 function summary() {
   const parts = [srcLabel()];
@@ -63,8 +77,8 @@ function summary() {
   if (cfg.types.length) parts.push(cfg.types.map(x => x === 'other' ? 'その他' : x).join('・'));
   if (cfg.fame.length) parts.push(cfg.fame.map(k => cat.fame.find(x => x.key === k)?.label || k).join('・'));
   if (cfg.work) parts.push(`「${cfg.work}」`);
-  parts.push(LENS.find(x => x[0] === cfg.len)[1]);
-  $('pickSum').textContent = `${parts.join('／')}（${filtered().length}曲）`;
+  parts.push(LEN_SHORT[cfg.len]);
+  $('pickSum').textContent = `流しているもの：${parts.join('／')}（${filtered().length}曲）`;
 }
 
 // ── 再生 ──
@@ -76,14 +90,15 @@ function segOf(s) {
 }
 function playSong(s, push = true) {
   if (!s) return;
-  if (push && cur) history.push(cur.id);
+  if (push && cur && cur !== s) history.push(cur.id);
   cur = s; seg = segOf(s);
   $('nowTitle').textContent = s.title;
-  $('nowSub').textContent = `${s.work}／${s.artist}（${s.year}）`;
-  $('bgArt').style.backgroundImage = `url(https://i.ytimg.com/vi/${s.id}/mqdefault.jpg)`;
+  $('nowSub').textContent = `${s.artist}／${s.work}`;
+  $('artEmpty').hidden = true;
+  $('bgArt').style.backgroundImage = `url(${thumb(s.id)})`;
   showFav(); renderQueue();
-  if ('mediaSession' in navigator) navigator.mediaSession.metadata = new MediaMetadata({ title: s.title, artist: s.artist, album: s.work, artwork: [{ src: `https://i.ytimg.com/vi/${s.id}/mqdefault.jpg`, sizes: '320x180', type: 'image/jpeg' }] });
-  lyrics = null; if (!$('lyBox').hidden) loadLyrics();
+  if ('mediaSession' in navigator) navigator.mediaSession.metadata = new MediaMetadata({ title: s.title, artist: s.artist, album: s.work, artwork: [{ src: thumb(s.id), sizes: '320x180', type: 'image/jpeg' }] });
+  lyrics = null; if (view === 'ly') loadLyrics();
   if (!ytReady) return;
   yt.loadVideoById({ videoId: s.id, startSeconds: seg.start, ...(seg.end ? { endSeconds: seg.end } : {}), suggestedQuality: saving() ? 'tiny' : 'default' });
 }
@@ -96,9 +111,14 @@ function next() {
 }
 function prev() {
   if (yt && ytReady && yt.getCurrentTime() - seg.start > 5) return yt.seekTo(seg.start, true); // 曲の途中なら頭から
-  const id = history.pop(); if (!id) return;
+  const id = history.pop(); if (!id) return yt && ytReady && yt.seekTo(seg.start, true);
   const s = byId.get(id); const i = queue.indexOf(s); if (i >= 0) qi = i;
   playSong(s, false);
+}
+// 曲の終わり：1曲リピートなら頭から、そうでなければ次へ
+function ended() {
+  if (cfg.rep && cur) { yt.seekTo(seg.start, true); yt.playVideo(); return; }
+  next();
 }
 function toggle() {
   if (!cur) return next();
@@ -111,20 +131,21 @@ function toggle() {
 let ytPip = null;
 function makePlayer() {
   ytPip = cfg.pip === 'on';
-  if (yt) { yt.destroy(); $('videoBox').innerHTML = '<div id="yt"></div>'; }
+  if (yt) { yt.destroy(); $('videoBox').innerHTML = `<div id="yt"></div><div class="art-empty" id="artEmpty"${cur ? ' hidden' : ''}>♪</div>`; }
   ytReady = false; playing = false;
   $('pipHint').hidden = !ytPip;
+  document.body.classList.toggle('pip', ytPip);
   yt = new YT.Player('yt', {
     width: '100%', height: '100%',
     playerVars: ytPip ? { controls: 1, rel: 0, playsinline: 1, fs: 1, modestbranding: 1, iv_load_policy: 3, origin: location.origin }
       : { controls: 0, disablekb: 1, rel: 0, playsinline: 1, fs: 0, modestbranding: 1, iv_load_policy: 3, origin: location.origin },
     events: {
-      onReady: () => { ytReady = true; applySave(); if (cur) playSong(cur, false); },
+      onReady: () => { ytReady = true; applySave(); yt.setVolume(cfg.vol); if (cur) playSong(cur, false); },
       onStateChange: e => {
         playing = e.data === YT.PlayerState.PLAYING;
         $('playIcon').setAttribute('href', playing ? '#i-pause' : '#i-play');
         if ('mediaSession' in navigator) navigator.mediaSession.playbackState = playing ? 'playing' : 'paused';
-        if (e.data === YT.PlayerState.ENDED) next();
+        if (e.data === YT.PlayerState.ENDED) ended();
       },
       onError: () => { toast('この曲は流せないので次へ'); setTimeout(next, 800); },
     },
@@ -133,19 +154,25 @@ function makePlayer() {
 window.onYouTubeIframeAPIReady = makePlayer;
 const tag = document.createElement('script'); tag.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(tag);
 
-// 進み具合（0.25秒ごと）。終わりの時刻を過ぎたら次へ（endSeconds が効かないときの保険）
+// 進み具合（0.25秒ごと）。右は残り時間。終わりの時刻を過ぎたら終わり（endSeconds が効かないときの保険）
 let seeking = false;
 setInterval(() => {
   if (!ytReady || !cur) return;
   const t = yt.getCurrentTime() || 0, dur = yt.getDuration() || 0;
-  const a = seg.start, b = seg.end ? Math.min(seg.end, dur || seg.end) : dur;
-  if (!seeking) { $('seek').max = Math.max(1, b - a); $('seek').value = Math.max(0, t - a); }
-  $('tCur').textContent = fmt(t - a); $('tEnd').textContent = fmt(b - a);
-  if (playing && seg.end && t >= seg.end + 0.5) next();
+  const a = seg.start, b = seg.end ? Math.min(seg.end, dur || seg.end) : dur, len = Math.max(1, b - a);
+  if (!seeking) { $('seek').max = len; $('seek').value = Math.max(0, t - a); $('seek').style.setProperty('--p', `${Math.min(100, Math.max(0, (t - a) / len * 100))}%`); }
+  $('tCur').textContent = fmt(t - a); $('tEnd').textContent = '-' + fmt(b - t);
+  if (playing && seg.end && t >= seg.end + 0.5) ended();
   if (lyrics?.sync) markLine(t);
 }, 250);
-$('seek').addEventListener('input', () => { seeking = true; });
+$('seek').addEventListener('input', () => { seeking = true; $('seek').style.setProperty('--p', `${$('seek').value / $('seek').max * 100}%`); });
 $('seek').addEventListener('change', () => { seeking = false; if (ytReady) yt.seekTo(seg.start + +$('seek').value, true); });
+// 音量（iPhone は本体のボタンだけなので出さない）
+$('volRow').hidden = IOS;
+const showVol = () => { $('vol').value = cfg.vol; $('vol').style.setProperty('--p', `${cfg.vol}%`); };
+$('vol').addEventListener('input', () => { cfg.vol = +$('vol').value; showVol(); if (ytReady) yt.setVolume(cfg.vol); });
+$('vol').addEventListener('change', saveCfg);
+showVol();
 
 $('play').onclick = toggle; $('next').onclick = next; $('prev').onclick = prev;
 if ('mediaSession' in navigator) {
@@ -153,6 +180,17 @@ if ('mediaSession' in navigator) {
   ms.setActionHandler('play', () => yt?.playVideo()); ms.setActionHandler('pause', () => yt?.pauseVideo());
   ms.setActionHandler('nexttrack', next); ms.setActionHandler('previoustrack', prev);
 }
+
+// ── 画面の切り替え：art（ジャケット）／ly（歌詞）／q（次の曲）。同じアイコンをもう一度押すとジャケットに戻る ──
+let view = 'art';
+function setView(v) {
+  view = v;
+  document.body.classList.remove('v-art', 'v-ly', 'v-q'); document.body.classList.add('v-' + v);
+  $('lyBtn').classList.toggle('on', v === 'ly'); $('qBtn').classList.toggle('on', v === 'q');
+  if (v === 'q') renderQueue();
+}
+$('lyBtn').onclick = () => { if (view === 'ly') return setView('art'); loadLyrics(); };
+$('qBtn').onclick = () => setView(view === 'q' ? 'art' : 'q');
 
 // ── ログイン・お気に入り・プレイリスト ──
 async function api(url, body) {
@@ -169,12 +207,14 @@ $('loginForm').onsubmit = async e => {
   user = j.user; setName(user.name); closeSheets(); toast(`${user.name} さんで保存します`);
   const fn = afterLogin; afterLogin = null; fn && fn();
 };
-function showFav() { const on = !!(cur && user?.fav.includes(cur.id)); $('fav').classList.toggle('on', on); $('favIcon').setAttribute('href', on ? '#i-heart-on' : '#i-heart'); }
+function showFav() { const on = !!(cur && user?.fav.includes(cur.id)); $('fav').classList.toggle('on', on); $('favIcon').setAttribute('href', on ? '#i-star-on' : '#i-star'); }
 $('fav').onclick = () => cur && needLogin(async () => {
   const on = !user.fav.includes(cur.id);
   const j = await api('/api/user/list', { name: user.name, list: 'fav', id: cur.id, on }); if (!j) return;
   user = j.user; showFav(); toast(on ? 'お気に入りに入れました' : 'お気に入りから外しました');
 });
+$('more').onclick = () => { $('moreTitle').textContent = cur ? cur.title : 'アニソンBGM'; $('addPl').hidden = !cur; summary(); openSheet('moreSheet'); };
+$('morePick').onclick = () => $('openPick').click();
 function renderPl() {
   const P = user?.playlists || {};
   $('plList').innerHTML = Object.entries(P).map(([n, ids]) => `<li><button data-pl="${esc(n)}" class="${ids.includes(cur?.id) ? 'on' : ''}"><span>${ids.includes(cur?.id) ? '✓ ' : ''}${esc(n)}</span><small>${ids.length}曲</small></button></li>`).join('') || '<li class="hint">まだプレイリストがありません</li>';
@@ -195,21 +235,22 @@ $('plNew').onsubmit = async e => {
 // ── 歌詞（合言葉） ──
 let lyrics = null, lyFor = null;
 async function loadLyrics() {
-  if (!cur) return;
   const pass = store.get('aq-lypass', '');
   if (!pass) { openSheet('passSheet'); $('passIn').focus(); return; }
-  showPanel('ly');
+  setView('ly');
+  if (!cur) { $('lyLines').innerHTML = ''; $('lyNote').textContent = '曲を流すと歌詞が出ます'; return; }
   const id = cur.id; lyFor = id;
   $('lyNote').textContent = '読み込み中…'; $('lyLines').innerHTML = '';
   const r = await fetch('/api/bgm/lyrics', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pass, id }) });
   const j = await r.json().catch(() => ({}));
-  if (r.status === 403) { store.set('aq-lypass', ''); showPanel(null); toast('合言葉が違います'); return; }
+  if (r.status === 403) { store.set('aq-lypass', ''); setView('art'); toast('合言葉が違います'); return; }
   if (lyFor !== id) return;
   if (!r.ok || !j.lines) { lyrics = null; $('lyNote').textContent = r.ok ? 'この曲の歌詞はありません' : (j.error || '読み込めませんでした'); return; }
   lyrics = { lines: j.lines, sync: j.sync && j.lines.every(x => x.t != null) };
-  $('lyNote').textContent = lyrics.sync ? '曲に合わせて進みます' : '時刻のない歌詞です';
+  $('lyNote').textContent = lyrics.sync ? '' : '時刻のない歌詞です';
   $('lyLines').classList.toggle('plain', !lyrics.sync);
   $('lyLines').innerHTML = j.lines.map((x, i) => `<p data-i="${i}">${esc(x.text)}</p>`).join('');
+  $('lyLines').scrollTop = 0;
   curLine = -1;
 }
 let curLine = -1;
@@ -220,42 +261,43 @@ function markLine(t) {
   curLine = i;
   const box = $('lyLines'); box.querySelectorAll('p.cur').forEach(p => p.classList.remove('cur'));
   const p = box.querySelector(`p[data-i="${i}"]`);
-  if (p) { p.classList.add('cur'); box.scrollTop = p.offsetTop - box.clientHeight / 3; }
+  if (p) { p.classList.add('cur'); box.scrollTop = p.offsetTop - box.clientHeight / 4; }
 }
-$('lyBtn').onclick = () => { if (!$('lyBox').hidden) return showPanel(null); loadLyrics(); };
-
-// ── 下の窓：歌詞 か 前後の曲（いまの曲の表示は隠さない・再生は止めない） ──
-function showPanel(which) {
-  $('lyBox').hidden = which !== 'ly'; $('lyBtn').classList.toggle('on', which === 'ly');
-  $('qBox').hidden = which !== 'q'; $('qBtn').classList.toggle('on', which === 'q');
-}
-$('qBtn').onclick = () => { if (!$('qBox').hidden) return showPanel(null); showPanel('q'); renderQueue(); };
-// 前の10曲（聴いた順）・いまの曲・次の20曲。押すとその曲へ
-const Q_PAST = 10, Q_NEXT = 20;
-function renderQueue() {
-  if ($('qBox').hidden) return;
-  const row = (s, cls, at, tag = '') => `<button class="q ${cls}" data-at="${at}"><img loading="lazy" src="https://i.ytimg.com/vi/${esc(s.id)}/default.jpg" alt=""><span class="info"><b>${esc(s.title)}</b><small>${esc(s.work)}／${esc(s.artist)}</small></span>${tag}</button>`;
-  const past = history.slice(-Q_PAST).map((id, i, a) => [byId.get(id), history.length - a.length + i]).filter(x => x[0]);
-  const nexts = []; for (let k = 1; k <= Q_NEXT && qi + k < queue.length; k++) nexts.push([queue[qi + k], qi + k]);
-  let h = '';
-  if (past.length) h += '<div class="qsep">前の曲</div>' + past.map(([s, i]) => row(s, 'past', 'h' + i)).join('');
-  if (cur) h += '<div class="qsep">いま</div>' + row(cur, 'cur', 'cur', '<span class="tag">再生中</span>');
-  h += '<div class="qsep">次の曲</div>' + (nexts.map(([s, i]) => row(s, '', 'q' + i)).join('') || '<div class="qsep">（最後まで流したら、また最初から並べ直します）</div>');
-  $('qList').innerHTML = h;
-  $('qNote').textContent = cur ? `${srcLabel()}・${qi + 1}／${queue.length}曲` : '';
-  const c = $('qList').querySelector('.q.cur'); if (c) $('qList').scrollTop = c.offsetTop - 40;
-}
-$('qList').onclick = e => {
-  const b = e.target.closest('[data-at]'); if (!b || b.dataset.at === 'cur') return;
-  const at = b.dataset.at;
-  if (at[0] === 'q') { qi = +at.slice(1); playSong(queue[qi]); }
-  else { const i = +at.slice(1), s = byId.get(history[i]); history.splice(i, 1); const j = queue.indexOf(s); if (j >= 0) qi = j; playSong(s); }
-};
 $('passForm').onsubmit = async e => {
   e.preventDefault(); const pass = $('passIn').value.trim(); if (!pass) return;
   const j = await api('/api/bgm/lyrics', { pass }); if (!j) return;
   store.set('aq-lypass', pass); $('passIn').value = ''; closeSheets(); loadLyrics();
 };
+
+// ── 次の曲：前の10曲（薄く）・「再生を続ける」次の20曲。押すとその曲へ ──
+const Q_PAST = 10, Q_NEXT = 20;
+function renderModes() {
+  $('mShuffle').classList.toggle('on', cfg.order === 'shuffle');
+  $('mRepeat').classList.toggle('on', !!cfg.rep); $('rep1').hidden = !cfg.rep;
+  $('mLenLabel').textContent = LEN_SHORT[cfg.len]; $('mLen').classList.toggle('on', cfg.len !== 'full');
+  $('mSaveLabel').textContent = SAVE_SHORT[cfg.save]; $('mSave').classList.toggle('on', saving());
+}
+function renderQueue() {
+  if (view !== 'q') return;
+  renderModes();
+  const row = (s, cls, at) => `<button class="q ${cls}" data-at="${at}"><img loading="lazy" src="${thumb(s.id, 'default')}" alt=""><span class="info"><b>${esc(s.title)}</b><small>${esc(s.artist)}</small></span></button>`;
+  const past = history.slice(-Q_PAST).map((id, i, a) => [byId.get(id), history.length - a.length + i]).filter(x => x[0]);
+  const nexts = []; for (let k = 1; k <= Q_NEXT && qi + k < queue.length; k++) nexts.push([queue[qi + k], qi + k]);
+  $('qList').innerHTML = past.map(([s, i]) => row(s, 'past', 'h' + i)).join('')
+    + `<div class="qhead" id="qHead"><b>再生を続ける</b><small>再生元：${esc(srcLabel())}${queue.length ? `（${Math.max(qi + 1, 1)}／${queue.length}曲）` : ''}</small></div>`
+    + (nexts.map(([s, i]) => row(s, '', 'q' + i)).join('') || `<div class="qend">${cur ? '最後まで流したら、また最初から並べ直します' : '下の「選曲」から流す曲を決めます'}</div>`);
+  $('qList').scrollTop = $('qHead').offsetTop - 4;
+}
+$('qList').onclick = e => {
+  const b = e.target.closest('[data-at]'); if (!b) return;
+  const at = b.dataset.at;
+  if (at[0] === 'q') { qi = +at.slice(1); playSong(queue[qi]); }
+  else { const i = +at.slice(1), s = byId.get(history[i]); history.splice(i, 1); const j = queue.indexOf(s); if (j >= 0) qi = j; playSong(s); }
+};
+$('mShuffle').onclick = () => { cfg.order = cfg.order === 'shuffle' ? 'new' : 'shuffle'; saveCfg(); reorder(); renderQueue(); toast(cfg.order === 'shuffle' ? 'シャッフルにしました' : '新しい順にしました'); };
+$('mRepeat').onclick = () => { cfg.rep = !cfg.rep; saveCfg(); renderModes(); toast(cfg.rep ? 'いまの曲をくり返します' : 'くり返しをやめました'); };
+$('mLen').onclick = () => { const k = LENS.map(x => x[0]); cfg.len = k[(k.indexOf(cfg.len) + 1) % k.length]; saveCfg(); renderModes(); toast(`次の曲から「${LEN_SHORT[cfg.len]}」で流します`); };
+$('mSave').onclick = () => { const k = SAVES.map(x => x[0]); cfg.save = k[(k.indexOf(cfg.save) + 1) % k.length]; saveCfg(); applySave(); renderModes(); toast(`データ節約：${SAVES.find(x => x[0] === cfg.save)[1]}（いまは${saving() ? 'オン' : 'オフ'}）`); };
 
 // ── 流す曲を選ぶ窓 ──
 function openSheet(id) { closeSheets(); $(id).hidden = false; }
@@ -290,7 +332,7 @@ function renderPick() {
 $('openPick').onclick = () => { $('workQ').value = cfg.work; renderPick(); openSheet('pickSheet'); };
 $('workQ').oninput = () => { cfg.work = $('workQ').value.trim(); $('pickCount').textContent = filtered().length; };
 $('pickGo').onclick = () => {
-  store.set('aq-bgm', cfg); closeSheets(); summary();
+  saveCfg(); closeSheets();
   if (window.YT?.Player && ytPip !== (cfg.pip === 'on')) makePlayer();
   history = []; buildQueue();
   if (!queue.length) return toast('条件に合う曲がありません');
@@ -305,6 +347,6 @@ $('pickGo').onclick = () => {
   $('workList').innerHTML = [...new Set(cat.songs.map(s => s.work))].sort().map(w => `<option value="${esc(w)}">`).join('');
   const n = getName();
   if (n) { const r = await fetch('/api/user?name=' + encodeURIComponent(n)); if (r.ok) user = (await r.json()).user; }
-  applySave(); summary();
+  applySave();
   navigator.connection?.addEventListener?.('change', applySave);
 })();

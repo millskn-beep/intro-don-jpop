@@ -33,3 +33,8 @@ data/ids.tmp
 .live-key
 # 歌詞クイズの合言葉の控え（公開しない。ハッシュだけ data/lyrics-pass.sha256 に置く）
 .lyrics-pass
+
+# 自分の YouTube にプレイリストを作る鍵と進み具合（tools/yt-playlists.js）
+.yt-client.json
+.yt-token.json
+data/yt-playlists.json

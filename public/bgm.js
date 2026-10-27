@@ -418,6 +418,54 @@ $('pickGo').onclick = () => {
   next();
 };
 
+// ── YouTube のプレイリストにする（watch_videos?video_ids= で名前のない一時プレイリスト。1つ50曲まで） ──
+const YT_MAX = 50;
+let ytSrc = 'now';
+const YT_BYS = [['genre', 'ジャンルごと'], ['work', 'アニメタイトルごと']];
+function ytSongs() {
+  if (ytSrc === 'now') return filtered();
+  const ids = ytSrc === 'fav' ? user?.fav || [] : user?.playlists?.[ytSrc.slice(3)] || [];
+  return ids.map(id => byId.get(id)).filter(Boolean);
+}
+// ジャンル → アニメタイトル → 知名度（→ 年）の順
+function ytSorted(list) {
+  const gi = new Map(cat.genres.map((g, i) => [g.key, i])), fi = new Map(cat.fame.map((f, i) => [f.key, i]));
+  // ジャンルで絞っているときは、選んだジャンルの中で分ける
+  const pick = ytSrc === 'now' && cfg.genres.length ? new Set(cfg.genres) : null;
+  const g0 = s => Math.min(99, ...s.genres.filter(k => !pick || pick.has(k)).map(k => gi.get(k) ?? 99));
+  return list.map(s => [s, g0(s)]).sort((a, b) => a[1] - b[1] || a[0].work.localeCompare(b[0].work, 'ja') || (fi.get(a[0].fame) ?? 9) - (fi.get(b[0].fame) ?? 9) || a[0].year - b[0].year);
+}
+function ytGroups() {
+  const sorted = ytSorted(ytSongs()), groups = new Map();
+  for (const [s, g] of sorted) {
+    const k = (cfg.ytBy || 'genre') === 'work' ? s.work : (cat.genres[g]?.label || 'ジャンルなし');
+    if (!groups.has(k)) groups.set(k, []);
+    groups.get(k).push(s);
+  }
+  const out = [];
+  for (const [name, list] of groups) {
+    for (let i = 0; i < list.length; i += YT_MAX) {
+      const part = list.slice(i, i + YT_MAX);
+      out.push({ name: list.length > YT_MAX ? `${name}（${i + 1}〜${i + part.length}曲目）` : name, n: part.length, url: 'https://www.youtube.com/watch_videos?video_ids=' + part.map(s => encodeURIComponent(s.id)).join(',') });
+    }
+  }
+  return out;
+}
+function renderYt() {
+  const srcs = [['now', `今の条件（${filtered().length}）`]];
+  if (user) srcs.push(['fav', `お気に入り（${user.fav.length}）`], ...Object.entries(user.playlists || {}).map(([n, ids]) => [`pl:${n}`, `${n}（${ids.length}）`]));
+  if (!srcs.some(x => x[0] === ytSrc)) ytSrc = 'now';
+  $('ytSrcChips').innerHTML = srcs.map(([k, l]) => `<button data-k="${esc(k)}" class="${k === ytSrc ? 'on' : ''}">${esc(l)}</button>`).join('');
+  $('ytByChips').innerHTML = YT_BYS.map(([k, l]) => `<button data-k="${k}" class="${k === (cfg.ytBy || 'genre') ? 'on' : ''}">${l}</button>`).join('');
+  const gs = ytGroups();
+  $('ytList').innerHTML = gs.map(g => `<li><a class="yt" href="${esc(g.url)}" target="_blank" rel="noopener"><span>${esc(g.name)}</span><small>${g.n}曲 ↗</small></a></li>`).join('') || '<li class="hint">曲がありません</li>';
+}
+$('ytSrcChips').onclick = e => { const b = e.target.closest('[data-k]'); if (b) { ytSrc = b.dataset.k; renderYt(); } };
+$('ytByChips').onclick = e => { const b = e.target.closest('[data-k]'); if (b) { cfg.ytBy = b.dataset.k; saveCfg(); renderYt(); } };
+function openYt(src) { ytSrc = src; renderYt(); openSheet('ytSheet'); $('ytList').scrollTop = 0; }
+$('pickYt').onclick = () => { saveCfg(); openYt('now'); };
+$('moreYt').onclick = () => openYt('now');
+
 // ── はじめ ──
 (async () => {
   const d = await (await fetch('/api/catalog')).json();

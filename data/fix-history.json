@@ -11635,5 +11635,90 @@
    "intro": 28.3,
    "chorus": 92.2
   }
+ },
+ {
+  "id": "h2_yEzWhqWE",
+  "title": "ページ～君と綴る物語～",
+  "work": "赤髪の白雪姫",
+  "channel": "eyelis - Topic",
+  "at": "2026-10-28T15:59:00.430Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 65,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 79.9
+  }
+ },
+ {
+  "id": "S2axULJAspg",
+  "title": "やさしい希望",
+  "work": "赤髪の白雪姫",
+  "channel": "早見沙織 Official YouTube Channel",
+  "at": "2026-10-28T15:59:28.340Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 66,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 64.7
+  }
+ },
+ {
+  "id": "yjEB688tUVY",
+  "title": "絆にのせて",
+  "work": "赤髪の白雪姫",
+  "channel": "eyelis - Topic",
+  "at": "2026-10-28T16:00:01.703Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 75,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 78
+  }
+ },
+ {
+  "id": "y00KXEGT8Vo",
+  "title": "その声が地図になる",
+  "work": "赤髪の白雪姫",
+  "channel": "早見沙織 Official YouTube Channel",
+  "at": "2026-10-28T16:00:24.205Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 65,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 57.2
+  }
+ },
+ {
+  "id": "JDpkvycpqaQ",
+  "title": "チルノのパーフェクトさんすう学園",
+  "work": "東方Project（アレンジ）",
+  "channel": "beatMARIO / COOL&CREATE",
+  "at": "2026-10-28T16:02:25.797Z",
+  "before": {
+   "intro": 0,
+   "chorus": 114,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 135.8
+  }
  }
 ]

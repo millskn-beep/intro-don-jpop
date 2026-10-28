@@ -76,13 +76,14 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     // 答え合わせ：頭出しせず、流れている映像をそのまま流し続ける（ノンストップ）。
     // イントロで止まっていたらその位置から再開し、終わっていた・まだ読み込みだけの場合はサビ（推定・仮の位置）から
     // jump: まだサビを流していない（イントロのうちに全員が答えた）ときは、サビへ移動する
-    reveal(intro, chorus, jump = false) {
+    // at: この秒から流す（歌詞クイズで問題に出した歌詞のところ）
+    reveal(intro, chorus, jump = false, at = null) {
       clear();
       run(() => {
         const st = yt.getPlayerState();
         yt.unMute();
-        if (jump) {
-          const go = () => { yt.seekTo(Math.max(0, chorus - CHORUS_LEAD), true); yt.playVideo(); fade(0, volume, FADE_IN); };
+        if (jump || at != null) {
+          const go = () => { yt.seekTo(at != null ? at : Math.max(0, chorus - CHORUS_LEAD), true); yt.playVideo(); fade(0, volume, FADE_IN); };
           if (st === YT.PlayerState.PLAYING) fade(yt.getVolume(), 0, FADE_OUT / 2, go); else go();
           return;
         }

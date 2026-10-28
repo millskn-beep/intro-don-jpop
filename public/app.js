@@ -2635,7 +2635,8 @@ socket.on('reveal', r => {
   // サビの位置が仮（イントロ＋50秒）の曲は、動画の長さから推定した位置にする
   const unknown = r.chorusKnown === false || (r.chorusKnown === undefined && r.chorus === r.intro + 50);
   // サビまで流れていたらそのまま流し続ける。イントロのうちに答え合わせになったらサビへ移動（サビ前問題は流れのまま）
-  player.reveal(r.intro, unknown ? guessChorus(r.intro, player.duration()) : r.chorus, !hintSeen && question?.kind !== 'sabimae');
+  // 歌詞クイズ（この歌詞の曲は？など）は、問題に出した歌詞のところから流す
+  player.reveal(r.intro, unknown ? guessChorus(r.intro, player.duration()) : r.chorus, !hintSeen && question?.kind !== 'sabimae', r.lyPlay);
   // だれがどの選択肢を押したか（アバターと名前を選択肢の中に出す）
   const pickers = new Map();
   for (const x of r.results) if (Number.isInteger(x.index) && !x.pass) pickers.set(x.index, [...(pickers.get(x.index) || []), x]);

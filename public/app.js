@@ -524,7 +524,7 @@ const PLAY_DESC = {
   wolf: '3人以上で遊びます。全員に同じ曲が流れますが、1人（人狼）だけ別の作品の曲が流れます（自分が人狼かは分かりません）。曲について一言ヒントを出し合い、チャットで話し合って、人狼だと思う人に投票。人狼を当てたら村人の勝ち（+1000点）、外したら人狼の勝ち（+2000点）。当てられた人狼も、みんなの曲名を当てれば逆転勝ちです。問題数＝回数です（5回くらいがおすすめ）。',
   nenpyo: '一人ひとり、年の見えている曲を1枚持って始めます。曲が流れたら（年は伏せたまま）、自分の年表の「どこに入るか」（この曲とこの曲の間）を選びます。合っていれば、その曲が年表に入ります（同じ年はどちらでも正解）。先に10枚並べた人の勝ち。曲名がわからなくても「この時代っぽい」で戦えます。',
   karuta: '画面に16枚の札（曲名・作品名・歌手名のどれか）を並べたまま、イントロが流れたら正しい札を早取りします。いちばん早く正しい札を取った人がその札をもらい、そこで答え合わせ。違う札を取るとお手つきで、次の1曲はお休みです。取った札は場から消え、空いたところに新しい札が入ります。取った札の多い人が勝ちです。',
-  panel: '5×5のパネルを取り合います。20問目のあとにアタックチャンスが起きて、1マスが白くなります（取られているマスは色が消えます）。次の問題の正解者は、その白いマスをどこからでも取れます。いちばん早く正解した人がパネルを1枚選び、自分の色で縦・横に挟んだ相手のパネルを裏返せます（斜めはなし）。選べるのは、最初は真ん中、そのあとは取られているパネルの縦・横の隣（挟めるところがあればそこだけ）。パネルが全部埋まったら終わりで、パネルの多い人が勝ちです。',
+  panel: '5×5のパネルを取り合います。20問目のあとにアタックチャンスが起きて、1マスが白くなります（取られているマスは色が消えます）。次の問題の正解者は、その白いマスをどこからでも取れます。いちばん早く正解した人がパネルを1枚選び、自分の色で縦・横・斜めに挟んだ相手のパネルを裏返せます（斜めはなし）。選べるのは、最初は真ん中、そのあとは取られているパネルの縦・横の隣（挟めるところがあればそこだけ）。パネルが全部埋まったら終わりで、パネルの多い人が勝ちです。',
   poker: '10問ごとに、手札に点を賭けて中間オープン（勝った人が総取り・使った手札は保管して最後にボーナス）。全員で同じ曲に答えます。正解すると、その曲のトランプが手札に入り、いちばん早く正解した人はランダムのカードがもう1枚もらえます。数字は作品ごと（同じ数字＝同じ作品）、マークはジャンル系統（♠バトル・SF ♥恋愛・日常 ♦異世界・ゲーム ♣その他）。同じ数字・マークのカードは場に1枚だけです。手札は5枚で、増えたら不要なカードを捨てます。最後に全員の手札を開いて、ポーカーの役がいちばん強い人が勝ちです。カードに触れると曲の名前などが見えます。最後は、ポーカー場のテーブルで全員の手札をオープン！',
   normal: '全員が同時に答えます。速く正解するほど高得点。',
   buzzer: '曲が流れている間に「押す！」を押した人だけが答えられます。間違えると −200点で、ほかの人が押せます。',
@@ -2669,14 +2669,14 @@ socket.on('reveal', r => {
   $('results').innerHTML = r.results.map(x => `
     <tr>
       <td class="who">${avatarImg(x.avatar, 'avatar sm')}${esc(x.name)}</td>
-      <td class="${x.correct || x.points > 0 ? 'ok' : 'ng'}">${!x.answered ? '未回答' : x.pass ? 'スキップ' : x.correct ? '正解' + (x.hint ? '（サビ）' : '') : x.miss ? 'お手つき' : x.diff != null ? `${x.diff}年ずれ` : '不正解'}${x.out && (r.eliminated || []).includes(x.name) ? '<small>脱落</small>' : x.lives != null && !x.out ? `<small>${'♥'.repeat(x.lives)}</small>` : ''}${x.given ? `<small>「${esc(x.given)}」</small>` : ''}${!x.correct && Number.isInteger(x.index) && question?.choices?.[x.index] ? `<small>「${esc(question.choices[x.index].title)}」を選択</small>` : ''}</td>
+      <td class="${x.correct || x.points > 0 ? 'ok' : 'ng'}">${!x.answered ? '未回答' : x.pass ? 'スキップ' : x.correct ? (x.diff ? `いちばん近い（${x.diff}年ずれ）` : '正解') + (x.hint ? '（サビ）' : '') : x.miss ? 'お手つき' : x.diff != null ? `${x.diff}年ずれ` : '不正解'}${x.out && (r.eliminated || []).includes(x.name) ? '<small>脱落</small>' : x.lives != null && !x.out ? `<small>${'♥'.repeat(x.lives)}</small>` : ''}${x.given ? `<small>「${esc(x.given)}」</small>` : ''}${!x.correct && Number.isInteger(x.index) && question?.choices?.[x.index] ? `<small>「${esc(question.choices[x.index].title)}」を選択</small>` : ''}</td>
       <td class="num">${x.elapsed === null ? '' : x.elapsed.toFixed(2) + '秒'}</td>
       <td class="num">${x.points < 0 ? x.points : '+' + x.points}${x.rush?.mult > 1 ? `<small class="rush-x">×${x.rush.mult}</small>` : ''}${x.rush?.jackpot ? '<small class="rush-x">大当たり</small>' : ''}</td>
     </tr>`).join('');
   // 自分の結果を大きく表示
   const mine = r.results.find(x => x.id === me);
   if (mine) {
-    if (mine.correct) { flash('ok', '正解！', `+${mine.points}`); confetti(40); }
+    if (mine.correct) { flash('ok', mine.diff ? `いちばん近い！（${mine.diff}年ずれ）` : '正解！', `+${mine.points}`); confetti(40); }
     else if ((r.eliminated || []).includes(mine.name)) flash('ng', '脱落…');
     else if (mine.miss) flash('ng', 'お手つき', `${mine.points}`);
     else if (mine.diff != null && mine.points > 0) flash('ok', `${mine.diff}年ずれ`, `+${mine.points}`);

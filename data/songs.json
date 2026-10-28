@@ -25443,17 +25443,16 @@
     "type": "OP",
     "confidence": "高",
     "source": "YUI公式",
-    "intro": 0.7,
-    "chorus": 48,
+    "intro": 44.7,
+    "chorus": 104,
     "aliases": [
       "あげいん"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "chorusSource": "heatmap",
-    "introMethod": "v2",
+    "introMeasured": false,
+    "chorusSource": "manual",
     "views": 3385819,
     "channel": "YUI OFFICIAL YouTube CHANNEL",
     "viewsAt": "2026-10-05",
@@ -42759,7 +42758,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 1.7,
-    "chorus": 73.1,
+    "chorus": 52.2,
     "aliases": [
       "データベース"
     ],
@@ -42779,7 +42778,7 @@
     "channel": "OSTAbove",
     "viewsAt": "2026-10-10",
     "fame": "famous",
-    "chorusSource": "audio"
+    "chorusSource": "manual"
   },
   {
     "id": "I1wkvcoz6Mg",
@@ -43334,7 +43333,7 @@
     "type": "OP",
     "confidence": "中",
     "source": "Ray Official YouTube Channel",
-    "intro": 4,
+    "intro": 8.7,
     "chorus": 84,
     "aliases": [
       "るる",
@@ -43343,14 +43342,11 @@
     "embeddable": null,
     "chorusSource": "heatmap",
     "chorusChecked": true,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "views": 758967,
     "channel": "Ray Official YouTube Channel",
     "viewsAt": "2026-10-05",
     "fame": "normal",
-    "introSource": "auto",
-    "introBefore": 0,
     "workAliases": [
       "なぎのあすから",
       "凪あす",
@@ -45688,14 +45684,14 @@
     "confidence": "高",
     "source": "Topic",
     "intro": 0.5,
-    "chorus": 50,
+    "chorus": 58.2,
     "aliases": [
       "まわれせつげっか"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMeasured": true,
     "introMethod": "v2",
     "views": 3447360,
@@ -49522,7 +49518,7 @@
     "confidence": "中",
     "source": "プレイリスト",
     "intro": 0.6,
-    "chorus": 20,
+    "chorus": 61.2,
     "aliases": [
       "とまどいれしぴ"
     ],
@@ -49536,7 +49532,7 @@
     "artistAliases": [
       "みかくにんぐ"
     ],
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 16409776,
     "channel": "TOHO animation",
@@ -55835,12 +55831,11 @@
     "type": "OP",
     "confidence": "中",
     "source": "プレイリスト",
-    "intro": 0.6,
+    "intro": 8.6,
     "chorus": 108.2,
     "aliases": [],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "workAliases": [
       "ぐらんぶるーふぁんたじー",
       "グラブル"
@@ -55855,9 +55850,7 @@
     "channel": "BUMP OF CHICKEN",
     "viewsAt": "2026-10-10",
     "fame": "famous",
-    "chorusBefore": 117,
-    "introSource": "songle",
-    "introBefore": 3.5
+    "chorusBefore": 117
   },
   {
     "id": "UamXkkVPn4A",
@@ -60238,14 +60231,14 @@
     "confidence": "中",
     "source": "Topic",
     "intro": 1,
-    "chorus": 35,
+    "chorus": 54.5,
     "aliases": [
       "ロスロスロス"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMeasured": true,
     "introMethod": "v2",
     "views": 12571297,
@@ -66032,12 +66025,12 @@
     "confidence": "中",
     "source": "アニプレックス公式（TVサイズ）",
     "intro": 0.5,
-    "chorus": 53,
+    "chorus": 57.3,
     "aliases": [],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMeasured": true,
     "introMethod": "v2",
     "views": 35313980,

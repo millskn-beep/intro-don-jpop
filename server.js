@@ -925,7 +925,7 @@ const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'sc
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
-const YEAR_POINTS = [1000, 800, 600, 400, 200, 200]; // 年代当て：ずれ 0〜5 年の得点（それ以上は 0）
+const YEAR_POINTS = [1000, 500, 250, 120, 60, 30]; // 年代当て：ずれ 0〜5 年の得点（それ以上は 0）。近いほどぐっと高い
 // 新しい部屋で最初から除外しておくジャンル（アニソン以外）
 const DEFAULT_EXCLUDE = ['vocaloid', 'jpop', 'slot']; // ライフラインは使わない（画面からも外した）
 const LIFELINES = ['fifty', 'audience', 'phone', 'replay']; // 50:50 / オーディエンス / テレフォン / もう一度聴く
@@ -1455,7 +1455,7 @@ function startGame(room) {
     const byId = new Map(candidates.map(s => [s.id, s]));
     for (const id of room.played) {
       if (fresh.length >= need) break;
-      if (byId.has(id)) { fresh.push(byId.get(id)); room.played.delete(id); }
+      if (byId.has(id)) { fresh.push(byId.get(id)); if (!isGz(S.play)) room.played.delete(id); } // ジャンル制覇の並べた曲は仮なので、除外の記録はそのまま
     }
   }
   const n = Math.min(want, fresh.length);
@@ -1487,13 +1487,13 @@ function startGame(room) {
   const pokerDeck = S.play === 'poker' ? shuffle(candidates.filter(s => !order.includes(s))) : null; // ボーナスカード用の山（出題に使わない曲）
   // アニソン激アツRUSH：全問の色と当たりをここで決める（当たりの問題には、パチスロで有名な曲を入れる）
   const rushPlan = S.play === 'rush' ? buildRushPlan(order, fresh.length ? fresh : candidates, S) : null;
-  if (!S.noRecord) order.forEach(s => recordPlayed(room, s));
+  if (!S.noRecord && !isGz(S.play)) order.forEach(s => recordPlayed(room, s)); // ジャンル制覇は、曲を出すときに記録する（並べた曲は gzPrepare で入れ替える）
   room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
   statsGame(room);
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map(), // stats: token -> 称号用の成績
                 rushPlan, // 激アツRUSH：問題ごとの { color, hit }
                 pokerDeck, // アニソン・ポーカー：ボーナスカードの山
-                sg: S.play === 'sugoroku' ? { board: sgBoard(), pos: new Map(), rest: new Set(), dbl: new Set(), last: [] } : null, sgDone: false, gz: isGz(S.play) ? { pieces: new Map(), cur: null, pick: null, cats: gzBuildCats(S) } : null, gzDone: false, // ジャンル制覇：id → 持っているジャンル。// アニソンすごろく：盤・コマの位置（id → マス）
+                sg: S.play === 'sugoroku' ? { board: sgBoard(), pos: new Map(), rest: new Set(), dbl: new Set(), last: [] } : null, sgDone: false, gz: isGz(S.play) ? { pieces: new Map(), cur: null, pick: null, cats: gzBuildCats(S, pool) } : null, gzDone: false, // ジャンル制覇：id → 持っているジャンル。// アニソンすごろく：盤・コマの位置（id → マス）
                 panel: S.play === 'panel' ? Array(25).fill(null) : null, panelPick: null, panelDone: false, // アニソン陣取り：盤（持ち主の id）・いま選んでいる人
                 pokerPool, pokerNums: new Map(), // 数字の残り・作品ごとの数字
                 bingoTarget: S.target, // ビンゴのマスの種類（ゲームの途中で答えるものを変えても、配ったカードのまま）
@@ -1890,8 +1890,9 @@ function gzCatalog() {
   return GZ_CATALOG;
 }
 // そのゲームで集める種類：ジャンル制覇（6つ）は 今の6つ／ジャンルからランダムに6つ／選んだジャンル（最大6）。EX は、ランダムに N 個／選んだ種類（何個でも）
-function gzBuildCats(S) {
-  const cat = gzCatalog(), pickN = (list, n) => shuffle(list.slice()).slice(0, n);
+function gzBuildCats(S, pool = null) {
+  const have = c => !pool || pool.filter(c.test).length >= 3; // 部屋の曲の範囲（除外したジャンル・年代・知名度）で、ほとんど出せない種類は使わない
+  const cat = gzCatalog().filter(have), pickN = (list, n) => shuffle(list.slice()).slice(0, n);
   const own = key => cat.find(c => c.key === key);
   if (S.play === 'genreex') {
     const chosen = (S.gzPicks || []).map(own).filter(Boolean);
@@ -1901,16 +1902,19 @@ function gzBuildCats(S) {
   const genres = cat.filter(c => c.group === 'genre');
   if (S.gzSet === 'random') return pickN(genres, 6);
   if (S.gzSet === 'choose') { const chosen = (S.gzPicks || []).map(own).filter(c => c && c.group === 'genre').slice(0, 6); if (chosen.length >= 2) return chosen; }
-  return GZ_CATS.map(c => ({ key: c.key, label: c.label, icon: c.icon, test: s => genresOf(s).some(k => c.g.includes(k)) })); // 今の6つ
+  const six = GZ_CATS.map(c => ({ key: c.key, label: c.label, icon: c.icon, test: s => genresOf(s).some(k => c.g.includes(k)) })), ok6 = six.filter(have); // 今の6つ
+  return ok6.length >= 2 ? ok6 : six;
 }
 const gzCatOf = (gz, key) => gz.cats.find(c => c.key === key);
 function gzPrepare(room) { // 次の問題の曲を、選ばれたジャンルから選ぶ（この試合でまだ出していない曲）
   const g = room.game, gz = g.gz;
   if (!gz.cur) gz.cur = gz.cats[crypto.randomInt(gz.cats.length)].key;
   const cat = gzCatOf(gz, gz.cur), used = new Set(g.order.slice(0, g.qi).map(s => s.id)), ctx = userCtx(room);
-  const ok = s => !used.has(s.id) && !ctx.block.has(s.id) && cat.test(s);
-  const list = g.pool.filter(ok), alt = list.length ? list : SONGS.filter(ok);
+  const S = room.settings, ok = s => !used.has(s.id) && !ctx.block.has(s.id) && cat.test(s);
+  const list = g.pool.filter(ok), fresh = S.noExclude ? list : list.filter(s => !room.played.has(s.id) || ctx.fav.has(s.id)); // 前に出た曲・出題から外した曲は避ける
+  const alt = fresh.length ? fresh : list.length ? list : SONGS.filter(s => ok(s) && !isExcluded(s, S.excludeGenres));
   if (alt.length) g.order[g.qi] = alt[crypto.randomInt(alt.length)];
+  if (!S.noRecord) recordPlayed(room, g.order[g.qi]); // 実際に出す曲だけを「出た曲」に記録する
 }
 // ランダムに次のジャンルを決めるとき：参加者の全員がもう持っているジャンルは出さない（持っていない人がいるジャンルから選ぶ）
 function gzAnnounceRandom(room) { const gz = room.game.gz, c = gzCatOf(gz, gz.cur); if (c) io.to(room.code).emit('gzChosen', { name: '', random: true, key: c.key, label: c.label, icon: c.icon }); }
@@ -3750,7 +3754,8 @@ function onAnswer(room, player, payload) {
   const elapsed = buzzer && holder ? q.buzz.elapsed : (Date.now() - q.t0) / 1000;
   const hint = q.phase === 'chorus';
   let points = 0;
-  player.streak = correct ? (player.streak || 0) + 1 : 0;
+  const streak0 = player.streak || 0; // 年代当てで、あとから「いちばん近い」で正解になったときに戻す
+  player.streak = correct ? streak0 + 1 : 0;
   const streakBonus = p => (S.bonus && !(S.play === 'rush' && player.rush?.left > 0) ? Math.round(p * (player.streak >= 3 ? 1.5 : player.streak === 2 ? 1.2 : 1)) : p);
   if (q.years && diff !== null) {
     // 年代当て：近いほど高い（ぴったり1000、1年ずれ800…5年まで）。サビが流れてからは ×0.7
@@ -3774,7 +3779,7 @@ function onAnswer(room, player, payload) {
   let rushInfo = null;
   if (S.play === 'rush' && q.rush) { const o = rushApply(room, q, player, correct && !pass, points); points = o.points; rushInfo = o.info; (q.rushEvents = q.rushEvents || new Map()).set(player.token, rushInfo); }
   player.score += points;
-  q.answers.set(player.token, { index, given, pass, elapsed, correct, points, hint, diff, miss, rush: rushInfo });
+  q.answers.set(player.token, { index, given, pass, elapsed, correct, points, hint, diff, miss, rush: rushInfo, streak0 });
   const st = statsOf(room, player);
   if (correct && room.game.coop) room.game.coop.count++;
   if (correct && player.card) {
@@ -4103,6 +4108,18 @@ function reveal(room) {
       q.answers.set(t, { index: null, pass: false, correct: ok.length > 0, miss: mine.some(l => !l.correct), hint: ok.some(l => l.hint),
                          points: mine.reduce((a, l) => a + l.points, 0), elapsed: ok.length ? Math.min(...ok.map(l => l.elapsed)) : null,
                          given: mine.map(l => l.correct ? `${l.label}：${l.given}${l.choice ? '（10択）' : ''}` : `×${l.label ? `${l.label}：` : ''}${l.given}`).join('／') });
+    }
+  }
+  // 年代当て：ぴったりの人がいなければ、いちばん近い人（5年以内）を正解にする（パネル・すごろくなど、正解した人が得をするモードでも近い人が勝つ）
+  if (q.years) {
+    const ans = [...q.answers].filter(([, a]) => a.diff != null && !a.pass), best = Math.min(...ans.map(([, a]) => a.diff));
+    if (best > 0 && best < YEAR_POINTS.length) for (const [t, a] of ans) if (a.diff === best && !a.correct) {
+      a.correct = true; a.near = true;
+      const p = room.players.get(t); if (!p) continue;
+      p.streak = a.streak0 + 1;
+      const st = statsOf(room, p); st.correct++; st.time += a.elapsed || 0;
+      if (room.game.coop) room.game.coop.count++;
+      if (!q.winner) q.winner = t;
     }
   }
   // 答えなかった人は連続正解が途切れる（激アツRUSHでは、RUSH中ならそこで終わり）

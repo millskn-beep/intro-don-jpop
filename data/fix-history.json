@@ -11720,5 +11720,141 @@
    "intro": 0,
    "chorus": 135.8
   }
+ },
+ {
+  "id": "XjHqfhOcK_0",
+  "title": "フィクション",
+  "work": "ヲタクに恋は難しい",
+  "channel": "アニプレックス チャンネル",
+  "at": "2026-10-28T16:55:31.590Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 53,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 57.3
+  }
+ },
+ {
+  "id": "hHw3I1ryrBY",
+  "title": "lull 〜そして僕らは〜",
+  "work": "凪のあすから",
+  "channel": "Ray Official YouTube Channel",
+  "at": "2026-10-28T16:57:49.023Z",
+  "before": {
+   "intro": 4,
+   "chorus": 84,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 8.7,
+   "chorus": 84
+  }
+ },
+ {
+  "id": "fQ_m5VLhqNg",
+  "title": "とまどい→レシピ",
+  "work": "未確認で進行形",
+  "channel": "TOHO animation",
+  "at": "2026-10-28T17:18:10.912Z",
+  "before": {
+   "intro": 0.6,
+   "chorus": 20,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.6,
+   "chorus": 61.2
+  }
+ },
+ {
+  "id": "gd8D552XOVc",
+  "title": "回レ!雪月花",
+  "work": "機巧少女は傷つかない",
+  "channel": "Release - Topic",
+  "at": "2026-10-28T17:32:35.455Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 50,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 58.2
+  }
+ },
+ {
+  "id": "eW6sEkTGbUc",
+  "title": "database (feat. TAKUMA)",
+  "work": "ログ・ホライズン",
+  "channel": "OSTAbove",
+  "at": "2026-10-28T17:37:23.439Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 73.1,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 1.7,
+   "chorus": 52.2
+  }
+ },
+ {
+  "id": "plXjYiRcBtA",
+  "title": "GO",
+  "work": "GRANBLUE FANTASY The Animation",
+  "channel": "BUMP OF CHICKEN",
+  "at": "2026-10-28T18:02:59.515Z",
+  "before": {
+   "intro": 0.6,
+   "chorus": 108.2,
+   "introMethod": "v2",
+   "chorusSource": "songle"
+  },
+  "after": {
+   "intro": 8.6,
+   "chorus": 108.2
+  }
+ },
+ {
+  "id": "S2IOrt-n2fc",
+  "title": "again",
+  "work": "鋼の錬金術師 FULLMETAL ALCHEMIST",
+  "channel": "YUI OFFICIAL YouTube CHANNEL",
+  "at": "2026-10-28T18:05:01.465Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 48,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 44.7,
+   "chorus": 104
+  }
+ },
+ {
+  "id": "_werYjm5BmY",
+  "title": "Los! Los! Los!",
+  "work": "幼女戦記",
+  "channel": "ターニャ・デグレチャフ（CV：悠木碧） - Topic",
+  "at": "2026-10-28T19:21:21.946Z",
+  "before": {
+   "intro": 1,
+   "chorus": 35,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 54.5
+  }
  }
 ]

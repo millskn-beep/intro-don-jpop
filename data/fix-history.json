@@ -11618,5 +11618,22 @@
    "intro": 1.7,
    "chorus": 96.1
   }
+ },
+ {
+  "id": "6lnS-8FVod4",
+  "title": "Universe",
+  "work": "映画ドラえもん のび太の宇宙小戦争 2021",
+  "channel": "OFFICIAL HIGE DANDISM",
+  "at": "2026-10-28T10:45:00.276Z",
+  "before": {
+   "intro": 2.3,
+   "chorus": 92.2,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 28.3,
+   "chorus": 92.2
+  }
  }
 ]

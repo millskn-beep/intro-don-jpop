@@ -36,6 +36,9 @@ body.pip .art iframe { left: 0; width: 100%; pointer-events: auto; }
 .meta { flex: 1; min-width: 0; display: grid; gap: 2px; }
 .meta b { font-size: 21px; font-weight: 700; letter-spacing: -.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .meta small { font-size: 18px; color: var(--sub); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.meta small:has(.w) { display: grid; white-space: normal; font-size: 16px; line-height: 1.3; }
+.meta small .w { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.meta small .a { font-size: .9em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ic { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; }
 .ic svg { width: 27px; height: 27px; }
 .ic:active { background: var(--fill); }
@@ -45,7 +48,7 @@ body.pip .art iframe { left: 0; width: 100%; pointer-events: auto; }
 body.v-ly .stage, body.v-q .stage { flex-direction: row; gap: 14px; padding-top: 12px; }
 body.v-ly .art, body.v-q .art { width: 64px; border-radius: 8px; box-shadow: 0 6px 16px rgba(0,0,0,.3); }
 body.v-ly .meta b, body.v-q .meta b { font-size: 17px; }
-body.v-ly .meta small, body.v-q .meta small { font-size: 15px; }
+body.v-ly .meta small, body.v-q .meta small { font-size: 14px; }
 .view { display: none; flex: 1 1 0; min-height: 0; flex-direction: column; margin-top: 10px; }
 body.v-ly #lyView, body.v-q #qView { display: flex; }
 .spacer { flex: 1 1 0; min-height: 8px; }

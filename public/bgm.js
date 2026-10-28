@@ -96,7 +96,7 @@ function playSong(s, push = true) {
   if (push && cur && cur !== s) history.push(cur.id);
   cur = s; seg = segOf(s);
   $('nowTitle').textContent = s.title;
-  $('nowSub').textContent = `${s.artist}／${s.work}`;
+  $('nowSub').innerHTML = `<span class="w">${esc(s.work)}</span><span class="a">${esc(s.artist)}</span>`; // アニメのタイトルは2行まで（途切れないように）
   $('artEmpty').hidden = true;
   $('bgArt').style.backgroundImage = `url(${thumb(s.id)})`;
   showFav(); renderQueue();

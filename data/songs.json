@@ -3210,7 +3210,7 @@
     "views": 625755,
     "channel": "Masanori Ikeda - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "きまぐれおれんじろーど",
       "きまオレ"
@@ -5558,7 +5558,7 @@
     "views": 11368743,
     "channel": "Ty Music Channel",
     "viewsAt": "2026-10-05",
-    "fame": "top",
+    "fame": "famous",
     "workAliases": [
       "すらむだんく",
       "スラダン",
@@ -35201,13 +35201,6 @@
     "workAliases": [
       "わーきんぐ"
     ],
-    "artistAliases": [
-      "さとうじゅん",
-      "佐藤潤",
-      "おのだいすけ",
-      "小野大輔",
-      "daisuke ono"
-    ],
     "chorusChecked": true,
     "views": 454,
     "channel": "AnimeMusic OST",
@@ -37738,8 +37731,6 @@
     ],
     "embeddable": null,
     "artistAliases": [
-      "じんじん",
-      "じん",
       "自然の敵P"
     ],
     "chorusChecked": true,
@@ -52848,7 +52839,7 @@
     "views": 1578809,
     "channel": "Rica Matsumoto - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぽけっともんすたー",
       "ポケモン",
@@ -81413,7 +81404,7 @@
     "type": "主題歌",
     "confidence": "中",
     "source": "Official髭男dism公式",
-    "intro": 2.3,
+    "intro": 28.3,
     "chorus": 92.2,
     "aliases": [
       "ユニバース"
@@ -81421,16 +81412,13 @@
     "embeddable": true,
     "checkedAt": "2026-10-04",
     "checkedOrigin": "localhost:3000",
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "manual",
     "chorusChecked": true,
     "views": 36076021,
     "channel": "OFFICIAL HIGE DANDISM",
     "viewsAt": "2026-10-05",
     "fame": "famous",
-    "introSource": "songle",
-    "introBefore": 15.5,
     "workAliases": [
       "どらえもん"
     ],
@@ -101316,6 +101304,9 @@
     "vocal": [
       "MEIKO",
       "KAITO"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -101343,7 +101334,10 @@
       "初音ミク",
       "鏡音リン"
     ],
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "artistAliases": [
+      "ドリコ"
+    ]
   },
   {
     "id": "OQz8nEKzgZs",
@@ -101448,6 +101442,9 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "ドリコ"
     ]
   },
   {
@@ -101630,6 +101627,9 @@
     "fame": "top",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "みきとぴー"
     ]
   },
   {
@@ -101712,6 +101712,9 @@
     "vocal": [
       "鏡音リン",
       "鏡音レン"
+    ],
+    "artistAliases": [
+      "ディキシーフラットライン"
     ]
   },
   {
@@ -101817,6 +101820,9 @@
     "fame": "famous",
     "singer": [
       "ろん"
+    ],
+    "artistAliases": [
+      "ジャンキー"
     ]
   },
   {
@@ -101896,6 +101902,9 @@
     "fame": "famous",
     "vocal": [
       "KAITO"
+    ],
+    "artistAliases": [
+      "ハルヨシ"
     ]
   },
   {
@@ -101974,6 +101983,15 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "workAliases": [
+      "ぼかろ40めーとるぴー",
+      "40めーとるぴー"
+    ],
+    "artistAliases": [
+      "よんじゅうめーとるP",
+      "よんじゅうめーとるぴー",
+      "40メートルP"
     ]
   },
   {
@@ -102079,6 +102097,10 @@
     "fame": "top",
     "vocal": [
       "鏡音レン"
+    ],
+    "artistAliases": [
+      "はにーわーくす",
+      "ハニワ"
     ]
   },
   {
@@ -102418,6 +102440,9 @@
     "fame": "normal",
     "vocal": [
       "MEIKO"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -102496,6 +102521,9 @@
     "fame": "famous",
     "vocal": [
       "鏡音レン"
+    ],
+    "artistAliases": [
+      "ハルヨシ"
     ]
   },
   {
@@ -102600,6 +102628,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -102782,6 +102813,9 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -102809,6 +102843,9 @@
     "vocal": [
       "初音ミク",
       "鏡音リン"
+    ],
+    "artistAliases": [
+      "サムフリー"
     ]
   },
   {
@@ -102940,6 +102977,9 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -103253,6 +103293,9 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -103333,6 +103376,9 @@
     "vocal": [
       "巡音ルカ",
       "MEIKO"
+    ],
+    "artistAliases": [
+      "ドリコ"
     ]
   },
   {
@@ -103411,6 +103457,10 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "ジミーサム",
+      "じみーさむぴー"
     ]
   },
   {
@@ -103516,6 +103566,9 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -103753,6 +103806,10 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "米津玄師",
+      "よねづけんし"
     ]
   },
   {
@@ -103935,6 +103992,15 @@
     "introMethod": "v2",
     "vocal": [
       "初音ミク"
+    ],
+    "workAliases": [
+      "ぼかろ40めーとるぴー",
+      "40めーとるぴー"
+    ],
+    "artistAliases": [
+      "よんじゅうめーとるP",
+      "よんじゅうめーとるぴー",
+      "40メートルP"
     ]
   },
   {
@@ -103962,6 +104028,9 @@
     "vocal": [
       "初音ミク",
       "鏡音リン"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -104040,6 +104109,15 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "workAliases": [
+      "ぼかろ40めーとるぴー",
+      "40めーとるぴー"
+    ],
+    "artistAliases": [
+      "よんじゅうめーとるP",
+      "よんじゅうめーとるぴー",
+      "40メートルP"
     ]
   },
   {
@@ -104118,6 +104196,10 @@
     "chorusSource": "audio",
     "vocal": [
       "巡音ルカ"
+    ],
+    "artistAliases": [
+      "ジミーサム",
+      "じみーさむぴー"
     ]
   },
   {
@@ -104248,6 +104330,14 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "workAliases": [
+      "ぼかろでこ27",
+      "でこ27"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
     ]
   },
   {
@@ -104718,7 +104808,10 @@
     "vocal": [
       "初音ミク"
     ],
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "artistAliases": [
+      "オスタープロジェクト"
+    ]
   },
   {
     "id": "ObZMtleyMJs",
@@ -104769,6 +104862,9 @@
     "chorusSource": "audio",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -105240,6 +105336,10 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "いろは",
+      "ささき"
     ]
   },
   {
@@ -105760,6 +105860,9 @@
     "chorusSource": "audio",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "ジャンキー"
     ]
   },
   {
@@ -105864,7 +105967,15 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "workAliases": [
+      "ぼかろでこ27",
+      "でこ27"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
+    ]
   },
   {
     "id": "WiUjG9fF3zw",
@@ -106026,7 +106137,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "ハルヨシ"
+    ]
   },
   {
     "id": "yPFcDt4y0Dg",
@@ -106078,7 +106192,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "なゆたんせいじん"
+    ]
   },
   {
     "id": "a_rrj1Xh5LI",
@@ -106156,7 +106273,12 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "なつしろたかあき",
+      "夏代",
+      "なつしろ"
+    ]
   },
   {
     "id": "UKVioegPPds",
@@ -106413,7 +106535,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "イブ"
+    ]
   },
   {
     "id": "zRar5r3TieE",
@@ -106621,7 +106746,11 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "きたにたつや",
+      "キタニ"
+    ]
   },
   {
     "id": "gmIcg1EHIac",
@@ -106829,7 +106958,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "ケム"
+    ]
   },
   {
     "id": "q2PiY-5sTlE",
@@ -106855,7 +106987,10 @@
     "fame": "famous",
     "chorusSource": "audio",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "ちょうちょうピー"
+    ]
   },
   {
     "id": "qtuX4cHk-vE",
@@ -106904,7 +107039,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "イブ"
+    ]
   },
   {
     "id": "r3FFOl-LAM8",
@@ -106927,7 +107065,12 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "コスモ",
+      "暴走P",
+      "ぼうそうぴー"
+    ]
   },
   {
     "id": "AcXpEKKaH8A",
@@ -107051,7 +107194,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "みきとぴー"
+    ]
   },
   {
     "id": "1DcgczDzQPk",
@@ -107077,7 +107223,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "ジャンキー"
+    ]
   },
   {
     "id": "srH34Tjjo9U",
@@ -107156,7 +107305,12 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "コスモ",
+      "暴走P",
+      "ぼうそうぴー"
+    ]
   },
   {
     "id": "dJf4wCdLU18",
@@ -107179,7 +107333,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "イブ"
+    ]
   },
   {
     "id": "yzpNpaS0uLc",
@@ -107205,7 +107362,11 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "悪ノP",
+      "あくのぴー"
+    ]
   },
   {
     "id": "8pGRdRhjX3o",
@@ -107231,7 +107392,15 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "workAliases": [
+      "ぼかろでこ27",
+      "でこ27"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
+    ]
   },
   {
     "id": "OMQNhcGZbX4",
@@ -107409,7 +107578,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "イブ"
+    ]
   },
   {
     "id": "PdfdOhYVU40",
@@ -107435,7 +107607,11 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "須田景凪",
+      "すだけいな"
+    ]
   },
   {
     "id": "Z152wNln2HA",
@@ -107669,7 +107845,11 @@
     "fame": "famous",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "artistAliases": [
+      "ジミーサム",
+      "じみーさむぴー"
+    ]
   },
   {
     "id": "SiqjnFhLq2U",
@@ -107825,7 +108005,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "オレンジスター"
+    ]
   },
   {
     "id": "PmRtXlhzgAU",
@@ -108060,7 +108243,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "ハルヨシ"
+    ]
   },
   {
     "id": "7Y9sJvLI3Po",
@@ -108086,7 +108272,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "ヲタク"
+    ]
   },
   {
     "id": "7j0mQH0BtEU",
@@ -108459,7 +108648,11 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "ジミーサム",
+      "じみーさむぴー"
+    ]
   },
   {
     "id": "EpFxTXgElLA",
@@ -108564,7 +108757,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "オスタープロジェクト"
+    ]
   },
   {
     "id": "9HARbA0M24E",
@@ -108616,7 +108812,10 @@
     "viewsAt": "2026-10-16",
     "fame": "normal",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "ディキシーフラットライン"
+    ]
   },
   {
     "id": "PcoWIZVaBNc",
@@ -108717,7 +108916,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "オレンジスター"
+    ]
   },
   {
     "id": "Z9DXOZUbmJ4",
@@ -108743,7 +108945,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "ネル"
+    ]
   },
   {
     "id": "Td210slURro",
@@ -108847,7 +109052,12 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "コスモ",
+      "暴走P",
+      "ぼうそうぴー"
+    ]
   },
   {
     "id": "f4hEuCWJGzk",
@@ -109135,7 +109345,11 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "悪ノP",
+      "あくのぴー"
+    ]
   },
   {
     "id": "xC_lHFBen5k",
@@ -109161,7 +109375,11 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "悪ノP",
+      "あくのぴー"
+    ]
   },
   {
     "id": "8QMWmr2mFKk",
@@ -109187,7 +109405,11 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "悪ノP",
+      "あくのぴー"
+    ]
   },
   {
     "id": "hmDK_uJu7kQ",
@@ -109213,7 +109435,11 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "悪ノP",
+      "あくのぴー"
+    ]
   },
   {
     "id": "YDnZFwlZa1g",
@@ -109291,7 +109517,15 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "workAliases": [
+      "ぼかろでこ27",
+      "でこ27"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
+    ]
   },
   {
     "id": "1VbJ5hQhZSo",
@@ -109530,7 +109764,16 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "workAliases": [
+      "ぼかろ40めーとるぴー",
+      "40めーとるぴー"
+    ],
+    "artistAliases": [
+      "よんじゅうめーとるP",
+      "よんじゅうめーとるぴー",
+      "40メートルP"
+    ]
   },
   {
     "id": "ZMj07n9PDxk",
@@ -109710,7 +109953,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "シュードウ"
+    ]
   },
   {
     "id": "pUH9vCsvq08",
@@ -109762,7 +110008,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "自然の敵P"
+    ]
   },
   {
     "id": "O2r0iTciTjo",
@@ -109840,7 +110089,10 @@
     "viewsAt": "2026-10-16",
     "fame": "top",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "カナリア"
+    ]
   },
   {
     "id": "6kiQuUJWHuE",
@@ -110738,7 +110990,10 @@
     "views": 17014397,
     "channel": "MARETU",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "マレ"
+    ]
   },
   {
     "id": "AOvvHI1_5mI",
@@ -110810,7 +111065,15 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "workAliases": [
+      "ぼかろでこ27",
+      "でこ27"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
+    ]
   },
   {
     "id": "tPy4i1_ewtw",
@@ -110940,7 +111203,10 @@
     "views": 29767215,
     "channel": "Orangestar",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "オレンジスター"
+    ]
   },
   {
     "id": "ggkRMKbb89A",
@@ -110966,7 +111232,16 @@
     "views": 5256268,
     "channel": "40meterP",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "ぼかろ40めーとるぴー",
+      "40めーとるぴー"
+    ],
+    "artistAliases": [
+      "よんじゅうめーとるP",
+      "よんじゅうめーとるぴー",
+      "40メートルP"
+    ]
   },
   {
     "id": "1AliuyQ3II4",
@@ -111018,7 +111293,12 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "コスモ",
+      "暴走P",
+      "ぼうそうぴー"
+    ]
   },
   {
     "id": "TMZThivXrj0",
@@ -111347,7 +111627,10 @@
     "views": 5797651,
     "channel": "syudou",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "シュードウ"
+    ]
   },
   {
     "id": "UHbmkxv-874",
@@ -111399,7 +111682,10 @@
     "viewsAt": "2026-10-16",
     "fame": "famous",
     "introMeasured": true,
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "artistAliases": [
+      "かいりきべあ"
+    ]
   },
   {
     "id": "IGu9FL_fQnA",
@@ -111451,7 +111737,10 @@
     "views": 21523975,
     "channel": "Giga",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "ギガ"
+    ]
   },
   {
     "id": "F38EuG2dAyM",
@@ -111836,7 +112125,10 @@
     "views": 2559371,
     "channel": "halyosy",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "ハルヨシ"
+    ]
   },
   {
     "id": "xZ8WPyJCkJY",
@@ -112045,7 +112337,10 @@
     "views": 4939373,
     "channel": "wotaku",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "ヲタク"
+    ]
   },
   {
     "id": "Z7OQL1hQ5WY",
@@ -112174,7 +112469,10 @@
     "views": 2514807,
     "channel": "かいりきベア／Kairiki bear",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "かいりきべあ"
+    ]
   },
   {
     "id": "d8tp0hbDQBM",
@@ -112434,7 +112732,10 @@
     "views": 12176377,
     "channel": "mikitoP  Official",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "みきとぴー"
+    ]
   },
   {
     "id": "D4OzAM7DjUM",
@@ -112460,7 +112761,10 @@
     "views": 920752,
     "channel": "wotaku",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "ヲタク"
+    ]
   },
   {
     "id": "jbVVlJU3Nqg",
@@ -112564,7 +112868,16 @@
     "views": 9900718,
     "channel": "40meterP",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "ぼかろ40めーとるぴー",
+      "40めーとるぴー"
+    ],
+    "artistAliases": [
+      "よんじゅうめーとるP",
+      "よんじゅうめーとるぴー",
+      "40メートルP"
+    ]
   },
   {
     "id": "7awIdGqyr40",
@@ -112616,7 +112929,10 @@
     "views": 11906516,
     "channel": "Orangestar",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "オレンジスター"
+    ]
   },
   {
     "id": "ZuD66_C0vFo",
@@ -112694,7 +113010,16 @@
     "views": 4118672,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "ぼかろ40めーとるぴー",
+      "40めーとるぴー"
+    ],
+    "artistAliases": [
+      "よんじゅうめーとるP",
+      "よんじゅうめーとるぴー",
+      "40メートルP"
+    ]
   },
   {
     "id": "zLpQTF_2TZM",
@@ -112720,7 +113045,10 @@
     "views": 1723431,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "ドリコ"
+    ]
   },
   {
     "id": "KdNHFKTKX2s",
@@ -112746,7 +113074,10 @@
     "views": 2201828,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "トコトコ"
+    ]
   },
   {
     "id": "RHqOdDG3Jjg",
@@ -112772,7 +113103,15 @@
     "views": 4898759,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "ぼかろでこ27",
+      "でこ27"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
+    ]
   },
   {
     "id": "LxC0kD-GuBQ",
@@ -112824,7 +113163,10 @@
     "views": 1507313,
     "channel": "Hatsune Miku",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "ヘブンズ"
+    ]
   },
   {
     "id": "v9sR1Tm1diQ",
@@ -112850,7 +113192,10 @@
     "views": 4502995,
     "channel": "halyosy",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "ハルヨシ"
+    ]
   },
   {
     "id": "tQWMArNo9F0",
@@ -113135,7 +113480,10 @@
     "views": 20148617,
     "channel": "Orangestar",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "オレンジスター"
+    ]
   },
   {
     "id": "xl6b644XzKM",
@@ -113318,7 +113666,10 @@
     "channel": "りョう",
     "viewsAt": "2026-10-16",
     "fame": "famous",
-    "chorusSource": "manual"
+    "chorusSource": "manual",
+    "artistAliases": [
+      "ちょうちょうピー"
+    ]
   },
   {
     "id": "91R2hdV_-aQ",
@@ -113419,7 +113770,10 @@
     "views": 29531314,
     "channel": "MARETU",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "マレ"
+    ]
   },
   {
     "id": "8r-_K32fsSU",
@@ -113445,7 +113799,10 @@
     "views": 22825041,
     "channel": "syudou",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "シュードウ"
+    ]
   },
   {
     "id": "-DvNu0Y-81g",
@@ -113471,7 +113828,11 @@
     "views": 11781873,
     "channel": "SudaKeina Balloon",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "須田景凪",
+      "すだけいな"
+    ]
   },
   {
     "id": "gdmLEu5fVz4",
@@ -113679,7 +114040,10 @@
     "views": 5111834,
     "channel": "NayutalieN Official / Nayutan Seijin",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "なゆたんせいじん"
+    ]
   },
   {
     "id": "c5_0NPftdlY",
@@ -113785,7 +114149,10 @@
     "views": 11574616,
     "channel": "Neru OFFICIAL",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "ネル"
+    ]
   },
   {
     "id": "wYlH_sR-8cA",
@@ -114019,7 +114386,10 @@
     "views": 2204050,
     "channel": "かいりきベア／Kairiki bear",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "かいりきべあ"
+    ]
   },
   {
     "id": "LNX0GsjBP2w",
@@ -114045,7 +114415,10 @@
     "views": 5613911,
     "channel": "NayutalieN Official / Nayutan Seijin",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "なゆたんせいじん"
+    ]
   },
   {
     "id": "IQpGoQ7oDLY",
@@ -114634,7 +115007,10 @@
     "views": 58853783,
     "channel": "MARETU",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "マレ"
+    ]
   },
   {
     "id": "klIxS5o65C4",
@@ -114713,7 +115089,15 @@
     "views": 10993320,
     "channel": "DECO*27",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "ぼかろでこ27",
+      "でこ27"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
+    ]
   },
   {
     "id": "zLmopbS97aY",
@@ -114739,7 +115123,10 @@
     "views": 26342386,
     "channel": "かいりきベア／Kairiki bear",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "かいりきべあ"
+    ]
   },
   {
     "id": "Jtm6ikBIl0g",
@@ -115067,7 +115454,10 @@
     "views": 369428,
     "channel": "じん OFFICIAL YOUTUBE CHANNEL",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "自然の敵P"
+    ]
   },
   {
     "id": "q2QfH1JqtkY",
@@ -115093,7 +115483,10 @@
     "channel": "edword records",
     "viewsAt": "2026-10-16",
     "fame": "top",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "artistAliases": [
+      "自然の敵P"
+    ]
   },
   {
     "id": "pLYKKC-EpjA",
@@ -115119,7 +115512,10 @@
     "views": 13778569,
     "channel": "IA PROJECT",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "自然の敵P"
+    ]
   },
   {
     "id": "O9g1OyshIX4",
@@ -115145,7 +115541,10 @@
     "views": 9377059,
     "channel": "IA PROJECT",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "自然の敵P"
+    ]
   },
   {
     "id": "jro_ogZGNus",
@@ -115171,7 +115570,11 @@
     "views": 1179550,
     "channel": "Yomii Japan Piano",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "よみぃ",
+      "よみー"
+    ]
   },
   {
     "id": "FEgM1c9IXrE",
@@ -115301,7 +115704,10 @@
     "views": 883377,
     "channel": "じん OFFICIAL YOUTUBE CHANNEL",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "自然の敵P"
+    ]
   },
   {
     "id": "SDt2OOdWR-Y",
@@ -115353,7 +115759,10 @@
     "views": 20359712,
     "channel": "Kanaria",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "カナリア"
+    ]
   },
   {
     "id": "YFg48Ai1SSo",
@@ -115379,7 +115788,10 @@
     "views": 29478818,
     "channel": "MARETU",
     "viewsAt": "2026-10-16",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "マレ"
+    ]
   },
   {
     "id": "YcO-MxPf_Vg",
@@ -115765,6 +116177,9 @@
     "fame": "top",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "ネル"
     ]
   },
   {
@@ -115793,6 +116208,9 @@
       "初音ミク",
       "鏡音リン",
       "鏡音レン"
+    ],
+    "artistAliases": [
+      "ギガ"
     ]
   },
   {
@@ -115926,6 +116344,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "シュードウ"
     ]
   },
   {
@@ -115952,6 +116373,10 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
     ]
   },
   {
@@ -115978,6 +116403,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "自然の敵P"
     ]
   },
   {
@@ -116057,6 +116485,11 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "よんじゅうめーとるP",
+      "よんじゅうめーとるぴー",
+      "40メートルP"
     ]
   },
   {
@@ -116109,6 +116542,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "オレンジスター"
     ]
   },
   {
@@ -116135,6 +116571,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "なゆたんせいじん"
     ]
   },
   {
@@ -116194,6 +116633,9 @@
       "巡音ルカ",
       "MEIKO",
       "KAITO"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -116378,6 +116820,9 @@
     "introMethod": "v2",
     "vocal": [
       "巡音ルカ"
+    ],
+    "artistAliases": [
+      "いちろくよん"
     ]
   },
   {
@@ -116638,6 +117083,11 @@
     "fame": "top",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "コスモ",
+      "暴走P",
+      "ぼうそうぴー"
     ]
   },
   {
@@ -116716,6 +117166,9 @@
     "fame": "famous",
     "vocal": [
       "v flower"
+    ],
+    "artistAliases": [
+      "チノゾ"
     ]
   },
   {
@@ -116768,6 +117221,10 @@
     "fame": "famous",
     "vocal": [
       "v flower"
+    ],
+    "artistAliases": [
+      "須田景凪",
+      "すだけいな"
     ]
   },
   {
@@ -116794,6 +117251,10 @@
     "fame": "famous",
     "vocal": [
       "鏡音リン"
+    ],
+    "artistAliases": [
+      "悪ノP",
+      "あくのぴー"
     ]
   },
   {
@@ -116820,6 +117281,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "トコトコ"
     ]
   },
   {
@@ -116903,6 +117367,9 @@
     "fame": "famous",
     "vocal": [
       "KAITO"
+    ],
+    "artistAliases": [
+      "みきとぴー"
     ]
   },
   {
@@ -117148,6 +117615,10 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
     ]
   },
   {
@@ -117227,6 +117698,9 @@
     "fame": "top",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "かいりきべあ"
     ]
   },
   {
@@ -117255,6 +117729,9 @@
       "巡音ルカ",
       "初音ミク",
       "鏡音リン"
+    ],
+    "artistAliases": [
+      "イージーポップ"
     ]
   },
   {
@@ -117518,6 +117995,9 @@
     "vocal": [
       "鏡音リン",
       "初音ミク"
+    ],
+    "artistAliases": [
+      "ヘブンズ"
     ]
   },
   {
@@ -117545,6 +118025,10 @@
     "vocal": [
       "初音ミク",
       "MEIKO"
+    ],
+    "artistAliases": [
+      "はにーわーくす",
+      "ハニワ"
     ]
   },
   {
@@ -117624,6 +118108,9 @@
     "vocal": [
       "鏡音レン",
       "KAITO"
+    ],
+    "artistAliases": [
+      "ハルヨシ"
     ]
   },
   {
@@ -117868,6 +118355,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "自然の敵P"
     ]
   },
   {
@@ -117899,6 +118389,9 @@
       "巡音ルカ",
       "MEIKO",
       "KAITO"
+    ],
+    "artistAliases": [
+      "ハルヨシ"
     ]
   },
   {
@@ -117951,6 +118444,10 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "はにーわーくす",
+      "ハニワ"
     ]
   },
   {
@@ -117977,6 +118474,11 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "よんじゅうめーとるP",
+      "よんじゅうめーとるぴー",
+      "40メートルP"
     ]
   },
   {
@@ -118003,6 +118505,9 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "ドリコ"
     ]
   },
   {
@@ -118168,6 +118673,9 @@
       "初音ミク",
       "鏡音リン",
       "鏡音レン"
+    ],
+    "artistAliases": [
+      "ギガ"
     ]
   },
   {
@@ -118248,6 +118756,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "ジャンキー"
     ]
   },
   {
@@ -118305,6 +118816,10 @@
       "巡音ルカ",
       "MEIKO",
       "KAITO"
+    ],
+    "artistAliases": [
+      "かんざきいおり",
+      "カンザキ"
     ]
   },
   {
@@ -118336,6 +118851,9 @@
       "巡音ルカ",
       "MEIKO",
       "KAITO"
+    ],
+    "artistAliases": [
+      "オスタープロジェクト"
     ]
   },
   {
@@ -118392,6 +118910,9 @@
       "GUMI",
       "IA",
       "鏡音リン"
+    ],
+    "artistAliases": [
+      "うめとら"
     ]
   },
   {
@@ -118655,6 +119176,9 @@
     "vocal": [
       "初音ミク",
       "鏡音リン"
+    ],
+    "artistAliases": [
+      "なゆたんせいじん"
     ]
   },
   {
@@ -118812,6 +119336,11 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "なつしろたかあき",
+      "夏代",
+      "なつしろ"
     ]
   },
   {
@@ -118864,6 +119393,9 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "ケム"
     ]
   },
   {
@@ -119334,6 +119866,10 @@
     "fame": "top",
     "singer": [
       "25時、ナイトコードで。"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
     ]
   },
   {
@@ -119443,6 +119979,10 @@
     "fame": "famous",
     "singer": [
       "MORE MORE JUMP！"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
     ]
   },
   {
@@ -119469,6 +120009,10 @@
     "fame": "top",
     "singer": [
       "Vivid BAD SQUAD"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
     ]
   },
   {
@@ -119495,6 +120039,10 @@
     "fame": "famous",
     "singer": [
       "ワンダーランズ×ショウタイム"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
     ]
   },
   {
@@ -119522,6 +120070,10 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "デコニーナ",
+      "デコ27"
     ]
   },
   {
@@ -119548,6 +120100,9 @@
     "introMethod": "v2",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "自然の敵P"
     ]
   },
   {
@@ -119574,6 +120129,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "チノゾ"
     ]
   },
   {
@@ -119680,6 +120238,9 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "ちょうちょうピー"
     ]
   },
   {
@@ -119737,6 +120298,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "イブ"
     ]
   },
   {
@@ -119999,6 +120563,9 @@
     "fame": "famous",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "かいりきべあ"
     ]
   },
   {
@@ -120080,6 +120647,9 @@
     "vocal": [
       "鏡音レン",
       "鏡音リン"
+    ],
+    "artistAliases": [
+      "トコトコ"
     ]
   },
   {
@@ -120106,6 +120676,9 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "みきとぴー"
     ]
   },
   {
@@ -120211,7 +120784,11 @@
     "singer": [
       "キタニタツヤ"
     ],
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "artistAliases": [
+      "きたにたつや",
+      "キタニ"
+    ]
   },
   {
     "id": "eu3yoLa3dgs",
@@ -120316,6 +120893,10 @@
     "vocal": [
       "初音ミク",
       "重音テト"
+    ],
+    "artistAliases": [
+      "かんざきいおり",
+      "カンザキ"
     ]
   },
   {
@@ -120342,6 +120923,11 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "よんじゅうめーとるP",
+      "よんじゅうめーとるぴー",
+      "40メートルP"
     ]
   },
   {
@@ -120424,6 +121010,10 @@
     "vocal": [
       "重音テト",
       "v flower"
+    ],
+    "artistAliases": [
+      "須田景凪",
+      "すだけいな"
     ]
   },
   {
@@ -120450,6 +121040,9 @@
     "fame": "normal",
     "vocal": [
       "初音ミク"
+    ],
+    "artistAliases": [
+      "シュードウ"
     ]
   },
   {
@@ -120671,7 +121264,10 @@
     "views": 2146813,
     "channel": "tuki.(17)",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "ツキ"
+    ]
   },
   {
     "id": "4q-MBRA2D7w",
@@ -120693,7 +121289,11 @@
     "views": 1106169,
     "channel": "Ai Higuchi",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "ひぐちあい",
+      "ヒグチ"
+    ]
   },
   {
     "id": "4dnT-kKIO6Y",
@@ -120715,7 +121315,15 @@
     "views": 101616309,
     "channel": "BUMP OF CHICKEN",
     "viewsAt": "2026-10-19",
-    "fame": "top"
+    "fame": "top",
+    "workAliases": [
+      "ぽけっともんすたー",
+      "ポケモン"
+    ],
+    "artistAliases": [
+      "バンプオブチキン",
+      "バンプ"
+    ]
   },
   {
     "id": "wWvXpgIqhi0",
@@ -120759,7 +121367,10 @@
     "views": 334855,
     "channel": "FAKE TYPE. (TOPHAMHAT-KYO & DYES IWASAKI)",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "きじんげんとうしょう"
+    ]
   },
   {
     "id": "CP9mzbSTZPk",
@@ -120781,7 +121392,18 @@
     "views": 17283244,
     "channel": "KADOKAWAanime",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "大石昌良",
+      "おおいしまさよし",
+      "オーイシ",
+      "大石",
+      "おおいし",
+      "おーいしまさよし",
+      "OxT",
+      "オクト",
+      "オーイシ×トム"
+    ]
   },
   {
     "id": "K8GZ8SoNfmE",
@@ -120803,7 +121425,13 @@
     "views": 8409736,
     "channel": "ツユ",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうきょうりべんじゃーず",
+      "東リベ",
+      "東京リベンジャーズ",
+      "とうりべ"
+    ]
   },
   {
     "id": "4xH_r0ZJMss",
@@ -120847,7 +121475,11 @@
     "views": 6713220,
     "channel": "キタニタツヤ / Tatsuya Kitani",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "きたにたつや",
+      "キタニ"
+    ]
   },
   {
     "id": "ewkQ5WTlGLc",
@@ -120869,7 +121501,11 @@
     "views": 3642617,
     "channel": "水曜日のカンパネラ",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "すいようびのカンパネラ",
+      "すいカン"
+    ]
   },
   {
     "id": "eQ6RE6jKtf0",
@@ -121001,7 +121637,11 @@
     "views": 24389823,
     "channel": "ナナヲアカリ OFFICIAL",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "ななをあかり",
+      "ナナヲ"
+    ]
   },
   {
     "id": "2ceu5H42bjU",
@@ -121045,7 +121685,16 @@
     "views": 1018488,
     "channel": "Little Glee Monster",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "ろっくはれでぃのたしなみでして",
+      "ろっくはしゅくじょのたしなみでして",
+      "ロックレディ"
+    ],
+    "artistAliases": [
+      "リトルグリーモンスター",
+      "リトグリ"
+    ]
   },
   {
     "id": "o4OsvOqHnZM",
@@ -121067,7 +121716,11 @@
     "views": 6844645,
     "channel": "ナナヲアカリ OFFICIAL",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "ななをあかり",
+      "ナナヲ"
+    ]
   },
   {
     "id": "tzfVzu6vYJo",
@@ -121089,7 +121742,10 @@
     "views": 1119206,
     "channel": "フィロソフィーのダンス Official YouTube Channel",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "フィロのス"
+    ]
   },
   {
     "id": "coZT_PK-nxc",
@@ -121133,7 +121789,11 @@
     "views": 19958617,
     "channel": "キタニタツヤ / Tatsuya Kitani",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "きたにたつや",
+      "キタニ"
+    ]
   },
   {
     "id": "fvrS1KjmG-g",
@@ -121155,7 +121815,11 @@
     "views": 4204607,
     "channel": "キタニタツヤ / Tatsuya Kitani",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "きたにたつや",
+      "キタニ"
+    ]
   },
   {
     "id": "SCJ6thMy7qk",
@@ -121177,7 +121841,10 @@
     "views": 230182,
     "channel": "angela Official Channel",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "アンジェラ"
+    ]
   },
   {
     "id": "3uVd4WGNgy0",
@@ -121243,7 +121910,10 @@
     "views": 187623,
     "channel": "Witch Hat Atelier Anime Official",
     "viewsAt": "2026-10-19",
-    "fame": "minor"
+    "fame": "minor",
+    "workAliases": [
+      "とんがりぼうしのあとりえ"
+    ]
   },
   {
     "id": "sMi91M_Xl28",
@@ -121256,7 +121926,9 @@
     "source": "BUMP OF CHICKEN",
     "intro": 0,
     "chorus": 102,
-    "aliases": [],
+    "aliases": [
+      "グラビティ"
+    ],
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
@@ -121265,7 +121937,11 @@
     "views": 8498596,
     "channel": "BUMP OF CHICKEN",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "バンプオブチキン",
+      "バンプ"
+    ]
   },
   {
     "id": "jlGucp6q_bg",
@@ -121309,7 +121985,11 @@
     "views": 4723554,
     "channel": "FlyingDog",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "かんたいこれくしょん",
+      "艦これ"
+    ]
   },
   {
     "id": "_TF1TUP786I",
@@ -121331,7 +122011,11 @@
     "views": 7153311,
     "channel": "FlyingDog",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "がくせんとしあすたりすく",
+      "アスタリスク"
+    ]
   },
   {
     "id": "in-64GHF1YQ",
@@ -121353,7 +122037,13 @@
     "views": 4826705,
     "channel": "泣き虫☔︎ - Nakimushi☔︎",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうきょうりべんじゃーず",
+      "東リベ",
+      "東京リベンジャーズ",
+      "とうりべ"
+    ]
   },
   {
     "id": "t1gkIY4XvJ0",
@@ -121375,7 +122065,10 @@
     "views": 7459326,
     "channel": "キタニタツヤ / Tatsuya Kitani",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "じごくらく"
+    ]
   },
   {
     "id": "hA_9r-3jkSg",
@@ -121397,7 +122090,11 @@
     "views": 9646091,
     "channel": "キタニタツヤ / Tatsuya Kitani",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "きたにたつや",
+      "キタニ"
+    ]
   },
   {
     "id": "whQ9VcK0pIA",
@@ -121441,7 +122138,11 @@
     "views": 113367740,
     "channel": "ナナヲアカリ OFFICIAL",
     "viewsAt": "2026-10-19",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "ななをあかり",
+      "ナナヲ"
+    ]
   },
   {
     "id": "wlTMXFbPfKw",
@@ -121463,7 +122164,11 @@
     "views": 10212165,
     "channel": "ナナヲアカリ OFFICIAL",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "ななをあかり",
+      "ナナヲ"
+    ]
   },
   {
     "id": "0tKbJbLA1HM",
@@ -121487,7 +122192,11 @@
     "viewsAt": "2026-10-19",
     "fame": "normal",
     "retired": true,
-    "retiredNote": "マイナーすぎる（蜻蛉"
+    "retiredNote": "マイナーすぎる（蜻蛉",
+    "artistAliases": [
+      "ななをあかり",
+      "ナナヲ"
+    ]
   },
   {
     "id": "VuKSlOT__9s",
@@ -121533,7 +122242,13 @@
     "views": 81079685,
     "channel": "MAISONdes -メゾン・デ- / 日曜日のメゾンデ",
     "viewsAt": "2026-10-19",
-    "fame": "top"
+    "fame": "top",
+    "workAliases": [
+      "うるせいやつら"
+    ],
+    "artistAliases": [
+      "メゾンデ"
+    ]
   },
   {
     "id": "REA6cv8IZqc",
@@ -121620,7 +122335,11 @@
     "views": 98805,
     "channel": "tv asahi  animation YouTubeチャンネル",
     "viewsAt": "2026-10-20",
-    "fame": "minor"
+    "fame": "minor",
+    "artistAliases": [
+      "ブルーエンカウント",
+      "ブルエン"
+    ]
   },
   {
     "id": "WS3sGVgkOZk",
@@ -121752,7 +122471,12 @@
     "views": 2564526,
     "channel": "MAYU MAESHIMA YouTube Official Channel",
     "viewsAt": "2026-10-20",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "まえじままゆ",
+      "前島",
+      "まえじま"
+    ]
   },
   {
     "id": "mH2wmyeiIpA",
@@ -121906,7 +122630,17 @@
     "views": 703842,
     "channel": "宮野 真守",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "みやのまもる",
+      "宮野",
+      "みやの",
+      "マモ"
+    ]
   },
   {
     "id": "hWvhGNMF-ts",
@@ -121928,7 +122662,14 @@
     "views": 2063144,
     "channel": "STARISH - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "スターリッシュ"
+    ]
   },
   {
     "id": "x05rG9v3UwU",
@@ -121950,7 +122691,11 @@
     "views": 502633,
     "channel": "QUARTET NIGHT - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ]
   },
   {
     "id": "j3BaCQn03UI",
@@ -121972,7 +122717,17 @@
     "views": 273209,
     "channel": "宮野 真守",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "みやのまもる",
+      "宮野",
+      "みやの",
+      "マモ"
+    ]
   },
   {
     "id": "Knmk6JjtfJc",
@@ -121994,7 +122749,14 @@
     "views": 1502294,
     "channel": "STARISH - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "スターリッシュ"
+    ]
   },
   {
     "id": "rA-0UlAexeo",
@@ -122016,7 +122778,11 @@
     "views": 547593,
     "channel": "QUARTET NIGHT - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ]
   },
   {
     "id": "KCSUU6doWGo",
@@ -122038,7 +122804,11 @@
     "views": 389074,
     "channel": "HE★VENS - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ]
   },
   {
     "id": "Gx-QyznUEE4",
@@ -122059,7 +122829,17 @@
     "channel": "宮野 真守",
     "viewsAt": "2026-10-22",
     "fame": "minor",
-    "chorusSource": "manual"
+    "chorusSource": "manual",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "みやのまもる",
+      "宮野",
+      "みやの",
+      "マモ"
+    ]
   },
   {
     "id": "YLts8XjCSbA",
@@ -122081,7 +122861,14 @@
     "views": 805122,
     "channel": "STARISH - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "スターリッシュ"
+    ]
   },
   {
     "id": "ucInMYCXXig",
@@ -122102,7 +122889,17 @@
     "views": 1294385,
     "channel": "宮野 真守",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "みやのまもる",
+      "宮野",
+      "みやの",
+      "マモ"
+    ]
   },
   {
     "id": "oagFEc6usno",
@@ -122124,7 +122921,14 @@
     "views": 287841,
     "channel": "STARISH - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "スターリッシュ"
+    ]
   },
   {
     "id": "RB2LU9ea2HY",
@@ -122146,7 +122950,14 @@
     "views": 1048085,
     "channel": "STARISH - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "スターリッシュ"
+    ]
   },
   {
     "id": "y2N9NsBpldc",
@@ -122168,7 +122979,11 @@
     "views": 1084758,
     "channel": "QUARTET NIGHT - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ]
   },
   {
     "id": "iiTp7kGmtBY",
@@ -122190,7 +123005,11 @@
     "channel": "HE★VENS - Topic",
     "viewsAt": "2026-10-22",
     "fame": "normal",
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ]
   },
   {
     "id": "2cyHMq4JPik",
@@ -122212,7 +123031,17 @@
     "views": 139104,
     "channel": "宮野 真守",
     "viewsAt": "2026-10-22",
-    "fame": "minor"
+    "fame": "minor",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "みやのまもる",
+      "宮野",
+      "みやの",
+      "マモ"
+    ]
   },
   {
     "id": "ayzMV3KcvwA",
@@ -122234,7 +123063,14 @@
     "views": 1992936,
     "channel": "STARISH - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "スターリッシュ"
+    ]
   },
   {
     "id": "2vIsxI0W6_I",
@@ -122256,7 +123092,14 @@
     "views": 1260698,
     "channel": "STARISH - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "スターリッシュ"
+    ]
   },
   {
     "id": "K-DEwR2FQtM",
@@ -122278,7 +123121,11 @@
     "views": 1103711,
     "channel": "QUARTET NIGHT - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ]
   },
   {
     "id": "jxOaKTM-XBs",
@@ -122300,7 +123147,17 @@
     "views": 823230,
     "channel": "STARISH - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ",
+      "うたのぷりんすさまっまじらぶ1000ぱーせんと",
+      "うたのぷりんすさまっまじらぶ1000",
+      "まじらぶ1000"
+    ],
+    "artistAliases": [
+      "スターリッシュ"
+    ]
   },
   {
     "id": "WTDYIc-8A_s",
@@ -122322,7 +123179,11 @@
     "views": 1374440,
     "channel": "QUARTET NIGHT - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ]
   },
   {
     "id": "MbimWrzEgjI",
@@ -122344,7 +123205,14 @@
     "views": 664030,
     "channel": "STARISH - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "スターリッシュ"
+    ]
   },
   {
     "id": "kWYxq4if49Q",
@@ -122366,7 +123234,11 @@
     "views": 1336391,
     "channel": "QUARTET NIGHT - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ]
   },
   {
     "id": "3Y-JcR10NRw",
@@ -122388,7 +123260,11 @@
     "views": 470478,
     "channel": "HE★VENS - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ]
   },
   {
     "id": "MUadPjBWPxs",
@@ -122410,7 +123286,14 @@
     "views": 498322,
     "channel": "STARISH - Topic",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "うたのぷりんすさまっ",
+      "うたプリ"
+    ],
+    "artistAliases": [
+      "スターリッシュ"
+    ]
   },
   {
     "id": "XsimltGsNQg",
@@ -122454,7 +123337,11 @@
     "views": 10941928,
     "channel": "KAWAII LAB.",
     "viewsAt": "2026-10-22",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "ぽけっともんすたー",
+      "ポケモン"
+    ]
   },
   {
     "id": "GeOp4mK6dG8",
@@ -122476,7 +123363,11 @@
     "views": 730874,
     "channel": "HoneyWorks OFFICIAL",
     "viewsAt": "2026-10-22",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "ぽけっともんすたー",
+      "ポケモン"
+    ]
   },
   {
     "id": "dlvd8rBO-IE",
@@ -122498,7 +123389,12 @@
     "views": 3425630,
     "channel": "Andreea",
     "viewsAt": "2026-10-26",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "こうてつじょうのかばねり",
+      "カバネリ",
+      "甲鉄城のカバネリ"
+    ]
   },
   {
     "id": "cOIsVFp7wnc",
@@ -122520,7 +123416,11 @@
     "channel": "ShadeoftheDarknesse",
     "viewsAt": "2026-10-26",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "workAliases": [
+      "ぎるてぃくらうん",
+      "ギルクラ"
+    ]
   },
   {
     "id": "I7HYL2D2VsA",
@@ -122586,7 +123486,16 @@
     "views": 270337,
     "channel": "Yosei Teikoku - Topic",
     "viewsAt": "2026-10-26",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "がれいぜろ",
+      "喰霊",
+      "がれい",
+      "喰霊零"
+    ],
+    "artistAliases": [
+      "ようせいていこく"
+    ]
   },
   {
     "id": "EZFytNhUyzU",
@@ -122608,7 +123517,10 @@
     "channel": "NataliaAiray",
     "viewsAt": "2026-10-26",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "artistAliases": [
+      "サムフリー"
+    ]
   },
   {
     "id": "Phj-9Wm1Qxo",
@@ -122674,7 +123586,12 @@
     "channel": "Mahs",
     "viewsAt": "2026-10-26",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "workAliases": [
+      "こうてつじょうのかばねり",
+      "カバネリ",
+      "甲鉄城のカバネリ"
+    ]
   },
   {
     "id": "Vjs17Vc8kYg",
@@ -122718,7 +123635,11 @@
     "views": 2623065,
     "channel": "Daito Music OFFCIAL",
     "viewsAt": "2026-10-26",
-    "fame": "otaku"
+    "fame": "otaku",
+    "artistAliases": [
+      "ダイトミュージック",
+      "だいとうみゅーじっく"
+    ]
   },
   {
     "id": "pektrBAjWIA",
@@ -122762,7 +123683,10 @@
     "channel": "YS",
     "viewsAt": "2026-10-26",
     "fame": "otaku",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "workAliases": [
+      "いぬやしゃ"
+    ]
   },
   {
     "id": "5K3Zz_PQGzo",
@@ -122938,7 +123862,13 @@
     "views": 3640902,
     "channel": "Lantis Global Channel",
     "viewsAt": "2026-10-26",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "みらいにっき"
+    ],
+    "artistAliases": [
+      "ふぇいらん"
+    ]
   },
   {
     "id": "nAgy2U7US0I",
@@ -122960,7 +123890,13 @@
     "views": 2879650,
     "channel": "Lantis Global Channel",
     "viewsAt": "2026-10-26",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "みらいにっき"
+    ],
+    "artistAliases": [
+      "ふぇいらん"
+    ]
   },
   {
     "id": "3TRunguCf58",
@@ -123092,7 +124028,15 @@
     "views": 2644382,
     "channel": "Namie Amuro - Topic",
     "viewsAt": "2026-10-26",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "いぬやしゃ"
+    ],
+    "artistAliases": [
+      "あむろなみえ",
+      "安室",
+      "あむろ"
+    ]
   },
   {
     "id": "cREAHvB02RQ",
@@ -123129,5 +124073,112 @@
     ],
     "retired": true,
     "retiredNote": "フルの動画（wrpRv1pyV6I）に差し替え"
+  },
+  {
+    "id": "S2axULJAspg",
+    "title": "やさしい希望",
+    "work": "赤髪の白雪姫",
+    "artist": "早見沙織",
+    "year": 2015,
+    "type": "OP1",
+    "confidence": "高",
+    "source": "公式（ユーザー依頼）",
+    "intro": 0.5,
+    "chorus": 66,
+    "aliases": [
+      "やさしいきぼう"
+    ],
+    "embeddable": null,
+    "artistAliases": [
+      "はやみさおり",
+      "早見",
+      "はやみ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 344061,
+    "channel": "早見沙織 Official YouTube Channel",
+    "viewsAt": "2026-10-28",
+    "fame": "normal"
+  },
+  {
+    "id": "yjEB688tUVY",
+    "title": "絆にのせて",
+    "work": "赤髪の白雪姫",
+    "artist": "eyelis",
+    "year": 2015,
+    "type": "ED1",
+    "confidence": "高",
+    "source": "公式（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 75,
+    "aliases": [
+      "きずなにのせて"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 178557,
+    "channel": "eyelis - Topic",
+    "viewsAt": "2026-10-28",
+    "fame": "normal"
+  },
+  {
+    "id": "y00KXEGT8Vo",
+    "title": "その声が地図になる",
+    "work": "赤髪の白雪姫",
+    "artist": "早見沙織",
+    "year": 2016,
+    "type": "OP2",
+    "confidence": "高",
+    "source": "公式（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 65,
+    "aliases": [
+      "そのこえがちずになる"
+    ],
+    "embeddable": null,
+    "artistAliases": [
+      "はやみさおり",
+      "早見",
+      "はやみ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 318844,
+    "channel": "早見沙織 Official YouTube Channel",
+    "viewsAt": "2026-10-28",
+    "fame": "normal"
+  },
+  {
+    "id": "h2_yEzWhqWE",
+    "title": "ページ～君と綴る物語～",
+    "work": "赤髪の白雪姫",
+    "artist": "eyelis",
+    "year": 2016,
+    "type": "ED2",
+    "confidence": "高",
+    "source": "公式（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 65,
+    "aliases": [
+      "ページ",
+      "ぺーじきみとつづるものがたり"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 82462,
+    "channel": "eyelis - Topic",
+    "viewsAt": "2026-10-28",
+    "fame": "minor"
   }
 ]

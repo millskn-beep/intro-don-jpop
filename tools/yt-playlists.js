@@ -1,13 +1,12 @@
-// 自分の YouTube アカウントに、アニソンの本物のプレイリストを作る（YouTube Data API。自分専用・非公開）。
-// ・ジャンルごと／年代ごと（5年ずつ）は、知名度で絞った曲を「ジャンル → タイトル → 知名度 → 年」の順に入れる
-// ・お気に入り・BGMで作ったプレイリストは、本番のマイページの中身をそのまま
+// 自分の YouTube アカウントに、アニソンの本物のプレイリスト「アニソン全曲」を1本作る（YouTube Data API。自分専用・非公開）。
+// 本番の曲を「ジャンル → アニメタイトル → 年」の順に入れる（ボカロは超有名・有名だけ）。YouTube Music のライブラリにも出る。
 // API の1日の枠（10,000）では、1曲足すのに50かかる → 1日190曲ほど。枠が切れたら止まり、次に実行すると続きから。
 // どこまで入れたかは data/yt-playlists.json（git に入れない）。鍵は .yt-client.json・.yt-token.json（git に入れない）。
 // 使い方:
 //   node tools/yt-playlists.js --login                 はじめに1回（ブラウザで Google にログインして許可）
 //   node tools/yt-playlists.js --dry                   作るものと曲数だけ見る（API は使わない）
 //   node tools/yt-playlists.js                         作る・続きを足す
-// オプション: --user 名前（お気に入り・プレイリストを入れる）／--fame top,famous（all で全部）／--only mine,genre,span／--limit 190
+// オプション: --limit 190（1回に API を呼ぶ回数）
 // 環境変数 YT_DIR：鍵と進み具合を置くフォルダ（初期値はこのリポジトリ）
 const fs = require('fs');
 const path = require('path');
@@ -20,13 +19,11 @@ const CLIENT = path.join(ROOT, '.yt-client.json');
 const TOKEN = path.join(ROOT, '.yt-token.json');
 const STATE = path.join(ROOT, 'data', 'yt-playlists.json');
 const SCOPE = 'https://www.googleapis.com/auth/youtube';
-const PREFIX = 'アニソン｜';
+const TITLE = 'アニソン全曲';
 
 const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf('--' + k); return i < 0 ? d : (args[i + 1] && !args[i + 1].startsWith('--') ? args[i + 1] : true); };
-const DRY = !!opt('dry'), LIMIT = +opt('limit', 190), USER = opt('user', '');
-const FAME = String(opt('fame', 'top,famous')).split(',');
-const ONLY = String(opt('only', 'mine,genre,span')).split(',');
+const DRY = !!opt('dry'), LIMIT = +opt('limit', 190);
 
 const readJson = (f, d) => { try { return JSON.parse(fs.readFileSync(f, 'utf8')); } catch (e) { return d; } };
 const writeJson = (f, v) => fs.writeFileSync(f, JSON.stringify(v, null, 1));
@@ -101,8 +98,6 @@ async function videoExists(id) {
 }
 
 // ── 作るプレイリスト ──
-const spanOf = y => Math.floor(y / 5) * 5;
-const spanLabel = x => `${String(Math.floor(x / 10) * 10).slice(2)}年代${x % 10 ? '後半' : '前半'}`;
 // 本番が反映中・スリープ明け、PC起動直後でネットがまだのときは JSON が返らない → 30秒おきに10回まで待つ
 async function siteJson(p) {
   for (let i = 0; ; i++) {
@@ -111,34 +106,14 @@ async function siteJson(p) {
     await sleep(30000);
   }
 }
+// 1本の「アニソン全曲」：ジャンル（一覧の順。2つ以上あれば先のほう）→ アニメタイトル → 年。ボカロは超有名・有名だけ
 async function plan() {
   const cat = await siteJson('/api/catalog');
-  const songs = cat.songs.filter(s => s.year);
-  const byId = new Map(songs.map(s => [s.id, s]));
-  const gi = new Map(cat.genres.map((g, i) => [g.key, i])), fi = new Map(cat.fame.map((f, i) => [f.key, i]));
+  const gi = new Map(cat.genres.map((g, i) => [g.key, i]));
   const g0 = s => Math.min(99, ...s.genres.map(k => gi.get(k) ?? 99));
-  const byWork = (a, b) => a.work.localeCompare(b.work, 'ja') || (fi.get(a.fame) ?? 9) - (fi.get(b.fame) ?? 9) || a.year - b.year;
-  const byGenre = (a, b) => g0(a) - g0(b) || byWork(a, b);
-  const fameOk = s => FAME.includes('all') || FAME.includes(s.fame);
-  const fameNote = FAME.includes('all') ? '' : `（${FAME.map(k => cat.fame.find(f => f.key === k)?.label || k).join('・')}）`;
-  const out = [];
-  if (ONLY.includes('mine') && USER) {
-    const j = await siteJson('/api/user?name=' + encodeURIComponent(USER));
-    if (!j?.user) console.log(`マイページ「${USER}」が見つかりません`);
-    else {
-      const u = j.user;
-      const ids = l => l.map(id => byId.get(id)).filter(Boolean).map(s => s.id);
-      out.push({ key: 'fav', title: PREFIX + 'お気に入り', ids: ids(u.fav || []) });
-      for (const [n, l] of Object.entries(u.playlists || {})) out.push({ key: 'pl:' + n, title: PREFIX + n, ids: ids(l) });
-    }
-  }
-  if (ONLY.includes('genre')) for (const g of cat.genres) {
-    out.push({ key: 'genre:' + g.key, title: PREFIX + g.label + fameNote, ids: songs.filter(s => fameOk(s) && s.genres.includes(g.key)).sort(byWork).map(s => s.id) });
-  }
-  if (ONLY.includes('span')) for (const x of [...new Set(songs.map(s => spanOf(s.year)))].sort()) {
-    out.push({ key: 'span:' + x, title: PREFIX + spanLabel(x) + fameNote, ids: songs.filter(s => fameOk(s) && spanOf(s.year) === x).sort(byGenre).map(s => s.id) });
-  }
-  return out.filter(p => p.ids.length);
+  const ok = s => s.year && !(s.genres.includes('vocaloid') && !['top', 'famous'].includes(s.fame));
+  const ids = cat.songs.filter(ok).sort((a, b) => g0(a) - g0(b) || a.work.localeCompare(b.work, 'ja') || a.year - b.year || a.title.localeCompare(b.title, 'ja')).map(s => s.id);
+  return [{ key: 'all', title: TITLE, ids }];
 }
 
 async function main() {
@@ -156,7 +131,7 @@ async function main() {
       if (n >= LIMIT) break;
       let s = st.playlists[p.key];
       if (!s?.id) {
-        const j = await yt('playlists', 'snippet,status', { snippet: { title: p.title.slice(0, 150), description: 'アニソンイントロ対戦のBGMから作ったプレイリスト' }, status: { privacyStatus: 'private' } });
+        const j = await yt('playlists', 'snippet,status', { snippet: { title: p.title.slice(0, 150), description: 'アニソンイントロ対戦の曲をジャンル→アニメタイトル→年の順に' }, status: { privacyStatus: 'private' } });
         s = st.playlists[p.key] = { id: j.id, title: p.title, added: [], skipped: [] }; n++; writeJson(STATE, st);
         console.log(`作りました：${p.title}`);
       }

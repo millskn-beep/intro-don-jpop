@@ -95,6 +95,24 @@ function capLowFame(order, pools, from = 0) {
   }
   return order;
 }
+// 1ゲームに同じ作品（シリーズ）は1曲まで：かぶった曲を、まだ使っていない作品の曲に入れ替える（知名度の普通以下・有名以上はそろえる）。
+// 入れ替えられる曲がなければ（作品をしぼったお題など）そのまま。from より前（もう出した問題）は動かさない
+const gameWork = s => workKey(s.work); // 作品のまとまり（シリーズ・フランチャイズも同じ）
+function oneWorkPerGame(order, pool, from = 0, play = '') {
+  if (play === 'poker') return order; // ポーカーは同じ作品がそろうのが役になる
+  const low = s => LOW_FAME.has(fameOf(s)), keys = new Set(order.slice(0, from).map(workKey)), ids = new Set(order.map(s => s.id));
+  let spare = null;
+  for (let i = from; i < order.length; i++) {
+    const k = gameWork(order[i]);
+    if (!keys.has(k)) { keys.add(k); continue; }
+    spare = spare || shuffle(pool.filter(s => !ids.has(s.id)));
+    const j = spare.findIndex(s => !keys.has(gameWork(s)) && low(s) === low(order[i]));
+    if (j < 0) continue;
+    const r = spare.splice(j, 1)[0];
+    order[i] = r; ids.add(r.id); keys.add(gameWork(r));
+  }
+  return order;
+}
 function spreadLowFame(order, from = 1) {
   const low = s => !!s && LOW_FAME.has(fameOf(s));
   const pairBad = k => k >= 1 && k < order.length && low(order[k]) && low(order[k - 1]);
@@ -984,7 +1002,7 @@ function poolFor(settings, ctx = {}) {
 const cleanName = n => String(n || '').replace(/[\u0000-\u001f]/g, '').trim().slice(0, 12) || 'ゲスト';
 const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = crypto.randomInt(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 // 除外中（前に出た・ログを貼った）の曲でも、超有名・有名の曲はときどき出す（除外していない曲の 1/10 の出やすさ）
-const POPULAR_REPEAT = 0.1;
+const POPULAR_REPEAT = 0; // 前に出た有名曲を選び直す重み（2026-10-29 に 0.1 → 0：まだ出ていない曲が足りないときだけ使う）
 const isPopular = s => fameOf(s) === 'top' || fameOf(s) === 'famous';
 // [曲, 重み] から重みつきで n 曲を選ぶ（同じ曲は選ばない。並びもランダム）。u^(1/重み) が大きい順に取る方法
 function weightedPick(items, n) {
@@ -1471,7 +1489,7 @@ function startGame(room) {
   // 曲オブジェクトそのものを持つ（ゲーム中に曲データが保存し直されても影響しないように）
   // 流れた回数が少ない曲を優先：みんなの遊びの統計で、流れた回数が多い曲ほど選ばれにくくする（0回の曲がいちばん出やすい）
   const playW = s => (S.lessPlayed ? 1 / (1 + (PSTATS.songs[s.id]?.[0] || 0)) ** 2 : 1);
-  const order = spreadLowFame(capLowFame(weightedPick([...fresh.map(s => [s, playW(s)]), ...popular.map(s => [s, POPULAR_REPEAT * playW(s)])], n), [fresh, candidates]));
+  const order = spreadLowFame(oneWorkPerGame(capLowFame(weightedPick([...fresh.map(s => [s, playW(s)]), ...popular.map(s => [s, POPULAR_REPEAT * playW(s)])], n), [fresh]), fresh, 0, S.play)); // 差し替えも、まだ出ていない曲から
   if (S.play === 'poker') { biasPokerOrder(order, [fresh.length ? fresh : candidates, candidates]); spreadLowFame(order); }
   // 人狼・かるた：同じ曲名の曲（曲名のそろえた形が同じ）は、同じゲームに2問入れない。かぶったら別の曲に入れ替える
   if (S.play === 'wolf' || S.play === 'karuta') {
@@ -1912,7 +1930,8 @@ function gzPrepare(room) { // 次の問題の曲を、選ばれたジャンル�
   const cat = gzCatOf(gz, gz.cur), used = new Set(g.order.slice(0, g.qi).map(s => s.id)), ctx = userCtx(room);
   const S = room.settings, ok = s => !used.has(s.id) && !ctx.block.has(s.id) && cat.test(s);
   const list = g.pool.filter(ok), fresh = S.noExclude ? list : list.filter(s => !room.played.has(s.id) || ctx.fav.has(s.id)); // 前に出た曲・出題から外した曲は避ける
-  const alt = fresh.length ? fresh : list.length ? list : SONGS.filter(s => ok(s) && !isExcluded(s, S.excludeGenres));
+  const works = new Set(g.order.slice(0, g.qi).map(gameWork)), fresh2 = fresh.filter(s => !works.has(gameWork(s))); // 同じ作品はなるべく出さない
+  const alt = fresh2.length ? fresh2 : fresh.length ? fresh : list.length ? list : SONGS.filter(s => ok(s) && !isExcluded(s, S.excludeGenres));
   if (alt.length) g.order[g.qi] = alt[crypto.randomInt(alt.length)];
   if (!S.noRecord) recordPlayed(room, g.order[g.qi]); // 実際に出す曲だけを「出た曲」に記録する
 }
@@ -4446,7 +4465,7 @@ function resumeGame(room) {
     const next = [...keep, ...picked, ...reuse].slice(0, need);
     if (!S.noRecord) rest.forEach(s => { if (!next.includes(s)) unrecordPlayed(room, s); }); // 出さなくなった曲は除外の記録から外す
     if (!S.noRecord) next.forEach(s => recordPlayed(room, s));
-    g.order = spreadLowFame(capLowFame([...done, ...next], [avail], done.length), Math.max(1, done.length));
+    g.order = spreadLowFame(oneWorkPerGame(capLowFame([...done, ...next], [fresh], done.length), fresh, done.length, S.play), Math.max(1, done.length));
   }
   g.paused = null;
   io.to(room.code).emit('resumed', { ms: d, qTotal: g.order.length });

@@ -83751,14 +83751,14 @@
     "confidence": "中",
     "source": "ジャンプチャンネル（TVサイズ）",
     "intro": 0,
-    "chorus": 78,
+    "chorus": 60,
     "aliases": [
       "ほしがおよぐ"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMeasured": true,
     "introMethod": "v2",
     "views": 3047780,

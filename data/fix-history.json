@@ -11856,5 +11856,22 @@
    "intro": 1,
    "chorus": 54.5
   }
+ },
+ {
+  "id": "icLOdUKFW8Q",
+  "title": "星が泳ぐ",
+  "work": "サマータイムレンダ",
+  "channel": "SHONEN JUMP CHANNEL OFFICIAL",
+  "at": "2026-10-28T20:09:35.751Z",
+  "before": {
+   "intro": 0,
+   "chorus": 78,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 60
+  }
  }
 ]

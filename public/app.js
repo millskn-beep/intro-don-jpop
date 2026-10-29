@@ -896,6 +896,51 @@ function confetti(count = 80) {
   }
 }
 
+// 年のスロット（年当てクイズ・年当てベット）：1980年（答えや予想がもっと前ならそこ）から数字が上がっていき、
+// 終わりほどゆっくり、最後はピタッと止まる。下の年表の線にみんなの答えた年を並べ、数字が通り過ぎると光る。止まったら done()
+// marks: [{ year, html, me }]（html は名前・アバター）
+const YR_MS = 2600;
+function yearRoll(box, target, marks = [], done = null, instant = false) {
+  const ys = marks.map(m => m.year).filter(Number.isFinite);
+  const lo = Math.min(1980, target, ...ys), hi = Math.max(target, ...ys, lo + 10), span = hi - lo;
+  const pos = y => ((y - lo) / span * 100).toFixed(2);
+  const rows = []; // 近い年の人は段をずらして重ならないように
+  const sorted = marks.map((m, i) => [m, i]).filter(([m]) => Number.isFinite(m.year)).sort((a, b) => a[0].year - b[0].year);
+  sorted.forEach(([m, i], k) => { rows[i] = 0; for (let j = k - 1; j >= 0 && m.year - sorted[j][0].year < span * .09; j--) rows[i] = Math.max(rows[i], rows[sorted[j][1]] + 1); });
+  const lines = Math.max(0, ...rows.filter(x => x != null)) + 1;
+  box.innerHTML = `<div class="yr"><b class="yr-num">${lo}<small>年</small></b><div class="yr-line" style="--rows:${marks.length ? lines : 0}"><i class="yr-fill"></i><em style="left:0">${lo}</em><em style="left:100%">${hi}</em>`
+    + sorted.map(([m, i]) => `<span class="yr-mark${m.me ? ' me' : ''}" data-y="${m.year}" style="left:${pos(m.year)}%;--row:${rows[i]}">${m.html}<small>${m.year}</small></span>`).join('') + '</div></div>';
+  const num = box.querySelector('.yr-num'), fill = box.querySelector('.yr-fill'), mk = [...box.querySelectorAll('.yr-mark')];
+  const set = y => { num.firstChild.nodeValue = y; fill.style.width = pos(y) + '%'; mk.forEach(m => m.classList.toggle('hit', +m.dataset.y <= y)); };
+  const finish = () => {
+    set(target); box.querySelector('.yr').classList.add('stop');
+    const best = Math.min(...mk.map(m => Math.abs(+m.dataset.y - target)));
+    mk.forEach(m => m.classList.toggle('near', Math.abs(+m.dataset.y - target) === best));
+    if (!instant) yrSe(true);
+    done && done();
+  };
+  if (instant || matchMedia('(prefers-reduced-motion: reduce)').matches) return finish();
+  const t0 = performance.now(); let last = lo, lastSe = 0;
+  const step = now => {
+    if (!box.isConnected) return;
+    const p = Math.min(1, (now - t0) / YR_MS), y = p >= 1 ? target : lo + Math.floor((1 - (1 - p) ** 4) * (target - lo));
+    if (y !== last) { last = y; set(y); if (now - lastSe > 40) { lastSe = now; yrSe(false); } }
+    if (p < 1) setTimeout(() => step(performance.now()), 16); else finish();
+  };
+  step(t0); // requestAnimationFrame は裏のタブで止まるので、タイマーで回す（止まると答えが出ないため）
+}
+// 年のスロットの音：数字が変わるたびに小さくカチッ、止まったらポーン（曲より小さく）
+function yrSe(stop) {
+  try {
+    const ac = yrSe.ac || (yrSe.ac = new AudioContext()), now = ac.currentTime;
+    (stop ? [[1320, 0, .5], [1760, .07, .6]] : [[2200, 0, .03]]).forEach(([f, at, len]) => {
+      const o = ac.createOscillator(), g = ac.createGain(); o.type = stop ? 'sine' : 'square'; o.frequency.value = f;
+      g.gain.setValueAtTime(stop ? .12 : .025, now + at); g.gain.exponentialRampToValueAtTime(.001, now + at + len);
+      o.connect(g).connect(ac.destination); o.start(now + at); o.stop(now + at + len + .05);
+    });
+  } catch (e) { /* 音が出せない環境 */ }
+}
+
 function show(id) { ['lobby', 'quiz', 'result', 'over'].forEach(x => $(x).hidden = x !== id); }
 // 選択肢の大きさ（PC）：出題中は大きく、答え合わせでは小さく（body.compact）。
 // 切り替えは、いったん消して（フェードアウト）から大きさを変えて出す（フェードイン）
@@ -1692,16 +1737,17 @@ function renderKm() {
   pop.querySelectorAll('[data-km][data-can]').forEach(b => b.onclick = () => { socket.emit('kmPick', +b.dataset.km); pop.querySelectorAll('[data-km]').forEach(x => { x.removeAttribute('data-can'); x.onclick = null; x.setAttribute('aria-disabled', 'true'); }); });
 }
 // ── アニソン年当てベット：発売年を予想 → いちばん近い予想に賭ける ──
-let wwData = null, wwTick = null, wwMarks = [], wwSent = false, wwKey = '';
+let wwData = null, wwRolled = '', wwTick = null, wwMarks = [], wwSent = false, wwKey = '';
 function hideWw() { clearInterval(wwTick); $('wwPop').hidden = true; $('wwPop').innerHTML = ''; wwData = null; }
 socket.on('wwPhase', d => { if (!d) return hideWw(); const k = d.round + ':' + d.step; if (k !== wwKey) { wwKey = k; wwMarks = []; wwSent = false; } wwData = d; renderWw(); });
+const wwRollKey = d => `${d.round}:${d.result?.year}:${d.result?.song?.title}`;
 function renderWw() {
   const d = wwData; if (!d) return;
   const pop = $('wwPop'); pop.hidden = false;
   const head = `<div class="wf-head"><b>🎲 アニソン年当てベット</b><span>第${d.round}/${d.total}問</span><span class="wf-left" id="wwLeft"></span></div>`;
   const seats = `<div class="wf-seats">${d.players.map(p => `<span class="${d.done.includes(p.id) ? 'done' : ''}">${esc(p.name)} ${p.score}点</span>`).join('')}</div>`;
   const mine = d.done.includes(me);
-  let body = '';
+  let body = '', rolling = false;
   if (d.step === 'guess') {
     body = `<p class="wf-msg">イントロを聴いて、この曲の<b>発売年</b>を予想しましょう</p>
       <form class="wf-say ww-form" id="wwGuessForm"><input id="wwYear" type="number" inputmode="numeric" min="${d.minYear}" max="${d.maxYear}" placeholder="例：2008"${mine ? ' disabled' : ''}><button class="btn-main" type="submit"${mine ? ' disabled' : ''}>${mine ? '出しました' : '出す'}</button></form>
@@ -1715,11 +1761,13 @@ function renderWw() {
         <div class="ww-actions"><button class="btn-sub" id="wwClear" type="button"${wwSent ? ' disabled' : ''}>置き直す</button><button class="btn-main" id="wwBetBtn" type="button"${wwSent || !wwMarks.length ? ' disabled' : ''}>${wwSent ? '賭けました' : '賭ける'}</button></div>`;
     } else {
       const myRow = r.rows.find(x => x.id === me);
-      body = `<p class="wf-result ${myRow?.points > 0 ? 'win' : 'lose'}">正解は <b>${r.year}年</b><small>${esc(r.song.title)}（${esc(r.song.work)}／${esc(r.song.artist)}）</small></p>${slots}
-        <div class="wf-tally">${r.rows.map(x => `<span>${esc(x.name)}${x.guess ? '（' + x.guess + '）' : ''} ${x.points >= 0 ? '+' : ''}${x.points}${x.lines.length ? ' ' + x.lines.join('・') : ''}</span>`).join('')}</div>`;
+      rolling = wwRolled !== wwRollKey(d); // この問題の年のスロットをまだ回していない
+      body = `<p class="wf-result ${rolling ? '' : myRow?.points > 0 ? 'win' : 'lose'}">正解は <b>${rolling ? '？' : r.year}年</b><small>${esc(r.song.title)}（${esc(r.song.work)}／${esc(r.song.artist)}）</small></p><div id="wwRoll"></div>${rolling ? slots.replace(/ win\b/, '') : slots}
+        <div class="wf-tally"${rolling ? ' hidden' : ''}>${r.rows.map(x => `<span>${esc(x.name)}${x.guess ? '（' + x.guess + '）' : ''} ${x.points >= 0 ? '+' : ''}${x.points}${x.lines.length ? ' ' + x.lines.join('・') : ''}</span>`).join('')}</div>`;
     }
   }
   pop.innerHTML = `<div class="wf-field ww-field">${head}${body}${seats}</div>`;
+  if (d.step === 'result' && $('wwRoll')) { const r = d.result, rk = wwRollKey(d); yearRoll($('wwRoll'), r.year, r.rows.filter(x => x.guess).map(x => ({ year: +x.guess, html: `<b>${esc(x.name)}</b>`, me: x.id === me })), rolling ? () => { if (wwData === d) { wwRolled = rk; renderWw(); } } : null, !rolling); }
   const left = () => { const el = $('wwLeft'); if (el) el.textContent = d.until ? `あと ${wolfLeft(d.until)} 秒` : ''; };
   clearInterval(wwTick); left(); wwTick = setInterval(left, 500);
   const gf = $('wwGuessForm');
@@ -2602,7 +2650,7 @@ socket.on('lifelineResult', r => {
 // ── 答え合わせ ──
 socket.on('promoted', p => toast(`${p.by}さんが「${p.title}」をゲームデータに入れる候補にしました（${p.votes}人）`));
 
-let karaTick = null;
+let karaTick = null, revealSeq = 0;
 socket.on('reveal', r => {
   clearInterval(lyRevealTick); clearInterval(karaTick);
   $('lyKara')?.remove();
@@ -2638,12 +2686,14 @@ socket.on('reveal', r => {
   // 歌詞クイズ（この歌詞の曲は？など）は、問題に出した歌詞のところから流す
   player.reveal(r.intro, unknown ? guessChorus(r.intro, player.duration()) : r.chorus, !hintSeen && question?.kind !== 'sabimae', r.lyPlay);
   // だれがどの選択肢を押したか（アバターと名前を選択肢の中に出す）
+  // 年当てクイズは、年のスロットが止まってから正解の選択肢・自分の結果を出す
+  const yearMode = question?.answerMode === 'year' && Number.isFinite(+r.song?.year), seq = ++revealSeq;
   const pickers = new Map();
   for (const x of r.results) if (Number.isInteger(x.index) && !x.pass) pickers.set(x.index, [...(pickers.get(x.index) || []), x]);
   $('choices').querySelectorAll('.choice').forEach(b => {
     b.disabled = true;
     const i = +b.dataset.i, who = pickers.get(i);
-    if (i === r.correctIndex) b.classList.add('correct');
+    if (i === r.correctIndex) { if (yearMode) b.dataset.correct = '1'; else b.classList.add('correct'); }
     else if (i === myAnswer) b.classList.add('wrong');
     else if (who) b.classList.add('wrong-other'); // ほかの人が選んだ不正解
     if (who) {
@@ -2658,7 +2708,7 @@ socket.on('reveal', r => {
     $('fillSlots').innerHTML = r.fill.map(f => `<div class="fill-slot ${f.by != null ? 'done' : 'missed'}"><small>${esc(f.label)}</small><b>${esc(f.answer)}</b><em>${f.by != null ? esc(f.by) : '誰も埋められず'}</em></div>`).join('');
   }
   const s = r.song;
-  $('answer').innerHTML =`${esc(s.title)}<small>${s.work === 'ボカロ（プロセカ）' ? `プロセカ書き下ろし ボカロ／作曲：${esc(s.artist)}` : `${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}`}（${s.year}）</small>`
+  $('answer').innerHTML =`${esc(s.title)}<small>${s.work === 'ボカロ（プロセカ）' ? `プロセカ書き下ろし ボカロ／作曲：${esc(s.artist)}` : `${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}`}（${yearMode ? '<span id="yrAns">？</span>' : s.year}）</small>`
     + (s.staged ? '<button class="btn-main promote-btn" id="promoteBtn" type="button">✅ これはゲームデータに入れる</button><small class="promote-note">お試し中の曲です。押すと、ふだんの出題に入れる候補になります</small>' : '')
     + (s.id ? `<div class="song-tools"><button class="btn-sub" id="copySongBtn">📋 この曲をコピー</button>`
       + `<button class="btn-sub" id="keepSongBtn">${keptIds().has(s.id) ? '✓ 除外しない曲' : '🔁 この曲は除外しない'}</button>`
@@ -2675,7 +2725,7 @@ socket.on('reveal', r => {
     </tr>`).join('');
   // 自分の結果を大きく表示
   const mine = r.results.find(x => x.id === me);
-  if (mine) {
+  const showMine = () => { if (!mine) return;
     if (mine.correct) { flash('ok', mine.diff ? `いちばん近い！（${mine.diff}年ずれ）` : '正解！', `+${mine.points}`); confetti(40); }
     else if ((r.eliminated || []).includes(mine.name)) flash('ng', '脱落…');
     else if (mine.miss) flash('ng', 'お手つき', `${mine.points}`);
@@ -2683,7 +2733,17 @@ socket.on('reveal', r => {
     else if (mine.pass) flash('ng', 'スキップ');
     else if (!mine.answered) flash('ng', '時間切れ');
     else flash('ng', '不正解');
-  }
+  };
+  if (yearMode) {
+    $('answer').insertAdjacentHTML('afterbegin', '<div id="yrBox"></div>');
+    const marks = r.results.filter(x => !x.pass && /^\d{4}年$/.test(x.given || '')).map(x => ({ year: parseInt(x.given), html: avatarImg(x.avatar, 'avatar xs') + `<b>${esc(x.name)}</b>`, me: x.id === me }));
+    yearRoll($('yrBox'), +s.year, marks, () => {
+      if (seq !== revealSeq) return;
+      $('choices').querySelectorAll('.choice[data-correct]').forEach(b => b.classList.add('correct'));
+      if ($('yrAns')) $('yrAns').textContent = s.year;
+      showMine();
+    });
+  } else showMine();
   // キャラのセリフ：みんなの結果 → 自分の結果。少しあとで順位のこと
   if (r.results.length > 1 && r.results.every(x => x.correct)) charFx.say('allok');
   else if (r.results.length > 1 && r.results.every(x => !x.correct)) charFx.say('allng');

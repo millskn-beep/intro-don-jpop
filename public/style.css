@@ -1418,3 +1418,32 @@ body.rush-machine .stage-tools { overflow: visible; }
 .ts-wait { margin: 0; text-align: center; color: var(--sub); } .ts-judge { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; } .ts-secret b { color: #8dffc8; font-size: 1.15em; }
 .ts-jbtns { display: flex; gap: 6px; } .ts-judge button { margin: 0; } .ts-ok { border-color: #8dffc8 !important; } .ts-ng { border-color: #ff7a8a !important; }
 .ts-judge .ts-ok, .ts-judge .ts-ng { color: #1a1a24; font-weight: 700; }
+
+/* 年のスロット（年当てクイズ・年当てベット）：数字が上がっていき、止まると弾んで光る。下の線にみんなの答えた年 */
+.yr { display: grid; justify-items: center; gap: 6px; margin: 2px auto 10px; width: min(100%, 560px); font-size: 1rem; }
+.yr-num { font-size: clamp(44px, 9vw, 72px); font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums; letter-spacing: .02em; color: #fff;
+  text-shadow: 0 2px 14px rgba(0,0,0,.45); transition: color .3s; }
+.yr-num small { font-size: .38em; margin-left: 2px; }
+.yr.stop .yr-num { color: var(--warn, #ffd36b); animation: yrStop .55s cubic-bezier(.2,1.6,.4,1); text-shadow: 0 0 22px color-mix(in srgb, var(--warn, #ffd36b) 70%, transparent), 0 2px 14px rgba(0,0,0,.45); }
+@keyframes yrStop { 0% { transform: scale(1.35); } 100% { transform: scale(1); } }
+.yr-line { position: relative; width: calc(100% - 40px); height: 6px; border-radius: 99px; background: rgba(255,255,255,.18); margin: 8px 0 calc(var(--rows) * 30px + 22px); }
+.yr-fill { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--accent2, #7cf), var(--warn, #ffd36b)); box-shadow: 0 0 10px var(--warn, #ffd36b); }
+.yr-line em { position: absolute; top: -18px; transform: translateX(-50%); font-style: normal; font-size: 10px; color: rgba(255,255,255,.55); }
+.yr-mark { position: absolute; top: calc(12px + var(--row) * 30px); transform: translateX(-50%); display: flex; align-items: center; gap: 3px; padding: 2px 7px 2px 3px; border-radius: 99px; white-space: nowrap;
+  font-size: 11px; background: rgba(0,0,0,.45); border: 1px solid rgba(255,255,255,.18); opacity: .55; transition: opacity .2s, background .2s, transform .2s, box-shadow .2s; }
+.yr-mark::before { content: ''; position: absolute; left: 50%; top: calc(-10px - var(--row) * 30px); height: calc(8px + var(--row) * 30px); border-left: 1px dashed rgba(255,255,255,.35); }
+.yr-mark b { font-weight: 700; max-width: 6em; overflow: hidden; text-overflow: ellipsis; }
+.yr-mark small { color: rgba(255,255,255,.7); font-variant-numeric: tabular-nums; }
+.yr-mark .avatar { width: 18px; height: 18px; }
+.yr-mark.me { border-color: var(--accent, #f6a); }
+.yr-mark.hit { opacity: 1; background: rgba(255,255,255,.2); box-shadow: 0 0 10px rgba(255,255,255,.35); }
+.yr.stop .yr-mark.near { background: var(--warn, #ffd36b); color: #2a1a00; box-shadow: 0 0 16px var(--warn, #ffd36b); transform: translateX(-50%) scale(1.1); z-index: 1; }
+.yr.stop .yr-mark.near small { color: #5a3a00; }
+@media (prefers-reduced-motion: reduce) { .yr.stop .yr-num { animation: none; } }
+.yr small { display: inline; margin: 0; font-size: inherit; color: inherit; }
+.yr .yr-num small { font-size: .38em; margin-left: 2px; }
+.yr .yr-mark small { font-size: 11px; color: rgba(255,255,255,.7); }
+.yr.stop .yr-mark.near small { color: #5a3a00; }
+.ww-field .yr { margin: 0 auto 2px; gap: 2px; }
+.ww-field .yr-num { font-size: clamp(30px, 8vh, 60px); }
+.ww-field .yr-line { margin: 6px 0 calc(var(--rows) * 28px + 16px); }

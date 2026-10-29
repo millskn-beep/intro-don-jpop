@@ -96,12 +96,12 @@ function playSong(s, push = true) {
   if (push && cur && cur !== s) history.push(cur.id);
   cur = s; seg = segOf(s);
   $('nowTitle').textContent = s.title;
-  $('nowSub').innerHTML = `<span class="w">${esc(s.work)}</span><span class="a">${esc(s.artist)}</span>`; // アニメのタイトルは2行まで（途切れないように）
+  $('nowSub').innerHTML = `<span class="w">${esc(s.work)}</span><span class="a">${esc(s.artist)}</span><span class="y">${s.year}年・${esc(s.type || '')}</span>`; // 年はPCの画面だけ // アニメのタイトルは2行まで（途切れないように）
   $('artEmpty').hidden = true;
   $('bgArt').style.backgroundImage = `url(${thumb(s.id)})`;
   showFav(); renderQueue();
   if ('mediaSession' in navigator) navigator.mediaSession.metadata = new MediaMetadata({ title: s.title, artist: s.artist, album: s.work, artwork: [{ src: thumb(s.id), sizes: '320x180', type: 'image/jpeg' }] });
-  lyrics = null; if (view === 'ly') loadLyrics();
+  lyrics = null; if (view === 'ly' || (pc && pcLy && store.get('aq-lypass', ''))) loadLyrics();
   if (!ytReady) return;
   yt.loadVideoById({ videoId: s.id, startSeconds: seg.start, ...(seg.end ? { endSeconds: seg.end } : {}), suggestedQuality: saving() ? 'tiny' : 'default' });
 }
@@ -229,8 +229,33 @@ function setView(v) {
   $('lyBtn').classList.toggle('on', v === 'ly'); $('qBtn').classList.toggle('on', v === 'q');
   if (v === 'q') renderQueue();
 }
-$('lyBtn').onclick = () => { if (view === 'ly') return setView('art'); loadLyrics(); };
-$('qBtn').onclick = () => setView(view === 'q' ? 'art' : 'q');
+$('lyBtn').onclick = () => {
+  if (pc) { if (!store.get('aq-lypass', '')) { openSheet('passSheet'); $('passIn').focus(); return; } pcLy = !pcLy; store.set('aq-bgm-pcly', pcLy); applyPc(); if (pcLy) loadLyrics(); return; }
+  if (view === 'ly') return setView('art'); loadLyrics();
+};
+$('qBtn').onclick = () => { if (pc) { pcQ = !pcQ; store.set('aq-bgm-pcq', pcQ); applyPc(); return; } setView(view === 'q' ? 'art' : 'q'); };
+
+// ── PC（広い画面＋マウス）：動画をウィンドウいっぱいに、歌詞（下）と次の曲（右）はいつも出す。アイコンで出す・隠すを切り替える ──
+const PC_MQ = matchMedia('(min-width: 1000px) and (min-height: 540px) and (hover: hover) and (pointer: fine)');
+let pc = false, pcLy = store.get('aq-bgm-pcly', true), pcQ = store.get('aq-bgm-pcq', true);
+function applyPc() {
+  const was = pc; pc = PC_MQ.matches;
+  const ly = pcLy && !!store.get('aq-lypass', '');
+  document.body.classList.toggle('pc', pc); document.body.classList.toggle('no-ly', pc && !ly); document.body.classList.toggle('no-q', pc && !pcQ);
+  if (!pc) { if (was) setView(view); return; }
+  $('lyBtn').classList.toggle('on', ly); $('qBtn').classList.toggle('on', pcQ);
+  renderQueue();
+  if (ly && cur && lyFor !== cur.id) loadLyrics();
+}
+PC_MQ.addEventListener?.('change', applyPc);
+
+// キーボード：スペースで再生・一時停止、← → で前・次の曲、↑ ↓ で音量（文字を入れているとき・窓を開いているときは使わない）
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey || e.metaKey || e.altKey || e.target.closest?.('input, textarea, [role=slider]') || document.querySelector('.sheet:not([hidden])')) return;
+  const act = { ' ': toggle, ArrowLeft: prev, ArrowRight: next, ArrowUp: () => setVol(cfg.vol + 10), ArrowDown: () => setVol(cfg.vol - 10) }[e.key];
+  if (!act) return;
+  e.preventDefault(); act();
+});
 
 // ── ログイン・お気に入り・プレイリスト ──
 async function api(url, body) {
@@ -277,13 +302,13 @@ let lyrics = null, lyFor = null;
 async function loadLyrics() {
   const pass = store.get('aq-lypass', '');
   if (!pass) { openSheet('passSheet'); $('passIn').focus(); return; }
-  setView('ly');
+  if (!pc) setView('ly');
   if (!cur) { $('lyLines').innerHTML = ''; $('lyNote').textContent = '曲を流すと歌詞が出ます'; return; }
   const id = cur.id; lyFor = id;
   $('lyNote').textContent = '読み込み中…'; $('lyLines').innerHTML = '';
   const r = await fetch('/api/bgm/lyrics', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ pass, id }) });
   const j = await r.json().catch(() => ({}));
-  if (r.status === 403) { store.set('aq-lypass', ''); setView('art'); toast('合言葉が違います'); return; }
+  if (r.status === 403) { store.set('aq-lypass', ''); if (pc) applyPc(); else setView('art'); toast('合言葉が違います'); return; }
   if (lyFor !== id) return;
   if (!r.ok || !j.lines) { lyrics = null; $('lyNote').textContent = r.ok ? 'この曲の歌詞はありません' : (j.error || '読み込めませんでした'); return; }
   lyrics = { lines: j.lines, sync: j.sync && j.lines.every(x => x.t != null) };
@@ -345,7 +370,9 @@ $('fixSend').onclick = async () => {
 $('passForm').onsubmit = async e => {
   e.preventDefault(); const pass = $('passIn').value.trim(); if (!pass) return;
   const j = await api('/api/bgm/lyrics', { pass }); if (!j) return;
-  store.set('aq-lypass', pass); $('passIn').value = ''; closeSheets(); loadLyrics();
+  store.set('aq-lypass', pass); $('passIn').value = ''; closeSheets();
+  if (pc) { pcLy = true; store.set('aq-bgm-pcly', true); applyPc(); }
+  loadLyrics();
 };
 
 // ── 次の曲：前の10曲（薄く）・「再生を続ける」次の20曲。押すとその曲へ ──
@@ -357,7 +384,7 @@ function renderModes() {
   $('mSaveLabel').textContent = SAVE_SHORT[cfg.save]; $('mSave').classList.toggle('on', saving());
 }
 function renderQueue() {
-  if (view !== 'q') return;
+  if (view !== 'q' && !(pc && pcQ)) return;
   renderModes();
   const row = (s, cls, at) => `<button class="q ${cls}" data-at="${at}"><img loading="lazy" src="${thumb(s.id, 'default')}" alt=""><span class="info"><b>${esc(s.title)}</b><small>${esc(s.artist)}</small></span></button>`;
   const past = history.slice(-Q_PAST).map((id, i, a) => [byId.get(id), history.length - a.length + i]).filter(x => x[0]);
@@ -467,6 +494,7 @@ $('pickYt').onclick = () => { saveCfg(); openYt('now'); };
 $('moreYt').onclick = () => openYt('now');
 
 // ── はじめ ──
+applyPc();
 (async () => {
   const d = await (await fetch('/api/catalog')).json();
   cat = { songs: d.songs.filter(s => s.year), genres: d.genres, fame: d.fame };

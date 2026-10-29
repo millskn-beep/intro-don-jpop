@@ -154,3 +154,61 @@ body.v-ly .spacer, body.v-q .spacer { display: none; }
 .pl-list a.yt span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pl-list a.yt small { color: var(--sub); flex: none; }
 .pl-list a.yt:active { background: var(--fill2); }
+
+/* ── PC（広い画面＋マウス）：動画をウィンドウいっぱいに敷き、操作はすりガラスで重ねる。
+   上＝曲の情報、右＝次の曲、下＝歌詞と操作。ウィンドウの大きさで伸び縮みする（body.pc は bgm.js が付ける） ── */
+.meta small .y { display: none; }
+body.pc { --gap: clamp(14px, 1.6vw, 28px); --qw: clamp(280px, 24vw, 400px); --ch: 118px; }
+body.pc main { max-width: none; padding: 0; }
+body.pc .glass { background: rgba(30,24,30,.42); border: 1px solid var(--edge); border-radius: 22px; box-shadow: inset 0 1px 0 var(--shine), 0 10px 40px rgba(0,0,0,.28);
+  backdrop-filter: blur(28px) saturate(1.6); -webkit-backdrop-filter: blur(28px) saturate(1.6); }
+/* 動画：16:9 をウィンドウいっぱいに（はみ出す分は切る）。上下は文字が読めるように少し暗く */
+body.pc .art { position: fixed; inset: 0; width: auto; aspect-ratio: auto; border-radius: 0; box-shadow: none; z-index: 0; background: transparent; }
+body.pc .art iframe { top: 50%; left: 50%; width: max(100vw, 177.78vh); height: max(100vh, 56.25vw); transform: translate(-50%, -50%); }
+body.pc .art::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(rgba(0,0,0,.35), transparent 22%, transparent 55%, rgba(0,0,0,.55)); }
+body.pc .art-empty { font-size: 96px; }
+body.pc .topbar { position: fixed; top: var(--gap); left: var(--gap); z-index: 2; display: block; height: auto; }
+body.pc .back { display: inline-block; padding: 8px 14px; color: var(--fg); }
+body.pc .grab, body.pc .spacer, body.pc .pip-hint { display: none; }
+/* 上：曲の情報 */
+body.pc .stage { padding: 0; }
+body.pc .title-row { position: fixed; z-index: 2; top: var(--gap); left: calc(var(--gap) + 110px); right: calc(var(--qw) + var(--gap) * 2); width: auto; max-width: 760px; padding: 12px 12px 12px 20px; }
+body.pc .meta b { font-size: clamp(20px, 1.9vw, 30px); }
+body.pc .meta small:has(.w) { display: flex; flex-wrap: wrap; gap: 2px 14px; font-size: clamp(14px, 1.1vw, 17px); }
+body.pc .meta small .w { -webkit-line-clamp: 1; font-weight: 600; color: var(--fg); }
+body.pc .meta small .y { display: block; color: var(--sub); font-size: .9em; }
+/* 右：次の曲 */
+body.pc #qView { display: flex; position: fixed; z-index: 2; top: var(--gap); right: var(--gap); bottom: calc(var(--ch) + var(--gap) * 2); width: var(--qw); margin: 0; padding: 14px 16px 6px; }
+body.pc .qmodes { margin: 0 0 8px; gap: 6px; }
+body.pc .qmodes button { height: 38px; }
+body.pc .q { padding: 6px 8px; }
+body.pc .q:hover { background: var(--fill); }
+body.pc .q img { width: 48px; height: 48px; }
+body.pc .q b { font-size: 15px; }
+body.pc .q small { font-size: 13px; }
+/* 下：歌詞（いまの行を大きく、字幕のように流れる） */
+body.pc #lyView { display: flex; position: fixed; z-index: 1; left: var(--gap); right: calc(var(--qw) + var(--gap) * 2); bottom: calc(var(--ch) + var(--gap) * 2); height: clamp(150px, 30vh, 340px); margin: 0; }
+body.pc .ly-lines { gap: clamp(8px, 1.4vh, 18px); padding: 12px 0 60%; text-align: center; }
+body.pc .ly-lines p { font-size: clamp(22px, 2.5vw, 44px); text-shadow: 0 2px 12px rgba(0,0,0,.7), 0 0 2px rgba(0,0,0,.6); }
+body.pc .ly-lines.plain p { font-size: clamp(18px, 1.7vw, 28px); }
+body.pc .ly-note { text-shadow: 0 1px 6px rgba(0,0,0,.8); color: var(--sub); }
+body.pc.no-ly #lyView, body.pc.no-q #qView { display: none; }
+body.pc.no-q .title-row, body.pc.no-q #lyView, body.pc.no-q .ctrl { right: var(--gap); }
+/* 下：操作（左に ⏮▶⏭、まん中に再生位置、右に音量と切り替え） */
+body.pc .ctrl { position: fixed; z-index: 2; left: var(--gap); right: calc(var(--qw) + var(--gap) * 2); bottom: var(--gap); height: var(--ch); padding: 10px 18px;
+  grid-template-columns: auto minmax(0, 1fr) clamp(140px, 14vw, 220px) auto; grid-template-areas: 'tr seek vol tabs' 'tr times vol tabs'; align-content: center; column-gap: clamp(12px, 1.6vw, 28px); row-gap: 0; }
+body.pc #seek { grid-area: seek; align-self: end; }
+body.pc .times { grid-area: times; align-self: start; }
+body.pc .transport { grid-area: tr; height: auto; gap: 4px; }
+body.pc .transport button { width: 60px; height: 60px; }
+body.pc .transport button:hover, body.pc .tabs button:hover, body.pc .vol button:hover, body.pc .ic:hover { background: var(--fill); }
+body.pc .transport .pp { width: 40px; height: 40px; }
+body.pc .transport .sk { width: 36px; height: 28px; }
+body.pc .vol { grid-area: vol; }
+body.pc .tabs { grid-area: tabs; padding: 0; gap: 6px; }
+body.pc .tabs button { width: 46px; height: 46px; }
+body.pc .tabs button svg { width: 24px; height: 24px; }
+/* 窓は画面のまん中に */
+body.pc .sheet { align-items: center; }
+body.pc .sheet-in { max-width: 560px; max-height: 86dvh; border-radius: 24px; border-bottom: 1px solid var(--edge); padding-bottom: 18px; }
+body.pc .art:has(.art-empty:not([hidden])) iframe { visibility: hidden; } /* 曲を選ぶまでは空のプレーヤーを見せない */

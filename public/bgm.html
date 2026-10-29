@@ -34,12 +34,12 @@
 </svg>
 
 <main>
-  <div class="topbar"><a class="back" href="/">‹ トップ</a><span class="grab" aria-hidden="true"></span><span></span></div>
+  <div class="topbar"><a class="back glass" href="/">‹ トップ</a><span class="grab" aria-hidden="true"></span><span></span></div>
 
   <!-- ジャケット（曲の動画を正方形に切り抜いたもの）と曲名。歌詞・次の曲の画面では上に小さく並ぶ -->
   <section class="stage">
     <div class="art" id="videoBox"><div id="yt"></div><div class="art-empty" id="artEmpty">♪</div></div>
-    <div class="title-row">
+    <div class="title-row glass">
       <div class="meta"><b id="nowTitle">曲を選んでください</b><small id="nowSub">下の「選曲」から流す曲を決めます</small></div>
       <button class="ic" id="fav" aria-label="お気に入り"><svg><use id="favIcon" href="#i-star"/></svg></button>
       <button class="ic" id="more" aria-label="その他"><svg><use href="#i-more"/></svg></button>
@@ -54,7 +54,7 @@
   </section>
 
   <!-- 次の曲 -->
-  <section class="view" id="qView">
+  <section class="view glass" id="qView">
     <div class="qmodes">
       <button id="mShuffle" aria-label="シャッフル"><svg><use href="#i-shuffle"/></svg></button>
       <button id="mRepeat" aria-label="1曲リピート"><svg><use href="#i-repeat"/></svg><em id="rep1" hidden>1</em></button>
@@ -67,7 +67,7 @@
   <div class="spacer"></div>
 
   <!-- 操作 -->
-  <section class="ctrl">
+  <section class="ctrl glass">
     <div class="seek" id="seek" role="slider" aria-label="再生位置" tabindex="0"><div class="track"><div class="fill" id="seekFill"></div></div></div>
     <div class="times"><span id="tCur">0:00</span><button class="chorus-btn" id="toChorus">サビへ</button><span id="tEnd">-0:00</span></div>
     <div class="transport">

@@ -32,6 +32,19 @@ delete cfg.decades; // 前の10年ずつの設定は使わない
 const saveCfg = () => store.set('aq-bgm', cfg);
 let queue = [], qi = -1, history = [], cur = null, seg = { start: 0, end: null };
 let yt = null, ytReady = false, playing = false;
+// 開き直しても同じ続きから：次の曲の並び（変わったときだけ）と、いまの曲・位置・前の曲（5秒ごと）を保存する
+let resumeAt = null; // 開き直したときの再生位置（自動では流さず、▶でここから）
+const saveQueue = () => store.set('aq-bgm-q', queue.map(s => s.id));
+const savePos = () => store.set('aq-bgm-pos', { cur: cur?.id || null, t: resumeAt != null ? resumeAt : ytReady && cur ? Math.round(yt.getCurrentTime() || 0) : null, h: history.slice(-20) });
+function restore() {
+  const ids = store.get('aq-bgm-q', []), pos = store.get('aq-bgm-pos', null);
+  queue = ids.map(id => byId.get(id)).filter(Boolean); qi = -1;
+  history = (pos?.h || []).filter(id => byId.has(id));
+  const s = pos?.cur && byId.get(pos.cur); if (!s) return;
+  qi = queue.indexOf(s); if (qi < 0) { queue.unshift(s); qi = 0; }
+  resumeAt = pos.t || null; playSong(s, false);
+}
+addEventListener('pagehide', () => savePos());
 
 // ── データ節約：自動なら、Android はモバイル回線・節約モードで判断。分からない端末（iPhone など）は、スマホなら節約する ──
 function saving() {
@@ -62,7 +75,7 @@ function buildQueue() {
   const list = filtered();
   if (cfg.order === 'shuffle') { for (let i = list.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [list[i], list[j]] = [list[j], list[i]]; } }
   else list.sort((a, b) => cfg.order === 'new' ? b.year - a.year : a.year - b.year);
-  queue = list; qi = -1;
+  queue = list; qi = -1; saveQueue();
 }
 // 並べ直す（シャッフルの切り替えなど）。いまの曲はそのまま、続きを新しい順番にする
 function reorder() {
@@ -71,6 +84,7 @@ function reorder() {
   qi = queue.indexOf(cur);
   if (qi < 0) { queue.unshift(cur); qi = 0; }
   else if (cfg.order === 'shuffle') { queue.splice(qi, 1); queue.unshift(cur); qi = 0; }
+  saveQueue(); savePos();
 }
 function srcLabel() { return cfg.src === 'fav' ? 'お気に入り' : cfg.src.startsWith('pl:') ? `プレイリスト「${cfg.src.slice(3)}」` : 'すべての曲'; }
 function summary() {
@@ -99,11 +113,13 @@ function playSong(s, push = true) {
   $('nowSub').innerHTML = `<span class="w">${esc(s.work)}</span><span class="a">${esc(s.artist)}</span><span class="y">${s.year}年・${esc(s.type || '')}</span>`; // 年はPCの画面だけ // アニメのタイトルは2行まで（途切れないように）
   $('artEmpty').hidden = true;
   $('bgArt').style.backgroundImage = `url(${thumb(s.id)})`;
-  showFav(); renderQueue();
+  showFav(); renderQueue(); savePos();
   if ('mediaSession' in navigator) navigator.mediaSession.metadata = new MediaMetadata({ title: s.title, artist: s.artist, album: s.work, artwork: [{ src: thumb(s.id), sizes: '320x180', type: 'image/jpeg' }] });
   lyrics = null; if (view === 'ly' || (pc && pcLy && store.get('aq-lypass', ''))) loadLyrics();
   if (!ytReady) return;
-  yt.loadVideoById({ videoId: s.id, startSeconds: seg.start, ...(seg.end ? { endSeconds: seg.end } : {}), suggestedQuality: saving() ? 'tiny' : 'default' });
+  const at = resumeAt != null && resumeAt > seg.start && (!seg.end || resumeAt < seg.end - 3) ? resumeAt : null;
+  const opt = { videoId: s.id, startSeconds: at ?? seg.start, ...(seg.end ? { endSeconds: seg.end } : {}), suggestedQuality: saving() ? 'tiny' : 'default' };
+  if (resumeAt != null) { resumeAt = null; yt.cueVideoById(opt); } else yt.loadVideoById(opt); // 開き直したときは読み込むだけ（▶で続きから）
 }
 function next() {
   if (!queue.length) buildQueue();
@@ -159,7 +175,7 @@ window.onYouTubeIframeAPIReady = makePlayer;
 const tag = document.createElement('script'); tag.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(tag);
 
 // 進み具合（0.25秒ごと）。右は残り時間。終わりの時刻を過ぎたら終わり（endSeconds が効かないときの保険）
-let seekTo = null, segLen = 1; // 指で動かしている先（曲の頭からの秒）
+let seekTo = null, segLen = 1, posTick = 0; // 指で動かしている先（曲の頭からの秒）
 setInterval(() => {
   if (!ytReady || !cur) return;
   const t = yt.getCurrentTime() || 0, dur = yt.getDuration() || 0;
@@ -170,6 +186,7 @@ setInterval(() => {
   $('tCur').textContent = fmt(t - a); $('tEnd').textContent = '-' + fmt(b - t);
   if (playing && seg.end && t >= seg.end + 0.5) ended();
   if (lyrics?.sync) markLine(t);
+  if (playing && ++posTick % 20 === 0) savePos();
 }, 250);
 // 再生位置のバー：触ったところへ。横に動かすあいだは時刻を出し、指を離したら動かす
 function seekAt(e) {
@@ -502,6 +519,7 @@ applyPc();
   $('workList').innerHTML = [...new Set(cat.songs.map(s => s.work))].sort().map(w => `<option value="${esc(w)}">`).join('');
   const n = getName();
   if (n) { const r = await fetch('/api/user?name=' + encodeURIComponent(n)); if (r.ok) user = (await r.json()).user; }
+  restore();
   applySave();
   navigator.connection?.addEventListener?.('change', applySave);
 })();

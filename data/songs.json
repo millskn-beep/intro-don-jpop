@@ -28174,12 +28174,12 @@
     "confidence": "中",
     "source": "「KING AMUSEMENT CREATIVE」公式チャンネル",
     "intro": 0,
-    "chorus": 39,
+    "chorus": 62.5,
     "aliases": [
       "しんあい"
     ],
     "embeddable": null,
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "introMeasured": true,
     "introMethod": "v2",
@@ -50326,14 +50326,14 @@
     "confidence": "中",
     "source": "THE FIRST TAKE",
     "intro": 52.4,
-    "chorus": 123,
+    "chorus": 110,
     "aliases": [
       "きみじゃなきゃだめみたい"
     ],
     "embeddable": true,
     "checkedAt": "2026-10-03",
     "checkedOrigin": "localhost:3000",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "introMeasured": false,
     "views": 5134739,
     "channel": "THE FIRST TAKE",

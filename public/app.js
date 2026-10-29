@@ -1766,7 +1766,9 @@ function renderWw() {
         <div class="wf-tally"${rolling ? ' hidden' : ''}>${r.rows.map(x => `<span>${esc(x.name)}${x.guess ? '（' + x.guess + '）' : ''} ${x.points >= 0 ? '+' : ''}${x.points}${x.lines.length ? ' ' + x.lines.join('・') : ''}</span>`).join('')}</div>`;
     }
   }
+  const typed = $('wwYear')?.value || ''; // ほかの人が出すと描き直すので、入れかけの年は残す
   pop.innerHTML = `<div class="wf-field ww-field">${head}${body}${seats}</div>`;
+  if (typed && $('wwYear') && !mine) $('wwYear').value = typed;
   if (d.step === 'result' && $('wwRoll')) { const r = d.result, rk = wwRollKey(d); yearRoll($('wwRoll'), r.year, r.rows.filter(x => x.guess).map(x => ({ year: +x.guess, html: `<b>${esc(x.name)}</b>`, me: x.id === me })), rolling ? () => { if (wwData === d) { wwRolled = rk; renderWw(); } } : null, !rolling); }
   const left = () => { const el = $('wwLeft'); if (el) el.textContent = d.until ? `あと ${wolfLeft(d.until)} 秒` : ''; };
   clearInterval(wwTick); left(); wwTick = setInterval(left, 500);

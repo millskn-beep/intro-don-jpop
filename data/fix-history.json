@@ -11873,5 +11873,39 @@
    "intro": 0,
    "chorus": 60
   }
+ },
+ {
+  "id": "_Vq_Wkx6aqY",
+  "title": "君じゃなきゃダメみたい",
+  "work": "月刊少女野崎くん",
+  "channel": "THE FIRST TAKE",
+  "at": "2026-10-29T10:29:14.762Z",
+  "before": {
+   "intro": 52.4,
+   "chorus": 123,
+   "introMethod": null,
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 52.4,
+   "chorus": 110
+  }
+ },
+ {
+  "id": "A_PtfjzETUo",
+  "title": "深愛",
+  "work": "WHITE ALBUM",
+  "channel": "KING AMUSEMENT CREATIVE official channel",
+  "at": "2026-10-29T10:33:35.277Z",
+  "before": {
+   "intro": 0,
+   "chorus": 39,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 62.5
+  }
  }
 ]

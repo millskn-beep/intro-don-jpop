@@ -2492,9 +2492,9 @@ function wwFinish(room) {
   const g = room.game, q = g.q, w = q.ww, s = q.song;
   if (w.step !== 'bet') return;
   clearTimers(room);
-  // 当たり：正解の年を超えない中でいちばん近い予想。どれも新しすぎたら「全員より古い」
-  let win = 0;
-  w.slots.forEach((sl, i) => { if (sl.year != null && sl.year <= s.year) win = i; });
+  // 当たり：正解の年にいちばん近い予想（超えていてもよい。同じ近さなら古いほう）。正解が全員の予想より古ければ「全員より古い」
+  let win = 0, best = Infinity;
+  if (w.slots.some(sl => sl.year != null && sl.year <= s.year)) w.slots.forEach((sl, i) => { if (sl.year != null && Math.abs(sl.year - s.year) < best) { best = Math.abs(sl.year - s.year); win = i; } });
   const gain = new Map([...q.participants].map(t => [t, 0])), lines = new Map();
   for (const [t, ms] of w.bets) for (const m of ms) {
     if (m.slot === win) { const v = (WW.base + m.extra) * w.slots[win].odds; gain.set(t, gain.get(t) + v); (lines.get(t) || lines.set(t, []).get(t)).push(`当たり +${v}`); }

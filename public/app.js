@@ -516,7 +516,7 @@ const PLAY_DESC = {
   genreex: 'ジャンル制覇の発展版。集める「種類」を6つより多くできます。ジャンル（約20種類）・年代・曲の種類（OP・ED・挿入歌・ボカロなど）・知名度の中から、ランダムに決める（数も選べる）か、自分たちで好きなだけ選びます。毎問、どれか1つの種類の曲が出て、最速の正解者がその種類のピースをもらい、選んだ種類を先に全部そろえた人の勝ちです（だれかが全部そろえるまで終わりません。次の種類の決め方は「選択制／ランダム制」）。',
   genre: 'いつものイントロクイズで、6つのジャンル（ジャンプ／ロボット・SF／ラブコメ・日常／アイドル・バンド／異世界・ファンタジー／ゲーム・スポーツ）のピースを集めます。毎問どれか1つのジャンルの曲が出て、いちばん速く正解した人がそのジャンルのピースをもらいます。次の問題のジャンルは、設定で「選択制（最速の正解者が選ぶ）」か「ランダム制（毎問ランダム）」にできます。先に6つそろえた人の勝ち（+3000点）。だれかが全部そろえるまで終わりません（問題数の設定はありません）。',
   sugoroku: 'いつものイントロクイズに答えながら、すごろくでゴール（30マス目）を目指します。正解の速い順に 3・2・1 マス進み、止まったマスでイベント（進む・戻る・ボーナス・1回休み・次は2倍・先頭と入れ替え・前の人を戻す）。だれかがゴールしたら終わり（+2000点）。順位は進んだマスの多い順です。',
-  wits: '2人以上（3人以上がおすすめ）。イントロを聴いて発売年を予想します。全員の予想が年の順に並んだら、「正解の年を超えない中でいちばん近い予想」がどれかを当てるマーカーを2個置きます（ほかの人の予想にも置けます）。外側の枠ほど倍率が高く、点数を上乗せして勝負もできます。自分の予想が当たり枠なら +300点（ぴったりなら +600点）。',
+  wits: '2人以上（3人以上がおすすめ）。イントロを聴いて発売年を予想します。全員の予想が年の順に並んだら、「正解の年にいちばん近い予想」（正解が全員の予想より古ければ「全員より古い」）がどれかを当てるマーカーを2個置きます（ほかの人の予想にも置けます）。外側の枠ほど倍率が高く、点数を上乗せして勝負もできます。自分の予想が当たり枠なら +300点（ぴったりなら +600点）。',
   daifugo: '3人以上で遊びます。曲のカードが7枚ずつ配られます。カードの強さは発売年で、新しい曲ほど強いのですが、手札の年は見えません。場の曲より新しいと思う曲を出すか、パス。新しくなかったら失敗（−200点・カードは戻る）。全員パスで場が流れます。早く手札をなくした順に 大富豪+3000／富豪+2000／平民+1000点。1回が1ゲームです。',
   codenames: '4人以上で遊びます。赤・青の2チームに分かれ、各チームに1人のスパイマスターがいます。盤面は25枚の作品名で、スパイマスターだけが「どれが赤・青・中立・暗殺か」を知っています。スパイマスターが「ヒントの言葉＋数字」を出し、仲間がそれを手がかりに自分のチームの作品を当てます（めくると曲が流れます）。先に全部当てたチームの勝ち。暗殺カードを引くと負けです。1回が1ゲームです。',
   baba: '3人以上で遊びます。曲のカード（曲名と歌手だけ見えます）が配られます。同じ作品の曲2枚を選んで「ペア」にして出し、手札を早くなくしましょう（合っていれば+300点、ちがうと−300点）。順番に右隣の人から1枚ずつ引き、最後までババ（ジョーカー）を持っていた人が負け。上がった順に 3000／2000／1000点です。1回が1ゲームです（1〜2回がおすすめ）。',
@@ -1747,6 +1747,12 @@ function renderWw() {
   const head = `<div class="wf-head"><b>🎲 アニソン年当てベット</b><span>第${d.round}/${d.total}問</span><span class="wf-left" id="wwLeft"></span></div>`;
   const seats = `<div class="wf-seats">${d.players.map(p => `<span class="${d.done.includes(p.id) ? 'done' : ''}">${esc(p.name)} ${p.score}点</span>`).join('')}</div>`;
   const mine = d.done.includes(me);
+  // ほかの人が出した・賭けただけ（変わるのは「済み」の印だけ）なら、下の名前の欄だけ書き換える。
+  // 全部描き直すと、入れかけの年や開いている「上乗せ」の選択が消えてしまう
+  const sig = JSON.stringify([d.step, d.round, d.slots, d.result && wwRollKey(d), wwMarks.map(m => m.slot), wwSent, wwRolled, mine]);
+  const oldSeats = pop.querySelector('.wf-seats');
+  if (sig === renderWw.sig && oldSeats) { oldSeats.outerHTML = seats; return; }
+  renderWw.sig = sig;
   let body = '', rolling = false;
   if (d.step === 'guess') {
     body = `<p class="wf-msg">イントロを聴いて、この曲の<b>発売年</b>を予想しましょう</p>
@@ -1757,7 +1763,7 @@ function renderWw() {
     const slots = `<div class="ww-slots">${d.slots.map((s, i) => { const n = wwMarks.filter(m => m.slot === i).length; return `<button type="button" class="ww-slot${r && r.win === i ? ' win' : ''}${n ? ' on' : ''}" data-slot="${i}"${d.step !== 'bet' || wwSent ? ' disabled' : ''}><b>${s.year ?? '全員より古い'}</b><small>${s.odds}倍</small><span>${s.owners.map(esc).join('・') || '　'}</span>${n ? `<i>${'●'.repeat(n)}</i>` : ''}</button>`; }).join('')}</div>`;
     if (d.step === 'bet') {
       const marks = wwMarks.map((m, k) => `<span class="ww-mark">マーカー${k + 1}：${d.slots[m.slot].year ?? '古い'}　上乗せ <select data-extra="${k}"${wwSent ? ' disabled' : ''}>${d.extras.map(x => `<option value="${x}"${m.extra === x ? ' selected' : ''}>${x}</option>`).join('')}</select></span>`).join('');
-      body = `<p class="wf-msg">正解の年を<b>超えない中でいちばん近い</b>予想はどれ？ 枠をタップしてマーカーを2個置く（同じ枠に2個も可）</p>${slots}<div class="ww-marks">${marks || '<small>マーカーを置いてください</small>'}</div>
+      body = `<p class="wf-msg">正解の年に<b>いちばん近い</b>予想はどれ？（全員の予想より古ければ「全員より古い」） 枠をタップしてマーカーを2個置く（同じ枠に2個も可）</p>${slots}<div class="ww-marks">${marks || '<small>マーカーを置いてください</small>'}</div>
         <div class="ww-actions"><button class="btn-sub" id="wwClear" type="button"${wwSent ? ' disabled' : ''}>置き直す</button><button class="btn-main" id="wwBetBtn" type="button"${wwSent || !wwMarks.length ? ' disabled' : ''}>${wwSent ? '賭けました' : '賭ける'}</button></div>`;
     } else {
       const myRow = r.rows.find(x => x.id === me);

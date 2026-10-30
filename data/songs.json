@@ -35504,9 +35504,9 @@
   },
   {
     "id": "5tZZlKYczV0",
-    "title": "インモラリスト (オープニング/ドラゴンクライシス)",
+    "title": "インモラリスト",
     "work": "ドラゴンクライシス!",
-    "artist": "(V.A.)",
+    "artist": "堀江由衣",
     "year": 2011,
     "type": "OP",
     "confidence": "中",
@@ -35530,7 +35530,13 @@
     "viewsAt": "2026-10-10",
     "fame": "normal",
     "chorusBefore": 63,
-    "retired": true
+    "retired": true,
+    "artistAliases": [
+      "ほりえゆい",
+      "ほっちゃん",
+      "堀江",
+      "ほりえ"
+    ]
   },
   {
     "id": "IgEuCx2hYso",
@@ -52041,7 +52047,7 @@
     "views": 20008763,
     "channel": "Animeshon Beats",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "famous"
   },
   {
     "id": "_Agdmq0v8zo",
@@ -76188,7 +76194,7 @@
     "views": 219444,
     "channel": "ClariS Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "はたらくさいぼう",
       "はたらく細胞"
@@ -125091,6 +125097,292 @@
     ],
     "artistAliases": [
       "かたてさいず"
+    ]
+  },
+  {
+    "id": "ziZzVDP5Ezc",
+    "title": "talking",
+    "work": "すべてがFになる",
+    "artist": "KANA-BOON",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "高",
+    "source": "KANA-BOON公式MV（リクエスト）",
+    "intro": 0.2,
+    "chorus": 111,
+    "aliases": [
+      "とーきんぐ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 8799629,
+    "channel": "KANA-BOON Official YouTube Channel",
+    "viewsAt": "2026-10-30",
+    "fame": "famous",
+    "workAliases": [
+      "すべてがえふになる"
+    ],
+    "artistAliases": [
+      "カナブーン"
+    ]
+  },
+  {
+    "id": "XGCurOIuSBU",
+    "title": "一斉の声",
+    "work": "夏目友人帳",
+    "artist": "喜多修平",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "高",
+    "source": "喜多修平公式（リクエスト）",
+    "intro": 0.2,
+    "chorus": 53,
+    "aliases": [
+      "いっせーのせ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 95367,
+    "channel": "喜多修平 Official Channel",
+    "viewsAt": "2026-10-30",
+    "fame": "minor",
+    "workAliases": [
+      "なつめゆうじんちょう",
+      "夏目友人帳"
+    ],
+    "artistAliases": [
+      "きたしゅうへい"
+    ]
+  },
+  {
+    "id": "ZW5KZV0ALIM",
+    "title": "I am",
+    "work": "犬夜叉",
+    "artist": "hitomi",
+    "year": 2001,
+    "type": "OP",
+    "confidence": "高",
+    "source": "hitomi公式（リクエスト）",
+    "intro": 0,
+    "chorus": 66,
+    "aliases": [
+      "あいあむ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 930633,
+    "channel": "hitomi official ",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "いぬやしゃ"
+    ],
+    "artistAliases": [
+      "ひとみ"
+    ]
+  },
+  {
+    "id": "eWK4PcaN62A",
+    "title": "終わりない夢",
+    "work": "犬夜叉",
+    "artist": "相川七瀬",
+    "year": 2002,
+    "type": "OP",
+    "confidence": "高",
+    "source": "相川七瀬公式（リクエスト）",
+    "intro": 0,
+    "chorus": 83,
+    "aliases": [
+      "おわりないゆめ"
+    ],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 550796,
+    "channel": "NANASE AIKAWA OFFICIAL CHANNEL",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "workAliases": [
+      "いぬやしゃ"
+    ],
+    "artistAliases": [
+      "あいかわななせ",
+      "相川",
+      "あいかわ",
+      "七瀬",
+      "ななせ"
+    ]
+  },
+  {
+    "id": "RVxPNDFFc74",
+    "title": "ANGELUS-アンジェラス-",
+    "work": "犬夜叉",
+    "artist": "島谷ひとみ",
+    "year": 2003,
+    "type": "OP",
+    "confidence": "高",
+    "source": "avex公式MV（リクエスト）",
+    "intro": 6.7,
+    "chorus": 78,
+    "aliases": [
+      "あんじぇらす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 6977363,
+    "channel": "avex",
+    "viewsAt": "2026-10-30",
+    "fame": "famous",
+    "workAliases": [
+      "いぬやしゃ"
+    ],
+    "artistAliases": [
+      "しまたにひとみ",
+      "島谷",
+      "しまたに"
+    ]
+  },
+  {
+    "id": "Leo3g_PAMCc",
+    "title": "君がいない未来",
+    "work": "犬夜叉 完結編",
+    "artist": "Do As Infinity",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "高",
+    "source": "avex公式（リクエスト）",
+    "intro": 1.2,
+    "chorus": 69,
+    "aliases": [
+      "きみがいないみらい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 11203699,
+    "channel": "avex",
+    "viewsAt": "2026-10-30",
+    "fame": "famous",
+    "workAliases": [
+      "いぬやしゃかんけつへん",
+      "いぬやしゃ"
+    ],
+    "artistAliases": [
+      "ドゥアズインフィニティ",
+      "DAI"
+    ]
+  },
+  {
+    "id": "aQtOHJpf82Y",
+    "title": "Sha la la -アヤカシNIGHT-",
+    "work": "結界師",
+    "artist": "宇浦冴香",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Field Forest（リクエスト）",
+    "intro": 1,
+    "chorus": 74,
+    "aliases": [
+      "しゃららあやかしないと",
+      "しゃらら"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 385032,
+    "channel": "Field Forest",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "けっかいし"
+    ],
+    "artistAliases": [
+      "うらさえか"
+    ]
+  },
+  {
+    "id": "84vuHfttrQI",
+    "title": "Just Fly Away",
+    "work": "六門天外モンコレナイト",
+    "artist": "米倉千尋",
+    "year": 2000,
+    "type": "OP",
+    "confidence": "高",
+    "source": "KING RECORDS公式（リクエスト）",
+    "intro": 2,
+    "chorus": 58.4,
+    "aliases": [
+      "じゃすとふらいあうぇい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 6225,
+    "channel": "KING RECORDS",
+    "viewsAt": "2026-10-30",
+    "fame": "minor",
+    "chorusSource": "audio",
+    "workAliases": [
+      "ろくもんてんがいもんこれないと",
+      "もんこれないと"
+    ],
+    "artistAliases": [
+      "よねくらちひろ",
+      "米倉",
+      "よねくら"
+    ]
+  },
+  {
+    "id": "Wq7V6L0nFWk",
+    "title": "Return to myself",
+    "work": "六門天外モンコレナイト",
+    "artist": "米倉千尋",
+    "year": 2000,
+    "type": "OP",
+    "confidence": "高",
+    "source": "KING RECORDS公式（リクエスト）",
+    "intro": 2.5,
+    "chorus": 60.1,
+    "aliases": [
+      "りたーんとぅーまいせるふ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 9352,
+    "channel": "KING RECORDS",
+    "viewsAt": "2026-10-30",
+    "fame": "minor",
+    "chorusSource": "audio",
+    "workAliases": [
+      "ろくもんてんがいもんこれないと",
+      "もんこれないと"
+    ],
+    "artistAliases": [
+      "よねくらちひろ",
+      "米倉",
+      "よねくら"
     ]
   }
 ]

@@ -1357,8 +1357,10 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:03:23.258Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "5tZZlKYczV0",
+  "doneAt": "2026-10-30T12:39:07.760Z"
  },
  {
   "id": "123ac5ee",
@@ -1368,8 +1370,10 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:04:29.029Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "ziZzVDP5Ezc",
+  "doneAt": "2026-10-30T12:39:07.903Z"
  },
  {
   "id": "86b2f0db",
@@ -1379,8 +1383,10 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:07:49.304Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "XGCurOIuSBU",
+  "doneAt": "2026-10-30T12:39:08.084Z"
  },
  {
   "id": "01c8883d",
@@ -1390,8 +1396,10 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:10:29.544Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "ZW5KZV0ALIM",
+  "doneAt": "2026-10-30T12:39:08.630Z"
  },
  {
   "id": "16b8203c",
@@ -1401,8 +1409,10 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:10:44.444Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "eWK4PcaN62A",
+  "doneAt": "2026-10-30T12:39:08.785Z"
  },
  {
   "id": "51d19a24",
@@ -1412,8 +1422,10 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:11:35.297Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "RVxPNDFFc74",
+  "doneAt": "2026-10-30T12:39:08.929Z"
  },
  {
   "id": "34e53be5",
@@ -1423,8 +1435,10 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:11:42.113Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "Leo3g_PAMCc",
+  "doneAt": "2026-10-30T12:39:09.055Z"
  },
  {
   "id": "225d0575",
@@ -1434,8 +1448,10 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:16:04.678Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "aQtOHJpf82Y",
+  "doneAt": "2026-10-30T12:39:09.211Z"
  },
  {
   "id": "50df5ae5",
@@ -1445,8 +1461,10 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:17:23.768Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "84vuHfttrQI",
+  "doneAt": "2026-10-30T12:39:09.367Z"
  },
  {
   "id": "23ddc556",
@@ -1456,6 +1474,19 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:17:30.536Z",
+  "status": "added",
+  "votes": 1,
+  "songId": "Wq7V6L0nFWk",
+  "doneAt": "2026-10-30T12:39:09.496Z"
+ },
+ {
+  "id": "23257091",
+  "title": "ジャングルはいつもハレのちグゥ",
+  "work": "LOVE☆トロピカーナ",
+  "artist": "",
+  "genre": "",
+  "note": "",
+  "at": "2026-10-30T12:39:27.874Z",
   "status": "open",
   "votes": 1
  }

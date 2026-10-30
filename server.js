@@ -1240,6 +1240,15 @@ function chorusLines(song, L, mem = LYRICS_MEM) {
   });
   return set;
 }
+// 歌詞を隠す問題：隠した言葉が聞こえないように、少し手前で止める
+const LY_STOP_LEAD = 0.35, LY_HOLE_MIN = 3, LY_SEC_PER_CHAR = 0.4;
+// 穴あきの流す範囲。時刻は行ごとにしかないので、行の中の穴の位置は文字数から見積もる（行の後ろの間を数えないよう、1文字の長さに上限）
+function holePlay(L, i, at) {
+  const line = L[i], next = L[i + 1]?.t, len = Math.max(1, line.text.length);
+  const dur = Math.min(next != null ? next - line.t : Infinity, len * LY_SEC_PER_CHAR);
+  const until = line.t + dur * at / len - LY_STOP_LEAD;
+  return { from: Math.max(0, Math.min((L[i - 1]?.t ?? line.t) - 0.3, until - 3)), until };
+}
 function lyricQuestion(kind, song, n, pool, focus = 'chorus', mem = LYRICS_MEM) { // mem：歌詞（歌詞クイズ）か YouTube の字幕（歌詞クイズ2）
   const L = mem.get(song.id)?.lines; if (!L || L.length < 6) return null;
   const pickR = a => a[crypto.randomInt(a.length)];
@@ -1312,14 +1321,14 @@ function lyricQuestion(kind, song, n, pool, focus = 'chorus', mem = LYRICS_MEM) 
   if (!mem.get(song.id).sync || L.some(x => x.t == null)) return null;
   if (kind === 'blank') {
     const cand = [];
-    L.forEach((x, i) => { if (!inCh(i)) return; for (const m of x.text.matchAll(/[\u4E00-\u9FFF々]{2,}|[\u30A0-\u30FF]{3,}|[A-Za-z]{4,}/g)) cand.push({ i, w: m[0], at: m.index }); });
+    L.forEach((x, i) => { if (!inCh(i) || x.t < LY_HOLE_MIN) return; for (const m of x.text.matchAll(/[\u4E00-\u9FFF々]{2,}|[\u30A0-\u30FF]{3,}|[A-Za-z]{4,}/g)) cand.push({ i, w: m[0], at: m.index }); });
     if (!cand.length) return null;
     const c = pickR(cand), line = L[c.i], latin = /[A-Za-z]/.test(c.w), words = new Set();
     for (const s of shuffle(pool.filter(x => mem.has(x.id))).slice(0, 60)) for (const l of mem.get(s.id).lines)
       for (const m of l.text.matchAll(latin ? /[A-Za-z]{4,}/g : /[\u4E00-\u9FFF々]{2,}|[\u30A0-\u30FF]{3,}/g)) if (m[0] !== c.w && Math.abs(m[0].length - c.w.length) <= 1) words.add(m[0]);
     const choices = shuffle([c.w, ...shuffle([...words]).slice(0, n - 1)]).map(w => ({ title: w, work: '' }));
     return { lyric: { ask: LY_ASK.blank, before: line.text.slice(0, c.at), after: line.text.slice(c.at + c.w.length) }, choices, correctIndex: choices.findIndex(x => x.title === c.w),
-             play: { from: Math.max(0, (L[c.i - 1]?.t ?? line.t) - 0.3), until: L[c.i + 1]?.t ?? line.t + 6 } };
+             play: holePlay(L, c.i, c.at), cut: true, reveal: { from: Math.max(0, line.t - 0.3) } }; // 穴の手前で止める。答え合わせは穴の行から
   }
   if (kind === 'type') { // 3. カラオケ止め：サビの頭の少し前から流して、サビの中の行の手前で止める → 続きを打つ（サビの位置が確かな曲だけ）
     const an = karaokeAnchor(song); if (!an) return null;
@@ -1329,7 +1338,7 @@ function lyricQuestion(kind, song, n, pool, focus = 'chorus', mem = LYRICS_MEM) 
     if (!ok.length) return null;
     const j = pickR(ok), from = Math.max(0, at(an.c) - 4);
     return { lyric: { ask: LY_ASK.type, show: L.slice(Math.max(an.c, j - 2), j).map(x => x.text), tail: true }, choices: null, correctIndex: null, typeAnswer: L[j].text,
-             play: { from, until: at(j) - 0.25 } };
+             play: { from, until: at(j) - LY_STOP_LEAD }, cut: true };
   }
   if (kind === 'wrong') { // 5. 間違い探し：2行のうち1つの言葉が入れ替わっている。曲を聴いてどれか当てる
     // 選択肢が多いとき（8択以上）は、言葉の数が足りるように歌詞を4行出す（足りなければ2行）
@@ -1360,7 +1369,7 @@ function lyricQuestion(kind, song, n, pool, focus = 'chorus', mem = LYRICS_MEM) 
     for (const s of shuffle(pool.filter(x => x !== song && mem.has(x.id))).slice(0, 6)) others.add(pickR(mem.get(s.id).lines).text);
     const choices = shuffle([right, ...shuffle([...others]).slice(0, n - 1)]).map(x => ({ title: x, work: '' }));
     return { lyric: { ask: LY_ASK.next, show: [L[i - 1].text, L[i].text], tail: true }, choices, correctIndex: choices.findIndex(x => x.title === right),
-             play: { from: Math.max(0, L[i - 1].t - 0.3), until: L[i + 1].t - 0.2 } };
+             play: { from: Math.max(0, L[i - 1].t - 0.3), until: L[i + 1].t - LY_STOP_LEAD }, cut: true };
   }
   return null;
 }
@@ -3540,7 +3549,7 @@ function startQuestion(room, song, picker = null) {
     : buildChoices(song, S.choices, cpool);
   g.q = {
     attack: S.play === 'panel' && !!g.panel && g.attackCell != null && g.qi === g.attackQi, // アニソン陣取り：20問目のあと白いマスができた、次の問題が「アタックチャンス」
-    song, choices, correctIndex, kind, start, years, introLen: lyq ? (lyq.play ? Math.max(2, lyq.play.until - lyq.play.from) : 0.1) : ly?.len || null, lyric: lyq?.lyric || null, lyType: lyq?.typeAnswer || null, karaoke: lyq?.karaoke || null, lyReveal: lyq?.reveal || null, lyFixed: lyq?.lyric?.fixed || null, // lyType：カラオケ止めの答え（画面には送らない）／lyReveal：答え合わせで流す所 // introLen：歌詞の一行だけの問題は、その行の長さ
+    song, choices, correctIndex, kind, start, years, introLen: lyq ? (lyq.play ? Math.max(2, lyq.play.until - lyq.play.from) : 0.1) : ly?.len || null, lyCut: !!lyq?.cut, lyric: lyq?.lyric || null, lyType: lyq?.typeAnswer || null, karaoke: lyq?.karaoke || null, lyReveal: lyq?.reveal || null, lyFixed: lyq?.lyric?.fixed || null, // lyType：カラオケ止めの答え（画面には送らない）／lyReveal：答え合わせで流す所 // introLen：歌詞の一行だけの問題は、その行の長さ
     phase: 'loading', t0: 0,
     rush: g.rushPlan?.[g.qi] || null, // 激アツRUSH：この問題の保留の色と当たり
     ready: new Set(),
@@ -3613,7 +3622,7 @@ function resendQuestion(room, socket, token) {
   if (q.phase === 'intro' || q.phase === 'chorus') {
     const offset = ((q.frozen || Date.now()) - q.t0) / 1000; // 答えている間で止めているときは、止めた時点まで
     socket.emit('go', { intro: LYRIC_KINDS.includes(q.kind) || q.kind?.startsWith('ly-') ? q.start : q.song.intro || 0, start: q.start, kind: q.kind, hintAt: q.hintAt || S.hintAt,
-                        total: q.total || questionTotal(S), offset, introLen: S.introLen, plays: q.plays || 1, gap: INTRO_GAP, speed: q.speed || 1, t0: q.frozen ? null : q.t0 });
+                        total: q.total || questionTotal(S), offset, introLen: q.lyCut ? q.introLen / (q.speed || 1) : S.introLen, plays: q.plays || 1, gap: INTRO_GAP, speed: q.speed || 1, t0: q.frozen ? null : q.t0 });
     if (q.phase === 'chorus' && !q.flowOn) socket.emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' });
     if (q.phase === 'chorus' && q.rush?.hit) socket.emit('rushReach', { color: q.rush.color, again: true });
     if (q.flowOn) socket.emit('flowOn', { total: q.total }); // イントロ中に押されて流し続けになっている
@@ -3669,7 +3678,7 @@ function go(room) {
   const plays = introPlaysOf(S, q.kind), hintAt = hintAtOf(S, q.kind);
   q.hintAt = hintAt; q.plays = plays; q.total = q.fill ? fillTotal(q, hintAt) : questionTotal(S, hintAt); // 3つ埋めバトルは曲が終わるまで
   const sabimae = flowing(q.kind);
-  const iLen = q.introLen || S.introLen; // 歌詞の一行だけの問題は、その行の長さ
+  const iLen = (q.introLen || S.introLen) / (q.lyCut ? q.speed || 1 : 1); // 歌詞の一行だけの問題は、その行の長さ。隠した言葉の手前で止める問題は、再生速度のぶんも合わせる
   io.to(room.code).emit('go', { intro: LYRIC_KINDS.includes(q.kind) || q.kind?.startsWith('ly-') ? q.start : q.song.intro || 0, start: q.start, kind: q.kind, hintAt, total: q.total, offset: -LEAD_MS / 1000,
                                 introLen: iLen, plays, gap: INTRO_GAP, speed: q.speed || 1, t0: q.t0 }); // t0：時計合わせ済みの端末は、この時刻ちょうどに流し始める
   const later = (r, fn, ms) => laterAt(r, fn, ms + LEAD_MS);
@@ -3678,7 +3687,7 @@ function go(room) {
     for (let i = 0; i < plays; i++) {
       const at = i * (iLen + INTRO_GAP);
       if (i > 0) later(room, () => { if (q.phase === 'intro' && !q.flowOn) io.to(room.code).emit('restartIntro', { n: i + 1, plays }); }, at * 1000);
-      if (at + iLen < hintAt || q.kind?.startsWith('ly-')) later(room, () => { if (q.phase === 'intro' && !q.flowOn) io.to(room.code).emit('stopIntro'); }, (at + iLen) * 1000); // 歌詞クイズはサビへ移らないので、流す長さで必ず止める
+      if (at + iLen < hintAt || q.kind?.startsWith('ly-')) later(room, () => { if (q.phase === 'intro' && !q.flowOn) io.to(room.code).emit('stopIntro', { cut: !!q.lyCut }); }, (at + iLen) * 1000); // 歌詞クイズはサビへ移らないので、流す長さで必ず止める
     }
   }
   if (q.rush?.omens?.length) { // 激アツRUSH：予兆（全員に同じ時刻で出す。当たりかどうかは伏せたまま）

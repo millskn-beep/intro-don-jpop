@@ -80883,7 +80883,7 @@
     "views": 4306780,
     "channel": "KADOKAWAanime",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "おーばーろーど",
       "OVERLORD"
@@ -125383,6 +125383,166 @@
       "よねくらちひろ",
       "米倉",
       "よねくら"
+    ]
+  },
+  {
+    "id": "01HT3fDubEo",
+    "title": "LOVE☆トロピカ～ナ",
+    "work": "ジャングルはいつもハレのちグゥ",
+    "artist": "Sister MAYO",
+    "year": 2001,
+    "type": "OP",
+    "confidence": "高",
+    "source": "リクエスト（非公式）",
+    "intro": 0,
+    "chorus": 65.5,
+    "aliases": [
+      "らぶとろぴかーな",
+      "LOVEトロピカーナ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 1258047,
+    "channel": "Anime music/アニメ 音楽",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "じゃんぐるはいつもはれのちぐぅ",
+      "はれぐぅ"
+    ],
+    "artistAliases": [
+      "しすたーまよ"
+    ],
+    "chorusSource": "audio"
+  },
+  {
+    "id": "31DrVCK10VE",
+    "title": "正解はひとつ!じゃない!!",
+    "work": "探偵オペラ ミルキィホームズ",
+    "artist": "ミルキィホームズ",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ミルキィホームズのチャンネル（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 70,
+    "aliases": [
+      "せいかいはひとつじゃない"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1061398,
+    "channel": "ミルキィホームズ",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "たんていおぺらみるきぃほーむず",
+      "みるきぃほーむず",
+      "ミルキィ"
+    ],
+    "artistAliases": [
+      "みるきぃほーむず"
+    ]
+  },
+  {
+    "id": "mOzL8Y6x5Y4",
+    "title": "雨上がりのミライ",
+    "work": "探偵オペラ ミルキィホームズ",
+    "artist": "ミルキィホームズ",
+    "year": 2010,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "ミルキィホームズのチャンネル（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 61,
+    "aliases": [
+      "あめあがりのみらい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 190177,
+    "channel": "ミルキィホームズ",
+    "viewsAt": "2026-10-30",
+    "fame": "minor",
+    "workAliases": [
+      "たんていおぺらみるきぃほーむず",
+      "みるきぃほーむず",
+      "ミルキィ"
+    ],
+    "artistAliases": [
+      "みるきぃほーむず"
+    ]
+  },
+  {
+    "id": "ajBoNq7T5G8",
+    "title": "ナゾ!ナゾ? Happiness!!",
+    "work": "探偵オペラ ミルキィホームズ 第2幕",
+    "artist": "ミルキィホームズ",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ミルキィホームズのチャンネル（ユーザー依頼）",
+    "intro": 0.5,
+    "chorus": 75,
+    "aliases": [
+      "なぞなぞはぴねす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 257279,
+    "channel": "ミルキィホームズ",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "たんていおぺらみるきぃほーむず",
+      "みるきぃほーむず",
+      "ミルキィ"
+    ],
+    "artistAliases": [
+      "みるきぃほーむず"
+    ]
+  },
+  {
+    "id": "beCqD5WxIws",
+    "title": "雪、無音、窓辺にて。",
+    "work": "涼宮ハルヒの憂鬱",
+    "artist": "長門有希(茅原実里)",
+    "year": 2006,
+    "type": "キャラソン",
+    "confidence": "高",
+    "source": "Topic（リクエスト）",
+    "intro": 4.7,
+    "chorus": 92,
+    "aliases": [
+      "ゆきむおんまどべにて"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 247272,
+    "channel": "Yuki Nagato (CV: Minori Chihara) - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "すずみやはるひのゆううつ",
+      "ハルヒ"
+    ],
+    "artistAliases": [
+      "ながとゆき",
+      "ちはらみのり"
     ]
   }
 ]

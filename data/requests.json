@@ -1487,6 +1487,43 @@
   "genre": "",
   "note": "",
   "at": "2026-10-30T12:39:27.874Z",
+  "status": "added",
+  "votes": 1,
+  "songId": "01HT3fDubEo",
+  "doneAt": "2026-10-30T12:44:49.377Z"
+ },
+ {
+  "id": "204aeb8b",
+  "title": "雪、無音、窓辺にて。",
+  "work": "涼宮ハルヒの憂鬱",
+  "artist": "",
+  "genre": "",
+  "note": "",
+  "at": "2026-10-30T13:12:32.195Z",
+  "status": "added",
+  "votes": 1,
+  "songId": "beCqD5WxIws",
+  "doneAt": "2026-10-30T13:19:34.156Z"
+ },
+ {
+  "id": "5947ae6d",
+  "title": "未来への咆哮",
+  "work": "マブラヴ オルタネイティヴ",
+  "artist": "JAM Project",
+  "genre": "galge",
+  "note": "",
+  "at": "2026-10-30T13:28:41.009Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "365404c1",
+  "title": "ELECTRICAL COMMUNICATION",
+  "work": "ロックマン8",
+  "artist": "GANASIA",
+  "genre": "game",
+  "note": "OP",
+  "at": "2026-10-30T13:43:56.034Z",
   "status": "open",
   "votes": 1
  }

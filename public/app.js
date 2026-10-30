@@ -1464,8 +1464,8 @@ socket.on('flowOn', ({ total }) => {
 });
 // ゲームの最初の問題：3・2・1・START!
 socket.on('countdown', ({ sec }) => charFx.countdown(sec));
-socket.on('stopIntro', () => {
-  player.stopIntro();
+socket.on('stopIntro', ({ cut } = {}) => {
+  player.stopIntro(cut);
   // 流し直す前の間に「もう一回！」（イントロ→間→「もう一回！」→2回目、の順に見えるように）
   if (introLeft > 0) { introLeft--; cue('もう一回！', 'fx-replay'); stageMascot('again'); charFx.pose('again'); charFx.say('again'); setPhase('intro', 'もう一回！'); }
 });

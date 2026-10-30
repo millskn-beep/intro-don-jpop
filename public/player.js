@@ -1,7 +1,7 @@
 // YouTube プレーヤーの操作（試作ページで確認したフェード・シーク処理をまとめたもの）
 // サーバーからの合図（question / go / stopIntro / hint / reveal）に合わせて呼び出す。
 
-const VOL_DEFAULT = 80, FADE_OUT = 800, FADE_IN = 1000;
+const VOL_DEFAULT = 80, FADE_OUT = 800, FADE_IN = 1000, FADE_CUT = 100;
 const HINT_WAIT = 1500; // イントロ→サビの間の待ち
 const CHORUS_LEAD = 0.3; // サビは少し前から流す（頭が切れないように）
 
@@ -62,8 +62,8 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
       clear();
       run(() => { yt.seekTo(intro, true); yt.unMute(); yt.setVolume(volume); yt.playVideo(); });
     },
-    stopIntro() {
-      run(() => fade(volume, 0, FADE_OUT, () => yt.pauseVideo()));
+    stopIntro(cut = false) { // cut：隠した歌詞が聞こえないよう、すぐ止める
+      run(() => fade(volume, 0, cut ? FADE_CUT : FADE_OUT, () => yt.pauseVideo()));
     },
     // サビへ（ヒント）
     hint(chorus) {

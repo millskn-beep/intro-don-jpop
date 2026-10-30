@@ -76194,7 +76194,7 @@
     "views": 219444,
     "channel": "ClariS Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "はたらくさいぼう",
       "はたらく細胞"
@@ -125543,6 +125543,201 @@
     "artistAliases": [
       "ながとゆき",
       "ちはらみのり"
+    ]
+  },
+  {
+    "id": "HCLQn-OCdEA",
+    "title": "未来への咆哮",
+    "work": "マブラヴ オルタネイティヴ",
+    "artist": "JAM Project",
+    "year": 2006,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "JAM Project公式（リクエスト）",
+    "intro": 0.7,
+    "chorus": 77,
+    "aliases": [
+      "みらいへのほうこう"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 12875154,
+    "channel": "JAM Project Official Channel",
+    "viewsAt": "2026-10-30",
+    "fame": "famous",
+    "workAliases": [
+      "まぶらぶおるたねいてぃぶ",
+      "まぶらぶ"
+    ],
+    "artistAliases": [
+      "ジャムプロジェクト",
+      "ジャムプロ"
+    ]
+  },
+  {
+    "id": "4ir_39SUfRE",
+    "title": "ELECTRICAL COMMUNICATION",
+    "work": "ロックマン8 メタルヒーローズ",
+    "artist": "GANASIA",
+    "year": 1996,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic（リクエスト）",
+    "intro": 2,
+    "chorus": 81,
+    "aliases": [
+      "えれくとりかるこみゅにけーしょん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2018503,
+    "channel": "GANASIA - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "famous",
+    "workAliases": [
+      "ろっくまんえいと",
+      "ろっくまん8"
+    ],
+    "artistAliases": [
+      "がなしあ"
+    ]
+  },
+  {
+    "id": "DFuEVyzwEUE",
+    "title": "GRAVITY 0",
+    "work": "STAR DRIVER 輝きのタクト",
+    "artist": "Aqua Timez",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Aqua Timez公式MV（ユーザー依頼）",
+    "intro": 9.7,
+    "chorus": 97,
+    "aliases": [
+      "ぐらびてぃぜろ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 726853,
+    "channel": "Aqua Timez Official",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "すたーどらいばーかがやきのたくと",
+      "すたーどらいばー",
+      "スタドラ",
+      "かがやきのたくと"
+    ],
+    "artistAliases": [
+      "アクアタイムズ"
+    ]
+  },
+  {
+    "id": "WsN1c9JXrd8",
+    "title": "SHINING☆STAR",
+    "work": "STAR DRIVER 輝きのタクト",
+    "artist": "9nine",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "9nine公式（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 123,
+    "aliases": [
+      "しゃいにんぐすたー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3470300,
+    "channel": "9nine Official YouTube Channel",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "すたーどらいばーかがやきのたくと",
+      "すたーどらいばー",
+      "スタドラ",
+      "かがやきのたくと"
+    ],
+    "artistAliases": [
+      "ないん"
+    ]
+  },
+  {
+    "id": "nx5Kwxb3MiY",
+    "title": "Cross Over",
+    "work": "STAR DRIVER 輝きのタクト",
+    "artist": "9nine",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "高",
+    "source": "9nine公式（ユーザー依頼）",
+    "intro": 2.2,
+    "chorus": 75,
+    "aliases": [
+      "くろすおーばー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2126996,
+    "channel": "9nine Official YouTube Channel",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "すたーどらいばーかがやきのたくと",
+      "すたーどらいばー",
+      "スタドラ",
+      "かがやきのたくと"
+    ],
+    "artistAliases": [
+      "ないん"
+    ]
+  },
+  {
+    "id": "ZCmJ-QT8Sb8",
+    "title": "Pride",
+    "work": "STAR DRIVER 輝きのタクト",
+    "artist": "SCANDAL",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "高",
+    "source": "SCANDAL公式MV（ユーザー依頼）",
+    "intro": 3.2,
+    "chorus": 84,
+    "aliases": [
+      "ぷらいど"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2534141,
+    "channel": "SCANDAL",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "すたーどらいばーかがやきのたくと",
+      "すたーどらいばー",
+      "スタドラ",
+      "かがやきのたくと"
+    ],
+    "artistAliases": [
+      "スキャンダル"
     ]
   }
 ]

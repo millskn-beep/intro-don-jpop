@@ -1513,8 +1513,10 @@
   "genre": "galge",
   "note": "",
   "at": "2026-10-30T13:28:41.009Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "HCLQn-OCdEA",
+  "doneAt": "2026-10-30T13:49:35.138Z"
  },
  {
   "id": "365404c1",
@@ -1524,7 +1526,9 @@
   "genre": "game",
   "note": "OP",
   "at": "2026-10-30T13:43:56.034Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "4ir_39SUfRE",
+  "doneAt": "2026-10-30T13:49:35.279Z"
  }
 ]

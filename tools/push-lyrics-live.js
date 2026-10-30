@@ -28,15 +28,51 @@ function parse(txt) { // [{ t: 秒, text }]（時刻のない .txt は t: null�
   return out.sort((a, b) => (a.t ?? 0) - (b.t ?? 0));
 }
 
+// ローマ字の歌詞：日本語の歌詞のあとにローマ字の書き起こしが付いている曲は、その行を外す。
+// 歌詞がまるごとローマ字（日本語が1行もない）の曲は、歌詞クイズに使わない（問題がローマ字になる）
+const RO_WORD = /^(?:(?:kk|ss|tt|pp|cch|tch)?(?:ky|gy|sh|ch|ts|ny|hy|by|py|my|ry|[kgszjtdnhbpmyrwfv])?[aiueoāīūēō]+n?|n)+$/i;
+const EN_WORD = new Set("a i me my we you your are be to go so no oh yeah here there time one more home take make came come give gave run side summer day days fire love dream baby nice tune game name same face place size wine fine mine shine line wanna gonna say way may hey hi do too true blue sun fun dance away ride rise wake sure we're i'm you're it's don't on in the and or of it is".split(' '));
+const JP_WORD = new Set('no wa ga wo ni de mo to ka yo ne sa kimi boku watashi anata kokoro yume sora hikari ai koi namida naka mae ima kono sono ano dake shite iru nai kara made yori sae'.split(' '));
+const roWords = t => t.toLowerCase().replace(/[^a-zāīūēō' ]/g, ' ').split(/\s+/).filter(Boolean);
+const asciiOnly = t => !/[^\x00-\x7F’'āīūēō]/.test(t);
+function romajiLine(t, loose = false) {
+  if (!asciiOnly(t)) return false;
+  const w = roWords(t), ro = w.filter(x => RO_WORD.test(x.replace(/'/g, '')));
+  if (loose) return w.length > 0 && ro.length / w.length >= 0.6;
+  if (w.length < 3 || ro.length / w.length < 0.85 || w.filter(x => EN_WORD.has(x) && !JP_WORD.has(x)).length > 1) return false;
+  return w.some(x => JP_WORD.has(x)) || w.some(x => x.length >= 6 && RO_WORD.test(x));
+}
+const hasJp = t => /[\u3040-\u30ff\u4e00-\u9fff]/.test(t);
+function dropRomaji(lines) { // → 外したあとの行（使わない曲は null）
+  const strict = lines.map(x => romajiLine(x.text));
+  const n = strict.filter(Boolean).length, jp = lines.filter(x => hasJp(x.text)).length;
+  if (n < 3) return lines;
+  if (jp < 4) return n / lines.length >= 0.3 ? null : lines;
+  // 日本語のない行が続くところ（ひとかたまり）ごとに見て、ローマ字の行が入っているか、半分以上がローマ字らしければ、かたまりごと外す
+  // （日本語の歌詞のあとに付いたローマ字の書き起こし・1行ずつ交互に付いたローマ字の両方）
+  const drop = lines.map(() => false);
+  for (let i = 0; i < lines.length;) {
+    if (!asciiOnly(lines[i].text)) { i++; continue; }
+    let j = i; while (j < lines.length && asciiOnly(lines[j].text)) j++;
+    const run = lines.slice(i, j), hit = strict.slice(i, j).some(Boolean) || run.filter(x => romajiLine(x.text, true)).length / run.length >= 0.5;
+    if (hit) for (let k = i; k < j; k++) drop[k] = true;
+    i = j;
+  }
+  return lines.filter((x, i) => !drop[i]);
+}
+
 (async () => {
-  const all = {}, shifted = { subs: 0, voice: 0 }; let bad = 0;
+  const all = {}, romaji = { lines: 0, songs: 0 }, shifted = { subs: 0, voice: 0 }; let bad = 0;
   for (const s of songs) {
     if (s.retired) continue;
     let f = path.join(DIR, s.id + '.lrc'); if (!fs.existsSync(f)) f = path.join(DIR, s.id + '.txt');
     if (!fs.existsSync(f)) continue;
     const c = check[s.id];
     if (c?.verdict === 'mismatch') { bad++; continue; } // 動画の字幕と中身が違う＝別の曲の歌詞
-    const lines = parse(fs.readFileSync(f, 'utf8')); if (lines.length < 6) continue;
+    const raw = parse(fs.readFileSync(f, 'utf8')), lines = dropRomaji(raw);
+    if (!lines) { romaji.songs++; continue; }
+    romaji.lines += raw.length - lines.length;
+    if (lines.length < 6) continue;
     const yd = scan[s.id]?.dur, ad = apple[s.id]?.dur, lrc = f.endsWith('.lrc');
     // sync：歌詞の時刻が動画と合う（曲を流す問題に使える）。字幕で分かったずれ → 長さが同じ → 歌声で求めたずれ の順
     let off = 0, sync = false;
@@ -47,6 +83,7 @@ function parse(txt) { // [{ t: 秒, text }]（時刻のない .txt は t: null�
     all[s.id] = { lines, sync };
   }
   const ids = Object.keys(all);
+  console.log(`ローマ字の歌詞：${romaji.lines} 行を外し、まるごとローマ字の ${romaji.songs} 曲は使いません`);
   console.log(`歌詞のある曲 ${ids.length} 曲（曲を流す問題に使える ${ids.filter(i => all[i].sync).length} 曲。字幕でずれを直した ${shifted.subs}・歌声でずれを直した ${shifted.voice}・別の曲の歌詞で外した ${bad}）を送ります`);
   // 1回の大きさに上限があるので、小分けにして送る（最初の回で前の分を消す）
   let sent = 0;

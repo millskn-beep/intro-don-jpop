@@ -6826,7 +6826,7 @@
     "views": 3798289,
     "channel": "マーガレット",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "みみをすませば"
     ],
@@ -22771,6 +22771,9 @@
     "workAliases": [
       "ぶりーち",
       "BLEACH"
+    ],
+    "artistAliases": [
+      "いきものがかり"
     ]
   },
   {
@@ -24036,6 +24039,9 @@
     "workAliases": [
       "なると",
       "NARUTO"
+    ],
+    "artistAliases": [
+      "いきものがかり"
     ]
   },
   {
@@ -24164,7 +24170,7 @@
     "views": 4384009,
     "channel": "SID",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "くろしつじ",
       "黒執事"
@@ -27613,6 +27619,9 @@
     "workAliases": [
       "なると",
       "NARUTO"
+    ],
+    "artistAliases": [
+      "いきものがかり"
     ]
   },
   {
@@ -30634,7 +30643,10 @@
     "views": 35818776,
     "channel": "いきものがかり Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "famous"
+    "fame": "famous",
+    "artistAliases": [
+      "いきものがかり"
+    ]
   },
   {
     "id": "e6edTTwERyE",
@@ -50923,6 +50935,9 @@
     "workAliases": [
       "ななつのたいざい",
       "七つの大罪"
+    ],
+    "artistAliases": [
+      "いきものがかり"
     ]
   },
   {
@@ -52128,7 +52143,7 @@
     "views": 119046,
     "channel": "Rhodanthe* - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "minor"
   },
   {
     "id": "I9HeEdGb4-Q",
@@ -54398,7 +54413,7 @@
     "views": 1172447,
     "channel": "【フジテレビ】アニメ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "あんさつきょうしつ",
       "暗殺教室"
@@ -59230,6 +59245,9 @@
       "ぼると",
       "NARUTO",
       "ナルト"
+    ],
+    "artistAliases": [
+      "いきものがかり"
     ]
   },
   {
@@ -67236,7 +67254,7 @@
     "views": 4362526,
     "channel": "Lantis Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぶんごうすとれいどっぐす",
       "文スト",
@@ -69979,7 +69997,9 @@
       "こはらこのみ",
       "小原",
       "こはら"
-    ]
+    ],
+    "retired": true,
+    "retiredNote": "重複しているのとプレミアムオンリーの動画"
   },
   {
     "id": "i-DZukWFR64",
@@ -76587,7 +76607,7 @@
     "views": 1570097,
     "channel": "Grass Wonder (CV: Rena Maeda) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "うまむすめ",
       "うまむすめぷりてぃーだーびーしーずん2",
@@ -82437,7 +82457,7 @@
     "views": 5014131,
     "channel": "MAPPA CHANNEL",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ちぇんそーまん",
       "Chainsaw Man"
@@ -82977,16 +82997,16 @@
     ]
   },
   {
-    "id": "M_CYMdG4owA",
+    "id": "1hW__h-C_jI",
     "title": "回夏",
     "work": "サマータイムレンダ",
     "artist": "cadode",
     "year": 2022,
     "type": "ED",
     "confidence": "中",
-    "source": "プレイリスト",
+    "source": "ジャンプチャンネル公式（ノンクレジットED）",
     "intro": 0,
-    "chorus": 0,
+    "chorus": 61,
     "aliases": [
       "かいか"
     ],
@@ -82997,8 +83017,14 @@
     "artistAliases": [
       "かどーで"
     ],
-    "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 397478,
+    "channel": "SHONEN JUMP CHANNEL OFFICIAL",
+    "viewsAt": "2026-10-30"
   },
   {
     "id": "nRKJBpFFsuI",
@@ -90415,7 +90441,7 @@
     "views": 29182461,
     "channel": "ONE PIECE Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "top",
     "workAliases": [
       "わんぴーす",
       "ONE PIECE",
@@ -92726,7 +92752,7 @@
     "views": 52629453,
     "channel": "Sony Music Japan",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "top",
     "workAliases": [
       "きめつのやいば",
       "鬼滅",
@@ -96770,6 +96796,9 @@
     "workAliases": [
       "きんぐだむ",
       "きんぐだむだい6しりーず"
+    ],
+    "artistAliases": [
+      "いきものがかり"
     ]
   },
   {
@@ -97158,7 +97187,7 @@
     "views": 428166,
     "channel": "TMSアニメ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "workAliases": [
       "さかもとでいず"
     ],
@@ -99466,7 +99495,7 @@
     "views": 4375590,
     "channel": "ヨルシカ / n-buna Official",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "僕の心のヤバイやつ",
       "ぼくのこころのやばいやつ",
@@ -124173,5 +124202,895 @@
     "channel": "eyelis - Topic",
     "viewsAt": "2026-10-28",
     "fame": "minor"
+  },
+  {
+    "id": "rveMDp1hnAE",
+    "title": "Hesitation Snow",
+    "work": "はつゆきさくら",
+    "artist": "fripSide",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "fripSide公式",
+    "intro": 0,
+    "chorus": 40,
+    "aliases": [
+      "へじてーしょんすのー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 958129,
+    "channel": "fripSide OfficiAL YouTube Channnel",
+    "viewsAt": "2026-10-29",
+    "fame": "otaku",
+    "artistAliases": [
+      "フリップサイド"
+    ],
+    "workAliases": [
+      "初雪桜",
+      "はつゆき"
+    ]
+  },
+  {
+    "id": "6D7v0Tcx9_4",
+    "title": "Presto",
+    "work": "はつゆきさくら",
+    "artist": "KOTOKO",
+    "year": 2012,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "ユーザー依頼（非公式）",
+    "intro": 0.5,
+    "chorus": 88,
+    "aliases": [
+      "ぷれすと"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 367212,
+    "channel": "LEAKりーく",
+    "viewsAt": "2026-10-29",
+    "fame": "otaku",
+    "artistAliases": [
+      "コトコ"
+    ],
+    "workAliases": [
+      "初雪桜",
+      "はつゆき"
+    ]
+  },
+  {
+    "id": "EX5SZXZqklY",
+    "title": "GHOST×GRADUATION",
+    "work": "はつゆきさくら",
+    "artist": "monet",
+    "year": 2012,
+    "type": "ED",
+    "confidence": "高",
+    "source": "ユーザー依頼（非公式・台詞なし）",
+    "intro": 0.2,
+    "chorus": 84.6,
+    "aliases": [
+      "ごーすとぐらじゅえーしょん",
+      "GHOST GRADUATION"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 93428,
+    "channel": "soratan64",
+    "viewsAt": "2026-10-29",
+    "fame": "otaku",
+    "chorusSource": "audio",
+    "workAliases": [
+      "初雪桜",
+      "はつゆき"
+    ],
+    "artistAliases": [
+      "もね"
+    ]
+  },
+  {
+    "id": "qUukr60P-x8",
+    "title": "Asphodelus",
+    "work": "穢翼のユースティア",
+    "artist": "Ceui",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Ceui - Topic（リクエスト）",
+    "intro": 0,
+    "chorus": 76,
+    "aliases": [
+      "あすふぉでるす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 300341,
+    "channel": "Ceui - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "otaku",
+    "workAliases": [
+      "あいよくのゆーすてぃあ"
+    ],
+    "artistAliases": [
+      "せうい"
+    ]
+  },
+  {
+    "id": "AK4G3M3ZgPw",
+    "title": "Happy! Lucky! Dochy!",
+    "work": "ひぐらしのなく頃に煌",
+    "artist": "古手梨花(田村ゆかり)＆北条沙都子(かないみか)＆羽入(堀江由衣)",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "リクエスト（非公式）",
+    "intro": 2.5,
+    "chorus": 72.1,
+    "aliases": [
+      "はっぴーらっきーどちー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 1324198,
+    "channel": "AiraKuezaki",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ひぐらしのなくころにきら"
+    ],
+    "chorusSource": "audio"
+  },
+  {
+    "id": "yA7BzjINVlI",
+    "title": "ホシトハナ",
+    "work": "結城友奈は勇者である",
+    "artist": "讃州中学勇者部",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic（リクエスト）",
+    "intro": 0.2,
+    "chorus": 55,
+    "aliases": [
+      "ほしとはな"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1318044,
+    "channel": "Sanshu Middle School Hero Club - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ゆうきゆうなはゆうしゃである",
+      "ゆゆゆ"
+    ],
+    "artistAliases": [
+      "さんしゅうちゅうがくゆうしゃぶ"
+    ]
+  },
+  {
+    "id": "DhFE9-uHczA",
+    "title": "雫",
+    "work": "獣の奏者エリン",
+    "artist": "スキマスイッチ",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "高",
+    "source": "スキマスイッチ公式（リクエスト）",
+    "intro": 0.2,
+    "chorus": 87,
+    "aliases": [
+      "しずく"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1657216,
+    "channel": "スキマスイッチ / SUKIMASWITCH",
+    "viewsAt": "2026-10-30",
+    "fame": "famous",
+    "workAliases": [
+      "けものそうじゃえりん",
+      "けもののそうじゃえりん"
+    ],
+    "artistAliases": [
+      "スキマ"
+    ]
+  },
+  {
+    "id": "H2YgA0yqdb4",
+    "title": "Now or Never",
+    "work": "ファイ・ブレイン 神のパズル",
+    "artist": "ナノ",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ナノ公式MV（リクエスト）",
+    "intro": 0,
+    "chorus": 55,
+    "aliases": [
+      "なうおあねばー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3924817,
+    "channel": "ナノ / NANO",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ふぁいぶれいんかみのぱずる",
+      "ふぁいぶれいん"
+    ],
+    "artistAliases": [
+      "なの"
+    ]
+  },
+  {
+    "id": "k3Wxg8j9j7A",
+    "title": "ルパン三世のテーマ",
+    "work": "ルパン三世",
+    "artist": "大野雄二",
+    "year": 1978,
+    "type": "OP",
+    "confidence": "高",
+    "source": "大野雄二公式（リクエスト）",
+    "intro": 0.2,
+    "chorus": 47,
+    "aliases": [
+      "るぱんさんせいのてーま"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2717866,
+    "channel": "大野雄二 / YUJI OHNO",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "るぱんさんせい"
+    ],
+    "artistAliases": [
+      "おおのゆうじ"
+    ]
+  },
+  {
+    "id": "sO4DEqVzlD4",
+    "title": "Knew day",
+    "work": "灰と幻想のグリムガル",
+    "artist": "(K)NoW_NAME",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic（リクエスト）",
+    "intro": 2,
+    "chorus": 56,
+    "aliases": [
+      "にゅーでい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2914549,
+    "channel": "(K)NoW_NAME - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "famous",
+    "workAliases": [
+      "はいとげんそうのぐりむがる",
+      "ぐりむがる"
+    ],
+    "artistAliases": [
+      "ノウネーム"
+    ]
+  },
+  {
+    "id": "MKR7IDC2mu0",
+    "title": "流星ミラクル",
+    "work": "天保異聞 妖奇士",
+    "artist": "いきものがかり",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "高",
+    "source": "いきものがかり公式MV（リクエスト）",
+    "intro": 0.5,
+    "chorus": 65,
+    "aliases": [
+      "りゅうせいみらくる"
+    ],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 791561,
+    "channel": "いきものがかり Official YouTube Channel",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "introMeasured": true,
+    "introMethod": "v2",
+    "workAliases": [
+      "てんぽういぶんあやかしあやし",
+      "あやかしあやし"
+    ],
+    "artistAliases": [
+      "いきものがかり"
+    ]
+  },
+  {
+    "id": "QtVFfGkiFIk",
+    "title": "桃色ファンタジー",
+    "work": "モモキュンソード",
+    "artist": "千菅春香",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic（リクエスト）",
+    "intro": 0.2,
+    "chorus": 65,
+    "aliases": [
+      "ももいろふぁんたじー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 88849,
+    "channel": "Haruka Chisuga - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "minor",
+    "workAliases": [
+      "ももきゅんそーど"
+    ],
+    "artistAliases": [
+      "ちすがはるか"
+    ]
+  },
+  {
+    "id": "ctV3yVczbck",
+    "title": "シャンランラン",
+    "work": "ふらいんぐうぃっち",
+    "artist": "miwa feat.96猫",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "高",
+    "source": "リクエスト（非公式）",
+    "intro": 0.5,
+    "chorus": 71.2,
+    "aliases": [
+      "しゃんらんらん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 351740,
+    "channel": "Pheres",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "workAliases": [
+      "ふらいんぐうぃっち"
+    ]
+  },
+  {
+    "id": "qOTYspCTdm4",
+    "title": "19才",
+    "work": "xxxHOLiC",
+    "artist": "スガシカオ",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "高",
+    "source": "スガシカオ公式（まわり）",
+    "intro": 0,
+    "chorus": 68.1,
+    "aliases": [
+      "じゅうきゅうさい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 891665,
+    "channel": "スガ シカオ",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ほりっく"
+    ],
+    "artistAliases": [
+      "すがしかお"
+    ]
+  },
+  {
+    "id": "VVkOcvokfBY",
+    "title": "NOBODY KNOWS",
+    "work": "xxxHOLiC◆継",
+    "artist": "スガシカオ",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "高",
+    "source": "OfficeAugusta公式（まわり）",
+    "intro": 3.5,
+    "chorus": 84,
+    "aliases": [
+      "のーばでぃのうず"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2015029,
+    "channel": "OfficeAugusta",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ほりっくけい",
+      "ほりっく"
+    ],
+    "artistAliases": [
+      "すがしかお"
+    ]
+  },
+  {
+    "id": "O6C1qhddpRA",
+    "title": "Adayume",
+    "work": "xxxHOLiC 籠 あだゆめ",
+    "artist": "スガシカオ",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "スガシカオのチャンネル（まわり）",
+    "intro": 0,
+    "chorus": 70,
+    "aliases": [
+      "あだゆめ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 255107,
+    "channel": "スガ シカオ",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ほりっくろうあだゆめ",
+      "ほりっく"
+    ],
+    "artistAliases": [
+      "すがしかお"
+    ]
+  },
+  {
+    "id": "4Hgs3f5p--4",
+    "title": "蜉蝣-かげろう-",
+    "work": "xxxHOLiC",
+    "artist": "BUCK-TICK",
+    "year": 2006,
+    "type": "ED",
+    "confidence": "高",
+    "source": "BUCK-TICKのチャンネル（まわり）",
+    "intro": 0.2,
+    "chorus": 75.1,
+    "aliases": [
+      "かげろう"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 138549,
+    "channel": "BUCK-TICK",
+    "viewsAt": "2026-10-30",
+    "fame": "minor",
+    "workAliases": [
+      "ほりっく"
+    ],
+    "artistAliases": [
+      "ばくちく"
+    ]
+  },
+  {
+    "id": "knoT3YfWkOo",
+    "title": "サナギ",
+    "work": "劇場版 xxxHOLiC 真夏ノ夜ノ夢",
+    "artist": "スガシカオ",
+    "year": 2005,
+    "type": "映画主題歌",
+    "confidence": "高",
+    "source": "スガシカオのチャンネル（まわり）",
+    "intro": 0.2,
+    "chorus": 66,
+    "aliases": [
+      "さなぎ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 103327,
+    "channel": "スガ シカオ",
+    "viewsAt": "2026-10-30",
+    "fame": "minor",
+    "workAliases": [
+      "ほりっく"
+    ],
+    "artistAliases": [
+      "すがしかお"
+    ]
+  },
+  {
+    "id": "YWNWZ1m1PEo",
+    "title": "Reason",
+    "work": "xxxHOLiC",
+    "artist": "Fonogenico",
+    "year": 2006,
+    "type": "ED",
+    "confidence": "高",
+    "source": "歌手のチャンネル Official PV（まわり）",
+    "intro": 17,
+    "chorus": 87.4,
+    "aliases": [
+      "りーずん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 69899,
+    "channel": "Naoko Takayama (カルネイロ)",
+    "viewsAt": "2026-10-30",
+    "fame": "minor",
+    "chorusSource": "audio",
+    "workAliases": [
+      "ほりっく"
+    ],
+    "artistAliases": [
+      "ふぉのじぇにこ"
+    ]
+  },
+  {
+    "id": "TnhKDc0c5YE",
+    "title": "ごめんね",
+    "work": "xxxHOLiC 籠 あだゆめ",
+    "artist": "Tiara",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "高",
+    "source": "非公式（まわり）",
+    "intro": 10.7,
+    "chorus": 75.3,
+    "aliases": [
+      "ごめんね"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 659232,
+    "channel": "Yuuki Toori",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "workAliases": [
+      "ほりっくろうあだゆめ",
+      "ほりっく"
+    ],
+    "artistAliases": [
+      "てぃあら"
+    ]
+  },
+  {
+    "id": "yXW-AdFNACM",
+    "title": "Honey Honey",
+    "work": "xxxHOLiC◆継",
+    "artist": "SEAMO feat. AYUSE KOZUE",
+    "year": 2008,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic（まわり）",
+    "intro": 11.2,
+    "chorus": 127,
+    "aliases": [
+      "はにーはにー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 162319,
+    "channel": "Seamo - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ほりっくけい",
+      "ほりっく"
+    ]
+  },
+  {
+    "id": "9A2uEc68AHY",
+    "title": "Fast Forward",
+    "work": "ぬらりひょんの孫",
+    "artist": "MONKEY MAJIK",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "MONKEY MAJIK公式（まわり）",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [
+      "ふぁすとふぉわーど"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2275469,
+    "channel": "MONKEY MAJIK OFFICIAL CHANNEL",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ぬらりひょんのまご",
+      "ぬらまご",
+      "ぬら孫"
+    ],
+    "artistAliases": [
+      "もんきーまじっく"
+    ]
+  },
+  {
+    "id": "9HJibe31iJQ",
+    "title": "Sunshine",
+    "work": "ぬらりひょんの孫",
+    "artist": "MONKEY MAJIK",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "MONKEY MAJIK公式（まわり）",
+    "intro": 0.5,
+    "chorus": 69,
+    "aliases": [
+      "さんしゃいん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2553417,
+    "channel": "MONKEY MAJIK OFFICIAL CHANNEL",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ぬらりひょんのまご",
+      "ぬらまご",
+      "ぬら孫"
+    ],
+    "artistAliases": [
+      "もんきーまじっく"
+    ]
+  },
+  {
+    "id": "d3rF-Xe6p7o",
+    "title": "Sparky☆Start",
+    "work": "ぬらりひょんの孫",
+    "artist": "片手☆SIZE",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic（まわり）",
+    "intro": 0,
+    "chorus": 39,
+    "aliases": [
+      "すぱーきーすたーと"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 259818,
+    "channel": "片手☆SIZE - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ぬらりひょんのまご",
+      "ぬらまご",
+      "ぬら孫"
+    ],
+    "artistAliases": [
+      "かたてさいず"
+    ]
+  },
+  {
+    "id": "VvAfbOBJSk0",
+    "title": "Symphonic☆Dream",
+    "work": "ぬらりひょんの孫",
+    "artist": "片手☆SIZE",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic（まわり）",
+    "intro": 14.7,
+    "chorus": 57,
+    "aliases": [
+      "しんふぉにっくどりーむ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 121745,
+    "channel": "片手☆SIZE - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ぬらりひょんのまご",
+      "ぬらまご",
+      "ぬら孫"
+    ],
+    "artistAliases": [
+      "かたてさいず"
+    ]
+  },
+  {
+    "id": "hr2YCW1PLkM",
+    "title": "星の在処。-ホシノアリカ-",
+    "work": "ぬらりひょんの孫 千年魔京",
+    "artist": "LM.C",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "LM.C公式MV（まわり）",
+    "intro": 0.7,
+    "chorus": 63,
+    "aliases": [
+      "ほしのありか"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 257590,
+    "channel": "LM.C Official",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ぬらりひょんのまごせんねんまきょう",
+      "ぬらりひょんのまご",
+      "ぬらまご"
+    ],
+    "artistAliases": [
+      "エルエムシー"
+    ]
+  },
+  {
+    "id": "-kFCzmuYYr4",
+    "title": "The LOVE SONG",
+    "work": "ぬらりひょんの孫 千年魔京",
+    "artist": "LM.C",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "LM.C公式 TVサイズ（フルは埋め込み不可）（まわり）",
+    "intro": 0.5,
+    "chorus": 52.3,
+    "aliases": [
+      "ざらぶそんぐ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 24027,
+    "channel": "LM.C Official",
+    "viewsAt": "2026-10-30",
+    "fame": "minor",
+    "chorusSource": "audio",
+    "workAliases": [
+      "ぬらりひょんのまごせんねんまきょう",
+      "ぬらりひょんのまご",
+      "ぬらまご"
+    ],
+    "artistAliases": [
+      "エルエムシー"
+    ]
+  },
+  {
+    "id": "54HPhcrRtuA",
+    "title": "Orange Smile",
+    "work": "ぬらりひょんの孫 千年魔京",
+    "artist": "片手☆SIZE",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic（まわり）",
+    "intro": 4.2,
+    "chorus": 83,
+    "aliases": [
+      "おれんじすまいる"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 230508,
+    "channel": "片手☆SIZE - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "normal",
+    "workAliases": [
+      "ぬらりひょんのまごせんねんまきょう",
+      "ぬらりひょんのまご",
+      "ぬらまご"
+    ],
+    "artistAliases": [
+      "かたてさいず"
+    ]
+  },
+  {
+    "id": "rHKUi59hNyg",
+    "title": "Departure",
+    "work": "ぬらりひょんの孫 千年魔京",
+    "artist": "片手☆SIZE",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic（まわり）",
+    "intro": 12.7,
+    "chorus": 50,
+    "aliases": [
+      "でぱーちゃー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 486715,
+    "channel": "片手☆SIZE - Topic",
+    "viewsAt": "2026-10-30",
+    "fame": "famous",
+    "workAliases": [
+      "ぬらりひょんのまごせんねんまきょう",
+      "ぬらりひょんのまご",
+      "ぬらまご"
+    ],
+    "artistAliases": [
+      "かたてさいず"
+    ]
   }
 ]

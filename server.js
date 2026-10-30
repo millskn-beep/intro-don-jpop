@@ -199,7 +199,15 @@ function buildSeries() {
   for (const g of groups.values()) for (const id of g.ids) SERIES_OF.set(id, g.name);
   SERIES_LIST = [...groups.values()].filter(g => g.ids.length >= MIN_SERIES_SONGS)
     .map(g => ({ name: g.name, count: g.ids.length })).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ja'));
+  WW_NAMES = [...new Set(SONGS.filter(wwWorkOk).map(wwWorkName))].filter(Boolean).sort((a, b) => a.localeCompare(b, 'ja'));
 }
+// アニソンベット（ウソの作品名）：作品名はシリーズの名前だけ（2期・3作目などの番号や（アレンジ）は付けない）
+var WW_NAMES = [];
+function wwWorkName(s) {
+  const name = String(SERIES_OF.get(s.id) || '').replace(/[（(].*$/, '').trim();
+  return name === 'サンダー3' ? name : name.replace(/(?<![\d./A-Za-z])\s*([2-9]|II|III|IV|[ⅡⅢⅣ])$/, ''); // 作品の名前の一部の数字（No.6・らんま1/2・モブサイコ100）は残す
+}
+function wwWorkOk(s) { return !s.retired && s.type !== 'ボカロ' && !/^(ボカロ|J-?POP)/i.test(String(s.work)); }
 loadSongs();
 
 const app = express();
@@ -553,6 +561,7 @@ function categories() {
   CATS = { works: sort(works), artists: sort(artists), authors: sort(authors.keys()), authorWork: authors };
   return CATS;
 }
+app.get('/api/ww-names', (req, res) => res.json(WW_NAMES));
 app.get('/api/categories', (req, res) => { const c = categories(); res.json({ works: c.works, artists: c.artists, authors: c.authors }); });
 app.get('/api/song-info', (req, res) => res.json({ 'song-info': INFO_FIXES }));
 app.post('/api/song-info', (req, res) => {
@@ -925,6 +934,8 @@ const OPTIONS = {
   rushRate: ['normal', 'high', 'low'],     // アニソン激アツRUSH：当たりやすさ（ふつう／出やすい×1.5／出にくい×0.6）
   bingoEnd: ['p1', 'p2', 'p3', 'l2', 'l3', 'all'], // ビンゴの終わり：p〇＝〇人がBINGO／l〇＝だれかが〇ビンゴ／all＝問題数まで
   lives: [1, 2, 3],                       // サバイバルのライフ
+  wwKind: ['year', 'fake', 'mix'], // アニソンベット：お題（年／ウソの作品名／まぜる）
+  wwHint: ['title', 'intro', 'titleartist'], // ウソの作品名：作品を選ぶときに出すもの
   teams: [false, true],                   // チーム戦（赤・青の2チーム。合計点で競う）
   leadSec: [3, 5, 10],                   // サビ前：サビの何秒前から流すか
   autoNext: [8, 12, 0],                  // 答え合わせから自動で次へ進むまでの秒数（0 は自動で進まない）
@@ -939,7 +950,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   tsKind: 'both', tsAns: 'choice', lyFocus: 'chorus', lessPlayed: false, play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, lyKind: 'mix', noCoupling: false };
+                   tsKind: 'both', tsAns: 'choice', lyFocus: 'chorus', lessPlayed: false, play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, wwKind: 'year', wwHint: 'title', lyKind: 'mix', noCoupling: false };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -981,7 +992,7 @@ function sanitizeSettings(input, base) {
   if (s.yearFrom > s.yearTo) [s.yearFrom, s.yearTo] = [s.yearTo, s.yearFrom];
   // できない組み合わせ：年代当て＋早押し、サバイバル＋チーム戦
   if (s.target === 'year' && s.play === 'buzzer') s.play = 'normal';
-  if (['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'sugoroku', 'genre', 'genreex', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
+  if (['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'sugoroku', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
   return s;
 }
 
@@ -1113,7 +1124,7 @@ function publicRoom(room) {
     coop: room.game?.coop || null,
     genreZone: isGz(room.settings.play) && room.game?.gz && room.state === 'playing'
       ? { cats: room.game.gz.cats.map(c => ({ key: c.key, label: c.label, icon: c.icon })), ex: room.settings.play === 'genreex', cur: room.game.gz.cur, gain: room.game.gz.gain || null, at: room.game.gz.at ?? -1, pick: room.game.gz.pick ? { id: room.game.gz.pick.id, name: room.game.gz.pick.name, until: room.game.gz.pick.until } : null,
-          players: [...room.players.values()].map(p => ({ id: p.id, name: p.name, pieces: [...(room.game.gz.pieces.get(p.id) || [])] })) } : null,
+          team: !!room.settings.teams, players: room.settings.teams ? TEAMS.map(t => ({ id: t, name: GZ_TEAM[t], pieces: [...(room.game.gz.pieces.get(t) || [])] })) : [...room.players.values()].map(p => ({ id: p.id, name: p.name, pieces: [...(room.game.gz.pieces.get(p.id) || [])] })) } : null,
     deckGame: room.settings.play === 'deck' && room.game && room.state === 'playing' ? { qNo: Math.max(0, room.game.qi + 1), qTotal: room.game.order.length, shopsDone: room.game.dkShopN || 0, shopsTotal: dkShopTotal(room.game), nextShopIn: Math.min(DK_EVERY - ((room.game.qi + 1) % DK_EVERY || DK_EVERY) + 0, room.game.order.length - (room.game.qi + 1)) } : null,
     sugoroku: room.settings.play === 'sugoroku' && room.game?.sg && room.state === 'playing'
       ? { board: room.game.sg.board, goal: SG_GOAL, last: room.game.sg.last, moves: room.game.sg.moves || [], at: room.game.sg.at ?? -1, pos: [...room.players.values()].map(p => ({ id: p.id, name: p.name, pos: room.game.sg.pos.get(p.id) || 0, rest: room.game.sg.rest.has(p.id), dbl: room.game.sg.dbl.has(p.id) })) } : null,
@@ -1899,6 +1910,9 @@ const GZ_CATS = [
   { key: 'game', label: 'ゲーム・スポーツ', icon: '🎮', g: ['game', 'galge', 'sports'] },
 ];
 const isGz = p => p === 'genre' || p === 'genreex';
+const GZ_TEAM = { red: '赤チーム', blue: '青チーム' };
+// ピースの持ち主：チーム戦ならチーム（チームで共有）
+const gzOwner = (room, id) => { const p = [...room.players.values()].find(x => x.id === id); return p && room.settings.teams && p.team ? p.team : id; };
 // ジャンル制覇EXで選べる「集める種類」のカタログ：ジャンル（約20）・年代・曲の種類・知名度。test(曲) で、その種類の曲かどうか
 const GZ_ICONS = { jump: '🔥', game: '🎮', galge: '💘', ghibli: '🌳', theater: '🎬', movie: '🎞️', sports: '⚽', isekai: '🗡️', romcom: '💕', nichijou: '☕', idol: '🎤', robot: '🤖', sf: '🚀', kids: '🧸', action: '💥', horror: '👻', mahou: '🪄', drama: '🎭', vocaloid: '🎹', jpop: '🎵', pachislot: '🎰' };
 let GZ_CATALOG = null, GZ_CATALOG_N = -1;
@@ -1948,7 +1962,7 @@ function gzPrepare(room) { // 次の問題の曲を、選ばれたジャンル�
 function gzAnnounceRandom(room) { const gz = room.game.gz, c = gzCatOf(gz, gz.cur); if (c) io.to(room.code).emit('gzChosen', { name: '', random: true, key: c.key, label: c.label, icon: c.icon }); }
 function gzRandomNext(room) {
   const gz = room.game.gz, ids = [...room.players.values()].filter(p => p.connected !== false).map(p => p.id);
-  const lack = gz.cats.filter(c => ids.some(id => !(gz.pieces.get(id) || new Set()).has(c.key)));
+  const lack = gz.cats.filter(c => ids.some(id => !(gz.pieces.get(gzOwner(room, id)) || new Set()).has(c.key)));
   const list = lack.length ? lack : gz.cats;
   return list[crypto.randomInt(list.length)];
 }
@@ -1958,12 +1972,13 @@ function gzReveal(room, q, results) {
   gz.gain = null; gz.at = g.qi;
   if (!win) { gz.cur = gzRandomNext(room).key; gzAnnounceRandom(room); out.push(`だれも正解しなかったので、次のジャンルはランダム：${gzCatOf(gz, gz.cur).icon}${gzCatOf(gz, gz.cur).label}`); return out; }
   const p = [...room.players.values()].find(x => x.id === win.id);
-  if (!gz.pieces.has(win.id)) gz.pieces.set(win.id, new Set());
-  const mine = gz.pieces.get(win.id);
-  gz.gain = { id: win.id, key: cat.key, dup: mine.has(cat.key), n: mine.has(cat.key) ? mine.size : mine.size + 1 }; gz.at = g.qi; // 画面のハイライト用
-  if (mine.has(cat.key)) { if (p) p.score += GZ_DUP; out.push(`${cat.icon} ${win.name} もう持っているジャンル → +${GZ_DUP}点`); }
-  else { mine.add(cat.key); out.push(`${cat.icon} ${win.name} が「${cat.label}」のピースを手に入れた！（${mine.size}/${gz.cats.length}）`); }
-  if (mine.size >= gz.cats.length) { g.gzDone = true; if (p) p.score += GZ_WIN; out.push(`👑 ${win.name} ${gz.cats.length}種類 制覇！ +${GZ_WIN}点`); return out; }
+  const owner = gzOwner(room, win.id), who = GZ_TEAM[owner] ? `${win.name}（${GZ_TEAM[owner]}）` : win.name;
+  if (!gz.pieces.has(owner)) gz.pieces.set(owner, new Set());
+  const mine = gz.pieces.get(owner);
+  gz.gain = { id: owner, key: cat.key, dup: mine.has(cat.key), n: mine.has(cat.key) ? mine.size : mine.size + 1 }; gz.at = g.qi; // 画面のハイライト用
+  if (mine.has(cat.key)) { if (p) p.score += GZ_DUP; out.push(`${cat.icon} ${who} もう持っているジャンル → +${GZ_DUP}点`); }
+  else { mine.add(cat.key); out.push(`${cat.icon} ${who} が「${cat.label}」のピースを手に入れた！（${mine.size}/${gz.cats.length}）`); }
+  if (mine.size >= gz.cats.length) { g.gzDone = true; if (p) p.score += GZ_WIN; out.push(`👑 ${who} ${gz.cats.length}種類 制覇！ +${GZ_WIN}点`); return out; }
   // 全種類をそろえる人が出るまで終わらない（問題数の上限はない。ただし、止まらなくならないよう GZ_HARD_MAX 問まで）
   if (g.qi + 1 >= GZ_HARD_MAX) return out;
   if (room.settings.gzPick === 'random') { gz.cur = gzRandomNext(room).key; gzAnnounceRandom(room); const c2 = gzCatOf(gz, gz.cur); out.push(`次のジャンルはランダム：${c2.icon}${c2.label}`); return out; } // ランダム制
@@ -1974,7 +1989,7 @@ function gzReveal(room, q, results) {
 function gzChoose(room, key) {
   const g = room.game, gz = g?.gz, pk = gz?.pick; if (!pk) return;
   let cat = gzCatOf(gz, key);
-  if (!cat) { const mine = gz.pieces.get(pk.id) || new Set(), lack = gz.cats.filter(c => !mine.has(c.key)); cat = (lack.length ? lack : gz.cats)[crypto.randomInt((lack.length ? lack : gz.cats).length)]; }
+  if (!cat) { const mine = gz.pieces.get(gzOwner(room, pk.id)) || new Set(), lack = gz.cats.filter(c => !mine.has(c.key)); cat = (lack.length ? lack : gz.cats)[crypto.randomInt((lack.length ? lack : gz.cats).length)]; }
   gz.cur = cat.key; gz.pick = null;
   io.to(room.code).emit('gzChosen', { name: pk.name, key: cat.key, label: cat.label, icon: cat.icon });
   broadcastRoom(room);
@@ -2457,11 +2472,27 @@ function kmFinish(room, home) {
 }
 
 // ── アニソン年当てベット（ウィッツ＆ウェイジャーズ風）：発売年を予想 → 並んだ予想のどれがいちばん近いかに賭ける（docs/wits-spec.md）──
-const WW = { guess: 35, bet: 30, listen: 25, base: 100, extras: [0, 200, 500], own: 300, exact: 600, minYear: 1960 };
-function startWitsRound(room, song) {
-  const g = room.game, ps = connectedPlayers(room);
+const WW = { fakeSec: 45, fakeOdds: 3, fakeMin: 4, guess: 35, bet: 30, listen: 25, base: 100, extras: [0, 200, 500], own: 300, exact: 600, minYear: 1960 };
+// ウソの作品名に使える曲：作品名がシリーズの名前で出せる曲。曲名を出すときは、曲名と作品名がほぼ同じ曲を外す
+function wwFakeOk(s, hint) {
+  if (!wwWorkOk(s) || !wwWorkName(s)) return false;
+  if (hint === 'intro') return true;
+  const a = seriesKey(s.title), b = seriesKey(wwWorkName(s));
+  return !a.includes(b) && !b.includes(a);
+}
+function wwKindFor(room, song) { // この問題のお題と曲。ウソの作品名は、使えない曲なら別の曲に替える（まぜるなら年にする）
+  const g = room.game, S = room.settings, kind = S.wwKind === 'mix' ? (crypto.randomInt(2) ? 'fake' : 'year') : S.wwKind || 'year';
+  if (kind !== 'fake' || wwFakeOk(song, S.wwHint)) return { kind, song };
+  if (S.wwKind === 'mix') return { kind: 'year', song };
+  const used = new Set(g.order.map(s => s.id)), list = g.pool.filter(s => !used.has(s.id) && wwFakeOk(s, S.wwHint));
+  if (!list.length) return { kind: 'year', song };
+  g.order[g.qi] = list[crypto.randomInt(list.length)];
+  return { kind, song: g.order[g.qi] };
+}
+function startWitsRound(room, song0) {
+  const g = room.game, ps = connectedPlayers(room), { kind, song } = wwKindFor(room, song0);
   g.q = { phase: 'wits', song, participants: new Set(ps.map(p => p.token)), answers: new Map(), ready: new Set(), clues: [], lifelineResults: new Map(),
-          ww: { step: null, until: 0, guesses: new Map(), bets: new Map(), slots: null, result: null } };
+          ww: { kind, hint: room.settings.wwHint || 'title', real: kind === 'fake' ? wwWorkName(song) : null, step: null, until: 0, guesses: new Map(), bets: new Map(), slots: null, result: null } };
   io.to(room.code).emit('wolfSong', { videoId: song.id, start: song.intro || 0, sec: WW.listen });
   wwStep(room, 'guess');
 }
@@ -2472,13 +2503,28 @@ function wwSlots(room) { // 予想を年の順に並べ、左端に「全員よ�
   for (const [t, y] of w.guesses) slots.find(s => s.year === y).owners.push(t);
   return slots;
 }
+function wwFakeSlots(room) { // 本物・みんなの作品に、前後の年の実在の作品をまぜて、最低 WW.fakeMin 枠にする（並びはランダム）
+  const q = room.game.q, w = q.ww, slots = [{ name: w.real, odds: WW.fakeOdds, owners: [], real: true }];
+  for (const [t, name] of w.guesses) { let sl = slots.find(x => x.name === name); if (!sl) slots.push(sl = { name, odds: WW.fakeOdds, owners: [] }); sl.owners.push(t); }
+  const near = s => Math.abs((s.year || 0) - q.song.year) <= NEAR_YEARS, seen = new Set(slots.map(x => seriesKey(x.name)));
+  for (const s of [...shuffle(SONGS.filter(s => wwWorkOk(s) && near(s))), ...shuffle(SONGS.filter(wwWorkOk))]) {
+    if (slots.length >= WW.fakeMin) break;
+    const name = wwWorkName(s), k = seriesKey(name);
+    if (!name || seen.has(k)) continue;
+    seen.add(k); slots.push({ name, odds: WW.fakeOdds, owners: [] });
+  }
+  return shuffle(slots);
+}
 function wwPublic(room) {
   const q = room.game?.q, w = q?.ww; if (!w) return null;
   const idOf = t => room.players.get(t)?.id, nameOf = t => room.players.get(t)?.name || '';
   const done = w.step === 'guess' ? [...w.guesses.keys()].map(idOf) : w.step === 'bet' ? [...w.bets.keys()].map(idOf) : [];
-  const out = { step: w.step, until: w.until, round: room.game.qi + 1, total: room.game.order.length, done, extras: WW.extras, minYear: WW.minYear, maxYear: new Date().getFullYear(),
+  const out = { kind: w.kind, step: w.step, until: w.until, round: room.game.qi + 1, total: room.game.order.length, done, extras: WW.extras, minYear: WW.minYear, maxYear: new Date().getFullYear(),
                 players: [...q.participants].map(t => { const p = room.players.get(t); return { id: p?.id, name: p?.name, score: p?.score || 0 }; }) };
-  if (w.slots) out.slots = w.slots.map(s => ({ year: s.year, odds: s.odds, owners: s.owners.map(nameOf) }));
+  if (w.kind === 'fake') { // だれのウソか・どれが本物かは、結果まで出さない
+    out.title = w.hint !== 'intro' ? q.song.title : ''; out.artist = w.hint === 'titleartist' ? q.song.artist : '';
+    if (w.slots) out.slots = w.slots.map(s => ({ name: s.name, odds: s.odds, owners: w.step === 'result' ? s.owners.map(nameOf) : [] }));
+  } else if (w.slots) out.slots = w.slots.map(s => ({ year: s.year, odds: s.odds, owners: s.owners.map(nameOf) }));
   if (w.step === 'result') out.result = w.result;
   return out;
 }
@@ -2486,21 +2532,23 @@ const wwEmit = room => io.to(room.code).emit('wwPhase', wwPublic(room));
 function wwStep(room, step) {
   const w = room.game.q.ww;
   clearTimers(room);
-  w.step = step; w.until = Date.now() + (WW[step] || 0) * 1000;
-  if (step === 'guess') later(room, () => wwToBet(room), WW.guess * 1000);
+  const guessSec = w.kind === 'fake' ? WW.fakeSec : WW.guess;
+  w.step = step; w.until = Date.now() + (step === 'guess' ? guessSec : WW[step] || 0) * 1000;
+  if (step === 'guess') later(room, () => wwToBet(room), guessSec * 1000);
   if (step === 'bet') later(room, () => wwFinish(room), WW.bet * 1000);
   wwEmit(room); broadcastRoom(room);
 }
 function wwToBet(room) {
   const w = room.game.q.ww;
   if (w.step !== 'guess') return;
-  w.slots = wwSlots(room);
+  w.slots = w.kind === 'fake' ? wwFakeSlots(room) : wwSlots(room);
   wwStep(room, 'bet');
 }
 function wwFinish(room) {
   const g = room.game, q = g.q, w = q.ww, s = q.song;
   if (w.step !== 'bet') return;
   clearTimers(room);
+  if (w.kind === 'fake') return wwFinishFake(room);
   // 当たり：正解の年にいちばん近い予想（超えていてもよい。同じ近さなら古いほう）。正解が全員の予想より古ければ「全員より古い」
   let win = 0, best = Infinity;
   if (w.slots.some(sl => sl.year != null && sl.year <= s.year)) w.slots.forEach((sl, i) => { if (sl.year != null && Math.abs(sl.year - s.year) < best) { best = Math.abs(sl.year - s.year); win = i; } });
@@ -2524,6 +2572,32 @@ function wwFinish(room) {
   wwEmit(room); broadcastRoom(room);
   const sec = Math.max(12, room.settings.autoNext || 0);
   if (room.settings.autoNext > 0) { q.revealAt = Date.now(); scheduleNext(room, q, Date.now() + sec * 1000); }
+}
+
+function wwFinishFake(room) { // ウソの作品名：本物に賭ければ当たり。ウソに賭けたマーカー1個につき、そのウソを出した人に点が入る
+  const q = room.game.q, w = q.ww, s = q.song, win = w.slots.findIndex(x => x.real);
+  const gain = new Map([...q.participants].map(t => [t, 0])), lines = new Map();
+  const add = (t, v, text) => { gain.set(t, (gain.get(t) || 0) + v); (lines.get(t) || lines.set(t, []).get(t)).push(text); };
+  for (const [t, ms] of w.bets) for (const m of ms) {
+    if (m.slot === win) add(t, (WW.base + m.extra) * w.slots[win].odds, `本物に賭けて +${(WW.base + m.extra) * w.slots[win].odds}`);
+    else {
+      if (m.extra) add(t, -m.extra, `外れ −${m.extra}`);
+      for (const o of w.slots[m.slot].owners) add(o, WW.own, `だました +${WW.own}`);
+    }
+  }
+  for (const t of q.participants) {
+    const p = room.players.get(t); if (!p) continue;
+    const before = p.score || 0, pts = gain.get(t) || 0; p.score = Math.max(0, before + pts);
+    q.answers.set(t, { correct: pts > 0, points: p.score - before, elapsed: null, pass: false });
+  }
+  const idOf = t => room.players.get(t)?.id;
+  w.result = { year: s.year, win, real: w.real, song: { title: s.title, work: s.work, artist: s.artist, year: s.year, id: s.id },
+               rows: [...q.participants].map(t => ({ id: idOf(t), name: room.players.get(t)?.name || '', guess: w.guesses.get(t) ?? null, bets: (w.bets.get(t) || []).map(m => ({ slot: m.slot, extra: m.extra })), points: q.answers.get(t)?.points || 0, lines: lines.get(t) || [] })) };
+  w.step = 'result'; w.until = 0;
+  q.phase = 'reveal';
+  recordPlayed(room, s);
+  wwEmit(room); broadcastRoom(room);
+  if (room.settings.autoNext > 0) { q.revealAt = Date.now(); scheduleNext(room, q, Date.now() + Math.max(12, room.settings.autoNext) * 1000); }
 }
 
 // ── アニソン大富豪：発売年が新しい曲ほど強い。手札の年は見えない。場より新しい曲を出す（docs/daifugo-spec.md）──
@@ -4547,7 +4621,7 @@ function endGame(room) {
     ranking.sort((a, b) => b.karuta - a.karuta || b.score - a.score);
   }
   if (isGz(room.settings.play) && room.game.gz) { // ジャンル制覇：ピースの多い順（同じなら得点）
-    for (const r of ranking) r.gzPieces = room.game.gz.pieces.get(r.id)?.size || 0;
+    for (const r of ranking) r.gzPieces = room.game.gz.pieces.get(gzOwner(room, r.id))?.size || 0;
     ranking.sort((a, b) => b.gzPieces - a.gzPieces || b.score - a.score);
   }
   if (room.settings.play === 'sugoroku' && room.game.sg) { // すごろく：進んだマスの多い順（同じなら得点）
@@ -4564,6 +4638,9 @@ function endGame(room) {
   }
   if (teams && room.settings.play === 'karuta') { // かるた：チームの取った札の合計
     teams = teams.map(x => ({ ...x, score: [...room.players.values()].filter(p => p.team === x.team).reduce((s, p) => s + (p.karutaCards || 0), 0), unit: '枚' })).sort((a, b) => b.score - a.score);
+  }
+  if (teams && isGz(room.settings.play) && room.game.gz) { // ジャンル制覇：チームのそろえた種類の数
+    teams = teams.map(x => ({ ...x, score: room.game.gz.pieces.get(x.team)?.size || 0, unit: '種類' })).sort((a, b) => b.score - a.score);
   }
   const coop = room.game.coop ? { ...room.game.coop, done: room.game.coop.count >= room.game.coop.goal } : null;
   const titles = titlesOf(room, ranking, showdown);
@@ -4854,15 +4931,21 @@ io.on('connection', socket => {
   // ── アニソン年当てベット ──
   const wwQ = () => { const q = room?.game?.q; return q?.ww && player && q.participants.has(player.token) ? q : null; };
   socket.on('wwGuess', y => {
-    const q = wwQ(); if (!q || q.ww.step !== 'guess') return;
+    const q = wwQ(); if (!q || q.ww.step !== 'guess' || q.ww.kind === 'fake') return;
     const year = Math.floor(+y); if (!(year >= WW.minYear && year <= new Date().getFullYear())) return;
     q.ww.guesses.set(player.token, year);
+    if ([...q.participants].every(t => q.ww.guesses.has(t) || !room.players.get(t)?.connected)) wwToBet(room); else wwEmit(room);
+  });
+  socket.on('wwFake', name => { // ウソの作品名：一覧の作品から選ぶ。本物を選んだら、別の作品を選び直してもらう
+    const q = wwQ(); if (!q || q.ww.step !== 'guess' || q.ww.kind !== 'fake' || !WW_NAMES.includes(name)) return;
+    if (seriesKey(name) === seriesKey(q.ww.real)) return socket.emit('wwReject', 'それは本物の作品です。別の作品を選び直してください');
+    q.ww.guesses.set(player.token, name);
     if ([...q.participants].every(t => q.ww.guesses.has(t) || !room.players.get(t)?.connected)) wwToBet(room); else wwEmit(room);
   });
   socket.on('wwBet', ms => {
     const q = wwQ(); if (!q || q.ww.step !== 'bet' || !Array.isArray(ms)) return;
     const n = q.ww.slots.length;
-    const list = ms.slice(0, 2).filter(m => m && Number.isInteger(m.slot) && m.slot >= 0 && m.slot < n).map(m => ({ slot: m.slot, extra: WW.extras.includes(+m.extra) ? +m.extra : 0 }));
+    const list = ms.slice(0, 2).filter(m => m && Number.isInteger(m.slot) && m.slot >= 0 && m.slot < n && !(q.ww.kind === 'fake' && q.ww.slots[m.slot].owners.includes(player.token))).map(m => ({ slot: m.slot, extra: WW.extras.includes(+m.extra) ? +m.extra : 0 }));
     const extraSum = list.reduce((a, m) => a + m.extra, 0); if (extraSum > (player.score || 0)) list.forEach(m => { m.extra = 0; }); // 持っている点より多くは上乗せできない
     q.ww.bets.set(player.token, list);
     if ([...q.participants].every(t => q.ww.bets.has(t) || !room.players.get(t)?.connected)) wwFinish(room); else wwEmit(room);

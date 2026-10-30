@@ -1171,6 +1171,10 @@ body.rush-machine .stage-tools { overflow: visible; }
 .ww-slot small { color: #ffd36b; font-weight: 800; }
 .ww-slot span { font-size: 11px; color: var(--sub); overflow: hidden; }
 .ww-slot i { font-style: normal; color: #ff6b8a; font-size: 18px; }
+.ww-clue { margin: 0; text-align: center; } .ww-clue b { font-size: clamp(15px, 3.4dvh, 22px); } .ww-clue small { display: block; color: var(--sub); }
+.ww-sugg { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; min-height: 34px; } .ww-sugg .btn-sub { width: auto; margin: 0; padding: 5px 10px; font-size: 13px; } .ww-sugg .btn-sub.on { border-color: #ff6b8a; color: #ff6b8a; } .ww-sugg small { color: var(--sub); align-self: center; }
+.ww-slots.ww-fake { grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.ww-fake .ww-slot { min-height: 0; padding: clamp(3px, 1dvh, 8px) 18px; } .ww-fake .ww-slot span:empty { display: none; } .ww-fake .ww-slot i { position: absolute; right: 4px; top: 2px; font-size: 13px; } .ww-fake .ww-slot b, .ww-fake .ww-slot:first-child b { font-family: inherit; font-size: clamp(12px, 2.4dvh, 15px); overflow-wrap: anywhere; }
 .ww-slot.on { border-color: #ff6b8a; } .ww-slot.win { border-color: #8dffc8; background: rgba(141, 255, 200, .15); }
 .ww-slot:disabled { cursor: default; opacity: 1; }
 .ww-marks { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: 13px; } .ww-mark select { padding: 2px 6px; }

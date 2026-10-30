@@ -11907,5 +11907,209 @@
    "intro": 0,
    "chorus": 62.5
   }
+ },
+ {
+  "id": "84vuHfttrQI",
+  "title": "Just Fly Away",
+  "work": "六門天外モンコレナイト",
+  "channel": "KING RECORDS",
+  "at": "2026-10-30T14:44:33.516Z",
+  "before": {
+   "intro": 2,
+   "chorus": 58.4,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 3,
+   "chorus": 58.4
+  }
+ },
+ {
+  "id": "ZCmJ-QT8Sb8",
+  "title": "Pride",
+  "work": "STAR DRIVER 輝きのタクト",
+  "channel": "SCANDAL",
+  "at": "2026-10-30T14:45:23.273Z",
+  "before": {
+   "intro": 3.2,
+   "chorus": 84,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 3.2,
+   "chorus": 56.2
+  }
+ },
+ {
+  "id": "WsN1c9JXrd8",
+  "title": "SHINING☆STAR",
+  "work": "STAR DRIVER 輝きのタクト",
+  "channel": "9nine Official YouTube Channel",
+  "at": "2026-10-30T14:45:49.005Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 123,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 121
+  }
+ },
+ {
+  "id": "HCLQn-OCdEA",
+  "title": "未来への咆哮",
+  "work": "マブラヴ オルタネイティヴ",
+  "channel": "JAM Project Official Channel",
+  "at": "2026-10-30T14:46:45.781Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 77,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 76
+  }
+ },
+ {
+  "id": "beCqD5WxIws",
+  "title": "雪、無音、窓辺にて。",
+  "work": "涼宮ハルヒの憂鬱",
+  "channel": "Yuki Nagato (CV: Minori Chihara) - Topic",
+  "at": "2026-10-30T14:47:21.162Z",
+  "before": {
+   "intro": 4.7,
+   "chorus": 92,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 70.6
+  }
+ },
+ {
+  "id": "31DrVCK10VE",
+  "title": "正解はひとつ!じゃない!!",
+  "work": "探偵オペラ ミルキィホームズ",
+  "channel": "ミルキィホームズ",
+  "at": "2026-10-30T14:47:51.512Z",
+  "before": {
+   "intro": 0,
+   "chorus": 70,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 59.3
+  }
+ },
+ {
+  "id": "01HT3fDubEo",
+  "title": "LOVE☆トロピカ～ナ",
+  "work": "ジャングルはいつもハレのちグゥ",
+  "channel": "Anime music/アニメ 音楽",
+  "at": "2026-10-30T14:48:10.296Z",
+  "before": {
+   "intro": 0,
+   "chorus": 65.5,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 57.5
+  }
+ },
+ {
+  "id": "AK4G3M3ZgPw",
+  "title": "Happy! Lucky! Dochy!",
+  "work": "ひぐらしのなく頃に煌",
+  "channel": "AiraKuezaki",
+  "at": "2026-10-30T14:49:21.144Z",
+  "before": {
+   "intro": 2.5,
+   "chorus": 72.1,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 2.5,
+   "chorus": 51.7
+  }
+ },
+ {
+  "id": "Leo3g_PAMCc",
+  "title": "君がいない未来",
+  "work": "犬夜叉 完結編",
+  "channel": "avex",
+  "at": "2026-10-30T14:49:25.086Z",
+  "before": {
+   "intro": 1.2,
+   "chorus": 69,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 15.2,
+   "chorus": 69
+  }
+ },
+ {
+  "id": "RVxPNDFFc74",
+  "title": "ANGELUS-アンジェラス-",
+  "work": "犬夜叉",
+  "channel": "avex",
+  "at": "2026-10-30T14:49:38.257Z",
+  "before": {
+   "intro": 6.7,
+   "chorus": 78,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 6.7,
+   "chorus": 77
+  }
+ },
+ {
+  "id": "ziZzVDP5Ezc",
+  "title": "talking",
+  "work": "すべてがFになる",
+  "channel": "KANA-BOON Official YouTube Channel",
+  "at": "2026-10-30T14:50:22.271Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 111,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 72.5
+  }
+ },
+ {
+  "id": "XGCurOIuSBU",
+  "title": "一斉の声",
+  "work": "夏目友人帳",
+  "channel": "喜多修平 Official Channel",
+  "at": "2026-10-30T14:50:08.811Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 53,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 51
+  }
  }
 ]

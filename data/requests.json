@@ -1530,5 +1530,49 @@
   "votes": 1,
   "songId": "4ir_39SUfRE",
   "doneAt": "2026-10-30T13:49:35.279Z"
+ },
+ {
+  "id": "3bdfeeae",
+  "title": "colorless wind",
+  "work": "sola",
+  "artist": "結城アイラ",
+  "genre": "",
+  "note": "アニメOP 2007年",
+  "at": "2026-10-31T10:41:10.148Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "59d2c940",
+  "title": "LAMENT～やがて喜びを～",
+  "work": "伝説の勇者の伝説",
+  "artist": "結城アイラ",
+  "genre": "",
+  "note": "アニメOP(1~12話)　2010年",
+  "at": "2026-10-31T10:48:53.911Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "9b2da622",
+  "title": "Last Inferno",
+  "work": "伝説の勇者の伝説",
+  "artist": "Ceui",
+  "genre": "",
+  "note": "アニメOP(13~24話)　2010年",
+  "at": "2026-10-31T10:51:20.506Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "07008441",
+  "title": "裸の勇者",
+  "work": "王様ランキング",
+  "artist": "vaundy",
+  "genre": "isekai",
+  "note": "",
+  "at": "2026-10-31T14:57:26.371Z",
+  "status": "open",
+  "votes": 1
  }
 ]

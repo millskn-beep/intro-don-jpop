@@ -1745,12 +1745,13 @@ socket.on('wwPhase', d => { if (!d) return hideWw(); const k = d.round + ':' + d
 socket.on('wwReject', msg => { wwFakePick = ''; wwFakeQ = ''; toast(msg); renderWw.sig = null; renderWw(); });
 // ウソの作品名：作品の一覧（シリーズの名前）から検索して選ぶ
 let wwNames = null, wwFakePick = '', wwFakeQ = '', wwFakeRound = -1;
-const wwNorm = t => String(t).normalize('NFKC').toLowerCase().replace(/[\s\p{P}\p{S}]/gu, '').replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
+const wwNorm = t => String(t).normalize('NFKC').toLowerCase().replace(/[\s\p{P}\p{S}]/gu, '').replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/ゔ[ぁぃぇぉ]?/g, c => ({ 'ゔぁ': 'ば', 'ゔぃ': 'び', 'ゔぇ': 'べ', 'ゔぉ': 'ぼ' })[c] || 'ぶ');
 function wwSuggest() {
   const box = $('wwSugg'); if (!box) return;
   const q = wwNorm($('wwFakeInput')?.value || '');
-  const list = !q || !wwNames ? [] : wwNames.filter(n => wwNorm(n).includes(q)).slice(0, 8);
-  box.innerHTML = list.map(n => `<button type="button" class="btn-sub" data-name="${esc(n)}">${esc(n)}</button>`).join('') || (q ? '<small>見つかりません</small>' : '<small>作品名を入れて、一覧から選びます</small>');
+  const hit = ([n, rs]) => [n, ...rs].map(wwNorm); // 作品名と読みがな（先頭が合うものを先に）
+  const list = !q || !wwNames ? [] : [...wwNames.filter(x => hit(x).some(k => k.startsWith(q))), ...wwNames.filter(x => hit(x).some(k => k.includes(q)) && !hit(x).some(k => k.startsWith(q)))].slice(0, 8).map(x => x[0]);
+  box.innerHTML = list.map(n => `<button type="button" class="btn-sub" data-name="${esc(n)}">${esc(n)}</button>`).join('') || (q ? '<small>見つかりません</small>' : '<small>作品名やひらがなを入れて、一覧から選びます</small>');
   box.querySelectorAll('[data-name]').forEach(b => b.onclick = () => { $('wwFakeInput').value = wwFakeQ = b.dataset.name; const ok = $('wwFakeBtn'); ok.disabled = false; ok.dataset.name = b.dataset.name; box.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); });
 }
 const wwRollKey = d => `${d.round}:${d.result?.year}:${d.result?.song?.title}`;
@@ -1770,7 +1771,7 @@ function renderWw() {
   if (d.kind === 'fake' && d.step === 'guess') {
     const clue = d.title ? `<p class="ww-clue">曲名：<b>${esc(d.title)}</b>${d.artist ? `<small>${esc(d.artist)}</small>` : ''}</p>` : '';
     body = `<p class="wf-msg">この曲の作品だと<b>思わせる、別の作品</b>を選びましょう（本物は選べません）</p>${clue}
-      <form class="wf-say" id="wwFakeForm"><input id="wwFakeInput" maxlength="40" placeholder="作品名で検索" autocomplete="off"${mine ? ' disabled' : ''}><button class="btn-main" id="wwFakeBtn" type="submit" disabled>${mine ? '出しました' : '出す'}</button></form>
+      <form class="wf-say" id="wwFakeForm"><input id="wwFakeInput" maxlength="40" placeholder="作品名で検索（ひらがなでも）" autocomplete="off"${mine ? ' disabled' : ''}><button class="btn-main" id="wwFakeBtn" type="submit" disabled>${mine ? '出しました' : '出す'}</button></form>
       <div class="ww-sugg" id="wwSugg"${mine ? ' hidden' : ''}></div>`;
   } else if (d.step === 'guess') {
     body = `<p class="wf-msg">イントロを聴いて、この曲の<b>発売年</b>を予想しましょう</p>

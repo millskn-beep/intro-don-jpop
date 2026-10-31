@@ -174,6 +174,7 @@ function seriesName(work) {
   }
   return w.split(/\s|〜|～| -/)[0].trim();
 }
+const NOT_SERIES_PARENT = new Set(['ワールド', 'シャングリ・ラ'].map(seriesKey)); // 名前の頭が同じだけの別の作品（ワールドトリガー・シャングリラ・フロンティア）をまとめない
 function buildSeries() {
   const groups = new Map(); // key -> { name, ids }
   for (const s of SONGS) {
@@ -187,7 +188,7 @@ function buildSeries() {
   // 長い名前のシリーズを、それで始まる短い名前のシリーズにまとめる
   const keys = [...groups.keys()].sort((a, b) => a.length - b.length);
   for (const k of keys) {
-    const parent = keys.find(p => p !== k && p.length >= 3 && k.startsWith(p) && groups.has(p));
+    const parent = keys.find(p => p !== k && p.length >= 3 && k.startsWith(p) && groups.has(p) && !NOT_SERIES_PARENT.has(p));
     if (parent && groups.has(k)) { groups.get(parent).ids.push(...groups.get(k).ids); groups.delete(k); }
   }
   // 「マクロス7」「マクロスF」などをまとめたときは、末尾の番号を落とした名前で表示する
@@ -200,14 +201,18 @@ function buildSeries() {
   SERIES_LIST = [...groups.values()].filter(g => g.ids.length >= MIN_SERIES_SONGS)
     .map(g => ({ name: g.name, count: g.ids.length })).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ja'));
   WW_NAMES = [...new Set(SONGS.filter(wwWorkOk).map(wwWorkName))].filter(Boolean).sort((a, b) => a.localeCompare(b, 'ja'));
+  WW_READ = new Map(WW_NAMES.map(n => [n, new Set()]));
+  for (const s of SONGS) if (wwWorkOk(s)) for (const a of s.workAliases || []) WW_READ.get(wwWorkName(s))?.add(a);
 }
 // アニソンベット（ウソの作品名）：作品名はシリーズの名前だけ（2期・3作目などの番号や（アレンジ）は付けない）
-var WW_NAMES = [];
+var WW_NAMES = [], WW_READ = new Map(); // WW_READ：作品の読みがな・略称（ひらがなで探す）
 function wwWorkName(s) {
+  if (/^D\.C\./.test(s.work)) return 'D.C.〜ダ・カーポ〜';
+  if (s.work === 'ワールド イズ ダンシング') return s.work;
   const name = String(SERIES_OF.get(s.id) || '').replace(/[（(].*$/, '').trim();
   return name === 'サンダー3' ? name : name.replace(/(?<![\d./A-Za-z])\s*([2-9]|II|III|IV|[ⅡⅢⅣ])$/, ''); // 作品の名前の一部の数字（No.6・らんま1/2・モブサイコ100）は残す
 }
-function wwWorkOk(s) { return !s.retired && s.type !== 'ボカロ' && !/^(ボカロ|J-?POP)/i.test(String(s.work)); }
+function wwWorkOk(s) { return !s.retired && s.type !== 'ボカロ' && !/^(ボカロ|J-?POP|その他)/i.test(String(s.work)); }
 loadSongs();
 
 const app = express();
@@ -561,7 +566,7 @@ function categories() {
   CATS = { works: sort(works), artists: sort(artists), authors: sort(authors.keys()), authorWork: authors };
   return CATS;
 }
-app.get('/api/ww-names', (req, res) => res.json(WW_NAMES));
+app.get('/api/ww-names', (req, res) => res.json(WW_NAMES.map(n => [n, [...(WW_READ.get(n) || [])]])));
 app.get('/api/categories', (req, res) => { const c = categories(); res.json({ works: c.works, artists: c.artists, authors: c.authors }); });
 app.get('/api/song-info', (req, res) => res.json({ 'song-info': INFO_FIXES }));
 app.post('/api/song-info', (req, res) => {

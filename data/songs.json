@@ -7752,7 +7752,7 @@
     "views": 4289124,
     "channel": "Yumi Matsuzawa Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "きどうせんかんなでしこ",
       "ナデシコ"
@@ -27001,6 +27001,10 @@
     "chorusSource": "audio",
     "artistAliases": [
       "ロングショットパーティー"
+    ],
+    "workAliases": [
+      "ぞくなつめゆうじんちょう",
+      "なつめゆうじんちょう"
     ]
   },
   {
@@ -100951,7 +100955,6 @@
     "intro": 2.5,
     "chorus": 115,
     "aliases": [
-      "うみものがたり",
       "ごーごーしーすとーりー"
     ],
     "embeddable": null,
@@ -100962,7 +100965,10 @@
     "views": 83316,
     "channel": "SANYO MUSIC - Topic",
     "viewsAt": "2026-10-13",
-    "fame": "otaku"
+    "fame": "otaku",
+    "workAliases": [
+      "うみものがたり"
+    ]
   },
   {
     "id": "m3VV0bahY08",
@@ -111557,7 +111563,11 @@
     "views": 2919239,
     "channel": "Masayoshi Minoshima / ALSTROEMERIA RECORDS",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "Nt7_FIB8rIA",
@@ -111580,7 +111590,11 @@
     "views": 2967803,
     "channel": "beatMARIO / COOL&CREATE",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "OhYxV0CL3r0",
@@ -111603,7 +111617,11 @@
     "views": 5679769,
     "channel": "beatMARIO / COOL&CREATE",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "6DBLeD9OU9Y",
@@ -113299,7 +113317,11 @@
     "views": 4283076,
     "channel": "beatMARIO / COOL&CREATE",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "BZzlb6jnEDE",
@@ -113328,7 +113350,11 @@
     "views": 673240,
     "channel": "beatMARIO / COOL&CREATE",
     "viewsAt": "2026-10-16",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "JDpkvycpqaQ",
@@ -113351,7 +113377,11 @@
     "views": 5961745,
     "channel": "beatMARIO / COOL&CREATE",
     "viewsAt": "2026-10-16",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "ziGLZkisja4",
@@ -121224,7 +121254,10 @@
     "views": 5893945,
     "channel": "乃紫(noa)",
     "viewsAt": "2026-10-19",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "せいはんたいなきみとぼく"
+    ]
   },
   {
     "id": "UFw27xYEvbY",
@@ -121246,7 +121279,10 @@
     "views": 486002,
     "channel": "7co ",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "せいはんたいなきみとぼく"
+    ]
   },
   {
     "id": "yeVq367DvIg",
@@ -121270,7 +121306,10 @@
     "viewsAt": "2026-10-19",
     "fame": "normal",
     "retired": true,
-    "retiredNote": ""
+    "retiredNote": "",
+    "workAliases": [
+      "せいはんたいなきみとぼく"
+    ]
   },
   {
     "id": "iWeRglrNu6E",
@@ -121373,7 +121412,10 @@
     "views": 858415,
     "channel": "FlyingDog",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "らーめんだいすきこいずみさん"
+    ]
   },
   {
     "id": "B6lQMyMw9kw",
@@ -121431,6 +121473,9 @@
       "OxT",
       "オクト",
       "オーイシ×トム"
+    ],
+    "workAliases": [
+      "ただくんはこいをしない"
     ]
   },
   {
@@ -121481,7 +121526,10 @@
     "views": 1075361,
     "channel": "AliA OFFICIAL",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "けいけんずみなきみとけいけんぜろなおれがおつきあいするはなし"
+    ]
   },
   {
     "id": "O3ZYjfMqAsc",
@@ -121507,6 +121555,9 @@
     "artistAliases": [
       "きたにたつや",
       "キタニ"
+    ],
+    "workAliases": [
+      "せんたいだいしっかく"
     ]
   },
   {
@@ -121533,6 +121584,9 @@
     "artistAliases": [
       "すいようびのカンパネラ",
       "すいカン"
+    ],
+    "workAliases": [
+      "らーめんあかねこ"
     ]
   },
   {
@@ -121555,7 +121609,11 @@
     "views": 2994328,
     "channel": "Meychan official Channel",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "にてんごじげんのゆうわく",
+      "にごりり"
+    ]
   },
   {
     "id": "q2uxFkb7znE",
@@ -121577,7 +121635,10 @@
     "views": 2181851,
     "channel": "くじらofficial",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "せんぱいはおとこのこ"
+    ]
   },
   {
     "id": "LItcuyLdnsk",
@@ -121599,7 +121660,10 @@
     "views": 516834,
     "channel": "くじらofficial",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "せんぱいはおとこのこ"
+    ]
   },
   {
     "id": "F0CLM5wbkqw",
@@ -121643,7 +121707,11 @@
     "views": 949861,
     "channel": "310_ｻﾄｳ",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "ぎるどのうけつけじょうですが",
+      "ぎるじょ"
+    ]
   },
   {
     "id": "Z2icQoPrX9M",
@@ -121669,6 +121737,10 @@
     "artistAliases": [
       "ななをあかり",
       "ナナヲ"
+    ],
+    "workAliases": [
+      "ぎるどのうけつけじょうですが",
+      "ぎるじょ"
     ]
   },
   {
@@ -121691,7 +121763,10 @@
     "views": 466083,
     "channel": "asmi Official Channel",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "ひびはすぎれどめしうまし"
+    ]
   },
   {
     "id": "Bl5CW_aV9PI",
@@ -121748,6 +121823,10 @@
     "artistAliases": [
       "ななをあかり",
       "ナナヲ"
+    ],
+    "workAliases": [
+      "わたしがこいびとになれるわけないじゃんむりむり",
+      "わたなれ"
     ]
   },
   {
@@ -121773,6 +121852,10 @@
     "fame": "normal",
     "artistAliases": [
       "フィロのス"
+    ],
+    "workAliases": [
+      "わたしがこいびとになれるわけないじゃんむりむり",
+      "わたなれ"
     ]
   },
   {
@@ -121795,7 +121878,10 @@
     "views": 826285,
     "channel": "MAISONdes -メゾン・デ- / 日曜日のメゾンデ",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "みかどのさんしまいはあんがいちょろい"
+    ]
   },
   {
     "id": "e9RVh2bXA8M",
@@ -121821,6 +121907,9 @@
     "artistAliases": [
       "きたにたつや",
       "キタニ"
+    ],
+    "workAliases": [
+      "へいおんせだいのいだてんたち"
     ]
   },
   {
@@ -121847,6 +121936,9 @@
     "artistAliases": [
       "きたにたつや",
       "キタニ"
+    ],
+    "workAliases": [
+      "かおるはなはりんとさく"
     ]
   },
   {
@@ -121872,6 +121964,9 @@
     "fame": "normal",
     "artistAliases": [
       "アンジェラ"
+    ],
+    "workAliases": [
+      "さいじょのおせわ"
     ]
   },
   {
@@ -121894,7 +121989,10 @@
     "views": 199590,
     "channel": "えむにみに",
     "viewsAt": "2026-10-19",
-    "fame": "minor"
+    "fame": "minor",
+    "workAliases": [
+      "てつなべのじゃん"
+    ]
   },
   {
     "id": "WwI7hPXZC-Y",
@@ -121969,6 +122067,9 @@
     "artistAliases": [
       "バンプオブチキン",
       "バンプ"
+    ],
+    "workAliases": [
+      "おもいおもわれふりふられ"
     ]
   },
   {
@@ -121991,7 +122092,10 @@
     "views": 2762240,
     "channel": "FlyingDog",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "らーめんだいすきこいずみさん"
+    ]
   },
   {
     "id": "sAM2J99KQKs",
@@ -122122,6 +122226,9 @@
     "artistAliases": [
       "きたにたつや",
       "キタニ"
+    ],
+    "workAliases": [
+      "にっぽんさんごく"
     ]
   },
   {
@@ -122144,7 +122251,11 @@
     "views": 15167531,
     "channel": "Amano Ririsa (CV:Maeda Kaori) - Topic",
     "viewsAt": "2026-10-19",
-    "fame": "top"
+    "fame": "top",
+    "workAliases": [
+      "にてんごじげんのゆうわく",
+      "にごりり"
+    ]
   },
   {
     "id": "L-MVk5I6wjo",
@@ -122170,6 +122281,9 @@
     "artistAliases": [
       "ななをあかり",
       "ナナヲ"
+    ],
+    "workAliases": [
+      "りけいがこいにおちたのでしょうめいしてみた"
     ]
   },
   {
@@ -122196,6 +122310,9 @@
     "artistAliases": [
       "ななをあかり",
       "ナナヲ"
+    ],
+    "workAliases": [
+      "えどまええるふ"
     ]
   },
   {
@@ -122224,6 +122341,9 @@
     "artistAliases": [
       "ななをあかり",
       "ナナヲ"
+    ],
+    "workAliases": [
+      "へいおんせだいのいだてんたち"
     ]
   },
   {
@@ -122248,7 +122368,10 @@
     "viewsAt": "2026-10-19",
     "fame": "normal",
     "retired": true,
-    "retiredNote": "マイナーすぎる（蜻蛉"
+    "retiredNote": "マイナーすぎる（蜻蛉",
+    "workAliases": [
+      "かおるはなはりんとさく"
+    ]
   },
   {
     "id": "NFMmSOWPj_k",
@@ -122298,7 +122421,10 @@
     "views": 3949526,
     "channel": "原因は自分にある。Official",
     "viewsAt": "2026-10-19",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "てつなべのじゃん"
+    ]
   },
   {
     "id": "QbNwgXAXq9M",
@@ -122341,7 +122467,11 @@
     "views": 1914713,
     "channel": "そらる / soraru",
     "viewsAt": "2026-10-20",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "にてんごじげんのゆうわく",
+      "にごりり"
+    ]
   },
   {
     "id": "2srNiLGo8Q0",
@@ -122389,7 +122519,10 @@
     "views": 1664291,
     "channel": "汐れいら",
     "viewsAt": "2026-10-20",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "ひびはすぎれどめしうまし"
+    ]
   },
   {
     "id": "qIeLqPMjk6s",
@@ -122411,7 +122544,10 @@
     "views": 526034,
     "channel": "アニプレックス チャンネル",
     "viewsAt": "2026-10-20",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "みかどのさんしまいはあんがいちょろい"
+    ]
   },
   {
     "id": "73TOtOlor8M",
@@ -122433,7 +122569,10 @@
     "views": 73052,
     "channel": "前島亜美",
     "viewsAt": "2026-10-20",
-    "fame": "minor"
+    "fame": "minor",
+    "workAliases": [
+      "さいじょのおせわ"
+    ]
   },
   {
     "id": "0KtJKzzovDM",
@@ -122477,7 +122616,10 @@
     "views": 93798,
     "channel": "Enormita - Topic",
     "viewsAt": "2026-10-20",
-    "fame": "minor"
+    "fame": "minor",
+    "workAliases": [
+      "まほうしょうじょにあこがれて"
+    ]
   },
   {
     "id": "4noCHoUpWFY",
@@ -122504,6 +122646,9 @@
       "まえじままゆ",
       "前島",
       "まえじま"
+    ],
+    "workAliases": [
+      "あくやくれいじょうれべるきゅうじゅうきゅう"
     ]
   },
   {
@@ -123343,7 +123488,10 @@
     "channel": "55shangshang",
     "viewsAt": "2026-10-22",
     "fame": "normal",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "workAliases": [
+      "へいせいたぬきがっせんぽんぽこ"
+    ]
   },
   {
     "id": "VQmdUnlNnds",
@@ -123667,6 +123815,9 @@
     "artistAliases": [
       "ダイトミュージック",
       "だいとうみゅーじっく"
+    ],
+    "workAliases": [
+      "まさむね"
     ]
   },
   {
@@ -123689,7 +123840,10 @@
     "channel": "QUEN MUSIC by HEIWA - Topic",
     "viewsAt": "2026-10-26",
     "fame": "otaku",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "workAliases": [
+      "なんごくそだち"
+    ]
   },
   {
     "id": "UhDFTCq4ZTk",
@@ -123736,7 +123890,11 @@
     "views": 10925176,
     "channel": "SOUND HOLIC",
     "viewsAt": "2026-10-26",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "NpgaGhAW9So",
@@ -123758,7 +123916,11 @@
     "views": 36742441,
     "channel": "幽閉サテライト・少女フラクタル・幽閉カタルシス 公式チャンネル",
     "viewsAt": "2026-10-26",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "7h7bnYA1LXE",
@@ -123780,7 +123942,11 @@
     "views": 23354938,
     "channel": "IOSYS",
     "viewsAt": "2026-10-26",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "GeAh0SxtXQ8",
@@ -123802,7 +123968,11 @@
     "views": 615115,
     "channel": "Silver Forest - Topic",
     "viewsAt": "2026-10-26",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "AUg18h3HaOI",
@@ -123824,7 +123994,11 @@
     "channel": "XL Project - Topic",
     "viewsAt": "2026-10-26",
     "fame": "minor",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "AdfwNozhH7Q",
@@ -123846,7 +124020,11 @@
     "views": 114280,
     "channel": "Silver Forest - Topic",
     "viewsAt": "2026-10-26",
-    "fame": "minor"
+    "fame": "minor",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "SiIwhJMZORI",
@@ -123946,7 +124124,11 @@
     "views": 2941880,
     "channel": "SOUND HOLIC",
     "viewsAt": "2026-10-26",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "fBO8T2PLrrY",
@@ -123968,7 +124150,11 @@
     "views": 10292280,
     "channel": "幽閉サテライト・少女フラクタル・幽閉カタルシス 公式チャンネル",
     "viewsAt": "2026-10-26",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "shmAGOTo824",
@@ -123990,7 +124176,11 @@
     "views": 8618797,
     "channel": "IOSYS",
     "viewsAt": "2026-10-26",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "V_bQNPG2OyE",
@@ -124012,7 +124202,11 @@
     "views": 16954383,
     "channel": "IOSYS",
     "viewsAt": "2026-10-26",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "QZybHcwvY6Y",
@@ -124034,7 +124228,11 @@
     "views": 5128615,
     "channel": "beatMARIO - Topic",
     "viewsAt": "2026-10-26",
-    "fame": "famous"
+    "fame": "famous",
+    "workAliases": [
+      "とうほうぷろじぇくと",
+      "とうほう"
+    ]
   },
   {
     "id": "QlkBGDUsANo",
@@ -124129,7 +124327,10 @@
     "views": 344061,
     "channel": "早見沙織 Official YouTube Channel",
     "viewsAt": "2026-10-28",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "あかがみのしらゆきひめ"
+    ]
   },
   {
     "id": "yjEB688tUVY",
@@ -124153,7 +124354,10 @@
     "views": 178557,
     "channel": "eyelis - Topic",
     "viewsAt": "2026-10-28",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "あかがみのしらゆきひめ"
+    ]
   },
   {
     "id": "y00KXEGT8Vo",
@@ -124182,7 +124386,10 @@
     "views": 318844,
     "channel": "早見沙織 Official YouTube Channel",
     "viewsAt": "2026-10-28",
-    "fame": "normal"
+    "fame": "normal",
+    "workAliases": [
+      "あかがみのしらゆきひめ"
+    ]
   },
   {
     "id": "h2_yEzWhqWE",
@@ -124207,7 +124414,10 @@
     "views": 82462,
     "channel": "eyelis - Topic",
     "viewsAt": "2026-10-28",
-    "fame": "minor"
+    "fame": "minor",
+    "workAliases": [
+      "あかがみのしらゆきひめ"
+    ]
   },
   {
     "id": "rveMDp1hnAE",
@@ -125735,6 +125945,405 @@
     ],
     "artistAliases": [
       "スキャンダル"
+    ]
+  },
+  {
+    "id": "dliOFazgxmo",
+    "title": "はっぴぃ にゅう にゃあ",
+    "work": "迷い猫オーバーラン!",
+    "artist": "芹沢文乃(伊藤かな恵)、梅ノ森千世(井口裕香)、霧谷希(竹達彩奈)",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ユーザー依頼",
+    "intro": 1,
+    "chorus": 57.8,
+    "aliases": [
+      "はっぴぃにゅうにゃあ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 3959868,
+    "channel": "naunau510",
+    "viewsAt": "2026-10-31",
+    "fame": "normal",
+    "workAliases": [
+      "まよいねこおーばーらん",
+      "まよねこ"
+    ],
+    "artistAliases": [
+      "せりざわふみの",
+      "いとうかなえ",
+      "うめのもりちせ",
+      "いぐちゆか",
+      "きりたにのぞみ",
+      "たけたつあやな"
+    ],
+    "chorusSource": "audio"
+  },
+  {
+    "id": "PXKiFa_wFVc",
+    "title": "ダ・カーポIII ～キミにささげる あいのマホウ～",
+    "work": "D.C.III〜ダ・カーポIII〜",
+    "artist": "yozuca*",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ユーザー依頼",
+    "intro": 1.2,
+    "chorus": 79,
+    "aliases": [
+      "だかーぽすりーきみにささげるあいのまほう"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1475948,
+    "channel": "yozuca* - Topic",
+    "viewsAt": "2026-10-31",
+    "fame": "otaku",
+    "workAliases": [
+      "だかーぽすりー",
+      "でぃーしーすりー",
+      "だかーぽ3",
+      "だかーぽ"
+    ],
+    "artistAliases": [
+      "よづか"
+    ]
+  },
+  {
+    "id": "xO1SoIYUXro",
+    "title": "サクライロノキセツ",
+    "work": "D.C.S.S.〜ダ・カーポ セカンドシーズン〜",
+    "artist": "yozuca*",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ユーザー依頼",
+    "intro": 10,
+    "chorus": 68,
+    "aliases": [
+      "さくらいろのきせつ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 176461,
+    "channel": "Lantis Global Channel",
+    "viewsAt": "2026-10-31",
+    "fame": "otaku",
+    "workAliases": [
+      "だかーぽせかんどしーずん",
+      "でぃーしーえすえす",
+      "だかーぽ"
+    ],
+    "artistAliases": [
+      "よづか"
+    ]
+  },
+  {
+    "id": "DZH80f2-wHo",
+    "title": "サクラハッピーイノベーション",
+    "work": "D.C.III〜ダ・カーポIII〜",
+    "artist": "森園立夏(新田恵海)、芳乃シャルル(宮崎羽衣)、葛木姫乃(佐々木未来)、瑠川さら(桜咲千依)、陽ノ下葵(海保えりか)",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ユーザー依頼",
+    "intro": 1.2,
+    "chorus": 125,
+    "aliases": [
+      "さくらはっぴーいのべーしょん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1113542,
+    "channel": "D.C.シリーズ応援チャンネル",
+    "viewsAt": "2026-10-31",
+    "fame": "otaku",
+    "workAliases": [
+      "だかーぽすりー",
+      "でぃーしーすりー",
+      "だかーぽ3",
+      "だかーぽ"
+    ],
+    "artistAliases": [
+      "もりぞのりっか",
+      "にったえみ",
+      "よしのしゃるる",
+      "みやざきうい",
+      "かつらぎひめの",
+      "ささきみく",
+      "るかわさら",
+      "さくらざきちより",
+      "ひのしたあおい",
+      "かいほえりか"
+    ]
+  },
+  {
+    "id": "TgjjULN41c4",
+    "title": "ダ・カーポ ～第2ボタンの誓い～",
+    "work": "D.C.〜ダ・カーポ〜",
+    "artist": "yozuca*",
+    "year": 2002,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ユーザー依頼",
+    "intro": 7.5,
+    "chorus": 92,
+    "aliases": [
+      "だかーぽだいにぼたんのちかい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 104122,
+    "channel": "Lantis Global Channel",
+    "viewsAt": "2026-10-31",
+    "fame": "otaku",
+    "workAliases": [
+      "だかーぽ",
+      "でぃーしー",
+      "D.C."
+    ],
+    "artistAliases": [
+      "よづか"
+    ]
+  },
+  {
+    "id": "SVk-RNR6ujo",
+    "title": "サクラサクミライコイユメ",
+    "work": "D.C.〜ダ・カーポ〜",
+    "artist": "yozuca*",
+    "year": 2003,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ユーザー依頼",
+    "intro": 0.2,
+    "chorus": 64,
+    "aliases": [
+      "さくらさくみらいこいゆめ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 536170,
+    "channel": "KING AMUSEMENT CREATIVE official channel",
+    "viewsAt": "2026-10-31",
+    "fame": "otaku",
+    "workAliases": [
+      "だかーぽ",
+      "でぃーしー",
+      "D.C."
+    ],
+    "artistAliases": [
+      "よづか"
+    ]
+  },
+  {
+    "id": "urI0u2Snhzs",
+    "title": "サクラアマネクセカイ",
+    "work": "D.C.II S.S.〜ダ・カーポII セカンドシーズン〜",
+    "artist": "yozuca*",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ユーザー依頼",
+    "intro": 0.5,
+    "chorus": 83.8,
+    "aliases": [
+      "さくらあまねくせかい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 543806,
+    "channel": "ALICEch",
+    "viewsAt": "2026-10-31",
+    "fame": "otaku",
+    "workAliases": [
+      "だかーぽつーせかんどしーずん",
+      "でぃーしーつーえすえす",
+      "だかーぽ2",
+      "だかーぽ"
+    ],
+    "artistAliases": [
+      "よづか"
+    ],
+    "chorusSource": "audio"
+  },
+  {
+    "id": "KCEohrmozm0",
+    "title": "Force",
+    "work": "ワールドトリガー 2ndシーズン",
+    "artist": "TOMORROW X TOGETHER",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 2.2,
+    "chorus": 43,
+    "aliases": [
+      "ふぉーす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 6634096,
+    "channel": "TOMORROW X TOGETHER OFFICIAL",
+    "viewsAt": "2026-10-31",
+    "fame": "famous",
+    "workAliases": [
+      "わーるどとりがー",
+      "わーとり"
+    ],
+    "artistAliases": [
+      "とぅもろーばいとぅげざー",
+      "TXT"
+    ]
+  },
+  {
+    "id": "42e1bjzQ9ZQ",
+    "title": "タイムファクター",
+    "work": "ワールドトリガー 3rdシーズン",
+    "artist": "神はサイコロを振らない",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 63,
+    "aliases": [
+      "たいむふぁくたー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2249267,
+    "channel": "神はサイコロを振らない",
+    "viewsAt": "2026-10-31",
+    "fame": "normal",
+    "workAliases": [
+      "わーるどとりがー",
+      "わーとり"
+    ],
+    "artistAliases": [
+      "かみはさいころをふらない",
+      "かみさい"
+    ]
+  },
+  {
+    "id": "MjgywZJvCog",
+    "title": "雲外憧憬",
+    "work": "ワールドトリガー 3rdシーズン",
+    "artist": "FantasticYouth",
+    "year": 2021,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1.2,
+    "chorus": 63,
+    "aliases": [
+      "うんがいしょうけい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 6010209,
+    "channel": "FantasticYouth",
+    "viewsAt": "2026-10-31",
+    "fame": "famous",
+    "workAliases": [
+      "わーるどとりがー",
+      "わーとり"
+    ],
+    "artistAliases": [
+      "ふぁんたすてぃっくゆーす"
+    ]
+  },
+  {
+    "id": "iqq0odSeyy4",
+    "title": "未来永劫",
+    "work": "ワールドトリガー 2ndシーズン",
+    "artist": "神はサイコロを振らない",
+    "year": 2021,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 6.5,
+    "chorus": 25,
+    "aliases": [
+      "みらいえいごう"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 988647,
+    "channel": "神はサイコロを振らない",
+    "viewsAt": "2026-10-31",
+    "fame": "normal",
+    "workAliases": [
+      "わーるどとりがー",
+      "わーとり"
+    ],
+    "artistAliases": [
+      "かみはさいころをふらない",
+      "かみさい"
+    ]
+  },
+  {
+    "id": "UnwPDd0IodQ",
+    "title": "GIRIGIRI",
+    "work": "ワールドトリガー",
+    "artist": "ソナーポケット",
+    "year": 2015,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1,
+    "chorus": 63,
+    "aliases": [
+      "ぎりぎり"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3238750,
+    "channel": "ソナーポケット",
+    "viewsAt": "2026-10-31",
+    "fame": "normal",
+    "workAliases": [
+      "わーるどとりがー",
+      "ワートリ"
+    ],
+    "artistAliases": [
+      "そなーぽけっと",
+      "そなぽけ"
     ]
   }
 ]

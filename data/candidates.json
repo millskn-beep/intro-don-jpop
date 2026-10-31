@@ -2048,9 +2048,10 @@
   "reason": "同じアーティストの主題歌。公式はライブMV（13万回）のみ",
   "from": "リクエスト（913c6ab8）のまわり",
   "votes": 1,
-  "status": "pending",
+  "status": "added",
   "at": "2026-10-26T12:23:18.623Z",
-  "requestId": "913c6ab8"
+  "requestId": "913c6ab8",
+  "doneAt": "2026-10-31T15:16:11.339Z"
  },
  {
   "id": "IC0INLHIGKk",

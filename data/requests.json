@@ -1539,8 +1539,10 @@
   "genre": "",
   "note": "アニメOP 2007年",
   "at": "2026-10-31T10:41:10.148Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "fLiwf4ZFgkI",
+  "doneAt": "2026-10-31T15:18:16.446Z"
  },
  {
   "id": "59d2c940",
@@ -1550,8 +1552,10 @@
   "genre": "",
   "note": "アニメOP(1~12話)　2010年",
   "at": "2026-10-31T10:48:53.911Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "16hMsGBkMUs",
+  "doneAt": "2026-10-31T15:18:16.559Z"
  },
  {
   "id": "9b2da622",
@@ -1561,8 +1565,10 @@
   "genre": "",
   "note": "アニメOP(13~24話)　2010年",
   "at": "2026-10-31T10:51:20.506Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "MC2RgNj92Fc",
+  "doneAt": "2026-10-31T15:18:16.675Z"
  },
  {
   "id": "07008441",
@@ -1572,7 +1578,9 @@
   "genre": "isekai",
   "note": "",
   "at": "2026-10-31T14:57:26.371Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "FT0GKCuSaW0",
+  "doneAt": "2026-10-31T15:18:16.794Z"
  }
 ]

@@ -1172,6 +1172,7 @@ body.rush-machine .stage-tools { overflow: visible; }
 .ww-slot span { font-size: 11px; color: var(--sub); overflow: hidden; }
 .ww-slot i { font-style: normal; color: #ff6b8a; font-size: 18px; }
 .ww-clue { margin: 0; text-align: center; } .ww-clue b { font-size: clamp(15px, 3.4dvh, 22px); } .ww-clue small { display: block; color: var(--sub); }
+.ww-reject { display: grid; gap: 2px; padding: clamp(4px, 1.2dvh, 10px) 12px; border: 2px solid #ffd36b; border-radius: 12px; background: rgba(255, 211, 107, .16); text-align: center; } .ww-reject b { color: #ffd36b; font-size: clamp(18px, 4.6dvh, 28px); } .ww-reject span { font-size: clamp(12px, 2.6dvh, 15px); font-weight: 700; }
 .ww-sugg { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; min-height: 34px; } .ww-sugg .btn-sub { width: auto; margin: 0; padding: 5px 10px; font-size: 13px; } .ww-sugg .btn-sub.on { border-color: #ff6b8a; color: #ff6b8a; } .ww-sugg small { color: var(--sub); align-self: center; }
 .ww-slots.ww-fake { grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
 .ww-fake .ww-slot { min-height: 0; padding: clamp(3px, 1dvh, 8px) 18px; } .ww-fake .ww-slot span:empty { display: none; } .ww-fake .ww-slot i { position: absolute; right: 4px; top: 2px; font-size: 13px; } .ww-fake .ww-slot b, .ww-fake .ww-slot:first-child b { font-family: inherit; font-size: clamp(12px, 2.4dvh, 15px); overflow-wrap: anywhere; }

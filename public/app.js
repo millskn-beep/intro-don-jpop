@@ -1741,10 +1741,10 @@ function renderKm() {
 // ── アニソン年当てベット：発売年を予想 → いちばん近い予想に賭ける ──
 let wwData = null, wwRolled = '', wwTick = null, wwMarks = [], wwSent = false, wwKey = '';
 function hideWw() { clearInterval(wwTick); $('wwPop').hidden = true; $('wwPop').innerHTML = ''; wwData = null; }
-socket.on('wwPhase', d => { if (!d) return hideWw(); const k = d.round + ':' + d.step; if (k !== wwKey) { wwKey = k; wwMarks = []; wwSent = false; } if (d.round !== wwFakeRound) { wwFakeRound = d.round; wwFakePick = ''; wwFakeQ = ''; } wwData = d; renderWw(); });
-socket.on('wwReject', msg => { wwFakePick = ''; wwFakeQ = ''; toast(msg); renderWw.sig = null; renderWw(); });
+socket.on('wwPhase', d => { if (!d) return hideWw(); const k = d.round + ':' + d.step; if (k !== wwKey) { wwKey = k; wwMarks = []; wwSent = false; } if (d.round !== wwFakeRound) { wwFakeRound = d.round; wwFakePick = ''; wwFakeQ = ''; wwFakeHit = ''; } wwData = d; renderWw(); });
+socket.on('wwReject', () => { wwFakeHit = wwFakePick; wwFakePick = ''; wwFakeQ = ''; renderWw.sig = null; renderWw(); });
 // ウソの作品名：作品の一覧（シリーズの名前）から検索して選ぶ
-let wwNames = null, wwFakePick = '', wwFakeQ = '', wwFakeRound = -1;
+let wwNames = null, wwFakePick = '', wwFakeQ = '', wwFakeRound = -1, wwFakeHit = ''; // wwFakeHit：選んだら本物だった作品（やり直しの知らせ）
 const wwNorm = t => String(t).normalize('NFKC').toLowerCase().replace(/[\s\p{P}\p{S}]/gu, '').replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/ゔ[ぁぃぇぉ]?/g, c => ({ 'ゔぁ': 'ば', 'ゔぃ': 'び', 'ゔぇ': 'べ', 'ゔぉ': 'ぼ' })[c] || 'ぶ');
 function wwSuggest() {
   const box = $('wwSugg'); if (!box) return;
@@ -1763,14 +1763,15 @@ function renderWw() {
   const mine = d.done.includes(me);
   // ほかの人が出した・賭けただけ（変わるのは「済み」の印だけ）なら、下の名前の欄だけ書き換える。
   // 全部描き直すと、入れかけの年や開いている「上乗せ」の選択が消えてしまう
-  const sig = JSON.stringify([d.kind, wwFakePick, d.step, d.round, d.slots, d.result && wwRollKey(d), wwMarks.map(m => m.slot), wwSent, wwRolled, mine]);
+  const sig = JSON.stringify([d.kind, wwFakePick, wwFakeHit, d.step, d.round, d.slots, d.result && wwRollKey(d), wwMarks.map(m => m.slot), wwSent, wwRolled, mine]);
   const oldSeats = pop.querySelector('.wf-seats');
   if (sig === renderWw.sig && oldSeats) { oldSeats.outerHTML = seats; return; }
   renderWw.sig = sig;
   let body = '', rolling = false;
   if (d.kind === 'fake' && d.step === 'guess') {
     const clue = d.title ? `<p class="ww-clue">曲名：<b>${esc(d.title)}</b>${d.artist ? `<small>${esc(d.artist)}</small>` : ''}</p>` : '';
-    body = `<p class="wf-msg">この曲の作品だと<b>思わせる、別の作品</b>を選びましょう（本物は選べません）</p>${clue}
+    const hit = wwFakeHit && !mine ? `<div class="ww-reject" role="alert"><b>🎯 当たり！ やり直し！</b><span>「${esc(wwFakeHit)}」は本物の作品です。別の作品を選んでください</span></div>` : '';
+    body = `${hit}<p class="wf-msg">この曲の作品だと<b>思わせる、別の作品</b>を選びましょう（本物は選べません）</p>${clue}
       <form class="wf-say" id="wwFakeForm"><input id="wwFakeInput" maxlength="40" placeholder="作品名で検索（ひらがなでも）" autocomplete="off"${mine ? ' disabled' : ''}><button class="btn-main" id="wwFakeBtn" type="submit" disabled>${mine ? '出しました' : '出す'}</button></form>
       <div class="ww-sugg" id="wwSugg"${mine ? ' hidden' : ''}></div>`;
   } else if (d.step === 'guess') {

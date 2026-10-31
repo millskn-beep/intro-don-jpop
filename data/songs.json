@@ -6406,7 +6406,7 @@
     "views": 2500204,
     "channel": "pixel Y (Y Pixel)",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "しんせいきえゔぁんげりおん",
       "エヴァンゲリオン",
@@ -7752,7 +7752,7 @@
     "views": 4289124,
     "channel": "Yumi Matsuzawa Channel",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "きどうせんかんなでしこ",
       "ナデシコ"
@@ -26997,7 +26997,7 @@
     "views": 990068,
     "channel": "アニメソングコレクション",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "chorusSource": "audio",
     "artistAliases": [
       "ロングショットパーティー"
@@ -49203,7 +49203,7 @@
     "views": 219734,
     "channel": "wacci OFFICIAL YouTube CHANNEL",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "しがつはきみのうそ",
       "君嘘"
@@ -76617,7 +76617,7 @@
     "views": 1570097,
     "channel": "Grass Wonder (CV: Rena Maeda) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "うまむすめ",
       "うまむすめぷりてぃーだーびーしーずん2",
@@ -123789,7 +123789,10 @@
     "views": 2346026,
     "channel": "MOSAIC. WAV",
     "viewsAt": "2026-10-26",
-    "fame": "normal"
+    "fame": "normal",
+    "artistAliases": [
+      "もざいくうぇいぶ"
+    ]
   },
   {
     "id": "F9HRK2J6YqY",
@@ -126344,6 +126347,320 @@
     "artistAliases": [
       "そなーぽけっと",
       "そなぽけ"
+    ]
+  },
+  {
+    "id": "5lC3y4jq6V0",
+    "title": "Fly Away",
+    "work": "Panty & Stocking with Garterbelt",
+    "artist": "TeddyLoid feat. Aimee B",
+    "year": 2010,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 66,
+    "aliases": [
+      "ふらいあうぇい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 803526,
+    "channel": "Music of New PANTY & STOCKING with GARTERBELT",
+    "viewsAt": "2026-10-31",
+    "fame": "normal",
+    "workAliases": [
+      "ぱんてぃあんどすとっきんぐ",
+      "ぱんすと",
+      "パンティ&ストッキング"
+    ],
+    "artistAliases": [
+      "ていでぃろいど"
+    ]
+  },
+  {
+    "id": "zDfTD35K1Ww",
+    "title": "D City Rock",
+    "work": "Panty & Stocking with Garterbelt",
+    "artist": "TeddyLoid feat. Debra Zeer",
+    "year": 2010,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "TeddyLoid公式（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 63,
+    "aliases": [
+      "でぃーしてぃーろっく"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3301496,
+    "channel": "TeddyLoid",
+    "viewsAt": "2026-10-31",
+    "fame": "normal",
+    "workAliases": [
+      "ぱんてぃあんどすとっきんぐ",
+      "ぱんすと",
+      "パンティ&ストッキング"
+    ],
+    "artistAliases": [
+      "ていでぃろいど"
+    ]
+  },
+  {
+    "id": "ZCut2rFo1bk",
+    "title": "Theme for Scanty & Knee Socks",
+    "work": "Panty & Stocking with Garterbelt",
+    "artist": "TeddyLoid",
+    "year": 2010,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "TeddyLoid公式（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 31,
+    "aliases": [
+      "すかんてぃあんどにーそっくす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 8948383,
+    "channel": "TeddyLoid",
+    "viewsAt": "2026-10-31",
+    "fame": "famous",
+    "workAliases": [
+      "ぱんてぃあんどすとっきんぐ",
+      "ぱんすと",
+      "パンティ&ストッキング"
+    ],
+    "artistAliases": [
+      "ていでぃろいど"
+    ]
+  },
+  {
+    "id": "7_W_PzbI7K4",
+    "title": "Theme of New PANTY & STOCKING",
+    "work": "New PANTY & STOCKING with GARTERBELT",
+    "artist": "☆Taku Takahashi & TeddyLoid feat. Ashley & E.V.P",
+    "year": 2025,
+    "type": "OP",
+    "confidence": "高",
+    "source": "配信音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 35,
+    "aliases": [
+      "にゅーぱんてぃあんどすとっきんぐ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2719945,
+    "channel": "Taku Takahashi - Topic",
+    "viewsAt": "2026-10-31",
+    "fame": "famous",
+    "workAliases": [
+      "にゅーぱんてぃあんどすとっきんぐ",
+      "ぱんてぃあんどすとっきんぐ",
+      "ぱんすと",
+      "パンティ&ストッキング"
+    ],
+    "artistAliases": [
+      "たくたかはし",
+      "ていでぃろいど"
+    ]
+  },
+  {
+    "id": "bBXDP2ZNq3Y",
+    "title": "Angels and Demons",
+    "work": "New PANTY & STOCKING with GARTERBELT",
+    "artist": "TeddyLoid",
+    "year": 2025,
+    "type": "その他",
+    "confidence": "高",
+    "source": "TeddyLoid公式（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 21,
+    "aliases": [
+      "えんじぇるずあんどでーもんず"
+    ],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 6471600,
+    "channel": "TeddyLoid",
+    "viewsAt": "2026-10-31",
+    "fame": "famous",
+    "workAliases": [
+      "にゅーぱんてぃあんどすとっきんぐ",
+      "ぱんてぃあんどすとっきんぐ",
+      "ぱんすと",
+      "パンティ&ストッキング"
+    ],
+    "artistAliases": [
+      "ていでぃろいど"
+    ]
+  },
+  {
+    "id": "fLiwf4ZFgkI",
+    "title": "colorless wind",
+    "work": "sola",
+    "artist": "結城アイラ",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "高",
+    "source": "結城アイラ公式（リクエスト）",
+    "intro": 0.2,
+    "chorus": 63,
+    "aliases": [
+      "からーれすうぃんど"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1367918,
+    "channel": "結城アイラ Official Channel",
+    "viewsAt": "2026-10-31",
+    "fame": "normal",
+    "workAliases": [
+      "そら"
+    ],
+    "artistAliases": [
+      "ゆうきあいら"
+    ]
+  },
+  {
+    "id": "16hMsGBkMUs",
+    "title": "LAMENT～やがて喜びを～",
+    "work": "伝説の勇者の伝説",
+    "artist": "結城アイラ",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "結城アイラ公式（リクエスト）",
+    "intro": 1,
+    "chorus": 54,
+    "aliases": [
+      "らめんとやがてよろこびを"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 530503,
+    "channel": "結城アイラ Official Channel",
+    "viewsAt": "2026-10-31",
+    "fame": "normal",
+    "workAliases": [
+      "でんせつのゆうしゃのでんせつ",
+      "でんゆうでん"
+    ],
+    "artistAliases": [
+      "ゆうきあいら"
+    ]
+  },
+  {
+    "id": "MC2RgNj92Fc",
+    "title": "Last Inferno",
+    "work": "伝説の勇者の伝説",
+    "artist": "Ceui",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ファン投稿（公式なし・リクエスト）",
+    "intro": 1.2,
+    "chorus": 60,
+    "aliases": [
+      "らすといんふぇるの"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 464081,
+    "channel": "The Wyverns of Unity",
+    "viewsAt": "2026-10-31",
+    "fame": "normal",
+    "workAliases": [
+      "でんせつのゆうしゃのでんせつ",
+      "でんゆうでん"
+    ],
+    "artistAliases": [
+      "せうい"
+    ]
+  },
+  {
+    "id": "FT0GKCuSaW0",
+    "title": "裸の勇者",
+    "work": "王様ランキング",
+    "artist": "Vaundy",
+    "year": 2022,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Vaundy公式MV（リクエスト）",
+    "intro": 0,
+    "chorus": 107,
+    "aliases": [
+      "はだかのゆうしゃ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 68703709,
+    "channel": "Vaundy",
+    "viewsAt": "2026-10-31",
+    "fame": "top",
+    "workAliases": [
+      "おうさまらんきんぐ",
+      "王様ランキング"
+    ],
+    "artistAliases": [
+      "バウンディ"
+    ]
+  },
+  {
+    "id": "CaAP0qjhQqE",
+    "title": "最強○×計画",
+    "work": "すもももももも 〜地上最強のヨメ〜",
+    "artist": "MOSAIC.WAV",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "高",
+    "source": "ファン投稿（候補の投票）",
+    "intro": 1.7,
+    "chorus": 65.1,
+    "aliases": [
+      "さいきょうまるばつけいかく"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 588055,
+    "channel": "HiGuRaShi Destiny",
+    "viewsAt": "2026-10-31",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "workAliases": [
+      "すもももももも"
+    ],
+    "artistAliases": [
+      "もざいくうぇいぶ"
     ]
   }
 ]

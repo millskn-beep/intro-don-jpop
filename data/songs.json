@@ -48713,7 +48713,7 @@
     "views": 220724,
     "channel": "ClariS Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "workAliases": [
       "にせこい"
     ],
@@ -52860,7 +52860,7 @@
     "views": 1578809,
     "channel": "Rica Matsumoto - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "ぽけっともんすたー",
       "ポケモン",
@@ -67264,7 +67264,7 @@
     "views": 4362526,
     "channel": "Lantis Channel",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "ぶんごうすとれいどっぐす",
       "文スト",
@@ -80887,7 +80887,7 @@
     "views": 4306780,
     "channel": "KADOKAWAanime",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "おーばーろーど",
       "OVERLORD"
@@ -102038,13 +102038,13 @@
     "confidence": "中",
     "source": "hinayukki LR",
     "intro": 0,
-    "chorus": 124,
+    "chorus": 168.9,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 2020511,
     "channel": "hinayukki LR",
@@ -102382,13 +102382,13 @@
     "confidence": "中",
     "source": "sasakure. UK",
     "intro": 3.5,
-    "chorus": 90,
+    "chorus": 90.3,
     "aliases": [],
     "embeddable": null,
     "game": "Mega Mix+",
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 4394114,
     "channel": "sasakure. UK",
@@ -109649,14 +109649,14 @@
     "confidence": "中",
     "source": "Hatsune Miku",
     "intro": 1.2,
-    "chorus": 66,
+    "chorus": 123,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
     "vocal": [
       "初音ミク"
     ],
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 451979,
     "channel": "Hatsune Miku",
@@ -112027,7 +112027,7 @@
     "confidence": "中",
     "source": "マツシタレオ",
     "intro": 0.7,
-    "chorus": 127,
+    "chorus": 89.8,
     "aliases": [],
     "embeddable": null,
     "game": "プロセカ",
@@ -112036,7 +112036,7 @@
     ],
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 99220,
     "channel": "マツシタレオ",
@@ -121222,12 +121222,12 @@
     "confidence": "高",
     "source": "DATEKEN公式",
     "intro": 2,
-    "chorus": 130,
+    "chorus": 93.1,
     "aliases": [],
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 550770,
     "channel": "datechnology / DATEKEN Official Channel",
@@ -121320,13 +121320,12 @@
     "type": "OP",
     "confidence": "高",
     "source": "tuki.公式MV",
-    "intro": 0.5,
-    "chorus": 71,
+    "intro": 23.4,
+    "chorus": 73.6,
     "aliases": [],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
-    "chorusSource": "heatmap",
+    "introMeasured": false,
+    "chorusSource": "manual",
     "chorusChecked": true,
     "views": 2146813,
     "channel": "tuki.(17)",
@@ -121540,12 +121539,11 @@
     "type": "OP",
     "confidence": "高",
     "source": "キタニタツヤ / Tatsuya Kitani",
-    "intro": 0,
+    "intro": 10.1,
     "chorus": 57,
     "aliases": [],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "manual",
     "chorusChecked": true,
     "views": 6713220,
@@ -125960,7 +125958,7 @@
     "confidence": "高",
     "source": "ユーザー依頼",
     "intro": 1,
-    "chorus": 57.8,
+    "chorus": 64.8,
     "aliases": [
       "はっぴぃにゅうにゃあ"
     ],
@@ -125984,7 +125982,7 @@
       "きりたにのぞみ",
       "たけたつあやな"
     ],
-    "chorusSource": "audio"
+    "chorusSource": "manual"
   },
   {
     "id": "PXKiFa_wFVc",
@@ -126488,7 +126486,7 @@
     "type": "その他",
     "confidence": "高",
     "source": "TeddyLoid公式（ユーザー依頼）",
-    "intro": 0,
+    "intro": 0.2,
     "chorus": 21,
     "aliases": [
       "えんじぇるずあんどでーもんず"
@@ -126508,7 +126506,9 @@
     ],
     "artistAliases": [
       "ていでぃろいど"
-    ]
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
   },
   {
     "id": "fLiwf4ZFgkI",
@@ -126661,6 +126661,287 @@
     ],
     "artistAliases": [
       "もざいくうぇいぶ"
+    ]
+  },
+  {
+    "id": "WqzBLcufkxw",
+    "title": "アルカンシェル",
+    "work": "転生王女と天才令嬢の魔法革命",
+    "artist": "花たん",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic（リクエスト）",
+    "intro": 0,
+    "chorus": 60,
+    "aliases": [
+      "あるかんしぇる"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 4748410,
+    "channel": "花たん - Topic",
+    "viewsAt": "2026-11-01",
+    "fame": "famous",
+    "workAliases": [
+      "てんせいおうじょとてんさいれいじょうのまほうかくめい",
+      "てんてん"
+    ],
+    "artistAliases": [
+      "はなたん"
+    ]
+  },
+  {
+    "id": "NAGTD9S4XN4",
+    "title": "ツナグキズナ",
+    "work": "ヨスガノソラ",
+    "artist": "Team.ねこかん[猫] featuring.天乙准花",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic（リクエスト）",
+    "intro": 0.7,
+    "chorus": 61,
+    "aliases": [
+      "つなぐきずな"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 613880,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-11-01",
+    "fame": "otaku",
+    "workAliases": [
+      "よすがのそら"
+    ],
+    "artistAliases": [
+      "ちーむねこかん",
+      "あまおとじゅんか"
+    ]
+  },
+  {
+    "id": "Q3GrcwZqZNU",
+    "title": "比翼の羽根",
+    "work": "ヨスガノソラ",
+    "artist": "eufonius",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic（リクエスト）",
+    "intro": 0.7,
+    "chorus": 49,
+    "aliases": [
+      "ひよくのはね"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1489345,
+    "channel": "eufonius - Topic",
+    "viewsAt": "2026-11-01",
+    "fame": "otaku",
+    "workAliases": [
+      "よすがのそら"
+    ],
+    "artistAliases": [
+      "ゆーふぉにあす"
+    ]
+  },
+  {
+    "id": "qVn3_qeIrBA",
+    "title": "ピンキージョーンズ",
+    "work": "ヨスガノソラ",
+    "artist": "ももいろクローバー",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式MV（リクエスト）",
+    "intro": 0.2,
+    "chorus": 53,
+    "aliases": [
+      "ぴんきーじょーんず"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 11468786,
+    "channel": "stardustdigital",
+    "viewsAt": "2026-11-01",
+    "fame": "otaku",
+    "workAliases": [
+      "よすがのそら"
+    ],
+    "artistAliases": [
+      "ももいろくろーばー",
+      "ももくろ"
+    ]
+  },
+  {
+    "id": "jTkNRngNgyE",
+    "title": "Edelweiss",
+    "work": "セントールの悩み",
+    "artist": "亜咲花",
+    "year": 2017,
+    "type": "ED",
+    "confidence": "高",
+    "source": "AniTone公式MV（リクエスト）",
+    "intro": 6,
+    "chorus": 129,
+    "aliases": [
+      "えーでるわいす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 742256,
+    "channel": "AniTone Music Channel",
+    "viewsAt": "2026-11-01",
+    "fame": "normal",
+    "workAliases": [
+      "せんとーるのなやみ"
+    ],
+    "artistAliases": [
+      "あさか"
+    ]
+  },
+  {
+    "id": "0NqXqqAYbyc",
+    "title": "stone cold",
+    "work": "セイクリッドセブン",
+    "artist": "FictionJunction",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "FlyingDog公式MV（リクエスト）",
+    "intro": 6.5,
+    "chorus": 79,
+    "aliases": [
+      "すとーんこーるど"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 13856033,
+    "channel": "FlyingDog",
+    "viewsAt": "2026-11-01",
+    "fame": "famous",
+    "workAliases": [
+      "せいくりっどせぶん"
+    ],
+    "artistAliases": [
+      "フィクションジャンクション",
+      "梶浦",
+      "かじうら"
+    ]
+  },
+  {
+    "id": "_QLrZmDLE5g",
+    "title": "アクシアの風",
+    "work": "戦姫絶唱シンフォギアAXZ",
+    "artist": "立花響（悠木碧）",
+    "year": 2017,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "Topic（リクエスト）",
+    "intro": 0.2,
+    "chorus": 128,
+    "aliases": [
+      "あくしあのかぜ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2444228,
+    "channel": "Hibiki Tachibana(CV:Aoi Yuki) - Topic",
+    "viewsAt": "2026-11-01",
+    "fame": "otaku",
+    "workAliases": [
+      "せんきぜっしょうしんふぉぎあ",
+      "しんふぉぎあ",
+      "戦姫絶唱シンフォギア"
+    ],
+    "artistAliases": [
+      "たちばなひびき",
+      "ゆうきあおい"
+    ]
+  },
+  {
+    "id": "WzoIvqVpO-k",
+    "title": "Bull's Eye",
+    "work": "緋弾のアリアAA",
+    "artist": "ナノ",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "高",
+    "source": "FlyingDog公式MV（リクエスト）",
+    "intro": 9.2,
+    "chorus": 68.6,
+    "aliases": [
+      "ぶるずあい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "manual",
+    "chorusChecked": true,
+    "views": 9492837,
+    "channel": "FlyingDog",
+    "viewsAt": "2026-11-01",
+    "fame": "famous",
+    "workAliases": [
+      "ひだんのありあえーえー",
+      "ひだんのありあ"
+    ],
+    "artistAliases": [
+      "なの"
+    ]
+  },
+  {
+    "id": "vgA7kahrD4o",
+    "title": "1000%SPARKING!",
+    "work": "ネギま!?",
+    "artist": "佐藤利奈、神田朱未、野中藍、小林ゆう",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 61,
+    "aliases": [
+      "せんぱーせんとすぱーきんぐ",
+      "すぱーきんぐ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1026521,
+    "channel": "KING AMUSEMENT CREATIVE official channel",
+    "viewsAt": "2026-11-01",
+    "fame": "normal",
+    "workAliases": [
+      "ねぎま",
+      "まほうせんせいねぎま"
+    ],
+    "artistAliases": [
+      "さとうりな"
     ]
   }
 ]

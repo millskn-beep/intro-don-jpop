@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="layout.css">
 <link rel="stylesheet" href="charfx.css">
 <link rel="stylesheet" href="themes.css">
+<link rel="stylesheet" href="monopoly.css">
 </head>
 <body>
 <div class="backdrop" aria-hidden="true"></div>
@@ -233,6 +234,7 @@
           <option value="deck">アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買って育てる）</option>
           <option value="genreex">アニソン・ジャンル制覇EX（集める種類を6つ以上に。年代・曲の種類・知名度も選べる）</option>
           <option value="genre">アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ）</option>
+          <option value="monopoly">アニソンモノポリー（盤面で土地を買い集める。正解でカード、サイコロで進む）</option>
           <option value="sugoroku">アニソンすごろく（正解の速さでコマを進める。止まったマスでイベント）</option>
           <option value="wits">年代ベット（発売年を予想して、いちばん近い予想に賭ける・2人以上）</option>
           <option value="bluff">アニソンベット（ウソの作品を選んでだまし、本物に賭ける・2人以上）</option>
@@ -264,6 +266,8 @@
         <label id="wwHintLabel" hidden>アニソンベット：出すもの<select data-key="wwHint"><option value="title">曲名</option><option value="intro">イントロだけ</option><option value="titleartist">曲名と歌手</option></select></label>
         <label id="gzSetLabel" hidden>ジャンル制覇：集めるジャンル<select data-key="gzSet"><option value="fixed">固定（今の6つ）</option><option value="random">ランダム（ゲームごとに決める）</option><option value="choose">選択（自分たちで選ぶ）</option></select></label>
         <label id="gzCountLabel" hidden>ジャンル制覇EX：ランダムの数<select data-key="gzCount"><option value="6">6種類</option><option value="7">7種類</option><option value="8">8種類</option><option value="10">10種類</option><option value="12">12種類</option><option value="15">15種類</option><option value="20">20種類</option><option value="25">25種類</option></select></label>
+        <label id="mpByLabel" hidden>モノポリー：国の分け方<select data-key="mpBy"><option value="genre">ジャンル</option><option value="work">作品</option><option value="artist">歌手</option><option value="mix">まぜる</option><option value="choose">自分で選ぶ</option></select></label>
+        <label id="mpLandLabel" hidden>モノポリー：最後の土地の評価<select data-key="mpLand"><option value="full">買値の全額</option><option value="half">買値の半額</option></select></label>
         <button class="btn-sub" id="gzPickOpen" type="button" hidden>集める種類を選ぶ</button>
         <label id="gzPickLabel" hidden>ジャンル制覇：次のジャンル<select data-key="gzPick"><option value="choose">選択制（最速の正解者が選ぶ）</option><option value="random">ランダム制（毎問ランダム）</option></select></label>
         <label id="wolfTitleLabel" hidden>人狼：候補に曲名<select data-key="wolfTitle"><option value="show">出す</option><option value="hide">出さない</option></select></label>
@@ -375,6 +379,7 @@
             <input id="fillInput" maxlength="50" enterkeyhint="send">
             <button class="btn-main" type="submit">回答</button>
           </form>
+          <div class="fill-sugg" id="fillSugg"></div>
           <button class="btn-sub fill-choice-btn" id="fillChoiceBtn" type="button" hidden>10択で選ぶ（点数は半分）</button>
           <div class="choices fill-choices" id="fillChoices"></div>
         </div>
@@ -451,6 +456,8 @@
   <div class="pk-modal wf-modal" id="dfPop" hidden></div>
   <div class="pk-modal wf-modal" id="wwPop" hidden></div>
   <div class="pk-modal wf-modal" id="gzPop" hidden></div>
+  <div id="mpScreen" hidden></div>
+  <div id="mpFx"></div>
   <div class="pk-modal wf-modal" id="dkPop" hidden></div>
   <div class="pk-modal wf-modal" id="kmPop" hidden></div>
   <div class="pk-modal wf-modal" id="azPop" hidden></div>

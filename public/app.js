@@ -3,6 +3,7 @@ import { guessChorus } from './chorus-guess.js';
 import { initLayout } from './layout.js';
 import { CHARACTERS, FALLBACK, kanjiNum } from './characters.js';
 import { initCharFx } from './charfx.js';
+import { initMonopoly, renderMonopoly } from './monopoly.js';
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -266,7 +267,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'wwHint', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -317,13 +318,13 @@ fetch('/api/topics').then(r => r.json()).then(d => {
 // ── ジャンル制覇：集める種類を選ぶ（別の画面。EX は年代・曲の種類・知名度も選べて、何個でも。ふつうは、ジャンルから最大6つ）──
 let catSel = new Set();
 $('gzPickOpen').onclick = () => {
-  const ex = room?.settings?.play === 'genreex';
+  const ex = room?.settings?.play === 'genreex' || room?.settings?.play === 'monopoly';
   catSel = new Set(room?.settings?.gzPicks || []);
   renderCatPicker(ex);
   $('catPop').hidden = false;
 };
 function renderCatPicker(ex) {
-  const cat = (TOPIC_DATA?.gzCatalog || []).filter(c => ex || c.group === 'genre'), max = ex ? 99 : 6;
+  const cat = (TOPIC_DATA?.gzCatalog || []).filter(c => ex || c.group === 'genre'), max = room?.settings?.play === 'monopoly' ? 8 : ex ? 99 : 6;
   const G = { genre: 'ジャンル', era: '年代', type: '曲の種類', fame: '知名度' };
   const pop = $('catPop');
   pop.innerHTML = `<div class="wf-field mt-field cat-field"><div class="wf-head"><b>🏆 集める種類を選ぶ</b><span>${ex ? '何個でも選べます（2個以上）。選んだ種類を全部そろえた人の勝ち' : 'ジャンルを最大6つ選びます（2つ以上）'}</span></div>
@@ -472,6 +473,7 @@ const PLAY_INFO = {
   panel: ['🟥', '陣取り', 'アタック25風。正解したらパネルを取って挟んで裏返す', '1人〜', 'quiz'],
   bingo: ['🎯', 'ビンゴ', '正解した作品名のマスを開けて、列をそろえる', '1人〜', 'quiz'],
   poker: ['🃏', 'ポーカー', '正解した曲がトランプになる。10問ごとに役で勝負', '1人〜', 'quiz'],
+  monopoly: ['🎩', 'アニソンモノポリー', '盤面で土地を買い集める。正解でカード、サイコロで進む', '1人〜', 'quiz'],
   sugoroku: ['🎲', 'すごろく', '正解の速さでコマを進める。止まったマスでイベント', '1人〜', 'quiz'],
   genreex: ['👑', 'ジャンル制覇EX', '集める種類を6つ以上に。ジャンル・年代・曲の種類・知名度から選ぶ（ランダムも）', '1人〜', 'quiz'],
   genre: ['🏆', 'ジャンル制覇', '6ジャンルのピースを集める。次のジャンルは選択制かランダム制', '1人〜', 'quiz'],
@@ -516,6 +518,7 @@ const PLAY_DESC = {
   deck: 'いつものイントロクイズで正解するとコインがもらえます（いちばん速い人 +3、ほかの正解 +2）。3問ごと（と、最後の問題のあと必ず）にショップが開き、コインでカードを買えます：50:50・オーディエンス・テレフォン・もう一度聴く（問題中に使う）、ランダムカード、ブースト（次の正解の点数2倍／大ブーストは3倍）、投資（ずっと正解のたびにコイン+1／大投資は+2）、コイン強奪、勝利点（すぐ+1000点・買うたびに値上がり／大勝利点は+2500点）。',
   genreex: 'ジャンル制覇の発展版。集める「種類」を6つより多くできます。ジャンル（約20種類）・年代・曲の種類（OP・ED・挿入歌・ボカロなど）・知名度の中から、ランダムに決める（数も選べる）か、自分たちで好きなだけ選びます。毎問、どれか1つの種類の曲が出て、最速の正解者がその種類のピースをもらい、選んだ種類を先に全部そろえた人の勝ちです（だれかが全部そろえるまで終わりません。次の種類の決め方は「選択制／ランダム制」）。',
   genre: 'いつものイントロクイズで、6つのジャンル（ジャンプ／ロボット・SF／ラブコメ・日常／アイドル・バンド／異世界・ファンタジー／ゲーム・スポーツ）のピースを集めます。毎問どれか1つのジャンルの曲が出て、いちばん速く正解した人がそのジャンルのピースをもらいます。次の問題のジャンルは、設定で「選択制（最速の正解者が選ぶ）」か「ランダム制（毎問ランダム）」にできます。先に6つそろえた人の勝ち（+3000点）。だれかが全部そろえるまで終わりません（問題数の設定はありません）。',
+  monopoly: '全員が同時にサイコロを振り、イントロクイズのあと、正解の速い順にコマが進みます。正解するとその国のカードがもらえ、カードで土地を買えます（足りない分は点でも可）。他人の土地に止まると家賃。取引所でカードの売買・トレードもできます。15問・約15分で、最後は持ち点＋土地の合計で順位を決めます（余ったカードは0点）。チーム戦では土地とカードをチームで共有し、家賃は味方で分けます。',
   sugoroku: 'いつものイントロクイズに答えながら、すごろくでゴール（30マス目）を目指します。正解の速い順に 3・2・1 マス進み、止まったマスでイベント（進む・戻る・ボーナス・1回休み・次は2倍・先頭と入れ替え・前の人を戻す）。だれかがゴールしたら終わり（+2000点）。順位は進んだマスの多い順です。',
   bluff: '2人以上（3人以上がおすすめ）。イントロを聴いて、それらしい別の作品を一覧から選びます。みんなの作品と本物が並んだら、本物だと思う枠にマーカーを2個置きます。本物に賭けて当たれば（100＋上乗せ）×3倍、自分の作品にだまされたマーカー1個につき +300点。',
   wits: '2人以上（3人以上がおすすめ）。イントロを聴いて発売年を予想します。全員の予想が年の順に並んだら、「正解の年にいちばん近い予想」（正解が全員の予想より古ければ「全員より古い」）がどれかを当てるマーカーを2個置きます（ほかの人の予想にも置けます）。外側の枠ほど倍率が高く、点数を上乗せして勝負もできます。自分の予想が当たり枠なら +300点（ぴったりなら +600点）。',
@@ -744,7 +747,8 @@ function renderRoom(r) {
   document.querySelector('[data-key="gzSet"] option[value="fixed"]').disabled = isEx; // EXは「今の6つ」の固定はなし
   if (isEx && r.settings.gzSet === 'fixed') document.querySelector('[data-key="gzSet"]').value = 'random';
   $('gzCountLabel').hidden = !(isEx && r.settings.gzSet !== 'choose');
-  $('gzPickOpen').hidden = !(isGzP && r.settings.gzSet === 'choose');
+  $('mpByLabel').hidden = $('mpLandLabel').hidden = r.settings.play !== 'monopoly';
+  $('gzPickOpen').hidden = !((isGzP && r.settings.gzSet === 'choose') || (r.settings.play === 'monopoly' && r.settings.mpBy === 'choose'));
   $('gzPickOpen').textContent = `集める種類を選ぶ（${(r.settings.gzPicks || []).length}）`;
   $('wolfWorkLabel').hidden = $('wolfTitleLabel').hidden = r.settings.play !== 'wolf'; // 人狼：候補に出す作品名・曲名
   $('buzzStopLabel').hidden = !['buzzer', 'fill'].includes(r.settings.play); // 早押し・3つ埋めバトル：答えている間は曲を止める
@@ -752,7 +756,7 @@ function renderRoom(r) {
   $('playDesc').textContent = PLAY_DESC[r.settings.play] || '';
   renderPlayPick(r.settings.play);
   $('playPick').disabled = document.querySelector('[data-key="play"]').disabled;
-  $('questionsLabel').hidden = r.settings.play === 'survival';
+  $('questionsLabel').hidden = r.settings.play === 'survival' || r.settings.play === 'monopoly'; // モノポリーは15問で固定
   const fillMode = r.settings.play === 'fill'; // 3つ埋めバトルは、答えるもの・回答方法・採点・ヒントを使わない（枠ごとに書くか10択）
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
@@ -792,7 +796,7 @@ function renderRoom(r) {
   $('resetPlayed').hidden = false;
   const noRec = !!r.settings.noRecord;
   $('pokerBox').hidden = !(r.settings.play === 'poker' && r.state !== 'lobby');
-  renderPanel(r); renderNenpyo(); renderSugoroku(r); renderGenreZone(r); renderDeck(r);
+  renderMonopoly(r); renderPanel(r); renderNenpyo(); renderSugoroku(r); renderGenreZone(r); renderDeck(r);
   $('noRecordBtn').textContent = noRec ? '✓ これから遊ぶ曲は除外に追加しない' : '🔁 これから遊ぶ曲は除外に追加しない';
   $('noRecordBtn').classList.toggle('on', noRec);
   $('noRecordBtn').disabled = !canSet;
@@ -1185,6 +1189,7 @@ function openRoomSettings() {
   setLobbyTab('settings'); lobbyTabChosen = true;
   $('settings').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+initMonopoly({ socket, $, esc, toast, getMe: () => me });
 document.querySelectorAll('.set-open').forEach(b => b.onclick = openRoomSettings);
 const showSetButtons = on => { $('setTop').hidden = $('setFab').hidden = !on; };
 function openFixPop(sel = 0) {
@@ -1211,7 +1216,7 @@ function renderMeTools(s) {
     const list = b.dataset.me, on = !has(list, s.id);
     const err = await meList(list, s.id, on);
     if (err) return toast(err);
-    toast({ fav: on ? `「${s.title}」をお気に入りにしました（部屋の除外があっても出ます）` : 'お気に入りから外しました',
+    toast({ fav: on ? `「${s.title}」をお気に入りにしました` : 'お気に入りから外しました',
             block: on ? `「${s.title}」は、あなたがいる部屋では出なくなります` : 'もう聞きたくない曲から外しました',
             again: on ? `「${s.title}」を苦手な曲（もう一度出す）に入れました` : 'もう一度出す曲から外しました' }[list]);
     renderMeTools(s);
@@ -2483,7 +2488,7 @@ function renderFill(slots) {
 const fillSlots = () => room?.fill || question?.fill || [];
 function openFillAnswer() {
   fillSlot = null;
-  $('fillAnswer').hidden = false; $('fillForm').hidden = true; $('fillChoiceBtn').hidden = true; $('fillChoices').innerHTML = '';
+  $('fillAnswer').hidden = false; $('fillForm').hidden = true; $('fillChoiceBtn').hidden = true; $('fillChoices').innerHTML = ''; $('fillSugg').innerHTML = '';
   const open = fillSlots().filter(f => f.by == null);
   $('fillHead').textContent = 'どの枠に答える？（下の枠を選んでね）';
   renderFill(fillSlots());
@@ -2496,12 +2501,13 @@ function chooseFillSlot(key) {
   renderFill(fillSlots());
   if (f.peeked) return showFillChoices(f); // 10択がもう出た枠は、手で打てない（10択だけ）
   $('fillHead').textContent = `「${f.label}」を書いて答えよう`;
-  $('fillForm').hidden = false; $('fillInput').value = ''; $('fillInput').placeholder = `${f.label}を入力`; $('fillInput').focus();
+  $('fillForm').hidden = false; $('fillInput').value = ''; $('fillInput').placeholder = `${f.label}を入力（候補から選ぶと確定）`; $('fillInput').focus(); $('fillSugg').innerHTML = '';
+  if (!fillNames) fetch('/api/fill-names').then(x => x.json()).then(l => { fillNames = l; fillSuggest(); }).catch(() => {});
   $('fillChoiceBtn').hidden = false; $('fillChoices').innerHTML = '';
 }
 // 10択を出す。出したら、その枠はもう手で打てない（自分もほかの人も）
 function showFillChoices(f) {
-  $('fillForm').hidden = true; $('fillChoiceBtn').hidden = true;
+  $('fillForm').hidden = true; $('fillChoiceBtn').hidden = true; $('fillSugg').innerHTML = '';
   $('fillHead').textContent = `「${f.label}」を10択で選ぼう（点数は半分・もう手では打てません）`;
   const removed = new Set(f.removed || []); // お手つきで消えた選択肢は出さない（番号はそのまま）
   $('fillChoices').innerHTML = f.choices.map((c, i) => removed.has(i) ? '' : `<button class="choice" type="button" data-i="${i}">${esc(c)}</button>`).join('');
@@ -2520,15 +2526,36 @@ $('fillChoices').onclick = e => {
   $('fillAnswer').hidden = true;
 };
 let fillComposing = false, fillComposeEnd = 0;
+// 入力候補：枠に合う名前を読みがなでも探す。押すとそのまま回答になる
+let fillNames = null, fillSuggAt = -1;
+function fillSuggest() {
+  const box = $('fillSugg'), q = catNorm($('fillInput').value), list = fillNames?.[fillSlot] || [];
+  fillSuggAt = -1;
+  if (!q || $('fillForm').hidden) { box.innerHTML = ''; return; }
+  const hit = list.map(x => { const ks = x.map(catNorm); return [x[0], ks.some(k => k.startsWith(q)) ? 0 : ks.some(k => k.includes(q)) ? 1 : 2]; }).filter(x => x[1] < 2);
+  hit.sort((a, b) => a[1] - b[1] || a[0].length - b[0].length);
+  box.innerHTML = hit.slice(0, 6).map(x => `<button type="button" class="btn-sub" data-v="${esc(x[0])}">${esc(x[0])}</button>`).join('');
+}
+function fillSend(text) {
+  if (!text || !fillSlot) return;
+  socket.emit('answer', { slot: fillSlot, text });
+  $('fillForm').hidden = true; $('fillSugg').innerHTML = '';
+}
+$('fillInput').addEventListener('input', fillSuggest);
+$('fillSugg').onclick = e => { const b = e.target.closest('button[data-v]'); if (b) fillSend(b.dataset.v); };
+$('fillInput').addEventListener('keydown', e => { // ↑↓で候補を選ぶ（変換中は変換の操作なので触らない）
+  if (e.isComposing || fillComposing || !['ArrowDown', 'ArrowUp'].includes(e.key)) return;
+  const bs = [...$('fillSugg').children]; if (!bs.length) return;
+  e.preventDefault();
+  fillSuggAt = (fillSuggAt + (e.key === 'ArrowDown' ? 1 : bs.length - (fillSuggAt < 0 ? 0 : 1))) % bs.length;
+  bs.forEach((b, i) => b.classList.toggle('on', i === fillSuggAt));
+});
 $('fillInput').addEventListener('compositionstart', () => { fillComposing = true; });
 $('fillInput').addEventListener('compositionend', () => { fillComposing = false; fillComposeEnd = performance.now(); });
 $('fillForm').onsubmit = e => {
   e.preventDefault();
   if (fillComposing || performance.now() - fillComposeEnd < 80) return; // 日本語変換の確定で送らない
-  const text = $('fillInput').value.trim();
-  if (!text || !fillSlot) return;
-  socket.emit('answer', { slot: fillSlot, text });
-  $('fillForm').hidden = true;
+  fillSend($('fillSugg').children[fillSuggAt]?.dataset.v || $('fillInput').value.trim());
 };
 // 誰かが答えた（正解・お手つき）
 socket.on('fillResult', ({ id, name, label, given, correct, choice, points }) => {
@@ -2846,7 +2873,7 @@ socket.on('reveal', r => {
 // 惜しい：回答にはならないので、打ち直せるように戻す
 socket.on('almost', ({ text, left, slot }) => {
   if (question?.fill) { // 3つ埋めバトル：同じ枠でもう一度書ける
-    fillSlot = slot; $('fillForm').hidden = false; $('fillInput').value = text; $('fillInput').select();
+    fillSlot = slot; $('fillForm').hidden = false; $('fillInput').value = text; $('fillInput').select(); fillSuggest();
     $('fillHead').textContent = `惜しい！ もう一度（あと${left + 1}回まで）`; flash('ng', '惜しい！');
     return;
   }

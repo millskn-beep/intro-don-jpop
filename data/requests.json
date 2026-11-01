@@ -1591,8 +1591,10 @@
   "genre": "isekai",
   "note": "アニメOP　2023年",
   "at": "2026-11-01T07:27:13.492Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "WqzBLcufkxw",
+  "doneAt": "2026-11-01T09:55:26.419Z"
  },
  {
   "id": "63fbca44",
@@ -1602,8 +1604,10 @@
   "genre": "galge",
   "note": "アニメ挿入歌　2010年",
   "at": "2026-11-01T07:44:01.009Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "NAGTD9S4XN4",
+  "doneAt": "2026-11-01T09:55:26.556Z"
  },
  {
   "id": "8febd01c",
@@ -1613,8 +1617,10 @@
   "genre": "galge",
   "note": "アニメOP　2010年",
   "at": "2026-11-01T07:45:40.386Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "Q3GrcwZqZNU",
+  "doneAt": "2026-11-01T09:55:26.696Z"
  },
  {
   "id": "ef04e8e6",
@@ -1624,8 +1630,10 @@
   "genre": "galge",
   "note": "アニメED　2010年",
   "at": "2026-11-01T07:48:49.694Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "qVn3_qeIrBA",
+  "doneAt": "2026-11-01T09:55:26.877Z"
  },
  {
   "id": "94b61e0f",
@@ -1635,8 +1643,10 @@
   "genre": "",
   "note": "アニメED　2017年",
   "at": "2026-11-01T08:01:46.524Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "jTkNRngNgyE",
+  "doneAt": "2026-11-01T09:55:27.033Z"
  },
  {
   "id": "e764f4b6",
@@ -1646,8 +1656,10 @@
   "genre": "action",
   "note": "アニメOP　2011年",
   "at": "2026-11-01T08:06:48.362Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "0NqXqqAYbyc",
+  "doneAt": "2026-11-01T09:55:27.165Z"
  },
  {
   "id": "fbafe223",
@@ -1657,8 +1669,10 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-11-01T08:14:09.265Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "_QLrZmDLE5g",
+  "doneAt": "2026-11-01T09:55:27.309Z"
  },
  {
   "id": "5d4fc652",
@@ -1668,7 +1682,9 @@
   "genre": "pachislot",
   "note": "",
   "at": "2026-11-01T08:17:53.135Z",
-  "status": "open",
-  "votes": 1
+  "status": "added",
+  "votes": 1,
+  "songId": "WzoIvqVpO-k",
+  "doneAt": "2026-11-01T09:55:27.427Z"
  }
 ]

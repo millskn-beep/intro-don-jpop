@@ -571,6 +571,21 @@ function categories() {
   return CATS;
 }
 app.get('/api/ww-names', (req, res) => res.json(WW_NAMES.map(n => [n, [...(WW_READ.get(n) || [])], WW_SONGS.get(n) || []])));
+// 3つ埋めバトルの入力候補：枠ごとの [名前, ...読みがな・略称]
+let FILL_NAMES = null, FILL_NAMES_OF = null;
+function fillNames() {
+  if (FILL_NAMES_OF === SONGS) return FILL_NAMES;
+  const add = (m, name, al = []) => { if (!name) return; const set = m.get(name) || m.set(name, new Set()).get(name); al.forEach(x => set.add(x)); };
+  const m = { title: new Map(), work: new Map(), artist: new Map(), author: new Map(), singer: new Map(), vocal: new Map() };
+  for (const s of SONGS) {
+    add(m.title, s.title, s.aliases);
+    if (s.type === 'ボカロ') { add(m.author, authorOf(s), s.workAliases); (s.singer || []).forEach(x => add(m.singer, x)); } else { add(m.work, s.work, s.workAliases); add(m.artist, s.artist, s.artistAliases); }
+  }
+  [...VOCALS, ...VOCAL_COMBOS].forEach(v => add(m.vocal, v));
+  FILL_NAMES_OF = SONGS;
+  return FILL_NAMES = Object.fromEntries(Object.entries(m).map(([k, x]) => [k, [...x].map(([n, al]) => [n, ...al])]));
+}
+app.get('/api/fill-names', (req, res) => res.json(fillNames()));
 app.get('/api/categories', (req, res) => { const c = categories(); res.json({ works: c.works, artists: c.artists, authors: c.authors }); });
 app.get('/api/song-info', (req, res) => res.json({ 'song-info': INFO_FIXES }));
 app.post('/api/song-info', (req, res) => {
@@ -919,7 +934,7 @@ const OPTIONS = {
   lifelines: [true, false],
   quizType: ['intro', 'sabimae', 'mix', 'random', 'outro', 'utaidashi', 'notchorus', 'oneline'], // utaidashi：歌い出しから／notchorus：サビ以外の歌詞の行から／oneline：歌詞の一行だけ（data/lyric-times.json の曲） // イントロ／サビ前／1問ごとにランダム／どこから（曲の途中）／アウトロ（曲の終わり）
   // 遊び方：ふつう／早押し（押した人だけ答える）／サバイバル（ライフがなくなったら脱落）／出題者（順番に1人が曲を選ぶ）／協力（全員の正解数で目標）／ビンゴ
-  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'genreex', 'dentatsu', 'lyrics2', 'tanshuku', 'lyrics'], // lyrics：歌詞クイズ（歌詞の合言葉で作った非公開の部屋だけ） // dentatsu：アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる） // genreex：アニソン・ジャンル制覇EX（集める種類を6つ以上・年代や曲の種類・知名度も選べる） // azul：アニソン・アズール（曲カードを取り合い、年代別の棚に並べる） // kaerema：アニソン帰れま10（お題の曲の再生回数トップ10を全部当てる） // deck：アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買う） // genre：アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ） // sugoroku：アニソンすごろく（正解の速さでコマを進める） // wits：アニソン年当てベット（発売年を予想して、いちばん近い予想に賭ける） // daifugo：アニソン大富豪（発売年が新しい曲ほど強い。年は見えない） // codenames：アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる） // baba：アニソン・ババ抜き（同じ作品の曲2枚がペア） // dixit：アニソン・ディクシット（語り手のヒントから、手札の曲を出して語り手の曲を当てる） // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
+  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'monopoly', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'genreex', 'dentatsu', 'lyrics2', 'tanshuku', 'lyrics'], // lyrics：歌詞クイズ（歌詞の合言葉で作った非公開の部屋だけ） // dentatsu：アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる） // genreex：アニソン・ジャンル制覇EX（集める種類を6つ以上・年代や曲の種類・知名度も選べる） // azul：アニソン・アズール（曲カードを取り合い、年代別の棚に並べる） // kaerema：アニソン帰れま10（お題の曲の再生回数トップ10を全部当てる） // deck：アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買う） // genre：アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ） // sugoroku：アニソンすごろく（正解の速さでコマを進める） // wits：アニソン年当てベット（発売年を予想して、いちばん近い予想に賭ける） // daifugo：アニソン大富豪（発売年が新しい曲ほど強い。年は見えない） // codenames：アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる） // baba：アニソン・ババ抜き（同じ作品の曲2枚がペア） // dixit：アニソン・ディクシット（語り手のヒントから、手札の曲を出して語り手の曲を当てる） // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
   target: ['song', 'work', 'year', 'artist'], // 答えるもの：曲名／作品／年／歌手
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
@@ -935,6 +950,8 @@ const OPTIONS = {
   lyKind: ['mix', 'which', 'blank', 'next', 'reveal', 'whichWork', 'whichArtist', 'wrong', 'keyword'], // 歌詞クイズ：出題の種類
   lyFocus: ['chorus', 'any'],             // 歌詞クイズ：サビの歌詞を中心に出す／どこからでも
   kmTop: [10, 15, 20], // 帰れま10：当てる順位の数（トップ10／15／20）
+  mpBy: ['genre', 'work', 'artist', 'mix', 'choose'], // モノポリー：国の分け方
+  mpLand: ['full', 'half'], // モノポリー：最後の順位で土地を買値の全額／半額に数える
   gzSet: ['fixed', 'random', 'choose'], // ジャンル制覇：集めるジャンルの決め方（fixed：今の6つ／random：ゲームごとにランダム／choose：選ぶ）
   gzCount: [6, 7, 8, 10, 12, 15, 20, 25], // ジャンル制覇EX：ランダムで決める種類の数
   gzPick: ['choose', 'random'], // ジャンル制覇：次のジャンル（choose：最速の正解者が選ぶ／random：毎問ランダム）
@@ -958,7 +975,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   tsKind: 'both', tsAns: 'choice', lyFocus: 'chorus', lessPlayed: false, play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, wwHint: 'title', lyKind: 'mix', noCoupling: false };
+                   tsKind: 'both', tsAns: 'choice', lyFocus: 'chorus', lessPlayed: false, play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, wwHint: 'title', mpBy: 'genre', mpLand: 'full', lyKind: 'mix', noCoupling: false };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -1134,6 +1151,7 @@ function publicRoom(room) {
       ? { cats: room.game.gz.cats.map(c => ({ key: c.key, label: c.label, icon: c.icon })), ex: room.settings.play === 'genreex', cur: room.game.gz.cur, gain: room.game.gz.gain || null, at: room.game.gz.at ?? -1, pick: room.game.gz.pick ? { id: room.game.gz.pick.id, name: room.game.gz.pick.name, until: room.game.gz.pick.until } : null,
           team: !!room.settings.teams, players: room.settings.teams ? TEAMS.map(t => ({ id: t, name: GZ_TEAM[t], pieces: [...(room.game.gz.pieces.get(t) || [])] })) : [...room.players.values()].map(p => ({ id: p.id, name: p.name, pieces: [...(room.game.gz.pieces.get(p.id) || [])] })) } : null,
     deckGame: room.settings.play === 'deck' && room.game && room.state === 'playing' ? { qNo: Math.max(0, room.game.qi + 1), qTotal: room.game.order.length, shopsDone: room.game.dkShopN || 0, shopsTotal: dkShopTotal(room.game), nextShopIn: Math.min(DK_EVERY - ((room.game.qi + 1) % DK_EVERY || DK_EVERY) + 0, room.game.order.length - (room.game.qi + 1)) } : null,
+    monopoly: room.settings.play === 'monopoly' ? MP.publicState(room) : null,
     sugoroku: room.settings.play === 'sugoroku' && room.game?.sg && room.state === 'playing'
       ? { board: room.game.sg.board, goal: SG_GOAL, last: room.game.sg.last, moves: room.game.sg.moves || [], at: room.game.sg.at ?? -1, pos: [...room.players.values()].map(p => ({ id: p.id, name: p.name, pos: room.game.sg.pos.get(p.id) || 0, rest: room.game.sg.rest.has(p.id), dbl: room.game.sg.dbl.has(p.id) })) } : null,
     panel: room.settings.play === 'panel' && room.game?.panel && room.state === 'playing'
@@ -1447,11 +1465,11 @@ app.get('/api/play-stats', (req, res) => {
 const RECENT_MAX = 500, RECENT_SONGS = new Map();
 function rememberRecent(id) { RECENT_SONGS.delete(id); RECENT_SONGS.set(id, 1); if (RECENT_SONGS.size > RECENT_MAX) RECENT_SONGS.delete(RECENT_SONGS.keys().next().value); }
 // list から、最近出ていない曲を先に。need 曲に足りなければ、最近の曲のうち古く出たものから足す
-function avoidRecent(list, need, keep = new Set()) {
-  const out = list.filter(s => !RECENT_SONGS.has(s.id) || keep.has(s.id));
+function avoidRecent(list, need) {
+  const out = list.filter(s => !RECENT_SONGS.has(s.id));
   if (out.length >= need) return out;
   const inList = new Set(list.map(s => s.id)), byId = new Map(list.map(s => [s.id, s]));
-  for (const id of RECENT_SONGS.keys()) { if (out.length >= need) break; if (inList.has(id) && !keep.has(id)) out.push(byId.get(id)); }
+  for (const id of RECENT_SONGS.keys()) { if (out.length >= need) break; if (inList.has(id)) out.push(byId.get(id)); }
   return out;
 }
 function recordPlayed(room, s) {
@@ -1506,9 +1524,9 @@ function startGame(room) {
   }
   // この部屋で前のゲームに出た曲・貼り付けたログの曲は避ける。足りなければ古く除外した曲から戻して使う
   if (!room.played) room.played = new Set();
-  const want = S.play === 'survival' ? SURVIVAL_MAX : S.play === 'panel' ? PANEL_MAX : S.play === 'sugoroku' ? SG_MAX : isGz(S.play) ? GZ_MAX : S.play === 'nenpyo' ? NENPYO_MAX : S.play === 'tanshuku' ? TS_MAX : S.questions; // サバイバルは終わるまで（最大 SURVIVAL_MAX 問）
+  const want = S.play === 'monopoly' ? 15 : S.play === 'survival' ? SURVIVAL_MAX : S.play === 'panel' ? PANEL_MAX : S.play === 'sugoroku' ? SG_MAX : isGz(S.play) ? GZ_MAX : S.play === 'nenpyo' ? NENPYO_MAX : S.play === 'tanshuku' ? TS_MAX : S.questions; // サバイバルは終わるまで（最大 SURVIVAL_MAX 問）
   const need = Math.min(want, candidates.length);
-  let fresh = S.noExclude ? [...candidates] : candidates.filter(s => !room.played.has(s.id) || ctx.fav.has(s.id)); // お気に入りは前に出ていても外さない
+  let fresh = S.noExclude ? [...candidates] : candidates.filter(s => !room.played.has(s.id));
   if (fresh.length < need) {
     const byId = new Map(candidates.map(s => [s.id, s]));
     for (const id of room.played) {
@@ -1516,7 +1534,7 @@ function startGame(room) {
       if (byId.has(id)) { fresh.push(byId.get(id)); if (!isGz(S.play)) room.played.delete(id); } // ジャンル制覇の並べた曲は仮なので、除外の記録はそのまま
     }
   }
-  if (!S.noExclude) fresh = avoidRecent(fresh, need, ctx.fav); // ほかの部屋で最近出た曲も避ける（足りなければ古く出た曲から）
+  if (!S.noExclude) fresh = avoidRecent(fresh, need); // ほかの部屋で最近出た曲も避ける（足りなければ古く出た曲から）
   const n = Math.min(want, fresh.length);
   const freshSet = new Set(fresh);
   const popular = S.noExclude ? [] : candidates.filter(s => !freshSet.has(s) && room.played.has(s.id) && isPopular(s));
@@ -1546,7 +1564,7 @@ function startGame(room) {
   const pokerDeck = S.play === 'poker' ? shuffle(candidates.filter(s => !order.includes(s))) : null; // ボーナスカード用の山（出題に使わない曲）
   // アニソン激アツRUSH：全問の色と当たりをここで決める（当たりの問題には、パチスロで有名な曲を入れる）
   const rushPlan = S.play === 'rush' ? buildRushPlan(order, fresh.length ? fresh : candidates, S) : null;
-  if (!S.noRecord && !isGz(S.play)) order.forEach(s => recordPlayed(room, s)); // ジャンル制覇は、曲を出すときに記録する（並べた曲は gzPrepare で入れ替える）
+  if (!S.noRecord && !isGz(S.play) && S.play !== 'monopoly') order.forEach(s => recordPlayed(room, s)); // ジャンル制覇は、曲を出すときに記録する（並べた曲は gzPrepare で入れ替える）
   room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
   statsGame(room);
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map(), // stats: token -> 称号用の成績
@@ -1557,6 +1575,7 @@ function startGame(room) {
                 pokerPool, pokerNums: new Map(), // 数字の残り・作品ごとの数字
                 bingoTarget: S.target, // ビンゴのマスの種類（ゲームの途中で答えるものを変えても、配ったカードのまま）
                 solo: connectedPlayers(room).length <= 1 }; // サバイバル：1人で遊ぶときはライフがなくなるまで、2人以上なら残り1人まで
+  if (S.play === 'monopoly') MP.init(room, pool);
   // 協力：目標は「問題数 × 人数 × 目標%」をゲーム開始時に決める（途中で人数が変わっても変えない）
   if (S.play === 'coop') room.game.coop = { goal: Math.max(1, Math.ceil(order.length * connectedPlayers(room).length * S.coopGoal / 100)), count: 0 };
   // ビンゴ：一人ひとりにカードを配る（途中から入った人には入ったときに配る）
@@ -1973,7 +1992,7 @@ function gzPrepare(room) { // 次の問題の曲を、選ばれたジャンル�
   if (!gz.cur) gz.cur = gz.cats[crypto.randomInt(gz.cats.length)].key;
   const cat = gzCatOf(gz, gz.cur), used = new Set(g.order.slice(0, g.qi).map(s => s.id)), ctx = userCtx(room);
   const S = room.settings, ok = s => !used.has(s.id) && !ctx.block.has(s.id) && cat.test(s);
-  const list = g.pool.filter(ok), fresh = S.noExclude ? list : list.filter(s => !room.played.has(s.id) || ctx.fav.has(s.id)); // 前に出た曲・出題から外した曲は避ける
+  const list = g.pool.filter(ok), fresh = S.noExclude ? list : list.filter(s => !room.played.has(s.id)); // 前に出た曲・出題から外した曲は避ける
   const works = new Set(g.order.slice(0, g.qi).map(gameWork)), fresh2 = fresh.filter(s => !works.has(gameWork(s))); // 同じ作品はなるべく出さない
   const notRecent = fresh2.filter(s => !RECENT_SONGS.has(s.id)); // ほかの部屋で最近出た曲も、なるべく避ける
   const alt = (!S.noExclude && notRecent.length) ? notRecent : fresh2.length ? fresh2 : fresh.length ? fresh : list.length ? list : SONGS.filter(s => ok(s) && !isExcluded(s, S.excludeGenres));
@@ -2020,6 +2039,7 @@ function gzChoose(room, key) {
   if (S.autoNext > 0 && room.game?.q === q) { q.revealAt = Date.now(); scheduleNext(room, q, Date.now() + GZ_NEXT_MS); io.to(room.code).emit('nextAt', { seconds: GZ_NEXT_MS / 1000, by: '' }); }
 }
 
+const MP = require('./monopoly')({ io, later: (...a) => later(...a), broadcastRoom: (...a) => broadcastRoom(...a), nextQuestion: (...a) => nextQuestion(...a), startQuestion: (...a) => startQuestion(...a), shuffle: a => shuffle(a), gameWork: s => gameWork(s), gzCatalog: () => gzCatalog(), recordPlayed: (...a) => recordPlayed(...a), userCtx: r => userCtx(r), recent: { has: id => RECENT_SONGS.has(id) }, allSongs: () => SONGS });
 // ── アニソンすごろく：正解の速い順に 3・2・1 マス進む。止まったマスのイベント。先にゴールした人の勝ち（docs/sugoroku-spec.md）──
 const SG_GOAL = 30, SG_MAX = 60, SG_STEPS = [3, 2, 1], SG_BONUS = 300, SG_GOAL_PTS = 2000;
 const SG_EVENTS = ['fwd', 'back', 'bonus', 'rest', 'dbl', 'swap', 'hit'];
@@ -3533,6 +3553,7 @@ function nextQuestion(room) {
   if (g.panelPick) return; // 陣取りでパネルを選んでいる間は進めない
   if (g.gz?.pick) return; // ジャンル制覇で次のジャンルを選んでいる間は進めない
   if (g.dkShop) return; // デッキ構築のショップ中は進めない
+  if (g.mp && MP.busy(room)) return; // モノポリー：サイコロ・移動・行動タイムのあいだは進めない
   if (room.settings.play === 'deck' && g.qi >= 0 && ((g.qi + 1) % DK_EVERY === 0 || g.qi + 1 >= g.order.length) && g.dkShopAt !== g.qi) return startDkShop(room); // 3問ごと＋最後の問題のあと（必ず）
   if (room.settings.play === 'poker') {
     pokerAutoDiscard(room);
@@ -3551,6 +3572,7 @@ function nextQuestion(room) {
   if (room.settings.play === 'tanshuku') return tsTurn(room);
   if (room.settings.play === 'baba') return startBabaRound(room, g.order[g.qi]);
   if (room.settings.play === 'codenames') return startCodenamesRound(room, g.order[g.qi]);
+  if (room.settings.play === 'monopoly') return MP.turn(room);
   if (isGz(room.settings.play)) gzPrepare(room);
   if (room.settings.play === 'daifugo') return startDaifugoRound(room, g.order[g.qi]);
   if (room.settings.play === 'wits' || room.settings.play === 'bluff') return startWitsRound(room, g.order[g.qi]);
@@ -3985,7 +4007,7 @@ function onFillAnswer(room, player, payload) {
       if (typeof payload?.text !== 'string' || slot.peeked) return; // 10択が出た枠は手で打てない
       given = payload.text.trim().slice(0, 50);
       if (!given) return;
-      correct = isCorrectText(given, song, slot.target);
+      correct = given === song[slot.target] || isCorrectText(given, song, slot.target); // 候補で選んだ名前そのまま（「嵐」「∞」のような短い名前）も正解
       // 惜しい（1文字ちがいなど）ときは回答にせず、本人にだけ知らせて打ち直してもらう（1つの押しで2回まで）
       if (!correct && isAlmostText(given, song, slot.target) && (q.buzz.almost || 0) < 2) {
         q.buzz.almost = (q.buzz.almost || 0) + 1;
@@ -4285,7 +4307,7 @@ function reveal(room) {
   const bingoBonus = q.bingoBonus || []; // この問題でそろった人とボーナス
   const bingo = bingoBonus.map(b => b.name);
   if (S.play === 'bingo' && bingoOver(room)) room.game.bingoDone = true; // 設定した人数・ビンゴ数に届いたら、この問題で終わり
-  const sgEv = S.play === 'sugoroku' ? sgReveal(room, q, results) : isGz(S.play) ? gzReveal(room, q, results) : S.play === 'deck' ? dkReveal(room, q, results) : [];
+  const sgEv = S.play === 'monopoly' ? MP.reveal(room, q, results) : S.play === 'sugoroku' ? sgReveal(room, q, results) : isGz(S.play) ? gzReveal(room, q, results) : S.play === 'deck' ? dkReveal(room, q, results) : [];
   const last = (!isGz(S.play) && room.game.qi + 1 >= room.game.order.length) || (isGz(S.play) && room.game.qi + 1 >= GZ_HARD_MAX) || survivalOver(room) || !!room.game.bingoDone || !!room.game.nenpyoDone || !!room.game.sgDone || !!room.game.gzDone;
   // 激アツRUSH：この問題の結果（色・当たり）と、大当たり・RUSH終了の人
   const rushEv = [...(q.rushEvents || new Map())].map(([t, e]) => ({ ...e, name: room.players.get(t)?.name })).filter(e => e.name);
@@ -4324,7 +4346,7 @@ function reveal(room) {
     if (q.attack && !room.game.panelPick) room.game.attackCell = null; // アタックチャンスの問題が終わったら、白いマスは普通の空きマスに戻る（選ぶ人がいるときは、選び終わってから）
     if (!room.game.panelPick) panelAttackSetup(room);
   }
-  if (S.autoNext > 0 && !room.game.panelPick && !room.game.gz?.pick) {
+  if (S.autoNext > 0 && !room.game.panelPick && !room.game.gz?.pick && S.play !== 'monopoly') {
     q.revealAt = Date.now();
     scheduleNext(room, q, Date.now() + S.autoNext * 1000);
   }
@@ -4490,6 +4512,12 @@ function modeTitles(room, list, pick, top, ranking, showdown) {
 }
 
 // 答え合わせから次の問題へ進む時刻を決める（「サビを聞く」で延ばせる）
+function releaseFixHold(room, q, token) { // 修正の窓を閉じた・その人が抜けた：だれも直していなければ、自動で次へ進むのを再開
+  if (!q.fixHolds?.delete(token) || q.fixHolds.size || !(room.settings.autoNext > 0)) return;
+  const at = Date.now() + Math.max(5, room.settings.autoNext) * 1000;
+  scheduleNext(room, q, at);
+  io.to(room.code).emit('nextAt', { seconds: (at - Date.now()) / 1000, by: '' });
+}
 function scheduleNext(room, q, at) {
   if (q.nextTimer) clearTimeout(q.nextTimer.h);
   q.nextAt = at;
@@ -4646,6 +4674,7 @@ function endGame(room) {
     for (const r of ranking) r.gzPieces = room.game.gz.pieces.get(gzOwner(room, r.id))?.size || 0;
     ranking.sort((a, b) => b.gzPieces - a.gzPieces || b.score - a.score);
   }
+  if (room.settings.play === 'monopoly' && room.game.mp) MP.finalize(room, ranking);
   if (room.settings.play === 'sugoroku' && room.game.sg) { // すごろく：進んだマスの多い順（同じなら得点）
     for (const r of ranking) r.sgPos = room.game.sg.pos.get(r.id) || 0;
     ranking.sort((a, b) => b.sgPos - a.sgPos || b.score - a.score);
@@ -4663,6 +4692,9 @@ function endGame(room) {
   }
   if (teams && isGz(room.settings.play) && room.game.gz) { // ジャンル制覇：チームのそろえた種類の数
     teams = teams.map(x => ({ ...x, score: room.game.gz.pieces.get(x.team)?.size || 0, unit: '種類' })).sort((a, b) => b.score - a.score);
+  }
+  if (teams && room.settings.play === 'monopoly' && room.game.mp) { // モノポリー：チームの持ち点＋土地
+    teams = teams.map(x => ({ ...x, score: x.score + MP.teamLand(room, x.team) })).sort((a, b) => b.score - a.score);
   }
   const coop = room.game.coop ? { ...room.game.coop, done: room.game.coop.count >= room.game.coop.goal } : null;
   const titles = titlesOf(room, ranking, showdown);
@@ -4862,17 +4894,13 @@ io.on('connection', socket => {
   // 答え合わせで「位置を直す」を開いた：直し終わるまで、自動で次へ進まない（全員の画面のカウントも止める）
   socket.on('fixHold', on => {
     const q = room?.game?.q;
-    if (!q || !player || room.state !== 'playing' || q.phase !== 'reveal') return;
+    if (!q || !player || room.state !== 'playing' || q.phase !== 'reveal' || room.game.mp) return; // モノポリーは盤面の進行で進むので止めない
     q.fixHolds = q.fixHolds || new Set();
     if (on) {
       q.fixHolds.add(player.token);
       if (q.nextTimer) { clearTimeout(q.nextTimer.h); q.nextTimer.done = true; q.nextTimer = null; }
       io.to(room.code).emit('nextHold', { by: player.name });
-    } else if (q.fixHolds.delete(player.token) && !q.fixHolds.size && room.settings.autoNext > 0) {
-      const at = Date.now() + Math.max(5, room.settings.autoNext) * 1000;
-      scheduleNext(room, q, at);
-      io.to(room.code).emit('nextAt', { seconds: (at - Date.now()) / 1000, by: '' });
-    }
+    } else releaseFixHold(room, q, player.token);
   });
   socket.on('listen', () => {
     const q = room?.game?.q;
@@ -5105,6 +5133,7 @@ io.on('connection', socket => {
     io.to(room.code).emit('dkShopProgress', { done: [...g.dkShop.done].map(t => room.players.get(t)?.id) });
     if (connectedPlayers(room).every(p => g.dkShop.done.has(p.token))) finishDkShop(room);
   });
+  socket.on('mpAct', (type, a) => { if (room && !room.game?.paused) MP.act(room, player, String(type), a); });
   socket.on('gzChoose', key => { const pk = room?.game?.gz?.pick; if (pk && player && pk.token === player.token) gzChoose(room, String(key)); });
   socket.on('panelChoose', idx => {
     const pk = room?.game?.panelPick;
@@ -5198,6 +5227,7 @@ io.on('connection', socket => {
   socket.on('disconnect', () => {
     if (!room || !player || player.socketId !== socket.id) return;
     player.connected = false;
+    if (room.game?.q) releaseFixHold(room, room.game.q, player.token); // 修正の窓を開いたまま抜けても止まったままにしない
     if (room.game?.q?.buzz?.token === player.token) onAnswer(room, player, { drop: true });
     if (room.game?.q?.phase === 'picking' && room.game.q.picker === player.token) finishPick(room, null);
     ensureHost(room);

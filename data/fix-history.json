@@ -12111,5 +12111,158 @@
    "intro": 0.2,
    "chorus": 51
   }
+ },
+ {
+  "id": "iWeRglrNu6E",
+  "title": "零-zero-",
+  "work": "スノウボールアース",
+  "channel": "tuki.(17)",
+  "at": "2026-11-01T10:20:22.696Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 71,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 23.4,
+   "chorus": 73.6
+  }
+ },
+ {
+  "id": "O3ZYjfMqAsc",
+  "title": "次回予告",
+  "work": "戦隊大失格",
+  "channel": "キタニタツヤ / Tatsuya Kitani",
+  "at": "2026-11-01T10:31:15.205Z",
+  "before": {
+   "intro": 0,
+   "chorus": 57,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 10.1,
+   "chorus": 57
+  }
+ },
+ {
+  "id": "WzoIvqVpO-k",
+  "title": "Bull's Eye",
+  "work": "緋弾のアリアAA",
+  "channel": "FlyingDog",
+  "at": "2026-11-01T10:42:50.303Z",
+  "before": {
+   "intro": 9.2,
+   "chorus": 72,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 9.2,
+   "chorus": 68.6
+  }
+ },
+ {
+  "id": "HDwPGObRmXE",
+  "title": "彗星ノ銀河",
+  "work": "ボカロ（マツシタレオ）",
+  "channel": "マツシタレオ",
+  "at": "2026-11-01T10:50:57.413Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 127,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 89.8
+  }
+ },
+ {
+  "id": "OK-ybp0qRl0",
+  "title": "番凩",
+  "work": "ボカロ（hinayukki@仕事してP）",
+  "channel": "hinayukki LR",
+  "at": "2026-11-01T11:07:19.415Z",
+  "before": {
+   "intro": 0,
+   "chorus": 124,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 168.9
+  }
+ },
+ {
+  "id": "AKxei8pnRZg",
+  "title": "UNDERWATER",
+  "work": "ボカロ（Hylen）",
+  "channel": "Hatsune Miku",
+  "at": "2026-11-01T11:11:02.914Z",
+  "before": {
+   "intro": 1.2,
+   "chorus": 66,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.2,
+   "chorus": 123
+  }
+ },
+ {
+  "id": "d8Zh7OmqQd4",
+  "title": "ワンルーム・オール・ザット・ジャズ",
+  "work": "ボカロ（DATEKEN）",
+  "channel": "datechnology / DATEKEN Official Channel",
+  "at": "2026-11-01T11:17:07.000Z",
+  "before": {
+   "intro": 2,
+   "chorus": 130,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2,
+   "chorus": 93.1
+  }
+ },
+ {
+  "id": "oVb6Gkf-IJM",
+  "title": "*ハロー、プラネット。",
+  "work": "ボカロ（sasakure.UK）",
+  "channel": "sasakure. UK",
+  "at": "2026-11-01T11:19:43.656Z",
+  "before": {
+   "intro": 3.5,
+   "chorus": 90,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 3.5,
+   "chorus": 90.3
+  }
+ },
+ {
+  "id": "dliOFazgxmo",
+  "title": "はっぴぃ にゅう にゃあ",
+  "work": "迷い猫オーバーラン!",
+  "channel": "naunau510",
+  "at": "2026-11-01T12:16:22.086Z",
+  "before": {
+   "intro": 1,
+   "chorus": 57.8,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 64.8
+  }
  }
 ]

@@ -7,7 +7,7 @@ const setName = n => { try { n ? localStorage.setItem(KEY, n) : localStorage.rem
 let toastTimer = null;
 const toast = msg => { $('toast').textContent = msg; $('toast').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { $('toast').hidden = true; }, 2600); };
 
-const PLAY_NAME = { normal: 'ふつう', buzzer: '早押し', survival: 'サバイバル', picker: '出題者', coop: '協力', bingo: 'ビンゴ', fill: '3つ埋めバトル', rush: '激アツRUSH', poker: 'ポーカー', dixit: 'ディクシット', baba: 'ババ抜き', daifugo: '大富豪', codenames: 'コードネーム', wits: '年代ベット', bluff: 'アニソンベット', sugoroku: 'すごろく', genre: 'ジャンル制覇', genreex: 'ジャンル制覇EX', deck: 'デッキ構築', kaerema: '帰れま10', azul: 'アズール', panel: '陣取り', karuta: 'かるた', nenpyo: '年表', wolf: '人狼' };
+const PLAY_NAME = { normal: 'ふつう', buzzer: '早押し', survival: 'サバイバル', picker: '出題者', coop: '協力', bingo: 'ビンゴ', fill: '3つ埋めバトル', rush: '激アツRUSH', poker: 'ポーカー', dixit: 'ディクシット', baba: 'ババ抜き', daifugo: '大富豪', codenames: 'コードネーム', wits: '年代ベット', bluff: 'アニソンベット', monopoly: 'モノポリー', sugoroku: 'すごろく', genre: 'ジャンル制覇', genreex: 'ジャンル制覇EX', deck: 'デッキ構築', kaerema: '帰れま10', azul: 'アズール', panel: '陣取り', karuta: 'かるた', nenpyo: '年表', wolf: '人狼' };
 let user = null, songs = new Map();
 
 async function loadCatalog() {

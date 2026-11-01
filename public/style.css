@@ -1478,3 +1478,10 @@ body.rush-machine .stage-tools { overflow: visible; }
 .ww-field:has(.ww-fake) .ww-mark { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; white-space: nowrap; }
 .ww-field:has(.ww-fake) .ww-mark select { width: auto; min-height: 0; margin: 0; padding: 2px 4px; font-size: 12px; }
 .ww-field:has(.ww-fake) .ww-actions .btn-sub, .ww-field:has(.ww-fake) .ww-actions .btn-main { padding: 5px 16px; font-size: 14px; }
+
+/* 3つ埋めバトルの入力候補 */
+.fill-sugg { display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; max-height: 96px; overflow-y: auto; margin: 4px 0; }
+.fill-sugg:empty { display: none; }
+.fill-sugg .btn-sub { width: auto; max-width: 100%; margin: 0; padding: 4px 10px; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fill-sugg .btn-sub.on { border-color: var(--accent); background: rgba(255, 255, 255, .14); }
+#fillForm .btn-main { white-space: nowrap; flex: none; width: auto; }

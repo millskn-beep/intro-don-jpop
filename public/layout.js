@@ -220,6 +220,9 @@ export function initLayout({ socket, player, $, store, toast, getRoom, getMe, se
   // ウインドウの大きさは変わらないので resize だけでは気づけず、広いままの計算で右にはみ出していた
   new ResizeObserver(() => { if (document.body.classList.contains('layout-on')) apply(); }).observe(document.querySelector('main'));
   wide.addEventListener('change', apply);
+  // 一時停止の設定画面に入るときは、body のクラスが変わった時点ではまだ部屋の状態（paused）が古い。
+  // 部屋の更新でも判定し直して、配置を外す（外さないと設定画面がキャンバスからはみ出して、スクロールできない）
+  socket.on('room', () => setTimeout(() => { if (active() !== document.body.classList.contains('layout-on')) apply(); }, 0));
 
   // ドラッグ（移動・大きさ）。キャンバスの縮小ぶん（scale）で割って、割合で保存する（いま見ている場面の配置に）
   room.addEventListener('pointerdown', e => {

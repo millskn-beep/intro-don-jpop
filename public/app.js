@@ -194,7 +194,7 @@ function joined(res) {
   store.set('aq-room', res.code);
   history.replaceState(null, '', '?room=' + res.code);
   socket.emit('unwatchRooms');
-  $('home').hidden = true; $('roomListPanel').hidden = true; $('requestPanel').hidden = true; $('room').hidden = false;
+  $('home').hidden = true; $('roomListPanel').hidden = true; $('requestPanel').hidden = true; $('room').hidden = false; showSetButtons(true);
   $('roomCode').hidden = false; $('roomCode').textContent = res.code;
   $('inviteUrl').value = location.origin + location.pathname + '?room=' + res.code;
   renderRoom(res.room);
@@ -220,7 +220,7 @@ socket.on('connect', () => {
   else socket.emit('watchRooms');
 });
 function leaveToHome(msg) {
-  me = null; $('room').hidden = true; $('home').hidden = false; $('roomListPanel').hidden = false; $('requestPanel').hidden = false; loadRequests(); loadCandidates(); $('roomCode').hidden = true;
+  me = null; showSetButtons(false); $('room').hidden = true; $('home').hidden = false; $('roomListPanel').hidden = false; $('requestPanel').hidden = false; loadRequests(); loadCandidates(); $('roomCode').hidden = true;
   $('homeError').textContent = msg || '';
   socket.emit('watchRooms');
 }
@@ -266,7 +266,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'wwKind', 'wwHint', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
+const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'wwHint', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -476,7 +476,8 @@ const PLAY_INFO = {
   genreex: ['👑', 'ジャンル制覇EX', '集める種類を6つ以上に。ジャンル・年代・曲の種類・知名度から選ぶ（ランダムも）', '1人〜', 'quiz'],
   genre: ['🏆', 'ジャンル制覇', '6ジャンルのピースを集める。次のジャンルは選択制かランダム制', '1人〜', 'quiz'],
   deck: ['🛒', 'デッキ構築', '正解でコイン。3問ごとのショップでカードを買って育てる', '1人〜', 'quiz'],
-  wits: ['💰', 'アニソンベット', '発売年の予想やウソの作品名に賭ける', '2人〜', 'quiz'],
+  wits: ['💰', '年代ベット', '発売年を予想して、いちばん近い予想に賭ける', '2人〜', 'quiz'],
+  bluff: ['🎭', 'アニソンベット', 'ウソの作品を選んでだまし、本物に賭ける', '2人〜', 'quiz'],
   kaerema: ['🍜', '帰れま10', 'お題の曲の再生回数トップ10を、全部当てたら帰れる', '1人〜', 'board'],
   wolf: ['🐺', '人狼', '1人だけ別の曲。ヒントと話し合いで、だれが違うか当てる', '3人〜', 'board'],
   lyrics2: ['🎙️', '歌詞クイズ2', 'YouTube の歌詞字幕がある曲だけで、歌詞と曲がぴったり合う。答え合わせは歌詞を見ながら聴ける。合言葉の部屋だけ', '1人〜', 'quiz'],
@@ -516,7 +517,8 @@ const PLAY_DESC = {
   genreex: 'ジャンル制覇の発展版。集める「種類」を6つより多くできます。ジャンル（約20種類）・年代・曲の種類（OP・ED・挿入歌・ボカロなど）・知名度の中から、ランダムに決める（数も選べる）か、自分たちで好きなだけ選びます。毎問、どれか1つの種類の曲が出て、最速の正解者がその種類のピースをもらい、選んだ種類を先に全部そろえた人の勝ちです（だれかが全部そろえるまで終わりません。次の種類の決め方は「選択制／ランダム制」）。',
   genre: 'いつものイントロクイズで、6つのジャンル（ジャンプ／ロボット・SF／ラブコメ・日常／アイドル・バンド／異世界・ファンタジー／ゲーム・スポーツ）のピースを集めます。毎問どれか1つのジャンルの曲が出て、いちばん速く正解した人がそのジャンルのピースをもらいます。次の問題のジャンルは、設定で「選択制（最速の正解者が選ぶ）」か「ランダム制（毎問ランダム）」にできます。先に6つそろえた人の勝ち（+3000点）。だれかが全部そろえるまで終わりません（問題数の設定はありません）。',
   sugoroku: 'いつものイントロクイズに答えながら、すごろくでゴール（30マス目）を目指します。正解の速い順に 3・2・1 マス進み、止まったマスでイベント（進む・戻る・ボーナス・1回休み・次は2倍・先頭と入れ替え・前の人を戻す）。だれかがゴールしたら終わり（+2000点）。順位は進んだマスの多い順です。',
-  wits: '2人以上（3人以上がおすすめ）。お題は「年」「ウソの作品名」「まぜる」から選べます。ウソの作品名は、一覧からそれらしい作品を選び、並んだ中から本物に賭けます（本物に賭けて当たれば（100＋上乗せ）×3倍、自分の作品にだまされたマーカー1個につき +300点）。年は、イントロを聴いて発売年を予想します。全員の予想が年の順に並んだら、「正解の年にいちばん近い予想」（正解が全員の予想より古ければ「全員より古い」）がどれかを当てるマーカーを2個置きます（ほかの人の予想にも置けます）。外側の枠ほど倍率が高く、点数を上乗せして勝負もできます。自分の予想が当たり枠なら +300点（ぴったりなら +600点）。',
+  bluff: '2人以上（3人以上がおすすめ）。イントロを聴いて、それらしい別の作品を一覧から選びます。みんなの作品と本物が並んだら、本物だと思う枠にマーカーを2個置きます。本物に賭けて当たれば（100＋上乗せ）×3倍、自分の作品にだまされたマーカー1個につき +300点。',
+  wits: '2人以上（3人以上がおすすめ）。イントロを聴いて発売年を予想します。全員の予想が年の順に並んだら、「正解の年にいちばん近い予想」（正解が全員の予想より古ければ「全員より古い」）がどれかを当てるマーカーを2個置きます（ほかの人の予想にも置けます）。外側の枠ほど倍率が高く、点数を上乗せして勝負もできます。自分の予想が当たり枠なら +300点（ぴったりなら +600点）。',
   daifugo: '3人以上で遊びます。曲のカードが7枚ずつ配られます。カードの強さは発売年で、新しい曲ほど強いのですが、手札の年は見えません。場の曲より新しいと思う曲を出すか、パス。新しくなかったら失敗（−200点・カードは戻る）。全員パスで場が流れます。早く手札をなくした順に 大富豪+3000／富豪+2000／平民+1000点。1回が1ゲームです。',
   codenames: '4人以上で遊びます。赤・青の2チームに分かれ、各チームに1人のスパイマスターがいます。盤面は25枚の作品名で、スパイマスターだけが「どれが赤・青・中立・暗殺か」を知っています。スパイマスターが「ヒントの言葉＋数字」を出し、仲間がそれを手がかりに自分のチームの作品を当てます（めくると曲が流れます）。先に全部当てたチームの勝ち。暗殺カードを引くと負けです。1回が1ゲームです。',
   baba: '3人以上で遊びます。曲のカード（曲名と歌手だけ見えます）が配られます。同じ作品の曲2枚を選んで「ペア」にして出し、手札を早くなくしましょう（合っていれば+300点、ちがうと−300点）。順番に右隣の人から1枚ずつ引き、最後までババ（ジョーカー）を持っていた人が負け。上がった順に 3000／2000／1000点です。1回が1ゲームです（1〜2回がおすすめ）。',
@@ -653,17 +655,17 @@ document.querySelectorAll('#lyKinds input').forEach(x => x.onchange = () => { if
 socket.on('room', r => { renderRoom(r); refreshScoreStrips(); updateFixFab(); });
 // ── ボードゲーム風の窓：後ろの点数表が隠れるので、窓の見出しの下に全員の点数を出す（ディクシットは自分の欄に出している）──
 const SCORE_POPS = ['wolfPop', 'dtPop', 'tsPop', 'babaPop', 'cnPop', 'dfPop', 'wwPop', 'kmPop', 'azPop', 'dkPop'];
-function scoreStripHtml() {
+function scoreStripHtml(colored = false) { // colored：アニソンベットは名前を人ごとの色にする
   const ps = (room?.players || []).filter(p => p.connected !== false || p.score);
   if (!ps.length) return '';
   const top = Math.max(0, ...ps.map(p => p.score || 0));
-  return [...ps].sort((a, b) => (b.score || 0) - (a.score || 0)).map(p => `<span class="${p.id === me ? 'me' : ''}">${top > 0 && p.score === top ? '👑' : ''}${esc(p.name)}<b>${p.score || 0}点</b></span>`).join('');
+  return [...ps].sort((a, b) => (b.score || 0) - (a.score || 0)).map(p => `<span class="${p.id === me ? 'me' : ''}">${top > 0 && p.score === top ? '👑' : ''}${colored ? wwName(p.id, p.name) : esc(p.name)}<b>${p.score || 0}点</b></span>`).join('');
 }
 function putScoreStrip(pop) {
   const f = pop.querySelector('.wf-field'); if (!f || pop.hidden) return;
   let s = f.querySelector(':scope > .sc-strip');
   if (!s) { s = document.createElement('div'); s.className = 'sc-strip'; const h = f.querySelector(':scope > .wf-head, :scope > .cn-head'); h ? h.after(s) : f.prepend(s); }
-  const html = scoreStripHtml(); if (s.innerHTML !== html) s.innerHTML = html;
+  const html = scoreStripHtml(pop.id === 'wwPop'); if (s.innerHTML !== html) s.innerHTML = html;
 }
 function refreshScoreStrips() { for (const id of SCORE_POPS) { const p = $(id); if (p && !p.hidden) putScoreStrip(p); } }
 for (const id of SCORE_POPS) { const p = $(id); if (p) new MutationObserver(() => putScoreStrip(p)).observe(p, { childList: true, attributes: true, attributeFilter: ['hidden'] }); } // 窓を描き直したら付け直す
@@ -736,8 +738,7 @@ function renderRoom(r) {
   $('dtChoicesLabel').hidden = r.settings.play !== 'dentatsu';
   $('tsKindLabel').hidden = $('tsAnsLabel').hidden = r.settings.play !== 'tanshuku';
   const isGzP = ['genre', 'genreex'].includes(r.settings.play), isEx = r.settings.play === 'genreex';
-  $('wwKindLabel').hidden = r.settings.play !== 'wits';
-  $('wwHintLabel').hidden = r.settings.play !== 'wits' || r.settings.wwKind === 'year';
+  $('wwHintLabel').hidden = r.settings.play !== 'bluff';
   $('gzPickLabel').hidden = !isGzP;
   $('gzSetLabel').hidden = !isGzP;
   document.querySelector('[data-key="gzSet"] option[value="fixed"]').disabled = isEx; // EXは「今の6つ」の固定はなし
@@ -756,7 +757,7 @@ function renderRoom(r) {
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
-  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'sugoroku', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(r.settings.play);
+  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'sugoroku', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
@@ -1172,6 +1173,20 @@ function updateFixFab() {
   fab.hidden = !(room && ['playing', 'result'].includes(room.state) && fixRecent.length);
 }
 $('fixFab').onclick = () => openFixPop(0);
+// 一番上（BGM の横）と左下の ⚙ 設定：待機中・一時停止中は設定を開く。ゲーム中はホストなら一時停止して開く
+function openRoomSettings() {
+  if (!room) return;
+  if (room.state === 'playing' && !room.paused) {
+    if (room.hostId === me) socket.emit('pause');
+    else toast('ホストが一時停止すると、設定を変えられます');
+    return;
+  }
+  if (!$('lobby').offsetHeight) return toast('部屋に戻ると、設定を変えられます');
+  setLobbyTab('settings'); lobbyTabChosen = true;
+  $('settings').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+document.querySelectorAll('.set-open').forEach(b => b.onclick = openRoomSettings);
+const showSetButtons = on => { $('setTop').hidden = $('setFab').hidden = !on; };
 function openFixPop(sel = 0) {
   const pop = $('fixPop'), s = fixRecent[sel]; if (!s) return;
   pop.hidden = false;
@@ -1738,7 +1753,7 @@ function renderKm() {
   pop.querySelectorAll('[data-kmprev]').forEach(el => el.onclick = e => { e.stopPropagation(); e.preventDefault(); socket.emit('kmPreview', +el.dataset.kmprev); });
   pop.querySelectorAll('[data-km][data-can]').forEach(b => b.onclick = () => { socket.emit('kmPick', +b.dataset.km); pop.querySelectorAll('[data-km]').forEach(x => { x.removeAttribute('data-can'); x.onclick = null; x.setAttribute('aria-disabled', 'true'); }); });
 }
-// ── アニソン年当てベット：発売年を予想 → いちばん近い予想に賭ける ──
+// ── 年代ベット：発売年を予想 → いちばん近い予想に賭ける ／ アニソンベット：ウソの作品を選び、本物に賭ける ──
 let wwData = null, wwRolled = '', wwTick = null, wwMarks = [], wwSent = false, wwKey = '';
 function hideWw() { clearInterval(wwTick); $('wwPop').hidden = true; $('wwPop').innerHTML = ''; wwData = null; }
 socket.on('wwPhase', d => { if (!d) return hideWw(); const k = d.round + ':' + d.step; if (k !== wwKey) { wwKey = k; wwMarks = []; wwSent = false; } if (d.round !== wwFakeRound) { wwFakeRound = d.round; wwFakePick = ''; wwFakeQ = ''; wwFakeHit = ''; } wwData = d; renderWw(); });
@@ -1749,17 +1764,25 @@ const wwNorm = t => String(t).normalize('NFKC').toLowerCase().replace(/[\s\p{P}\
 function wwSuggest() {
   const box = $('wwSugg'); if (!box) return;
   const q = wwNorm($('wwFakeInput')?.value || '');
-  const hit = ([n, rs]) => [n, ...rs].map(wwNorm); // 作品名と読みがな（先頭が合うものを先に）
-  const list = !q || !wwNames ? [] : [...wwNames.filter(x => hit(x).some(k => k.startsWith(q))), ...wwNames.filter(x => hit(x).some(k => k.includes(q)) && !hit(x).some(k => k.startsWith(q)))].slice(0, 8).map(x => x[0]);
-  box.innerHTML = list.map(n => `<button type="button" class="btn-sub" data-name="${esc(n)}">${esc(n)}</button>`).join('') || (q ? '<small>見つかりません</small>' : '<small>作品名やひらがなを入れて、一覧から選びます</small>');
+  // 作品名と読みがな（先頭が合うものを先に）→ 曲名・歌手名。画面に出ている曲は、曲名で探しても出さない（本物が分かってしまうので）
+  const hit = ([n, rs]) => [n, ...rs].map(wwNorm);
+  const shown = wwData?.title || '', viaSong = x => q.length < 2 ? null : x[2].find(s => s[0] !== shown && s.some(k => wwNorm(k).includes(q)));
+  const names = !q || !wwNames ? [] : wwNames.filter(x => hit(x).some(k => k.includes(q))).sort((a, b) => hit(b).some(k => k.startsWith(q)) - hit(a).some(k => k.startsWith(q)));
+  const songs = !q || !wwNames || names.length >= 8 ? [] : wwNames.filter(x => !names.includes(x) && viaSong(x));
+  const list = [...names.map(x => [x[0], null]), ...songs.map(x => [x[0], viaSong(x)])].slice(0, 8);
+  box.innerHTML = list.map(([n, s]) => `<button type="button" class="btn-sub" data-name="${esc(n)}">${esc(n)}${s ? `<small>${esc(s[0])}／${esc(s[1])}</small>` : ''}</button>`).join('') || (q ? '<small>見つかりません</small>' : '<small>作品名・曲名・歌手名を入れて、一覧から選びます</small>');
   box.querySelectorAll('[data-name]').forEach(b => b.onclick = () => { $('wwFakeInput').value = wwFakeQ = b.dataset.name; const ok = $('wwFakeBtn'); ok.disabled = false; ok.dataset.name = b.dataset.name; box.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); });
 }
 const wwRollKey = d => `${d.round}:${d.result?.year}:${d.result?.song?.title}`;
+// 人ごとの色（名前・その人の出した枠・賭けたチップ）
+const wwName = (id, name) => `<em class="ww-nm" style="color:${pColor(id)}">${esc(name)}</em>`;
+const wwChip = (id, name, extra) => `<u class="ww-chip" style="background:${pColor(id)}" title="${esc(name)}">${esc([...name][0] || '?')}${extra ? '+' + extra : ''}</u>`;
+const wwStrip = ids => { if (!ids?.length) return ''; const n = ids.length; return `<s class="ww-strip" style="background:linear-gradient(90deg,${ids.map((id, i) => `${pColor(id)} ${i / n * 100}% ${(i + 1) / n * 100}%`).join(',')})"></s>`; };
 function renderWw() {
   const d = wwData; if (!d) return;
   const pop = $('wwPop'); pop.hidden = false;
-  const head = `<div class="wf-head"><b>🎲 アニソンベット</b><span>第${d.round}/${d.total}問</span><span class="wf-left" id="wwLeft"></span></div>`;
-  const seats = `<div class="wf-seats">${d.players.map(p => `<span class="${d.done.includes(p.id) ? 'done' : ''}">${esc(p.name)} ${p.score}点</span>`).join('')}</div>`;
+  const head = `<div class="wf-head"><b>${d.kind === 'fake' ? '🎭 アニソンベット' : '🎲 年代ベット'}</b><span>第${d.round}/${d.total}問</span><span class="wf-left" id="wwLeft"></span></div>`;
+  const seats = `<div class="wf-seats">${d.players.map(p => `<span class="${d.done.includes(p.id) ? 'done' : ''}">${wwName(p.id, p.name)} ${p.score}点</span>`).join('')}</div>`;
   const mine = d.done.includes(me);
   // ほかの人が出した・賭けただけ（変わるのは「済み」の印だけ）なら、下の名前の欄だけ書き換える。
   // 全部描き直すと、入れかけの年や開いている「上乗せ」の選択が消えてしまう
@@ -1772,7 +1795,7 @@ function renderWw() {
     const clue = d.title ? `<p class="ww-clue">曲名：<b>${esc(d.title)}</b>${d.artist ? `<small>${esc(d.artist)}</small>` : ''}</p>` : '';
     const hit = wwFakeHit && !mine ? `<div class="ww-reject" role="alert"><b>🎯 当たり！ やり直し！</b><span>「${esc(wwFakeHit)}」は本物の作品です。別の作品を選んでください</span></div>` : '';
     body = `${hit}<p class="wf-msg">この曲の作品だと<b>思わせる、別の作品</b>を選びましょう（本物は選べません）</p>${clue}
-      <form class="wf-say" id="wwFakeForm"><input id="wwFakeInput" maxlength="40" placeholder="作品名で検索（ひらがなでも）" autocomplete="off"${mine ? ' disabled' : ''}><button class="btn-main" id="wwFakeBtn" type="submit" disabled>${mine ? '出しました' : '出す'}</button></form>
+      <form class="wf-say" id="wwFakeForm"><input id="wwFakeInput" maxlength="40" placeholder="作品名・曲名・歌手名で検索（ひらがなでも）" autocomplete="off"${mine ? ' disabled' : ''}><button class="btn-main" id="wwFakeBtn" type="submit" disabled>${mine ? '出しました' : '出す'}</button></form>
       <div class="ww-sugg" id="wwSugg"${mine ? ' hidden' : ''}></div>`;
   } else if (d.step === 'guess') {
     body = `<p class="wf-msg">イントロを聴いて、この曲の<b>発売年</b>を予想しましょう</p>
@@ -1781,7 +1804,9 @@ function renderWw() {
   } else if (d.step === 'bet' || d.step === 'result') {
     const r = d.result;
     const fake = d.kind === 'fake';
-    const slots = `<div class="ww-slots${fake ? ' ww-fake' : ''}">${d.slots.map((s, i) => { const n = wwMarks.filter(m => m.slot === i).length; return `<button type="button" class="ww-slot${r && r.win === i ? ' win' : ''}${n ? ' on' : ''}" data-slot="${i}"${d.step !== 'bet' || wwSent || (fake && s.name === wwFakePick) ? ' disabled' : ''}><b>${fake ? esc(s.name) : s.year ?? '全員より古い'}</b><small>${s.odds}倍</small><span>${s.owners.map(esc).join('・') || (fake ? '' : '　')}</span>${n ? `<i>${'●'.repeat(n)}</i>` : ''}</button>`; }).join('')}</div>`;
+    const slots = `<div class="ww-slots${fake ? ' ww-fake' : ''}">${d.slots.map((s, i) => { const n = wwMarks.filter(m => m.slot === i).length; const myName = d.players.find(p => p.id === me)?.name || '';
+      const chips = r ? r.rows.flatMap(x => x.bets.filter(m => m.slot === i).map(m => wwChip(x.id, x.name, m.extra))).join('') : wwMarks.filter(m => m.slot === i).map(m => wwChip(me, myName, m.extra)).join('');
+      return `<button type="button" class="ww-slot${r && r.win === i ? ' win' : ''}${n ? ' on' : ''}" data-slot="${i}"${d.step !== 'bet' || wwSent || (fake && s.name === wwFakePick) ? ' disabled' : ''}><b>${fake ? esc(s.name) : s.year ?? '全員より古い'}</b><small>${s.odds}倍</small><span>${s.owners.map((nm, k) => wwName(s.ownerIds?.[k], nm)).join('・') || (fake ? '' : '　')}</span>${chips ? `<div class="ww-chips">${chips}</div>` : ''}${wwStrip(s.ownerIds)}</button>`; }).join('')}</div>`;
     if (d.step === 'bet') {
       const marks = wwMarks.map((m, k) => `<span class="ww-mark">マーカー${k + 1}：${fake ? esc(d.slots[m.slot].name) : d.slots[m.slot].year ?? '古い'}　上乗せ <select data-extra="${k}"${wwSent ? ' disabled' : ''}>${d.extras.map(x => `<option value="${x}"${m.extra === x ? ' selected' : ''}>${x}</option>`).join('')}</select></span>`).join('');
       body = `<p class="wf-msg">${fake ? `${d.title ? `曲名：${esc(d.title)}${d.artist ? '／' + esc(d.artist) : ''}　` : ''}<b>本物の作品</b>はどれ？（自分が出した作品には置けません） ` : '正解の年に<b>いちばん近い</b>予想はどれ？（全員の予想より古ければ「全員より古い」） '}枠をタップしてマーカーを2個置く（同じ枠に2個も可）</p>${slots}<div class="ww-marks">${marks || '<small>マーカーを置いてください</small>'}</div>
@@ -1789,8 +1814,8 @@ function renderWw() {
     } else {
       const myRow = r.rows.find(x => x.id === me);
       rolling = !fake && wwRolled !== wwRollKey(d); // この問題の年のスロットをまだ回していない
-      body = fake ? `<p class="wf-result ${myRow?.points > 0 ? 'win' : 'lose'}">本物は <b>${esc(r.real)}</b><small>${esc(r.song.title)}（${esc(r.song.work)}／${esc(r.song.artist)}）</small></p>${slots}<div class="wf-tally">${r.rows.map(x => `<span>${esc(x.name)} ${x.points >= 0 ? '+' : ''}${x.points}${x.lines.length ? ' ' + x.lines.join('・') : ''}</span>`).join('')}</div>` : `<p class="wf-result ${rolling ? '' : myRow?.points > 0 ? 'win' : 'lose'}">正解は <b>${rolling ? '？' : r.year}年</b><small>${esc(r.song.title)}（${esc(r.song.work)}／${esc(r.song.artist)}）</small></p><div id="wwRoll"></div>${rolling ? slots.replace(/ win\b/, '') : slots}
-        <div class="wf-tally"${rolling ? ' hidden' : ''}>${r.rows.map(x => `<span>${esc(x.name)}${x.guess ? '（' + x.guess + '）' : ''} ${x.points >= 0 ? '+' : ''}${x.points}${x.lines.length ? ' ' + x.lines.join('・') : ''}</span>`).join('')}</div>`;
+      body = fake ? `<p class="wf-result ${myRow?.points > 0 ? 'win' : 'lose'}">本物は <b>${esc(r.real)}</b><small>${esc(r.song.title)}（${esc(r.song.work)}／${esc(r.song.artist)}）</small></p>${slots}<div class="wf-tally">${r.rows.map(x => `<span>${wwName(x.id, x.name)} ${x.points >= 0 ? '+' : ''}${x.points}${x.lines.length ? ' ' + x.lines.join('・') : ''}</span>`).join('')}</div>` : `<p class="wf-result ${rolling ? '' : myRow?.points > 0 ? 'win' : 'lose'}">正解は <b>${rolling ? '？' : r.year}年</b><small>${esc(r.song.title)}（${esc(r.song.work)}／${esc(r.song.artist)}）</small></p><div id="wwRoll"></div>${rolling ? slots.replace(/ win\b/, '') : slots}
+        <div class="wf-tally"${rolling ? ' hidden' : ''}>${r.rows.map(x => `<span>${wwName(x.id, x.name)}${x.guess ? '（' + x.guess + '）' : ''} ${x.points >= 0 ? '+' : ''}${x.points}${x.lines.length ? ' ' + x.lines.join('・') : ''}</span>`).join('')}</div>`;
     }
   }
   const typed = $('wwYear')?.value || ''; // ほかの人が出すと描き直すので、入れかけの年は残す
@@ -1804,7 +1829,7 @@ function renderWw() {
     $('wwFakeForm').onsubmit = e => { e.preventDefault(); const n = $('wwFakeBtn').dataset.name; if (!n || mine) return; wwFakePick = n; socket.emit('wwFake', n); };
     wwSuggest();
   }
-  if (d.step === 'result' && $('wwRoll')) { const r = d.result, rk = wwRollKey(d); yearRoll($('wwRoll'), r.year, r.rows.filter(x => x.guess).map(x => ({ year: +x.guess, html: `<b>${esc(x.name)}</b>`, me: x.id === me })), rolling ? () => { if (wwData === d) { wwRolled = rk; renderWw(); } } : null, !rolling); }
+  if (d.step === 'result' && $('wwRoll')) { const r = d.result, rk = wwRollKey(d); yearRoll($('wwRoll'), r.year, r.rows.filter(x => x.guess).map(x => ({ year: +x.guess, html: `<b style="color:${pColor(x.id)}">${esc(x.name)}</b>`, me: x.id === me })), rolling ? () => { if (wwData === d) { wwRolled = rk; renderWw(); } } : null, !rolling); }
   const left = () => { const el = $('wwLeft'); if (el) el.textContent = d.until ? `あと ${wolfLeft(d.until)} 秒` : ''; };
   clearInterval(wwTick); left(); wwTick = setInterval(left, 500);
   const gf = $('wwGuessForm');
@@ -1812,7 +1837,7 @@ function renderWw() {
   if (gf) { if (!mine) $('wwYear').focus(); gf.onsubmit = e => { e.preventDefault(); sendY(+$('wwYear').value); }; }
   pop.querySelectorAll('[data-y]').forEach(b => b.onclick = () => { const inp = $('wwYear'); inp.value = b.dataset.y; inp.focus(); });
   pop.querySelectorAll('[data-slot]').forEach(b => b.onclick = () => { if (wwMarks.length >= 2) wwMarks.shift(); wwMarks.push({ slot: +b.dataset.slot, extra: 0 }); renderWw(); });
-  pop.querySelectorAll('[data-extra]').forEach(s => s.onchange = () => { wwMarks[+s.dataset.extra].extra = +s.value; });
+  pop.querySelectorAll('[data-extra]').forEach(s => s.onchange = () => { wwMarks[+s.dataset.extra].extra = +s.value; renderWw.sig = null; renderWw(); });
   const cl = $('wwClear'); if (cl) cl.onclick = () => { wwMarks = []; renderWw(); };
   const bb = $('wwBetBtn'); if (bb) bb.onclick = () => { socket.emit('wwBet', wwMarks); wwSent = true; renderWw(); };
 }

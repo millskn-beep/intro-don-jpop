@@ -202,10 +202,14 @@ function buildSeries() {
     .map(g => ({ name: g.name, count: g.ids.length })).sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'ja'));
   WW_NAMES = [...new Set(SONGS.filter(wwWorkOk).map(wwWorkName))].filter(Boolean).sort((a, b) => a.localeCompare(b, 'ja'));
   WW_READ = new Map(WW_NAMES.map(n => [n, new Set()]));
-  for (const s of SONGS) if (wwWorkOk(s)) for (const a of s.workAliases || []) WW_READ.get(wwWorkName(s))?.add(a);
+  WW_SONGS = new Map(WW_NAMES.map(n => [n, []]));
+  for (const s of SONGS) if (wwWorkOk(s)) {
+    for (const a of s.workAliases || []) WW_READ.get(wwWorkName(s))?.add(a);
+    WW_SONGS.get(wwWorkName(s))?.push([s.title, s.artist, ...(s.aliases || []), ...(s.artistAliases || [])]); // 曲名・歌手名からも探す
+  }
 }
 // アニソンベット（ウソの作品名）：作品名はシリーズの名前だけ（2期・3作目などの番号や（アレンジ）は付けない）
-var WW_NAMES = [], WW_READ = new Map(); // WW_READ：作品の読みがな・略称（ひらがなで探す）
+var WW_NAMES = [], WW_SONGS = new Map(), WW_READ = new Map(); // WW_READ：作品の読みがな・略称（ひらがなで探す）
 function wwWorkName(s) {
   if (/^D\.C\./.test(s.work)) return 'D.C.〜ダ・カーポ〜';
   if (s.work === 'ワールド イズ ダンシング') return s.work;
@@ -566,7 +570,7 @@ function categories() {
   CATS = { works: sort(works), artists: sort(artists), authors: sort(authors.keys()), authorWork: authors };
   return CATS;
 }
-app.get('/api/ww-names', (req, res) => res.json(WW_NAMES.map(n => [n, [...(WW_READ.get(n) || [])]])));
+app.get('/api/ww-names', (req, res) => res.json(WW_NAMES.map(n => [n, [...(WW_READ.get(n) || [])], WW_SONGS.get(n) || []])));
 app.get('/api/categories', (req, res) => { const c = categories(); res.json({ works: c.works, artists: c.artists, authors: c.authors }); });
 app.get('/api/song-info', (req, res) => res.json({ 'song-info': INFO_FIXES }));
 app.post('/api/song-info', (req, res) => {
@@ -915,7 +919,7 @@ const OPTIONS = {
   lifelines: [true, false],
   quizType: ['intro', 'sabimae', 'mix', 'random', 'outro', 'utaidashi', 'notchorus', 'oneline'], // utaidashi：歌い出しから／notchorus：サビ以外の歌詞の行から／oneline：歌詞の一行だけ（data/lyric-times.json の曲） // イントロ／サビ前／1問ごとにランダム／どこから（曲の途中）／アウトロ（曲の終わり）
   // 遊び方：ふつう／早押し（押した人だけ答える）／サバイバル（ライフがなくなったら脱落）／出題者（順番に1人が曲を選ぶ）／協力（全員の正解数で目標）／ビンゴ
-  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'genreex', 'dentatsu', 'lyrics2', 'tanshuku', 'lyrics'], // lyrics：歌詞クイズ（歌詞の合言葉で作った非公開の部屋だけ） // dentatsu：アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる） // genreex：アニソン・ジャンル制覇EX（集める種類を6つ以上・年代や曲の種類・知名度も選べる） // azul：アニソン・アズール（曲カードを取り合い、年代別の棚に並べる） // kaerema：アニソン帰れま10（お題の曲の再生回数トップ10を全部当てる） // deck：アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買う） // genre：アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ） // sugoroku：アニソンすごろく（正解の速さでコマを進める） // wits：アニソン年当てベット（発売年を予想して、いちばん近い予想に賭ける） // daifugo：アニソン大富豪（発売年が新しい曲ほど強い。年は見えない） // codenames：アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる） // baba：アニソン・ババ抜き（同じ作品の曲2枚がペア） // dixit：アニソン・ディクシット（語り手のヒントから、手札の曲を出して語り手の曲を当てる） // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
+  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'genreex', 'dentatsu', 'lyrics2', 'tanshuku', 'lyrics'], // lyrics：歌詞クイズ（歌詞の合言葉で作った非公開の部屋だけ） // dentatsu：アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる） // genreex：アニソン・ジャンル制覇EX（集める種類を6つ以上・年代や曲の種類・知名度も選べる） // azul：アニソン・アズール（曲カードを取り合い、年代別の棚に並べる） // kaerema：アニソン帰れま10（お題の曲の再生回数トップ10を全部当てる） // deck：アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買う） // genre：アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ） // sugoroku：アニソンすごろく（正解の速さでコマを進める） // wits：アニソン年当てベット（発売年を予想して、いちばん近い予想に賭ける） // daifugo：アニソン大富豪（発売年が新しい曲ほど強い。年は見えない） // codenames：アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる） // baba：アニソン・ババ抜き（同じ作品の曲2枚がペア） // dixit：アニソン・ディクシット（語り手のヒントから、手札の曲を出して語り手の曲を当てる） // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
   target: ['song', 'work', 'year', 'artist'], // 答えるもの：曲名／作品／年／歌手
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
@@ -939,8 +943,7 @@ const OPTIONS = {
   rushRate: ['normal', 'high', 'low'],     // アニソン激アツRUSH：当たりやすさ（ふつう／出やすい×1.5／出にくい×0.6）
   bingoEnd: ['p1', 'p2', 'p3', 'l2', 'l3', 'all'], // ビンゴの終わり：p〇＝〇人がBINGO／l〇＝だれかが〇ビンゴ／all＝問題数まで
   lives: [1, 2, 3],                       // サバイバルのライフ
-  wwKind: ['year', 'fake', 'mix'], // アニソンベット：お題（年／ウソの作品名／まぜる）
-  wwHint: ['title', 'intro', 'titleartist'], // ウソの作品名：作品を選ぶときに出すもの
+  wwHint: ['title', 'intro', 'titleartist'], // アニソンベット：作品を選ぶときに出すもの
   teams: [false, true],                   // チーム戦（赤・青の2チーム。合計点で競う）
   leadSec: [3, 5, 10],                   // サビ前：サビの何秒前から流すか
   autoNext: [8, 12, 0],                  // 答え合わせから自動で次へ進むまでの秒数（0 は自動で進まない）
@@ -955,7 +958,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   tsKind: 'both', tsAns: 'choice', lyFocus: 'chorus', lessPlayed: false, play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, wwKind: 'year', wwHint: 'title', lyKind: 'mix', noCoupling: false };
+                   tsKind: 'both', tsAns: 'choice', lyFocus: 'chorus', lessPlayed: false, play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, wwHint: 'title', lyKind: 'mix', noCoupling: false };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -997,7 +1000,7 @@ function sanitizeSettings(input, base) {
   if (s.yearFrom > s.yearTo) [s.yearFrom, s.yearTo] = [s.yearTo, s.yearFrom];
   // できない組み合わせ：年代当て＋早押し、サバイバル＋チーム戦
   if (s.target === 'year' && s.play === 'buzzer') s.play = 'normal';
-  if (['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'sugoroku', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
+  if (['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'sugoroku', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
   return s;
 }
 
@@ -1440,7 +1443,19 @@ app.get('/api/play-stats', (req, res) => {
   const days = Object.fromEntries(Object.entries(PSTATS.days).sort().slice(-90));
   res.json({ 'play-stats': PSTATS, since: PSTATS.since, days, counting: statsOn });
 });
+// 部屋をまたいで、最近どこかの部屋で出た曲を覚えておく（新しい順に残す。メモリだけなので再起動で消える）。足りる間はこの曲を避ける
+const RECENT_MAX = 500, RECENT_SONGS = new Map();
+function rememberRecent(id) { RECENT_SONGS.delete(id); RECENT_SONGS.set(id, 1); if (RECENT_SONGS.size > RECENT_MAX) RECENT_SONGS.delete(RECENT_SONGS.keys().next().value); }
+// list から、最近出ていない曲を先に。need 曲に足りなければ、最近の曲のうち古く出たものから足す
+function avoidRecent(list, need, keep = new Set()) {
+  const out = list.filter(s => !RECENT_SONGS.has(s.id) || keep.has(s.id));
+  if (out.length >= need) return out;
+  const inList = new Set(list.map(s => s.id)), byId = new Map(list.map(s => [s.id, s]));
+  for (const id of RECENT_SONGS.keys()) { if (out.length >= need) break; if (inList.has(id) && !keep.has(id)) out.push(byId.get(id)); }
+  return out;
+}
 function recordPlayed(room, s) {
+  if (s?.id) rememberRecent(s.id);
   // どの遊び方でも、出た曲を画面の「🛠 修正」の候補に送る
   if (s?.id) {
     const fs_ = { id: s.id, title: s.title, work: s.work, artist: s.artist, type: s.type, year: s.year, intro: s.intro || 0, chorus: s.chorus || 0 };
@@ -1501,6 +1516,7 @@ function startGame(room) {
       if (byId.has(id)) { fresh.push(byId.get(id)); if (!isGz(S.play)) room.played.delete(id); } // ジャンル制覇の並べた曲は仮なので、除外の記録はそのまま
     }
   }
+  if (!S.noExclude) fresh = avoidRecent(fresh, need, ctx.fav); // ほかの部屋で最近出た曲も避ける（足りなければ古く出た曲から）
   const n = Math.min(want, fresh.length);
   const freshSet = new Set(fresh);
   const popular = S.noExclude ? [] : candidates.filter(s => !freshSet.has(s) && room.played.has(s.id) && isPopular(s));
@@ -1959,7 +1975,8 @@ function gzPrepare(room) { // 次の問題の曲を、選ばれたジャンル�
   const S = room.settings, ok = s => !used.has(s.id) && !ctx.block.has(s.id) && cat.test(s);
   const list = g.pool.filter(ok), fresh = S.noExclude ? list : list.filter(s => !room.played.has(s.id) || ctx.fav.has(s.id)); // 前に出た曲・出題から外した曲は避ける
   const works = new Set(g.order.slice(0, g.qi).map(gameWork)), fresh2 = fresh.filter(s => !works.has(gameWork(s))); // 同じ作品はなるべく出さない
-  const alt = fresh2.length ? fresh2 : fresh.length ? fresh : list.length ? list : SONGS.filter(s => ok(s) && !isExcluded(s, S.excludeGenres));
+  const notRecent = fresh2.filter(s => !RECENT_SONGS.has(s.id)); // ほかの部屋で最近出た曲も、なるべく避ける
+  const alt = (!S.noExclude && notRecent.length) ? notRecent : fresh2.length ? fresh2 : fresh.length ? fresh : list.length ? list : SONGS.filter(s => ok(s) && !isExcluded(s, S.excludeGenres));
   if (alt.length) g.order[g.qi] = alt[crypto.randomInt(alt.length)];
   if (!S.noRecord) recordPlayed(room, g.order[g.qi]); // 実際に出す曲だけを「出た曲」に記録する
 }
@@ -2476,7 +2493,7 @@ function kmFinish(room, home) {
   if (room.settings.autoNext > 0) { q.revealAt = Date.now(); scheduleNext(room, q, Date.now() + sec * 1000); }
 }
 
-// ── アニソン年当てベット（ウィッツ＆ウェイジャーズ風）：発売年を予想 → 並んだ予想のどれがいちばん近いかに賭ける（docs/wits-spec.md）──
+// ── 年代ベット（play wits。ウィッツ＆ウェイジャーズ風）：発売年を予想 → 並んだ予想のどれがいちばん近いかに賭ける ／ アニソンベット（play bluff）：ウソの作品を選び、本物に賭ける（docs/wits-spec.md）──
 const WW = { fakeSec: 45, fakeOdds: 3, fakeMin: 4, guess: 35, bet: 30, listen: 25, base: 100, extras: [0, 200, 500], own: 300, exact: 600, minYear: 1960 };
 // ウソの作品名に使える曲：作品名がシリーズの名前で出せる曲。曲名を出すときは、曲名と作品名がほぼ同じ曲を外す
 function wwFakeOk(s, hint) {
@@ -2485,13 +2502,13 @@ function wwFakeOk(s, hint) {
   const a = seriesKey(s.title), b = seriesKey(wwWorkName(s));
   return !a.includes(b) && !b.includes(a);
 }
-function wwKindFor(room, song) { // この問題のお題と曲。ウソの作品名は、使えない曲なら別の曲に替える（まぜるなら年にする）
-  const g = room.game, S = room.settings, kind = S.wwKind === 'mix' ? (crypto.randomInt(2) ? 'fake' : 'year') : S.wwKind || 'year';
+function wwKindFor(room, song) { // この問題の種類と曲。アニソンベットは、使えない曲なら別の曲に替える（替えがなければ年代で出す）
+  const g = room.game, S = room.settings, kind = S.play === 'bluff' ? 'fake' : 'year';
   if (kind !== 'fake' || wwFakeOk(song, S.wwHint)) return { kind, song };
-  if (S.wwKind === 'mix') return { kind: 'year', song };
   const used = new Set(g.order.map(s => s.id)), list = g.pool.filter(s => !used.has(s.id) && wwFakeOk(s, S.wwHint));
   if (!list.length) return { kind: 'year', song };
-  g.order[g.qi] = list[crypto.randomInt(list.length)];
+  const near = list.filter(s => !RECENT_SONGS.has(s.id)), use = near.length ? near : list;
+  g.order[g.qi] = use[crypto.randomInt(use.length)];
   return { kind, song: g.order[g.qi] };
 }
 function startWitsRound(room, song0) {
@@ -2528,8 +2545,8 @@ function wwPublic(room) {
                 players: [...q.participants].map(t => { const p = room.players.get(t); return { id: p?.id, name: p?.name, score: p?.score || 0 }; }) };
   if (w.kind === 'fake') { // だれのウソか・どれが本物かは、結果まで出さない
     out.title = w.hint !== 'intro' ? q.song.title : ''; out.artist = w.hint === 'titleartist' ? q.song.artist : '';
-    if (w.slots) out.slots = w.slots.map(s => ({ name: s.name, odds: s.odds, owners: w.step === 'result' ? s.owners.map(nameOf) : [] }));
-  } else if (w.slots) out.slots = w.slots.map(s => ({ year: s.year, odds: s.odds, owners: s.owners.map(nameOf) }));
+    if (w.slots) out.slots = w.slots.map(s => ({ name: s.name, odds: s.odds, owners: w.step === 'result' ? s.owners.map(nameOf) : [], ownerIds: w.step === 'result' ? s.owners.map(idOf) : [] }));
+  } else if (w.slots) out.slots = w.slots.map(s => ({ year: s.year, odds: s.odds, owners: s.owners.map(nameOf), ownerIds: s.owners.map(idOf) }));
   if (w.step === 'result') out.result = w.result;
   return out;
 }
@@ -3536,7 +3553,7 @@ function nextQuestion(room) {
   if (room.settings.play === 'codenames') return startCodenamesRound(room, g.order[g.qi]);
   if (isGz(room.settings.play)) gzPrepare(room);
   if (room.settings.play === 'daifugo') return startDaifugoRound(room, g.order[g.qi]);
-  if (room.settings.play === 'wits') return startWitsRound(room, g.order[g.qi]);
+  if (room.settings.play === 'wits' || room.settings.play === 'bluff') return startWitsRound(room, g.order[g.qi]);
   if (room.settings.play === 'kaerema') return startKaeremaRound(room, g.order[g.qi]);
   if (room.settings.play === 'azul') return startAzulRound(room, g.order[g.qi]);
   startQuestion(room, g.order[g.qi]);

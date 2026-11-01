@@ -1582,5 +1582,93 @@
   "votes": 1,
   "songId": "FT0GKCuSaW0",
   "doneAt": "2026-10-31T15:18:16.794Z"
+ },
+ {
+  "id": "69f2d9d1",
+  "title": "アルカンシェル",
+  "work": "転生王女と天才令嬢の魔法革命",
+  "artist": "花たん",
+  "genre": "isekai",
+  "note": "アニメOP　2023年",
+  "at": "2026-11-01T07:27:13.492Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "63fbca44",
+  "title": "ツナグキズナ",
+  "work": "ヨスガノソラ",
+  "artist": "Team.ねこかん[猫]featuring.天乙准花",
+  "genre": "galge",
+  "note": "アニメ挿入歌　2010年",
+  "at": "2026-11-01T07:44:01.009Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "8febd01c",
+  "title": "比翼の羽根",
+  "work": "ヨスガノソラ",
+  "artist": "eufonius",
+  "genre": "galge",
+  "note": "アニメOP　2010年",
+  "at": "2026-11-01T07:45:40.386Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "ef04e8e6",
+  "title": "ピンキージョーンズ",
+  "work": "ヨスガノソラ",
+  "artist": "ももいろクローバー",
+  "genre": "galge",
+  "note": "アニメED　2010年",
+  "at": "2026-11-01T07:48:49.694Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "94b61e0f",
+  "title": "Edelweiss",
+  "work": "セントールの悩み",
+  "artist": "亜咲花",
+  "genre": "",
+  "note": "アニメED　2017年",
+  "at": "2026-11-01T08:01:46.524Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "e764f4b6",
+  "title": "stone cold",
+  "work": "セイクリッドセブン",
+  "artist": "FictionJunction",
+  "genre": "action",
+  "note": "アニメOP　2011年",
+  "at": "2026-11-01T08:06:48.362Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "fbafe223",
+  "title": "アクシアの風",
+  "work": "シンフォギア",
+  "artist": "",
+  "genre": "pachislot",
+  "note": "",
+  "at": "2026-11-01T08:14:09.265Z",
+  "status": "open",
+  "votes": 1
+ },
+ {
+  "id": "5d4fc652",
+  "title": "Bull's　Eye",
+  "work": "緋弾のアリアAA",
+  "artist": "",
+  "genre": "pachislot",
+  "note": "",
+  "at": "2026-11-01T08:17:53.135Z",
+  "status": "open",
+  "votes": 1
  }
 ]

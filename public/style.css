@@ -1173,9 +1173,12 @@ body.rush-machine .stage-tools { overflow: visible; }
 .ww-slot i { font-style: normal; color: #ff6b8a; font-size: 18px; }
 .ww-clue { margin: 0; text-align: center; } .ww-clue b { font-size: clamp(15px, 3.4dvh, 22px); } .ww-clue small { display: block; color: var(--sub); }
 .ww-reject { display: grid; gap: 2px; padding: clamp(4px, 1.2dvh, 10px) 12px; border: 2px solid #ffd36b; border-radius: 12px; background: rgba(255, 211, 107, .16); text-align: center; } .ww-reject b { color: #ffd36b; font-size: clamp(18px, 4.6dvh, 28px); } .ww-reject span { font-size: clamp(12px, 2.6dvh, 15px); font-weight: 700; }
-.ww-sugg { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; min-height: 34px; } .ww-sugg .btn-sub { width: auto; margin: 0; padding: 5px 10px; font-size: 13px; } .ww-sugg .btn-sub.on { border-color: #ff6b8a; color: #ff6b8a; } .ww-sugg small { color: var(--sub); align-self: center; }
-.ww-slots.ww-fake { grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+.ww-sugg { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; min-height: 34px; } .ww-sugg .btn-sub { width: auto; margin: 0; padding: 5px 10px; font-size: 13px; } .ww-sugg .btn-sub small { display: block; color: var(--sub); font-size: 10px; font-weight: 500; }
+.ww-sugg .btn-sub.on { border-color: #ff6b8a; color: #ff6b8a; } .ww-sugg small { color: var(--sub); align-self: center; }
+.ww-slots.ww-fake { grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
 .ww-fake .ww-slot { min-height: 0; padding: clamp(3px, 1dvh, 8px) 18px; } .ww-fake .ww-slot span:empty { display: none; } .ww-fake .ww-slot i { position: absolute; right: 4px; top: 2px; font-size: 13px; } .ww-fake .ww-slot b, .ww-fake .ww-slot:first-child b { font-family: inherit; font-size: clamp(12px, 2.4dvh, 15px); overflow-wrap: anywhere; }
+.ww-nm { font-style: normal; font-weight: 800; } .ww-slot { overflow: hidden; } .ww-strip { position: absolute; left: 0; right: 0; top: 0; height: 5px; text-decoration: none; }
+.ww-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; } .ww-chip { padding: 0 5px; border-radius: 9px; color: #14141f; font-size: 11px; font-weight: 800; line-height: 16px; text-decoration: none; white-space: nowrap; }
 .ww-slot.on { border-color: #ff6b8a; } .ww-slot.win { border-color: #8dffc8; background: rgba(141, 255, 200, .15); }
 .ww-slot:disabled { cursor: default; opacity: 1; }
 .ww-marks { display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; font-size: 13px; } .ww-mark select { padding: 2px 6px; }
@@ -1386,6 +1389,9 @@ body.rush-machine .stage-tools { overflow: visible; }
 .fix-sugg button { width: 100%; margin: 0; padding: 6px 10px; text-align: left; background: none; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .06); color: inherit; font-size: 13px; cursor: pointer; border-radius: 0; }
 .fix-sugg button:hover { background: rgba(255, 255, 255, .08); } .fix-sugg small { padding: 6px 10px; color: var(--sub); }
 .fix-sep { margin-top: 10px; border-top: 1px dashed var(--line); padding-top: 8px; }
+.top .me-link[hidden] { display: none; } button.me-link { cursor: pointer; font-family: inherit; }
+.set-fab { position: fixed; left: 10px; bottom: 46px; z-index: 310; width: auto; margin: 0; padding: 6px 12px; font-size: 12.5px; font-weight: 700; border-radius: 99px; border: 1px solid var(--line); background: var(--glass-strong); color: inherit; cursor: pointer; } .set-fab[hidden] { display: none; } .set-fab:hover { border-color: var(--accent); }
+.set-fab:has(+ .fix-fab[hidden]) { bottom: 10px; }
 .fix-fab { z-index: 310; } #fixPop { z-index: 320; }
 .lp-check { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer; } .lp-check input { width: auto; margin: 0; }
 /* 歌詞クイズ（非公開の部屋）：歌詞の表示 */
@@ -1452,3 +1458,23 @@ body.rush-machine .stage-tools { overflow: visible; }
 .ww-field .yr { margin: 0 auto 2px; gap: 2px; }
 .ww-field .yr-num { font-size: clamp(30px, 8vh, 60px); }
 .ww-field .yr-line { margin: 6px 0 calc(var(--rows) * 28px + 16px); }
+/* アニソンベット：年の結果は、スロット・枠・得点を1画面に収める */
+.ww-field:has(#wwRoll) .wf-result { margin: 0; font-size: 14px; line-height: 1.25; }
+.ww-field:has(#wwRoll) .wf-result b { display: inline; font-size: 16px; }
+.ww-field:has(#wwRoll) .wf-result small { display: block; font-size: 11px; }
+.ww-field:has(#wwRoll) .ww-slot { min-height: 0; padding: 7px 2px 3px; gap: 0; }
+.ww-field:has(#wwRoll) .ww-slot b { font-size: 14px; } .ww-field:has(#wwRoll) .ww-slot small { font-size: 11px; line-height: 1.1; } .ww-field:has(#wwRoll) .ww-slot span { font-size: 10px; line-height: 1.1; }
+.ww-field:has(#wwRoll) .wf-tally { font-size: 11px; line-height: 1.25; }
+.ww-field:has(#wwRoll) > .wf-seats:last-child { display: none; }
+/* アニソンベット：ウソの作品名の結果も1画面に収める */
+.ww-field:has(.ww-fake .win) .wf-result { font-size: 14px; line-height: 1.25; display: block; }
+.ww-field:has(.ww-fake .win) .wf-result b { font-size: 18px; } .ww-field:has(.ww-fake .win) .wf-result small { display: block; font-size: 11px; }
+.ww-field:has(.ww-fake .win) .ww-slot { padding: 7px 4px 3px; gap: 0; } .ww-field:has(.ww-fake .win) .ww-slot small { font-size: 11px; line-height: 1.1; } .ww-field:has(.ww-fake .win) .ww-slot span { font-size: 10px; line-height: 1.1; }
+.ww-field:has(.ww-fake .win) .wf-tally { font-size: 11px; line-height: 1.25; }
+.ww-field:has(.ww-fake .win) > .wf-seats:last-child { display: none; }
+/* アニソンベット：ウソの作品名の賭けも、9枠で1画面に収める */
+.ww-field:has(.ww-fake) .wf-msg { font-size: 13px; line-height: 1.3; margin: 0; }
+.ww-field:has(.ww-fake) .ww-slot { padding: 7px 4px 3px; gap: 0; } .ww-field:has(.ww-fake) .ww-slot small { font-size: 11px; line-height: 1.1; }
+.ww-field:has(.ww-fake) .ww-mark { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; white-space: nowrap; }
+.ww-field:has(.ww-fake) .ww-mark select { width: auto; min-height: 0; margin: 0; padding: 2px 4px; font-size: 12px; }
+.ww-field:has(.ww-fake) .ww-actions .btn-sub, .ww-field:has(.ww-fake) .ww-actions .btn-main { padding: 5px 16px; font-size: 14px; }

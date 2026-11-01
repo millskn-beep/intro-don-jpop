@@ -237,7 +237,7 @@
           <option value="monopoly">アニソンモノポリー（盤面で土地を買い集める。正解でカード、サイコロで進む）</option>
           <option value="sugoroku">アニソンすごろく（正解の速さでコマを進める。止まったマスでイベント）</option>
           <option value="wits">年代ベット（発売年を予想して、いちばん近い予想に賭ける・2人以上）</option>
-          <option value="bluff">アニソンベット（ウソの作品を選んでだまし、本物に賭ける・2人以上）</option>
+          <option value="bluff">アニソンベット（ウソの作品名で大喜利、ベットも選べる・2人以上）</option>
           <option value="daifugo">アニソン大富豪（発売年が新しい曲ほど強い。年は見えない・3人以上）</option>
           <option value="codenames">アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる・4人以上）</option>
           <option value="baba">アニソン・ババ抜き（同じ作品の曲2枚をペアにして出す・3人以上）</option>
@@ -263,6 +263,8 @@
         <label id="tsAnsLabel" hidden>短縮鉄道：答え方<select data-key="tsAns"><option value="choice">4択</option><option value="type">手打ち</option><option value="vc">VC（口で答えて、ほかの人が判定）</option></select></label>
         <label id="dtChoicesLabel" hidden>伝達クイズ：選択肢の数<select data-key="dtChoices"><option value="4">4択</option><option value="8">8択</option><option value="12">12択</option></select></label>
         <label id="kmTopLabel" hidden>帰れま10：当てる順位<select data-key="kmTop"><option value="10">トップ10（候補20曲・外れ6回まで）</option><option value="15">トップ15（候補28曲・外れ8回まで）</option><option value="20">トップ20（候補36曲・外れ10回まで）</option></select></label>
+        <label id="wwStyleLabel" hidden>アニソンベット：遊び方<select data-key="wwStyle"><option value="ogiri">大喜利（いいねと本物当て）</option><option value="bet">ベット（マーカーで賭ける）</option></select></label>
+        <label id="wwRaiseLabel" hidden>賭け金の上乗せ<select data-key="wwRaise"><option value="on">あり</option><option value="off">なし（100点で固定）</option></select></label>
         <label id="wwHintLabel" hidden>アニソンベット：出すもの<select data-key="wwHint"><option value="title">曲名</option><option value="intro">イントロだけ</option><option value="titleartist">曲名と歌手</option></select></label>
         <label id="gzSetLabel" hidden>ジャンル制覇：集めるジャンル<select data-key="gzSet"><option value="fixed">固定（今の6つ）</option><option value="random">ランダム（ゲームごとに決める）</option><option value="choose">選択（自分たちで選ぶ）</option></select></label>
         <label id="gzCountLabel" hidden>ジャンル制覇EX：ランダムの数<select data-key="gzCount"><option value="6">6種類</option><option value="7">7種類</option><option value="8">8種類</option><option value="10">10種類</option><option value="12">12種類</option><option value="15">15種類</option><option value="20">20種類</option><option value="25">25種類</option></select></label>

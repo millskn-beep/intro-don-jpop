@@ -14195,7 +14195,8 @@
     ],
     "artistAliases": [
       "ざべいびーすたーず",
-      "べいびーすたーず"
+      "べいびーすたーず",
+      "The Babystars"
     ],
     "chorusSource": "heatmap",
     "chorusChecked": true,
@@ -54423,7 +54424,7 @@
     "views": 1172447,
     "channel": "【フジテレビ】アニメ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "otaku",
     "workAliases": [
       "あんさつきょうしつ",
       "暗殺教室"
@@ -67264,7 +67265,7 @@
     "views": 4362526,
     "channel": "Lantis Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぶんごうすとれいどっぐす",
       "文スト",
@@ -75626,7 +75627,8 @@
     ],
     "artistAliases": [
       "さんがつのパンタシア",
-      "パンタシア"
+      "パンタシア",
+      "みつぱん"
     ]
   },
   {
@@ -80887,7 +80889,7 @@
     "views": 4306780,
     "channel": "KADOKAWAanime",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "おーばーろーど",
       "OVERLORD"
@@ -81010,7 +81012,7 @@
     "views": 221665,
     "channel": "FLOW Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "minor",
     "introSource": "auto",
     "introBefore": 0,
     "workAliases": [
@@ -102863,7 +102865,9 @@
     "source": "shield000",
     "intro": 0,
     "chorus": 76.8,
-    "aliases": [],
+    "aliases": [
+      "ぷろみす"
+    ],
     "embeddable": null,
     "game": "Mega Mix+",
     "introMeasured": true,
@@ -126942,6 +126946,445 @@
     ],
     "artistAliases": [
       "さとうりな"
+    ]
+  },
+  {
+    "id": "KHsMv0TIHf0",
+    "title": "LIVE for LIFE ～狼たちの夜～",
+    "work": "ベン・トー",
+    "artist": "愛美",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 57,
+    "aliases": [
+      "らいぶふぉーらいふ",
+      "おおかみたちのよる"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 935826,
+    "channel": "AIMI official YouTube Channel",
+    "viewsAt": "2026-11-01",
+    "fame": "normal",
+    "workAliases": [
+      "べんとー"
+    ],
+    "artistAliases": [
+      "あいみ"
+    ]
+  },
+  {
+    "id": "dCWX1qVEWco",
+    "title": "ホウキ雲",
+    "work": "焼きたて!!ジャぱん",
+    "artist": "RYTHEM",
+    "year": 2004,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1.7,
+    "chorus": 62,
+    "aliases": [
+      "ほうきぐも"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2356043,
+    "channel": "RYTHEMのハモり便",
+    "viewsAt": "2026-11-01",
+    "fame": "normal",
+    "workAliases": [
+      "やきたてじゃぱん",
+      "焼き立てジャパン",
+      "焼きたてジャパン"
+    ],
+    "artistAliases": [
+      "りずむ"
+    ]
+  },
+  {
+    "id": "tREfrb4Ty1U",
+    "title": "Promise",
+    "work": "焼きたて!!ジャぱん",
+    "artist": "TiA",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 10.7,
+    "chorus": 76.2,
+    "aliases": [
+      "ぷろみす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 1015426,
+    "channel": "RedDayWoman345",
+    "viewsAt": "2026-11-01",
+    "fame": "normal",
+    "workAliases": [
+      "やきたてじゃぱん",
+      "焼き立てジャパン",
+      "焼きたてジャパン"
+    ],
+    "artistAliases": [
+      "てぃあ"
+    ],
+    "chorusSource": "audio"
+  },
+  {
+    "id": "1SRiP6JZqCo",
+    "title": "SUNDAY",
+    "work": "焼きたて!!ジャぱん",
+    "artist": "ザ・ベイビースターズ",
+    "year": 2004,
+    "type": "ED",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 122.1,
+    "aliases": [
+      "さんでー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 418586,
+    "channel": "Dinoo Tok",
+    "viewsAt": "2026-11-01",
+    "fame": "normal",
+    "workAliases": [
+      "やきたてじゃぱん",
+      "焼き立てジャパン",
+      "焼きたてジャパン"
+    ],
+    "artistAliases": [
+      "ざべいびーすたーず",
+      "べいびーすたーず",
+      "The Babystars"
+    ],
+    "chorusSource": "audio"
+  },
+  {
+    "id": "sCxyiE1pI0k",
+    "title": "Snow fairy",
+    "work": "FAIRY TAIL",
+    "artist": "FUNKIST",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 2,
+    "chorus": 55,
+    "aliases": [
+      "すのーふぇありー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3210512,
+    "channel": "FUNKIST official",
+    "viewsAt": "2026-11-01",
+    "fame": "otaku",
+    "workAliases": [
+      "フェアリーテイル"
+    ],
+    "artistAliases": [
+      "ふぁんきすと"
+    ]
+  },
+  {
+    "id": "4H_9itcwwFM",
+    "title": "Evidence",
+    "work": "FAIRY TAIL",
+    "artist": "Daisy×Daisy",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 5,
+    "chorus": 71,
+    "aliases": [
+      "えびでんす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3602624,
+    "channel": "ponycanyon",
+    "viewsAt": "2026-11-01",
+    "fame": "otaku",
+    "workAliases": [
+      "フェアリーテイル"
+    ],
+    "artistAliases": [
+      "でいじーでいじー"
+    ]
+  },
+  {
+    "id": "1k3V9SJG8Zs",
+    "title": "The Rock City Boy",
+    "work": "FAIRY TAIL",
+    "artist": "JAMIL",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0.5,
+    "chorus": 31,
+    "aliases": [
+      "ざろっくしてぃぼーい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3107505,
+    "channel": "ponycanyon",
+    "viewsAt": "2026-11-01",
+    "fame": "otaku",
+    "workAliases": [
+      "フェアリーテイル"
+    ],
+    "artistAliases": [
+      "じゃみる"
+    ]
+  },
+  {
+    "id": "G0gD9jzYtEA",
+    "title": "MASAYUME CHASING",
+    "work": "FAIRY TAIL",
+    "artist": "BoA",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 7,
+    "chorus": 53,
+    "aliases": [
+      "まさゆめちぇいしんぐ",
+      "正夢"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 9122994,
+    "channel": "avex",
+    "viewsAt": "2026-11-01",
+    "fame": "otaku",
+    "workAliases": [
+      "フェアリーテイル"
+    ],
+    "artistAliases": [
+      "ボア"
+    ]
+  },
+  {
+    "id": "mFYK47afoSY",
+    "title": "希望の唄",
+    "work": "食戟のソーマ",
+    "artist": "ウルトラタワー",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1.7,
+    "chorus": 40,
+    "aliases": [
+      "きぼうのうた"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 10242036,
+    "channel": "avex",
+    "viewsAt": "2026-11-01",
+    "fame": "famous",
+    "workAliases": [
+      "しょくげきのそーま",
+      "ソーマ"
+    ],
+    "artistAliases": [
+      "うるとらたわー"
+    ]
+  },
+  {
+    "id": "tWSOgtVJOnM",
+    "title": "スパイス",
+    "work": "食戟のソーマ",
+    "artist": "東京カランコロン",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 4.7,
+    "chorus": 62,
+    "aliases": [
+      "すぱいす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 4009635,
+    "channel": "avex",
+    "viewsAt": "2026-11-01",
+    "fame": "normal",
+    "workAliases": [
+      "しょくげきのそーま",
+      "ソーマ"
+    ],
+    "artistAliases": [
+      "とうきょうからんころん"
+    ]
+  },
+  {
+    "id": "xE0KsfXT9mo",
+    "title": "ライジングレインボウ",
+    "work": "食戟のソーマ",
+    "artist": "ミソッカス",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1.7,
+    "chorus": 70,
+    "aliases": [
+      "Rising Rainbow"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 174296,
+    "channel": "avex",
+    "viewsAt": "2026-11-01",
+    "fame": "otaku",
+    "workAliases": [
+      "しょくげきのそーま",
+      "ソーマ"
+    ],
+    "artistAliases": [
+      "みそっかす"
+    ]
+  },
+  {
+    "id": "P19zZzpbCGQ",
+    "title": "BRAVER",
+    "work": "食戟のソーマ 餐ノ皿",
+    "artist": "ZAQ",
+    "year": 2017,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 10,
+    "chorus": 53,
+    "aliases": [
+      "ぶれいばー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 4126417,
+    "channel": "ZAQ Official Channel",
+    "viewsAt": "2026-11-01",
+    "fame": "normal",
+    "workAliases": [
+      "しょくげきのそーま",
+      "ソーマ"
+    ],
+    "artistAliases": [
+      "ザック"
+    ]
+  },
+  {
+    "id": "rNbXIeLdU0M",
+    "title": "風の中は走るっきゃないっ！",
+    "work": "生徒会にも穴はある！",
+    "artist": "三月のパンタシア",
+    "year": 2026,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（リクエスト）",
+    "intro": 0.2,
+    "chorus": 63.8,
+    "aliases": [
+      "かぜのなかははしるっきゃないっ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 501071,
+    "channel": "Sangatsu No Phantasia Official YouTube Channel",
+    "viewsAt": "2026-11-01",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "workAliases": [
+      "せいとかいにもあなはある",
+      "生徒会にも穴はある",
+      "せいあな"
+    ],
+    "artistAliases": [
+      "さんがつのパンタシア",
+      "パンタシア",
+      "みつぱん"
+    ]
+  },
+  {
+    "id": "BFSmN6fQ_04",
+    "title": "ぴ",
+    "work": "生徒会にも穴はある！",
+    "artist": "ナナヲアカリ",
+    "year": 2026,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（リクエスト）",
+    "intro": 0.2,
+    "chorus": 57.3,
+    "aliases": [],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 1653458,
+    "channel": "ナナヲアカリ OFFICIAL",
+    "viewsAt": "2026-11-01",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "workAliases": [
+      "せいとかいにもあなはある",
+      "生徒会にも穴はある",
+      "せいあな"
+    ],
+    "artistAliases": [
+      "ななをあかり",
+      "ナナヲ"
     ]
   }
 ]

@@ -1485,3 +1485,11 @@ body.rush-machine .stage-tools { overflow: visible; }
 .fill-sugg .btn-sub { width: auto; max-width: 100%; margin: 0; padding: 4px 10px; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .fill-sugg .btn-sub.on { border-color: var(--accent); background: rgba(255, 255, 255, .14); }
 #fillForm .btn-main { white-space: nowrap; flex: none; width: auto; }
+
+/* アニソンベットの大喜利 */
+.ww-slot.ww-og { display: flex; align-items: stretch; gap: 4px; padding: 0; cursor: default; }
+.ww-og-name { flex: 1; min-width: 0; display: grid; gap: 1px; align-content: center; width: auto; margin: 0; padding: clamp(4px, 1dvh, 8px) 6px; background: none; border: 0; color: inherit; cursor: pointer; }
+.ww-og-name:disabled { cursor: default; opacity: 1; }
+.ww-like { flex: none; width: auto; min-width: 44px; margin: 0; padding: 0 8px; background: rgba(255, 255, 255, .06); border: 0; border-left: 1px solid var(--line); color: inherit; font-size: 15px; font-weight: 800; cursor: pointer; opacity: .75; }
+.ww-like.on { background: rgba(255, 107, 138, .3); opacity: 1; }
+.ww-like:disabled { cursor: default; }

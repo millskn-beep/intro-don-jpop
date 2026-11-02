@@ -42,7 +42,8 @@ let WORK_GENRES = new Map();
 try { WORK_GENRES = new Map(Object.entries(require('./data/work-genres.json')).filter(([k]) => !k.startsWith('_'))); } catch (e) { /* なくても動く */ }
 // ただし「パチスロで有名」は、genres.json に並べた作品（keywords）だけで決める（作品の中身では決まらないので、手で決めた一覧どおり）
 const KEYWORD_ONLY = ['pachislot', 'slot']; // slot：パチスロ（超マイナー）。台のための曲（作品名の（パチスロ）（パチンコ）か genres.json の ids）
-const byKeywords = song => GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => String(song.work).includes(w)) || (GENRES[k].ids || []).includes(song.id));
+const keywordHit = (g, work, w) => g.wordOnly?.includes(w) ? new RegExp(`(?<![A-Za-z])${w}(?![A-Za-z])`).test(work) : work.includes(w); // wordOnly：語の一部には一致させない（FAIRY TAIL の AIR など）
+const byKeywords = song => GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => keywordHit(GENRES[k], String(song.work), w)) || (GENRES[k].ids || []).includes(song.id));
 // 曲ごとに直したジャンル（収録曲一覧の「ジャンルを直す」。data/song-genres.json：id → { genres, at }）。あればそれを使う
 const SONG_GENRES_PATH = path.join(__dirname, 'data', 'song-genres.json');
 let SONG_GENRES = {};

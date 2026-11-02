@@ -41,7 +41,7 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "fame": "normal",
+    "fame": "top",
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 164578,
@@ -49,7 +49,8 @@
     "viewsAt": "2026-10-09",
     "workAliases": [
       "きょじんのほし"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "g247VBpYKho",
@@ -68,7 +69,7 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "fame": "normal",
+    "fame": "famous",
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 370003,
@@ -77,7 +78,8 @@
     "workAliases": [
       "てんさいばかぼん",
       "バカボン"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "WkAf1A8UiqM",
@@ -96,7 +98,7 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "fame": "normal",
+    "fame": "top",
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 1317381,
@@ -110,7 +112,8 @@
       "しもんまさと",
       "子門",
       "しもん"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "t0UYZkWeERk",
@@ -132,14 +135,15 @@
     "views": 2246625,
     "channel": "KIMEE",
     "viewsAt": "2026-10-10",
-    "fame": "normal",
+    "fame": "top",
     "artistAliases": [
       "とだけいぞうぼーかるしょっぷ",
       "十田敬三",
       "とだけいぞう",
       "十田",
       "とだ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "ePj6ctaXquI",
@@ -158,7 +162,7 @@
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
-    "fame": "normal",
+    "fame": "famous",
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 938893,
@@ -171,7 +175,8 @@
       "いしかわすすむ",
       "石川",
       "いしかわ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "W7dhEbvR7Pw",
@@ -1322,7 +1327,7 @@
     "views": 4578605,
     "channel": "TAB Channel / タブ【Toei Animation Beyond】",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "top",
     "introSource": null,
     "introBefore": null,
     "workAliases": [
@@ -1332,7 +1337,8 @@
       "くしだあきら",
       "串田",
       "くしだ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "EwYfxiHfmI4",
@@ -1390,14 +1396,15 @@
     "views": 206645,
     "channel": "Mio - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "せいせんしだんばいん",
       "ダンバイン"
     ],
     "artistAliases": [
       "ミオ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "1kW9T8SOfeI",
@@ -1611,7 +1618,7 @@
     "views": 298840,
     "channel": "Hiroyuki Okita - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "きゃぷてんつばさ"
     ],
@@ -1619,7 +1626,8 @@
       "おきたひろゆき",
       "沖田",
       "おきた"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "6q6GtPdVHL4",
@@ -2200,7 +2208,7 @@
     "views": 1419495,
     "channel": "Mami Ayukawa - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "きどうせんしぜーたがんだむ",
       "Zガンダム",
@@ -2214,7 +2222,8 @@
       "あゆかわまみ",
       "鮎川",
       "あゆかわ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "TCvhpc1SvkY",
@@ -2271,7 +2280,7 @@
     "views": 1377015,
     "channel": "TAB Channel / タブ【Toei Animation Beyond】",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "top",
     "workAliases": [
       "げげげのきたろう",
       "鬼太郎",
@@ -2282,7 +2291,8 @@
     ],
     "artistAliases": [
       "よしいくぞう"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "WW6OgFqTNfg",
@@ -3050,7 +3060,7 @@
     "views": 866442,
     "channel": "Hiroki Takahashi - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "top",
     "workAliases": [
       "どらごんぼーる",
       "DB",
@@ -3060,7 +3070,8 @@
       "たかはしひろき",
       "高橋",
       "たかはし"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "xhnYYIKG6cI",
@@ -3570,14 +3581,15 @@
     "views": 594317,
     "channel": "Release - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "きてれつだいひゃっか",
       "キテレツ"
     ],
     "artistAliases": [
       "ユカ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "g8VPgDqKbQU",
@@ -3634,7 +3646,7 @@
     "views": 957809,
     "channel": "Azumi Inoue - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "top",
     "workAliases": [
       "となりのととろ",
       "トトロ"
@@ -3643,7 +3655,8 @@
       "いのうえあずみ",
       "井上",
       "いのうえ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "FA9Ho0i1MiQ",
@@ -3666,7 +3679,7 @@
     "views": 95687,
     "channel": "Azumi Inoue - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "top",
     "workAliases": [
       "となりのととろ",
       "トトロ"
@@ -3675,7 +3688,8 @@
       "いのうえあずみ",
       "井上",
       "いのうえ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "wcvnmwrsJn8",
@@ -4115,13 +4129,14 @@
     "views": 431314,
     "channel": "B.B.QUEENS - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "top",
     "workAliases": [
       "ちびまるこちゃん"
     ],
     "artistAliases": [
       "ビービークィーンズ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "dzZSbBwCuXo",
@@ -4339,13 +4354,14 @@
     "views": 598813,
     "channel": "Yumiko Seki - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ちびまるこちゃん"
     ],
     "artistAliases": [
       "せきゆみこ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "BFvdvIFsvPg",
@@ -6218,7 +6234,8 @@
     "views": 1756534,
     "channel": "高橋ひろポニーキャニオン公式YouTubeチャンネル",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "famous",
+    "fameManual": true
   },
   {
     "id": "S6Mi7GrbSr8",
@@ -6542,7 +6559,7 @@
     "views": 3979980,
     "channel": "TWO-MIX30周年プロジェクト 公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "しんきどうせんきがんだむうぃんぐ",
       "ガンダムW",
@@ -6554,7 +6571,8 @@
     ],
     "artistAliases": [
       "ツーミックス"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "Vj6OAlDgv9M",
@@ -8174,7 +8192,7 @@
     "views": 806879,
     "channel": "THE HIGH-LOWS オフィシャルYouTubeチャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "めいたんていこなん",
       "コナン",
@@ -8183,7 +8201,8 @@
     "artistAliases": [
       "ザハイロウズ",
       "ハイロウズ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "FruC-o86hmk",
@@ -8881,7 +8900,7 @@
     "views": 651563,
     "channel": "Release - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぽけっともんすたー",
       "ポケモン",
@@ -8893,7 +8912,8 @@
       "ぽけもんきっず",
       "石塚",
       "いしづか"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "E_BsL8_cFnE",
@@ -9152,7 +9172,7 @@
     "views": 1387593,
     "channel": "MASAAKI ENDOH",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ゆうしゃおうがおがいがー",
       "ガオガイガー"
@@ -9161,7 +9181,8 @@
       "えんどうまさあき",
       "遠藤",
       "えんどう"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "tyPv7QyuZl0",
@@ -9707,7 +9728,7 @@
     "views": 590824,
     "channel": "Mai Yamane",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "かうぼーいびばっぷ",
       "ビバップ"
@@ -9716,7 +9737,8 @@
       "やまねまい",
       "山根",
       "やまね"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "PwhKGjv4Yjc",
@@ -9747,7 +9769,7 @@
   },
   {
     "id": "18H2Uc9_7I0",
-    "title": "オープニング～ロマンス (TVヴァ",
+    "title": "ロマンス",
     "work": "すごいよ!!マサルさん",
     "artist": "PENICILLIN",
     "year": 1998,
@@ -9757,8 +9779,8 @@
     "intro": 0.2,
     "chorus": 25.4,
     "aliases": [
-      "ろまんす",
-      "おーぷにんぐろまんす"
+      "おーぷにんぐろまんす",
+      "ろまんす"
     ],
     "embeddable": null,
     "introMeasured": true,
@@ -9864,7 +9886,7 @@
     "views": 1816314,
     "channel": "SonicTVPlay",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "chorusSource": "audio",
     "workAliases": [
       "ぽけっともんすたー",
@@ -9876,7 +9898,8 @@
       "いぬやまいぬこ",
       "犬山",
       "いぬやま"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "mxDpGixiRPU",
@@ -10057,14 +10080,15 @@
     "views": 339860,
     "channel": "FIELD OF VIEW - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "ゆうぎおう",
       "遊戯王"
     ],
     "artistAliases": [
       "フィールドオブビュー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "T13kjLivE2Q",
@@ -11577,7 +11601,9 @@
     "views": 2022793,
     "channel": "ONE PIECE Official - ENG",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true,
+    "retiredNote": "フル版（BYJHGZjMZlA）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "AuZSyBa6phU",
@@ -11634,7 +11660,7 @@
     "views": 306585,
     "channel": "【アニメ】名探偵コナン公式",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "めいたんていこなん",
       "コナン",
@@ -11644,7 +11670,8 @@
       "くらきまい",
       "倉木",
       "くらき"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "mB24kdinVPk",
@@ -11977,14 +12004,15 @@
     "views": 4481685,
     "channel": "ハム太郎とっとこちゃんねる【公式なのだ】",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "top",
     "workAliases": [
       "とっとこはむたろう",
       "ハム太郎"
     ],
     "artistAliases": [
       "はむちゃんず"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "c3da37T4EXY",
@@ -12981,7 +13009,9 @@
     "artistAliases": [
       "ザベイビースターズ",
       "ベイビースターズ"
-    ]
+    ],
+    "retired": true,
+    "retiredNote": "フル版（SUdZYusAG3Q）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "67wlE9jW0dU",
@@ -13285,7 +13315,7 @@
     "views": 4226360,
     "channel": "愛内里菜 オフィシャルチャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "top",
     "workAliases": [
       "めいたんていこなん",
       "コナン",
@@ -13295,7 +13325,8 @@
       "あいうちりな",
       "愛内",
       "あいうち"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "oYsVodViGdw",
@@ -13727,7 +13758,9 @@
     "artistAliases": [
       "ラウンドテーブル",
       "ニーノ"
-    ]
+    ],
+    "retired": true,
+    "retiredNote": "フル版（0UBgYLjTERs）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "6r6Kx4KZcBM",
@@ -13957,7 +13990,7 @@
     "views": 19218,
     "channel": "FEEL MEE OFFICIAL",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "chorusSource": "audio",
     "workAliases": [
       "でじもんていまーず",
@@ -13969,7 +14002,8 @@
       "わだこうじ",
       "和田",
       "わだ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "6Bosj_gedCA",
@@ -14486,7 +14520,7 @@
     "views": 190904,
     "channel": "Nami Tamaki - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "top",
+    "fame": "normal",
     "workAliases": [
       "きどうせんしがんだむしーど",
       "がんだむしーど",
@@ -14524,7 +14558,7 @@
     "views": 4381552,
     "channel": "ONE PIECE Official - ENG",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "わんぴーす",
       "ONE PIECE",
@@ -14532,7 +14566,8 @@
     ],
     "artistAliases": [
       "ボンボンブランコ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "_ULPAtFBkxc",
@@ -15141,7 +15176,7 @@
     "views": 127087,
     "channel": "Nana Kitade / Loveless - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "はがねのれんきんじゅつし",
       "ハガレン",
@@ -15151,7 +15186,8 @@
       "きたでなな",
       "北出",
       "きたで"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "xV_SicgQOP8",
@@ -15175,7 +15211,7 @@
     "views": 1139990,
     "channel": "ラクス・クライン (CV: 田中理恵) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "きどうせんしがんだむしーど",
       "がんだむしーど",
@@ -15189,7 +15225,8 @@
       "たなかりえ",
       "田中",
       "たなか"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "_m6Q019Fpys",
@@ -16954,7 +16991,7 @@
     "views": 528106,
     "channel": "手塚プロダクション公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "ぶらっくじゃっく"
     ],
@@ -16962,7 +16999,8 @@
       "おおつかあい",
       "大塚",
       "おおつか"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "c9O3OeA1cy4",
@@ -17868,8 +17906,9 @@
     "views": 6448495,
     "channel": "zadkiel",
     "viewsAt": "2026-10-10",
-    "fame": "top",
-    "chorusSource": "audio"
+    "fame": "famous",
+    "chorusSource": "audio",
+    "fameManual": true
   },
   {
     "id": "ZVHQa-d0vZI",
@@ -19796,7 +19835,7 @@
     "views": 440697,
     "channel": "Aoi Teshima",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "げどせんき"
     ],
@@ -19804,7 +19843,8 @@
       "てしまあおい",
       "手嶌",
       "てしま"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "SYLWe09cOjc",
@@ -19862,7 +19902,7 @@
     "views": 923348,
     "channel": "Aya Hirano - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "top",
     "workAliases": [
       "すずみやはるひのゆううつ",
       "ハルヒ"
@@ -19877,7 +19917,8 @@
       "ちはら",
       "後藤",
       "ごとう"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "Y1jNl8UYg8o",
@@ -20558,7 +20599,8 @@
     "views": 1385107,
     "channel": "Suara F.I.X.RECORDS",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "famous",
+    "fameManual": true
   },
   {
     "id": "jmKRgqWGrWc",
@@ -21023,7 +21065,7 @@
     "views": 3321006,
     "channel": "水樹奈々",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "まほうしょうじょりりかるなのは",
       "なのは",
@@ -21036,7 +21078,8 @@
       "みずき"
     ],
     "coupling": true,
-    "couplingOf": "MASSIVE WONDERS"
+    "couplingOf": "MASSIVE WONDERS",
+    "fameManual": true
   },
   {
     "id": "n2dD_rPwlQg",
@@ -21314,14 +21357,15 @@
     "views": 542338,
     "channel": "chata - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "くらなど",
       "CLANNAD"
     ],
     "artistAliases": [
       "ちゃた"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "9Ps-Nc9-3bc",
@@ -21404,7 +21448,7 @@
     "views": 3801936,
     "channel": "Base Ball Bear",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "おおきくふりかぶって",
       "おお振り",
@@ -21501,13 +21545,14 @@
     "views": 422112,
     "channel": "KOTOKO Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "はやてのごとく"
     ],
     "artistAliases": [
       "コトコ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "KbiSxunJatM",
@@ -22019,7 +22064,7 @@
     "views": 1349427,
     "channel": "KING AMUSEMENT CREATIVE official channel",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "さよならぜつぼうせんせい",
       "絶望先生"
@@ -22030,7 +22075,8 @@
       "オーケン",
       "大槻",
       "おおつき"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "4BJuSLx1pVg",
@@ -22923,14 +22969,15 @@
     "views": 3570644,
     "channel": "Aqua Timez Official",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぶりーち",
       "BLEACH"
     ],
     "artistAliases": [
       "アクアタイムズ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "k0r3H-L6Et0",
@@ -23634,7 +23681,7 @@
     "views": 3014624,
     "channel": "May'n",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "まくろすふろんてぃあ",
       "マクロス",
@@ -23644,7 +23691,8 @@
     "artistAliases": [
       "シェリルノーム",
       "メイン"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "mTdcxQZcQAE",
@@ -23977,11 +24025,12 @@
     "views": 709309,
     "channel": "『BLEACH』アニメ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "ぶりーち",
       "BLEACH"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "YjOzaIXEoPA",
@@ -24068,7 +24117,7 @@
     "views": 3328973,
     "channel": "KING AMUSEMENT CREATIVE official channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "とらどら"
     ],
@@ -24085,7 +24134,8 @@
       "ほりえ",
       "喜多村",
       "きたむら"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "CuQ69c2s5mU",
@@ -24235,13 +24285,14 @@
     "views": 83141,
     "channel": "ET-KING",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "やったーまん"
     ],
     "artistAliases": [
       "イーティーキング"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "MnaHHthb7XQ",
@@ -24557,7 +24608,7 @@
     "views": 980235,
     "channel": "D.C.J",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "top",
     "workAliases": [
       "がけのうえのぽにょ",
       "ポニョ"
@@ -24569,7 +24620,8 @@
       "おおはし",
       "藤岡",
       "ふじおか"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "v1fiGwbXUWU",
@@ -24830,7 +24882,7 @@
     "views": 8096667,
     "channel": "May'n",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "まくろすふろんてぃあ",
       "マクロス",
@@ -24840,7 +24892,8 @@
     "artistAliases": [
       "シェリルノーム",
       "メイン"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "erGCAu_hFqM",
@@ -25463,7 +25516,7 @@
     "views": 3385819,
     "channel": "YUI OFFICIAL YouTube CHANNEL",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "top",
     "workAliases": [
       "はがねのれんきんじゅつし",
       "ハガレン",
@@ -25471,7 +25524,8 @@
     ],
     "artistAliases": [
       "ユイ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "UAB_RXjCi9g",
@@ -26277,7 +26331,7 @@
     "views": 1536143,
     "channel": "NBCUniversal Anime/Music",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "introSource": "auto",
     "introBefore": 1.2,
     "workAliases": [
@@ -26294,7 +26348,8 @@
       "かわだまみ",
       "川田",
       "かわだ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "RGhF_TeeXRU",
@@ -26650,7 +26705,9 @@
     "viewsAt": "2026-10-10",
     "fame": "top",
     "chorusSource": "songle",
-    "chorusBefore": 0
+    "chorusBefore": 0,
+    "retired": true,
+    "retiredNote": "フル版（FGjBWcHqC3o）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "yyVhbqi3mRM",
@@ -26998,7 +27055,7 @@
     "views": 990068,
     "channel": "アニメソングコレクション",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "otaku",
     "chorusSource": "audio",
     "artistAliases": [
       "ロングショットパーティー"
@@ -27064,7 +27121,7 @@
     "views": 334426,
     "channel": "『BLEACH』アニメ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "top",
+    "fame": "minor",
     "workAliases": [
       "ぶりーち",
       "BLEACH"
@@ -29102,7 +29159,8 @@
     "views": 347442,
     "channel": "angela Official Channel",
     "viewsAt": "2026-10-10",
-    "fame": "otaku"
+    "fame": "famous",
+    "fameManual": true
   },
   {
     "id": "Gs_oB3_XfG8",
@@ -29907,7 +29965,7 @@
     "views": 3401836,
     "channel": "NBCUniversal Anime/Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "とあるまじゅつのいんでっくす",
       "禁書",
@@ -29922,7 +29980,8 @@
       "かわだまみ",
       "川田",
       "かわだ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "mpb2pQtGb5A",
@@ -30046,7 +30105,7 @@
     "views": 6728245,
     "channel": "KING RECORDS",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "まほうしょうじょりりかるなのは",
       "なのは",
@@ -30059,7 +30118,8 @@
       "みずきなな",
       "水樹",
       "みずき"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "GB3DN7B4mx4",
@@ -32046,7 +32106,8 @@
       "グリザイアの果実"
     ],
     "artistAliases": [
-      "ふぇいらん"
+      "ふぇいらん",
+      "Faylan"
     ],
     "chorusSource": "heatmap",
     "chorusChecked": true,
@@ -32869,7 +32930,7 @@
     "views": 436835,
     "channel": "『BLEACH』アニメ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "ぶりーち",
       "BLEACH"
@@ -33235,7 +33296,9 @@
     "channel": "Orion League",
     "viewsAt": "2026-10-10",
     "fame": "minor",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "retired": true,
+    "retiredNote": "フル版（LKqgY0VKZX4）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "ty9F3qkwUhM",
@@ -34606,7 +34669,7 @@
     "views": 3011654,
     "channel": "Meiko Honma (CV:Ai Kayano) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "top",
     "workAliases": [
       "あのひみたはなのなまえをぼくたちはまだしらない",
       "あの花",
@@ -34625,7 +34688,8 @@
       "とまつ",
       "早見",
       "はやみ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "hcZQ2B6axV4",
@@ -34650,7 +34714,7 @@
     "views": 2808798,
     "channel": "NBCUniversal Anime/Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "とあるまじゅつのいんでっくす",
       "禁書",
@@ -34665,7 +34729,8 @@
       "かわだまみ",
       "川田",
       "かわだ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "YdbIUUUVz80",
@@ -35352,7 +35417,9 @@
     "channel": "99RadioService",
     "viewsAt": "2026-10-10",
     "fame": "minor",
-    "chorusSource": "audio"
+    "chorusSource": "audio",
+    "retired": true,
+    "retiredNote": "フル版（2dDD1hs3zHs）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "xQOXxmznGPg",
@@ -36424,7 +36491,8 @@
     "views": 1435741,
     "channel": "Nanamori Chu Goraku Bu - Topic",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "famous",
+    "fameManual": true
   },
   {
     "id": "wOPGdDKdJIA",
@@ -36477,7 +36545,7 @@
     "views": 3672485,
     "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "らぶらいぶ",
       "Love Live",
@@ -36485,7 +36553,8 @@
     ],
     "artistAliases": [
       "ミューズ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "hWU4DpWJmNo",
@@ -37396,14 +37465,15 @@
     "views": 3655524,
     "channel": "凛として時雨 / TK",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "さいこぱす",
       "PSYCHO-PASS"
     ],
     "artistAliases": [
       "りんとしてしぐれ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "Y0VUJYGX3Lw",
@@ -37848,14 +37918,15 @@
     "views": 696277,
     "channel": "Lantis Global Channel",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "がーるずあんどぱんつぁー",
       "ガルパン"
     ],
     "artistAliases": [
       "ちょうちょ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "vWEwJUAoQOA",
@@ -39633,7 +39704,7 @@
     "views": 49850,
     "channel": "ClariS Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "minor",
     "workAliases": [
       "もやしもんりたーんず",
       "もやしもん"
@@ -40930,14 +41001,15 @@
     "views": 4058586,
     "channel": "NBCUniversal Anime/Music",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "とらぶるだーくねす",
       "とらぶる"
     ],
     "artistAliases": [
       "レイ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "hgIzCULjxBk",
@@ -42922,7 +42994,7 @@
     "views": 13945,
     "channel": "AnimeKashi - アニメ歌詞",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "chorusSource": "audio",
     "workAliases": [
       "わんぴーす",
@@ -42933,7 +43005,8 @@
       "あむろなみえ",
       "安室",
       "あむろ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "p2Z_PGAYlGY",
@@ -43271,7 +43344,7 @@
     "views": 1039500,
     "channel": "友人",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "はんたーはんたー",
       "ハンタ",
@@ -43281,7 +43354,8 @@
     "artistAliases": [
       "フィアーアンドローシングインラスベガス",
       "ベガス"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "KO3648lFg4Y",
@@ -43571,7 +43645,7 @@
     "views": 3091676,
     "channel": "【フジテレビ】アニメ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "さいこぱす",
       "PSYCHO-PASS"
@@ -43579,7 +43653,8 @@
     "artistAliases": [
       "ナッシングスカーヴドインストーン",
       "ナッシングス"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "MbddxnWgjyY",
@@ -46450,7 +46525,7 @@
     "views": 3637794,
     "channel": "Release - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "せんきぜっしょうしんふぉぎあじー",
       "しんふぉぎあ",
@@ -46466,7 +46541,8 @@
       "みずき",
       "日笠",
       "ひかさ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "yNXqSlNqqUY",
@@ -47024,7 +47100,7 @@
     "views": 123897,
     "channel": "Kalafina Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "top",
+    "fame": "otaku",
     "workAliases": [
       "ふぇいとすていないと",
       "UBW",
@@ -47368,7 +47444,9 @@
     "views": 1275813,
     "channel": "NBCUniversal Anime/Music",
     "viewsAt": "2026-10-10",
-    "fame": "normal"
+    "fame": "normal",
+    "retired": true,
+    "retiredNote": "フル版（aJl65W8fGfc）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "aJl65W8fGfc",
@@ -48646,7 +48724,7 @@
     "views": 3867115,
     "channel": "Warner Bros. Japan Anime",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "じょじょのきみょうなぼうけん",
       "ジョジョ",
@@ -48657,7 +48735,8 @@
       "はしもとじん",
       "橋本",
       "はしもと"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "g0KxxbPi9cE",
@@ -49491,13 +49570,14 @@
     "views": 559668,
     "channel": "アイカツ!チャンネル【公式】",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "あいかつ"
     ],
     "artistAliases": [
       "スターアニス"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "cBwWZSGfxa0",
@@ -50001,7 +50081,7 @@
     "views": 278770,
     "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "introMeasured": true,
     "introMethod": "v2",
     "workAliases": [
@@ -50012,7 +50092,8 @@
     ],
     "artistAliases": [
       "ミューズ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "VyKLQXOj0ts",
@@ -50597,13 +50678,14 @@
     "views": 4036512,
     "channel": "avex",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ようかいうぉっち"
     ],
     "artistAliases": [
       "キングクリームソーダ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "h7EO2tSaH1k",
@@ -51300,7 +51382,7 @@
     "views": 9879359,
     "channel": "Aimer Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "ふぇいとすていないと",
       "UBW",
@@ -51311,7 +51393,8 @@
     ],
     "artistAliases": [
       "エメ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "oDdysk3bDdw",
@@ -51541,7 +51624,7 @@
     "views": 3061953,
     "channel": "Lantis Channel",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ひびけゆーふぉにあむ",
       "ユーフォ",
@@ -51550,7 +51633,8 @@
     ],
     "artistAliases": [
       "トゥルー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "m9rtKGYBwCw",
@@ -52861,7 +52945,7 @@
     "views": 1578809,
     "channel": "Rica Matsumoto - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぽけっともんすたー",
       "ポケモン",
@@ -53031,7 +53115,10 @@
     "viewsAt": "2026-10-10",
     "fame": "famous",
     "coupling": true,
-    "couplingOf": "一度だけの恋なら / ルンがピカッと光ったら"
+    "couplingOf": "一度だけの恋なら / ルンがピカッと光ったら",
+    "artistAliases": [
+      "わるきゅーれ"
+    ]
   },
   {
     "id": "grrX9elpi_A",
@@ -53121,7 +53208,7 @@
     "views": 10829695,
     "channel": "7!! Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "top",
+    "fame": "famous",
     "workAliases": [
       "しがつはきみのうそ",
       "君嘘"
@@ -53574,7 +53661,9 @@
     ],
     "artistAliases": [
       "ティア"
-    ]
+    ],
+    "retired": true,
+    "retiredNote": "フル版（sUaoCdvwigk）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "sUaoCdvwigk",
@@ -54021,7 +54110,7 @@
     "views": 2827283,
     "channel": "FlyingDog",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "かんたいこれくしょん",
       "艦これ"
@@ -54029,7 +54118,8 @@
     "artistAliases": [
       "アキノ",
       "ブレスフォー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "XbRPOR19p_c",
@@ -54129,7 +54219,9 @@
     "artistAliases": [
       "オーラルシガレッツ",
       "オーラル"
-    ]
+    ],
+    "retired": true,
+    "retiredNote": "フル版（C-o8pTi6vd8）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "zoWVDqU5zZI",
@@ -54424,7 +54516,7 @@
     "views": 1172447,
     "channel": "【フジテレビ】アニメ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "あんさつきょうしつ",
       "暗殺教室"
@@ -54432,7 +54524,8 @@
     "artistAliases": [
       "さんねんいーぐみうたたん",
       "3年E組"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "jTViy-BDv-U",
@@ -55806,7 +55899,7 @@
     "views": 1927012,
     "channel": "日本コロムビア 公式YouTubeチャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "このすばらしいせかいにしゅくふくを",
       "このすば",
@@ -55814,7 +55907,8 @@
     ],
     "artistAliases": [
       "マチコ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "lTV_z3vbh-w",
@@ -55931,7 +56025,7 @@
     "views": 4228205,
     "channel": "Warner Bros. Japan Anime",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "じょじょのきみょうなぼうけん",
       "ジョジョ",
@@ -55940,7 +56034,8 @@
     ],
     "artistAliases": [
       "ジョースターズ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "Evb_iw2GsxI",
@@ -58008,6 +58103,9 @@
       "マクロス",
       "Macross",
       "超時空要塞マクロス"
+    ],
+    "artistAliases": [
+      "わるきゅーれ"
     ]
   },
   {
@@ -58070,6 +58168,9 @@
       "マクロス",
       "Macross",
       "超時空要塞マクロス"
+    ],
+    "artistAliases": [
+      "わるきゅーれ"
     ]
   },
   {
@@ -58471,6 +58572,9 @@
       "マクロス",
       "Macross",
       "超時空要塞マクロス"
+    ],
+    "artistAliases": [
+      "わるきゅーれ"
     ]
   },
   {
@@ -61025,7 +61129,7 @@
     "views": 205858,
     "channel": "(Love Live! series)ラブライブ！シリーズ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "らぶらいぶさんしゃいん",
       "サンシャイン",
@@ -61036,7 +61140,8 @@
     ],
     "artistAliases": [
       "アクア"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "P_CSdxSGfaA",
@@ -61828,7 +61933,9 @@
       "ハチ",
       "米津",
       "よねづ"
-    ]
+    ],
+    "retired": true,
+    "retiredNote": "フル版（1oMxrHXzOsY）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "1oMxrHXzOsY",
@@ -62194,7 +62301,9 @@
       "どうぶつびすけっつ",
       "ペパプ",
       "ペンギンパフォーマンスプロジェクト"
-    ]
+    ],
+    "retired": true,
+    "retiredNote": "フル版（Zk9iH-nunro）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "Zk9iH-nunro",
@@ -65390,7 +65499,7 @@
     "views": 171541,
     "channel": "FlyingDog",
     "viewsAt": "2026-10-05",
-    "fame": "top",
+    "fame": "normal",
     "workAliases": [
       "まほうつかいのよめ",
       "まほよめ"
@@ -65399,7 +65508,8 @@
       "メイン",
       "シェリル・ノーム",
       "シェリル"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "YlkvrpTiWQg",
@@ -65785,7 +65895,7 @@
     "views": 1439366,
     "channel": "Kisidakyoudan & the Akebosi rockets official",
     "viewsAt": "2026-10-10",
-    "fame": "famous",
+    "fame": "normal",
     "introMeasured": true,
     "introMethod": "v2"
   },
@@ -66591,7 +66701,7 @@
     "views": 4524631,
     "channel": "TOHO animation",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "からかいじょうずのたかぎさん",
       "高木さん",
@@ -66603,7 +66713,8 @@
       "たかはしりえ",
       "高橋",
       "たかはし"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "DHhNXNDrNbU",
@@ -67362,7 +67473,7 @@
     "views": 3620514,
     "channel": "福山雅治 Official",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "めいたんていこなん",
       "コナン",
@@ -67373,7 +67484,8 @@
       "ましゃ",
       "福山",
       "ふくやま"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "oEkGC2HV7rc",
@@ -69867,7 +69979,7 @@
     "views": 4316140,
     "channel": "TOHO animation",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "からかいじょうずのたかぎさん",
       "高木さん",
@@ -69879,7 +69991,8 @@
       "おおはらゆいこ",
       "大原",
       "おおはら"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "DScR3LonMFA",
@@ -69902,7 +70015,7 @@
     "views": 3342965,
     "channel": "アニプレックス チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "かぐやさまはこくらせたい",
       "かぐや様",
@@ -69911,7 +70024,8 @@
     ],
     "artistAliases": [
       "ハルカ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "Rkrm5foi188",
@@ -70113,7 +70227,7 @@
     "views": 3574895,
     "channel": "ポケモン公式YouTubeチャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "chorusSource": "audio",
     "workAliases": [
       "ぽけっともんすたー",
@@ -70123,7 +70237,8 @@
     ],
     "artistAliases": [
       "ぽけもんおんがくくらぶ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "VtNgeDxYJzE",
@@ -72624,7 +72739,7 @@
     "views": 396935,
     "channel": "NBCUniversal Anime/Music",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "minor",
     "workAliases": [
       "とあるかがくのれーるがん",
       "レールガン",
@@ -74187,7 +74302,7 @@
     "views": 3803725,
     "channel": "ポケモン公式YouTubeチャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぽけっともんすたー",
       "ポケモン",
@@ -74199,7 +74314,8 @@
       "松本",
       "まつもと",
       "トータス"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "m-9WQ-Uv8BY",
@@ -76619,7 +76735,7 @@
     "views": 1570097,
     "channel": "Grass Wonder (CV: Rena Maeda) - Topic",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "うまむすめ",
       "うまむすめぷりてぃーだーびーしーずん2",
@@ -77668,7 +77784,7 @@
     "views": 113341,
     "channel": "May'n",
     "viewsAt": "2026-10-05",
-    "fame": "top",
+    "fame": "minor",
     "workAliases": [
       "ぷらおれぷらいどおぶおれんじ",
       "ぷらおれ"
@@ -78879,7 +78995,7 @@
     "views": 11203662,
     "channel": "ReoNa official YouTube channel",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "つきひめあぴーすおぶぶるーぐらすむーん",
       "つきひめ",
@@ -78888,7 +79004,8 @@
     "artistAliases": [
       "レオナ",
       "神崎エルザ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "DR5FSueiJxI",
@@ -81012,7 +81129,7 @@
     "views": 221665,
     "channel": "FLOW Official YouTube Channel",
     "viewsAt": "2026-10-05",
-    "fame": "minor",
+    "fame": "normal",
     "introSource": "auto",
     "introBefore": 0,
     "workAliases": [
@@ -81857,14 +81974,15 @@
     "views": 4469122,
     "channel": "アニプレックス チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ぼっちざろっく",
       "ぼざろ"
     ],
     "artistAliases": [
       "けっそくバンド"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "B7BxrAAXl94",
@@ -84259,7 +84377,7 @@
     "views": 1448120,
     "channel": "TOHO animation",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "そうそうのふりーれん",
       "フリーレン",
@@ -84267,7 +84385,8 @@
     ],
     "artistAliases": [
       "ミレイ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "shZyg5VFI1Y",
@@ -88182,7 +88301,7 @@
     "views": 3026256,
     "channel": "MyGO!!!!!",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "ばんどりーむ",
       "バンドリ",
@@ -88190,7 +88309,8 @@
     ],
     "artistAliases": [
       "マイゴ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "QoGM9hCxr4k",
@@ -88325,7 +88445,9 @@
       "ぼくのこころのやばいやつ2き",
       "僕の心のヤバイやつ",
       "ぼくやば"
-    ]
+    ],
+    "retired": true,
+    "retiredNote": "フル版（8L5cQlXMpeY）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "WMdXTiLrT2g",
@@ -90213,7 +90335,7 @@
     "views": 1419905,
     "channel": "アニプレックス チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "ものがたりしりーず",
       "物語シリーズ",
@@ -90222,7 +90344,8 @@
     ],
     "artistAliases": [
       "ヨアソビ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "t2it6C75HOs",
@@ -91054,7 +91177,9 @@
     "artistAliases": [
       "ぼっちぼろまる",
       "もっさ"
-    ]
+    ],
+    "retired": true,
+    "retiredNote": "フル版（AuRNbKRVV-Y）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "AuRNbKRVV-Y",
@@ -91105,13 +91230,14 @@
     "views": 1570688,
     "channel": "TMSアニメ公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "あおのはこ"
     ],
     "artistAliases": [
       "イブ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "F-I1wZkbdPo",
@@ -93605,7 +93731,7 @@
     "views": 1045870,
     "channel": "TV anime \"Tokyo Revengers\"",
     "viewsAt": "2026-10-05",
-    "fame": "famous",
+    "fame": "normal",
     "chorusSource": "manual",
     "workAliases": [
       "とうきょうりべんじゃーず",
@@ -96472,7 +96598,9 @@
     "artistAliases": [
       "アイナジエンド"
     ],
-    "introMethod": "v2"
+    "introMethod": "v2",
+    "retired": true,
+    "retiredNote": "フル版（NLIGDjKBLY0）と重複するTVサイズ（2026-11-02）"
   },
   {
     "id": "NLIGDjKBLY0",
@@ -122783,7 +122911,8 @@
     "views": 12878788,
     "channel": "Cyberpunk 2077",
     "viewsAt": "2026-10-22",
-    "fame": "otaku"
+    "fame": "famous",
+    "fameManual": true
   },
   {
     "id": "kygFpbj8fDw",
@@ -124078,7 +124207,8 @@
       "みらいにっき"
     ],
     "artistAliases": [
-      "ふぇいらん"
+      "ふぇいらん",
+      "Faylan"
     ]
   },
   {
@@ -124106,7 +124236,8 @@
       "みらいにっき"
     ],
     "artistAliases": [
-      "ふぇいらん"
+      "ふぇいらん",
+      "Faylan"
     ]
   },
   {
@@ -124690,13 +124821,14 @@
     "views": 2717866,
     "channel": "大野雄二 / YUJI OHNO",
     "viewsAt": "2026-10-30",
-    "fame": "normal",
+    "fame": "top",
     "workAliases": [
       "るぱんさんせい"
     ],
     "artistAliases": [
       "おおのゆうじ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "sO4DEqVzlD4",
@@ -125304,7 +125436,7 @@
     "views": 486715,
     "channel": "片手☆SIZE - Topic",
     "viewsAt": "2026-10-30",
-    "fame": "famous",
+    "fame": "normal",
     "workAliases": [
       "ぬらりひょんのまごせんねんまきょう",
       "ぬらりひょんのまご",
@@ -126781,14 +126913,15 @@
     "views": 11468786,
     "channel": "stardustdigital",
     "viewsAt": "2026-11-01",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "よすがのそら"
     ],
     "artistAliases": [
       "ももいろくろーばー",
       "ももくろ"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "jTkNRngNgyE",
@@ -126874,7 +127007,7 @@
     "views": 2444228,
     "channel": "Hibiki Tachibana(CV:Aoi Yuki) - Topic",
     "viewsAt": "2026-11-01",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "せんきぜっしょうしんふぉぎあ",
       "しんふぉぎあ",
@@ -126883,7 +127016,8 @@
     "artistAliases": [
       "たちばなひびき",
       "ゆうきあおい"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "WzoIvqVpO-k",
@@ -127099,7 +127233,7 @@
     "views": 3210512,
     "channel": "FUNKIST official",
     "viewsAt": "2026-11-01",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "フェアリーテイル"
     ],
@@ -127129,7 +127263,7 @@
     "views": 3602624,
     "channel": "ponycanyon",
     "viewsAt": "2026-11-01",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "フェアリーテイル"
     ],
@@ -127159,7 +127293,7 @@
     "views": 3107505,
     "channel": "ponycanyon",
     "viewsAt": "2026-11-01",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "フェアリーテイル"
     ],
@@ -127190,7 +127324,7 @@
     "views": 9122994,
     "channel": "avex",
     "viewsAt": "2026-11-01",
-    "fame": "otaku",
+    "fame": "famous",
     "workAliases": [
       "フェアリーテイル"
     ],
@@ -127282,14 +127416,15 @@
     "views": 174296,
     "channel": "avex",
     "viewsAt": "2026-11-01",
-    "fame": "otaku",
+    "fame": "normal",
     "workAliases": [
       "しょくげきのそーま",
       "ソーマ"
     ],
     "artistAliases": [
       "みそっかす"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "P19zZzpbCGQ",
@@ -127385,6 +127520,601 @@
     "artistAliases": [
       "ななをあかり",
       "ナナヲ"
+    ]
+  },
+  {
+    "id": "wol-XHb1VhM",
+    "title": "らしさ",
+    "work": "ばらかもん",
+    "artist": "SUPER BEAVER",
+    "year": 2014,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（人気投票の上位）",
+    "intro": 8,
+    "chorus": 129,
+    "aliases": [
+      "らしさ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 27780881,
+    "channel": "SUPER BEAVER official YouTube channel",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "ばらかもん"
+    ],
+    "artistAliases": [
+      "スーパービーバー",
+      "ビーバー"
+    ]
+  },
+  {
+    "id": "P_At3pIE5BU",
+    "title": "アイのシナリオ",
+    "work": "まじっく快斗1412",
+    "artist": "CHiCO with HoneyWorks",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（人気投票の上位）",
+    "intro": 1,
+    "chorus": 71,
+    "aliases": [
+      "あいのしなりお"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 74230452,
+    "channel": "Sony Music Japan",
+    "viewsAt": "2026-11-02",
+    "fame": "top",
+    "workAliases": [
+      "まじっくかいと"
+    ],
+    "artistAliases": [
+      "チコ",
+      "ハニーワークス",
+      "ハニワ"
+    ]
+  },
+  {
+    "id": "Fay3ZhHS1rU",
+    "title": "100万年の幸せ!!",
+    "work": "こちら葛飾区亀有公園前派出所",
+    "artist": "桑田佳祐",
+    "year": 2012,
+    "type": "主題歌",
+    "confidence": "高",
+    "source": "公式動画（人気投票の上位）",
+    "intro": 0.2,
+    "chorus": 59,
+    "aliases": [
+      "ひゃくまんねんのしあわせ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 11238605,
+    "channel": "桑田佳祐",
+    "viewsAt": "2026-11-02",
+    "fame": "top",
+    "workAliases": [
+      "こちらかつしかくかめありこうえんまえはしゅつじょ",
+      "こち亀",
+      "こちかめ"
+    ],
+    "artistAliases": [
+      "くわたけいすけ"
+    ]
+  },
+  {
+    "id": "7li53JlW9oU",
+    "title": "Baby Sweet Berry Love",
+    "work": "変態王子と笑わない猫。",
+    "artist": "小倉唯",
+    "year": 2013,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（人気投票の上位）",
+    "intro": 5.7,
+    "chorus": 68,
+    "aliases": [
+      "べいびーすうぃーとべりーらぶ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 695321,
+    "channel": "Yui Ogura YouTube OFFICIAL CHANNEL",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "へんたいおうじとわらわないねこ",
+      "変猫"
+    ],
+    "artistAliases": [
+      "おぐらゆい"
+    ]
+  },
+  {
+    "id": "Yb9FzUPpk0Y",
+    "title": "イニシャル",
+    "work": "BanG Dream! 3rd Season",
+    "artist": "Poppin'Party",
+    "year": 2020,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0.2,
+    "chorus": 68,
+    "aliases": [
+      "いにしゃる"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 199218,
+    "channel": "Poppin'Party",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "ばんどり"
+    ],
+    "artistAliases": [
+      "ポッピンパーティー",
+      "ポピパ"
+    ]
+  },
+  {
+    "id": "UXRxwXJhp6w",
+    "title": "薔薇は美しく散る",
+    "work": "ベルサイユのばら",
+    "artist": "鈴木宏子",
+    "year": 1979,
+    "type": "OP",
+    "confidence": "高",
+    "source": "非公式（人気投票の上位）",
+    "intro": 3.5,
+    "chorus": 126,
+    "aliases": [
+      "ばらはうつくしくちる"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2126929,
+    "channel": "angels",
+    "viewsAt": "2026-11-02",
+    "fame": "top",
+    "workAliases": [
+      "べるさいゆのばら",
+      "ベルばら"
+    ],
+    "artistAliases": [
+      "すずきひろこ"
+    ]
+  },
+  {
+    "id": "_F5459jCtuM",
+    "title": "Gun's & Roses",
+    "work": "バッカーノ!",
+    "artist": "Paradise Lunch",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "高",
+    "source": "非公式（人気投票の上位）",
+    "intro": 0.2,
+    "chorus": 74,
+    "aliases": [
+      "がんずあんどろーぜず"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 13188311,
+    "channel": "TheDigimonEmperor - RETIRED",
+    "viewsAt": "2026-11-02",
+    "fame": "top",
+    "workAliases": [
+      "ばっかーの"
+    ],
+    "artistAliases": [
+      "ぱらだいすらんち"
+    ]
+  },
+  {
+    "id": "PplXyV4PR5Q",
+    "title": "AXIA～ダイスキでダイキライ～",
+    "work": "マクロスΔ",
+    "artist": "ワルキューレ",
+    "year": 2016,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "非公式（人気投票の上位）",
+    "intro": 0.2,
+    "chorus": 77,
+    "aliases": [
+      "あくしあ",
+      "だいすきでだいきらい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1257792,
+    "channel": "Felix Milerivan Marcel",
+    "viewsAt": "2026-11-02",
+    "fame": "top",
+    "workAliases": [
+      "まくろすでるた",
+      "マクロス",
+      "Macross",
+      "超時空要塞マクロス"
+    ],
+    "artistAliases": [
+      "わるきゅーれ"
+    ]
+  },
+  {
+    "id": "0i63u8sqXfM",
+    "title": "GIRAFFE BLUES",
+    "work": "マクロスΔ",
+    "artist": "ワルキューレ",
+    "year": 2016,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "非公式（人気投票の上位）",
+    "intro": 1,
+    "chorus": 72,
+    "aliases": [
+      "じらふぶるーす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1192911,
+    "channel": "Felix Milerivan Marcel",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "まくろすでるた",
+      "マクロス",
+      "Macross",
+      "超時空要塞マクロス"
+    ],
+    "artistAliases": [
+      "わるきゅーれ"
+    ]
+  },
+  {
+    "id": "qq_QwrEXp0Q",
+    "title": "風の音さえ聞こえない",
+    "work": "錆喰いビスコ",
+    "artist": "JUNNA",
+    "year": 2022,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（人気投票の上位）",
+    "intro": 0,
+    "chorus": 118,
+    "aliases": [
+      "かぜのおとさえきこえない"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 346542,
+    "channel": "Junna_Official",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "さびくいびすこ"
+    ],
+    "artistAliases": [
+      "ジュンナ"
+    ]
+  },
+  {
+    "id": "ucN_5ahgkEQ",
+    "title": "mind as Judgment",
+    "work": "CANAAN",
+    "artist": "飛蘭",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 4,
+    "chorus": 62,
+    "aliases": [
+      "まいんどあずじゃっじめんと"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 280549,
+    "channel": "Faylan - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "かなん"
+    ],
+    "artistAliases": [
+      "ふぇいらん",
+      "Faylan"
+    ]
+  },
+  {
+    "id": "GB5NIucpg4U",
+    "title": "またね",
+    "work": "宇宙よりも遠い場所",
+    "artist": "saya",
+    "year": 2018,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "公式動画（人気投票の上位）",
+    "intro": 0.2,
+    "chorus": 117,
+    "aliases": [
+      "またね"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 185569,
+    "channel": "冴夜 saya",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "そらよりもとおいばしょ",
+      "よりもい"
+    ],
+    "artistAliases": [
+      "サヤ"
+    ]
+  },
+  {
+    "id": "iSgC4w5Scj0",
+    "title": "Butterfly Kiss",
+    "work": "RAVE",
+    "artist": "米倉千尋",
+    "year": 2001,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（人気投票の上位）",
+    "intro": 0.7,
+    "chorus": 124,
+    "aliases": [
+      "ばたふらいきす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 132748,
+    "channel": "KING RECORDS",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "れいぶ"
+    ],
+    "artistAliases": [
+      "よねくらちひろ",
+      "米倉",
+      "よねくら"
+    ]
+  },
+  {
+    "id": "8VYZmT0Hi0k",
+    "title": "ebullient future",
+    "work": "ef - a tale of melodies.",
+    "artist": "ELISA",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0.2,
+    "chorus": 56,
+    "aliases": [
+      "えびゅりえんとふゅーちゃー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 69359,
+    "channel": "ELISA - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "えふ"
+    ],
+    "artistAliases": [
+      "エリサ"
+    ]
+  },
+  {
+    "id": "2JqdWmCKvhY",
+    "title": "ルパン三世その2",
+    "work": "ルパン三世",
+    "artist": "チャーリー・コーセイ",
+    "year": 1971,
+    "type": "ED",
+    "confidence": "高",
+    "source": "Topic",
+    "intro": 0.2,
+    "chorus": 76,
+    "aliases": [
+      "るぱんさんせいその2"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 68051,
+    "channel": "Charlie Kosei - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "るぱんさんせい"
+    ],
+    "artistAliases": [
+      "ちゃーりーこーせい"
+    ]
+  },
+  {
+    "id": "lnrNxMkXGgA",
+    "title": "エボレボ!",
+    "work": "デュエル・マスターズ VSRF",
+    "artist": "はやぶさ",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（人気投票の上位）",
+    "intro": 0,
+    "chorus": 72,
+    "aliases": [
+      "えぼれぼ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 68102,
+    "channel": "Hayabusa Official Channel",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "でゅえるますたーず",
+      "デュエマ"
+    ],
+    "artistAliases": [
+      "はやぶさ"
+    ]
+  },
+  {
+    "id": "115DAxfbTtw",
+    "title": "アレアレアラレちゃん",
+    "work": "Dr.スランプ アラレちゃん",
+    "artist": "水森亜土、こおろぎ'73",
+    "year": 1981,
+    "type": "ED",
+    "confidence": "高",
+    "source": "非公式（人気投票の上位）",
+    "intro": 13.5,
+    "chorus": 57,
+    "aliases": [
+      "あれあれあられちゃん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 799421,
+    "channel": "pinkbulldeluxe1",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "どくたーすらんぷあられちゃん",
+      "ドクタースランプ",
+      "Dr.スランプ",
+      "アラレちゃん"
+    ],
+    "artistAliases": [
+      "みずもりあど"
+    ]
+  },
+  {
+    "id": "fEivvnTQCqU",
+    "title": "夢色のスプーン",
+    "work": "スプーンおばさん",
+    "artist": "飯島真理",
+    "year": 1983,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（人気投票の上位）",
+    "intro": 0.7,
+    "chorus": 56,
+    "aliases": [
+      "ゆめいろのすぷーん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 638315,
+    "channel": "Mari Iijima ",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "すぷーんおばさん"
+    ],
+    "artistAliases": [
+      "いいじままり",
+      "飯島",
+      "いいじま"
+    ]
+  },
+  {
+    "id": "c5pZfv2dhlM",
+    "title": "鳥の歌",
+    "work": "獣装機攻ダンクーガノヴァ",
+    "artist": "千里愛風",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "高",
+    "source": "非公式（人気投票の上位）",
+    "intro": 1,
+    "chorus": 51.5,
+    "aliases": [
+      "とりのうた"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 452104,
+    "channel": "くらわんか餅NAOKI枚方銘菓",
+    "viewsAt": "2026-11-02",
+    "chorusSource": "audio",
+    "fame": "famous",
+    "workAliases": [
+      "だんくーがのゔぁ"
+    ],
+    "artistAliases": [
+      "せんりあいふう"
     ]
   }
 ]

@@ -19,11 +19,25 @@ const DRY = process.argv.includes('--dry-run');
 const songs = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
 const ranks = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'ranking-anison.json'), 'utf8'));
 const GENRES = require(path.join(ROOT, 'data', 'genres.json'));
-const inGenre = (s, k) => GENRES[k].keywords.some(w => String(s.work).includes(w));
+const keywordHit = (g, work, w) => g.wordOnly?.includes(w) ? new RegExp(`(?<![A-Za-z])${w}(?![A-Za-z])`).test(work) : work.includes(w); // wordOnly：語の一部には一致させない（FAIRY TAIL の AIR など）
+const inGenre = (s, k) => GENRES[k].keywords.some(w => keywordHit(GENRES[k], String(s.work), w));
 
 const norm = s => String(s).normalize('NFKC').toLowerCase().replace(/[\s!！・〜~～()（）\-♪【】.。,、\/'"「」『』?？&＆*＊☆★♡:：…･]/g, '');
 const rankOf = new Map();
-for (const r of ranks) { const k = norm(r.title); if (!rankOf.has(k)) rankOf.set(k, r.rank); }
+const rankRow = new Map();
+for (const r of ranks) { const k = norm(r.title); if (!rankOf.has(k)) { rankOf.set(k, r.rank); rankRow.set(k, r); } }
+// 同じ曲名の別の曲に順位を付けない：同名の曲があるときは、歌手が投票の歌手と合う曲だけ（合う曲がなければ全部）
+const sameArtist = (a, b) => { // 連名は1人でも合えば同じ歌手
+  const x = norm(a).replace(/cv.*$/, ''), y = norm(b).replace(/cv.*$/, ''), parts = String(b).split(/[、,×]/).map(norm).filter(p => p.length >= 2);
+  return !!x && !!y && (x.includes(y) || y.includes(x) || parts.some(p => x.includes(p)));
+};
+const rankOfSong = s => {
+  const k = norm(s.title), row = rankRow.get(k); if (!row) return undefined;
+  const same = songs.filter(o => norm(o.title) === k && !o.retired);
+  if (same.length < 2 || !same.some(o => sameArtist(o.artist, row.artist))) return row.rank;
+  const series = o => norm(o.work).replace(/^(劇場版|映画)/, '').slice(0, 3); // 同じ作品の別の動画（TVサイズ・別名義など）も同じ曲として扱う
+  return same.some(o => sameArtist(o.artist, row.artist) && series(o) === series(s)) ? row.rank : undefined;
+};
 
 // 動画の種類。再生回数はこの中で比べる
 const classOf = s => /- Topic$/i.test(s.channel || '') || s.source === 'Topic' ? 'topic'
@@ -69,7 +83,7 @@ function fameOf(s) {
     if (bucket !== 'lol') return p >= 0.75 ? 'top' : p >= 0.35 ? 'famous' : 'normal';
     return p >= 0.8 ? 'top' : p >= 0.45 ? 'famous' : p >= 0.15 ? 'normal' : 'minor';
   }
-  const p = pubAnime.get(s.id), rk = rankOf.get(norm(s.title));
+  const p = pubAnime.get(s.id), rk = rankOfSong(s);
   const pub = p === undefined ? 0.5 : p; // 再生回数が分からない曲は真ん中として扱う
   if (rk && rk <= 60) return 'top';
   if ((rk && rk <= 160 && pub >= 0.55) || pub >= 0.96) return 'top';

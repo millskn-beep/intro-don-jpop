@@ -1791,7 +1791,8 @@
  ],
  "劇場版「進撃の巨人」前編〜紅蓮の弓矢〜": [
   "movie",
-  "action"
+  "action",
+  "horror"
  ],
  "いなり、こんこん、恋いろは。": [
   "romcom"
@@ -2035,7 +2036,8 @@
  ],
  "劇場版「進撃の巨人」後編〜自由の翼〜": [
   "movie",
-  "action"
+  "action",
+  "horror"
  ],
  "Fate/Grand Order": [
   "game",
@@ -2496,7 +2498,8 @@
   "romcom"
  ],
  "転生したらスライムだった件": [
-  "isekai"
+  "isekai",
+  "action"
  ],
  "東京喰種トーキョーグール:re": [
   "action",
@@ -3086,7 +3089,8 @@
  "劇場版 鬼滅の刃 無限列車編": [
   "jump",
   "movie",
-  "action"
+  "action",
+  "horror"
  ],
  "乙女ゲームの破滅フラグしかない悪役令嬢に転生してしまった…": [
   "isekai"
@@ -3238,7 +3242,8 @@
   "mahou"
  ],
  "SSSS.DYNAZENON": [
-  "robot"
+  "robot",
+  "action"
  ],
  "プラオレ！〜PRIDE OF ORANGE〜": [
   "sports"
@@ -3261,7 +3266,8 @@
   "action"
  ],
  "シャドーハウス": [
-  "horror"
+  "horror",
+  "drama"
  ],
  "小林さんちのメイドラゴンS": [
   "nichijou"
@@ -3300,7 +3306,8 @@
  ],
  "鬼滅の刃 遊郭編": [
   "jump",
-  "action"
+  "action",
+  "horror"
  ],
  "進撃の巨人 The Final Season": [
   "action",
@@ -3332,7 +3339,8 @@
  ],
  "鬼滅の刃 無限列車編": [
   "jump",
-  "action"
+  "action",
+  "horror"
  ],
  "太陽は動かない": [
   "movie",
@@ -3472,7 +3480,8 @@
   "movie"
  ],
  "進撃の巨人 The Final Season Part 2": [
-  "action"
+  "action",
+  "horror"
  ],
  "ONE PIECE FILM RED": [
   "jump",
@@ -3698,7 +3707,8 @@
   "drama"
  ],
  "進撃の巨人 The Final Season 完結編": [
-  "action"
+  "action",
+  "horror"
  ],
  "地獄楽": [
   "jump",
@@ -3726,7 +3736,8 @@
  ],
  "鬼滅の刃 刀鍛冶の里編": [
   "jump",
-  "action"
+  "action",
+  "horror"
  ],
  "白聖女と黒牧師": [
   "romcom"
@@ -4050,9 +4061,13 @@
  ],
  "鬼滅の刃 柱稽古編": [
   "jump",
-  "action"
+  "action",
+  "horror"
  ],
- "甲鉄城のカバネリ（パチスロ）": [],
+ "甲鉄城のカバネリ（パチスロ）": [
+  "action",
+  "horror"
+ ],
  "ソードアート・オンライン フラクチュアード デイドリーム": [
   "game",
   "isekai",
@@ -4114,7 +4129,8 @@
   "sports"
  ],
  "キャッツ♥アイ": [
-  "jump"
+  "jump",
+  "action"
  ],
  "ある魔女が死ぬまで": [
   "isekai",
@@ -4306,7 +4322,8 @@
  "劇場版 鬼滅の刃 無限城編 第一章": [
   "jump",
   "movie",
-  "action"
+  "action",
+  "horror"
  ],
  "ワールド イズ ダンシング": [
   "drama"
@@ -4577,7 +4594,10 @@
  "地獄少女 三鼎": [
   "horror"
  ],
- "戦国乙女（パチンコ）": [],
+ "戦国乙女（パチンコ）": [
+  "isekai",
+  "action"
+ ],
  "咲-Saki-": [
   "sports"
  ],
@@ -4643,7 +4663,9 @@
  ],
  "押忍！サラリーマン番長（パチスロ）": [],
  "海物語（パチンコ）": [],
- "地獄少女（パチンコ）": [],
+ "地獄少女（パチンコ）": [
+  "horror"
+ ],
  "ハイスクールD×D BorN": [
   "romcom",
   "action"
@@ -4704,7 +4726,10 @@
  "アクセル・ワールド（パチンコ）": [
   "sf"
  ],
- "甲鉄城のカバネリ（パチンコ）": [],
+ "甲鉄城のカバネリ（パチンコ）": [
+  "action",
+  "horror"
+ ],
  "横山光輝 三国志": [
   "drama",
   "action"
@@ -5405,7 +5430,8 @@
  ],
  "映画クレヨンしんちゃん 超華麗!灼熱のカスカベダンサーズ": [
   "kids",
-  "movie"
+  "movie",
+  "drama"
  ],
  "忍者と殺し屋のふたりぐらし": [
   "nichijou"
@@ -5537,7 +5563,8 @@
   "drama"
  ],
  "映画 五等分の花嫁": [
-  "romcom"
+  "romcom",
+  "movie"
  ],
  "銀魂'延長戦": [
   "jump",
@@ -5804,5 +5831,101 @@
  ],
  "生徒会にも穴はある！": [
   "drama"
+ ],
+ "ルパン三世": [
+  "action",
+  "drama"
+ ],
+ "モモキュンソード": [
+  "action",
+  "isekai"
+ ],
+ "犬夜叉 完結編": [
+  "action",
+  "horror",
+  "romcom"
+ ],
+ "劇場版 xxxHOLiC 真夏ノ夜ノ夢": [
+  "movie",
+  "horror",
+  "drama"
+ ],
+ "地獄楽 第二期": [
+  "jump",
+  "action"
+ ],
+ "犬夜叉（パチスロ）": [
+  "action",
+  "horror",
+  "romcom"
+ ],
+ "モンスターハンター 月下雷鳴（パチスロ）": [
+  "game",
+  "action"
+ ],
+ "モンスターハンター 狂竜戦線（パチスロ）": [
+  "game",
+  "action"
+ ],
+ "CRモンスターハンター4（パチンコ）": [
+  "game",
+  "action"
+ ],
+ "ひぐらしのなく頃に煌": [
+  "game",
+  "horror"
+ ],
+ "思い、思われ、ふり、ふられ（アニメーション映画）": [
+  "movie",
+  "romcom",
+  "drama"
+ ],
+ "ばらかもん": [
+  "nichijou",
+  "drama"
+ ],
+ "まじっく快斗1412": [
+  "action",
+  "drama"
+ ],
+ "変態王子と笑わない猫。": [
+  "romcom"
+ ],
+ "BanG Dream! 3rd Season": [
+  "idol"
+ ],
+ "ベルサイユのばら": [
+  "drama",
+  "romcom"
+ ],
+ "バッカーノ!": [
+  "action",
+  "drama"
+ ],
+ "錆喰いビスコ": [
+  "action",
+  "isekai"
+ ],
+ "CANAAN": [
+  "action",
+  "galge"
+ ],
+ "RAVE": [
+  "isekai",
+  "action"
+ ],
+ "ef - a tale of melodies.": [
+  "galge",
+  "romcom"
+ ],
+ "デュエル・マスターズ VSRF": [
+  "game",
+  "kids"
+ ],
+ "スプーンおばさん": [
+  "kids"
+ ],
+ "獣装機攻ダンクーガノヴァ": [
+  "robot"
  ]
 }

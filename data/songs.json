@@ -8758,8 +8758,9 @@
     "views": 1006945,
     "channel": "alka",
     "viewsAt": "2026-10-10",
-    "fame": "otaku",
-    "chorusSource": "audio"
+    "fame": "normal",
+    "chorusSource": "audio",
+    "fameManual": true
   },
   {
     "id": "xm8Hyk3oGS4",
@@ -11426,7 +11427,8 @@
     ],
     "artistAliases": [
       "ザピロウズ",
-      "ピロウズ"
+      "ピロウズ",
+      "ざぴろーず"
     ]
   },
   {
@@ -11527,7 +11529,8 @@
     ],
     "artistAliases": [
       "ザピロウズ",
-      "ピロウズ"
+      "ピロウズ",
+      "ざぴろーず"
     ]
   },
   {
@@ -46868,7 +46871,8 @@
     "introBefore": null,
     "workAliases": [
       "ななつのたいざい",
-      "七つの大罪"
+      "Seven Deadly Sins",
+      "7つの大罪"
     ],
     "artistAliases": [
       "フロウ",
@@ -51027,7 +51031,8 @@
     "fame": "famous",
     "workAliases": [
       "ななつのたいざい",
-      "七つの大罪"
+      "Seven Deadly Sins",
+      "7つの大罪"
     ],
     "artistAliases": [
       "いきものがかり"
@@ -53746,13 +53751,14 @@
     "views": 1627031,
     "channel": "A応P",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "おそまつさん"
     ],
     "artistAliases": [
       "エーオーピー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "EYiNo2kLAHw",
@@ -54878,13 +54884,14 @@
     "views": 1762269,
     "channel": "A応P",
     "viewsAt": "2026-10-05",
-    "fame": "normal",
+    "fame": "famous",
     "workAliases": [
       "おそまつさん"
     ],
     "artistAliases": [
       "エーオーピー"
-    ]
+    ],
+    "fameManual": true
   },
   {
     "id": "g9iEdgyutPs",
@@ -73918,7 +73925,9 @@
     "source": "坂本真綾公式MV",
     "intro": 0.2,
     "chorus": 77.5,
-    "aliases": [],
+    "aliases": [
+      "くろーばー"
+    ],
     "embeddable": null,
     "introMeasured": true,
     "introMethod": "v2",
@@ -84547,7 +84556,8 @@
     "fame": "minor",
     "workAliases": [
       "ななつのたいざい",
-      "七つの大罪"
+      "Seven Deadly Sins",
+      "7つの大罪"
     ],
     "artistAliases": [
       "ムーンチャイルド"
@@ -85768,7 +85778,8 @@
     "fame": "normal",
     "workAliases": [
       "ななつのたいざい",
-      "七つの大罪"
+      "Seven Deadly Sins",
+      "7つの大罪"
     ],
     "artistAliases": [
       "リトルグリーモンスター",
@@ -90546,7 +90557,8 @@
     "fame": "normal",
     "workAliases": [
       "ななつのたいざい",
-      "七つの大罪"
+      "Seven Deadly Sins",
+      "7つの大罪"
     ],
     "artistAliases": [
       "ジェイオーワン",
@@ -92793,7 +92805,8 @@
     "fame": "minor",
     "workAliases": [
       "ななつのたいざい",
-      "七つの大罪"
+      "Seven Deadly Sins",
+      "7つの大罪"
     ],
     "artistAliases": [
       "ざきのすけ"
@@ -127680,27 +127693,20 @@
     ]
   },
   {
-    "id": "UXRxwXJhp6w",
+    "id": "I4SNcdCe6Ag",
     "title": "薔薇は美しく散る",
     "work": "ベルサイユのばら",
     "artist": "鈴木宏子",
     "year": 1979,
     "type": "OP",
     "confidence": "高",
-    "source": "非公式（人気投票の上位）",
-    "intro": 3.5,
-    "chorus": 126,
+    "source": "再生の多い動画（カバー動画から差し替え）",
+    "intro": 3.2,
+    "chorus": 59.1,
     "aliases": [
       "ばらはうつくしくちる"
     ],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
-    "chorusSource": "heatmap",
-    "chorusChecked": true,
-    "views": 2126929,
-    "channel": "angels",
-    "viewsAt": "2026-11-02",
     "fame": "top",
     "workAliases": [
       "べるさいゆのばら",
@@ -127708,7 +127714,14 @@
     ],
     "artistAliases": [
       "すずきひろこ"
-    ]
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 1977612,
+    "channel": "がんすの連絡帳",
+    "viewsAt": "2026-11-02"
   },
   {
     "id": "_F5459jCtuM",
@@ -128116,5 +128129,2035 @@
     "artistAliases": [
       "せんりあいふう"
     ]
+  },
+  {
+    "id": "MVTJKUwI76I",
+    "title": "サクラサク",
+    "work": "ラブひな",
+    "artist": "林原めぐみ",
+    "year": 2000,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 1,
+    "chorus": 45,
+    "aliases": [
+      "さくらさく"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 468097,
+    "channel": "Megumi Hayashibara - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "らぶひな"
+    ],
+    "artistAliases": [
+      "はやしばらめぐみ",
+      "林原",
+      "はやしばら"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "gQ7rqS_Zxaw",
+    "title": "君さえいれば",
+    "work": "ラブひな",
+    "artist": "林原めぐみ",
+    "year": 2000,
+    "type": "ED",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 116,
+    "aliases": [
+      "きみさえいれば"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 191263,
+    "channel": "oldgcorp",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "らぶひな"
+    ],
+    "artistAliases": [
+      "はやしばらめぐみ",
+      "林原",
+      "はやしばら"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "Z78jAw395mY",
+    "title": "キラリ☆宝物",
+    "work": "ラブひなAgain",
+    "artist": "堀江由衣",
+    "year": 2002,
+    "type": "OP",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 10,
+    "chorus": 65.3,
+    "aliases": [
+      "きらりたからもの",
+      "キラリ宝物"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 56819,
+    "channel": "tripweed",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "workAliases": [
+      "らぶひなあげいん",
+      "ラブひな"
+    ],
+    "artistAliases": [
+      "ほりえゆい",
+      "ほっちゃん",
+      "堀江",
+      "ほりえ"
+    ],
+    "chorusSource": "audio"
+  },
+  {
+    "id": "wQI72et6j3g",
+    "title": "WINTER WISH",
+    "work": "ラブひな",
+    "artist": "米倉千尋",
+    "year": 2000,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 1.2,
+    "chorus": 110,
+    "aliases": [
+      "うぃんたーうぃっしゅ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 2794,
+    "channel": "KING RECORDS",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "workAliases": [
+      "らぶひな"
+    ],
+    "artistAliases": [
+      "よねくらちひろ",
+      "米倉",
+      "よねくら"
+    ],
+    "chorusSource": "audio"
+  },
+  {
+    "id": "m3xVaic3L-Q",
+    "title": "さらば",
+    "work": "あたしンち",
+    "artist": "キンモクセイ",
+    "year": 2002,
+    "type": "OP",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 122,
+    "aliases": [
+      "さらば"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 625138,
+    "channel": "r studio",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "fameManual": true,
+    "workAliases": [
+      "あたしんち"
+    ],
+    "artistAliases": [
+      "きんもくせい"
+    ]
+  },
+  {
+    "id": "LY0HMjv1sKU",
+    "title": "来て来てあたしンち",
+    "work": "あたしンち",
+    "artist": "平山あや",
+    "year": 2002,
+    "type": "ED",
+    "confidence": "高",
+    "source": "CD音源（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 54.5,
+    "aliases": [
+      "きてきてあたしんち"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 5779123,
+    "channel": "kaitofreedom777",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "chorusSource": "audio",
+    "workAliases": [
+      "あたしんち"
+    ],
+    "artistAliases": [
+      "ひらやまあや",
+      "平山"
+    ]
+  },
+  {
+    "id": "dACfInMsnAE",
+    "title": "あたしンちの唄",
+    "work": "あたしンち",
+    "artist": "小泉今日子",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "高",
+    "source": "TVサイズ（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 30.7,
+    "aliases": [
+      "あたしんちのうた"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 121246,
+    "channel": "Leon",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "chorusSource": "audio",
+    "workAliases": [
+      "あたしんち"
+    ],
+    "artistAliases": [
+      "こいずみきょうこ",
+      "キョンキョン",
+      "小泉"
+    ]
+  },
+  {
+    "id": "Rbl3i6eJtu8",
+    "title": "Let's Go! あたしンち",
+    "work": "あたしンち",
+    "artist": "ザ・タチバナーズ",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 1.2,
+    "chorus": 71.2,
+    "aliases": [
+      "れっつごーあたしんち",
+      "Let's Go!"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 3015410,
+    "channel": "EH",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "fameManual": true,
+    "workAliases": [
+      "あたしんち"
+    ],
+    "artistAliases": [
+      "たちばなーず"
+    ]
+  },
+  {
+    "id": "MX7jZuj-ujU",
+    "title": "ほっとっとっとな まいにち",
+    "work": "あたしンち",
+    "artist": "キグルミチコ",
+    "year": 2007,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 48.9,
+    "aliases": [
+      "ほっとっとっとなまいにち"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 21437,
+    "channel": "Victor Entertainment",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "chorusSource": "audio",
+    "workAliases": [
+      "あたしんち"
+    ],
+    "artistAliases": [
+      "きぐるみちこ"
+    ]
+  },
+  {
+    "id": "66PPS6XoNZU",
+    "title": "プロリンサイズ♪",
+    "work": "あたしンち",
+    "artist": "森三中",
+    "year": 2009,
+    "type": "OP",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 45.2,
+    "aliases": [
+      "ぷろりんさいず"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 228056,
+    "channel": "おけぴぃー",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "workAliases": [
+      "あたしんち"
+    ],
+    "artistAliases": [
+      "もりさんちゅう"
+    ]
+  },
+  {
+    "id": "wmWCZ85R3sI",
+    "title": "Falco -ファルコ-",
+    "work": "うえきの法則",
+    "artist": "島谷ひとみ",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 6.2,
+    "chorus": 70,
+    "aliases": [
+      "ふぁるこ",
+      "Falco"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 8705998,
+    "channel": "avex",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "うえきのほうそく",
+      "うえき"
+    ],
+    "artistAliases": [
+      "しまたにひとみ",
+      "島谷",
+      "しまたに"
+    ]
+  },
+  {
+    "id": "PuHZ3tz3nkw",
+    "title": "No Regret",
+    "work": "うえきの法則",
+    "artist": "倖田來未",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1.7,
+    "chorus": 62,
+    "aliases": [
+      "のーりぐれっと"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1468456,
+    "channel": "倖田來未",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "うえきのほうそく",
+      "うえき"
+    ],
+    "artistAliases": [
+      "こうだくみ",
+      "倖田",
+      "こうだ"
+    ]
+  },
+  {
+    "id": "m97xMDG75-Q",
+    "title": "こころの惑星 〜Little planets〜",
+    "work": "うえきの法則",
+    "artist": "嘉陽愛子",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 9.7,
+    "chorus": 73.1,
+    "aliases": [
+      "こころのわくせい",
+      "こころの惑星",
+      "りとるぷらねっつ",
+      "Little planets"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 21794,
+    "channel": "Aiko Kayo - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "chorusSource": "audio",
+    "workAliases": [
+      "うえきのほうそく",
+      "うえき"
+    ],
+    "artistAliases": [
+      "かようあいこ"
+    ]
+  },
+  {
+    "id": "D8xiCO5LfhA",
+    "title": "Earthship 〜宇宙船地球号〜",
+    "work": "うえきの法則",
+    "artist": "SweetS",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 62,
+    "aliases": [
+      "あーすしっぷ",
+      "Earthship",
+      "うちゅうせんちきゅうごう",
+      "宇宙船地球号"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 155826,
+    "channel": "SweetS - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "うえきのほうそく",
+      "うえき"
+    ],
+    "artistAliases": [
+      "すいーつ"
+    ]
+  },
+  {
+    "id": "kyT17-U3bvU",
+    "title": "この街では誰もがみな自分以外の何かになりたがる",
+    "work": "うえきの法則",
+    "artist": "アイボリーブラザーズ",
+    "year": 2005,
+    "type": "ED",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 62.9,
+    "aliases": [
+      "このまちではだれもがみなじぶんいがいのなにかになりたがる",
+      "この街では"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 373669,
+    "channel": "fod0712sue",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "workAliases": [
+      "うえきのほうそく",
+      "うえき"
+    ],
+    "artistAliases": [
+      "The Ivory Brothers",
+      "あいぼりーぶらざーず"
+    ]
+  },
+  {
+    "id": "DAzcGVxEaks",
+    "title": "ボクたちにあるもの",
+    "work": "うえきの法則",
+    "artist": "朴璐美",
+    "year": 2006,
+    "type": "ED",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 15.5,
+    "chorus": 87.9,
+    "aliases": [
+      "ぼくたちにあるもの"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 175158,
+    "channel": "kiku9291992",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "chorusSource": "audio",
+    "workAliases": [
+      "うえきのほうそく",
+      "うえき"
+    ],
+    "artistAliases": [
+      "ぱくろみ"
+    ]
+  },
+  {
+    "id": "rY-nC4INJuE",
+    "title": "WILD CHALLENGER",
+    "work": "ボボボーボ・ボーボボ",
+    "artist": "JINDOU",
+    "year": 2003,
+    "type": "OP",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 2.5,
+    "chorus": 52.3,
+    "aliases": [
+      "わいるどちゃれんじゃー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 17463365,
+    "channel": "nishiyamaaoki mine",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "chorusSource": "audio",
+    "workAliases": [
+      "ぼぼぼーぼぼーぼぼ",
+      "ボーボボ"
+    ],
+    "artistAliases": [
+      "じんどう"
+    ]
+  },
+  {
+    "id": "n9QTaxnm-P0",
+    "title": "バカサバイバー",
+    "work": "ボボボーボ・ボーボボ",
+    "artist": "ウルフルズ",
+    "year": 2004,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1.5,
+    "chorus": 56,
+    "aliases": [
+      "ばかさばいばー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 11623223,
+    "channel": "ウルフルズ",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "ぼぼぼーぼぼーぼぼ",
+      "ボーボボ"
+    ],
+    "artistAliases": [
+      "うるふるず"
+    ]
+  },
+  {
+    "id": "7LYAZzcXaCc",
+    "title": "幸せ",
+    "work": "ボボボーボ・ボーボボ",
+    "artist": "マニ★ラバ",
+    "year": 2003,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 45,
+    "aliases": [
+      "しあわせ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 1084080,
+    "channel": "LD&K music",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "ぼぼぼーぼぼーぼぼ",
+      "ボーボボ"
+    ],
+    "artistAliases": [
+      "まにらば"
+    ]
+  },
+  {
+    "id": "3GXdswBhPMw",
+    "title": "キライチューン",
+    "work": "ボボボーボ・ボーボボ",
+    "artist": "FREENOTE",
+    "year": 2004,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 59,
+    "aliases": [
+      "きらいちゅーん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 13369,
+    "channel": "TOYSFACTORYJP",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "chorusSource": "audio",
+    "workAliases": [
+      "ぼぼぼーぼぼーぼぼ",
+      "ボーボボ"
+    ],
+    "artistAliases": [
+      "ふりーのーと"
+    ]
+  },
+  {
+    "id": "jLGMJGbEYZM",
+    "title": "H.P.S.J.",
+    "work": "ボボボーボ・ボーボボ",
+    "artist": "mihimaru GT",
+    "year": 2004,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 49.3,
+    "aliases": [
+      "えいちぴーえすじぇー",
+      "HPSJ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 200406,
+    "channel": "mihimaru GT - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "ぼぼぼーぼぼーぼぼ",
+      "ボーボボ"
+    ],
+    "artistAliases": [
+      "みひまるじーてぃー",
+      "ミヒマルGT",
+      "みひまる"
+    ]
+  },
+  {
+    "id": "3boiSv9falo",
+    "title": "Shiny tale",
+    "work": "男子高校生の日常",
+    "artist": "Mix Speaker's,Inc.",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 2.7,
+    "chorus": 71.6,
+    "aliases": [
+      "しゃいにーている"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 760356,
+    "channel": "Mix Speaker's,Inc. Official YouTube",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "chorusSource": "audio",
+    "workAliases": [
+      "だんしこうこうせいのにちじょう",
+      "男子高校生",
+      "だんこうせい"
+    ],
+    "artistAliases": [
+      "みっくすすぴーかーず",
+      "ミクスピ"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "4G_gdIzibuk",
+    "title": "おひさま",
+    "work": "男子高校生の日常",
+    "artist": "雨先案内人",
+    "year": 2012,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 9.2,
+    "chorus": 110,
+    "aliases": [
+      "おひさま"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 294557,
+    "channel": "雨先案内人",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "だんしこうこうせいのにちじょう",
+      "男子高校生",
+      "だんこうせい"
+    ],
+    "artistAliases": [
+      "あめさきあんないにん"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "zEinLKXD9_w",
+    "title": "カッコ悪い I love you!",
+    "work": "SKET DANCE",
+    "artist": "フレンチ・キス",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 2,
+    "chorus": 129,
+    "aliases": [
+      "かっこわるいあいらぶゆー",
+      "カッコ悪い"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 8871354,
+    "channel": "avex",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "すけっとだんす",
+      "スケダン"
+    ],
+    "artistAliases": [
+      "ふれんちきす"
+    ]
+  },
+  {
+    "id": "FeiF8oDt3jk",
+    "title": "道",
+    "work": "SKET DANCE",
+    "artist": "The Sketchbook",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 3.7,
+    "chorus": 70,
+    "aliases": [
+      "みち"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 5837766,
+    "channel": "avex",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "すけっとだんす",
+      "スケダン"
+    ],
+    "artistAliases": [
+      "ざすけっちぶっく",
+      "スケッチブック"
+    ]
+  },
+  {
+    "id": "vHfwxEOEVXU",
+    "title": "Graffiti",
+    "work": "SKET DANCE",
+    "artist": "GACKT",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 2.2,
+    "chorus": 87,
+    "aliases": [
+      "ぐらふぃてぃ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 129668,
+    "channel": "avex",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "workAliases": [
+      "すけっとだんす",
+      "スケダン"
+    ],
+    "artistAliases": [
+      "がくと"
+    ]
+  },
+  {
+    "id": "-nJPnjVZLfQ",
+    "title": "Message",
+    "work": "SKET DANCE",
+    "artist": "The Sketchbook",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 8.2,
+    "chorus": 67,
+    "aliases": [
+      "めっせーじ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 219372,
+    "channel": "avex",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "workAliases": [
+      "すけっとだんす",
+      "スケダン"
+    ],
+    "artistAliases": [
+      "ざすけっちぶっく",
+      "スケッチブック"
+    ]
+  },
+  {
+    "id": "1o9tZVECf-c",
+    "title": "Comic Sonic",
+    "work": "SKET DANCE",
+    "artist": "the pillows",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 8,
+    "chorus": 52,
+    "aliases": [
+      "こみっくそにっく"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 326357,
+    "channel": "avex",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "すけっとだんす",
+      "スケダン"
+    ],
+    "artistAliases": [
+      "ザピロウズ",
+      "ピロウズ",
+      "ざぴろーず"
+    ]
+  },
+  {
+    "id": "GJ8w6CvC8Ao",
+    "title": "クローバー",
+    "work": "SKET DANCE",
+    "artist": "The Sketchbook",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 66.4,
+    "aliases": [
+      "くろーばー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 2456951,
+    "channel": "avex",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "すけっとだんす",
+      "スケダン"
+    ],
+    "artistAliases": [
+      "ざすけっちぶっく",
+      "スケッチブック"
+    ]
+  },
+  {
+    "id": "rFQcc9DAFS4",
+    "title": "パーリー!ハレルヤ!",
+    "work": "SKET DANCE",
+    "artist": "SKET ROCK",
+    "year": 2012,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 2.2,
+    "chorus": 76,
+    "aliases": [
+      "ぱーりーはれるや"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 74030,
+    "channel": "SKET ROCK - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "workAliases": [
+      "すけっとだんす",
+      "スケダン"
+    ],
+    "artistAliases": [
+      "すけっとろっく"
+    ]
+  },
+  {
+    "id": "D5RF1b9S91w",
+    "title": "世界は屋上で見渡せた",
+    "work": "SKET DANCE",
+    "artist": "SKET×Sketch",
+    "year": 2012,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 80,
+    "aliases": [
+      "せかいはおくじょうでみわたせた"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 119254,
+    "channel": "SKET×Sketch - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "すけっとだんす",
+      "スケダン"
+    ],
+    "artistAliases": [
+      "すけっとすけっち"
+    ]
+  },
+  {
+    "id": "pJ-MywdW98o",
+    "title": "Deal with the devil",
+    "work": "賭ケグルイ",
+    "artist": "Tia",
+    "year": 2017,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 1.5,
+    "chorus": 59,
+    "aliases": [
+      "でぃーるうぃずざでびる"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 9153054,
+    "channel": "Tia - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "かけぐるい"
+    ],
+    "artistAliases": [
+      "ティア"
+    ]
+  },
+  {
+    "id": "xgH4Ez4ZhLw",
+    "title": "コノユビトマレ",
+    "work": "賭ケグルイ××",
+    "artist": "JUNNA",
+    "year": 2019,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 1,
+    "chorus": 57,
+    "aliases": [
+      "このゆびとまれ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 852818,
+    "channel": "Junna_Official",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "かけぐるいだぶるえっくす",
+      "賭ケグルイ",
+      "かけぐるい"
+    ],
+    "artistAliases": [
+      "ジュンナ"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "5uS-0w2J5b4",
+    "title": "LAYon-theLINE",
+    "work": "賭ケグルイ",
+    "artist": "D-selections",
+    "year": 2017,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 1.2,
+    "chorus": 90,
+    "aliases": [
+      "れいおんざらいん",
+      "LAY on the LINE"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 553958,
+    "channel": "avex",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "かけぐるい"
+    ],
+    "artistAliases": [
+      "でぃーせれくしょんず"
+    ]
+  },
+  {
+    "id": "yl1Lg5RrCx0",
+    "title": "AlegriA",
+    "work": "賭ケグルイ××",
+    "artist": "D-selections",
+    "year": 2019,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 1,
+    "chorus": 71,
+    "aliases": [
+      "あれぐりあ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 456467,
+    "channel": "D-selections - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "かけぐるいだぶるえっくす",
+      "賭ケグルイ",
+      "かけぐるい"
+    ],
+    "artistAliases": [
+      "でぃーせれくしょんず"
+    ]
+  },
+  {
+    "id": "9hX0QfSGJwQ",
+    "title": "恋のロシアンルーレット",
+    "work": "賭ケグルイ",
+    "artist": "蛇喰夢子（早見沙織）&夢見弖ユメミ（芹澤優）",
+    "year": 2017,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 42,
+    "aliases": [
+      "こいのろしあんるーれっと"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 116599,
+    "channel": "YUMEMITE YUMEMI（CV.Yu Serizawa） - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "workAliases": [
+      "かけぐるい"
+    ],
+    "artistAliases": [
+      "じゃばみゆめこ",
+      "ゆめみてゆめみ",
+      "早見沙織",
+      "芹澤優"
+    ]
+  },
+  {
+    "id": "uh8mL30Equk",
+    "title": "君氏危うくも近うよれ",
+    "work": "おそ松さん",
+    "artist": "A応P",
+    "year": 2017,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 2.7,
+    "chorus": 76,
+    "aliases": [
+      "きみしあやうくもちこうよれ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2567171,
+    "channel": "A応P",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "おそまつさん"
+    ],
+    "artistAliases": [
+      "エーオーピー"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "_tR0yS6BL-g",
+    "title": "まぼろしウインク",
+    "work": "おそ松さん",
+    "artist": "A応P",
+    "year": 2018,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.5,
+    "chorus": 61,
+    "aliases": [
+      "まぼろしういんく"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1017900,
+    "channel": "A応P",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "おそまつさん"
+    ],
+    "artistAliases": [
+      "エーオーピー"
+    ]
+  },
+  {
+    "id": "Pex6-J_wxVI",
+    "title": "nice to NEET you!",
+    "work": "おそ松さん",
+    "artist": "A応P",
+    "year": 2020,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 6.2,
+    "chorus": 66,
+    "aliases": [
+      "ないすとぅにーとゅー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1022672,
+    "channel": "A応P",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "おそまつさん"
+    ],
+    "artistAliases": [
+      "エーオーピー"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "xyUNHFok2C0",
+    "title": "おそ松さんのボンバシェー！",
+    "work": "おそ松さん",
+    "artist": "DA PUMP",
+    "year": 2025,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 57,
+    "aliases": [
+      "おそまつさんのぼんばしぇー",
+      "ボンバシェー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2055271,
+    "channel": "DA PUMP",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "おそまつさん"
+    ],
+    "artistAliases": [
+      "ダパンプ"
+    ]
+  },
+  {
+    "id": "_Nb_tX0sADY",
+    "title": "SIX SAME FACES 〜今夜は最高!!!!!!〜",
+    "work": "おそ松さん",
+    "artist": "イヤミ feat.おそ松×カラ松×チョロ松×一松×十四松×トド松",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 39,
+    "aliases": [
+      "しっくすせいむふぇいせす",
+      "SIX SAME FACES",
+      "今夜は最高",
+      "こんやはさいこう"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 196563,
+    "channel": "VOICE by IYAMI feat. Osomatsu × Karamatsu × Choromatsu × Ichimatsu × ... - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "おそまつさん"
+    ],
+    "artistAliases": [
+      "いやみ"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "NQjoC3Z06JY",
+    "title": "SIX SHAME FACES 〜今夜も最高!!!!!!〜",
+    "work": "おそ松さん",
+    "artist": "トト子 feat.おそ松×カラ松×チョロ松×一松×十四松×トド松",
+    "year": 2016,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 55,
+    "aliases": [
+      "しっくすしぇいむふぇいせす",
+      "SIX SHAME FACES",
+      "今夜も最高",
+      "こんやもさいこう"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 260391,
+    "channel": "VOICE by Totoko feat. Osomatsu × Karamatsu × Choromatsu × Ichimatsu ×... - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "おそまつさん"
+    ],
+    "artistAliases": [
+      "ととこ",
+      "トト子"
+    ]
+  },
+  {
+    "id": "TKIdS2GY-rw",
+    "title": "バディ",
+    "work": "おそ松さん",
+    "artist": "ひとみ from あたらよ＆松野家6兄弟",
+    "year": 2025,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 128,
+    "aliases": [
+      "ばでぃ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 112066,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "workAliases": [
+      "おそまつさん"
+    ],
+    "artistAliases": [
+      "あたらよ",
+      "ひとみ"
+    ]
+  },
+  {
+    "id": "rh517TMtVbo",
+    "title": "Seven Deadly Sins",
+    "work": "七つの大罪",
+    "artist": "MAN WITH A MISSION",
+    "year": 2015,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 4.2,
+    "chorus": 74,
+    "aliases": [
+      "せぶんでっどりーしんず"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 20723208,
+    "channel": "Sony Music Japan",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "ななつのたいざい",
+      "Seven Deadly Sins",
+      "7つの大罪"
+    ],
+    "artistAliases": [
+      "マンウィズアミッション",
+      "マンウィズ"
+    ]
+  },
+  {
+    "id": "YeTSVpUx99Y",
+    "title": "Season",
+    "work": "七つの大罪",
+    "artist": "瀧川ありさ",
+    "year": 2015,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 14,
+    "chorus": 81,
+    "aliases": [
+      "しーずん"
+    ],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1401484,
+    "channel": "ALISA TAKIGAWA Official YouTube Channel",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "ななつのたいざい",
+      "Seven Deadly Sins",
+      "7つの大罪"
+    ],
+    "artistAliases": [
+      "たきがわありさ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "fgGu51rhlhY",
+    "title": "雨が降るから虹が出る",
+    "work": "七つの大罪 戒めの復活",
+    "artist": "スカイピース",
+    "year": 2018,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1.2,
+    "chorus": 45,
+    "aliases": [
+      "あめがふるからにじがでる"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 7949961,
+    "channel": "スカイピース",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "七つの大罪",
+      "ななつのたいざい"
+    ],
+    "artistAliases": [
+      "すかいぴーす"
+    ]
+  },
+  {
+    "id": "vG4aY5ocnlg",
+    "title": "ROB THE FRONTIER",
+    "work": "七つの大罪 神々の逆鱗",
+    "artist": "UVERworld",
+    "year": 2019,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 44,
+    "aliases": [
+      "ろぶざふろんてぃあ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 6599519,
+    "channel": "UVERworld Official YouTube Channel",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "ななつのたいざい",
+      "七つの大罪"
+    ],
+    "artistAliases": [
+      "ウーバーワールド",
+      "ウーバー"
+    ]
+  },
+  {
+    "id": "NL4M3rqwmrk",
+    "title": "光あれ",
+    "work": "七つの大罪 憤怒の審判",
+    "artist": "岡野昭仁",
+    "year": 2021,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 74,
+    "aliases": [
+      "ひかりあれ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1697477,
+    "channel": "PORNOGRAFFITTI Official YouTube Channel",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "ななつのたいざい",
+      "七つの大罪"
+    ],
+    "artistAliases": [
+      "おかのあきひと"
+    ]
+  },
+  {
+    "id": "W3r_wFIGjHU",
+    "title": "バリバリ最強No.1",
+    "work": "地獄先生ぬ〜べ〜",
+    "artist": "FEEL SO BAD",
+    "year": 1996,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 3.2,
+    "chorus": 101,
+    "aliases": [
+      "ばりばりさいきょうなんばーわん",
+      "バリバリ最強ナンバーワン"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 9968979,
+    "channel": "FSBTV",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "じごくせんせいぬーべー",
+      "ぬーべー"
+    ],
+    "artistAliases": [
+      "ふぃーるそーばっど"
+    ]
+  },
+  {
+    "id": "C56Xd7pNpGM",
+    "title": "ミエナイチカラ 〜INVISIBLE ONE〜",
+    "work": "地獄先生ぬ〜べ〜",
+    "artist": "B'z",
+    "year": 1996,
+    "type": "映画主題歌",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1.5,
+    "chorus": 48,
+    "aliases": [
+      "みえないちから"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3583403,
+    "channel": "Bz",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "じごくせんせいぬーべー",
+      "ぬーべー"
+    ],
+    "artistAliases": [
+      "ビーズ"
+    ]
+  },
+  {
+    "id": "bezvNBpQk0E",
+    "title": "P0WER-悪霊退散-",
+    "work": "地獄先生ぬ〜べ〜",
+    "artist": "-真天地開闢集団-ジグザグ",
+    "year": 2025,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 10.7,
+    "chorus": 55,
+    "aliases": [
+      "ぱわーあくりょうたいさん",
+      "POWER",
+      "悪霊退散",
+      "あくりょうたいさん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1278032,
+    "channel": "-SKS- ZIGZAG",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "じごくせんせいぬーべー",
+      "ぬーべー"
+    ],
+    "artistAliases": [
+      "じぐざぐ"
+    ]
+  },
+  {
+    "id": "yhnJAI2qPRY",
+    "title": "ひまわり",
+    "work": "地獄先生ぬ〜べ〜",
+    "artist": "Chilli Beans.",
+    "year": 2025,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 129,
+    "aliases": [
+      "ひまわり"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1198986,
+    "channel": "Chilli Beans.",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "じごくせんせいぬーべー",
+      "ぬーべー"
+    ],
+    "artistAliases": [
+      "チリビーンズ"
+    ]
+  },
+  {
+    "id": "H1DelNpdvTU",
+    "title": "翔べ！ガンダム",
+    "work": "機動戦士ガンダム",
+    "artist": "池田鴻",
+    "year": 1979,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 42,
+    "aliases": [
+      "とべがんだむ",
+      "翔べガンダム",
+      "飛べガンダム"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1377707,
+    "channel": "池田鴻 - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "top",
+    "workAliases": [
+      "きどうせんしがんだむ",
+      "ガンダム"
+    ],
+    "artistAliases": [
+      "いけだこう",
+      "いけだひろし",
+      "池田"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "PieVfcJiDsk",
+    "title": "ツインテール・ドリーマー!",
+    "work": "俺、ツインテールになります。",
+    "artist": "ツインテイルズ",
+    "year": 2014,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 53.6,
+    "aliases": [
+      "ついんてーるどりーまー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 297422,
+    "channel": "テイルイエロー(CV:赤﨑千夏) - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "おれついんてーるになります",
+      "俺ツイ",
+      "おれつい"
+    ],
+    "artistAliases": [
+      "ついんているず",
+      "テイルレッド"
+    ]
+  },
+  {
+    "id": "hmkaHf_B_XM",
+    "title": "贅沢な匙",
+    "work": "とんでもスキルで異世界放浪メシ",
+    "artist": "Van de Shop",
+    "year": 2023,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 2,
+    "chorus": 56,
+    "aliases": [
+      "ぜいたくなさじ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2951325,
+    "channel": "栗山夕璃",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "とんでもすきるでいせかいほうろうめし",
+      "とんでもスキル",
+      "とんすき",
+      "異世界放浪メシ"
+    ],
+    "artistAliases": [
+      "ばんでしょっぷ"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "7wt080JOlrQ",
+    "title": "Happy-go-Journey",
+    "work": "とんでもスキルで異世界放浪メシ",
+    "artist": "内田雄馬",
+    "year": 2023,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 3.5,
+    "chorus": 57.3,
+    "aliases": [
+      "はっぴーごーじゃーにー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 687392,
+    "channel": "内田雄馬 OFFICIAL",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "とんでもすきるでいせかいほうろうめし",
+      "とんでもスキル",
+      "とんすき",
+      "異世界放浪メシ"
+    ],
+    "artistAliases": [
+      "うちだゆうま"
+    ]
+  },
+  {
+    "id": "rxAM0ncKB9Q",
+    "title": "yummy goodday",
+    "work": "とんでもスキルで異世界放浪メシ2",
+    "artist": "CENT",
+    "year": 2025,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 127,
+    "aliases": [
+      "やみーぐっでい"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1049899,
+    "channel": "セントチヒロ・チッチ",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "workAliases": [
+      "とんでもすきるでいせかいほうろうめし",
+      "とんでもスキル",
+      "とんすき",
+      "異世界放浪メシ",
+      "とんでもスキルで異世界放浪メシ"
+    ],
+    "artistAliases": [
+      "せんと",
+      "セントチヒロ・チッチ"
+    ]
+  },
+  {
+    "id": "oY2_JtM8BKU",
+    "title": "SALT AND PEPPER",
+    "work": "とんでもスキルで異世界放浪メシ2",
+    "artist": "chelmico",
+    "year": 2025,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 2,
+    "chorus": 46.7,
+    "aliases": [
+      "そるとあんどぺっぱー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 171542,
+    "channel": "chelmico",
+    "viewsAt": "2026-11-02",
+    "fame": "minor",
+    "workAliases": [
+      "とんでもすきるでいせかいほうろうめし",
+      "とんでもスキル",
+      "とんすき",
+      "異世界放浪メシ",
+      "とんでもスキルで異世界放浪メシ"
+    ],
+    "artistAliases": [
+      "チェルミコ"
+    ]
+  },
+  {
+    "id": "1RpMMQFsD90",
+    "title": "愛の光と影",
+    "work": "ベルサイユのばら",
+    "artist": "鈴木宏子",
+    "year": 1979,
+    "type": "ED",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 2.5,
+    "chorus": 35.9,
+    "aliases": [
+      "あいのひかりとかげ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 129440,
+    "channel": "sailorvictory2008",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "chorusSource": "audio",
+    "workAliases": [
+      "べるさいゆのばら",
+      "ベルばら"
+    ],
+    "artistAliases": [
+      "すずきひろこ"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "qOnaePRZgnc",
+    "title": "よあけのみち",
+    "work": "フランダースの犬",
+    "artist": "大杉久美子",
+    "year": 1975,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.5,
+    "chorus": 37.4,
+    "aliases": [
+      "夜明けの道"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 288492,
+    "channel": "Kumiko Osugi - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "ふらんだーすのいぬ"
+    ],
+    "artistAliases": [
+      "おおすぎくみこ"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "8etGcPyNmuE",
+    "title": "どこまでもあるこうね",
+    "work": "フランダースの犬",
+    "artist": "大杉久美子",
+    "year": 1975,
+    "type": "ED",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 1.2,
+    "chorus": 32.2,
+    "aliases": [
+      "どこまでも歩こうね"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 588767,
+    "channel": "jyoubannjann",
+    "viewsAt": "2026-11-02",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "workAliases": [
+      "ふらんだーすのいぬ"
+    ],
+    "artistAliases": [
+      "おおすぎくみこ"
+    ]
+  },
+  {
+    "id": "t5wQc7nFMIs",
+    "title": "走れマキバオー",
+    "work": "みどりのマキバオー",
+    "artist": "F・MAP",
+    "year": 1996,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 32,
+    "aliases": [
+      "はしれまきばおー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2318132,
+    "channel": "F. Map - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "みどりのまきばおー",
+      "マキバオー",
+      "走れマキバオー"
+    ],
+    "artistAliases": [
+      "えふまっぷ",
+      "F.MAP"
+    ]
+  },
+  {
+    "id": "gQ5Eh6ul7u0",
+    "title": "とってもウマナミ",
+    "work": "みどりのマキバオー",
+    "artist": "MEN'S 5",
+    "year": 1996,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 90,
+    "aliases": [
+      "とってもうまなみ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 483642,
+    "channel": "MEN'S5 - Topic",
+    "viewsAt": "2026-11-02",
+    "fame": "famous",
+    "workAliases": [
+      "みどりのまきばおー",
+      "マキバオー",
+      "走れマキバオー"
+    ],
+    "artistAliases": [
+      "めんずふぁいぶ",
+      "Men's5"
+    ],
+    "fameManual": true
   }
 ]

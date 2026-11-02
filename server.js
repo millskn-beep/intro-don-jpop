@@ -935,7 +935,7 @@ const OPTIONS = {
   lifelines: [true, false],
   quizType: ['intro', 'sabimae', 'mix', 'random', 'outro', 'utaidashi', 'notchorus', 'oneline'], // utaidashi：歌い出しから／notchorus：サビ以外の歌詞の行から／oneline：歌詞の一行だけ（data/lyric-times.json の曲） // イントロ／サビ前／1問ごとにランダム／どこから（曲の途中）／アウトロ（曲の終わり）
   // 遊び方：ふつう／早押し（押した人だけ答える）／サバイバル（ライフがなくなったら脱落）／出題者（順番に1人が曲を選ぶ）／協力（全員の正解数で目標）／ビンゴ
-  mvSound: ['on', 'off'], mvScope: ['all', 'official'], mvSuggest: ['on', 'off'],
+  buzzMiss: ['on', 'off'], mvSound: ['on', 'off'], mvScope: ['all', 'official'], mvSuggest: ['on', 'off'],
   play: ['normal', 'buzzer', 'mvflash', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'monopoly', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'genreex', 'dentatsu', 'lyrics2', 'tanshuku', 'lyrics'], // lyrics：歌詞クイズ（歌詞の合言葉で作った非公開の部屋だけ） // dentatsu：アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる） // genreex：アニソン・ジャンル制覇EX（集める種類を6つ以上・年代や曲の種類・知名度も選べる） // azul：アニソン・アズール（曲カードを取り合い、年代別の棚に並べる） // kaerema：アニソン帰れま10（お題の曲の再生回数トップ10を全部当てる） // deck：アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買う） // genre：アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ） // sugoroku：アニソンすごろく（正解の速さでコマを進める） // wits：アニソン年当てベット（発売年を予想して、いちばん近い予想に賭ける） // daifugo：アニソン大富豪（発売年が新しい曲ほど強い。年は見えない） // codenames：アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる） // baba：アニソン・ババ抜き（同じ作品の曲2枚がペア） // dixit：アニソン・ディクシット（語り手のヒントから、手札の曲を出して語り手の曲を当てる） // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
   target: ['song', 'work', 'year', 'artist'], // 答えるもの：曲名／作品／年／歌手
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
@@ -979,7 +979,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   mvSound: 'on', mvScope: 'all', mvSuggest: 'on', tsKind: 'both', tsAns: 'choice', lyFocus: 'chorus', lessPlayed: false, play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, wwHint: 'title', wwRaise: 'on', wwStyle: 'ogiri', mpBy: 'genre', mpLand: 'full', lyKind: 'mix', noCoupling: false };
+                   buzzMiss: 'on', mvSound: 'on', mvScope: 'all', mvSuggest: 'on', tsKind: 'both', tsAns: 'choice', lyFocus: 'chorus', lessPlayed: false, play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, wwHint: 'title', wwRaise: 'on', wwStyle: 'ogiri', mpBy: 'genre', mpLand: 'full', lyKind: 'mix', noCoupling: false };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -3812,7 +3812,7 @@ function go(room) {
   const q = room.game.q;
   if (q.phase !== 'loading') return;
   clearTimers(room);
-  if (room.game.qi === 0 && !q.countdownDone) {
+  if (room.game.qi === 0 && !q.countdownDone && !q.scenes) { // MVフラッシュは場面からすぐ始める
     q.countdownDone = true;
     q.phase = 'countdown'; // カウントダウン中は「準備できた」の合図などで先に進まないように
     io.to(room.code).emit('countdown', { sec: COUNTDOWN });
@@ -3928,6 +3928,11 @@ function onAnswer(room, player, payload) {
   }
 
   if (Date.now() < q.t0) return; // 曲が流れる前の回答は受け付けない
+  // お手つきなし：間違えても減点せず、回答済みにもしない（また押せる）
+  if (buzzer && holder && !correct && S.buzzMiss === 'off' && !payload?.drop) {
+    if (!pass) { q.buzzRetry = player.id; endBuzz(room); return broadcastRoom(room); }
+    miss = false;
+  }
   // 早押しは押した時点の速さで点数を決める
   const elapsed = buzzer && holder ? q.buzz.elapsed : (Date.now() - q.t0) / 1000;
   const hint = q.phase === 'chorus';
@@ -4139,10 +4144,10 @@ function settleBuzz(room, q) {
     const p = room.players.get(e.token);
     if (!p?.connected || q.answers.has(e.token) || (q.fill && !fillCanBuzz(room, q, p))) continue;
     if (!first) { first = { p, at: e.at }; continue; }
-    if (q.fill) { (q.buzzQueue = q.buzzQueue || []).push({ token: e.token, at: e.at }); q.fillPass.delete(e.token); } // 早押しクイズは、後の人は間に合わなかった
+    if (q.fill || q.scenes) { (q.buzzQueue = q.buzzQueue || []).push({ token: e.token, at: e.at }); q.fillPass.delete(e.token); } // 早押しクイズは、後の人は間に合わなかった
   }
   // 同時に押した人の順番待ちを先に知らせてから、1人目の番を始める（先に「回答中」が届くと、並んだ人の画面で一瞬「押せる」に戻ってしまう）
-  if (q.fill) { q.buzzQueue?.sort((a, b) => a.at - b.at); emitQueue(room, q); }
+  if (q.fill || q.scenes) { q.buzzQueue?.sort((a, b) => a.at - b.at); emitQueue(room, q); }
   if (first) startBuzz(room, first.p, first.at);
   else if (q.fill) broadcastRoom(room);
 }
@@ -4154,7 +4159,7 @@ function onBuzz(room, player, claimed = null) {
   if (q.fill && !fillCanBuzz(room, q, player)) return;
   if (q.buzz) {
     // 3つ埋めバトルは早押しの順番待ち：答えている人のあとに、押した順に答える（正解でもお手つきでも次の人へ）
-    if (!q.fill || q.buzz.token === player.token) return;
+    if ((!q.fill && !q.scenes) || q.buzz.token === player.token) return;
     q.buzzQueue = q.buzzQueue || [];
     if (q.buzzQueue.some(e => e.token === player.token)) return;
     q.buzzQueue.push({ token: player.token, at: buzzAt(q, player, claimed) });
@@ -4221,16 +4226,18 @@ function endBuzz(room) {
   const g = room.game, q = g?.q, b = q?.buzz;
   if (!b) return;
   clearTimeout(b.timer); q.buzz = null;
-  if (q.revealPending) { io.to(room.code).emit('buzzEnd', { ms: 0 }); return setImmediate(() => { if (room.game?.q === q && q.phase !== 'reveal') reveal(room); }); } // 答えている間に時間切れになっていた
+  if (q.revealPending) { io.to(room.code).emit('buzzEnd', { ms: 0, retry: q.buzzRetry || null }); return setImmediate(() => { if (room.game?.q === q && q.phase !== 'reveal') reveal(room); }); } // 答えている間に時間切れになっていた
   // 3つ埋めバトル：押した順の次の人（抜けた人・その間にお手つきで押せなくなった人は飛ばす）
   let next = null;
-  while (q.fill && q.buzzQueue?.length) {
+  while ((q.fill || q.scenes) && q.buzzQueue?.length) {
     const e = q.buzzQueue.shift(), p = room.players.get(e.token);
+    if (q.scenes) { if (p?.connected && !q.answers.has(e.token)) { next = { p, at: e.at }; break; } continue; } // MVフラッシュ：抜けた人・もう答えた人は飛ばす
     if (!p?.connected || !fillCanBuzz(room, q, p)) { if (p?.connected) io.to(p.socketId).emit('notice', 'お手つきの間だったので、順番を飛ばしました'); continue; }
     next = { p, at: e.at }; break;
   }
   // 次の人がいれば、止めたまま次の番へ（曲を一瞬だけ流さない）。いなければ続きから再開
-  io.to(room.code).emit('buzzEnd', { ms: 0, hold: !!(next && q.frozen) });
+  io.to(room.code).emit('buzzEnd', { ms: 0, hold: !!(next && q.frozen), retry: q.buzzRetry || null });
+  q.buzzRetry = null;
   if (next) { emitQueue(room, q); return startBuzz(room, next.p, next.at); }
   unfreezeQuestion(room, q);
   if (q.fill) emitQueue(room, q); // 飛ばした人も、また押せるように（列が空になったことを知らせる）

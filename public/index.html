@@ -277,6 +277,7 @@
         <label id="gzPickLabel" hidden>ジャンル制覇：次のジャンル<select data-key="gzPick"><option value="choose">選択制（最速の正解者が選ぶ）</option><option value="random">ランダム制（毎問ランダム）</option></select></label>
         <label id="wolfTitleLabel" hidden>人狼：候補に曲名<select data-key="wolfTitle"><option value="show">出す</option><option value="hide">出さない</option></select></label>
         <label id="karutaFaceLabel" hidden>札に書くもの<select data-key="karutaFace"><option value="title">曲名</option><option value="work">作品名</option><option value="artist">歌手名</option></select></label>
+        <label id="buzzMissLabel" hidden>お手つき<select data-key="buzzMiss"><option value="on">あり（間違えると減点、この問題はもう押せない）</option><option value="off">なし（減点なし、また押せる）</option></select></label>
         <label id="mvSoundLabel" hidden>MVの音<select data-key="mvSound"><option value="on">あり</option><option value="off">なし（映像だけ）</option></select></label>
         <label id="mvScopeLabel" hidden>出す動画<select data-key="mvScope"><option value="all">音源だけの動画以外すべて</option><option value="official">公式と分かる動画だけ</option></select></label>
         <label id="mvSuggestLabel" hidden>入力するときの候補<select data-key="mvSuggest"><option value="on">出す（押すと確定）</option><option value="off">出さない</option></select></label>
@@ -377,6 +378,7 @@
         <span class="rush-next" id="rushNext"></span>
         <span class="rush-me" id="rushMe" hidden></span>
       </div>
+      <div class="mv-miss" id="mvMiss" hidden></div>
       <div class="buzz-row" id="buzzRow" hidden><button class="buzz-btn" id="buzzBtn" type="button">押す！<small>スペースキーでも</small></button><span class="buzz-info" id="buzzInfo"></span></div>
       <!-- 3つ埋めバトル：枠（押した人は空いている枠を選んで、書くか10択で答える） -->
       <div class="fill-box" id="fillBox" hidden>

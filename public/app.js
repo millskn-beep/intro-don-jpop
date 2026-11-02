@@ -633,12 +633,14 @@ $('menuLayout').onclick = () => { $('menuPop').hidden = true; document.querySele
 $('pauseBtn').onclick = () => { $('menuPop').hidden = true; socket.emit('pause'); };
 $('resumeBtn').onclick = () => socket.emit('resume');
 $('abortBtn').onclick = () => { $('menuPop').hidden = true; if (confirm('ゲームをやめて部屋に戻りますか？（得点は残りません）')) socket.emit('abort'); };
+let setAfterPause = false; // ⚙ 設定から一時停止したら、設定タブを開く
 let phaseBefore = null; // 一時停止の前の表示（再開したら戻す）
 socket.on('paused', () => { pausedNow = true; pausedAt = performance.now(); player.pause(); phaseBefore = [$('phase').className.replace('phase ', ''), $('phase').textContent]; setPhase('ready', '一時停止中'); });
 socket.on('resumed', ({ ms, qTotal }) => {
   pausedNow = false;
   const d = performance.now() - pausedAt; // 止まっていたぶん、残り時間の計算を後ろへずらす
   timerStart += d; nextUntil += d;
+  [wolfData, azData, kmData, wwData, dfData, cnData, bbData, tsData, dtData, dxData].forEach(x => { if (x?.until) x.until += ms; }); // 窓の「あと○秒」も止まっていたぶんずらす
   player.resume();
   if (document.body.classList.contains('revealing')) setPhase('reveal', '答え合わせ');
   else if (phaseBefore && phaseBefore[0] !== 'ready') setPhase(...phaseBefore);
@@ -817,9 +819,11 @@ function renderRoom(r) {
   $('gameCtrl').hidden = !(playing && !r.paused); // メニュー：レイアウトはだれでも。設定を変える・ルームに戻るはホストだけ
   $('pauseBtn').hidden = $('abortBtn').hidden = !isHost;
   if ($('gameCtrl').hidden) $('menuPop').hidden = true;
+  document.body.classList.toggle('room-paused', playing && r.paused);
   if (playing && r.paused && !shownBeforePause) {
     shownBeforePause = ['quiz', 'result'].find(x => !$(x).hidden) || 'quiz';
     show('lobby');
+    if (setAfterPause) { setAfterPause = false; setLobbyTab('settings'); lobbyTabChosen = true; }
   } else if (!(playing && r.paused) && shownBeforePause) {
     if (playing) show(shownBeforePause);
     shownBeforePause = null;
@@ -1183,7 +1187,7 @@ $('fixFab').onclick = () => openFixPop(0);
 function openRoomSettings() {
   if (!room) return;
   if (room.state === 'playing' && !room.paused) {
-    if (room.hostId === me) socket.emit('pause');
+    if (room.hostId === me) { setAfterPause = true; socket.emit('pause'); }
     else toast('ホストが一時停止すると、設定を変えられます');
     return;
   }

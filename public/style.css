@@ -1392,6 +1392,8 @@ body.rush-machine .stage-tools { overflow: visible; }
 .top .me-link[hidden] { display: none; } button.me-link { cursor: pointer; font-family: inherit; }
 .set-fab { position: fixed; left: 10px; bottom: 46px; z-index: 310; width: auto; margin: 0; padding: 6px 12px; font-size: 12.5px; font-weight: 700; border-radius: 99px; border: 1px solid var(--line); background: var(--glass-strong); color: inherit; cursor: pointer; } .set-fab[hidden] { display: none; } .set-fab:hover { border-color: var(--accent); }
 .set-fab:has(+ .fix-fab[hidden]) { bottom: 10px; }
+.set-fab { z-index: 810; } #setTop { position: relative; z-index: 810; } /* 表に出る窓・モノポリーの盤面の上でも押せる */
+body.room-paused .pk-modal:not(#fixPop) { display: none; } /* 一時停止中は窓を隠して設定画面を見せる（再開で戻る） */
 .fix-fab { z-index: 310; } #fixPop { z-index: 320; }
 .lp-check { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer; } .lp-check input { width: auto; margin: 0; }
 /* 歌詞クイズ（非公開の部屋）：歌詞の表示 */

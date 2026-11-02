@@ -4592,6 +4592,7 @@ function resumeGame(room) {
   if (!g?.paused) return;
   const d = Date.now() - g.paused.at, q = g.q;
   if (q) { if (q.t0) q.t0 += d; if (q.nextAt) q.nextAt += d; if (q.revealAt) q.revealAt += d; }
+  for (const x of [...(q ? Object.values(q) : []), g.dkShop, g.gz?.pick, g.panelPick]) if (x?.until) x.until += d; // 窓の「あと○秒」も止まっていたぶんずらす
   const old = g.timers; g.timers = [];
   for (const t of old) {
     if (t.done) continue;

@@ -1500,3 +1500,10 @@ body.room-paused .pk-modal:not(#fixPop) { display: none; } /* 一時停止中は
 .hold-bar { position: fixed; left: 50%; top: 6px; transform: translateX(-50%); z-index: 840; display: flex; align-items: center; gap: 10px; max-width: 94vw; padding: 5px 12px; border-radius: 99px; background: rgba(14, 14, 34, .94); border: 1px solid var(--line-strong); font-size: 12.5px; color: #fff; }
 .hold-bar[hidden] { display: none; }
 .hold-bar .btn-main { width: auto; margin: 0; padding: 4px 14px; font-size: 12.5px; }
+/* パッチノート */
+.pn-open { display: block; width: auto; margin: -14px auto 16px; padding: 5px 14px; font-size: 12.5px; }
+.pn-field { overflow: hidden; justify-items: stretch;grid-template-rows: auto minmax(0, 1fr); }
+.pn-body { overflow-y: auto; text-align: left; font-size: 13.5px; line-height: 1.6; }
+.pn-body h4 { margin: 12px 0 4px; font-size: 14px; color: var(--accent); } .pn-body h4:first-child { margin-top: 0; }
+.pn-body ul { margin: 0; padding-left: 18px; }
+.pn-body h3 { margin: 18px 0 2px; padding-bottom: 3px; font-size: 15px; border-bottom: 1px solid var(--line); } .pn-body h3:first-child { margin-top: 0; }

@@ -126,6 +126,9 @@ function joinRoom(info, password, errEl, onNeedPassword) {
   });
 }
 $('createBtn').onclick = createRoom;
+$('patchOpen').onclick = () => { $('patchPop').hidden = false; };
+$('patchClose').onclick = () => { $('patchPop').hidden = true; };
+$('patchPop').onclick = e => { if (e.target === $('patchPop')) $('patchPop').hidden = true; };
 try { $('lyricsPassInput').value = store.get('aq-lyrics-pass') || ''; } catch (e) { /* 覚えていなければ空 */ }
 $('joinBtn').onclick = () => {
   const code = $('codeInput').value.trim().toUpperCase();

@@ -4522,11 +4522,18 @@ function modeTitles(room, list, pick, top, ranking, showdown) {
 
 // 答え合わせから次の問題へ進む時刻を決める（「サビを聞く」で延ばせる）
 function releaseFixHold(room, q, token) { // 修正の窓を閉じた・その人が抜けた：だれも直していなければ、自動で次へ進むのを再開
-  if (!q.fixHolds?.delete(token) || q.fixHolds.size || !(room.settings.autoNext > 0)) return;
+  if (!q.fixHolds?.delete(token) || q.fixHolds.size) return;
+  resumeAfterFix(room, q);
+}
+function resumeAfterFix(room, q) {
+  if (q.fixHoldTimer) { clearTimeout(q.fixHoldTimer.h); q.fixHoldTimer.done = true; q.fixHoldTimer = null; }
+  io.to(room.code).emit('nextResume');
+  if (!(room.settings.autoNext > 0)) return;
   const at = Date.now() + Math.max(5, room.settings.autoNext) * 1000;
   scheduleNext(room, q, at);
   io.to(room.code).emit('nextAt', { seconds: (at - Date.now()) / 1000, by: '' });
 }
+const FIX_HOLD_MS = +process.env.FIX_HOLD_MS || 60000; // 修正の窓を開いたまま放置されても、全員を待たせ続けない（窓はそのまま使える）
 function scheduleNext(room, q, at) {
   if (q.nextTimer) clearTimeout(q.nextTimer.h);
   q.nextAt = at;
@@ -4908,6 +4915,7 @@ io.on('connection', socket => {
     if (on) {
       q.fixHolds.add(player.token);
       if (q.nextTimer) { clearTimeout(q.nextTimer.h); q.nextTimer.done = true; q.nextTimer = null; }
+      if (!q.fixHoldTimer) q.fixHoldTimer = addTimer(room, () => { q.fixHoldTimer = null; if (room.game?.q === q && q.phase === 'reveal' && q.fixHolds.size) { q.fixHolds.clear(); resumeAfterFix(room, q); } }, FIX_HOLD_MS);
       io.to(room.code).emit('nextHold', { by: player.name });
     } else releaseFixHold(room, q, player.token);
   });

@@ -1762,8 +1762,8 @@ function renderKm() {
 }
 // ── 年代ベット：発売年を予想 → いちばん近い予想に賭ける ／ アニソンベット：ウソの作品を選び、本物に賭ける ──
 let wwData = null, wwRolled = '', wwTick = null, wwMarks = [], wwSent = false, wwKey = '', wwPick = null, wwLikes = new Set();
-function hideWw() { clearInterval(wwTick); $('wwPop').hidden = true; $('wwPop').innerHTML = ''; wwData = null; }
-socket.on('wwPhase', d => { if (!d) return hideWw(); const k = d.round + ':' + d.step; if (k !== wwKey) { wwKey = k; wwMarks = []; wwSent = false; wwPick = null; wwLikes = new Set(); } if (d.round !== wwFakeRound) { wwFakeRound = d.round; wwFakePick = ''; wwFakeQ = ''; wwFakeHit = ''; } wwData = d; renderWw(); });
+function hideWw() { hideHoldBar(); clearInterval(wwTick); $('wwPop').hidden = true; $('wwPop').innerHTML = ''; wwData = null; }
+socket.on('wwPhase', d => { if (!d) return hideWw(); const k = d.round + ':' + d.step; if (k !== wwKey) { wwKey = k; wwMarks = []; wwSent = false; wwPick = null; wwLikes = new Set(); } if (d.round !== wwFakeRound) { wwFakeRound = d.round; wwFakePick = ''; wwFakeQ = ''; wwFakeHit = ''; } wwData = d; renderWw(); if (d.step !== 'result') hideHoldBar(); else if (!(room?.settings?.autoNext > 0) && room?.hostId === me) showHoldBar(''); });
 socket.on('wwReject', () => { wwFakeHit = wwFakePick; wwFakePick = ''; wwFakeQ = ''; renderWw.sig = null; renderWw(); });
 // ウソの作品名：作品の一覧（シリーズの名前）から検索して選ぶ
 let wwNames = null, wwFakePick = '', wwFakeQ = '', wwFakeRound = -1, wwFakeHit = ''; // wwFakeHit：選んだら本物だった作品（やり直しの知らせ）
@@ -3000,7 +3000,16 @@ function startNextCount(seconds, last = nextIsLast) {
   draw(); nextTick = setInterval(draw, 250);
 }
 // だれかが「サビを聞く」を押した：次へ進むまでの時間が延びる
-socket.on('nextAt', ({ seconds, by }) => { listenBy = by; startNextCount(seconds); });
+socket.on('nextAt', ({ seconds, by }) => { listenBy = by; startNextCount(seconds); hideHoldBar(); });
+// 表に出る窓（ベットなど）の上に出す帯：だれかが修正中のお知らせと、ホストの「次へ進む」（窓に隠れて押せなくならないように）
+function showHoldBar(text) {
+  $('holdText').textContent = text; $('holdNext').hidden = room?.hostId !== me; $('holdBar').hidden = false;
+}
+function hideHoldBar() { $('holdBar').hidden = true; }
+$('holdNext').onclick = () => { socket.emit('next'); hideHoldBar(); };
+socket.on('nextResume', () => { hideHoldBar(); if (wwData?.step === 'result' && !(room?.settings?.autoNext > 0) && room?.hostId === me) showHoldBar(''); });
+socket.on('question', hideHoldBar);
+socket.on('nextHold', ({ by }) => { if (document.querySelector('.pk-modal:not([hidden]):not(#fixPop)')) showHoldBar(`⏸ ${by}さんが修正中（閉じると再開、最長60秒）`); });
 // だれかが「位置を直す」を開いた：直し終わるまで次へ進まない（カウントを止めて、だれが直しているか出す）
 socket.on('nextHold', ({ by }) => {
   clearInterval(nextTick);

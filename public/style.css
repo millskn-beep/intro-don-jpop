@@ -1507,3 +1507,18 @@ body.room-paused .pk-modal:not(#fixPop) { display: none; } /* 一時停止中は
 .pn-body h4 { margin: 12px 0 4px; font-size: 14px; color: var(--accent); } .pn-body h4:first-child { margin-top: 0; }
 .pn-body ul { margin: 0; padding-left: 18px; }
 .pn-body h3 { margin: 18px 0 2px; padding-bottom: 3px; font-size: 15px; border-bottom: 1px solid var(--line); } .pn-body h3:first-child { margin-top: 0; }
+/* MVフラッシュ：出題中だけ動画をそのまま見せる。文字が出やすい上下は帯で隠す */
+.mv-screen, .mv-bands { display: none; position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+body.mvflash .mv-screen { display: block; background: #000; } body.mvflash .mv-screen.open { background: transparent; }
+body.mvflash .mv-bands { display: block; background: linear-gradient(#000 0 13%, transparent 13% 85%, #000 85%); }
+body.mvflash.playing .video-bg { opacity: 1; background: #000; transition: none; }
+body.mvflash.playing .video-bg iframe { filter: none; transform: translate(-50%, -50%); }
+body.mvflash.playing .top, body.mvflash.playing .room-side, body.mvflash.playing #cover, body.mvflash.playing #mascot, body.mvflash.playing #clues, body.mvflash.playing #lifelines, body.mvflash.playing #qlog, body.mvflash.playing .stage-tools .vol:not(:first-child) { display: none; }
+body.mvflash.playing .stage { position: fixed; top: 0; left: 0; right: 0; z-index: 5; display: flex; align-items: center; gap: 12px; margin: 0; padding: 6px 12px; background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.mvflash.playing .status { flex: 1; min-width: 0; } body.mvflash.playing .timer { font-size: 22px; line-height: 1.2; } body.mvflash.playing .stage-tools { margin: 0; padding: 0; flex: none; }
+body.mvflash.playing #quiz { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; max-height: 100dvh; overflow-y: auto; margin: 0; padding: 8px 12px; background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.mvflash.playing #buzzRow { margin: 0 auto; max-width: 520px; } body.mvflash.playing .buzz-btn { padding: 8px; }
+body.mvflash:not(.mv-answering) #choices, body.mvflash:not(.mv-answering) #inputForm, body.mvflash:not(.mv-answering) #mvSugg { display: none; }
+body.mvflash.mv-answering #quiz { background: rgba(8, 8, 20, .92); }
+body.mvflash.playing .char-dock, body.mvflash.mv-answering .set-fab, body.mvflash.mv-answering .fix-fab { display: none !important; }
+body.mvflash.playing #buzzRow { display: flex; justify-content: center; flex-wrap: wrap; }

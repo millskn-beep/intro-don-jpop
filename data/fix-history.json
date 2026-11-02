@@ -12264,5 +12264,804 @@
    "intro": 1,
    "chorus": 64.8
   }
+ },
+ {
+  "id": "t5wQc7nFMIs",
+  "title": "走れマキバオー",
+  "work": "みどりのマキバオー",
+  "channel": "F. Map - Topic",
+  "at": "2026-11-02T16:02:07.452Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 32,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 59.3
+  }
+ },
+ {
+  "id": "rxAM0ncKB9Q",
+  "title": "yummy goodday",
+  "work": "とんでもスキルで異世界放浪メシ2",
+  "channel": "セントチヒロ・チッチ",
+  "at": "2026-11-02T16:03:21.900Z",
+  "before": {
+   "intro": 0,
+   "chorus": 127,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 39.3
+  }
+ },
+ {
+  "id": "hmkaHf_B_XM",
+  "title": "贅沢な匙",
+  "work": "とんでもスキルで異世界放浪メシ",
+  "channel": "栗山夕璃",
+  "at": "2026-11-02T16:03:50.506Z",
+  "before": {
+   "intro": 2,
+   "chorus": 56,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 2,
+   "chorus": 55
+  }
+ },
+ {
+  "id": "PieVfcJiDsk",
+  "title": "ツインテール・ドリーマー!",
+  "work": "俺、ツインテールになります。",
+  "channel": "テイルイエロー(CV:赤﨑千夏) - Topic",
+  "at": "2026-11-02T16:04:09.256Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 53.6,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 52.4
+  }
+ },
+ {
+  "id": "H1DelNpdvTU",
+  "title": "翔べ！ガンダム",
+  "work": "機動戦士ガンダム",
+  "channel": "池田鴻 - Topic",
+  "at": "2026-11-02T16:05:05.595Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 42,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 31.1
+  }
+ },
+ {
+  "id": "yhnJAI2qPRY",
+  "title": "ひまわり",
+  "work": "地獄先生ぬ〜べ〜",
+  "channel": "Chilli Beans.",
+  "at": "2026-11-02T16:05:34.536Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 129,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 54.5
+  }
+ },
+ {
+  "id": "bezvNBpQk0E",
+  "title": "P0WER-悪霊退散-",
+  "work": "地獄先生ぬ〜べ〜",
+  "channel": "-SKS- ZIGZAG",
+  "at": "2026-11-02T16:06:13.804Z",
+  "before": {
+   "intro": 10.7,
+   "chorus": 55,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 17.4,
+   "chorus": 69.6
+  }
+ },
+ {
+  "id": "C56Xd7pNpGM",
+  "title": "ミエナイチカラ 〜INVISIBLE ONE〜",
+  "work": "地獄先生ぬ〜べ〜",
+  "channel": "Bz",
+  "at": "2026-11-02T16:06:39.674Z",
+  "before": {
+   "intro": 1.5,
+   "chorus": 48,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.5,
+   "chorus": 44.5
+  }
+ },
+ {
+  "id": "W3r_wFIGjHU",
+  "title": "バリバリ最強No.1",
+  "work": "地獄先生ぬ〜べ〜",
+  "channel": "FSBTV",
+  "at": "2026-11-02T16:07:07.230Z",
+  "before": {
+   "intro": 3.2,
+   "chorus": 101,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 3.2,
+   "chorus": 98.4
+  }
+ },
+ {
+  "id": "NL4M3rqwmrk",
+  "title": "光あれ",
+  "work": "七つの大罪 憤怒の審判",
+  "channel": "PORNOGRAFFITTI Official YouTube Channel",
+  "at": "2026-11-02T16:07:41.927Z",
+  "before": {
+   "intro": 0,
+   "chorus": 74,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 29.2,
+   "chorus": 67.5
+  }
+ },
+ {
+  "id": "fgGu51rhlhY",
+  "title": "雨が降るから虹が出る",
+  "work": "七つの大罪 戒めの復活",
+  "channel": "スカイピース",
+  "at": "2026-11-02T16:08:02.974Z",
+  "before": {
+   "intro": 1.2,
+   "chorus": 45,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.2,
+   "chorus": 47.2
+  }
+ },
+ {
+  "id": "YeTSVpUx99Y",
+  "title": "Season",
+  "work": "七つの大罪",
+  "channel": "ALISA TAKIGAWA Official YouTube Channel",
+  "at": "2026-11-02T16:08:27.777Z",
+  "before": {
+   "intro": 14,
+   "chorus": 81,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 27,
+   "chorus": 83
+  }
+ },
+ {
+  "id": "TKIdS2GY-rw",
+  "title": "バディ",
+  "work": "おそ松さん",
+  "channel": "Release - Topic",
+  "at": "2026-11-02T16:09:36.956Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 128,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 48.4
+  }
+ },
+ {
+  "id": "NQjoC3Z06JY",
+  "title": "SIX SHAME FACES 〜今夜も最高!!!!!!〜",
+  "work": "おそ松さん",
+  "channel": "VOICE by Totoko feat. Osomatsu × Karamatsu × Choromatsu × Ichimatsu ×... - Topic",
+  "at": "2026-11-02T16:10:05.475Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 55,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 73.3
+  }
+ },
+ {
+  "id": "Pex6-J_wxVI",
+  "title": "nice to NEET you!",
+  "work": "おそ松さん",
+  "channel": "A応P",
+  "at": "2026-11-02T16:11:26.747Z",
+  "before": {
+   "intro": 6.2,
+   "chorus": 66,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 6.2,
+   "chorus": 65.8
+  }
+ },
+ {
+  "id": "5uS-0w2J5b4",
+  "title": "LAYon-theLINE",
+  "work": "賭ケグルイ",
+  "channel": "avex",
+  "at": "2026-11-02T16:12:15.110Z",
+  "before": {
+   "intro": 1.2,
+   "chorus": 90,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.2,
+   "chorus": 61.9
+  }
+ },
+ {
+  "id": "xgH4Ez4ZhLw",
+  "title": "コノユビトマレ",
+  "work": "賭ケグルイ××",
+  "channel": "Junna_Official",
+  "at": "2026-11-02T16:12:42.096Z",
+  "before": {
+   "intro": 1,
+   "chorus": 57,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 60.8
+  }
+ },
+ {
+  "id": "GJ8w6CvC8Ao",
+  "title": "クローバー",
+  "work": "SKET DANCE",
+  "channel": "avex",
+  "at": "2026-11-02T16:13:55.287Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 66.4,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 72.6
+  }
+ },
+ {
+  "id": "-nJPnjVZLfQ",
+  "title": "Message",
+  "work": "SKET DANCE",
+  "channel": "avex",
+  "at": "2026-11-02T16:14:08.992Z",
+  "before": {
+   "intro": 8.2,
+   "chorus": 67,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 8.2,
+   "chorus": 68.3
+  }
+ },
+ {
+  "id": "wQI72et6j3g",
+  "title": "WINTER WISH",
+  "work": "ラブひな",
+  "channel": "KING RECORDS",
+  "at": "2026-11-02T16:15:04.422Z",
+  "before": {
+   "intro": 1.2,
+   "chorus": 110,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 1.2,
+   "chorus": 57.9
+  }
+ },
+ {
+  "id": "Z78jAw395mY",
+  "title": "キラリ☆宝物",
+  "work": "ラブひなAgain",
+  "channel": "tripweed",
+  "at": "2026-11-02T16:15:21.857Z",
+  "before": {
+   "intro": 10,
+   "chorus": 65.3,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 10,
+   "chorus": 67.8
+  }
+ },
+ {
+  "id": "MVTJKUwI76I",
+  "title": "サクラサク",
+  "work": "ラブひな",
+  "channel": "Megumi Hayashibara - Topic",
+  "at": "2026-11-02T16:16:12.604Z",
+  "before": {
+   "intro": 1,
+   "chorus": 45,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 51
+  }
+ },
+ {
+  "id": "iSgC4w5Scj0",
+  "title": "Butterfly Kiss",
+  "work": "RAVE",
+  "channel": "KING RECORDS",
+  "at": "2026-11-02T16:17:18.488Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 124,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 7.7,
+   "chorus": 65.4
+  }
+ },
+ {
+  "id": "dCWX1qVEWco",
+  "title": "ホウキ雲",
+  "work": "焼きたて!!ジャぱん",
+  "channel": "RYTHEMのハモり便",
+  "at": "2026-11-02T16:18:09.160Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 62,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1.7,
+   "chorus": 59
+  }
+ },
+ {
+  "id": "tREfrb4Ty1U",
+  "title": "Promise",
+  "work": "焼きたて!!ジャぱん",
+  "channel": "RedDayWoman345",
+  "at": "2026-11-02T16:18:34.611Z",
+  "before": {
+   "intro": 10.7,
+   "chorus": 76.2,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 76.2
+  }
+ },
+ {
+  "id": "_QLrZmDLE5g",
+  "title": "アクシアの風",
+  "work": "戦姫絶唱シンフォギアAXZ",
+  "channel": "Hibiki Tachibana(CV:Aoi Yuki) - Topic",
+  "at": "2026-11-02T16:18:43.451Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 128,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 32.4,
+   "chorus": 87.2
+  }
+ },
+ {
+  "id": "1SRiP6JZqCo",
+  "title": "SUNDAY",
+  "work": "焼きたて!!ジャぱん",
+  "channel": "Dinoo Tok",
+  "at": "2026-11-02T16:19:09.575Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 122.1,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 106.9
+  }
+ },
+ {
+  "id": "vgA7kahrD4o",
+  "title": "1000%SPARKING!",
+  "work": "ネギま!?",
+  "channel": "KING AMUSEMENT CREATIVE official channel",
+  "at": "2026-11-02T16:19:16.431Z",
+  "before": {
+   "intro": 0,
+   "chorus": 61,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 62.3
+  }
+ },
+ {
+  "id": "7li53JlW9oU",
+  "title": "Baby Sweet Berry Love",
+  "work": "変態王子と笑わない猫。",
+  "channel": "Yui Ogura YouTube OFFICIAL CHANNEL",
+  "at": "2026-11-02T16:20:02.301Z",
+  "before": {
+   "intro": 5.7,
+   "chorus": 68,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 5.7,
+   "chorus": 65.1
+  }
+ },
+ {
+  "id": "0i63u8sqXfM",
+  "title": "GIRAFFE BLUES",
+  "work": "マクロスΔ",
+  "channel": "Felix Milerivan Marcel",
+  "at": "2026-11-02T16:20:18.724Z",
+  "before": {
+   "intro": 1,
+   "chorus": 72,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 75
+  }
+ },
+ {
+  "id": "WzoIvqVpO-k",
+  "title": "Bull's Eye",
+  "work": "緋弾のアリアAA",
+  "channel": "FlyingDog",
+  "at": "2026-11-02T16:23:04.008Z",
+  "before": {
+   "intro": 9.2,
+   "chorus": 68.6,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 7.2,
+   "chorus": 68.6
+  }
+ },
+ {
+  "id": "QtVFfGkiFIk",
+  "title": "桃色ファンタジー",
+  "work": "モモキュンソード",
+  "channel": "Haruka Chisuga - Topic",
+  "at": "2026-11-02T16:23:49.293Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 65,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 51.5
+  }
+ },
+ {
+  "id": "ZW5KZV0ALIM",
+  "title": "I am",
+  "work": "犬夜叉",
+  "channel": "hitomi official ",
+  "at": "2026-11-02T16:24:41.159Z",
+  "before": {
+   "intro": 0,
+   "chorus": 66,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 69.8
+  }
+ },
+ {
+  "id": "4H_9itcwwFM",
+  "title": "Evidence",
+  "work": "FAIRY TAIL",
+  "channel": "ponycanyon",
+  "at": "2026-11-02T16:25:57.677Z",
+  "before": {
+   "intro": 5,
+   "chorus": 71,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 5,
+   "chorus": 76.8
+  }
+ },
+ {
+  "id": "1k3V9SJG8Zs",
+  "title": "The Rock City Boy",
+  "work": "FAIRY TAIL",
+  "channel": "ponycanyon",
+  "at": "2026-11-02T16:26:39.848Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 31,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 27.4,
+   "chorus": 56.7
+  }
+ },
+ {
+  "id": "t0UYZkWeERk",
+  "title": "デビルマンのうた",
+  "work": "デビルマン",
+  "channel": "KIMEE",
+  "at": "2026-11-02T16:26:56.028Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 76,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 82.7
+  }
+ },
+ {
+  "id": "G0gD9jzYtEA",
+  "title": "MASAYUME CHASING",
+  "work": "FAIRY TAIL",
+  "channel": "avex",
+  "at": "2026-11-02T16:27:06.380Z",
+  "before": {
+   "intro": 7,
+   "chorus": 53,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 7,
+   "chorus": 50.7
+  }
+ },
+ {
+  "id": "mFYK47afoSY",
+  "title": "希望の唄",
+  "work": "食戟のソーマ",
+  "channel": "avex",
+  "at": "2026-11-02T16:27:43.226Z",
+  "before": {
+   "intro": 1.7,
+   "chorus": 40,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 38.4,
+   "chorus": 98.9
+  }
+ },
+ {
+  "id": "tWSOgtVJOnM",
+  "title": "スパイス",
+  "work": "食戟のソーマ",
+  "channel": "avex",
+  "at": "2026-11-02T16:27:55.488Z",
+  "before": {
+   "intro": 4.7,
+   "chorus": 62,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 4.7,
+   "chorus": 63
+  }
+ },
+ {
+  "id": "NAGTD9S4XN4",
+  "title": "ツナグキズナ",
+  "work": "ヨスガノソラ",
+  "channel": "Release - Topic",
+  "at": "2026-11-02T16:28:45.614Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 61,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.7,
+   "chorus": 57
+  }
+ },
+ {
+  "id": "aQtOHJpf82Y",
+  "title": "Sha la la -アヤカシNIGHT-",
+  "work": "結界師",
+  "channel": "Field Forest",
+  "at": "2026-11-02T16:28:51.497Z",
+  "before": {
+   "intro": 1,
+   "chorus": 74,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 1,
+   "chorus": 77.4
+  }
+ },
+ {
+  "id": "SVk-RNR6ujo",
+  "title": "サクラサクミライコイユメ",
+  "work": "D.C.〜ダ・カーポ〜",
+  "channel": "KING AMUSEMENT CREATIVE official channel",
+  "at": "2026-11-02T16:29:38.281Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 64,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 47
+  }
+ },
+ {
+  "id": "TgjjULN41c4",
+  "title": "ダ・カーポ ～第2ボタンの誓い～",
+  "work": "D.C.〜ダ・カーポ〜",
+  "channel": "Lantis Global Channel",
+  "at": "2026-11-02T16:29:54.151Z",
+  "before": {
+   "intro": 7.5,
+   "chorus": 92,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 7.5,
+   "chorus": 85.1
+  }
+ },
+ {
+  "id": "ctV3yVczbck",
+  "title": "シャンランラン",
+  "work": "ふらいんぐうぃっち",
+  "channel": "Pheres",
+  "at": "2026-11-02T16:32:50.822Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 71.2,
+   "introMethod": "v2",
+   "chorusSource": "audio"
+  },
+  "after": {
+   "intro": 0.5,
+   "chorus": 69.9
+  }
+ },
+ {
+  "id": "DhFE9-uHczA",
+  "title": "雫",
+  "work": "獣の奏者エリン",
+  "channel": "スキマスイッチ / SUKIMASWITCH",
+  "at": "2026-11-02T16:33:17.383Z",
+  "before": {
+   "intro": 0.2,
+   "chorus": 87,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0.2,
+   "chorus": 88.3
+  }
+ },
+ {
+  "id": "rveMDp1hnAE",
+  "title": "Hesitation Snow",
+  "work": "はつゆきさくら",
+  "channel": "fripSide OfficiAL YouTube Channnel",
+  "at": "2026-11-02T16:33:52.307Z",
+  "before": {
+   "intro": 0,
+   "chorus": 40,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 0,
+   "chorus": 34.8
+  }
+ },
+ {
+  "id": "QlkBGDUsANo",
+  "title": "Come",
+  "work": "犬夜叉",
+  "channel": "Namie Amuro - Topic",
+  "at": "2026-11-02T16:34:25.925Z",
+  "before": {
+   "intro": 6.7,
+   "chorus": 61,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 6.7,
+   "chorus": 64.4
+  }
  }
 ]

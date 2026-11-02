@@ -13870,6 +13870,31 @@
    1,
    1,
    1
+  ],
+  "XsimltGsNQg": [
+   1,
+   1,
+   1
+  ],
+  "rY-nC4INJuE": [
+   1,
+   1,
+   1
+  ],
+  "haYlyrjqecw": [
+   1,
+   1,
+   0
+  ],
+  "xgH4Ez4ZhLw": [
+   1,
+   1,
+   1
+  ],
+  "Pex6-J_wxVI": [
+   1,
+   1,
+   1
   ]
  },
  "days": {
@@ -13932,6 +13957,10 @@
   "2026-11-02": {
    "games": 8,
    "plays": 19
+  },
+  "2026-11-03": {
+   "games": 1,
+   "plays": 5
   }
  },
  "byPlay": {
@@ -13964,8 +13993,8 @@
    "plays": 835
   },
   "normal": {
-   "games": 11,
-   "plays": 254
+   "games": 12,
+   "plays": 259
   },
   "daifugo": {
    "games": 1,

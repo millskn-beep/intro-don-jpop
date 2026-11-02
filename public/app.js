@@ -270,7 +270,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'wwRaise', 'wwStyle', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
+const STRING_KEYS = ['mvSound', 'mvScope', 'mvSuggest', 'mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'wwRaise', 'wwStyle', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select').forEach(x => {
@@ -466,6 +466,7 @@ $('openExclude').onclick = () => { setLobbyTab('settings'); lobbyTabChosen = tru
 const PLAY_INFO = {
   normal: ['🎵', 'ふつう', '全員で同時に答える。速く正解するほど高得点', '1人〜', 'quiz'],
   buzzer: ['🔔', '早押し', '押した人だけが答えられる。お手つきに注意', '2人〜', 'quiz'],
+  mvflash: ['🎬', 'MVフラッシュ', 'MVの一瞬ずつの場面を見て、曲名を早押しで当てる', '2人〜', 'quiz'],
   survival: ['💀', 'サバイバル', '間違えると脱落。最後まで残った人の勝ち', '1人〜', 'quiz'],
   picker: ['🎤', '出題者', '順番に1人が曲を選んで出題。半分くらいが正解すると出題者も高得点', '2人〜', 'quiz'],
   coop: ['🤝', '協力', '全員の正解数を合わせて目標をめざす', '1人〜', 'quiz'],
@@ -512,6 +513,7 @@ $('playPick').onclick = () => {
   });
 };
 const PLAY_DESC = {
+  mvflash: 'サビのまわりの場面が1秒ずつ、秒数を飛ばしながら8場面流れます。押した人だけが曲名を答えられます。後の場面ほどサビに近くなります。音楽だけの動画は出ません。',
   tanshuku: 'はねるのトびら「短縮鉄道の夜」のアニソン版。順番に1人ずつ、アニメや歌手の略称（例：まどマギ）が出るので、元の名前を4択から選びます。一周するごとに制限時間が短くなります（6秒→最短2.5秒）。間違えるか時間切れで脱落、最後まで残った人の勝ち（+1000点）。正解すると+100点で、その作品・歌手の曲が少し流れます。1人で遊ぶときは、間違えるまで続けます。',
   lyrics2: '歌詞の合言葉で作った非公開の部屋だけで遊べます。歌詞クイズと同じ問題ですが、YouTube の動画に歌詞字幕（手動の日本語字幕）が付いている曲だけを使うので、曲と歌詞の時刻がぴったり合います。答え合わせではサビが流れるあいだ、歌詞がカラオケのように進みます。',
   lyrics: '歌詞の合言葉で作った非公開の部屋だけで遊べます。「この歌詞の曲は？」（歌詞を見て曲を当てる）、「穴あき歌詞」（曲を聴いて伏せた言葉を当てる）、「続きはどれ？」（止まったところの次の歌詞を当てる）。早く正解するほど高得点です。歌詞はこの部屋の人にだけ送られます。',
@@ -651,6 +653,7 @@ socket.on('resumed', ({ ms, qTotal }) => {
   if (question && qTotal) { question.qTotal = qTotal; $('qno').innerHTML = $('qno').innerHTML.replace(/\/ \d+ 問/, `/ ${qTotal} 問`); }
 });
 socket.on('aborted', () => {
+  stopFlash();
   player.stop(); stopTick(); clearInterval(nextTick); clearTimeout(goTimer);
   $('nextCount').textContent = ''; question = null; pausedNow = false; shownBeforePause = null;
   toast('ゲームを中断して部屋に戻りました');
@@ -758,6 +761,8 @@ function renderRoom(r) {
   $('gzPickOpen').hidden = !((isGzP && r.settings.gzSet === 'choose') || (r.settings.play === 'monopoly' && r.settings.mpBy === 'choose'));
   $('gzPickOpen').textContent = `集める種類を選ぶ（${(r.settings.gzPicks || []).length}）`;
   $('wolfWorkLabel').hidden = $('wolfTitleLabel').hidden = r.settings.play !== 'wolf'; // 人狼：候補に出す作品名・曲名
+  $('mvSoundLabel').hidden = $('mvScopeLabel').hidden = r.settings.play !== 'mvflash';
+  $('mvSuggestLabel').hidden = !(r.settings.play === 'mvflash' && r.settings.answerMode === 'input');
   $('buzzStopLabel').hidden = !['buzzer', 'fill'].includes(r.settings.play); // 早押し・3つ埋めバトル：答えている間は曲を止める
   $('noRepeatLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない
   $('playDesc').textContent = PLAY_DESC[r.settings.play] || '';
@@ -765,8 +770,9 @@ function renderRoom(r) {
   $('playPick').disabled = document.querySelector('[data-key="play"]').disabled;
   $('questionsLabel').hidden = r.settings.play === 'survival' || r.settings.play === 'monopoly'; // モノポリーは15問で固定
   const fillMode = r.settings.play === 'fill'; // 3つ埋めバトルは、答えるもの・回答方法・採点・ヒントを使わない（枠ごとに書くか10択）
-  $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.target === 'year' || fillMode;
+  $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.play === 'mvflash' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
+  if (r.settings.play === 'mvflash') for (const k of ['target', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = true;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
   document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'sugoroku', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
@@ -1405,7 +1411,8 @@ socket.on('question', q => {
   $('choices').querySelectorAll('.choice').forEach(b => b.onclick = () =>
     answer(q.answerMode === 'year' ? { year: q.years[+b.dataset.i], index: +b.dataset.i } : { index: +b.dataset.i }));
   // 早押し：押すボタン（押した人だけが答えられる）
-  $('buzzRow').hidden = q.play !== 'buzzer' && q.play !== 'fill'; $('buzzBtn').disabled = true; $('buzzInfo').textContent = ''; buzzHolder = null;
+  stopFlash(); document.body.classList.toggle('mvflash', q.play === 'mvflash'); $('mvSugg').innerHTML = '';
+  $('buzzRow').hidden = !['buzzer', 'mvflash', 'fill'].includes(q.play); $('buzzBtn').disabled = true; $('buzzInfo').textContent = ''; buzzHolder = null;
   // 3つ埋めバトル：選択肢・入力の欄の代わりに枠を出す
   if (q.fill) { $('choices').hidden = true; $('inputForm').hidden = true; }
   fillLockUntil = 0; fillWaiting = false; fillSlot = null; buzzQueueIds = []; buzzQueueNames = []; $('fillAnswer').hidden = true; renderFill(q.fill);
@@ -1444,7 +1451,10 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
   };
   if (wait > 0) setPhase('ready', 'まもなく…');
   goTimer = setTimeout(() => {
-    if (kind === 'sabimae' || kind === 'random' || kind === 'outro') {
+    if (kind === 'flash') {
+      startFlash();
+      setPhase('intro', 'MVの場面を見て当てよう！'); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen');
+    } else if (kind === 'sabimae' || kind === 'random' || kind === 'outro') {
       // サビ前・どこから・アウトロ問題：止めずに流し続ける。戻ってきた人も経過秒ぶん先から
       player.start(start + off);
       syncPlay(start, hintAt);
@@ -1463,7 +1473,7 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
       setPhase('intro', kind === 'ly-which' ? '歌詞を見て答えよう' : kind?.startsWith('ly-') ? '曲を聴いて答えよう' : nth > 1 ? `${LYK || 'イントロ'}再生中…（${nth}回目！）` : `${LYK || 'イントロ'}再生中…（わかるかな？）`); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen'); if (!off) charFx.say('intro');
     }
     if (myAnswer === null && !amOut() && question?.pickerId !== me) {
-      if (question?.play === 'buzzer' || question?.play === 'fill') {
+      if (['buzzer', 'mvflash', 'fill'].includes(question?.play)) {
         // 早押し：押した人だけが答えられる。まずは押すボタンだけ
         buzzOpen = !buzzHolder; $('buzzBtn').disabled = !buzzOpen || fillLocked();
       } else {
@@ -1485,6 +1495,38 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
     }, 50);
   }, wait * 1000);
 });
+// MVフラッシュ：場面ごとに飛ぶ。飛んでいる間と場面の間は黒で隠し、映ってから show 秒だけ見せる。
+// 経過は timerStart で測る（答えている間・一時停止の間は timerStart がずれるので、場面も止まる）
+let flashTick = null, flashAt = -1, flashSeen = 0, flashReadyAt = 0;
+function flashCover(on) { $('mvCover').classList.toggle('open', !on); }
+function startFlash() {
+  const q = question; if (!q?.scenes) return;
+  clearInterval(flashTick); flashAt = -1; flashSeen = 0; flashCover(true);
+  flashTick = setInterval(() => {
+    if (pausedNow) { flashCover(true); return; }
+    const i = Math.floor((performance.now() - timerStart) / 1000 / q.sceneSlot);
+    if (i !== flashAt) {
+      flashAt = i; flashSeen = 0; flashReadyAt = 0; flashCover(true);
+      if (i >= q.scenes.length) { clearInterval(flashTick); player.flashSound(false); return; }
+      player.flashSeek(q.scenes[i]);
+      return;
+    }
+    if (!flashSeen && player.flashReady(q.scenes[i])) {
+      if (!flashReadyAt) flashReadyAt = performance.now(); // YouTube が飛んだ直後に中央へ出す記号が消えてから見せる
+      if (performance.now() - flashReadyAt > 350) { flashSeen = performance.now(); flashCover(false); if (q.mvSound !== 'off') player.flashSound(true); }
+    }
+    if (flashSeen && performance.now() - flashSeen > q.sceneShow * 1000) { flashCover(true); player.flashSound(false); }
+  }, 30);
+}
+function stopFlash() { clearInterval(flashTick); flashTick = null; flashCover(true); document.body.classList.remove('mvflash', 'mv-answering'); }
+// MVフラッシュの入力候補（3つ埋めバトルと同じ、押すと確定）
+$('answerInput').addEventListener('input', () => {
+  if (question?.play !== 'mvflash' || question.mvSuggest === 'off') return;
+  if (!fillNames) { fetch('/api/fill-names').then(x => x.json()).then(l => { fillNames = l; }).catch(() => {}); return; }
+  const v = catNorm($('answerInput').value), hit = v ? (fillNames.title || []).map(x => { const ks = x.map(catNorm); return [x[0], ks.some(k => k.startsWith(v)) ? 0 : ks.some(k => k.includes(v)) ? 1 : 2]; }).filter(x => x[1] < 2).sort((a, b) => a[1] - b[1] || a[0].length - b[0].length) : [];
+  $('mvSugg').innerHTML = hit.slice(0, 6).map(x => `<button type="button" class="btn-sub" data-v="${esc(x[0])}">${esc(x[0])}</button>`).join('');
+});
+$('mvSugg').onclick = e => { const b = e.target.closest('button[data-v]'); if (b) { $('answerInput').value = b.dataset.v; $('mvSugg').innerHTML = ''; $('inputForm').requestSubmit(); } };
 let introLeft = 0; // この問題で、あと何回イントロを流し直すか
 let goTotal = 0;   // この問題の制限時間（秒）
 // 3つ埋めバトル：イントロ中に誰かが押した → サビへ飛ばずに、そのまま流し続ける（止まっていたらその位置から）
@@ -1524,7 +1566,7 @@ function tryBuzz() {
 }
 $('buzzBtn').onclick = tryBuzz;
 addEventListener('keydown', e => {
-  if (e.code !== 'Space' || !['buzzer', 'fill'].includes(question?.play) || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return;
+  if (e.code !== 'Space' || !['buzzer', 'mvflash', 'fill'].includes(question?.play) || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return;
   e.preventDefault(); tryBuzz();
 });
 function clearBuzz() {
@@ -1541,6 +1583,7 @@ socket.on('buzzQueue', ({ ids = [], names = [] }) => {
   if (question?.fill && buzzHolder !== me && myAnswer === null && !amOut()) { buzzOpen = true; $('buzzBtn').disabled = fillLocked(); }
 });
 socket.on('buzz', ({ id, name, sec, queue = null, stop = false }) => {
+  document.body.classList.toggle('mv-answering', question?.play === 'mvflash');
   buzzHolder = id; // 設定で「止める」なら、答えている間は曲と残り時間を止める（止めない設定では流れたまま答える）
   if (stop && !buzzPausedAt) { buzzPausedAt = performance.now(); pausedNow = true; player.pause(); }
   if (queue) { buzzQueueNames = queue; buzzQueueIds = buzzQueueIds.filter(x => x !== id); }
@@ -1566,6 +1609,7 @@ socket.on('buzz', ({ id, name, sec, queue = null, stop = false }) => {
   }
 });
 socket.on('buzzEnd', ({ hold = false } = {}) => {
+  document.body.classList.remove('mv-answering');
   const wasMine = buzzHolder === me;
   if (hold) { clearInterval(buzzTick); buzzHolder = null; $('buzzInfo').textContent = ''; } // 次の人の番がすぐ始まる：止めたまま
   else if (clearBuzz()) player.resume();
@@ -1589,7 +1633,7 @@ function renderQlog() {
   const answers = qlogEntries.filter(e => e.type === 'answer');
   // ビンゴのときは出さない（ビンゴカードだけ見せる）
   // 出すのは早押しと3つ埋めバトルだけ（ふつう・サバイバル・ビンゴなどでは出さない）
-  $('qlog').hidden = !question || !['buzzer', 'fill'].includes(room?.settings?.play) || (!lists.length && !answers.length);
+  $('qlog').hidden = !question || !['buzzer', 'mvflash', 'fill'].includes(room?.settings?.play) || (!lists.length && !answers.length);
   $('qlogChoices').hidden = !lists.length;
   $('qlogChoices').innerHTML = lists.map(l => `<div class="qlog-list"><b>${esc(l.label)}${l.name && !l.base ? `<small>（${esc(l.name)} が開いた10択）</small>` : ''}</b>
     <ol>${l.choices.map((c, i) => `<li${removedOf(l).has(i) ? ' class="gone"' : ''}>${esc(c)}</li>`).join('')}</ol></div>`).join('');
@@ -2764,6 +2808,7 @@ socket.on('promoted', p => toast(`${p.by}さんが「${p.title}」をゲーム�
 
 let karaTick = null, revealSeq = 0;
 socket.on('reveal', r => {
+  stopFlash(); $('mvSugg').innerHTML = '';
   clearInterval(lyRevealTick); clearInterval(karaTick);
   $('lyKara')?.remove();
   if (r.karaoke?.length) {

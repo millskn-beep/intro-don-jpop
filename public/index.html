@@ -29,6 +29,8 @@
 <div id="omenFx" aria-hidden="true"></div>
 <!-- YouTube は画面全体の背景に置く。出題中は見えず、答え合わせで透けて見える -->
 <div class="video-bg" aria-hidden="true"><div id="player"></div></div>
+<div class="mv-screen" id="mvCover" aria-hidden="true"></div>
+<div class="mv-bands" aria-hidden="true"></div>
 <main>
   <header class="top">
     <div class="brand">
@@ -222,7 +224,7 @@
       <div class="settings">
         <label class="play-label">遊び方<button class="btn-sub play-pick" id="playPick" type="button"></button><select data-key="play" hidden>
           <option value="normal">ふつう（全員で答える）</option>
-          <option value="buzzer">早押し（押した人だけ答える）</option>
+          <option value="buzzer">早押し（押した人だけ答える）</option><option value="mvflash">MVフラッシュ</option>
           <option value="survival">サバイバル（間違えると脱落）</option>
           <option value="picker">出題者（順番に1人が曲を選ぶ）</option>
           <option value="coop">協力（全員の正解数で目標をめざす）</option>
@@ -275,6 +277,9 @@
         <label id="gzPickLabel" hidden>ジャンル制覇：次のジャンル<select data-key="gzPick"><option value="choose">選択制（最速の正解者が選ぶ）</option><option value="random">ランダム制（毎問ランダム）</option></select></label>
         <label id="wolfTitleLabel" hidden>人狼：候補に曲名<select data-key="wolfTitle"><option value="show">出す</option><option value="hide">出さない</option></select></label>
         <label id="karutaFaceLabel" hidden>札に書くもの<select data-key="karutaFace"><option value="title">曲名</option><option value="work">作品名</option><option value="artist">歌手名</option></select></label>
+        <label id="mvSoundLabel" hidden>MVの音<select data-key="mvSound"><option value="on">あり</option><option value="off">なし（映像だけ）</option></select></label>
+        <label id="mvScopeLabel" hidden>出す動画<select data-key="mvScope"><option value="all">音源だけの動画以外すべて</option><option value="official">公式と分かる動画だけ</option></select></label>
+        <label id="mvSuggestLabel" hidden>入力するときの候補<select data-key="mvSuggest"><option value="on">出す（押すと確定）</option><option value="off">出さない</option></select></label>
         <label id="buzzStopLabel" hidden>答えている間の曲<select data-key="buzzStop"><option value="true">止める（答え終わったら続きから）</option><option value="false">止めない（流れたまま答える）</option></select></label>
         <label id="noRepeatLabel" hidden>お手つきのあとの連続解答<select data-key="noRepeat"><option value="false">できる</option><option value="true">できない（ほかの人が押すまで待つ）</option></select></label>
         <label id="bingoEndLabel" hidden>ビンゴの終わり<select data-key="bingoEnd"><option value="p1">1人がBINGOしたら</option><option value="p2">2人がBINGOしたら</option><option value="p3">3人がBINGOしたら</option><option value="l2">だれかが2ビンゴしたら</option><option value="l3">だれかが3ビンゴしたら</option><option value="all">問題数まで</option></select></label>
@@ -394,6 +399,7 @@
         <input id="answerInput" maxlength="50" placeholder="曲名か作品名を入力" enterkeyhint="send">
         <button class="btn-main" id="sendBtn" type="submit">回答</button>
       </form>
+      <div class="fill-sugg" id="mvSugg"></div>
       <div class="lifelines" id="lifelines">
         <button class="btn-sub skip" id="passBtn"><img class="icon" src="assets/glass/icon-skip.webp" alt="">わからない（パス）</button>
       </div>

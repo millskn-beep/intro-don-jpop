@@ -935,7 +935,8 @@ const OPTIONS = {
   lifelines: [true, false],
   quizType: ['intro', 'sabimae', 'mix', 'random', 'outro', 'utaidashi', 'notchorus', 'oneline'], // utaidashi：歌い出しから／notchorus：サビ以外の歌詞の行から／oneline：歌詞の一行だけ（data/lyric-times.json の曲） // イントロ／サビ前／1問ごとにランダム／どこから（曲の途中）／アウトロ（曲の終わり）
   // 遊び方：ふつう／早押し（押した人だけ答える）／サバイバル（ライフがなくなったら脱落）／出題者（順番に1人が曲を選ぶ）／協力（全員の正解数で目標）／ビンゴ
-  play: ['normal', 'buzzer', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'monopoly', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'genreex', 'dentatsu', 'lyrics2', 'tanshuku', 'lyrics'], // lyrics：歌詞クイズ（歌詞の合言葉で作った非公開の部屋だけ） // dentatsu：アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる） // genreex：アニソン・ジャンル制覇EX（集める種類を6つ以上・年代や曲の種類・知名度も選べる） // azul：アニソン・アズール（曲カードを取り合い、年代別の棚に並べる） // kaerema：アニソン帰れま10（お題の曲の再生回数トップ10を全部当てる） // deck：アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買う） // genre：アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ） // sugoroku：アニソンすごろく（正解の速さでコマを進める） // wits：アニソン年当てベット（発売年を予想して、いちばん近い予想に賭ける） // daifugo：アニソン大富豪（発売年が新しい曲ほど強い。年は見えない） // codenames：アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる） // baba：アニソン・ババ抜き（同じ作品の曲2枚がペア） // dixit：アニソン・ディクシット（語り手のヒントから、手札の曲を出して語り手の曲を当てる） // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
+  mvSound: ['on', 'off'], mvScope: ['all', 'official'], mvSuggest: ['on', 'off'],
+  play: ['normal', 'buzzer', 'mvflash', 'survival', 'picker', 'coop', 'bingo', 'fill', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'monopoly', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'genreex', 'dentatsu', 'lyrics2', 'tanshuku', 'lyrics'], // lyrics：歌詞クイズ（歌詞の合言葉で作った非公開の部屋だけ） // dentatsu：アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる） // genreex：アニソン・ジャンル制覇EX（集める種類を6つ以上・年代や曲の種類・知名度も選べる） // azul：アニソン・アズール（曲カードを取り合い、年代別の棚に並べる） // kaerema：アニソン帰れま10（お題の曲の再生回数トップ10を全部当てる） // deck：アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買う） // genre：アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ） // sugoroku：アニソンすごろく（正解の速さでコマを進める） // wits：アニソン年当てベット（発売年を予想して、いちばん近い予想に賭ける） // daifugo：アニソン大富豪（発売年が新しい曲ほど強い。年は見えない） // codenames：アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる） // baba：アニソン・ババ抜き（同じ作品の曲2枚がペア） // dixit：アニソン・ディクシット（語り手のヒントから、手札の曲を出して語り手の曲を当てる） // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
   target: ['song', 'work', 'year', 'artist'], // 答えるもの：曲名／作品／年／歌手
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
@@ -978,7 +979,7 @@ const AVATARS = 12; // 席ごとに割り当てるアバター画像の数（pub
 const DEFAULTS = { introLen: 5, hintAt: 10, chorusLen: 15, choices: 8, mode: 'score', questions: 10, maxPlayers: 12,
                    yearFrom: 1980, yearTo: 2029, answerMode: 'choice', clues: true, lifelines: false, typingExtra: 10,
                    quizType: 'intro', leadSec: 5, autoNext: 8, bonus: true, topic: 'all', introPlays: 1, noExclude: false, noRecord: false,
-                   tsKind: 'both', tsAns: 'choice', lyFocus: 'chorus', lessPlayed: false, play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, wwHint: 'title', wwRaise: 'on', wwStyle: 'ogiri', mpBy: 'genre', mpLand: 'full', lyKind: 'mix', noCoupling: false };
+                   mvSound: 'on', mvScope: 'all', mvSuggest: 'on', tsKind: 'both', tsAns: 'choice', lyFocus: 'chorus', lessPlayed: false, play: 'normal', target: 'song', lives: 1, teams: false, speed: '1', coopGoal: 70, lockSec: 15, noRepeat: false, bingoEnd: 'p1', rushRate: 'normal', buzzStop: true, karutaFace: 'title', wolfWork: 'hide', wolfTitle: 'show', gzPick: 'choose', gzSet: 'fixed', gzCount: 10, gzPicks: [], kmTop: 10, dtChoices: 8, wwHint: 'title', wwRaise: 'on', wwStyle: 'ogiri', mpBy: 'genre', mpLand: 'full', lyKind: 'mix', noCoupling: false };
 const SURVIVAL_MAX = 50; // サバイバルは問題数の代わりに、終わるまで出す（最大この問題数）
 const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
@@ -1020,6 +1021,7 @@ function sanitizeSettings(input, base) {
   if (s.yearFrom > s.yearTo) [s.yearFrom, s.yearTo] = [s.yearTo, s.yearFrom];
   // できない組み合わせ：年代当て＋早押し、サバイバル＋チーム戦
   if (s.target === 'year' && s.play === 'buzzer') s.play = 'normal';
+  if (s.play === 'mvflash') s.target = 'song'; // MVフラッシュは曲名を当てる
   if (['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'sugoroku', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(s.play) && s.teams) s.teams = false; // サバイバル・協力・ビンゴはチーム戦にしない（3つ埋めバトルはできる。お手つきはチームで共有）
   return s;
 }
@@ -1509,6 +1511,10 @@ function startGame(room) {
   if (S.quizType === 'sabimae') {
     const sure = pool.filter(hasChorus);
     if (sure.length >= S.questions) candidates = sure;
+  }
+  if (S.play === 'mvflash') {
+    candidates = mvPool(S, pool);
+    if (!candidates.length) return false;
   }
   if (S.play === 'lyrics' || S.play === 'lyrics2') {
     if (!room.lyricsOk) return 'lyricsLocked';
@@ -3627,7 +3633,8 @@ function startQuestion(room, song, picker = null) {
   const g = room.game;
   const S = room.settings;
   // ミックスでも、サビの位置が仮の曲はイントロで出す
-  let kind = S.quizType === 'mix' ? (hasChorus(song) && crypto.randomInt(2) ? 'sabimae' : 'intro') : S.quizType;
+  let kind = S.play === 'mvflash' ? 'flash' : S.quizType === 'mix' ? (hasChorus(song) && crypto.randomInt(2) ? 'sabimae' : 'intro') : S.quizType;
+  const scenes = kind === 'flash' ? flashScenes(song) : null;
   // 歌詞クイズ：その曲で作れる種類から（流す問題は時刻が合う曲だけ。作れなければ「この歌詞の曲は？」）
   let lyq = null;
   if ((S.play === 'lyrics' || S.play === 'lyrics2') && room.lyricsOk) {
@@ -3650,7 +3657,7 @@ function startQuestion(room, song, picker = null) {
   const ly = LYRIC_KINDS.includes(kind) ? lyricStart(song, kind, S) : null;
   if (LYRIC_KINDS.includes(kind) && !ly) kind = 'intro'; // 歌詞の時刻がない曲はイントロで
   // サビ前問題は「サビ − leadSec 秒」から流す（イントロより前にはしない）。「どこから」は曲の途中のどこか
-  const start = lyq ? (lyq.play ? lyq.play.from : song.intro || 0) : ly ? ly.start : kind === 'sabimae' ? Math.max(song.intro || 0, chorusOf(song) - S.leadSec)
+  const start = scenes ? scenes[0] : lyq ? (lyq.play ? lyq.play.from : song.intro || 0) : ly ? ly.start : kind === 'sabimae' ? Math.max(song.intro || 0, chorusOf(song) - S.leadSec)
               : kind === 'random' ? randomStart(song) : kind === 'outro' ? outroStart(song, S.hintAt) : (song.intro || 0);
   // 答えるもの：年 → 年を選ぶ／作品 → 作品名の選択肢（入力なら作品名だけ正解）／曲名 → いつもの選択肢
   const years = S.target === 'year' ? yearRange(S, song) : null;
@@ -3676,7 +3683,7 @@ function startQuestion(room, song, picker = null) {
     : buildChoices(song, S.choices, cpool);
   g.q = {
     attack: S.play === 'panel' && !!g.panel && g.attackCell != null && g.qi === g.attackQi, // アニソン陣取り：20問目のあと白いマスができた、次の問題が「アタックチャンス」
-    song, choices, correctIndex, kind, start, years, introLen: lyq ? (lyq.play ? Math.max(2, lyq.play.until - lyq.play.from) : 0.1) : ly?.len || null, lyCut: !!lyq?.cut, lyric: lyq?.lyric || null, lyType: lyq?.typeAnswer || null, karaoke: lyq?.karaoke || null, lyReveal: lyq?.reveal || null, lyFixed: lyq?.lyric?.fixed || null, // lyType：カラオケ止めの答え（画面には送らない）／lyReveal：答え合わせで流す所 // introLen：歌詞の一行だけの問題は、その行の長さ
+    song, choices, correctIndex, kind, start, scenes, years, introLen: lyq ? (lyq.play ? Math.max(2, lyq.play.until - lyq.play.from) : 0.1) : ly?.len || null, lyCut: !!lyq?.cut, lyric: lyq?.lyric || null, lyType: lyq?.typeAnswer || null, karaoke: lyq?.karaoke || null, lyReveal: lyq?.reveal || null, lyFixed: lyq?.lyric?.fixed || null, // lyType：カラオケ止めの答え（画面には送らない）／lyReveal：答え合わせで流す所 // introLen：歌詞の一行だけの問題は、その行の長さ
     phase: 'loading', t0: 0,
     rush: g.rushPlan?.[g.qi] || null, // 激アツRUSH：この問題の保留の色と当たり
     ready: new Set(),
@@ -3704,6 +3711,7 @@ function questionPayload(room) {
   return {
     qNo: g.qi + 1, qTotal: g.order.length, endless: isGz(room.settings.play), // endless：全部そろうまで続く（問題数なし）
     videoId: q.song.id, intro: LYRIC_KINDS.includes(q.kind) || q.kind?.startsWith('ly-') ? q.start : q.song.intro || 0, start: q.start, kind: q.kind,
+    scenes: q.scenes, sceneShow: FLASH.show, sceneSlot: FLASH.slot, mvSound: room.settings.mvSound, mvSuggest: room.settings.mvSuggest,
     lyric: q.lyric ? { ...q.lyric, fixed: undefined } : null, // 歌詞クイズの歌詞（非公開の部屋の人にだけ。間違い探しの答えは送らない）
     final: room.settings.bonus && isFinalQuestion(room),
     attack: !!q.attack,
@@ -3783,6 +3791,21 @@ function hintAtOf(S, kind) {
 }
 
 function chorusOf(song) { return song.chorus > 0 ? song.chorus : (song.intro || 0) + 50; }
+// MVフラッシュ：1場面 show 秒の映像を、slot 秒ごと（飛ぶ間の読み込みを含む）に切り替える。遠い場面から始めて、最後はサビの中へ
+const FLASH = { show: 1, slot: 1.9, tail: 3, gaps: [32, 26, 20, 14, 10, 7, 4, 0] };
+function flashScenes(song) {
+  const c = chorusOf(song), low = song.intro || 0, dur = DURATIONS.get(song.id) || Infinity;
+  const ok = t => t >= low && t <= dur - 3;
+  return FLASH.gaps.map(g => {
+    const [x, y] = crypto.randomInt(2) ? [c + g, c - g] : [c - g, c + g]; // 前か後ろか、曲の中に収まるほう
+    return ok(x) ? x : ok(y) ? y : Math.max(low, Math.min(c, dur - 3));
+  });
+}
+const flashTotal = () => FLASH.gaps.length * FLASH.slot + FLASH.tail;
+// MVフラッシュの動画：静止画の音源（YouTube の Topic）は出さない。official は公式と分かる動画だけ
+const isTopic = s => /- Topic$/.test(s.channel || '');
+const isOfficialVideo = s => !isTopic(s) && /公式|official|MV/i.test(`${s.source || ''} ${s.channel || ''}`);
+function mvPool(S, pool) { return pool.filter(S.mvScope === 'official' ? isOfficialVideo : s => !isTopic(s)); }
 
 const COUNTDOWN = 3; // ゲームの最初の問題だけ「3・2・1・START!」を入れる（秒）
 function go(room) {
@@ -3803,10 +3826,10 @@ function go(room) {
   q.t0 = Date.now() + LEAD_MS;
   // 途中で設定が変わっても、この問題は始めた時の設定で進める
   const plays = introPlaysOf(S, q.kind), hintAt = hintAtOf(S, q.kind);
-  q.hintAt = hintAt; q.plays = plays; q.total = q.fill ? fillTotal(q, hintAt) : questionTotal(S, hintAt); // 3つ埋めバトルは曲が終わるまで
-  const sabimae = flowing(q.kind);
+  q.hintAt = q.scenes ? flashTotal() : hintAt; q.plays = plays; q.total = q.scenes ? flashTotal() : q.fill ? fillTotal(q, hintAt) : questionTotal(S, hintAt); // 3つ埋めバトルは曲が終わるまで
+  const sabimae = flowing(q.kind) || !!q.scenes;
   const iLen = (q.introLen || S.introLen) / (q.lyCut ? q.speed || 1 : 1); // 歌詞の一行だけの問題は、その行の長さ。隠した言葉の手前で止める問題は、再生速度のぶんも合わせる
-  io.to(room.code).emit('go', { intro: LYRIC_KINDS.includes(q.kind) || q.kind?.startsWith('ly-') ? q.start : q.song.intro || 0, start: q.start, kind: q.kind, hintAt, total: q.total, offset: -LEAD_MS / 1000,
+  io.to(room.code).emit('go', { intro: LYRIC_KINDS.includes(q.kind) || q.kind?.startsWith('ly-') ? q.start : q.song.intro || 0, start: q.start, kind: q.kind, hintAt: q.hintAt, total: q.total, offset: -LEAD_MS / 1000,
                                 introLen: iLen, plays, gap: INTRO_GAP, speed: q.speed || 1, t0: q.t0 }); // t0：時計合わせ済みの端末は、この時刻ちょうどに流し始める
   const later = (r, fn, ms) => laterAt(r, fn, ms + LEAD_MS);
   // サビ前問題は止めずに流し続ける。イントロは introLen 秒で止め、回数の設定があれば少し空けて頭から流し直す
@@ -3820,7 +3843,7 @@ function go(room) {
   if (q.rush?.omens?.length) { // 激アツRUSH：予兆（全員に同じ時刻で出す。当たりかどうかは伏せたまま）
     for (const o of q.rush.omens) later(room, () => { if (q.phase === 'intro') io.to(room.code).emit('rushOmen', { kind: o.kind, lv: o.lv, step: o.step }); }, o.f * hintAt * 1000);
   }
-  later(room, () => {
+  if (!q.scenes) later(room, () => {
     if (q.phase !== 'intro') return;
     q.phase = 'chorus';
     if (q.kind?.startsWith('ly-')) return broadcastRoom(room); // 歌詞クイズはサビへ移らない
@@ -3830,7 +3853,7 @@ function go(room) {
     if (q.rush?.hit) io.to(room.code).emit('rushReach', { color: q.rush.color }); // 激アツRUSH：当たりの問題は「リーチ！」
     broadcastRoom(room);
   }, hintAt * 1000);
-  if (S.clues && !q.fill) { // 3つ埋めバトルは、ヒント（年・歌手・作品の頭文字）が枠の答えになるので出さない
+  if (S.clues && !q.fill && !q.scenes) { // 3つ埋めバトルは、ヒント（年・歌手・作品の頭文字）が枠の答えになるので出さない
     // ビンゴは頭文字のヒント（「〇」から始まる作品）を出さない（カードのマスがすぐ分かってしまうので）
     clueList(q.song, S.target).filter(c => !(S.play === 'bingo' && c.label === '作品') && !(S.play === 'nenpyo' && c.label === '年') && !(S.play === 'karuta' && ((S.karutaFace === 'work' && c.label === '作品') || (S.karutaFace === 'artist' && c.label === '歌手')))).forEach((c, i) => later(room, () => {
       if (q.phase !== 'intro' && q.phase !== 'chorus') return;
@@ -3851,7 +3874,7 @@ function onAnswer(room, player, payload) {
   if (!q.participants.has(player.token) || q.answers.has(player.token)) return;
 
   const S = room.settings;
-  const buzzer = S.play === 'buzzer', holder = q.buzz?.token === player.token;
+  const buzzer = S.play === 'buzzer' || S.play === 'mvflash', holder = q.buzz?.token === player.token;
   if (buzzer && !holder && payload?.pass !== true) return; // 押していない人は答えられない（パスで「この問題は押さない」はできる）
   let index = null, given = null, pass = false, correct = false, diff = null, miss = false;
   if (payload?.timeout === true && holder) {
@@ -3986,7 +4009,7 @@ function qlog(room, player, entry) {
   const q = room.game?.q;
   if (!q) return;
   const e = { ...entry, id: player.id, name: player.name };
-  const open = ['buzzer', 'fill'].includes(room.settings.play) || entry.type === 'choices';
+  const open = ['buzzer', 'mvflash', 'fill'].includes(room.settings.play) || entry.type === 'choices';
   q.qlog = q.qlog || [];
   q.qlog.push({ ...e, token: open ? null : player.token });
   // ふつうは、正解かどうかも答え合わせまで出さない（答え合わせで全員分をまとめて送る）
@@ -4125,7 +4148,7 @@ function settleBuzz(room, q) {
 }
 function onBuzz(room, player, claimed = null) {
   const g = room.game, q = g?.q;
-  if (!q || !['buzzer', 'fill'].includes(room.settings.play) || g.paused) return;
+  if (!q || !['buzzer', 'mvflash', 'fill'].includes(room.settings.play) || g.paused) return;
   if (q.phase !== 'intro' && q.phase !== 'chorus') return;
   if (!q.participants.has(player.token) || q.answers.has(player.token) || Date.now() < q.t0) return;
   if (q.fill && !fillCanBuzz(room, q, player)) return;
@@ -4174,7 +4197,7 @@ function unfreezeQuestion(room, q) {
 // 押した人の番を始める（at：押した時刻。早いほど高い点）
 function startBuzz(room, player, at) {
   const q = room.game.q;
-  const stop = !!room.settings.buzzStop;
+  const stop = !!room.settings.buzzStop || !!q.scenes; // MVフラッシュは、答えている間は場面を進めない
   if (stop) freezeQuestion(room, q);
   // 3つ埋めバトル：イントロ中に押されたら、サビへ飛ばずにそのまま流し続ける（イントロで止めない）。曲の終わりも合わせて延ばす
   if (q.fill && q.phase === 'intro' && !q.flowOn && q.kind !== 'sabimae') {
@@ -4603,7 +4626,7 @@ function resumeGame(room) {
   const S = room.settings, poolChanged = poolKey(S) !== g.paused.poolKey;
   if ((poolChanged || S.questions !== g.paused.questions) && !['picker', 'bingo', 'rush'].includes(S.play)) {
     const done = g.order.slice(0, g.qi + 1), rest = g.order.slice(g.qi + 1);
-    const pool = poolChanged ? poolFor(S, userCtx(room)) : g.pool;
+    const pool = poolChanged ? (S.play === 'mvflash' ? mvPool(S, poolFor(S, userCtx(room))) : poolFor(S, userCtx(room))) : g.pool;
     if (pool.length) g.pool = pool;
     const need = Math.max(0, S.questions - done.length);
     const keep = poolChanged ? [] : rest.filter(s => g.pool.includes(s));

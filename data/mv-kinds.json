@@ -44481,5 +44481,122 @@
   "diff": 77.6,
   "pAnime": 0.978,
   "pLiveMax": 0.047
+ },
+ "QtzVIHE0MP4": {
+  "kind": "live",
+  "anime": 0,
+  "live": 3,
+  "frames": [
+   "live",
+   "live",
+   "live"
+  ],
+  "diff": 80.3,
+  "pAnime": 0.199,
+  "pLiveMax": 0.834
+ },
+ "V3L7Zg2ZWA4": {
+  "kind": "live",
+  "anime": 0,
+  "live": 3,
+  "frames": [
+   "live",
+   "live",
+   "live"
+  ],
+  "diff": 93.4,
+  "pAnime": 0.155,
+  "pLiveMax": 0.974
+ },
+ "ojBXU6F8J0Y": {
+  "kind": "static",
+  "anime": 3,
+  "live": 0,
+  "frames": [
+   "anime",
+   "anime",
+   "anime"
+  ],
+  "diff": 0.0,
+  "pAnime": 0.723,
+  "pLiveMax": 0.245
+ },
+ "KWqUaC-bJj8": {
+  "kind": "mixed",
+  "anime": 2,
+  "live": 1,
+  "frames": [
+   "anime",
+   "anime",
+   "live"
+  ],
+  "diff": 55.0,
+  "pAnime": 0.448,
+  "pLiveMax": 0.855
+ },
+ "LRn4ebcKWNY": {
+  "kind": "live",
+  "anime": 0,
+  "live": 3,
+  "frames": [
+   "live",
+   "live",
+   "live"
+  ],
+  "diff": 25.8,
+  "pAnime": 0.242,
+  "pLiveMax": 0.893
+ },
+ "pqwSIOrMq7w": {
+  "kind": "anime",
+  "anime": 3,
+  "live": 0,
+  "frames": [
+   "anime",
+   "anime",
+   "anime"
+  ],
+  "diff": 32.5,
+  "pAnime": 0.603,
+  "pLiveMax": 0.43
+ },
+ "PY-kRbBu1_k": {
+  "kind": "live",
+  "anime": 0,
+  "live": 3,
+  "frames": [
+   "live",
+   "live",
+   "live"
+  ],
+  "diff": 57.7,
+  "pAnime": 0.123,
+  "pLiveMax": 0.94
+ },
+ "Bz_P78JJmA4": {
+  "kind": "mixed",
+  "anime": 2,
+  "live": 1,
+  "frames": [
+   "anime",
+   "live",
+   "anime"
+  ],
+  "diff": 41.3,
+  "pAnime": 0.41,
+  "pLiveMax": 0.879
+ },
+ "f7Cwk47K0OQ": {
+  "kind": "live",
+  "anime": 0,
+  "live": 3,
+  "frames": [
+   "live",
+   "live",
+   "live"
+  ],
+  "diff": 126.6,
+  "pAnime": 0.028,
+  "pLiveMax": 0.997
  }
 }

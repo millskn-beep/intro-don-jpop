@@ -1,8 +1,9 @@
-// アニソン指パチンコ：浮かんでいる的（選択肢）を、パチンコで撃ち抜いて答える。仕様は docs/sling-spec.md
+// アニソン指パチンコ：画面の上に並ぶ四角い的（選択肢）を、パチンコで撃ち抜いて答える。途中のブロックに当たると跳ね返って壊れる。仕様は docs/sling-spec.md
 // 当たり判定はこの画面で行い、サーバーには「どの的に当てたか（会心か）」だけを送る。点数と弾の数はサーバーが決める
 // 的の位置は全員同じ（問題ごとの seed と、サーバーの時計で流し始めてからの秒数で決まる）なので、ほかの人の弾の軌跡も同じ画面に重ねられる
 
-const G = 1.15;          // 重力（画面の高さ／秒²）
+const G = 0.35;          // 重力（画面の高さ／秒²）。ほぼまっすぐ飛ぶ
+const SHOT_GAP = 250;    // 連射の間隔（ミリ秒）
 const VMAX = 2.25;       // 引ききったときの弾の速さ（画面の高さ／秒）
 const ASSIST = 1.7;      // 狙いの補助：的のまわりのこの倍率の範囲に入った弾を、少し的へ寄せる
 const ASSIST_PULL = 2.4; // 寄せる強さ（画面の高さ／秒²）
@@ -11,31 +12,39 @@ const COLORS = ['#4fc3f7', '#ff8a65', '#aed581', '#ffd54f', '#ce93d8', '#f48fb1'
 
 let ctx = null, cv = null, g2 = null, W = 0, H = 0, dpr = 1;
 let q = null, t0 = 0, hintAt = 99, live = false, raf = 0;
-let targets = [], shots = [], trails = [], bits = [], drag = null, ammo = 3, done = false, cracked = new Set(), banner = null;
+let targets = [], blocks = [], shots = [], trails = [], bits = [], drag = null, ammo = 3, done = false, cracked = new Set(), banner = null, lastShot = 0;
 const colorOf = id => COLORS[[...String(id)].reduce((a, c) => a + c.charCodeAt(0), 0) % COLORS.length];
 
 // 問題ごとに同じ乱数（seed から）
 function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 
 function layout() {
-  const n = q.choices.length, r = rng(q.slSeed || 1), cols = n <= 4 ? 2 : n <= 6 ? 3 : 4, rows = Math.ceil(n / cols);
+  const n = q.choices.length, r = rng(q.slSeed || 1), cols = n, rows = 1; // 的は一番上に横一列
   const order = q.choices.map((_, i) => i).sort(() => r() - .5); // 並びは問題ごとに入れ替える（選択肢の順番どおりにしない）
   targets = order.map((ci, k) => {
     const c = k % cols, row = Math.floor(k / cols);
-    return { i: ci, title: q.choices[ci].title, bx: (c + .5) / cols, by: .16 + (row + .5) * (.5 / rows), ph: r() * 6.28, ph2: r() * 6.28, w: .6 + r() * .5, w2: .5 + r() * .5 };
+    return { i: ci, title: q.choices[ci].title, bx: (c + .5) / cols, by: .19, ph: r() * 6.28, w: .6 + r() * .5 };
   });
+  // ブロック（邪魔）：的と撃つ所のあいだに 5〜8 個。位置は全員同じ、壊れるのは自分の画面だけ
+  const nb = 5 + Math.floor(r() * 4), top = .36;
+  blocks = [];
+  for (let k = 0; k < 60 && blocks.length < nb; k++) { // ブロックどうしは重ならないように
+    const b = { x: .08 + r() * .84, y: top + r() * (.62 - top), w: .07 + r() * .07, h: .028, hp: 1 };
+    if (!blocks.some(o => Math.abs(o.x - b.x) < (o.w + b.w) / 2 + .02 && Math.abs(o.y - b.y) < .06)) blocks.push(b);
+  }
 }
 // 的の今の位置（全員同じ時刻なら同じ位置）。サビに入ると速くなる
 function place(tg, sec) {
   const amp = { still: 0, slow: 1, fast: 1.8 }[q.slMove] ?? 1;
   const tt = sec < hintAt ? sec : hintAt + (sec - hintAt) * 1.6;
-  const cols = q.choices.length <= 4 ? 2 : q.choices.length <= 6 ? 3 : 4;
-  const { rx } = size(), x = (tg.bx + Math.sin(tt * tg.w * amp + tg.ph) * (.32 / cols) * Math.min(1, amp)) * W;
-  return { x: Math.max(rx + 4, Math.min(W - rx - 4, x)), y: (tg.by + Math.cos(tt * tg.w2 * amp + tg.ph2) * .04 * Math.min(1, amp)) * H };
+  const cols = q.choices.length;
+  const { rx } = size(), room = Math.max(0, W / cols / 2 - rx - 4); // 自分の枠の中だけで動く（となりの的と重ならない）
+  const x = tg.bx * W + Math.sin(tt * tg.w * amp + tg.ph) * room * Math.min(1, amp);
+  return { x: Math.max(rx + 4, Math.min(W - rx - 4, x)), y: tg.by * H };
 }
 function size() {
-  const cols = q.choices.length <= 4 ? 2 : q.choices.length <= 6 ? 3 : 4;
-  const rx = Math.min(W / cols * .42, 120), ry = Math.max(rx * .42, 22);
+  const cols = q.choices.length;
+  const rx = Math.min(W / cols * .44, 130), ry = Math.max(Math.min(H * .075, 52), 30); // 横一列なので細く、そのぶん縦に長く
   return { rx, ry };
 }
 const now = () => (ctx.serverNow() - t0) / 1000;
@@ -56,7 +65,7 @@ function step(b, dt, mine, sec) {
     let best = null, bd = 1e9;
     for (const tg of targets) {
       if (cracked.has(tg.i)) continue;
-      const p = place(tg, sec), dx = (b.x - p.x) / rx, dy = (b.y - p.y) / ry, d = Math.hypot(dx, dy);
+      const p = place(tg, sec), d = Math.max(Math.abs(b.x - p.x) / rx, Math.abs(b.y - p.y) / ry); // 四角い的
       if (d < bd) { bd = d; best = { tg, p, d }; }
     }
     if (best && best.d <= 1) { b.hit = best; return; }
@@ -65,13 +74,23 @@ function step(b, dt, mine, sec) {
       b.vx += ax / l * ASSIST_PULL * H * dt; b.vy += ay / l * ASSIST_PULL * H * dt;
     }
   }
+  const px = b.x, py = b.y;
   b.vy += G * H * dt; b.x += b.vx * dt; b.y += b.vy * dt;
+  if (mine) for (const k of blocks) { // ブロック：跳ね返って壊れる
+    if (k.hp <= 0) continue;
+    const x0 = (k.x - k.w / 2) * W, x1 = (k.x + k.w / 2) * W, y0 = (k.y - k.h / 2) * H, y1 = (k.y + k.h / 2) * H;
+    if (b.x < x0 || b.x > x1 || b.y < y0 || b.y > y1) continue;
+    if (px < x0 || px > x1) b.vx = -b.vx; else b.vy = -b.vy;
+    b.x = px; b.y = py; k.hp--; burst((x0 + x1) / 2, (y0 + y1) / 2, '#ffb36b', 12);
+    break;
+  }
   b.path.push([b.x, b.y]); if (b.path.length > 14) b.path.shift();
   if (b.y < -40 || b.x < -40 || b.x > W + 40 || b.y > H + 40) b.gone = true;
 }
 
 function shoot(vx, vy) {
-  if (done || ammo <= 0) return;
+  if (done || ammo <= 0 || performance.now() - lastShot < SHOT_GAP) return;
+  lastShot = performance.now();
   const a = anchor();
   shots.push({ x: a.x, y: a.y, vx, vy, path: [] });
   if (Number.isFinite(ammo)) ammo--;
@@ -92,15 +111,22 @@ function draw(ts) {
   const sec = now(), dt = Math.min(.05, (ts - (draw.last || ts)) / 1000); draw.last = ts;
   g2.clearRect(0, 0, W, H);
   const { rx, ry } = size();
+  // ブロック
+  for (const k of blocks) {
+    if (k.hp <= 0) continue;
+    const x0 = (k.x - k.w / 2) * W, y0 = (k.y - k.h / 2) * H;
+    g2.fillStyle = '#d9824a'; g2.fillRect(x0, y0, k.w * W, k.h * H);
+    g2.strokeStyle = 'rgba(255, 220, 180, .8)'; g2.lineWidth = 1.5; g2.strokeRect(x0, y0, k.w * W, k.h * H);
+  }
   // 的
   for (const tg of targets) {
     if (tg.gone) continue;
     const p = place(tg, sec);
     g2.save(); g2.translate(p.x, p.y);
-    g2.beginPath(); g2.ellipse(0, 0, rx, ry, 0, 0, 6.28);
+    g2.beginPath(); g2.roundRect(-rx, -ry, rx * 2, ry * 2, 8);
     g2.fillStyle = cracked.has(tg.i) ? 'rgba(60, 20, 30, .78)' : 'rgba(18, 16, 40, .82)'; g2.fill();
     g2.lineWidth = 2; g2.strokeStyle = cracked.has(tg.i) ? '#ff5d7a' : 'rgba(190, 170, 255, .9)'; g2.stroke();
-    g2.beginPath(); g2.ellipse(0, 0, rx * CRIT, ry * CRIT, 0, 0, 6.28); g2.strokeStyle = 'rgba(255, 224, 102, .35)'; g2.lineWidth = 1; g2.stroke(); // 会心の範囲
+    g2.beginPath(); g2.rect(-rx * CRIT, -ry * CRIT, rx * CRIT * 2, ry * CRIT * 2); g2.strokeStyle = 'rgba(255, 224, 102, .35)'; g2.lineWidth = 1; g2.stroke(); // 会心の範囲
     if (cracked.has(tg.i)) { g2.strokeStyle = '#ff5d7a'; g2.lineWidth = 2; g2.beginPath(); g2.moveTo(-rx * .5, -ry * .6); g2.lineTo(-rx * .1, 0); g2.lineTo(-rx * .3, ry * .5); g2.moveTo(-rx * .1, 0); g2.lineTo(rx * .4, -ry * .3); g2.stroke(); }
     label(tg.title, rx, ry);
     g2.restore();
@@ -143,12 +169,12 @@ function line(path, color, alpha) {
 }
 function label(text, rx, ry) {
   g2.fillStyle = '#fff'; g2.textAlign = 'center'; g2.textBaseline = 'middle';
-  let fs = Math.max(10, Math.min(16, rx / 5)); g2.font = `700 ${fs}px "Zen Kaku Gothic New", sans-serif`;
+  let fs = Math.max(9, Math.min(15, rx / 3.6)); g2.font = `700 ${fs}px "Zen Kaku Gothic New", sans-serif`;
   const chars = [...text], lines = [];
   let cur = '';
-  for (const ch of chars) { if (g2.measureText(cur + ch).width > rx * 1.6 && cur) { lines.push(cur); cur = ch; } else cur += ch; }
+  for (const ch of chars) { if (g2.measureText(cur + ch).width > rx * 1.8 && cur) { lines.push(cur); cur = ch; } else cur += ch; }
   if (cur) lines.push(cur);
-  const show = lines.slice(0, 3); if (lines.length > 3) show[2] = show[2].slice(0, -1) + '…';
+  const max = Math.max(2, Math.floor(ry * 2 / (fs * 1.15)) - 1), show = lines.slice(0, max); if (lines.length > max) show[max - 1] = show[max - 1].slice(0, -1) + '…';
   show.forEach((l, k) => g2.fillText(l, 0, (k - (show.length - 1) / 2) * fs * 1.15));
 }
 function pullOf(d) {
@@ -198,7 +224,7 @@ export function initSling(c) {
 // 出題：的を並べる（流れ始めるまでは撃てない）
 export function slingQuestion(question) {
   q = question; live = false; done = false; cracked = new Set(); shots = []; trails = []; bits = []; banner = null; drag = null;
-  ammo = q.slAmmo === '1' ? 1 : q.slAmmo === 'inf' ? Infinity : 3;
+  ammo = q.slAmmo === '1' ? 1 : q.slAmmo === '3' ? 3 : Infinity;
   ctx.$('slScreen').hidden = false; resize(); layout();
   ctx.$('slPass').hidden = false;
 }

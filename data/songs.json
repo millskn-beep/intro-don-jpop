@@ -19395,7 +19395,8 @@
       "トミーヘヴンリィ",
       "トミーヘブンリー",
       "トミーヘブンリー6",
-      "川瀬智子"
+      "川瀬智子",
+      "とみーへぶんりーしっくす"
     ]
   },
   {
@@ -22434,7 +22435,10 @@
     "views": 115712067,
     "channel": "コブクロ 公式チャンネル",
     "viewsAt": "2026-10-05",
-    "fame": "top"
+    "fame": "top",
+    "artistAliases": [
+      "こぶくろ"
+    ]
   },
   {
     "id": "9-WY0kLvm28",
@@ -36215,7 +36219,8 @@
     ],
     "artistAliases": [
       "前山田健一",
-      "まえやまだけんいち"
+      "まえやまだけんいち",
+      "ひゃだいん"
     ]
   },
   {
@@ -36246,7 +36251,8 @@
     ],
     "artistAliases": [
       "前山田健一",
-      "まえやまだけんいち"
+      "まえやまだけんいち",
+      "ひゃだいん"
     ]
   },
   {
@@ -131434,6 +131440,292 @@
     ],
     "artistAliases": [
       "りん"
+    ]
+  },
+  {
+    "id": "QtzVIHE0MP4",
+    "title": "ひとりじゃない",
+    "work": "ドラゴンボールGT",
+    "artist": "DEEN",
+    "year": 1996,
+    "type": "ED",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 13.7,
+    "chorus": 64.7,
+    "aliases": [
+      "ひとりじゃない"
+    ],
+    "embeddable": null,
+    "chorusChecked": true,
+    "views": 8219221,
+    "channel": "BeingKsubarashi",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "chorusSource": "audio",
+    "workAliases": [
+      "どらごんぼーる",
+      "DB",
+      "Dragon Ball"
+    ],
+    "artistAliases": [
+      "ディーン"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "V3L7Zg2ZWA4",
+    "title": "Blue Velvet",
+    "work": "ドラゴンボールGT",
+    "artist": "工藤静香",
+    "year": 1997,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 2.2,
+    "chorus": 130,
+    "aliases": [
+      "ぶるーべるべっと"
+    ],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2476503,
+    "channel": "工藤静香 -PONY CANYON-",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "どらごんぼーる",
+      "DB",
+      "Dragon Ball"
+    ],
+    "artistAliases": [
+      "くどうしずか"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "ojBXU6F8J0Y",
+    "title": "錆びついたマシンガンで今を撃ち抜こう",
+    "work": "ドラゴンボールGT",
+    "artist": "WANDS",
+    "year": 1997,
+    "type": "ED",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 10.2,
+    "chorus": 80.5,
+    "aliases": [
+      "さびついたましんがんでいまをうちぬこう",
+      "錆びついたマシンガン"
+    ],
+    "embeddable": null,
+    "chorusChecked": true,
+    "views": 2108574,
+    "channel": "JapaniseYourSelf",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "workAliases": [
+      "どらごんぼーる",
+      "DB",
+      "Dragon Ball"
+    ],
+    "artistAliases": [
+      "ワンズ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "KWqUaC-bJj8",
+    "title": "Blue Bird",
+    "work": "バクマン。",
+    "artist": "コブクロ",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 7.2,
+    "chorus": 94,
+    "aliases": [
+      "ぶるーばーど"
+    ],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3271998,
+    "channel": "コブクロ 公式チャンネル",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "ばくまん"
+    ],
+    "artistAliases": [
+      "こぶくろ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "LRn4ebcKWNY",
+    "title": "現実という名の怪物と戦う者たち",
+    "work": "バクマン。",
+    "artist": "高橋優",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1.7,
+    "chorus": 68,
+    "aliases": [
+      "げんじつというなのかいぶつとたたかうものたち"
+    ],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 5661673,
+    "channel": "高橋優",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "workAliases": [
+      "ばくまん"
+    ],
+    "artistAliases": [
+      "たかはしゆう",
+      "高橋",
+      "たかはし"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "pqwSIOrMq7w",
+    "title": "Dream of Life",
+    "work": "バクマン。",
+    "artist": "伊藤祥平",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 4.2,
+    "chorus": 66,
+    "aliases": [
+      "どりーむおぶらいふ"
+    ],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 2611851,
+    "channel": "Warner Music Japan",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "ばくまん"
+    ],
+    "artistAliases": [
+      "いとうしょうへい"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "PY-kRbBu1_k",
+    "title": "monochrome rainbow",
+    "work": "バクマン。",
+    "artist": "Tommy heavenly6",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 5.2,
+    "chorus": 60.4,
+    "aliases": [
+      "ものくろーむれいんぼー"
+    ],
+    "embeddable": null,
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 5552173,
+    "channel": "Warner Music Japan",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "workAliases": [
+      "ばくまん"
+    ],
+    "artistAliases": [
+      "トミーヘヴンリィ",
+      "トミーヘブンリー",
+      "トミーヘブンリー6",
+      "川瀬智子",
+      "とみーへぶんりーしっくす"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "Bz_P78JJmA4",
+    "title": "もしもの話",
+    "work": "バクマン。",
+    "artist": "nano.RIPE",
+    "year": 2012,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 10.7,
+    "chorus": 78,
+    "aliases": [
+      "もしものはなし"
+    ],
+    "embeddable": null,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 280194,
+    "channel": "Lantis Global Channel",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "ばくまん"
+    ],
+    "artistAliases": [
+      "ナノライプ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2"
+  },
+  {
+    "id": "f7Cwk47K0OQ",
+    "title": "23時40分 feat. Base Ball Bear",
+    "work": "バクマン。",
+    "artist": "ヒャダイン",
+    "year": 2013,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 1.2,
+    "chorus": 66.6,
+    "aliases": [
+      "にじゅうさんじよんじっぷん",
+      "23時40分"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusChecked": true,
+    "views": 963963,
+    "channel": "Hyadain",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "chorusSource": "audio",
+    "workAliases": [
+      "ばくまん"
+    ],
+    "artistAliases": [
+      "前山田健一",
+      "まえやまだけんいち",
+      "ひゃだいん"
     ]
   }
 ]

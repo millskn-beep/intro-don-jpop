@@ -4,6 +4,7 @@
 const VOL_DEFAULT = 80, FADE_OUT = 800, FADE_IN = 1000, FADE_CUT = 100;
 const HINT_WAIT = 1500; // イントロ→サビの間の待ち
 const CHORUS_LEAD = 0.3; // サビは少し前から流す（頭が切れないように）
+const SYNC_MAX = 1; // 再生位置のずれがこの秒数より大きいときだけ飛ばし直す（小さいずれで飛ぶと出だしがプツプツ途切れる）
 
 export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
   let yt = null, apiReady = false, pending = [];
@@ -57,10 +58,10 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
         }, 50);
       });
     },
-    // 全員そろったらイントロを頭から鳴らす
+    // 全員そろったらイントロを頭から鳴らす。読み込みでもうイントロの位置にいれば飛ばさない（飛ぶと読み込んだ分を捨てて、出だしが途切れる）
     start(intro) {
       clear();
-      run(() => { yt.seekTo(intro, true); yt.unMute(); yt.setVolume(volume); yt.playVideo(); });
+      run(() => { if (Math.abs(yt.getCurrentTime() - intro) > 0.5) yt.seekTo(intro, true); yt.unMute(); yt.setVolume(volume); yt.playVideo(); });
     },
     stopIntro(cut = false) { // cut：隠した歌詞が聞こえないよう、すぐ止める
       run(() => fade(volume, 0, cut ? FADE_CUT : FADE_OUT, () => yt.pauseVideo()));
@@ -105,7 +106,7 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
         }), introLen * 1000);
       });
     },
-    // 再生位置を合わせる：流れ始めたら本来の位置（expected() 秒）と比べ、0.3秒以上ずれていたら飛ばし直す（2回まで）。
+    // 再生位置を合わせる：流れ始めたら本来の位置（expected() 秒）と比べ、SYNC_MAX 秒以上ずれていたら飛ばし直す（2回まで）。
     // 最初に測ったずれ（秒・実時間）を onLag に1回だけ渡す（遅れて聞こえ始めた分を、早押しの判定で差し引く）
     sync(expected, onLag, speed = 1) {
       clearInterval(this.syncTimer);
@@ -117,7 +118,7 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
         if (exp == null) return clearInterval(this.syncTimer);
         const diff = exp - yt.getCurrentTime(); // ＋なら遅れている
         if (!reported) { reported = true; onLag && onLag(diff / (speed || 1)); }
-        if (Math.abs(diff) > 0.3 && fixes < 2) { fixes++; yt.seekTo(exp, true); return; }
+        if (Math.abs(diff) > SYNC_MAX && fixes < 2) { fixes++; yt.seekTo(exp, true); return; } // 小さいずれは飛ばさない（飛ぶたびに音が途切れる。遅れは onLag で早押しの判定から差し引く）
         clearInterval(this.syncTimer);
       }, 100);
     },

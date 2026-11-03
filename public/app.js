@@ -1545,7 +1545,13 @@ function applyMvQuality() {
 }
 document.querySelectorAll('.mv-qual').forEach(s => { s.onchange = () => { store.set('aq-mv-quality', s.value); applyMvQuality(); player.flashQuality(!mvHigh()); }; });
 applyMvQuality();
-function fitMv() { document.documentElement.style.setProperty('--mvs', Math.max(innerWidth / 480, innerHeight / 270)); }
+// 画質「低」は小さい動画を拡大するので、動画の上に出るタイトルとチャンネル名（小さい動画の高さの2割ほど）も大きくなる。上の黒い帯をその下まで伸ばして隠す
+function fitMv() {
+  const s = Math.max(innerWidth / 480, innerHeight / 270), top = (innerHeight - 270 * s) / 2 + 60 * s;
+  document.documentElement.style.setProperty('--mvs', s);
+  document.documentElement.style.setProperty('--mvtop', Math.max(innerHeight * .13, top) + 'px');
+  document.documentElement.style.setProperty('--mvbot', Math.min(innerHeight * .85, innerHeight - top) + 'px'); // 下も同じだけ（止まったときの「その他の動画」）
+}
 addEventListener('resize', fitMv); fitMv();
 // MVフラッシュの入力候補（3つ埋めバトルと同じ、押すと確定）
 $('answerInput').addEventListener('input', () => {

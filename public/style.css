@@ -1511,6 +1511,7 @@ body.room-paused .pk-modal:not(#fixPop) { display: none; } /* 一時停止中は
 .mv-screen, .mv-bands { display: none; position: fixed; inset: 0; z-index: -1; pointer-events: none; }
 body.mvflash .mv-screen { display: block; background: #000; } body.mvflash .mv-screen.open { background: transparent; }
 body.mvflash .mv-bands { display: block; background: linear-gradient(#000 0 13%, transparent 13% 85%, #000 85%); }
+body.mvflash:not(.mv-hq) .mv-bands { background: linear-gradient(#000 0 var(--mvtop, 13%), transparent var(--mvtop, 13%) var(--mvbot, 85%), #000 var(--mvbot, 85%)); } /* 画質「低」：拡大したタイトル・チャンネル名を隠す */
 body.mvflash .video-bg { opacity: 1; background: #000; transition: none; }
 body.mvflash .video-bg iframe { filter: none; transform: translate(-50%, -50%); }
 body.mvflash .top, body.mvflash .room-side, body.mvflash #cover, body.mvflash #mascot, body.mvflash #clues, body.mvflash #lifelines, body.mvflash #qlog, body.mvflash .stage-tools .vol:not(:first-child) { display: none; }

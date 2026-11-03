@@ -49,7 +49,7 @@
 <script>
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-const PLAY = { normal: 'ふつう', buzzer: '早押し', survival: 'サバイバル', picker: '出題者', coop: '協力', bingo: 'ビンゴ', fill: '3つ埋めバトル', rush: '激アツRUSH', poker: 'ポーカー', panel: '陣取り', karuta: 'かるた', nenpyo: '年表', wolf: '人狼', sugoroku: 'すごろく', genre: 'ジャンル制覇', genreex: 'ジャンル制覇EX', deck: 'デッキ構築', wits: '年代ベット', bluff: 'アニソンベット', monopoly: 'モノポリー', dentatsu: '伝達クイズ', dixit: 'ディクシット', kaerema: '帰れま10' };
+const PLAY = { normal: 'ふつう', buzzer: '早押し', survival: 'サバイバル', picker: '出題者', coop: '協力', bingo: 'ビンゴ', fill: '3つ埋めバトル', fillmany: 'たくさん埋めバトル', rush: '激アツRUSH', poker: 'ポーカー', panel: '陣取り', karuta: 'かるた', nenpyo: '年表', wolf: '人狼', sugoroku: 'すごろく', genre: 'ジャンル制覇', genreex: 'ジャンル制覇EX', deck: 'デッキ構築', wits: '年代ベット', bluff: 'アニソンベット', monopoly: 'モノポリー', dentatsu: '伝達クイズ', dixit: 'ディクシット', kaerema: '帰れま10' };
 let ST = null, songs = [], tab = 'top';
 const MIN_ANS = 5; // 正解率を出す最低の回答数
 async function load() {

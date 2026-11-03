@@ -232,6 +232,7 @@
           <option value="coop">協力（全員の正解数で目標をめざす）</option>
           <option value="bingo">ビンゴ（作品名のカードをそろえる）</option>
           <option value="fill">3つ埋めバトル（曲名・アニメ・アーティストを早押しで埋める）</option>
+          <option value="fillmany">たくさん埋めバトル（4〜8個の枠を早押しで埋める）</option>
           <option value="rush">アニソン激アツRUSH（保留・リーチ・大当たり・確変）</option>
           <option value="poker">アニソン・ポーカー（正解した曲のカードで役を作る）</option>
           <option value="azul">アニソン・アズール（曲カードを取り合い、年代別の棚に並べる・2〜4人）</option>
@@ -260,6 +261,8 @@
         <label id="questionsLabel">問題数<select data-key="questions"></select></label>
         <label id="livesLabel" hidden>ライフ<select data-key="lives"><option value="1">1（1回で脱落）</option><option value="2">2</option><option value="3">3</option></select></label>
         <label id="rushRateLabel" hidden>当たりやすさ<select data-key="rushRate"><option value="normal">ふつう</option><option value="high">出やすい（×1.5）</option><option value="low">出にくい（×0.6）</option></select></label>
+        <label id="fillMissLabel" hidden>お手つきの減点<select data-key="fillMiss"><option value="on">あり（間違えると −200点）</option><option value="off">なし（減点しない。押せない秒数はそのまま）</option></select></label>
+        <label id="fillNLabel" hidden>枠の数<select data-key="fillN"><option value="4">4個</option><option value="5">5個</option><option value="6">6個</option><option value="7">7個</option><option value="8">8個</option></select></label>
         <label id="lockSecLabel" hidden>お手つき後に押せない秒数<select data-key="lockSec"><option value="3">3秒</option><option value="5">5秒</option><option value="10">10秒</option><option value="15">15秒</option><option value="20">20秒</option><option value="30">30秒</option></select></label>
         <label id="wolfWorkLabel" hidden>人狼：候補に作品名（タイトル）<select data-key="wolfWork"><option value="hide">出さない</option><option value="show">出す</option></select></label>
         <label id="lyFocusLabel" hidden>歌詞クイズ：出す場所<select data-key="lyFocus"><option value="chorus">サビの歌詞を中心に</option><option value="any">どこからでも</option></select></label>

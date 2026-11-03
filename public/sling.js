@@ -179,11 +179,11 @@ function label(text, rx, ry) {
 }
 function pullOf(d) {
   const a = anchor();
-  let dx = a.x - d.x, dy = a.y - d.y; const l = Math.hypot(dx, dy), m = maxPull();
+  let dx = d.x - d.sx, dy = d.y - d.sy; const l = Math.hypot(dx, dy), m = maxPull(); // 指を動かした向きに飛ぶ（押した所からの動き）
   if (l > m) { dx *= m / l; dy *= m / l; }
   const k = Math.min(1, Math.hypot(dx, dy) / m);
-  // 引いた向きと反対に飛ぶ（引いた分だけ速い）
-  return { dx: -dx, dy: -dy, vx: dx / (m || 1) * VMAX * H * k ** .2, vy: dy / (m || 1) * VMAX * H * k ** .2 };
+  // 動かした分だけ速い。ゴムは反対側に引かれて見える
+  return { dx, dy, vx: dx / (m || 1) * VMAX * H * k ** .2, vy: dy / (m || 1) * VMAX * H * k ** .2 };
 }
 
 export function initSling(c) {
@@ -193,9 +193,9 @@ export function initSling(c) {
   cv.addEventListener('pointerdown', e => {
     if (!live || done || ammo <= 0) return;
     e.preventDefault(); cv.setPointerCapture(e.pointerId);
-    drag = { x: e.offsetX, y: e.offsetY }; document.body.classList.add('sl-drag');
+    drag = { sx: e.offsetX, sy: e.offsetY, x: e.offsetX, y: e.offsetY }; document.body.classList.add('sl-drag');
   });
-  cv.addEventListener('pointermove', e => { if (drag) { e.preventDefault(); drag = { x: e.offsetX, y: e.offsetY }; } });
+  cv.addEventListener('pointermove', e => { if (drag) { e.preventDefault(); drag.x = e.offsetX; drag.y = e.offsetY; } });
   const release = e => {
     if (!drag) return;
     const pv = pullOf(drag); drag = null; document.body.classList.remove('sl-drag');

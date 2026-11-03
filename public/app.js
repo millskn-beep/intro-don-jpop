@@ -271,7 +271,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['slAmmo', 'slMove', 'buzzMiss', 'mvSound', 'mvScope', 'mvSuggest', 'mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'wwRaise', 'wwStyle', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
+const STRING_KEYS = ['fillMiss', 'slAmmo', 'slMove', 'buzzMiss', 'mvSound', 'mvScope', 'mvSuggest', 'mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'wwRaise', 'wwStyle', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select[data-key]').forEach(x => {
@@ -473,6 +473,7 @@ const PLAY_INFO = {
   picker: ['🎤', '出題者', '順番に1人が曲を選んで出題。半分くらいが正解すると出題者も高得点', '2人〜', 'quiz'],
   coop: ['🤝', '協力', '全員の正解数を合わせて目標をめざす', '1人〜', 'quiz'],
   fill: ['🧩', '3つ埋めバトル', '曲名・アニメ・アーティストの枠を早押しで埋める', '1人〜', 'quiz'],
+  fillmany: ['🧩', 'たくさん埋めバトル', '発表年・使われ方・ジャンルなども入れた4〜8個の枠を早押しで埋める', '1人〜', 'quiz'],
   rush: ['🎰', '激アツRUSH', 'パチンコ風。保留・リーチ・大当たり・確変で点が跳ねる', '1人〜', 'quiz'],
   karuta: ['🎴', 'かるた', '並んだ札から、流れた曲の札を早取り', '1人〜', 'quiz'],
   nenpyo: ['📅', '年表', '流れた曲を、自分の年表の正しい位置に置く', '1人〜', 'quiz'],
@@ -515,7 +516,7 @@ $('playPick').onclick = () => {
   });
 };
 const PLAY_DESC = {
-  sling: '曲が流れたら、浮かんでいる的（選択肢）をパチンコで撃ち抜きます。下を引っぱって放すと飛びます。速く当てるほど高得点、的の真ん中なら会心で上乗せ。弾の数と的の動きは設定で選べます。',
+  sling: '曲が流れたら、浮かんでいる的（選択肢）をパチンコで撃ち抜きます。画面を押して、飛ばしたい向きに指を動かして放すと飛びます。速く当てるほど高得点、的の真ん中なら会心で上乗せ。弾の数と的の動きは設定で選べます。',
   mvflash: 'サビのまわりの場面が1秒ずつ、秒数を飛ばしながら8場面流れます。押した人だけが曲名を答えられます。後の場面ほどサビに近くなります。出す動画は設定で選べます（既定はアニメの動画だけ）。',
   tanshuku: 'はねるのトびら「短縮鉄道の夜」のアニソン版。順番に1人ずつ、アニメや歌手の略称（例：まどマギ）が出るので、元の名前を4択から選びます。一周するごとに制限時間が短くなります（6秒→最短2.5秒）。間違えるか時間切れで脱落、最後まで残った人の勝ち（+1000点）。正解すると+100点で、その作品・歌手の曲が少し流れます。1人で遊ぶときは、間違えるまで続けます。',
   lyrics2: '歌詞の合言葉で作った非公開の部屋だけで遊べます。歌詞クイズと同じ問題ですが、YouTube の動画に歌詞字幕（手動の日本語字幕）が付いている曲だけを使うので、曲と歌詞の時刻がぴったり合います。答え合わせではサビが流れるあいだ、歌詞がカラオケのように進みます。',
@@ -546,6 +547,7 @@ const PLAY_DESC = {
   coop: '全員の正解数の合計で、目標（問題数×人数×目標%）をめざします。',
   bingo: '一人ひとりに4×4のカードを配ります（答えるものに合わせて、曲名・作品・歌手・年のマス）。正解するとそのマスが開き、縦・横・斜めのどれかがそろったら BINGO！で +3000点（そのあと列が増えるたびに +1000点）。「ビンゴの終わり」で決めた人数・ビンゴ数に届いたらゲーム終了（問題数までも選べます）。イントロの点数とボーナスの合計で競います（20問以上がおすすめ）',
   rush: '全員が同じ問題に答えます。問題の前に「保留ランプ」の色（青・緑・赤・金・虹）で、その問題の当たりやすさが分かります。当たりの問題はサビで「リーチ！」。パチスロの曲に正解すると「大当たり！」で +2000点、そのあと RUSH（確変）に入り、連続で正解するほど点数が ×2〜×4 に。間違えるか答えないとRUSH終了。得点の合計で競います（20問くらいがおすすめ）',
+  fillmany: '3つ埋めバトルの枠を4〜8個に増やした遊び方です（数は「枠の数」で選べます。初めは6個）。曲名・アニメ名・アーティストの3つは必ず出て、残りは「発表年・使われ方（OP・EDなど）・ジャンル・同じアニメの別の曲・同じ歌手の別の曲・再生回数」から曲ごとにランダム。足した枠は選択式だけで、点数は半分です。間違えると −200点で、しばらく押せません。全部埋まるか、全員がパスしたら次の曲へ。',
   fill: '1曲ごとに「曲名・アニメ名・アーティスト」の3つの枠を早押しで埋めます（ボカロは「曲名・作者・VOCALOID」）。押した人が空いている枠を選んで答え、書けば早いほど高得点・10択なら半分。間違えると −200点で、しばらく押せません（秒数は「お手つき後に押せない秒数」で変えられます。初めは15秒）。全部埋まるか、全員がパスしたら次の曲へ。LoL の曲は出ません。',
 };
 // ロビーの一番上：これから遊ぶ曲を除外に追加しない（ホストが切り替え）
@@ -738,7 +740,9 @@ function renderRoom(r) {
   $('livesLabel').hidden = r.settings.play !== 'survival';
   $('coopGoalLabel').hidden = r.settings.play !== 'coop';
   $('rushRateLabel').hidden = r.settings.play !== 'rush'; // アニソン激アツRUSH：当たりやすさ
-  $('lockSecLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えたあと押せない秒数
+  $('lockSecLabel').hidden = !isFillPlay(r.settings.play);
+  $('fillNLabel').hidden = r.settings.play !== 'fillmany';
+  $('fillMissLabel').hidden = !isFillPlay(r.settings.play); // 3つ埋めバトル：間違えたあと押せない秒数
   $('bingoEndLabel').hidden = r.settings.play !== 'bingo'; // ビンゴ：何人・何ビンゴで終わるか
   $('karutaFaceLabel').hidden = r.settings.play !== 'karuta'; // かるた：札に書くもの
   $('prefRow').hidden = !meUser() || (r.state === 'playing' && !r.paused);
@@ -770,13 +774,13 @@ function renderRoom(r) {
   $('mvQualLabel').hidden = r.settings.play !== 'mvflash'; applyMvQuality();
   $('mvSoundLabel').hidden = $('mvScopeLabel').hidden = r.settings.play !== 'mvflash';
   $('mvSuggestLabel').hidden = !(r.settings.play === 'mvflash' && r.settings.answerMode === 'input');
-  $('buzzStopLabel').hidden = !['buzzer', 'fill'].includes(r.settings.play); // 早押し・3つ埋めバトル：答えている間は曲を止める
-  $('noRepeatLabel').hidden = r.settings.play !== 'fill'; // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない
+  $('buzzStopLabel').hidden = !['buzzer', 'fill', 'fillmany'].includes(r.settings.play); // 早押し・3つ埋めバトル：答えている間は曲を止める
+  $('noRepeatLabel').hidden = !isFillPlay(r.settings.play); // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない
   $('playDesc').textContent = PLAY_DESC[r.settings.play] || '';
   renderPlayPick(r.settings.play);
   $('playPick').disabled = document.querySelector('[data-key="play"]').disabled;
   $('questionsLabel').hidden = r.settings.play === 'survival' || r.settings.play === 'monopoly'; // モノポリーは15問で固定
-  const fillMode = r.settings.play === 'fill'; // 3つ埋めバトルは、答えるもの・回答方法・採点・ヒントを使わない（枠ごとに書くか10択）
+  const fillMode = isFillPlay(r.settings.play); // 3つ埋めバトルは、答えるもの・回答方法・採点・ヒントを使わない（枠ごとに書くか10択）
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.play === 'mvflash' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
   if (r.settings.play === 'mvflash') for (const k of ['target', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = true;
@@ -1426,7 +1430,7 @@ socket.on('question', q => {
   // 早押し：押すボタン（押した人だけが答えられる）
   stopFlash(); document.body.classList.toggle('mvflash', q.play === 'mvflash'); $('mvSugg').innerHTML = '';
   if (q.play === 'sling' && !practice) { document.body.classList.add('sling'); slingQuestion(q); } else slingStop();
-  $('buzzRow').hidden = !['buzzer', 'mvflash', 'fill'].includes(q.play); $('buzzBtn').disabled = true; $('buzzInfo').textContent = ''; buzzHolder = null;
+  $('buzzRow').hidden = !['buzzer', 'mvflash', 'fill', 'fillmany'].includes(q.play); $('buzzBtn').disabled = true; $('buzzInfo').textContent = ''; buzzHolder = null;
   // 3つ埋めバトル：選択肢・入力の欄の代わりに枠を出す
   if (q.fill) { $('choices').hidden = true; $('inputForm').hidden = true; }
   fillLockUntil = 0; fillWaiting = false; fillSlot = null; buzzQueueIds = []; buzzQueueNames = []; $('fillAnswer').hidden = true; renderFill(q.fill);
@@ -1488,7 +1492,7 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
       setPhase('intro', kind === 'ly-which' ? '歌詞を見て答えよう' : kind?.startsWith('ly-') ? '曲を聴いて答えよう' : nth > 1 ? `${LYK || 'イントロ'}再生中…（${nth}回目！）` : `${LYK || 'イントロ'}再生中…（わかるかな？）`); coverFx('fx-intro'); stageMascot('listen'); charFx.pose('listen'); if (!off) charFx.say('intro');
     }
     if (myAnswer === null && !amOut() && question?.pickerId !== me) {
-      if (['buzzer', 'mvflash', 'fill'].includes(question?.play)) {
+      if (['buzzer', 'mvflash', 'fill', 'fillmany'].includes(question?.play)) {
         // 早押し：押した人だけが答えられる。まずは押すボタンだけ
         buzzOpen = !buzzHolder; $('buzzBtn').disabled = !buzzOpen || fillLocked();
       } else {
@@ -1590,7 +1594,7 @@ function tryBuzz() {
 }
 $('buzzBtn').onclick = tryBuzz;
 addEventListener('keydown', e => {
-  if (e.code !== 'Space' || !['buzzer', 'mvflash', 'fill'].includes(question?.play) || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return;
+  if (e.code !== 'Space' || !['buzzer', 'mvflash', 'fill', 'fillmany'].includes(question?.play) || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return;
   e.preventDefault(); tryBuzz();
 });
 function clearBuzz() {
@@ -1664,7 +1668,7 @@ function renderQlog() {
   const answers = qlogEntries.filter(e => e.type === 'answer');
   // ビンゴのときは出さない（ビンゴカードだけ見せる）
   // 出すのは早押しと3つ埋めバトルだけ（ふつう・サバイバル・ビンゴなどでは出さない）
-  $('qlog').hidden = !question || !['buzzer', 'mvflash', 'fill'].includes(room?.settings?.play) || (!lists.length && !answers.length);
+  $('qlog').hidden = !question || !['buzzer', 'mvflash', 'fill', 'fillmany'].includes(room?.settings?.play) || (!lists.length && !answers.length);
   $('qlogChoices').hidden = !lists.length;
   $('qlogChoices').innerHTML = lists.map(l => `<div class="qlog-list"><b>${esc(l.label)}${l.name && !l.base ? `<small>（${esc(l.name)} が開いた10択）</small>` : ''}</b>
     <ol>${l.choices.map((c, i) => `<li${removedOf(l).has(i) ? ' class="gone"' : ''}>${esc(c)}</li>`).join('')}</ol></div>`).join('');
@@ -1784,7 +1788,7 @@ socket.on('wolfPhase', d => {
   const left = () => { const el = $('wolfLeft'); if (el) el.textContent = d.until ? `あと ${wolfLeft(d.until)} 秒` : ''; };
   clearInterval(wolfTick); left(); wolfTick = setInterval(left, 500);
   const hf = $('wolfHintForm');
-  if (hf) { $('wolfHintText').focus(); hf.onsubmit = e => { e.preventDefault(); const v = $('wolfHintText').value.trim(); if (!v) return; socket.emit('wolfHint', v); hf.querySelectorAll('input,button').forEach(x => x.disabled = true); }; }
+  if (hf) { $('wolfHintText').focus(); $('wolfHintText').oninput = e => socket.emit('draft', { text: e.target.value }); hf.onsubmit = e => { e.preventDefault(); const v = $('wolfHintText').value.trim(); if (!v) return; socket.emit('wolfHint', v); hf.querySelectorAll('input,button').forEach(x => x.disabled = true); }; }
   const sf = $('wolfSay');
   if (sf) sf.onsubmit = e => { e.preventDefault(); const v = $('wolfSayText').value.trim(); if (!v) return; socket.emit('wolfChat', v); $('wolfSayText').value = ''; };
   const rb = $('wolfReadyBtn');
@@ -1866,7 +1870,7 @@ function wwSuggest() {
   const songs = !q || !wwNames || names.length >= 8 ? [] : wwNames.filter(x => !names.includes(x) && viaSong(x));
   const list = [...names.map(x => [x[0], null]), ...songs.map(x => [x[0], viaSong(x)])].slice(0, 8);
   box.innerHTML = list.map(([n, s]) => `<button type="button" class="btn-sub" data-name="${esc(n)}">${esc(n)}${s ? `<small>${esc(s[0])}／${esc(s[1])}</small>` : ''}</button>`).join('') || (q ? '<small>見つかりません</small>' : '<small>作品名・曲名・歌手名を入れて、一覧から選びます</small>');
-  box.querySelectorAll('[data-name]').forEach(b => b.onclick = () => { $('wwFakeInput').value = wwFakeQ = b.dataset.name; const ok = $('wwFakeBtn'); ok.disabled = false; ok.dataset.name = b.dataset.name; box.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); });
+  box.querySelectorAll('[data-name]').forEach(b => b.onclick = () => { $('wwFakeInput').value = wwFakeQ = b.dataset.name; const ok = $('wwFakeBtn'); ok.disabled = false; ok.dataset.name = b.dataset.name; socket.emit('draft', { name: b.dataset.name }); box.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); });
 }
 const wwRollKey = d => `${d.round}:${d.result?.year}:${d.result?.song?.title}`;
 // 人ごとの色（名前・その人の出した枠・賭けたチップ）
@@ -1929,7 +1933,7 @@ function renderWw() {
     if (!wwNames) fetch('/api/ww-names').then(x => x.json()).then(l => { wwNames = l; wwSuggest(); }).catch(() => {});
     const fb = $('wwFakeBtn');
     if (d.ogiri && !mine) { fb.dataset.name = inp.value.trim(); fb.disabled = !fb.dataset.name; } // 大喜利は候補を選ばなくても出せる
-    inp.oninput = () => { wwFakeQ = inp.value; fb.dataset.name = d.ogiri ? inp.value.trim() : ''; fb.disabled = !fb.dataset.name; wwSuggest(); };
+    inp.oninput = () => { wwFakeQ = inp.value; fb.dataset.name = d.ogiri ? inp.value.trim() : ''; fb.disabled = !fb.dataset.name; socket.emit('draft', { name: fb.dataset.name }); wwSuggest(); }; // 下書き：出すを押さずに時間切れでも出る
     $('wwFakeForm').onsubmit = e => { e.preventDefault(); const n = (fb.dataset.name || '').trim(); if (!n || mine) return; wwFakePick = n; socket.emit(d.ogiri ? 'wwOgiri' : 'wwFake', n); };
     wwSuggest();
   }
@@ -1938,8 +1942,8 @@ function renderWw() {
   clearInterval(wwTick); left(); wwTick = setInterval(left, 500);
   const gf = $('wwGuessForm');
   const sendY = y => { if (!(y >= d.minYear && y <= d.maxYear)) return toast(`${d.minYear}〜${d.maxYear} の年を入れてください`); socket.emit('wwGuess', y); };
-  if (gf) { if (!mine) $('wwYear').focus(); gf.onsubmit = e => { e.preventDefault(); sendY(+$('wwYear').value); }; }
-  pop.querySelectorAll('[data-y]').forEach(b => b.onclick = () => { const inp = $('wwYear'); inp.value = b.dataset.y; inp.focus(); });
+  if (gf) { if (!mine) $('wwYear').focus(); gf.onsubmit = e => { e.preventDefault(); sendY(+$('wwYear').value); }; $('wwYear').oninput = () => socket.emit('draft', { year: $('wwYear').value }); }
+  pop.querySelectorAll('[data-y]').forEach(b => b.onclick = () => { const inp = $('wwYear'); inp.value = b.dataset.y; inp.focus(); socket.emit('draft', { year: b.dataset.y }); });
   pop.querySelectorAll('[data-slot]').forEach(b => b.onclick = () => { if (wwMarks.length >= 2) wwMarks.shift(); wwMarks.push({ slot: +b.dataset.slot, extra: 0 }); renderWw(); });
   pop.querySelectorAll('[data-extra]').forEach(s => s.onchange = () => { wwMarks[+s.dataset.extra].extra = +s.value; renderWw.sig = null; renderWw(); });
   const sendVote = done => socket.emit('wwVote', { pick: wwPick, likes: [...wwLikes], done });
@@ -2013,7 +2017,7 @@ function renderCn() {
   const left = () => { const el = $('cnLeft'); if (el) el.textContent = d.until ? `あと ${wolfLeft(d.until)} 秒` : ''; };
   clearInterval(cnTick); left(); cnTick = setInterval(left, 500);
   pop.querySelectorAll('.cn-card').forEach(b => b.onclick = () => socket.emit('cnGuess', +b.dataset.i));
-  const cf = $('cnClueForm'); if (cf) { $('cnWord').focus(); cf.onsubmit = e => { e.preventDefault(); const w = $('cnWord').value.trim(); if (!w) return toast('ヒントの言葉を入れてください'); if (d.cards.some(c => w.includes(c.work) || c.work.includes(w))) return toast('盤面の作品名は使えません'); socket.emit('cnClue', { word: w, num: +$('cnNum').value }); cf.querySelectorAll('input,select,button').forEach(x => x.disabled = true); }; }
+  const cf = $('cnClueForm'); if (cf) { $('cnWord').focus(); cf.oninput = cf.onchange = () => socket.emit('draft', { word: $('cnWord').value, num: $('cnNum').value }); cf.onsubmit = e => { e.preventDefault(); const w = $('cnWord').value.trim(); if (!w) return toast('ヒントの言葉を入れてください'); if (d.cards.some(c => w.includes(c.work) || c.work.includes(w))) return toast('盤面の作品名は使えません'); socket.emit('cnClue', { word: w, num: +$('cnNum').value }); cf.querySelectorAll('input,select,button').forEach(x => x.disabled = true); }; }
   const eb = $('cnEndBtn'); if (eb) eb.onclick = () => socket.emit('cnEnd');
   const sf = $('cnSay'); if (sf) sf.onsubmit = e => { e.preventDefault(); const v = $('cnSayText').value.trim(); if (!v) return; socket.emit('cnChat', v); $('cnSayText').value = ''; };
 }
@@ -2202,11 +2206,12 @@ function renderDixit() {
   clearInterval(dxTick); left(); dxTick = setInterval(left, 500);
   pop.querySelectorAll('[data-prev]').forEach(b => b.onclick = () => socket.emit('dxPreview', b.dataset.prev));
   pop.querySelectorAll('[data-sel]').forEach(b => b.onclick = () => {
-    if (d.step === 'tell') { dxSel = b.dataset.sel; renderDixit(); $('dxHintText')?.focus(); }
+    if (d.step === 'tell') { dxSel = b.dataset.sel; socket.emit('draft', { id: dxSel }); renderDixit(); $('dxHintText')?.focus(); }
     else if (d.step === 'pick') { socket.emit('dxPick', b.dataset.sel); dxSel = b.dataset.sel; renderDixit(); }
   });
   pop.querySelectorAll('[data-vote]').forEach(b => b.onclick = () => { socket.emit('dxVote', +b.dataset.vote); dxSel = +b.dataset.vote; renderDixit(); });
   const tf = $('dxTellForm');
+  if (tf) $('dxHintText').oninput = e => socket.emit('draft', { hint: e.target.value });
   if (tf) tf.onsubmit = e => { e.preventDefault(); const v = $('dxHintText').value.trim(); if (!dxSel) return toast('先に手札から曲を選んでください'); if (!v) return toast('ヒントを入れてください'); socket.emit('dxTell', { id: dxSel, hint: v }); tf.querySelectorAll('input,button').forEach(x => x.disabled = true); };
 }
 
@@ -2581,12 +2586,13 @@ const othersCanBuzz = () => {
   return (room?.players || []).some(p => p.id !== me && p.connected && p.inGame && !p.passed && (!myTeam || p.team !== myTeam));
 };
 const fillLocked = () => !!question?.fill && (performance.now() < fillLockUntil || (fillWaiting && othersCanBuzz()));
+const isFillPlay = p => p === 'fill' || p === 'fillmany'; // 3つ埋めバトルと、枠を増やした「たくさん埋めバトル」
 function renderFill(slots) {
   $('fillBox').hidden = !slots;
   if (!slots) return;
   const holderMine = buzzHolder === me && !$('fillAnswer').hidden;
   $('fillSlots').innerHTML = slots.map(f => `<button type="button" class="fill-slot${f.by != null ? ' done' : ''}${fillSlot === f.key ? ' on' : ''}" data-slot="${f.key}"
-    ${holderMine && f.by == null ? '' : 'disabled'}><small>${esc(f.label)}${f.peeked && f.by == null ? '<i class="fill-peeked">10択のみ</i>' : ''}</small><b>${f.by != null ? esc(f.given) : '？'}</b>${f.by != null ? `<em>${f.team ? `<span class="team-tag team-${f.team}">${TEAM_LABEL[f.team]}</span> ` : ''}${esc(f.by)}</em>` : ''}</button>`).join('');
+    ${holderMine && f.by == null ? '' : 'disabled'}><small>${esc(f.label)}${f.peeked && f.by == null ? `<i class="fill-peeked">${f.choices.length}択のみ</i>` : ''}</small><b>${f.by != null ? esc(f.given) : '？'}</b>${f.by != null ? `<em>${f.team ? `<span class="team-tag team-${f.team}">${TEAM_LABEL[f.team]}</span> ` : ''}${esc(f.by)}</em>` : ''}</button>`).join('');
 }
 const fillSlots = () => room?.fill || question?.fill || [];
 function openFillAnswer() {
@@ -2611,7 +2617,7 @@ function chooseFillSlot(key) {
 // 10択を出す。出したら、その枠はもう手で打てない（自分もほかの人も）
 function showFillChoices(f) {
   $('fillForm').hidden = true; $('fillChoiceBtn').hidden = true; $('fillSugg').innerHTML = '';
-  $('fillHead').textContent = `「${f.label}」を10択で選ぼう（点数は半分・もう手では打てません）`;
+  $('fillHead').textContent = `「${f.label}」を${f.choices.length}択で選ぼう（点数は半分・手では打てません）`;
   const removed = new Set(f.removed || []); // お手つきで消えた選択肢は出さない（番号はそのまま）
   $('fillChoices').innerHTML = f.choices.map((c, i) => removed.has(i) ? '' : `<button class="choice" type="button" data-i="${i}">${esc(c)}</button>`).join('');
 }
@@ -2803,7 +2809,7 @@ function updateLifelineButtons() {
     const passed = room?.players?.find(p => p.id === me)?.passed;
     const playing = ['intro', 'chorus'].includes(room?.phase) && !amOut();
     $('passBtn').disabled = !playing || (!!buzzHolder && buzzHolder !== me);
-    $('passBtn').lastChild.textContent = buzzHolder === me ? 'わからない（−200）' : passed ? 'パスを取り消す' : 'パス（全員パスで次へ）';
+    $('passBtn').lastChild.textContent = buzzHolder === me ? (question?.fill && room?.settings?.fillMiss === 'off' ? 'わからない' : 'わからない（−200）') : passed ? 'パスを取り消す' : 'パス（全員パスで次へ）';
   } else if ($('passBtn').lastChild.textContent !== 'わからない（パス）') $('passBtn').lastChild.textContent = 'わからない（パス）';
 }
 socket.on('lifelineResult', r => {

@@ -18200,6 +18200,9 @@
     "workAliases": [
       "はちみつとくろーばー",
       "ハチクロ"
+    ],
+    "artistAliases": [
+      "すねおへあー"
     ]
   },
   {
@@ -70663,7 +70666,7 @@
     "id": "h_gwUH2JlIA",
     "title": "回レ!雪月花 (Cover)",
     "work": "バンドリ! ガールズバンドパーティ!",
-    "artist": "ハロー、ハッピーワールド!",
+    "artist": "ハロー、ハッピーワールド！",
     "year": 2019,
     "type": "その他",
     "confidence": "中",
@@ -107736,7 +107739,7 @@
     "id": "YnSW8ian29w",
     "title": "踊",
     "work": "ボカロ（Giga、TeddyLoid）",
-    "artist": "Giga、TeddyLoid",
+    "artist": "Giga＆TeddyLoid",
     "year": 2021,
     "type": "ボカロ",
     "confidence": "中",
@@ -129083,14 +129086,13 @@
     "type": "ED",
     "confidence": "高",
     "source": "公式音源（ユーザー依頼）",
-    "intro": 0.7,
+    "intro": 21.7,
     "chorus": 72.6,
     "aliases": [
       "くろーばー"
     ],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "manual",
     "chorusChecked": true,
     "views": 2456951,
@@ -129367,14 +129369,13 @@
     "type": "OP",
     "confidence": "高",
     "source": "公式音源（ユーザー依頼）",
-    "intro": 0.5,
+    "intro": 5.5,
     "chorus": 61,
     "aliases": [
       "まぼろしういんく"
     ],
     "embeddable": null,
-    "introMeasured": true,
-    "introMethod": "v2",
+    "introMeasured": false,
     "chorusSource": "heatmap",
     "chorusChecked": true,
     "views": 1017900,
@@ -131726,6 +131727,301 @@
       "前山田健一",
       "まえやまだけんいち",
       "ひゃだいん"
+    ]
+  },
+  {
+    "id": "d3b24Rl0tDE",
+    "title": "BREAKTHROUGH",
+    "work": "アイシールド21",
+    "artist": "Coming Century",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 49,
+    "aliases": [
+      "ぶれいくするー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 201648,
+    "channel": "Coming Century - Topic",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "あいしーるどにじゅういち",
+      "あいしーるど21",
+      "アイシールド"
+    ],
+    "artistAliases": [
+      "かみんぐせんちゅりー"
+    ]
+  },
+  {
+    "id": "v0zSBCG2yfk",
+    "title": "INNOCENCE",
+    "work": "アイシールド21",
+    "artist": "20th Century",
+    "year": 2005,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式チャンネル（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 75,
+    "aliases": [
+      "いのせんす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 159319,
+    "channel": "トニセンチャンネル",
+    "viewsAt": "2026-11-03",
+    "fame": "minor",
+    "workAliases": [
+      "あいしーるどにじゅういち",
+      "あいしーるど21",
+      "アイシールド"
+    ],
+    "artistAliases": [
+      "とぅえんてぃーすせんちゅりー",
+      "トニセン"
+    ]
+  },
+  {
+    "id": "4OAI7CLdn80",
+    "title": "Dang Dang",
+    "work": "アイシールド21",
+    "artist": "ZZ",
+    "year": 2006,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 22,
+    "aliases": [
+      "だんだん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 763701,
+    "channel": "ZZ - Topic",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "あいしーるどにじゅういち",
+      "あいしーるど21",
+      "アイシールド"
+    ],
+    "artistAliases": [
+      "ずぃーずぃー",
+      "じーじー"
+    ]
+  },
+  {
+    "id": "EBj2U2MBgo0",
+    "title": "BLAZE LINE",
+    "work": "アイシールド21",
+    "artist": "BACK-ON",
+    "year": 2007,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式MV（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 66,
+    "aliases": [
+      "ぶれいずらいん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 635557,
+    "channel": "avex",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "あいしーるどにじゅういち",
+      "あいしーるど21",
+      "アイシールド"
+    ],
+    "artistAliases": [
+      "バックオン"
+    ]
+  },
+  {
+    "id": "3kNly_kwJJA",
+    "title": "flower",
+    "work": "アイシールド21",
+    "artist": "BACK-ON",
+    "year": 2007,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式MV（ユーザー依頼）",
+    "intro": 3.2,
+    "chorus": 70.5,
+    "aliases": [
+      "ふらわー"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 1326118,
+    "channel": "avex",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "あいしーるどにじゅういち",
+      "あいしーるど21",
+      "アイシールド"
+    ],
+    "artistAliases": [
+      "バックオン"
+    ],
+    "chorusBefore": 130
+  },
+  {
+    "id": "3s2I0Fdi_fI",
+    "title": "ヴィーナスとジーザス",
+    "work": "荒川アンダー ザ ブリッジ",
+    "artist": "やくしまるえつこ",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式MV（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 26.6,
+    "aliases": [
+      "びーなすとじーざす"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 319376,
+    "channel": "MIRAI records - 相対性理論 / やくしまるえつこ [Official]",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "あらかわあんだーざぶりっじ",
+      "荒川UB",
+      "あらかわ"
+    ],
+    "artistAliases": [
+      "やくしまるえつこ"
+    ],
+    "chorusBefore": 129,
+    "fameManual": true
+  },
+  {
+    "id": "SYDv9li6ZVc",
+    "title": "逆様ブリッジ",
+    "work": "荒川アンダー ザ ブリッジ",
+    "artist": "スネオヘアー",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式MV（ユーザー依頼）",
+    "intro": 2.7,
+    "chorus": 99,
+    "aliases": [
+      "さかさまぶりっじ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1263648,
+    "channel": "KING RECORDS",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "あらかわあんだーざぶりっじ",
+      "荒川UB",
+      "あらかわ"
+    ],
+    "artistAliases": [
+      "すねおへあー"
+    ]
+  },
+  {
+    "id": "8p1ok8c8200",
+    "title": "COSMOS vs ALIEN",
+    "work": "荒川アンダー ザ ブリッジ×ブリッジ",
+    "artist": "やくしまるえつこ",
+    "year": 2010,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式MV（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 53.4,
+    "aliases": [
+      "こすもすぶいえすえいりあん",
+      "こすもすばーさすえいりあん"
+    ],
+    "embeddable": null,
+    "chorusChecked": true,
+    "views": 415817,
+    "channel": "MIRAI records - 相対性理論 / やくしまるえつこ [Official]",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "あらかわあんだーざぶりっじ",
+      "荒川UB",
+      "あらかわ"
+    ],
+    "artistAliases": [
+      "やくしまるえつこ"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "fameManual": true,
+    "chorusSource": "audio"
+  },
+  {
+    "id": "e5Vi3wfo_Yw",
+    "title": "赤いコート",
+    "work": "荒川アンダー ザ ブリッジ×ブリッジ",
+    "artist": "スネオヘアー",
+    "year": 2010,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式MV（ユーザー依頼）",
+    "intro": 0.7,
+    "chorus": 87,
+    "aliases": [
+      "あかいこーと"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 1238556,
+    "channel": "KING RECORDS",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "あらかわあんだーざぶりっじ",
+      "荒川UB",
+      "あらかわ"
+    ],
+    "artistAliases": [
+      "すねおへあー"
     ]
   }
 ]

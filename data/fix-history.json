@@ -13063,5 +13063,39 @@
    "intro": 6.7,
    "chorus": 64.4
   }
+ },
+ {
+  "id": "_tR0yS6BL-g",
+  "title": "まぼろしウインク",
+  "work": "おそ松さん",
+  "channel": "A応P",
+  "at": "2026-11-03T10:25:41.544Z",
+  "before": {
+   "intro": 0.5,
+   "chorus": 61,
+   "introMethod": "v2",
+   "chorusSource": "heatmap"
+  },
+  "after": {
+   "intro": 5.5,
+   "chorus": 61
+  }
+ },
+ {
+  "id": "GJ8w6CvC8Ao",
+  "title": "クローバー",
+  "work": "SKET DANCE",
+  "channel": "avex",
+  "at": "2026-11-03T11:39:53.036Z",
+  "before": {
+   "intro": 0.7,
+   "chorus": 72.6,
+   "introMethod": "v2",
+   "chorusSource": "manual"
+  },
+  "after": {
+   "intro": 21.7,
+   "chorus": 72.6
+  }
  }
 ]

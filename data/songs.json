@@ -46521,6 +46521,9 @@
       "ハンタ",
       "HUNTER×HUNTER",
       "ハンハン"
+    ],
+    "artistAliases": [
+      "ゆず"
     ]
   },
   {
@@ -113973,7 +113976,9 @@
     "source": "Lyn - Topic",
     "intro": 0,
     "chorus": 34,
-    "aliases": [],
+    "aliases": [
+      "らいふうぃるちぇんじ"
+    ],
     "embeddable": null,
     "game": "プロセカ",
     "introMeasured": true,
@@ -131009,6 +131014,426 @@
     "artistAliases": [
       "ぶらっくびすけっつ",
       "ブラビ"
+    ]
+  },
+  {
+    "id": "_ykSNapZAVE",
+    "title": "おはよう。",
+    "work": "HUNTER×HUNTER",
+    "artist": "Keno",
+    "year": 1999,
+    "type": "OP",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 1.2,
+    "chorus": 127,
+    "aliases": [
+      "おはよう"
+    ],
+    "embeddable": null,
+    "workAliases": [
+      "はんたーはんたー",
+      "ハンタ",
+      "HUNTER×HUNTER",
+      "ハンハン"
+    ],
+    "artistAliases": [
+      "けの"
+    ],
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 9589243,
+    "channel": "VinzSirio",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "fameManual": true
+  },
+  {
+    "id": "O8DpEaLCxwY",
+    "title": "風のうた",
+    "work": "HUNTER×HUNTER",
+    "artist": "本田美奈子",
+    "year": 1999,
+    "type": "ED",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 0.5,
+    "chorus": 70,
+    "aliases": [
+      "かぜのうた"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3436466,
+    "channel": "Kurafuji",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "workAliases": [
+      "はんたーはんたー",
+      "ハンタ",
+      "HUNTER×HUNTER",
+      "ハンハン"
+    ],
+    "artistAliases": [
+      "ほんだみなこ"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "cyq5bUXpnYI",
+    "title": "REASON",
+    "work": "HUNTER×HUNTER",
+    "artist": "ゆず",
+    "year": 2011,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 3.5,
+    "chorus": 88,
+    "aliases": [
+      "りーずん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 32809863,
+    "channel": "TOYSFACTORYJP",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "workAliases": [
+      "はんたーはんたー",
+      "ハンタ",
+      "HUNTER×HUNTER",
+      "ハンハン"
+    ],
+    "artistAliases": [
+      "ゆず"
+    ]
+  },
+  {
+    "id": "YFyKUQVEmfg",
+    "title": "流れ星キラリ",
+    "work": "HUNTER×HUNTER",
+    "artist": "ゆず",
+    "year": 2012,
+    "type": "ED",
+    "confidence": "高",
+    "source": "公式動画（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 76,
+    "aliases": [
+      "ながれぼしきらり"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 799809,
+    "channel": "yuzuofficial",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "workAliases": [
+      "はんたーはんたー",
+      "ハンタ",
+      "HUNTER×HUNTER",
+      "ハンハン"
+    ],
+    "artistAliases": [
+      "ゆず"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "S0GgBcNKK5g",
+    "title": "Mass Destruction",
+    "work": "ペルソナ3",
+    "artist": "Lotus Juice",
+    "year": 2006,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 54,
+    "aliases": [
+      "ますですとらくしょん"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 7753562,
+    "channel": "Lotus Juice - Topic",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "workAliases": [
+      "ぺるそな",
+      "Persona"
+    ],
+    "artistAliases": [
+      "ろーたすじゅーす"
+    ]
+  },
+  {
+    "id": "6IsGnEWA8AI",
+    "title": "Burn My Dread -Reload-",
+    "work": "ペルソナ3 リロード",
+    "artist": "高橋あず美",
+    "year": 2024,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 59,
+    "aliases": [
+      "ばーんまいどれっど",
+      "Burn My Dread"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 4591335,
+    "channel": "Azumi Takahashi - Topic",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "workAliases": [
+      "ぺるそな",
+      "Persona"
+    ],
+    "artistAliases": [
+      "たかはしあずみ",
+      "Azumi Takahashi"
+    ]
+  },
+  {
+    "id": "hWhgrA2dhrk",
+    "title": "Full Moon Full Life",
+    "work": "ペルソナ3 リロード",
+    "artist": "高橋あず美",
+    "year": 2024,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0.2,
+    "chorus": 50,
+    "aliases": [
+      "ふるむーんふるらいふ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 38656824,
+    "channel": "Azumi Takahashi - Topic",
+    "viewsAt": "2026-11-03",
+    "fame": "top",
+    "workAliases": [
+      "ぺるそな",
+      "Persona"
+    ],
+    "artistAliases": [
+      "たかはしあずみ",
+      "Azumi Takahashi"
+    ]
+  },
+  {
+    "id": "hu6hyDOn7xc",
+    "title": "Pursuing My True Self",
+    "work": "ペルソナ4",
+    "artist": "平田志穂子",
+    "year": 2008,
+    "type": "OP",
+    "confidence": "高",
+    "source": "再生の多い動画（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 59,
+    "aliases": [
+      "ぱーすーいんぐまいとぅるーせるふ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 3620944,
+    "channel": "View Explorer Selena",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "workAliases": [
+      "ぺるそな",
+      "Persona"
+    ],
+    "artistAliases": [
+      "ひらたしほこ"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "EAHpxHUyF-I",
+    "title": "sky's the limit",
+    "work": "ペルソナ4 ザ・アニメーション",
+    "artist": "平田志穂子",
+    "year": 2011,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 69,
+    "aliases": [
+      "すかいずざりみっと"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "audio",
+    "chorusChecked": true,
+    "views": 694235,
+    "channel": "Release - Topic",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "ぺるそな",
+      "Persona"
+    ],
+    "artistAliases": [
+      "ひらたしほこ"
+    ]
+  },
+  {
+    "id": "azNG-AU0eGg",
+    "title": "Wake Up, Get Up, Get Out There",
+    "work": "ペルソナ5",
+    "artist": "Lyn",
+    "year": 2016,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 2,
+    "chorus": 61,
+    "aliases": [
+      "うぇいくあっぷげっとあっぷげっとあうとぜあ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "introUnsure": true,
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 10803426,
+    "channel": "Lyn - Topic",
+    "viewsAt": "2026-11-03",
+    "fame": "top",
+    "workAliases": [
+      "ぺるそな",
+      "Persona"
+    ],
+    "artistAliases": [
+      "りん"
+    ]
+  },
+  {
+    "id": "ZNGqBDRJgvo",
+    "title": "Last Surprise",
+    "work": "ペルソナ5",
+    "artist": "Lyn",
+    "year": 2016,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 47,
+    "aliases": [
+      "らすとさぷらいず"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 35718987,
+    "channel": "Lyn - Topic",
+    "viewsAt": "2026-11-03",
+    "fame": "top",
+    "workAliases": [
+      "ぺるそな",
+      "Persona"
+    ],
+    "artistAliases": [
+      "りん"
+    ]
+  },
+  {
+    "id": "2AWc3DRmj1U",
+    "title": "Life Will Change",
+    "work": "ペルソナ5",
+    "artist": "Lyn",
+    "year": 2016,
+    "type": "挿入歌",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 55,
+    "aliases": [
+      "らいふうぃるちぇんじ"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 216027,
+    "channel": "Lyn - Topic",
+    "viewsAt": "2026-11-03",
+    "fame": "famous",
+    "workAliases": [
+      "ぺるそな",
+      "Persona"
+    ],
+    "artistAliases": [
+      "りん"
+    ],
+    "fameManual": true
+  },
+  {
+    "id": "VOX0c1kWKtQ",
+    "title": "BREAK IN TO BREAK OUT",
+    "work": "PERSONA5 the Animation",
+    "artist": "Lyn",
+    "year": 2018,
+    "type": "OP",
+    "confidence": "高",
+    "source": "公式音源（ユーザー依頼）",
+    "intro": 0,
+    "chorus": 71,
+    "aliases": [
+      "ぶれいくいんとぅぶれいくあうと"
+    ],
+    "embeddable": null,
+    "introMeasured": true,
+    "introMethod": "v2",
+    "chorusSource": "heatmap",
+    "chorusChecked": true,
+    "views": 179956,
+    "channel": "Lyn - Topic",
+    "viewsAt": "2026-11-03",
+    "fame": "normal",
+    "workAliases": [
+      "ぺるそな",
+      "Persona"
+    ],
+    "artistAliases": [
+      "りん"
     ]
   }
 ]

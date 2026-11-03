@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="charfx.css">
 <link rel="stylesheet" href="themes.css">
 <link rel="stylesheet" href="monopoly.css">
+<link rel="stylesheet" href="sling.css">
 </head>
 <body>
 <div class="backdrop" aria-hidden="true"></div>
@@ -30,6 +31,7 @@
 <!-- YouTube は画面全体の背景に置く。出題中は見えず、答え合わせで透けて見える -->
 <div class="video-bg" aria-hidden="true"><div id="player"></div></div>
 <div class="mv-screen" id="mvCover" aria-hidden="true"></div>
+<div class="sl-screen" id="slScreen" hidden><canvas id="slCanvas"></canvas><button class="btn-sub sl-pass" id="slPass" type="button">パス</button></div>
 <div class="mv-bands" aria-hidden="true"></div>
 <main>
   <header class="top">
@@ -224,7 +226,7 @@
       <div class="settings">
         <label class="play-label">遊び方<button class="btn-sub play-pick" id="playPick" type="button"></button><select data-key="play" hidden>
           <option value="normal">ふつう（全員で答える）</option>
-          <option value="buzzer">早押し（押した人だけ答える）</option><option value="mvflash">MVフラッシュ</option>
+          <option value="buzzer">早押し（押した人だけ答える）</option><option value="mvflash">MVフラッシュ</option><option value="sling">指パチンコ</option>
           <option value="survival">サバイバル（間違えると脱落）</option>
           <option value="picker">出題者（順番に1人が曲を選ぶ）</option>
           <option value="coop">協力（全員の正解数で目標をめざす）</option>
@@ -277,9 +279,13 @@
         <label id="gzPickLabel" hidden>ジャンル制覇：次のジャンル<select data-key="gzPick"><option value="choose">選択制（最速の正解者が選ぶ）</option><option value="random">ランダム制（毎問ランダム）</option></select></label>
         <label id="wolfTitleLabel" hidden>人狼：候補に曲名<select data-key="wolfTitle"><option value="show">出す</option><option value="hide">出さない</option></select></label>
         <label id="karutaFaceLabel" hidden>札に書くもの<select data-key="karutaFace"><option value="title">曲名</option><option value="work">作品名</option><option value="artist">歌手名</option></select></label>
+        <label id="slAmmoLabel" hidden>弾の数<select data-key="slAmmo"><option value="3">3発（外れの的は−100点）</option><option value="1">1発勝負</option><option value="inf">無制限（外れの的に当てたら終わり）</option></select></label>
+        <label id="slMoveLabel" hidden>的の動き<select data-key="slMove"><option value="slow">ゆっくり漂う</option><option value="still">止まっている</option><option value="fast">速く動く</option></select></label>
+        <label id="slTargetsLabel" hidden>的の数<select data-key="slTargets"><option value="8">8個</option><option value="6">6個</option><option value="4">4個</option></select></label>
         <label id="buzzMissLabel" hidden>お手つき<select data-key="buzzMiss"><option value="on">あり（間違えると減点、この問題はもう押せない）</option><option value="off">なし（減点なし、また押せる）</option></select></label>
+        <label id="mvQualLabel" hidden title="自分の画面だけの設定です">MVの画質（自分だけ）<select class="mv-qual"><option value="low">低画質（低速回線向け）</option><option value="high">高画質</option></select></label>
         <label id="mvSoundLabel" hidden>MVの音<select data-key="mvSound"><option value="on">あり</option><option value="off">なし（映像だけ）</option></select></label>
-        <label id="mvScopeLabel" hidden>出す動画<select data-key="mvScope"><option value="all">音源だけの動画以外すべて</option><option value="official">公式と分かる動画だけ</option></select></label>
+        <label id="mvScopeLabel" hidden>出す動画<select data-key="mvScope"><option value="anime">アニメの動画だけ</option><option value="all">音源・静止画以外すべて</option><option value="official">公式と分かる動画だけ</option></select></label>
         <label id="mvSuggestLabel" hidden>入力するときの候補<select data-key="mvSuggest"><option value="on">出す（押すと確定）</option><option value="off">出さない</option></select></label>
         <label id="buzzStopLabel" hidden>答えている間の曲<select data-key="buzzStop"><option value="true">止める（答え終わったら続きから）</option><option value="false">止めない（流れたまま答える）</option></select></label>
         <label id="noRepeatLabel" hidden>お手つきのあとの連続解答<select data-key="noRepeat"><option value="false">できる</option><option value="true">できない（ほかの人が押すまで待つ）</option></select></label>
@@ -379,6 +385,7 @@
         <span class="rush-me" id="rushMe" hidden></span>
       </div>
       <div class="mv-miss" id="mvMiss" hidden></div>
+      <label class="mv-qual-bar" id="mvQualBar">画質<select class="mv-qual"><option value="low">低画質（低速回線向け）</option><option value="high">高画質</option></select></label>
       <div class="buzz-row" id="buzzRow" hidden><button class="buzz-btn" id="buzzBtn" type="button">押す！<small>スペースキーでも</small></button><span class="buzz-info" id="buzzInfo"></span></div>
       <!-- 3つ埋めバトル：枠（押した人は空いている枠を選んで、書くか10択で答える） -->
       <div class="fill-box" id="fillBox" hidden>

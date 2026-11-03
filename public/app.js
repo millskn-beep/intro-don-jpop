@@ -4,6 +4,7 @@ import { initLayout } from './layout.js';
 import { CHARACTERS, FALLBACK, kanjiNum } from './characters.js';
 import { initCharFx } from './charfx.js';
 import { initMonopoly, renderMonopoly } from './monopoly.js';
+import { initSling, slingQuestion, slingGo, slingStop } from './sling.js';
 
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -270,10 +271,10 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['buzzMiss', 'mvSound', 'mvScope', 'mvSuggest', 'mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'wwRaise', 'wwStyle', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
+const STRING_KEYS = ['slAmmo', 'slMove', 'buzzMiss', 'mvSound', 'mvScope', 'mvSuggest', 'mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'wwRaise', 'wwStyle', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
 function sendSettings(extra = {}) {
   const s = {};
-  document.querySelectorAll('#settings select').forEach(x => {
+  document.querySelectorAll('#settings select[data-key]').forEach(x => {
     const k = x.dataset.key;
     s[k] = STRING_KEYS.includes(k) ? x.value : BOOL_KEYS.includes(k) ? x.value === 'true' : +x.value;
   });
@@ -284,7 +285,7 @@ function sendSettings(extra = {}) {
   if ($('fameList').querySelector('input')) s.fame = fame;
   socket.emit('settings', { ...s, ...extra });
 }
-document.querySelectorAll('#settings select').forEach(sel => sel.onchange = () => sendSettings());
+document.querySelectorAll('#settings select[data-key]').forEach(sel => sel.onchange = () => sendSettings());
 $('presets').innerHTML = PRESETS.map(([label], i) => `<button class="btn-sub" data-p="${i}">${label}</button>`).join('');
 $('presets').querySelectorAll('button').forEach(b => b.onclick = () => {
   const [, yearFrom, yearTo] = PRESETS[+b.dataset.p];
@@ -466,6 +467,7 @@ $('openExclude').onclick = () => { setLobbyTab('settings'); lobbyTabChosen = tru
 const PLAY_INFO = {
   normal: ['🎵', 'ふつう', '全員で同時に答える。速く正解するほど高得点', '1人〜', 'quiz'],
   buzzer: ['🔔', '早押し', '押した人だけが答えられる。お手つきに注意', '2人〜', 'quiz'],
+  sling: ['🎯', '指パチンコ', '浮かんでいる選択肢の的を、パチンコで撃ち抜いて答える', '1人〜', 'quiz'],
   mvflash: ['🎬', 'MVフラッシュ', 'MVの一瞬ずつの場面を見て、曲名を早押しで当てる', '2人〜', 'quiz'],
   survival: ['💀', 'サバイバル', '間違えると脱落。最後まで残った人の勝ち', '1人〜', 'quiz'],
   picker: ['🎤', '出題者', '順番に1人が曲を選んで出題。半分くらいが正解すると出題者も高得点', '2人〜', 'quiz'],
@@ -513,7 +515,8 @@ $('playPick').onclick = () => {
   });
 };
 const PLAY_DESC = {
-  mvflash: 'サビのまわりの場面が1秒ずつ、秒数を飛ばしながら8場面流れます。押した人だけが曲名を答えられます。後の場面ほどサビに近くなります。音楽だけの動画は出ません。',
+  sling: '曲が流れたら、浮かんでいる的（選択肢）をパチンコで撃ち抜きます。下を引っぱって放すと飛びます。速く当てるほど高得点、的の真ん中なら会心で上乗せ。弾の数と的の動きは設定で選べます。',
+  mvflash: 'サビのまわりの場面が1秒ずつ、秒数を飛ばしながら8場面流れます。押した人だけが曲名を答えられます。後の場面ほどサビに近くなります。出す動画は設定で選べます（既定はアニメの動画だけ）。',
   tanshuku: 'はねるのトびら「短縮鉄道の夜」のアニソン版。順番に1人ずつ、アニメや歌手の略称（例：まどマギ）が出るので、元の名前を4択から選びます。一周するごとに制限時間が短くなります（6秒→最短2.5秒）。間違えるか時間切れで脱落、最後まで残った人の勝ち（+1000点）。正解すると+100点で、その作品・歌手の曲が少し流れます。1人で遊ぶときは、間違えるまで続けます。',
   lyrics2: '歌詞の合言葉で作った非公開の部屋だけで遊べます。歌詞クイズと同じ問題ですが、YouTube の動画に歌詞字幕（手動の日本語字幕）が付いている曲だけを使うので、曲と歌詞の時刻がぴったり合います。答え合わせではサビが流れるあいだ、歌詞がカラオケのように進みます。',
   lyrics: '歌詞の合言葉で作った非公開の部屋だけで遊べます。「この歌詞の曲は？」（歌詞を見て曲を当てる）、「穴あき歌詞」（曲を聴いて伏せた言葉を当てる）、「続きはどれ？」（止まったところの次の歌詞を当てる）。早く正解するほど高得点です。歌詞はこの部屋の人にだけ送られます。',
@@ -653,6 +656,7 @@ socket.on('resumed', ({ ms, qTotal }) => {
   if (question && qTotal) { question.qTotal = qTotal; $('qno').innerHTML = $('qno').innerHTML.replace(/\/ \d+ 問/, `/ ${qTotal} 問`); }
 });
 socket.on('aborted', () => {
+  slingStop(); document.body.classList.remove('sling');
   stopFlash(); document.body.classList.remove('mvflash');
   player.stop(); stopTick(); clearInterval(nextTick); clearTimeout(goTimer);
   $('nextCount').textContent = ''; question = null; pausedNow = false; shownBeforePause = null;
@@ -721,7 +725,7 @@ function renderRoom(r) {
   const isHost = r.hostId === me;
   const canSet = !(r.state === 'playing' && !r.paused); // 設定はだれでも変えられる（ゲーム中は一時停止のときだけ）
   if (!lobbyTabChosen) setLobbyTab(isHost ? 'settings' : 'members');
-  document.querySelectorAll('#settings select').forEach(sel => {
+  document.querySelectorAll('#settings select[data-key]').forEach(sel => {
     sel.value = String(r.settings[sel.dataset.key] ?? '');
     sel.disabled = !canSet;
   });
@@ -762,6 +766,8 @@ function renderRoom(r) {
   $('gzPickOpen').textContent = `集める種類を選ぶ（${(r.settings.gzPicks || []).length}）`;
   $('wolfWorkLabel').hidden = $('wolfTitleLabel').hidden = r.settings.play !== 'wolf'; // 人狼：候補に出す作品名・曲名
   $('buzzMissLabel').hidden = !['buzzer', 'mvflash'].includes(r.settings.play);
+  $('slAmmoLabel').hidden = $('slMoveLabel').hidden = $('slTargetsLabel').hidden = r.settings.play !== 'sling';
+  $('mvQualLabel').hidden = r.settings.play !== 'mvflash'; applyMvQuality();
   $('mvSoundLabel').hidden = $('mvScopeLabel').hidden = r.settings.play !== 'mvflash';
   $('mvSuggestLabel').hidden = !(r.settings.play === 'mvflash' && r.settings.answerMode === 'input');
   $('buzzStopLabel').hidden = !['buzzer', 'fill'].includes(r.settings.play); // 早押し・3つ埋めバトル：答えている間は曲を止める
@@ -774,6 +780,8 @@ function renderRoom(r) {
   $('modeLabel').hidden = r.settings.play === 'buzzer' || r.settings.play === 'mvflash' || r.settings.target === 'year' || fillMode;
   for (const k of ['target', 'answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = fillMode;
   if (r.settings.play === 'mvflash') for (const k of ['target', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = true;
+  if (r.settings.play === 'sling') for (const k of ['answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = true;
+  if (r.settings.play === 'sling') $('modeLabel').hidden = true;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
   document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'sugoroku', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
@@ -831,6 +839,8 @@ function renderRoom(r) {
   if ($('gameCtrl').hidden) $('menuPop').hidden = true;
   document.body.classList.toggle('room-paused', playing && r.paused);
   document.body.classList.toggle('mvflash', playing && !r.paused && r.settings.play === 'mvflash'); // ゲームの間ずっと同じ画面
+  document.body.classList.toggle('sling', playing && !r.paused && r.settings.play === 'sling');
+  if (!(playing && r.settings.play === 'sling')) slingStop();
   if (playing && r.paused && !shownBeforePause) {
     shownBeforePause = ['quiz', 'result'].find(x => !$(x).hidden) || 'quiz';
     show('lobby');
@@ -1207,6 +1217,7 @@ function openRoomSettings() {
   $('settings').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 initMonopoly({ socket, $, esc, toast, getMe: () => me });
+initSling({ socket, $, serverNow: () => clientNow() + (clockOffset || 0), pass: () => answer({ pass: true }), onDone: index => { if (myAnswer === null) markAnswered(index === null ? { given: '弾切れ' } : { index }); } });
 document.querySelectorAll('.set-open').forEach(b => b.onclick = openRoomSettings);
 const showSetButtons = on => { $('setTop').hidden = $('setFab').hidden = !on; };
 function openFixPop(sel = 0) {
@@ -1414,6 +1425,7 @@ socket.on('question', q => {
     answer(q.answerMode === 'year' ? { year: q.years[+b.dataset.i], index: +b.dataset.i } : { index: +b.dataset.i }));
   // 早押し：押すボタン（押した人だけが答えられる）
   stopFlash(); document.body.classList.toggle('mvflash', q.play === 'mvflash'); $('mvSugg').innerHTML = '';
+  if (q.play === 'sling' && !practice) { document.body.classList.add('sling'); slingQuestion(q); } else slingStop();
   $('buzzRow').hidden = !['buzzer', 'mvflash', 'fill'].includes(q.play); $('buzzBtn').disabled = true; $('buzzInfo').textContent = ''; buzzHolder = null;
   // 3つ埋めバトル：選択肢・入力の欄の代わりに枠を出す
   if (q.fill) { $('choices').hidden = true; $('inputForm').hidden = true; }
@@ -1437,6 +1449,7 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
   // 時計合わせ済みなら、サーバーの時計で全員同じ時刻（t0）に流し始める（合図が届くまでの遅れでずれないように）
   const serverNow = () => clientNow() + clockOffset;
   if (t0 && clockOffset != null) offset = (serverNow() - t0) / 1000;
+  if (question?.play === 'sling') slingGo(t0 && clockOffset != null ? t0 : clientNow() + (clockOffset || 0) - offset * 1000, hintAt); // 的の動きの時刻あわせ
   player.setRate(speed); // 倍速・スロー（問題の間ずっと。答え合わせでふつうに戻す）
   document.body.classList.add('playing'); // 背景に Ambient light 風のぼかし映像
   if (!practice) document.body.classList.add('game-started'); // ここからゲームの終わりまで、キャラは左右のまま（問題の間の読み込み中も）
@@ -1497,30 +1510,39 @@ socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introL
     }, 50);
   }, wait * 1000);
 });
-// MVフラッシュ：場面ごとに飛ぶ。飛んでいる間と場面の間は黒で隠し、映ってから show 秒だけ見せる。
-// 経過は timerStart で測る（答えている間・一時停止の間は timerStart がずれるので、場面も止まる）
-let flashTick = null, flashAt = -1, flashSeen = 0, flashReadyAt = 0;
+// MVフラッシュ：サーバーの合図で場面へ飛び、映せるようになったら知らせる。全員そろったら（遅い人は上限まで待って）同時に見せる
+let flashPoll = null, flashHide = null, flashSeen = false;
 function flashCover(on) { $('mvCover').classList.toggle('open', !on); }
-function startFlash() {
-  const q = question; if (!q?.scenes) return;
-  clearInterval(flashTick); flashAt = -1; flashSeen = 0; flashCover(true);
-  flashTick = setInterval(() => {
-    if (pausedNow) { flashCover(true); return; }
-    const i = Math.floor((performance.now() - timerStart) / 1000 / q.sceneSlot);
-    if (i !== flashAt) {
-      flashAt = i; flashSeen = 0; flashReadyAt = 0; flashCover(true);
-      if (i >= q.scenes.length) { clearInterval(flashTick); player.flashSound(false); return; }
-      player.flashSeek(q.scenes[i]);
-      return;
-    }
-    if (!flashSeen && player.flashReady(q.scenes[i])) {
-      if (!flashReadyAt) flashReadyAt = performance.now(); // YouTube が飛んだ直後に中央へ出す記号が消えてから見せる
-      if (performance.now() - flashReadyAt > 350) { flashSeen = performance.now(); flashCover(false); if (q.mvSound !== 'off') player.flashSound(true); }
-    }
-    if (flashSeen && performance.now() - flashSeen > q.sceneShow * 1000) { flashCover(true); player.flashSound(false); }
+function flashQuiet() { clearTimeout(flashHide); flashCover(true); player.flashSound(false); }
+function startFlash() { flashCover(true); }
+function stopFlash() { clearInterval(flashPoll); clearTimeout(flashHide); flashCover(true); document.body.classList.remove('mv-answering'); }
+socket.on('flashSeek', ({ i, t, left, elapsed }) => {
+  if (!question?.scenes) return;
+  clearInterval(flashPoll); flashQuiet(); player.flashSeek(t, !mvHigh());
+  goTotal = elapsed + left; // 読み込みを待つと延びるので、残り時間を合わせ直す
+  let readyAt = 0;
+  flashPoll = setInterval(() => {
+    if (!player.flashReady(t)) return;
+    if (!readyAt) readyAt = performance.now();
+    if (performance.now() - readyAt > 350) { clearInterval(flashPoll); socket.emit('flashReady', i); } // YouTube が飛んだ直後に出す記号が消えてから
   }, 30);
+});
+socket.on('flashShow', ({ show }) => {
+  if (!question?.scenes || pausedNow) return;
+  flashCover(false); if (question.mvSound !== 'off') player.flashSound(true);
+  flashHide = setTimeout(flashQuiet, show * 1000);
+});
+socket.on('flashEnd', () => { clearInterval(flashPoll); flashQuiet(); });
+// 画質は人（端末）ごとの設定。低画質は動画を小さいまま読み込み（低い画質で送られる）、画面いっぱいに拡大して見せる
+const mvHigh = () => store.get('aq-mv-quality') === 'high';
+function applyMvQuality() {
+  document.body.classList.toggle('mv-hq', mvHigh());
+  document.querySelectorAll('.mv-qual').forEach(s => { s.value = mvHigh() ? 'high' : 'low'; });
 }
-function stopFlash() { clearInterval(flashTick); flashTick = null; flashCover(true); document.body.classList.remove('mv-answering'); }
+document.querySelectorAll('.mv-qual').forEach(s => { s.onchange = () => { store.set('aq-mv-quality', s.value); applyMvQuality(); player.flashQuality(!mvHigh()); }; });
+applyMvQuality();
+function fitMv() { document.documentElement.style.setProperty('--mvs', Math.max(innerWidth / 480, innerHeight / 270)); }
+addEventListener('resize', fitMv); fitMv();
 // MVフラッシュの入力候補（3つ埋めバトルと同じ、押すと確定）
 $('answerInput').addEventListener('input', () => {
   if (question?.play !== 'mvflash' || question.mvSuggest === 'off') return;
@@ -1587,6 +1609,7 @@ socket.on('buzzQueue', ({ ids = [], names = [] }) => {
 });
 socket.on('buzz', ({ id, name, sec, queue = null, stop = false }) => {
   document.body.classList.toggle('mv-answering', question?.play === 'mvflash');
+  if (question?.scenes) flashQuiet(); // 答えている間は隠す
   buzzHolder = id; // 設定で「止める」なら、答えている間は曲と残り時間を止める（止めない設定では流れたまま答える）
   if (stop && !buzzPausedAt) { buzzPausedAt = performance.now(); pausedNow = true; player.pause(); }
   if (queue) { buzzQueueNames = queue; buzzQueueIds = buzzQueueIds.filter(x => x !== id); }
@@ -2822,6 +2845,7 @@ socket.on('promoted', p => toast(`${p.by}さんが「${p.title}」をゲーム�
 
 let karaTick = null, revealSeq = 0;
 socket.on('reveal', r => {
+  slingStop();
   stopFlash(); flashCover(false); $('mvSugg').innerHTML = ''; // 答え合わせは動画をそのまま見せる
   clearInterval(lyRevealTick); clearInterval(karaTick);
   $('lyKara')?.remove();

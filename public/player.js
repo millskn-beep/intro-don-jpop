@@ -126,7 +126,8 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     pause() { run(() => { this.wasPlaying = yt.getPlayerState() === YT.PlayerState.PLAYING; yt.pauseVideo(); }); },
     resume() { run(() => { if (this.wasPlaying) yt.playVideo(); }); },
     // MVフラッシュ：無音のままその秒へ飛ぶ／映っている（飛び終わって流れている）か／音を出す・消す
-    flashSeek(t) { clear(); clearInterval(this.syncTimer); run(() => { clearInterval(fadeTimer); yt.mute(); yt.seekTo(t, true); yt.playVideo(); }); },
+    flashQuality(low) { run(() => { if (yt.setPlaybackQuality) yt.setPlaybackQuality(low ? 'small' : 'default'); }); },
+    flashSeek(t, low = true) { clear(); clearInterval(this.syncTimer); run(() => { clearInterval(fadeTimer); yt.mute(); if (yt.setPlaybackQuality) yt.setPlaybackQuality(low ? 'small' : 'default'); yt.seekTo(t, true); yt.playVideo(); }); },
     flashReady(t) { return apiReady && yt.getPlayerState() === YT.PlayerState.PLAYING && Math.abs(yt.getCurrentTime() - t) < 1.2; },
     flashSound(on) { run(() => { if (on) { yt.unMute(); yt.setVolume(volume); } else yt.mute(); }); },
     // 3つ埋めバトル：イントロ中に誰かが押したら、サビへ飛ばずにそのまま流し続ける（止まっていたらその位置から再開）

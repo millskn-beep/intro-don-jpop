@@ -1,0 +1,14 @@
+/* アニソン指パチンコ：ゲームの間は専用の画面（上に残り時間、全体に的とパチンコ、答え合わせは下に重ねる） */
+.sl-screen { position: fixed; inset: 0; z-index: 4; }
+.sl-screen[hidden] { display: none; }
+.sl-screen canvas { display: block; width: 100%; height: 100%; touch-action: none; user-select: none; -webkit-user-select: none; cursor: crosshair; }
+.sl-pass { position: fixed; right: 10px; bottom: 10px; z-index: 6; width: auto; margin: 0; padding: 5px 14px; font-size: 13px; }
+body.sling { overscroll-behavior: none; }
+body.sling .top, body.sling .room-side, body.sling #cover, body.sling #mascot, body.sling #quiz, body.sling .char-dock,
+body.sling .cue, body.sling .flash, body.sling .mascot-pop, body.sling .confetti, body.sling .cutin, body.sling .stage-tools .vol:not(:first-child),
+body.sling #highlights, body.sling #reactions, body.sling #result .copy-log, body.sling #listenBtn { display: none !important; }
+body.sling .stage { position: fixed; top: 0; left: 0; right: 0; z-index: 5; display: flex; align-items: center; gap: 12px; margin: 0; padding: 6px 12px; background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; pointer-events: none; }
+body.sling .stage .stage-tools { pointer-events: auto; margin: 0; padding: 0; flex: none; }
+body.sling .status { flex: 1; min-width: 0; } body.sling .timer { font-size: 22px; line-height: 1.2; }
+body.sling #result { position: fixed; left: 0; right: 0; bottom: 0; z-index: 7; max-height: 52dvh; overflow-y: auto; margin: 0; padding: 8px 12px 8px 96px; border: 0; background: rgba(8, 8, 20, .86); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.sling.sl-drag .set-fab, body.sling.sl-drag .fix-fab { display: none !important; }

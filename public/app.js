@@ -67,6 +67,7 @@ let me = null, room = null, question = null, myAnswer = null, timerStart = 0, ti
 let myLifelines = null, answering = false; // answering: イントロ/サビ中で、まだ答えられる状態
 
 const player = createPlayer('player', {
+  onBuffer: on => { if (!practice && room?.state === 'playing') socket.emit('netBuf', on); },
   onReadyToPlay: () => practice ? layoutApi.onReady() : wolfPending ? wolfStartPlayback() : socket.emit('ready'), // テスト1問のときはサーバーに送らない
   onError: code => { toast(`この動画は再生できません（エラー ${code}）`); socket.emit('playerError', { code }); },
 });
@@ -625,6 +626,15 @@ function applyMascot(on) {
 }
 applyMascot(store.get('aq-mascot') !== '0');
 $('mascotChk').onchange = e => applyMascot(e.target.checked);
+// 軽量：出題中は背景の映像を低画質で読み込む（回線が遅くても音が止まりにくい。答え合わせで元に戻す）
+const lowQ = () => document.body.classList.contains('lowq');
+function applyLowQ(on) {
+  document.body.classList.toggle('lowq', on);
+  $('lowqChk').checked = on;
+  store.set('aq-lowq', on ? '1' : '0');
+}
+applyLowQ(store.get('aq-lowq') !== '0');
+$('lowqChk').onchange = e => applyLowQ(e.target.checked);
 // スマホ版（mobile.css）：音量・表示・一時停止などは ⚙ で下から出るシートにまとめる
 const closeSheet = () => document.body.classList.remove('sheet-open');
 $('gearBtn').onclick = () => document.body.classList.toggle('sheet-open');
@@ -908,10 +918,12 @@ function renderRoom(r) {
   const miniCard = p => (p.card && r.state === 'playing'
     ? `<span class="mini-bingo${p.bingo ? ' done' : ''}" title="${p.card.filter(c => c.open && c.w !== 'FREE').length}マス開いた">${p.card.map(c =>
       `<i class="${c.w === 'FREE' ? 'free' : c.open ? 'open' : ''}"></i>`).join('')}</span>` : '');
+  // 回線：ping（往復ミリ秒、色で目安）と、読み込み中・止まっている印
+  const netTag = p => (p.loading ? '<i class="net-load" title="読み込み中">⏳</i>' : '') + (p.rtt != null && r.state === 'playing' ? `<i class="net-ping ${p.rtt < 100 ? 'ok' : p.rtt < 250 ? 'mid' : 'bad'}" title="回線の速さ（往復）">${p.rtt}ms</i>` : '');
   $('players').innerHTML = r.players.map(p => `
     <li data-id="${p.id}" class="${p.answered ? 'answered' : ''} ${p.connected ? '' : 'off'} ${p.id === me ? 'me' : ''} ${p.team ? 'team-' + p.team : ''} ${survival && p.out ? 'is-out' : ''} ${p.buzzing ? 'is-buzzing' : ''}">
       <span class="pl-face">${avatarImg(p.avatar)}${top > 0 && p.score === top ? icon('crown', 'crown') : ''}</span>
-      <span class="pl-name"><b>${esc(p.name)}</b>${p.id === r.hostId || p.id === me || p.streak >= 2 || extraTags(p) ? `<span class="tags">${p.id === r.hostId ? '<span class="host">HOST</span>' : ''}${p.id === me ? '<span class="you">YOU</span>' : ''}${p.streak >= 2 ? `<span class="streak" title="連続正解">${p.streak}連</span>` : ''}${extraTags(p)}</span>` : ''}${miniCard(p)}</span>
+      <span class="pl-name"><b>${esc(p.name)}${netTag(p)}</b>${p.id === r.hostId || p.id === me || p.streak >= 2 || extraTags(p) ? `<span class="tags">${p.id === r.hostId ? '<span class="host">HOST</span>' : ''}${p.id === me ? '<span class="you">YOU</span>' : ''}${p.streak >= 2 ? `<span class="streak" title="連続正解">${p.streak}連</span>` : ''}${extraTags(p)}</span>` : ''}${miniCard(p)}</span>
       <span class="pts${prevScores.has(p.id) && p.score > prevScores.get(p.id) ? ' bump' : ''}">${p.score}</span>
       ${p.answered ? '<span class="pl-check" title="回答済み"></span>' : ''}
     </li>`).join('');
@@ -1449,12 +1461,20 @@ socket.on('question', q => {
   updateLifelineButtons();
   show('quiz');
   player.load(q.videoId, q.start ?? q.intro);
+  if (q.play !== 'mvflash') player.lowQuality(lowQ()); // 軽量：出題中は低画質で読み込む
 });
 
 // offset は途中から戻ってきた人向け（経過秒）
 // offset は曲が流れ始めてからの経過秒。マイナスのときは、選択肢を見せてからその秒数待って流す（最初の1秒の待ち）。
 // 途中から戻ってきた人はプラスの経過秒が届く
 let goTimer = null;
+// 読み込み待ち：画面の中央に「〇〇さん ロード中…」。曲が流れ始めた（go・サビ）ら消す
+socket.on('loadWait', ({ names = [] }) => {
+  const el = $('loadWait');
+  el.hidden = !names.length;
+  el.textContent = names.length ? `${names.slice(0, 4).map(n => n + 'さん').join('・')}${names.length > 4 ? ` ほか${names.length - 4}人` : ''} ロード中…` : '';
+});
+socket.on('hint', () => { $('loadWait').hidden = true; });
 socket.on('go', ({ intro, start = intro, kind, hintAt, total, offset = 0, introLen, plays = 1, gap = 1, speed = 1, t0 = null }) => {
   // 時計合わせ済みなら、サーバーの時計で全員同じ時刻（t0）に流し始める（合図が届くまでの遅れでずれないように）
   const serverNow = () => clientNow() + clockOffset;
@@ -1577,8 +1597,9 @@ socket.on('flowOn', ({ total }) => {
 });
 // ゲームの最初の問題：3・2・1・START!
 socket.on('countdown', ({ sec }) => charFx.countdown(sec));
-socket.on('stopIntro', ({ cut } = {}) => {
-  player.stopIntro(cut);
+socket.on('stopIntro', ({ cut, pre } = {}) => {
+  // pre：最後のイントロのあと。止めたらサビの位置を先に読み込んで、そろったらサーバーに知らせる（サビは全員そろってから流れる）
+  player.stopIntro(cut, pre != null ? () => player.prebuffer(pre.known && pre.chorus !== pre.intro + 50 ? pre.chorus - 0.3 : guessChorus(pre.intro, player.duration()) - 0.3, () => socket.emit('chorusReady')) : null);
   // 流し直す前の間に「もう一回！」（イントロ→間→「もう一回！」→2回目、の順に見えるように）
   if (introLeft > 0) { introLeft--; cue('もう一回！', 'fx-replay'); stageMascot('again'); charFx.pose('again'); charFx.say('again'); setPhase('intro', 'もう一回！'); }
 });
@@ -2957,6 +2978,7 @@ socket.on('promoted', p => toast(`${p.by}さんが「${p.title}」をゲーム�
 
 let karaTick = null, revealSeq = 0;
 socket.on('reveal', r => {
+  $('loadWait').hidden = true;
   slingStop();
   stopFlash(); flashCover(false); $('mvSugg').innerHTML = ''; // 答え合わせは動画をそのまま見せる
   clearInterval(lyRevealTick); clearInterval(karaTick);
@@ -2991,6 +3013,7 @@ socket.on('reveal', r => {
   const unknown = r.chorusKnown === false || (r.chorusKnown === undefined && r.chorus === r.intro + 50);
   // サビまで流れていたらそのまま流し続ける。イントロのうちに答え合わせになったらサビへ移動（サビ前問題は流れのまま）
   // 歌詞クイズ（この歌詞の曲は？など）は、問題に出した歌詞のところから流す
+  if (lowQ() && question?.play !== 'mvflash') player.lowQuality(false); // 軽量：答え合わせは元の画質で見せる
   player.reveal(r.intro, unknown ? guessChorus(r.intro, player.duration()) : r.chorus, !hintSeen && question?.kind !== 'sabimae', r.lyPlay);
   // だれがどの選択肢を押したか（アバターと名前を選択肢の中に出す）
   // 年当てクイズは、年のスロットが止まってから正解の選択肢・自分の結果を出す

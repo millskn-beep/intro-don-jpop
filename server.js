@@ -991,7 +991,7 @@ const YEAR_POINTS = [1000, 500, 250, 120, 60, 30]; // 年代当て：ずれ 0〜
 const DEFAULT_EXCLUDE = ['vocaloid', 'jpop', 'slot']; // ライフラインは使わない（画面からも外した）
 const LIFELINES = ['fifty', 'audience', 'phone', 'replay']; // 50:50 / オーディエンス / テレフォン / もう一度聴く
 const NEAR_YEARS = 5; // 選択肢は、まず出題曲の前後この年数以内の曲から選ぶ
-const READY_TIMEOUT = 4000;      // 全員の読み込みを待つ上限
+const READY_TIMEOUT = 9000;      // 全員の読み込み（先読みまで）を待つ上限
 const ROOM_TTL = 10 * 60 * 1000; // 全員いなくなってから部屋を消すまで
 const CODE_CHARS = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; // 0/O/1/I/L を除く
 
@@ -1144,6 +1144,8 @@ function publicRoom(room) {
       deck: room.settings.play === 'deck' && p.dk ? { ...p.dk, vpPrice: DK_VP + p.dk.vp } : null,
       team: room.settings.teams ? p.team || null : null, lives: p.lives ?? null, out: !!p.out,
       buzzing: q?.buzz?.token === p.token, // 早押しでいま答えている人
+      rtt: p.connected && p.rtt != null ? Math.round(p.rtt) : null, // 回線の速さ（往復ミリ秒）
+      loading: !!(q && q.phase === 'loading' && q.participants.has(p.token) && !q.ready.has(p.token)) || !!(p.buf && q && ['intro', 'chorus'].includes(q.phase)), // 読み込み中・止まっている
       card: room.settings.play === 'bingo' && p.card ? p.card.map(c => ({ w: c.w, open: c.open })) : null, bingo: !!p.bingoAt,
       picker: q?.picker === p.token,
       pokerCount: room.settings.play === 'poker' ? (p.hand || []).length : null,
@@ -3889,6 +3891,7 @@ function startQuestion(room, song, picker = null) {
   io.to(room.code).emit('question', questionPayload(room));
   broadcastRoom(room);
   later(room, () => go(room), READY_TIMEOUT);
+  later(room, () => { const q = room.game?.q; if (q && q.phase === 'loading' && !q.scenes) emitLoadWait(room, q, q.ready); }, 1500); // 少し待っても読み込めていない人がいたら、中央に名前を出す
 }
 
 function questionPayload(room) {
@@ -3969,6 +3972,7 @@ function questionTotal(S, hintAt = S.hintAt) {
 }
 // イントロを何回か流すときは、流し終わって少し空けてからサビのヒントにする
 const INTRO_GAP = 1; // 流し直す前の間（秒）
+const CHORUS_WAIT = 3000; // サビに移る時、全員のサビの読み込みを待つ上限（ミリ秒）
 const flowing = kind => kind === 'sabimae' || kind === 'random' || kind === 'outro'; // 止めずに流し続ける問題（サビ前・どこから・アウトロ）
 const introPlaysOf = (S, kind) => (flowing(kind) ? 1 : (S.introPlays || 1));
 function hintAtOf(S, kind) {
@@ -4023,6 +4027,14 @@ const isOfficialVideo = s => !isTopic(s) && /公式|official|MV/i.test(`${s.sour
 function mvPool(S, pool) { return Object.assign(pool.filter(S.mvScope === 'official' ? isOfficialVideo : S.mvScope === 'all' ? s => !isTopic(s) : s => mvKind(s) === 'anime'), { ex: pool.ex, noCoupling: pool.noCoupling }); } // 選択肢の作り方（除外ジャンル）も引き継ぐ
 
 const COUNTDOWN = 3; // ゲームの最初の問題だけ「3・2・1・START!」を入れる（秒）
+// 読み込みを待っている人（つながっている答える人で、done にいない人）の名前を全員に送る。空なら消す
+function emitLoadWait(room, q, done) {
+  const names = [...q.participants].filter(t => room.players.get(t)?.connected && !done?.has(t)).map(t => room.players.get(t).name);
+  q.loadWaitShown = names.length > 0;
+  io.to(room.code).emit('loadWait', { names });
+}
+// サビの先読みが全員（つながっている答える人）そろったか
+const chorusAllReady = (room, q) => [...q.participants].every(t => q.chorusReady?.has(t) || !room.players.get(t)?.connected);
 function go(room) {
   const q = room.game.q;
   if (q.phase !== 'loading') return;
@@ -4037,6 +4049,7 @@ function go(room) {
   }
   const S = room.settings;
   q.phase = 'intro';
+  if (q.loadWaitShown) { q.loadWaitShown = false; io.to(room.code).emit('loadWait', { names: [] }); } // 中央の「ロード中…」を消す
   // 選択肢を見てから1秒後に曲が流れ始める。時間・得点の計算もそこから
   q.t0 = Date.now() + LEAD_MS;
   // 途中で設定が変わっても、この問題は始めた時の設定で進める
@@ -4052,7 +4065,9 @@ function go(room) {
     for (let i = 0; i < plays; i++) {
       const at = i * (iLen + INTRO_GAP);
       if (i > 0) later(room, () => { if (q.phase === 'intro' && !q.flowOn) io.to(room.code).emit('restartIntro', { n: i + 1, plays }); }, at * 1000);
-      if (at + iLen < hintAt || q.kind?.startsWith('ly-')) later(room, () => { if (q.phase === 'intro' && !q.flowOn) io.to(room.code).emit('stopIntro', { cut: !!q.lyCut }); }, (at + iLen) * 1000); // 歌詞クイズはサビへ移らないので、流す長さで必ず止める
+      const last = i === plays - 1 && !q.kind?.startsWith('ly-') && !q.fill; // 最後のイントロのあと：各自がサビを先に読み込む（3つ埋めは流し続けることがあるので使わない）
+      if (last && at + iLen < hintAt) q.chorusWait = true;
+      if (at + iLen < hintAt || q.kind?.startsWith('ly-')) later(room, () => { if (q.phase === 'intro' && !q.flowOn) io.to(room.code).emit('stopIntro', { cut: !!q.lyCut, pre: last ? { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0 } : null }); }, (at + iLen) * 1000); // 歌詞クイズはサビへ移らないので、流す長さで必ず止める
     }
   }
   if (q.rush?.omens?.length) { // 激アツRUSH：予兆（全員に同じ時刻で出す。当たりかどうかは伏せたまま）
@@ -4060,6 +4075,13 @@ function go(room) {
   }
   if (!q.scenes) later(room, () => {
     if (q.phase !== 'intro') return;
+    // サビの先読み：まだ読み込めていない人がいれば、そろうまで（最大 CHORUS_WAIT）待ってからサビへ
+    if (q.chorusWait && !chorusAllReady(room, q)) { q.hintPending = true; emitLoadWait(room, q, q.chorusReady); return laterAt(room, () => sendHint(room, q), CHORUS_WAIT); }
+    sendHint(room, q);
+  }, hintAt * 1000);
+  function sendHint(room, q) {
+    if (q.phase !== 'intro' || room.game?.q !== q) return;
+    q.hintPending = false;
     q.phase = 'chorus';
     if (q.kind?.startsWith('ly-')) return broadcastRoom(room); // 歌詞クイズはサビへ移らない
     // 3つ埋めバトル：イントロ中に押されて流し続けている曲は、まだサビまで来ていなければサビへ移る（もう過ぎていればそのまま）
@@ -4067,7 +4089,8 @@ function go(room) {
     io.to(room.code).emit('hint', { chorus: chorusOf(q.song), known: q.song.chorus > 0, intro: q.song.intro || 0, seek: q.kind !== 'sabimae' }); // どこから問題はサビへ移動する
     if (q.rush?.hit) io.to(room.code).emit('rushReach', { color: q.rush.color }); // 激アツRUSH：当たりの問題は「リーチ！」
     broadcastRoom(room);
-  }, hintAt * 1000);
+  }
+  q.sendHint = () => sendHint(room, q);
   if (S.clues && !q.fill && !q.scenes) { // 3つ埋めバトルは、ヒント（年・歌手・作品の頭文字）が枠の答えになるので出さない
     // ビンゴは頭文字のヒント（「〇」から始まる作品）を出さない（カードのマスがすぐ分かってしまうので）
     clueList(q.song, S.target).filter(c => !(S.play === 'bingo' && c.label === '作品') && !(S.play === 'nenpyo' && c.label === '年') && !(S.play === 'karuta' && ((S.karutaFace === 'work' && c.label === '作品') || (S.karutaFace === 'artist' && c.label === '歌手')))).forEach((c, i) => later(room, () => {
@@ -5196,7 +5219,18 @@ io.on('connection', socket => {
     if (!q || q.phase !== 'loading') return;
     q.ready.add(player.token);
     const waiting = [...q.participants].filter(t => room.players.get(t)?.connected && !q.ready.has(t));
-    if (waiting.length === 0) go(room);
+    if (waiting.length === 0) go(room); else { broadcastRoom(room); if (q.loadWaitShown) emitLoadWait(room, q, q.ready); } // 読み込み中の印を消す・中央の名前を減らす
+  });
+  socket.on('chorusReady', () => { // サビの位置を読み込めた。全員そろって、サビ待ちなら流す
+    const q = room?.game?.q; if (!q || !player || q.phase !== 'intro') return;
+    (q.chorusReady ||= new Set()).add(player.token);
+    if (q.hintPending && chorusAllReady(room, q)) q.sendHint?.(); else if (q.hintPending) emitLoadWait(room, q, q.chorusReady);
+  });
+  socket.on('netBuf', on => { // 曲が読み込み待ちで止まっている（一覧に印を出す）
+    if (!player || !room) return;
+    if (!!on === !!player.buf) return; player.buf = !!on;
+    const now = Date.now(); if (on && now - (player.bufAt || 0) < 1000) return; player.bufAt = now;
+    broadcastRoom(room);
   });
 
   // リアクションスタンプ（部屋の全員に表示。連打は1秒に1回まで）

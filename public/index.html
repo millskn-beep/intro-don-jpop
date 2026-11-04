@@ -154,6 +154,7 @@
       <label class="vol" title="背景の映像の濃さ（自分の画面だけ）"><span>背景</span><input type="range" id="bgRange" min="0" max="100" value="100"></label>
       <label class="vol" title="エフェクトの輝き（自分の画面だけ。0で消す）"><span>エフェクト</span><input type="range" id="fxRange" min="0" max="100" value="100"></label>
       <label class="vol chk" title="キャラクターを表示する（自分の画面だけ）"><span>キャラ</span><input type="checkbox" id="mascotChk" checked></label>
+      <label class="vol chk" title="出題中は背景の映像を低画質で読み込む（回線が遅くても音が止まりにくい。音声はほぼ変わらない。自分の画面だけ）"><span>軽量</span><input type="checkbox" id="lowqChk" checked></label>
       <label class="vol" title="キャラクターと画面の見た目を選ぶ（自分の画面だけ）"><span>キャラ選択</span><select class="char-sel" id="charSel"><option value="twins">双子</option><option value="rabbit">うさぎ</option><option value="cat">ねこ</option></select></label>
       <div class="game-ctrl game-menu" id="gameCtrl" hidden>
         <button class="btn-sub" id="menuBtn" type="button" title="設定を変える・レイアウト・ルームに戻る">⚙ メニュー ▾</button>
@@ -470,6 +471,7 @@
   <div class="pk-modal pn-modal" id="panelPop" hidden></div>
   <div class="pk-modal wf-modal" id="wolfPop" hidden></div>
   <div class="pk-modal wf-modal" id="insPop" hidden></div>
+  <div class="load-wait" id="loadWait" role="status" hidden></div>
   <div class="pk-modal wf-modal" id="dixitPop" hidden></div>
   <div class="pk-modal wf-modal" id="dtPop" hidden></div>
   <div class="pk-modal wf-modal" id="tsPop" hidden></div>

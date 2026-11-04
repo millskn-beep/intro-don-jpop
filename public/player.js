@@ -4,9 +4,10 @@
 const VOL_DEFAULT = 80, FADE_OUT = 800, FADE_IN = 1000, FADE_CUT = 100;
 const HINT_WAIT = 1500; // イントロ→サビの間の待ち
 const CHORUS_LEAD = 0.3; // サビは少し前から流す（頭が切れないように）
+const PRELOAD_SEC = 8, PRELOAD_MAX = 5000; // 開始の前に、イントロから PRELOAD_SEC 秒先まで読み込んでおく（待つのは最大 PRELOAD_MAX ミリ秒）
 const SYNC_MAX = 1; // 再生位置のずれがこの秒数より大きいときだけ飛ばし直す（小さいずれで飛ぶと出だしがプツプツ途切れる）
 
-export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
+export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {}) {
   let yt = null, apiReady = false, pending = [];
   let volume = VOL_DEFAULT, fadeTimer = null, timers = [], waitTimer = null;
 
@@ -20,6 +21,7 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
       events: {
         onReady: () => { apiReady = true; const list = pending; pending = []; list.forEach(fn => fn()); },
         onError: e => onError && onError(e.data),
+        onStateChange: e => onBuffer && onBuffer(e.data === YT.PlayerState.BUFFERING), // 読み込み待ちで止まっている・流れ出した
       },
     });
   };
@@ -53,7 +55,12 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
           if (!notified && yt.getPlayerState() === YT.PlayerState.PLAYING) {
             notified = true; clearInterval(waitTimer);
             yt.pauseVideo();
-            onReadyToPlay && onReadyToPlay();
+            // 先読み：止めたまま少し先まで読み込めてから「準備できた」（回線が遅い人が、始まってすぐ止まらないように）
+            const t0 = Date.now();
+            waitTimer = setInterval(() => {
+              const end = (yt.getVideoLoadedFraction?.() || 0) * (yt.getDuration?.() || 0);
+              if (end >= (intro || 0) + PRELOAD_SEC || Date.now() - t0 > PRELOAD_MAX) { clearInterval(waitTimer); onReadyToPlay && onReadyToPlay(); }
+            }, 100);
           }
         }, 50);
       });
@@ -63,8 +70,20 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
       clear();
       run(() => { if (Math.abs(yt.getCurrentTime() - intro) > 0.5) yt.seekTo(intro, true); yt.unMute(); yt.setVolume(volume); yt.playVideo(); });
     },
-    stopIntro(cut = false) { // cut：隠した歌詞が聞こえないよう、すぐ止める
-      run(() => fade(volume, 0, cut ? FADE_CUT : FADE_OUT, () => yt.pauseVideo()));
+    stopIntro(cut = false, then = null) { // cut：隠した歌詞が聞こえないよう、すぐ止める。then：止めたあと（サビの先読み）
+      run(() => fade(volume, 0, cut ? FADE_CUT : FADE_OUT, () => { yt.pauseVideo(); then && then(); }));
+    },
+    // サビの先読み：止めたまま音なしでサビの位置へ飛び、少し先まで読み込めたら done（待つのは最大 PRELOAD_MAX）
+    prebuffer(t, done) {
+      run(() => {
+        clearInterval(waitTimer);
+        yt.mute(); yt.seekTo(Math.max(0, t), true); yt.pauseVideo();
+        const t0 = Date.now();
+        waitTimer = setInterval(() => {
+          const end = (yt.getVideoLoadedFraction?.() || 0) * (yt.getDuration?.() || 0);
+          if (end >= t + PRELOAD_SEC || Date.now() - t0 > PRELOAD_MAX - 1000) { clearInterval(waitTimer); done && done(); }
+        }, 100);
+      });
     },
     // サビへ（ヒント）
     hint(chorus) {
@@ -127,6 +146,7 @@ export function createPlayer(elementId, { onReadyToPlay, onError } = {}) {
     pause() { run(() => { this.wasPlaying = yt.getPlayerState() === YT.PlayerState.PLAYING; yt.pauseVideo(); }); },
     resume() { run(() => { if (this.wasPlaying) yt.playVideo(); }); },
     // MVフラッシュ：無音のままその秒へ飛ぶ／映っている（飛び終わって流れている）か／音を出す・消す
+    lowQuality(low) { run(() => { if (yt.setPlaybackQuality) yt.setPlaybackQuality(low ? 'small' : 'default'); }); }, // 出題中の低画質（音声は別に届くので、ほぼ変わらない）
     flashQuality(low) { run(() => { if (yt.setPlaybackQuality) yt.setPlaybackQuality(low ? 'small' : 'default'); }); },
     flashSeek(t, low = true) { clear(); clearInterval(this.syncTimer); run(() => { clearInterval(fadeTimer); yt.mute(); if (yt.setPlaybackQuality) yt.setPlaybackQuality(low ? 'small' : 'default'); yt.seekTo(t, true); yt.playVideo(); }); },
     flashReady(t) { return apiReady && yt.getPlayerState() === YT.PlayerState.PLAYING && Math.abs(yt.getCurrentTime() - t) < 1.2; },

@@ -232,7 +232,7 @@
           <option value="coop">協力（全員の正解数で目標をめざす）</option>
           <option value="bingo">ビンゴ（作品名のカードをそろえる）</option>
           <option value="fill">3つ埋めバトル（曲名・アニメ・アーティストを早押しで埋める）</option>
-          <option value="fillmany">たくさん埋めバトル（4〜8個の枠を早押しで埋める）</option>
+          <option value="fillmany">たくさん埋めバトル（発表年なども足した枠を早押しで埋める）</option>
           <option value="rush">アニソン激アツRUSH（保留・リーチ・大当たり・確変）</option>
           <option value="poker">アニソン・ポーカー（正解した曲のカードで役を作る）</option>
           <option value="azul">アニソン・アズール（曲カードを取り合い、年代別の棚に並べる・2〜4人）</option>
@@ -252,6 +252,7 @@
           <option value="tanshuku">アニソン短縮鉄道（略称を元の名前に戻す・4択・脱落制）</option>
           <option value="dentatsu">アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える・2人以上）</option>
           <option value="dixit">アニソン・ディクシット（語り手のヒントに合う曲を出して、語り手の曲を当てる・3人以上）</option>
+          <option value="insider">アニソンインサイダー（はい・いいえの質問で曲を当て、答えを知っていた人を探す・3人以上）</option>
           <option value="wolf">アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる・3人以上）</option>
           <option value="nenpyo">アニソン年表（曲を年表の正しい位置に置く）</option>
           <option value="karuta">アニソンかるた（並んだ札から早取り）</option>
@@ -262,8 +263,10 @@
         <label id="livesLabel" hidden>ライフ<select data-key="lives"><option value="1">1（1回で脱落）</option><option value="2">2</option><option value="3">3</option></select></label>
         <label id="rushRateLabel" hidden>当たりやすさ<select data-key="rushRate"><option value="normal">ふつう</option><option value="high">出やすい（×1.5）</option><option value="low">出にくい（×0.6）</option></select></label>
         <label id="fillMissLabel" hidden>お手つきの減点<select data-key="fillMiss"><option value="on">あり（間違えると −200点）</option><option value="off">なし（減点しない。押せない秒数はそのまま）</option></select></label>
-        <label id="fillNLabel" hidden>枠の数<select data-key="fillN"><option value="4">4個</option><option value="5">5個</option><option value="6">6個</option><option value="7">7個</option><option value="8">8個</option></select></label>
+        <div id="fillKindsLabel" class="ly-kinds-box" hidden><span>たくさん埋めバトル：足す枠（いくつでも。選んだ数だけ枠が増える）</span><div id="fillKinds" class="ly-kinds"><label><input type="checkbox" value="year" checked> 発表年</label><label><input type="checkbox" value="use" checked> 使われ方（OP・EDなど）</label><label><input type="checkbox" value="genre" checked> ジャンル</label><label><input type="checkbox" value="sameWork"> 同じアニメの別の曲</label><label><input type="checkbox" value="sameArtist"> 同じ歌手の別の曲</label><label><input type="checkbox" value="views"> 再生回数</label></div></div>
         <label id="lockSecLabel" hidden>お手つき後に押せない秒数<select data-key="lockSec"><option value="3">3秒</option><option value="5">5秒</option><option value="10">10秒</option><option value="15">15秒</option><option value="20">20秒</option><option value="30">30秒</option></select></label>
+        <label id="insHearLabel" hidden>インサイダー：曲を聴ける人<select data-key="insHear"><option value="master">出題者とインサイダーだけ</option><option value="intro">全員にイントロだけ流す</option></select></label>
+        <label id="insTargetLabel" hidden>インサイダー：当てるもの<select data-key="insTarget"><option value="song">曲名</option><option value="work">作品名</option></select></label>
         <label id="wolfWorkLabel" hidden>人狼：候補に作品名（タイトル）<select data-key="wolfWork"><option value="hide">出さない</option><option value="show">出す</option></select></label>
         <label id="lyFocusLabel" hidden>歌詞クイズ：出す場所<select data-key="lyFocus"><option value="chorus">サビの歌詞を中心に</option><option value="any">どこからでも</option></select></label>
         <div id="lyKindLabel" class="ly-kinds-box" hidden><span>歌詞クイズ：出題の種類（いくつでも。毎問この中からランダム）</span><div id="lyKinds" class="ly-kinds"><label><input type="checkbox" value="which" checked> この歌詞の曲は？</label><label><input type="checkbox" value="blank" checked> 穴あき歌詞（曲を聴いて）</label><label><input type="checkbox" value="next" checked> 続きはどれ？（曲を聴いて）</label><label><input type="checkbox" value="reveal" checked> 歌詞が少しずつ出る</label><label><input type="checkbox" value="whichWork" checked> 歌詞で作品当て</label><label><input type="checkbox" value="whichArtist" checked> 歌詞で歌手当て</label><label><input type="checkbox" value="wrong" checked> 間違い探し（曲を聴いて）</label><label><input type="checkbox" value="keyword" checked> キーワード</label></div></div>
@@ -466,6 +469,7 @@
   <div class="pk-modal" id="pokerBetPop" hidden></div>
   <div class="pk-modal pn-modal" id="panelPop" hidden></div>
   <div class="pk-modal wf-modal" id="wolfPop" hidden></div>
+  <div class="pk-modal wf-modal" id="insPop" hidden></div>
   <div class="pk-modal wf-modal" id="dixitPop" hidden></div>
   <div class="pk-modal wf-modal" id="dtPop" hidden></div>
   <div class="pk-modal wf-modal" id="tsPop" hidden></div>

@@ -1538,3 +1538,23 @@ body.mvflash:not(.mv-hq) .video-bg iframe { width: 480px !important; height: 270
 body.mvflash:not(.mv-answering) .mv-qual-bar { display: flex; position: fixed; right: 10px; bottom: 10px; z-index: 6; align-items: center; gap: 6px; width: auto; margin: 0; font-size: 12px; color: #fff; }
 .mv-qual-bar select { width: auto; margin: 0; padding: 3px 6px; font-size: 12px; }
 body.mvflash.revealing .mv-qual-bar { display: none; }
+
+/* アニソンインサイダー（人狼と同じ .wf-* の窓。1画面に収める） */
+#insPop .wf-field { width: min(760px, 100%); max-height: 98dvh; overflow: hidden; gap: clamp(4px, 1.1dvh, 8px); padding: clamp(8px, 1.6dvh, 14px); }
+#insPop .wf-say input { padding: 8px 12px; font-size: 15px; }
+#insPop .wf-say .btn-main, #insPop .wf-say .btn-sub { padding: 0 16px; font-size: 14px; }
+#insPop .wf-msg { line-height: 1.4; font-size: 14px; }
+#insPop .wf-msg small { display: block; font-size: 11px; }
+.ins-log { max-height: none; min-height: 50px; height: clamp(50px, 22dvh, 200px); align-content: start; }
+.ins-log li { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.ins-log .ins-a { margin-left: auto; font-style: normal; font-weight: 800; padding: 0 8px; border-radius: 99px; }
+.ins-a.yes { color: #8dffc8; } .ins-a.no { color: #ff8da1; } .ins-a.unk { color: var(--sub); } .ins-a.wait { color: var(--sub); }
+.ins-rep { margin-left: auto; display: inline-flex; gap: 4px; }
+.ins-rep .btn-sub { width: auto; margin: 0; padding: 2px 10px; font-size: 12px; }
+.ins-rep .btn-sub.on { border-color: var(--warn); background: rgba(255, 211, 107, .25); }
+.ins-guess { opacity: .8; } .ins-guess.ok { opacity: 1; color: #8dffc8; }
+.ins-ans { display: grid; justify-items: center; padding: 4px 10px; border-radius: 10px; background: rgba(255, 211, 107, .1); border: 1px solid rgba(255, 211, 107, .45); }
+.ins-ans small { font-size: 10px; color: var(--sub); } .ins-ans b { font-size: 17px; } .ins-ans span { font-size: 11px; color: var(--sub); }
+.ins-sugg { display: flex; flex-wrap: wrap; gap: 4px; } .ins-sugg:empty { display: none; }
+.ins-sugg .btn-sub { width: auto; margin: 0; padding: 3px 10px; font-size: 12px; }
+.ins-listen { width: auto; justify-self: center; margin: 0; padding: 4px 14px; font-size: 12px; }

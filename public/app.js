@@ -271,7 +271,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['fillMiss', 'slAmmo', 'slMove', 'buzzMiss', 'mvSound', 'mvScope', 'mvSuggest', 'mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'wwRaise', 'wwStyle', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
+const STRING_KEYS = ['insHear', 'insTarget', 'fillMiss', 'slAmmo', 'slMove', 'buzzMiss', 'mvSound', 'mvScope', 'mvSuggest', 'mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'wwRaise', 'wwStyle', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select[data-key]').forEach(x => {
@@ -279,6 +279,7 @@ function sendSettings(extra = {}) {
     s[k] = STRING_KEYS.includes(k) ? x.value : BOOL_KEYS.includes(k) ? x.value === 'true' : +x.value;
   });
   s.lessPlayed = $('lessPlayed').checked; // 流れた回数が少ない曲を優先
+  const fk = [...document.querySelectorAll('#fillKinds input:checked')].map(x => x.value); if (fk.length) s.fillKinds = fk; // たくさん埋めバトル：足す枠の種類（複数）
   const lyk = [...document.querySelectorAll('#lyKinds input:checked')].map(x => x.value); if (lyk.length) s.lyKinds = lyk; // 歌詞クイズ：出題の種類（複数）
   // 知名度のチェック（複数）
   const fame = [...$('fameList').querySelectorAll('input:checked')].map(x => x.value);
@@ -473,7 +474,7 @@ const PLAY_INFO = {
   picker: ['🎤', '出題者', '順番に1人が曲を選んで出題。半分くらいが正解すると出題者も高得点', '2人〜', 'quiz'],
   coop: ['🤝', '協力', '全員の正解数を合わせて目標をめざす', '1人〜', 'quiz'],
   fill: ['🧩', '3つ埋めバトル', '曲名・アニメ・アーティストの枠を早押しで埋める', '1人〜', 'quiz'],
-  fillmany: ['🧩', 'たくさん埋めバトル', '発表年・使われ方・ジャンルなども入れた4〜8個の枠を早押しで埋める', '1人〜', 'quiz'],
+  fillmany: ['🧩', 'たくさん埋めバトル', '発表年・使われ方・ジャンルなど、選んだ枠も足して早押しで埋める', '1人〜', 'quiz'],
   rush: ['🎰', '激アツRUSH', 'パチンコ風。保留・リーチ・大当たり・確変で点が跳ねる', '1人〜', 'quiz'],
   karuta: ['🎴', 'かるた', '並んだ札から、流れた曲の札を早取り', '1人〜', 'quiz'],
   nenpyo: ['📅', '年表', '流れた曲を、自分の年表の正しい位置に置く', '1人〜', 'quiz'],
@@ -488,6 +489,7 @@ const PLAY_INFO = {
   wits: ['💰', '年代ベット', '発売年を予想して、いちばん近い予想に賭ける', '2人〜', 'quiz'],
   bluff: ['🎭', 'アニソンベット', 'ウソの作品名で大喜利。いいねと本物当てで点が入る（ベットも選べる）', '2人〜', 'quiz'],
   kaerema: ['🍜', '帰れま10', 'お題の曲の再生回数トップ10を、全部当てたら帰れる', '1人〜', 'board'],
+  insider: ['🕵️', 'インサイダー', '出題者に「はい・いいえ」で質問して曲を当て、答えを知っていた人を見つける', '3人〜', 'board'],
   wolf: ['🐺', '人狼', '1人だけ別の曲。ヒントと話し合いで、だれが違うか当てる', '3人〜', 'board'],
   lyrics2: ['🎙️', '歌詞クイズ2', 'YouTube の歌詞字幕がある曲だけで、歌詞と曲がぴったり合う。答え合わせは歌詞を見ながら聴ける。合言葉の部屋だけ', '1人〜', 'quiz'],
   lyrics: ['🎤', '歌詞クイズ', '歌詞を見て・聴いて当てる（この歌詞の曲は？／穴あき／続きはどれ？）。合言葉の部屋だけ', '1人〜', 'quiz'],
@@ -535,6 +537,7 @@ const PLAY_DESC = {
   codenames: '4人以上で遊びます。赤・青の2チームに分かれ、各チームに1人のスパイマスターがいます。盤面は25枚の作品名で、スパイマスターだけが「どれが赤・青・中立・暗殺か」を知っています。スパイマスターが「ヒントの言葉＋数字」を出し、仲間がそれを手がかりに自分のチームの作品を当てます（めくると曲が流れます）。先に全部当てたチームの勝ち。暗殺カードを引くと負けです。1回が1ゲームです。',
   baba: '3人以上で遊びます。曲のカード（曲名と歌手だけ見えます）が配られます。同じ作品の曲2枚を選んで「ペア」にして出し、手札を早くなくしましょう（合っていれば+300点、ちがうと−300点）。順番に右隣の人から1枚ずつ引き、最後までババ（ジョーカー）を持っていた人が負け。上がった順に 3000／2000／1000点です。1回が1ゲームです（1〜2回がおすすめ）。',
   dixit: '3人以上で遊びます。順番に語り手になり、手札の5曲から1曲を選んで一言ヒントを出します。ほかの人は、ヒントに合うと思う曲を手札から出し、出た曲の中から語り手の曲だと思うものに投票。全員が当てたり、だれも当てなかったりすると語り手は0点、ほどよく当たると語り手も当てた人も高得点です。自分の曲に票が入ってもプラス。問題数＝回数です（人数×1〜2回くらいがおすすめ）。',
+  insider: '3人以上（4人以上がおすすめ）で遊びます。毎回1人が出題者（順番に交代）で、出題者だけが答えの曲を知っています。ほかの人はチャットで「はい・いいえ」で答えられる質問をして、曲名（設定で作品名）を当てます。ただし、答えを知っている「インサイダー」が1人まぎれています（出題者もだれかは知りません）。当てたあと話し合い、インサイダーだと思う人に投票。当てればみんなと出題者の勝ち（+1000点）、外せばインサイダーの勝ち（+2000点）。時間内に当てられなければ全員の負け。答えた人は +300点。',
   wolf: '3人以上で遊びます。全員に同じ曲が流れますが、1人（人狼）だけ別の作品の曲が流れます（自分が人狼かは分かりません）。曲について一言ヒントを出し合い、チャットで話し合って、人狼だと思う人に投票。人狼を当てたら村人の勝ち（+1000点）、外したら人狼の勝ち（+2000点）。当てられた人狼も、みんなの曲名を当てれば逆転勝ちです。問題数＝回数です（5回くらいがおすすめ）。',
   nenpyo: '一人ひとり、年の見えている曲を1枚持って始めます。曲が流れたら（年は伏せたまま）、自分の年表の「どこに入るか」（この曲とこの曲の間）を選びます。合っていれば、その曲が年表に入ります（同じ年はどちらでも正解）。先に10枚並べた人の勝ち。曲名がわからなくても「この時代っぽい」で戦えます。',
   karuta: '画面に16枚の札（曲名・作品名・歌手名のどれか）を並べたまま、イントロが流れたら正しい札を早取りします。いちばん早く正しい札を取った人がその札をもらい、そこで答え合わせ。違う札を取るとお手つきで、次の1曲はお休みです。取った札は場から消え、空いたところに新しい札が入ります。取った札の多い人が勝ちです。',
@@ -547,7 +550,7 @@ const PLAY_DESC = {
   coop: '全員の正解数の合計で、目標（問題数×人数×目標%）をめざします。',
   bingo: '一人ひとりに4×4のカードを配ります（答えるものに合わせて、曲名・作品・歌手・年のマス）。正解するとそのマスが開き、縦・横・斜めのどれかがそろったら BINGO！で +3000点（そのあと列が増えるたびに +1000点）。「ビンゴの終わり」で決めた人数・ビンゴ数に届いたらゲーム終了（問題数までも選べます）。イントロの点数とボーナスの合計で競います（20問以上がおすすめ）',
   rush: '全員が同じ問題に答えます。問題の前に「保留ランプ」の色（青・緑・赤・金・虹）で、その問題の当たりやすさが分かります。当たりの問題はサビで「リーチ！」。パチスロの曲に正解すると「大当たり！」で +2000点、そのあと RUSH（確変）に入り、連続で正解するほど点数が ×2〜×4 に。間違えるか答えないとRUSH終了。得点の合計で競います（20問くらいがおすすめ）',
-  fillmany: '3つ埋めバトルの枠を4〜8個に増やした遊び方です（数は「枠の数」で選べます。初めは6個）。曲名・アニメ名・アーティストの3つは必ず出て、残りは「発表年・使われ方（OP・EDなど）・ジャンル・同じアニメの別の曲・同じ歌手の別の曲・再生回数」から曲ごとにランダム。足した枠は選択式だけで、点数は半分です。間違えると −200点で、しばらく押せません。全部埋まるか、全員がパスしたら次の曲へ。',
+  fillmany: '3つ埋めバトルに枠を足した遊び方です。曲名・アニメ名・アーティストの3つに、「足す枠」で選んだもの（発表年・使われ方（OP・EDなど）・ジャンル・同じアニメの別の曲・同じ歌手の別の曲・再生回数）が加わります（初めは発表年・使われ方・ジャンルの6枠。その曲で作れない枠は出ません）。足した枠は選択式だけで、点数は半分です。間違えると −200点で、しばらく押せません。全部埋まるか、全員がパスしたら次の曲へ。',
   fill: '1曲ごとに「曲名・アニメ名・アーティスト」の3つの枠を早押しで埋めます（ボカロは「曲名・作者・VOCALOID」）。押した人が空いている枠を選んで答え、書けば早いほど高得点・10択なら半分。間違えると −200点で、しばらく押せません（秒数は「お手つき後に押せない秒数」で変えられます。初めは15秒）。全部埋まるか、全員がパスしたら次の曲へ。LoL の曲は出ません。',
 };
 // ロビーの一番上：これから遊ぶ曲を除外に追加しない（ホストが切り替え）
@@ -668,6 +671,7 @@ socket.on('aborted', () => {
 // ── 部屋の状態 ──
 $('lessPlayed').onchange = () => sendSettings();
 // 歌詞クイズの出題の種類（複数）：全部外すことはできない（最後の1つは残す）
+document.querySelectorAll('#fillKinds input').forEach(x => x.onchange = () => { if (!document.querySelector('#fillKinds input:checked')) { x.checked = true; return toast('足す枠は1つ以上えらんでください'); } sendSettings(); });
 document.querySelectorAll('#lyKinds input').forEach(x => x.onchange = () => { if (!document.querySelector('#lyKinds input:checked')) { x.checked = true; return toast('出題の種類は1つ以上えらんでください'); } sendSettings(); });
 socket.on('room', r => { renderRoom(r); refreshScoreStrips(); updateFixFab(); });
 // ── ボードゲーム風の窓：後ろの点数表が隠れるので、窓の見出しの下に全員の点数を出す（ディクシットは自分の欄に出している）──
@@ -723,7 +727,7 @@ function renderRoom(r) {
   const prevScores = new Map((room?.players || []).map(p => [p.id, p.score]));
   room = r;
   if (practice) return; // テスト1問の間は画面を切り替えない（終わったら最新の部屋の状態で描き直す）
-  if (prevState === 'playing' && r.state !== 'playing') { hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); } // 中止して部屋に戻ったら、ボードゲーム風の窓を閉じる
+  if (prevState === 'playing' && r.state !== 'playing') { hidePokerBet(); hideWolf(); hideIns(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); } // 中止して部屋に戻ったら、ボードゲーム風の窓を閉じる
   const isHost = r.hostId === me;
   const canSet = !(r.state === 'playing' && !r.paused); // 設定はだれでも変えられる（ゲーム中は一時停止のときだけ）
   if (!lobbyTabChosen) setLobbyTab(isHost ? 'settings' : 'members');
@@ -741,7 +745,8 @@ function renderRoom(r) {
   $('coopGoalLabel').hidden = r.settings.play !== 'coop';
   $('rushRateLabel').hidden = r.settings.play !== 'rush'; // アニソン激アツRUSH：当たりやすさ
   $('lockSecLabel').hidden = !isFillPlay(r.settings.play);
-  $('fillNLabel').hidden = r.settings.play !== 'fillmany';
+  $('fillKindsLabel').hidden = r.settings.play !== 'fillmany';
+  { const on = new Set(r.settings.fillKinds || []); document.querySelectorAll('#fillKinds input').forEach(x => { x.checked = on.has(x.value); x.disabled = r.state === 'playing' && !r.paused; }); }
   $('fillMissLabel').hidden = !isFillPlay(r.settings.play); // 3つ埋めバトル：間違えたあと押せない秒数
   $('bingoEndLabel').hidden = r.settings.play !== 'bingo'; // ビンゴ：何人・何ビンゴで終わるか
   $('karutaFaceLabel').hidden = r.settings.play !== 'karuta'; // かるた：札に書くもの
@@ -768,6 +773,7 @@ function renderRoom(r) {
   $('mpByLabel').hidden = $('mpLandLabel').hidden = r.settings.play !== 'monopoly';
   $('gzPickOpen').hidden = !((isGzP && r.settings.gzSet === 'choose') || (r.settings.play === 'monopoly' && r.settings.mpBy === 'choose'));
   $('gzPickOpen').textContent = `集める種類を選ぶ（${(r.settings.gzPicks || []).length}）`;
+  $('insHearLabel').hidden = $('insTargetLabel').hidden = r.settings.play !== 'insider'; // インサイダー：曲を聴ける人・当てるもの
   $('wolfWorkLabel').hidden = $('wolfTitleLabel').hidden = r.settings.play !== 'wolf'; // 人狼：候補に出す作品名・曲名
   $('buzzMissLabel').hidden = !['buzzer', 'mvflash'].includes(r.settings.play);
   $('slAmmoLabel').hidden = $('slMoveLabel').hidden = $('slTargetsLabel').hidden = r.settings.play !== 'sling';
@@ -787,7 +793,7 @@ function renderRoom(r) {
   if (r.settings.play === 'sling') for (const k of ['answerMode', 'choices', 'clues']) document.querySelector(`#settings [data-key="${k}"]`).closest('label').hidden = true;
   if (r.settings.play === 'sling') $('modeLabel').hidden = true;
   document.querySelector('[data-key="play"] option[value="buzzer"]').disabled = r.settings.target === 'year';
-  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'sugoroku', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(r.settings.play);
+  document.querySelector('[data-key="teams"] option[value="true"]').disabled = ['survival', 'coop', 'bingo', 'rush', 'poker', 'nenpyo', 'wolf', 'insider', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'sugoroku', 'deck', 'kaerema', 'azul', 'dentatsu', 'tanshuku'].includes(r.settings.play);
   // チーム戦：待機中に自分のチームを切り替える（ホストはシャッフルも）。チームの合計点
   const teamsOn = !!r.settings.teams;
   $('teamRow').hidden = !teamsOn || r.state === 'playing';
@@ -1371,7 +1377,7 @@ const isInput = () => question?.answerMode === 'input';
 
 let lyRevealTick = null; // 歌詞クイズ：歌詞が1文字ずつ出る問題のタイマー
 socket.on('question', q => {
-  hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz();
+  hidePokerBet(); hideWolf(); hideIns(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz();
   if (q.attack) setTimeout(() => charFx.cutin('アタックチャンス！', '白いマスを、この問題の正解者がどこからでも取れます', 'cutin'), 400);
   if (q.qNo === 1 && !practice) playLog = []; // 新しいゲーム（テスト1問では曲ログを消さない）
   question = q; myAnswer = null; answering = false;
@@ -1676,7 +1682,7 @@ function renderQlog() {
   // 出すのは早押しと3つ埋めバトルだけ（ふつう・サバイバル・ビンゴなどでは出さない）
   $('qlog').hidden = !question || !['buzzer', 'mvflash', 'fill', 'fillmany'].includes(room?.settings?.play) || (!lists.length && !answers.length);
   $('qlogChoices').hidden = !lists.length;
-  $('qlogChoices').innerHTML = lists.map(l => `<div class="qlog-list"><b>${esc(l.label)}${l.name && !l.base ? `<small>（${esc(l.name)} が開いた10択）</small>` : ''}</b>
+  $('qlogChoices').innerHTML = lists.map(l => `<div class="qlog-list"><b>${esc(l.label)}${l.name && !l.base ? `<small>（${esc(l.name)} が開いた${l.choices.length}択）</small>` : ''}</b>
     <ol>${l.choices.map((c, i) => `<li${removedOf(l).has(i) ? ' class="gone"' : ''}>${esc(c)}</li>`).join('')}</ol></div>`).join('');
   $('qlogInputs').innerHTML = answers.map(e => `<li class="${e.result || ''}${e.id === me ? ' me' : ''}"><span class="who">${esc(e.name)}</span>`
     + `${e.label ? `<span class="slot">${esc(e.label)}</span>` : ''}<span class="how">${e.how === 'choice' ? '選択' : e.how === 'pass' ? '' : '入力'}</span>`
@@ -1803,6 +1809,97 @@ socket.on('wolfPhase', d => {
   $('wolfPop').querySelectorAll('[data-vote]').forEach(b => b.onclick = () => { socket.emit('wolfVote', b.dataset.vote); $('wolfPop').querySelectorAll('[data-vote]').forEach(x => { x.disabled = true; x.classList.toggle('on', x === b); }); });
   $('wolfPop').querySelectorAll('[data-guess]').forEach(b => b.onclick = () => { socket.emit('wolfGuess', +b.dataset.guess); $('wolfPop').querySelectorAll('[data-guess]').forEach(x => x.disabled = true); });
   const ul = $('wolfChatList'); if (ul) ul.scrollTop = ul.scrollHeight;
+});
+
+// ── アニソンインサイダー：役 → 質問（出題者は はい・いいえ で答える）→ 話し合い → 投票 → 結果 ──
+let insData = null, insTick = null, insKey = '', insNames = null;
+const INS_REPLY = { yes: 'はい', no: 'いいえ', unk: 'わからない' };
+function hideIns() { clearInterval(insTick); $('insPop').hidden = true; $('insPop').innerHTML = ''; insData = null; insKey = ''; }
+const insName = id => insData?.players.find(p => p.id === id)?.name || '';
+function insLogHtml(d) {
+  const master = d.role === 'master' && d.step === 'ask';
+  return d.log.map(e => e.kind === 'guess'
+    ? `<li class="ins-guess${e.ok ? ' ok' : ''}"><b>${esc(e.name)}</b>答え：${esc(e.text)} ${e.ok ? '⭕' : '❌'}</li>`
+    : e.kind === 'chat' ? `<li${e.id === me ? ' class="mine"' : ''}><b>${esc(e.name)}</b>${esc(e.text)}</li>`
+    : `<li class="ins-q${e.id === me ? ' mine' : ''}"><b>${esc(e.name)}</b>${esc(e.text)}${master
+        ? `<span class="ins-rep">${Object.entries(INS_REPLY).map(([k, l]) => `<button type="button" class="btn-sub${e.reply === k ? ' on' : ''}" data-rep="${k}" data-n="${e.n}">${l}</button>`).join('')}</span>`
+        : `<em class="ins-a ${e.reply || 'wait'}">${e.reply ? INS_REPLY[e.reply] : '…'}</em>`}</li>`).join('');
+}
+function insSuggest() { // 答えの入力候補（曲名／作品名）。押すとそのまま答える
+  const box = $('insSugg'), inp = $('insGuessText'); if (!box || !inp) return;
+  const q = catNorm(inp.value), list = insNames?.[insData?.target === 'work' ? 'work' : 'title'] || [];
+  if (!q) { box.innerHTML = ''; return; }
+  const hit = list.map(x => { const ks = x.map(catNorm); return [x[0], ks.some(k => k.startsWith(q)) ? 0 : ks.some(k => k.includes(q)) ? 1 : 2]; }).filter(x => x[1] < 2);
+  hit.sort((a, b) => a[1] - b[1] || a[0].length - b[0].length);
+  box.innerHTML = hit.slice(0, 5).map(x => `<button type="button" class="btn-sub" data-v="${esc(x[0])}">${esc(x[0])}</button>`).join('');
+}
+socket.on('insAlmost', t => toast(`「${t}」は惜しい！ もう少し正確に`));
+socket.on('insPhase', d => {
+  if (!d) return hideIns();
+  insData = d;
+  $('insPop').hidden = false;
+  const key = d.round + ':' + d.step;
+  const seats = `<div class="wf-seats">${d.players.map(p => `<span data-pid="${esc(p.id)}" class="${d.done.includes(p.id) ? 'done' : ''}">${avatarImg(p.avatar, 'avatar sm')}${esc(p.name)}${p.id === d.masterId ? '🎤' : ''}</span>`).join('')}</div>`;
+  if (key === insKey) { // 同じ段階：記録と済んだ人だけ書き換える（入れかけの文字を消さないように）
+    const ul = $('insLog'); if (ul) { const end = ul.scrollTop + ul.clientHeight >= ul.scrollHeight - 4; ul.innerHTML = insLogHtml(d); if (end) ul.scrollTop = ul.scrollHeight; }
+    const old = $('insPop').querySelector('.wf-seats'); if (old) old.outerHTML = seats;
+    return;
+  }
+  insKey = key;
+  const what = d.target === 'work' ? '作品名' : '曲名';
+  const ans = d.answer ? `<div class="ins-ans"><small>答え</small><b>${esc(d.target === 'work' ? d.answer.work : d.answer.title)}</b><span>${esc(d.target === 'work' ? d.answer.title : d.answer.work)}／${esc(d.answer.artist)}（${d.answer.year}）</span></div>` : '';
+  const canListen = ['role', 'ask'].includes(d.step) && (d.hear === 'intro' || d.role === 'master' || d.role === 'insider');
+  const listen = canListen ? `<button type="button" class="btn-sub ins-listen" id="insListen">🎧 ${d.hear === 'intro' ? 'イントロ' : '曲'}をもう一度</button>` : '';
+  const roleMsg = {
+    master: `🎤 あなたは<b>出題者</b>。質問に「はい・いいえ・わからない」で答えてね<small>インサイダーがだれかは、あなたも知りません</small>`,
+    insider: `🕵️ あなたは<b>インサイダー</b>。答えを知っています<small>ばれないように、みんなを正解に近づけよう</small>`,
+    common: `🙋 あなたは<b>みんな</b>。出題者（${esc(insName(d.masterId))}）に質問して${what}を当てよう<small>答えを知っているインサイダーが1人まぎれています</small>`,
+    watch: '👀 見学中',
+  }[d.role];
+  const head = `<div class="wf-head"><b>🕵️ アニソンインサイダー</b><span>第${d.round}/${d.total}回</span><span class="wf-left" id="insLeft"></span></div>`;
+  const log = `<ul class="wf-chat ins-log" id="insLog">${insLogHtml(d)}</ul>`;
+  let body = '';
+  if (d.step === 'role') body = `<p class="wf-msg">${roleMsg}</p>${ans}${listen}<p class="wf-msg"><small>まもなく質問タイム（${d.hear === 'intro' ? '全員にイントロが流れます' : '曲を聴けるのは出題者とインサイダーだけ'}）</small></p>${seats}`;
+  if (d.step === 'ask') {
+    const asker = d.role === 'common' || d.role === 'insider';
+    body = `<p class="wf-msg ins-role">${roleMsg}</p>${ans}${log}${asker ? `<form class="wf-say" id="insAskForm"><input id="insAskText" maxlength="60" placeholder="はい・いいえで答えられる質問（例：OPですか？）" autocomplete="off"><button class="btn-sub" type="submit">質問</button></form>
+      <form class="wf-say" id="insGuessForm"><input id="insGuessText" maxlength="50" placeholder="${what}が分かったら入れて答える" autocomplete="off"><button class="btn-main" type="submit">答える</button></form><div class="ins-sugg" id="insSugg"></div>` : ''}${listen}`;
+  }
+  if (d.step === 'talk' || d.step === 'vote') {
+    const solved = `<p class="wf-msg">⭕ <b>${esc(insName(d.solverId))}</b> さんが「${esc(d.solvedText)}」で正解！</p>`;
+    const say = `<form class="wf-say" id="insAskForm"><input id="insAskText" maxlength="60" placeholder="話し合い（60文字まで）" autocomplete="off"><button class="btn-sub" type="submit">送る</button></form>`;
+    body = d.step === 'talk'
+      ? `${solved}${ans}<p class="wf-msg"><small>だれがインサイダー（最初から答えを知っていた人）か話し合おう</small></p>${log}${say}<button class="btn-sub" id="insReadyBtn" type="button">投票へ進む</button>${seats}`
+      : `${solved}<p class="wf-msg">インサイダーだと思う人に投票（自分以外）</p><div class="wf-votes">${d.players.filter(p => p.id !== me).map(p => `<button class="btn-sub" data-vote="${esc(p.id)}" type="button">${avatarImg(p.avatar, 'avatar sm')}${esc(p.name)}</button>`).join('')}</div>${log}${say}${seats}`;
+  }
+  if (d.step === 'result') {
+    const r = d.result, iIns = r.insiderId === me, win = r.winner === 'none' ? false : (r.winner === 'insider') === iIns;
+    const title = r.winner === 'none' ? '⌛ 時間切れ… 全員の負け' : r.winner === 'village' ? '🎉 インサイダーを見つけた！' : '🕵️ インサイダーの勝ち！';
+    body = `<p class="wf-result ${win ? 'win' : 'lose'}">${title}<small>${r.winner === 'none' ? 'だれも当てられませんでした' : win ? 'あなたの勝ち' : 'あなたの負け'}（みんなと出題者 +${r.points.village}点／インサイダー +${r.points.insider}点／答えた人 +${r.points.solver}点）</small></p>
+      <p class="wf-msg">インサイダーは <b>${esc(r.insiderName)}</b> さん・出題者は ${esc(r.masterName)} さん${r.solverName ? `・答えたのは ${esc(r.solverName)} さん` : ''}</p>${ans}
+      ${r.winner === 'none' ? '' : `<div class="wf-tally">${d.players.map(p => `<span>${esc(p.name)}：${r.votes[p.id] || 0}票</span>`).join('')}</div>`}`;
+  }
+  $('insPop').innerHTML = `<div class="wf-field">${head}${body}</div>`;
+  const left = () => { const el = $('insLeft'); if (el) el.textContent = d.until ? `あと ${wolfLeft(d.until)} 秒` : ''; };
+  clearInterval(insTick); left(); insTick = setInterval(left, 500);
+  const pop = $('insPop'), ul = $('insLog'); if (ul) ul.scrollTop = ul.scrollHeight;
+  if ($('insListen')) $('insListen').onclick = () => socket.emit('insListen');
+  const af = $('insAskForm');
+  if (af) { if (d.step === 'ask' || !$('insGuessText')) $('insAskText').focus(); af.onsubmit = e => { e.preventDefault(); const v = $('insAskText').value.trim(); if (!v) return; socket.emit('insAsk', v); $('insAskText').value = ''; }; }
+  const gf = $('insGuessForm');
+  if (gf) {
+    if (!insNames) fetch('/api/fill-names').then(x => x.json()).then(l => { insNames = l; }).catch(() => {});
+    $('insGuessText').oninput = insSuggest;
+    gf.onsubmit = e => { e.preventDefault(); const v = $('insGuessText').value.trim(); if (!v) return; socket.emit('insGuess', v); $('insGuessText').value = ''; $('insSugg').innerHTML = ''; };
+    $('insSugg').onclick = e => { const b = e.target.closest('[data-v]'); if (!b) return; socket.emit('insGuess', b.dataset.v); $('insGuessText').value = ''; $('insSugg').innerHTML = ''; };
+  }
+  pop.onclick = e => { // 出題者の はい・いいえ（記録を書き換えてもボタンが効くように、窓で受ける）
+    const b = e.target.closest('[data-rep]'); if (!b) return;
+    socket.emit('insReply', { n: +b.dataset.n, r: b.dataset.rep });
+  };
+  const rb = $('insReadyBtn');
+  if (rb) rb.onclick = () => { socket.emit('insReady'); rb.disabled = true; rb.textContent = 'ほかの人を待っています…'; };
+  pop.querySelectorAll('[data-vote]').forEach(b => b.onclick = () => { socket.emit('insVote', b.dataset.vote); pop.querySelectorAll('[data-vote]').forEach(x => { x.disabled = true; x.classList.toggle('on', x === b); }); });
 });
 
 // ── アニソン・アズール：工房・中央（左）と自分の棚（右）、相手の棚（下） ──
@@ -2614,7 +2711,7 @@ function chooseFillSlot(key) {
   if (!f || f.by != null) return;
   fillSlot = key;
   renderFill(fillSlots());
-  if (f.peeked) return showFillChoices(f); // 10択がもう出た枠は、手で打てない（10択だけ）
+  if (f.peeked) { socket.emit('fillChoices', f.key); return showFillChoices(f); } // 10択がもう出た枠は、手で打てない（10択だけ）。たくさん埋めの足した枠は、初めて開いたときに全員の記録へ出す
   $('fillHead').textContent = `「${f.label}」を書いて答えよう`;
   $('fillForm').hidden = false; $('fillInput').value = ''; $('fillInput').placeholder = `${f.label}を入力（候補から選ぶと確定）`; $('fillInput').focus(); $('fillSugg').innerHTML = '';
   if (!fillNames) fetch('/api/fill-names').then(x => x.json()).then(l => { fillNames = l; fillSuggest(); }).catch(() => {});
@@ -2751,7 +2848,8 @@ socket.on('answered', a => markAnswered(a));
 
 // payload: { index } / { text } / { pass: true }
 function answer(payload) {
-  if (myAnswer !== null || !(answering || (buzzOpen && payload.pass))) return; // 早押しで押す前でも「この問題は押さない（パス）」はできる
+  const buzzPlay = ['buzzer', 'mvflash'].includes(question?.play) && ['intro', 'chorus'].includes(room?.phase);
+  if (myAnswer !== null || !(answering || ((buzzOpen || buzzPlay) && payload.pass))) return; // 早押しで押す前でも・ほかの人が答えている間でも「この問題は押さない（パス）」はできる
   if (practice) layoutApi.onAnswer(payload); else socket.emit('answer', payload);
   markAnswered(payload);
 }
@@ -2809,12 +2907,14 @@ function updateLifelineButtons() {
     b.disabled = !answering || left <= 0;
     b.hidden = !room?.settings.lifelines;
   });
-  $('passBtn').disabled = !(answering || buzzOpen);
+  // 早押し・MVフラッシュ：ほかの人が答えている間もパス（この問題は押さない）できる
+  const buzzPlay = ['buzzer', 'mvflash'].includes(question?.play) && ['intro', 'chorus'].includes(room?.phase) && myAnswer === null && !amOut();
+  $('passBtn').disabled = !(answering || buzzOpen || buzzPlay);
   if (question?.fill) {
     // 3つ埋めバトル：曲が流れている間はいつでもパス（取り消し）できる
     const passed = room?.players?.find(p => p.id === me)?.passed;
     const playing = ['intro', 'chorus'].includes(room?.phase) && !amOut();
-    $('passBtn').disabled = !playing || (!!buzzHolder && buzzHolder !== me);
+    $('passBtn').disabled = !playing; // ほかの人が答えている間もパスできる
     $('passBtn').lastChild.textContent = buzzHolder === me ? (question?.fill && room?.settings?.fillMiss === 'off' ? 'わからない' : 'わからない（−200）') : passed ? 'パスを取り消す' : 'パス（全員パスで次へ）';
   } else if ($('passBtn').lastChild.textContent !== 'わからない（パス）') $('passBtn').lastChild.textContent = 'わからない（パス）';
 }
@@ -3019,7 +3119,7 @@ socket.on('react', ({ id, name, kind }) => {
 });
 
 socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, survival, coop, bingo, showdown }) => {
-  hidePokerBet(); hideWolf(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); renderShowdown(showdown);
+  hidePokerBet(); hideWolf(); hideIns(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); renderShowdown(showdown);
   pokerHandData = { hand: [], over: false, usedIds: [], kept: [] }; pokerDrop.clear();
   $('pickPanel').hidden = true; clearInterval(pickTick); $('coopBar').hidden = true; $('bingoBox').hidden = true;
   if (Array.isArray(log)) playLog = log;

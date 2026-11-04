@@ -215,6 +215,13 @@ socket.on('version', v => {
   if (!room || room.state !== 'playing') location.reload();
   else if (!reloadPending) { reloadPending = true; toast('新しい版が公開されました。部屋に戻ったときに自動で読み込み直します'); }
 });
+// キックされた：最初の画面へ（部屋は覚えておかない。招待リンクからは入り直せる）
+socket.on('kicked', ({ by } = {}) => {
+  store.set('aq-room', '');
+  try { sessionStorage.setItem('aq-kicked', by || ''); } catch (e) { /* なくても動く */ }
+  location.replace(location.pathname);
+});
+try { const by = sessionStorage.getItem('aq-kicked'); if (by != null) { sessionStorage.removeItem('aq-kicked'); setTimeout(() => { $('homeError').textContent = `ホスト（${by}）に部屋から外されました`; }, 0); } } catch (e) { /* なくても動く */ }
 function reloadIfPending() { if (reloadPending) location.reload(); }
 
 socket.on('connect', () => {
@@ -232,6 +239,13 @@ function leaveToHome(msg) {
 }
 
 // 部屋から出る（ロビーで）：席を消して最初の画面へ。前の部屋に自動で戻らないよう、覚えていた部屋も消す
+// キック：ホストがプレイヤー一覧の名前を押す（自分以外）。ゲーム中も使える
+$('players').addEventListener('click', e => {
+  const li = e.target.closest('li[data-id]');
+  if (!li || !room || room.hostId !== me || li.dataset.id === me) return;
+  const p = room.players.find(x => x.id === li.dataset.id); if (!p) return;
+  if (confirm(`${p.name} さんを部屋から外しますか？（キック）\n外された人は招待リンクからすぐ戻れます`)) socket.emit('kick', p.id);
+});
 $('leaveBtn').onclick = () => {
   if (!confirm('この部屋から出ますか？')) return;
   socket.emit('leaveRoom', null, res => {
@@ -920,6 +934,7 @@ function renderRoom(r) {
       `<i class="${c.w === 'FREE' ? 'free' : c.open ? 'open' : ''}"></i>`).join('')}</span>` : '');
   // 回線：ping（往復ミリ秒、色で目安）と、読み込み中・止まっている印
   const netTag = p => (p.loading ? '<i class="net-load" title="読み込み中">⏳</i>' : '') + (p.rtt != null && r.state === 'playing' ? `<i class="net-ping ${p.rtt < 100 ? 'ok' : p.rtt < 250 ? 'mid' : 'bad'}" title="回線の速さ（往復）">${p.rtt}ms</i>` : '');
+  document.body.classList.toggle('is-host', r.hostId === me); // キック：ホストはほかの人の名前を押せる
   $('players').innerHTML = r.players.map(p => `
     <li data-id="${p.id}" class="${p.answered ? 'answered' : ''} ${p.connected ? '' : 'off'} ${p.id === me ? 'me' : ''} ${p.team ? 'team-' + p.team : ''} ${survival && p.out ? 'is-out' : ''} ${p.buzzing ? 'is-buzzing' : ''}">
       <span class="pl-face">${avatarImg(p.avatar)}${top > 0 && p.score === top ? icon('crown', 'crown') : ''}</span>

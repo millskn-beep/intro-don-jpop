@@ -5,6 +5,7 @@ const VOL_DEFAULT = 80, FADE_OUT = 800, FADE_IN = 1000, FADE_CUT = 100;
 const HINT_WAIT = 1500; // イントロ→サビの間の待ち
 const CHORUS_LEAD = 0.3; // サビは少し前から流す（頭が切れないように）
 const PRELOAD_SEC = 8, PRELOAD_MAX = 5000; // 開始の前に、イントロから PRELOAD_SEC 秒先まで読み込んでおく（待つのは最大 PRELOAD_MAX ミリ秒）
+const CHORUS_PRELOAD = 4; // サビの先読み：サビの位置から何秒先まで読み込めたら「準備できた」
 const SYNC_MAX = 1; // 再生位置のずれがこの秒数より大きいときだけ飛ばし直す（小さいずれで飛ぶと出だしがプツプツ途切れる）
 
 export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {}) {
@@ -73,7 +74,7 @@ export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {
     stopIntro(cut = false, then = null) { // cut：隠した歌詞が聞こえないよう、すぐ止める。then：止めたあと（サビの先読み）
       run(() => fade(volume, 0, cut ? FADE_CUT : FADE_OUT, () => { yt.pauseVideo(); then && then(); }));
     },
-    // サビの先読み：止めたまま音なしでサビの位置へ飛び、少し先まで読み込めたら done（待つのは最大 PRELOAD_MAX）
+    // サビの先読み：止めたまま音なしでサビの位置へ飛び、少し先まで本当に読み込めたときだけ done（時間では知らせない。待つ上限はサーバーが決める）
     prebuffer(t, done) {
       run(() => {
         clearInterval(waitTimer);
@@ -81,7 +82,8 @@ export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {
         const t0 = Date.now();
         waitTimer = setInterval(() => {
           const end = (yt.getVideoLoadedFraction?.() || 0) * (yt.getDuration?.() || 0);
-          if (end >= t + PRELOAD_SEC || Date.now() - t0 > PRELOAD_MAX - 1000) { clearInterval(waitTimer); done && done(); }
+          if (end >= t + CHORUS_PRELOAD && yt.getPlayerState() !== YT.PlayerState.BUFFERING) { clearInterval(waitTimer); done && done(); }
+          else if (Date.now() - t0 > 20000) clearInterval(waitTimer); // あきらめる（サーバーは最大 CHORUS_WAIT で先へ進む）
         }, 100);
       });
     },

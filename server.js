@@ -1137,7 +1137,7 @@ function publicRoom(room) {
     phase: q?.phase || null,
     qNo: room.game ? room.game.qi + 1 : 0,
     qTotal: room.game ? room.game.order.length : 0,
-    players: [...room.players.values()].map(p => ({
+    players: [...room.players.values()].filter(p => !p.kicked).map(p => ({ // キックした人は一覧に出さない
       id: p.id, name: p.name, avatar: p.avatar, score: p.score, streak: p.streak || 0, connected: p.connected,
       answered: !!q?.answers.has(p.token), inGame: !!q?.participants.has(p.token),
       lifelines: p.lifelines || null,
@@ -4029,12 +4029,12 @@ function mvPool(S, pool) { return Object.assign(pool.filter(S.mvScope === 'offic
 const COUNTDOWN = 3; // ゲームの最初の問題だけ「3・2・1・START!」を入れる（秒）
 // 読み込みを待っている人（つながっている答える人で、done にいない人）の名前を全員に送る。空なら消す
 function emitLoadWait(room, q, done) {
-  const names = [...q.participants].filter(t => room.players.get(t)?.connected && !done?.has(t)).map(t => room.players.get(t).name);
+  const names = [...q.participants].filter(t => room.players.get(t)?.connected && (!done?.has(t) || room.players.get(t).buf)).map(t => room.players.get(t).name);
   q.loadWaitShown = names.length > 0;
   io.to(room.code).emit('loadWait', { names });
 }
 // サビの先読みが全員（つながっている答える人）そろったか
-const chorusAllReady = (room, q) => [...q.participants].every(t => q.chorusReady?.has(t) || !room.players.get(t)?.connected);
+const chorusAllReady = (room, q) => [...q.participants].every(t => (q.chorusReady?.has(t) && !room.players.get(t)?.buf) || !room.players.get(t)?.connected); // 読み込み待ちで止まっている人（⏳）も待つ
 function go(room) {
   const q = room.game.q;
   if (q.phase !== 'loading') return;
@@ -5061,7 +5061,7 @@ io.on('connection', socket => {
       if (r.state === 'playing' && r.settings.play === 'survival') { p.out = true; p.lives = 0; }
       if (r.state === 'playing' && r.settings.play === 'bingo' && r.game) { p.card = bingoCard(r.game.order, r.game.pool, r.game.bingoTarget); p.bingoAt = 0; p.reachN = 0; p.bingoLinesN = 0; }
     }
-    p.name = name; p.connected = true; p.socketId = socket.id;
+    p.name = name; p.connected = true; p.socketId = socket.id; p.kicked = false; // キックされた人も、入り直せば同じ席に戻る
     r.emptySince = null;
     room = r; player = p;
     // 全員いなくなって止まっていたゲームを、戻ってきた人で再開する
@@ -5229,6 +5229,8 @@ io.on('connection', socket => {
   socket.on('netBuf', on => { // 曲が読み込み待ちで止まっている（一覧に印を出す）
     if (!player || !room) return;
     if (!!on === !!player.buf) return; player.buf = !!on;
+    const q = room.game?.q; if (!on && q?.hintPending && chorusAllReady(room, q)) return q.sendHint?.(); // サビ待ちで、止まっていた人が読み込めた
+    if (q?.hintPending) emitLoadWait(room, q, q.chorusReady); // サビ待ちの「ロード中…」の名前を更新
     const now = Date.now(); if (on && now - (player.bufAt || 0) < 1000) return; player.bufAt = now;
     broadcastRoom(room);
   });
@@ -5642,6 +5644,26 @@ io.on('connection', socket => {
 
   socket.on('disconnect', () => {
     if (!room || !player || player.socketId !== socket.id) return;
+    playerGone(room, player);
+  });
+  // キック：ホストだけ。外された人の画面は最初の画面へ戻る（招待リンクからすぐ戻れる。点数はゲーム中なら残る）
+  socket.on('kick', id => {
+    if (!isHost()) return;
+    const target = [...room.players.values()].find(p => p.id === id);
+    if (!target || target === player) return;
+    const ts = target.socketId && io.sockets.sockets.get(target.socketId);
+    target.kicked = true;
+    if (ts) { ts.emit('kicked', { by: player.name }); ts.leave(room.code); }
+    if (target.connected) playerGone(room, target); // 曲の途中でも、抜けた人と同じ扱いで進行を止めない
+    target.socketId = null; if (ts) ts.disconnect(true); // 切断の後始末はもう済んでいるので、二重にしない
+    if (room.state !== 'playing') room.players.delete(target.token); // 待機中は席ごと消す
+    broadcastRoom(room);
+  });
+});
+
+// 抜けた人（切断・キック）の後始末：答えている途中・出題を選んでいる途中なら外し、残りの人だけで進める
+function playerGone(room, player) {
+  {
     player.connected = false;
     if (room.game?.q) releaseFixHold(room, room.game.q, player.token); // 修正の窓を開いたまま抜けても止まったままにしない
     if (room.game?.q?.buzz?.token === player.token) onAnswer(room, player, { drop: true });
@@ -5660,8 +5682,8 @@ io.on('connection', socket => {
                [...q.participants].every(t => !room.players.get(t)?.connected || q.answers.has(t)))) reveal(room);
     }
     broadcastRoom(room);
-  });
-});
+  }
+}
 
 // 空き部屋の掃除
 setInterval(() => {

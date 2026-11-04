@@ -1570,3 +1570,6 @@ body.lowq.playing:not(.revealing):not(.mvflash) .video-bg iframe { width: 480px 
 .load-wait { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 60; max-width: 90vw; padding: 12px 22px; border-radius: 99px; background: rgba(8, 8, 20, .85); border: 1px solid rgba(255, 211, 107, .6); color: #ffd36b; font-weight: 800; font-size: 16px; text-align: center; pointer-events: none; animation: load-wait-blink 1.2s ease-in-out infinite; }
 .load-wait[hidden] { display: none; }
 @keyframes load-wait-blink { 50% { opacity: .6; } }
+
+/* キック：ホストの画面では、ほかの人の名前を押せる */
+body.is-host #players li:not(.me) { cursor: pointer; }

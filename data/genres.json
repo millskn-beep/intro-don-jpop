@@ -1,48 +1,159 @@
 {
-  "_説明": "お題（ジャンル）。J-POP 版は歌手ごとのジャンル（data/work-genres.json、鍵は歌手名）で決める。keywords は使わない。並び順がお題の選択肢の順",
-  "idol": {
-    "label": "アイドル",
-    "keywords": []
+  "_説明": "お題（ジャンル）。group: artist＝歌手のジャンル（data/work-genres.json、鍵は歌手名）／sub＝曲ごとのサブジャンル（data/song-tags.json、tools/apply-tags.js で作る）。並び順がお題の選択肢の順",
+  "male_idol": {
+    "label": "男性アイドル",
+    "keywords": [],
+    "group": "artist"
+  },
+  "female_idol": {
+    "label": "女性アイドル",
+    "keywords": [],
+    "group": "artist"
   },
   "band": {
     "label": "バンド",
-    "keywords": []
+    "keywords": [],
+    "group": "artist"
   },
   "dance": {
     "label": "ダンス・ボーカルグループ",
-    "keywords": []
+    "keywords": [],
+    "group": "artist"
+  },
+  "male_solo": {
+    "label": "男性ソロ",
+    "keywords": [],
+    "group": "artist"
+  },
+  "female_solo": {
+    "label": "女性ソロ",
+    "keywords": [],
+    "group": "artist"
   },
   "ssw": {
     "label": "シンガーソングライター",
-    "keywords": []
-  },
-  "female": {
-    "label": "女性ソロ",
-    "keywords": []
-  },
-  "male": {
-    "label": "男性ソロ",
-    "keywords": []
+    "keywords": [],
+    "group": "artist"
   },
   "hiphop": {
     "label": "ヒップホップ・レゲエ",
-    "keywords": []
+    "keywords": [],
+    "group": "artist"
   },
   "net": {
     "label": "ネット発（ボカロP・歌い手）",
-    "keywords": []
+    "keywords": [],
+    "group": "artist"
   },
-  "anime": {
-    "label": "アニメ・声優に縁のある歌手",
-    "keywords": []
+  "kpop": {
+    "label": "K-POP",
+    "keywords": [],
+    "group": "artist"
   },
-  "kids": {
-    "label": "お茶の間・キッズ",
-    "keywords": []
+  "western": {
+    "label": "洋楽",
+    "keywords": [],
+    "group": "artist"
+  },
+  "enka": {
+    "label": "演歌・歌謡曲",
+    "keywords": [],
+    "group": "artist"
+  },
+  "tiktok": {
+    "label": "📱 TikTokで有名",
+    "keywords": [],
+    "group": "sub"
+  },
+  "youtube": {
+    "label": "▶️ YouTubeで有名",
+    "keywords": [],
+    "group": "sub"
+  },
+  "buzz": {
+    "label": "🔥 バズソング",
+    "keywords": [],
+    "group": "sub"
+  },
+  "firsttake": {
+    "label": "🎙 THE FIRST TAKE",
+    "keywords": [],
+    "group": "sub"
+  },
+  "movie": {
+    "label": "🎬 映画主題歌",
+    "keywords": [],
+    "group": "sub"
+  },
+  "drama": {
+    "label": "📺 ドラマ主題歌",
+    "keywords": [],
+    "group": "sub"
+  },
+  "cm": {
+    "label": "📣 CMソング",
+    "keywords": [],
+    "group": "sub"
+  },
+  "kouhaku": {
+    "label": "🎌 紅白歌合戦",
+    "keywords": [],
+    "group": "sub"
+  },
+  "anime_national": {
+    "label": "🌏 国民的アニメ",
+    "keywords": [],
+    "group": "sub"
+  },
+  "spring": {
+    "label": "🌸 春・桜ソング",
+    "keywords": [],
+    "group": "sub"
+  },
+  "summer": {
+    "label": "🌻 夏ソング",
+    "keywords": [],
+    "group": "sub"
+  },
+  "winter": {
+    "label": "⛄ 冬ソング",
+    "keywords": [],
+    "group": "sub"
+  },
+  "christmas": {
+    "label": "🎄 クリスマスソング",
+    "keywords": [],
+    "group": "sub"
+  },
+  "graduation": {
+    "label": "🎓 卒業ソング",
+    "keywords": [],
+    "group": "sub"
+  },
+  "cheer": {
+    "label": "📣 応援ソング",
+    "keywords": [],
+    "group": "sub"
+  },
+  "wedding": {
+    "label": "💒 結婚式ソング",
+    "keywords": [],
+    "group": "sub"
+  },
+  "heartbreak": {
+    "label": "💔 失恋ソング",
+    "keywords": [],
+    "group": "sub"
+  },
+  "karaoke": {
+    "label": "🎤 カラオケ定番",
+    "keywords": [],
+    "group": "sub"
   },
   "other": {
     "label": "その他",
     "keywords": [],
+    "group": "artist",
     "note": "どのジャンルにも入らない歌手"
   }
 }

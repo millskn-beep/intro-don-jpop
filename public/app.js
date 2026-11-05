@@ -426,15 +426,15 @@ function openMulti() {
 }
 function renderMulti() {
   const d = TOPIC_DATA; if (!d) return;
-  const list = multiTab === 'g' ? d.genres.map(g => ({ key: g.key, label: g.label, count: g.count })) : d.series.map(s => ({ key: s.name, label: s.name, count: s.count }));
+  const list = multiTab === 'g' ? d.genres.map(g => ({ key: g.key, label: (g.group === 'sub' ? '［曲］' : '［歌手］') + g.label, count: g.count })) : d.series.map(s => ({ key: s.name, label: s.name, count: s.count }));
   const sel = multiTab === 'g' ? multiSel.g : multiSel.s;
   const q = multiQ.trim().toLowerCase(), shown = q ? list.filter(x => x.label.toLowerCase().includes(q)) : list;
-  $('multiPop').innerHTML = `<div class="wf-field mt-field"><div class="wf-head"><b>🎯 お題を自由に選ぶ</b><span>選んだジャンル・作品のどれかに入る曲を出します（除外のチェックも効きます）</span></div>
-    <div class="mt-tabs"><button type="button" class="btn-sub${multiTab === 'g' ? ' on' : ''}" data-mt="g">ジャンル（${multiSel.g.size}）</button><button type="button" class="btn-sub${multiTab === 's' ? ' on' : ''}" data-mt="s">作品・シリーズ（${multiSel.s.size}）</button>
-      <input id="mtSearch" placeholder="${multiTab === 'g' ? 'ジャンルを探す' : '作品を探す（例：ガンダム）'}" value="${esc(multiQ)}" autocomplete="off">
+  $('multiPop').innerHTML = `<div class="wf-field mt-field"><div class="wf-head"><b>🎯 お題を自由に選ぶ</b><span>選んだジャンル・歌手のどれかに入る曲を出します（除外のチェックも効きます）</span></div>
+    <div class="mt-tabs"><button type="button" class="btn-sub${multiTab === 'g' ? ' on' : ''}" data-mt="g">ジャンル（${multiSel.g.size}）</button><button type="button" class="btn-sub${multiTab === 's' ? ' on' : ''}" data-mt="s">歌手（${multiSel.s.size}）</button>
+      <input id="mtSearch" placeholder="${multiTab === 'g' ? 'ジャンルを探す（曲：卒業ソング など）' : '歌手を探す'}" value="${esc(multiQ)}" autocomplete="off">
       <button type="button" class="btn-sub" id="mtAll">表示中を全部選ぶ</button><button type="button" class="btn-sub" id="mtNone">表示中を全部外す</button></div>
     <div class="mt-list">${shown.map(x => `<label class="${sel.has(x.key) ? 'on' : ''}"><input type="checkbox" value="${esc(x.key)}"${sel.has(x.key) ? ' checked' : ''}>${esc(x.label)}<small>${x.count}</small></label>`).join('') || '<small>見つかりません</small>'}</div>
-    <div class="mt-foot"><span>選んでいるもの：ジャンル ${multiSel.g.size}・作品 ${multiSel.s.size}</span><button type="button" class="btn-sub" id="mtCancel">やめる</button><button type="button" class="btn-main" id="mtOk">この内容で決める</button></div></div>`;
+    <div class="mt-foot"><span>選んでいるもの：ジャンル ${multiSel.g.size}・歌手 ${multiSel.s.size}</span><button type="button" class="btn-sub" id="mtCancel">やめる</button><button type="button" class="btn-main" id="mtOk">この内容で決める</button></div></div>`;
   const pop = $('multiPop');
   pop.querySelectorAll('[data-mt]').forEach(b => b.onclick = () => { multiTab = b.dataset.mt; multiQ = ''; renderMulti(); });
   pop.querySelectorAll('.mt-list input').forEach(cb => cb.onchange = () => { cb.checked ? sel.add(cb.value) : sel.delete(cb.value); cb.parentElement.classList.toggle('on', cb.checked); pop.querySelector('.mt-foot span').textContent = `選んでいるもの：ジャンル ${multiSel.g.size}・作品 ${multiSel.s.size}`; pop.querySelector(`[data-mt="${multiTab}"]`).textContent = `${multiTab === 'g' ? 'ジャンル' : '作品・シリーズ'}（${sel.size}）`; });

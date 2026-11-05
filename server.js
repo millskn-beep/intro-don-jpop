@@ -48,13 +48,17 @@ const byKeywords = song => GENRE_KEYS.filter(k => GENRES[k].keywords.some(w => k
 const SONG_GENRES_PATH = path.join(__dirname, 'data', 'song-genres.json');
 let SONG_GENRES = {};
 try { SONG_GENRES = JSON.parse(fs.readFileSync(SONG_GENRES_PATH, 'utf8')); } catch (e) { SONG_GENRES = {}; }
+// 曲ごとのサブジャンル（data/song-tags.json：id → [タグ]。TikTokで有名・ドラマ主題歌・卒業ソング など。tools/apply-tags.js が作る）。歌手のジャンルに足して使う
+let SONG_TAGS = {};
+try { SONG_TAGS = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'song-tags.json'), 'utf8')); } catch (e) { SONG_TAGS = {}; }
 // どのジャンルにも入らない曲は「その他」（other）。除外にチェックすれば、ジャンル分けされていない作品の曲も出なくなる
 const genresOfRaw = song => {
   const own = SONG_GENRES[song.id];
   if (own?.genres) return own.genres.filter(k => GENRES[k]);
-  if (!WORK_GENRES.has(song.work)) return byKeywords(song);
+  const tags = (SONG_TAGS[song.id] || []).filter(k => GENRES[k]);
+  if (!WORK_GENRES.has(song.work)) return [...byKeywords(song), ...tags];
   const kw = byKeywords(song).filter(k => KEYWORD_ONLY.includes(k));
-  return [...WORK_GENRES.get(song.work).filter(k => GENRES[k] && !KEYWORD_ONLY.includes(k)), ...kw];
+  return [...WORK_GENRES.get(song.work).filter(k => GENRES[k] && !KEYWORD_ONLY.includes(k)), ...kw, ...tags];
 };
 // ジャンルは曲ごとに何度も聞かれる（一覧の曲数・出題・除外）ので、結果をおぼえておく（曲・作品・手で直したジャンルが変わったら、キーが変わって計算し直す）
 const GENRE_MEMO = new Map();
@@ -257,7 +261,7 @@ function applyLiveSongs() {
 // ファイルを直接編集・取り込みした内容も反映されるよう、毎回読み直す
 // 待機画面のお題の選択肢（ジャンルと、曲が5曲以上ある作品）
 app.get('/api/topics', (req, res) => res.json({
-  genres: GENRE_KEYS.map(k => ({ key: k, label: GENRES[k].label, count: SONGS.filter(s => genresOf(s).includes(k)).length })),
+  genres: GENRE_KEYS.map(k => ({ key: k, label: GENRES[k].label, group: GENRES[k].group || 'artist', count: SONGS.filter(s => genresOf(s).includes(k)).length })),
   series: SERIES_LIST,
   fame: FAME.map(([k, label]) => ({ key: k, label, count: SONGS.filter(s => fameOf(s) === k).length })),
   playlist: STAGED.length,

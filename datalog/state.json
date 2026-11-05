@@ -1,6 +1,6 @@
 {
  "base": "381c9e8795dbb79a80a5850247c8ebb30bbe9796",
- "savedAt": "2026-11-05T07:37:53.196Z",
+ "savedAt": "2026-11-05T08:06:44.443Z",
  "data": {
   "requests": [],
   "candidates": [],
@@ -18,18 +18,23 @@
      1,
      0,
      0
+    ],
+    "n2t4yn8Uwzk": [
+     1,
+     0,
+     0
     ]
    },
    "days": {
     "2026-11-05": {
-     "games": 1,
-     "plays": 1
+     "games": 2,
+     "plays": 2
     }
    },
    "byPlay": {
     "normal": {
-     "games": 1,
-     "plays": 1
+     "games": 2,
+     "plays": 2
     }
    }
   },

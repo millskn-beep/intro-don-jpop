@@ -220,7 +220,7 @@
       <section class="set-group" data-sec="range">
       <p class="set-desc">どの曲から出題するかを決めます。</p>
       <div class="settings">
-        <label>遊び方2（どんな曲で遊ぶか）<select data-key="don"><option value="off">全部（下の設定で選ぶ）</option><option value="top">超有名曲ドン</option><option value="famous">有名曲ドン</option><option value="maybe">たぶん知ってるドン</option><option value="seishun">青春ドン（生まれ年を入れた人の13〜24歳の曲を順番に）</option><option value="karaoke">カラオケ定番ドン</option><option value="tiktok">TikTokで有名ドン</option><option value="buzz">バズソングドン</option><option value="youtube">YouTubeで有名ドン</option><option value="firsttake">THE FIRST TAKEドン</option><option value="drama">ドラマ主題歌ドン</option><option value="movie">映画主題歌ドン</option><option value="cm">CMソングドン</option><option value="kouhaku">紅白歌合戦ドン</option><option value="anime_national">国民的アニメドン</option><option value="spring">春・桜ソングドン</option><option value="summer">夏ソングドン</option><option value="winter">冬ソングドン</option><option value="christmas">クリスマスソングドン</option><option value="graduation">卒業ソングドン</option><option value="cheer">応援ソングドン</option><option value="wedding">結婚式ソングドン</option><option value="heartbreak">失恋ソングドン</option></select></label>
+        <div class="ly-kinds-box don-box"><span>遊び方2（どんな曲で遊ぶか・いくつでも。何も選ばなければ全部）</span><div class="ly-kinds" id="donList"><label><input type="checkbox" value="top"> 超有名曲</label><label><input type="checkbox" value="famous"> 有名曲</label><label><input type="checkbox" value="maybe"> たぶん知ってる</label><label><input type="checkbox" value="seishun"> 青春（生まれ年を入れた人の13〜24歳の曲を順番に）</label><label><input type="checkbox" value="karaoke"> カラオケ定番</label><label><input type="checkbox" value="tiktok"> TikTokで有名</label><label><input type="checkbox" value="buzz"> バズソング</label><label><input type="checkbox" value="youtube"> YouTubeで有名</label><label><input type="checkbox" value="firsttake"> THE FIRST TAKE</label><label><input type="checkbox" value="drama"> ドラマ主題歌</label><label><input type="checkbox" value="movie"> 映画主題歌</label><label><input type="checkbox" value="cm"> CMソング</label><label><input type="checkbox" value="kouhaku"> 紅白歌合戦</label><label><input type="checkbox" value="anime_national"> 国民的アニメ</label><label><input type="checkbox" value="spring"> 春・桜</label><label><input type="checkbox" value="summer"> 夏</label><label><input type="checkbox" value="winter"> 冬</label><label><input type="checkbox" value="christmas"> クリスマス</label><label><input type="checkbox" value="graduation"> 卒業</label><label><input type="checkbox" value="cheer"> 応援</label><label><input type="checkbox" value="wedding"> 結婚式</label><label><input type="checkbox" value="heartbreak"> 失恋</label></div></div>
         <label>お題<select data-key="topic"><option value="all">全部</option><option value="series">歌手を選ぶ</option><option value="multi">自由に選ぶ（ジャンル・歌手を何個でも）</option></select></label>
         <button class="btn-sub" id="multiOpen" type="button" hidden>お題を選ぶ</button>
         <label id="seriesLabel" hidden>歌手<select data-key="series"></select></label>
@@ -232,10 +232,10 @@
       <div class="fame-row"><span>知名度</span><span class="fame-list" id="fameList"></span></div>
       <div class="fame-row"><span>出しかた</span><label class="lp-check"><input type="checkbox" id="lessPlayed"> 流れた回数が少ない曲を優先（みんなの遊びの統計から）</label></div>
       <details class="genre-ex">
-        <summary>出題しないジャンル <span id="genreExInfo"></span></summary>
-        <div class="genre-ex-bulk"><button class="btn-sub" id="genreExAll" type="button">全部チェック（全部出さない）</button><button class="btn-sub" id="genreExNone" type="button">チェックを全部外す（全部出す）</button></div>
+        <summary>出す歌手のジャンル <span id="genreExInfo"></span></summary>
+        <div class="genre-ex-bulk"><button class="btn-sub" id="genreExNone" type="button">全部チェック（全部出す）</button><button class="btn-sub" id="genreExAll" type="button">チェックを全部外す</button></div>
         <div class="genre-ex-list" id="genreExList"></div>
-        <p class="note">チェックしたジャンルの曲は出題しません（選択肢にも出しません）。ジャンルがいくつもある曲は、そのジャンルが全部チェックされているときだけ外します（例：ロボットを外しても「パチスロで有名」を残せば、ガンダムSEED は出ます）。ボカロ・J-POP・パチスロ（超マイナー）・LoL は、チェックすれば必ず外します。お題が「全部」「自由に選ぶ」のときに効きます（だれでも変えられます）</p>
+        <p class="note">チェックを外したジャンルの歌手の曲は出題しません（選択肢にも出しません）。誰もわからなさそうなジャンルを外すのに使います。</p>
       </details>
       <p class="note pool-info" id="poolInfo"></p>
       </section>

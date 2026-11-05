@@ -145,7 +145,7 @@ function spreadLowFame(order, from = 1) {
 const HARD_EX = ['vocaloid', 'jpop', 'slot', 'lol'];
 const isExcluded = (song, ex) => {
   if (!ex?.length) return false;
-  const gs = genresOf(song);
+  const gs = genresOf(song).filter(k => (GENRES[k]?.group || 'artist') === 'artist'); // 歌手のジャンルだけで決める（サブジャンルでは外さない）
   if (gs.some(k => HARD_EX.includes(k) && ex.includes(k))) return true;
   const soft = gs.filter(k => !HARD_EX.includes(k));
   return soft.length > 0 && soft.every(k => ex.includes(k));
@@ -955,7 +955,7 @@ const OPTIONS = {
   lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
   fillMiss: ['on', 'off'],
   daily: [false, true], // 今日の10問（日本時間の日付で決めた10曲。全員同じ）
-  don: ['off', 'top', 'famous', 'maybe', 'seishun', 'karaoke', 'tiktok', 'buzz', 'youtube', 'firsttake', 'drama', 'movie', 'cm', 'kouhaku', 'anime_national', 'spring', 'summer', 'winter', 'christmas', 'graduation', 'cheer', 'wedding', 'heartbreak'], // 遊び方2（どんな曲で遊ぶか）：知名度（超有名・有名・たぶん知ってる）・青春・曲のサブジャンル（カラオケ定番・TikTok など）
+  // 遊び方2（どんな曲で遊ぶか）は複数選べる dons（下の sanitize で受け取る）。空なら全部
   insHear: ['master', 'intro'], insTarget: ['song', 'work'], // インサイダー：曲を聴ける人（出題者とインサイダーだけ／全員イントロ）・当てるもの                // 3つ埋め・たくさん埋め：お手つきの減点（off：減点なし。押せない秒数はそのまま）
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
   buzzStop: [true, false],
@@ -1001,13 +1001,14 @@ const BUZZ_SEC = 10;     // 早押し：押した人が答えられる秒数
 const BUZZ_MISS = 200;   // 早押し：お手つき（間違い・時間切れ）の減点
 const YEAR_POINTS = [1000, 500, 250, 120, 60, 30]; // 年代当て：ずれ 0〜5 年の得点（それ以上は 0）。近いほどぐっと高い
 // 新しい部屋で最初から除外しておくジャンル（アニソン以外）
-const DEFAULT_EXCLUDE = ['vocaloid', 'jpop', 'slot']; // ライフラインは使わない（画面からも外した）
+const DEFAULT_EXCLUDE = []; // J-POP 版：初めは全部のジャンルを出す // ライフラインは使わない（画面からも外した）
 const LIFELINES = ['fifty', 'audience', 'phone', 'replay']; // 50:50 / オーディエンス / テレフォン / もう一度聴く
 const NEAR_YEARS = 5; // 選択肢は、まず出題曲の前後この年数以内の曲から選ぶ
 const READY_TIMEOUT = 9000;      // 全員の読み込み（先読みまで）を待つ上限
 const ROOM_TTL = 10 * 60 * 1000; // 全員いなくなってから部屋を消すまで
 const CODE_CHARS = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; // 0/O/1/I/L を除く
 
+const DON_KEYS = ['top', 'famous', 'maybe', 'seishun', 'karaoke', 'tiktok', 'buzz', 'youtube', 'firsttake', 'drama', 'movie', 'cm', 'kouhaku', 'anime_national', 'spring', 'summer', 'winter', 'christmas', 'graduation', 'cheer', 'wedding', 'heartbreak']; // 遊び方2で選べるもの
 function sanitizeSettings(input, base) {
   const s = { ...base };
   if (!input || typeof input !== 'object') return s;
@@ -1016,6 +1017,7 @@ function sanitizeSettings(input, base) {
   }
   if (SERIES_LIST.some(x => x.name === input.series)) s.series = input.series;
   if (s.topic === 'series' && !SERIES_LIST.some(x => x.name === s.series)) s.series = SERIES_LIST[0]?.name || '';
+  if (Array.isArray(input?.dons)) s.dons = [...new Set(input.dons.filter(x => DON_KEYS.includes(x)))]; // 遊び方2（複数）。空なら全部
   if (Array.isArray(input?.fillKinds)) { const k = input.fillKinds.filter(x => FILL_KINDS.includes(x)); if (k.length) s.fillKinds = [...new Set(k)]; } // たくさん埋めバトル：足す枠の種類（複数）
   if (Array.isArray(input?.lyKinds)) { const k = input.lyKinds.filter(x => LY_KINDS.includes(x)); if (k.length) s.lyKinds = [...new Set(k)]; } // 歌詞クイズ：出題の種類（複数）
   // ジャンル制覇：選んだ種類（カタログにあるものだけ）
@@ -1048,12 +1050,15 @@ function sanitizeSettings(input, base) {
 // ctx：部屋にいる人のマイページ（userCtx）。「もう聞きたくない」曲はいつも外す。お気に入り・苦手のお題は、年代・知名度の設定に関係なく全部
 function poolFor(settings, ctx = {}) {
   // 知名度はお題に関係なく、チェックした段階の曲だけにする（難しさの調整）
+  // 遊び方2（複数）：知名度（超有名・有名・たぶん知ってる）・青春・曲のサブジャンル。選んだもののどれかに入る曲
+  const dons = Array.isArray(settings.dons) ? settings.dons : [];
   const DON_FAME = { top: ['top'], famous: ['top', 'famous'], maybe: ['top', 'famous', 'normal'], seishun: ['top', 'famous', 'normal'] };
-  const fame = DON_FAME[settings.don] || (Array.isArray(settings.fame) && settings.fame.length ? settings.fame : FAME_KEYS);
-  if (settings.don === 'seishun') settings = { ...settings, yearFrom: 1960, yearTo: 2100 }; // 青春ドンの年は人ごと（startGame で選ぶ）
-  const donTag = settings.don && !DON_FAME[settings.don] && settings.don !== 'off' && GENRES[settings.don] ? settings.don : null; // 遊び方2のサブジャンル（カラオケ定番 など）
+  const donFame = new Set(dons.flatMap(k => DON_FAME[k] || [])), donTags = dons.filter(k => !DON_FAME[k] && GENRES[k]);
+  const fame = Array.isArray(settings.fame) && settings.fame.length ? settings.fame : FAME_KEYS;
+  if (dons.includes('seishun')) settings = { ...settings, yearFrom: 1960, yearTo: 2100 }; // 青春の年は人ごと（startGame で選ぶ）
+  const donOk = s => !dons.length || donFame.has(fameOf(s)) || donTags.some(k => genresOf(s).includes(k));
   const mine = ['favorites', 'weak'].includes(settings.topic);
-  const out = (settings.topic === 'playlist' ? STAGED : SONGS).filter(s => (!donTag || genresOf(s).includes(donTag)) && (mine || (s.year >= settings.yearFrom && s.year <= settings.yearTo && fame.includes(fameOf(s)))) && inTopic(s, settings, ctx) && !(settings.noCoupling && s.coupling)
+  const out = (settings.topic === 'playlist' ? STAGED : SONGS).filter(s => donOk(s) && (mine || (s.year >= settings.yearFrom && s.year <= settings.yearTo && (dons.length ? true : fame.includes(fameOf(s))))) && inTopic(s, settings, ctx) && !(settings.noCoupling && s.coupling)
     && !ctx.block?.has(s.id)
     && !(isFillPlay(settings.play) && genresOf(s).includes('lol'))); // 3つ埋めバトルに LoL の曲は出さない
   out.noCoupling = !!settings.noCoupling;
@@ -1640,7 +1645,7 @@ function startGame(room) {
   // アニソン激アツRUSH：全問の色と当たりをここで決める（当たりの問題には、パチスロで有名な曲を入れる）
   const rushPlan = S.play === 'rush' ? buildRushPlan(order, fresh.length ? fresh : candidates, S) : null;
   if (!S.noRecord && !isGz(S.play) && S.play !== 'monopoly') order.forEach(s => recordPlayed(room, s)); // ジャンル制覇は、曲を出すときに記録する（並べた曲は gzPrepare で入れ替える）
-  if (S.don === 'seishun') { // 青春ドン：生まれ年を入れた人の 13〜24 歳の年の曲を、1問ずつ順番に（その年代の曲がなければ、ふつうに選んだ曲のまま）
+  if ((S.dons || []).includes('seishun')) { // 青春ドン：生まれ年を入れた人の 13〜24 歳の年の曲を、1問ずつ順番に（その年代の曲がなければ、ふつうに選んだ曲のまま）
     const people = shuffle(connectedPlayers(room).filter(p => p.birth)), used = new Set(), byWho = [];
     if (people.length) for (let i = 0; i < order.length; i++) {
       const p = people[i % people.length], from = p.birth + 13, to = p.birth + 24;

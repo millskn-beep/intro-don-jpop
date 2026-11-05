@@ -37,3 +37,7 @@
 .era-line b { color: #ffd36b; font-size: 15px; }
 .era-line small { color: var(--sub); font-size: 11px; }
 .era-line[hidden] { display: none; }
+
+/* 遊び方2（複数選択） */
+.don-box .ly-kinds { display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.don-box label { font-size: 13px; }

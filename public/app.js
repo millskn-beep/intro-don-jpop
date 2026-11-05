@@ -143,7 +143,8 @@ let quickKind = null; // いま遊んでいるのが「今日の10問」か（�
 function quickPlay(kind) {
   const name = myName(); if (!name) return;
   player.prime(WARMUP_VIDEO); // タップの中で一度再生して、スマホの音声制限を解除する
-  const over = { play: 'normal', questions: 10, daily: false, autoNext: 8, ...(QUICK_SET[kind] || { topic: kind, yearFrom: 1960, yearTo: 2100 }) };
+  const sub = TOPIC_DATA.genres.find(g => g.key === kind)?.group === 'sub';
+  const over = { play: 'normal', questions: 10, daily: false, autoNext: 8, dons: [], topic: 'all', ...(QUICK_SET[kind] || (sub ? { dons: [kind], yearFrom: 1960, yearTo: 2100 } : { topic: kind, yearFrom: 1960, yearTo: 2100 })) };
   socket.emit('create', { token, name, roomName: '', password: '', user: meUser(), solo: true, birth: myBirth() }, res => {
     if (!res.ok) { $('homeError').textContent = res.error; return; }
     joined(res); quickKind = kind;
@@ -328,6 +329,7 @@ function sendSettings(extra = {}) {
     s[k] = STRING_KEYS.includes(k) ? x.value : BOOL_KEYS.includes(k) ? x.value === 'true' : +x.value;
   });
   s.lessPlayed = $('lessPlayed').checked; // 流れた回数が少ない曲を優先
+  s.dons = [...document.querySelectorAll('#donList input:checked')].map(x => x.value); // 遊び方2（複数）
   const fk = [...document.querySelectorAll('#fillKinds input:checked')].map(x => x.value); if (fk.length) s.fillKinds = fk; // たくさん埋めバトル：足す枠の種類（複数）
   const lyk = [...document.querySelectorAll('#lyKinds input:checked')].map(x => x.value); if (lyk.length) s.lyKinds = lyk; // 歌詞クイズ：出題の種類（複数）
   // 知名度のチェック（複数）
@@ -359,12 +361,12 @@ fetch('/api/topics').then(r => r.json()).then(d => {
     `<label><input type="checkbox" value="${esc(f.key)}" checked>${esc(f.label)}<small>${f.count}</small></label>`).join('');
   $('fameList').querySelectorAll('input').forEach(cb => cb.onchange = () => sendSettings());
   // 除外するジャンルのチェック欄
-  $('genreExList').innerHTML = d.genres.map(g =>
+  $('genreExList').innerHTML = d.genres.filter(g => g.group !== 'sub').map(g =>
     `<label><input type="checkbox" value="${esc(g.key)}">${esc(g.label)}<small>${g.count}</small></label>`).join('');
   $('genreExList').querySelectorAll('input').forEach(cb => cb.onchange = () =>
-    socket.emit('excludeGenres', [...$('genreExList').querySelectorAll('input:checked')].map(x => x.value)));
+    socket.emit('excludeGenres', [...$('genreExList').querySelectorAll('input:not(:checked)')].map(x => x.value))); // チェックを外したもの＝出さない
   // 一括：全部チェック（全部出さない）・チェックを全部外す（全部出す）
-  $('genreExAll').onclick = () => socket.emit('excludeGenres', d.genres.map(g => g.key));
+  $('genreExAll').onclick = () => socket.emit('excludeGenres', d.genres.filter(g => g.group !== 'sub').map(g => g.key));
   $('genreExNone').onclick = () => socket.emit('excludeGenres', []);
   if (room) renderRoom(room); // 選択肢がそろったので選ばれている値を入れ直す
 }).catch(() => {});
@@ -730,6 +732,7 @@ socket.on('aborted', () => {
 // ── 部屋の状態 ──
 $('lessPlayed').onchange = () => sendSettings();
 // 歌詞クイズの出題の種類（複数）：全部外すことはできない（最後の1つは残す）
+document.querySelectorAll('#donList input').forEach(x => x.onchange = () => sendSettings());
 document.querySelectorAll('#fillKinds input').forEach(x => x.onchange = () => { if (!document.querySelector('#fillKinds input:checked')) { x.checked = true; return toast('足す枠は1つ以上えらんでください'); } sendSettings(); });
 document.querySelectorAll('#lyKinds input').forEach(x => x.onchange = () => { if (!document.querySelector('#lyKinds input:checked')) { x.checked = true; return toast('出題の種類は1つ以上えらんでください'); } sendSettings(); });
 socket.on('room', r => { renderRoom(r); refreshScoreStrips(); updateFixFab(); });
@@ -804,6 +807,7 @@ function renderRoom(r) {
   $('coopGoalLabel').hidden = r.settings.play !== 'coop';
   $('rushRateLabel').hidden = r.settings.play !== 'rush'; // アニソン激アツRUSH：当たりやすさ
   $('lockSecLabel').hidden = !isFillPlay(r.settings.play);
+  { const on = new Set(r.settings.dons || []); document.querySelectorAll('#donList input').forEach(x => { x.checked = on.has(x.value); x.disabled = r.state === 'playing' && !r.paused; }); }
   $('fillKindsLabel').hidden = r.settings.play !== 'fillmany';
   { const on = new Set(r.settings.fillKinds || []); document.querySelectorAll('#fillKinds input').forEach(x => { x.checked = on.has(x.value); x.disabled = r.state === 'playing' && !r.paused; }); }
   $('fillMissLabel').hidden = !isFillPlay(r.settings.play); // 3つ埋めバトル：間違えたあと押せない秒数
@@ -866,9 +870,9 @@ function renderRoom(r) {
   const fame = r.settings.fame || [];
   $('fameList').querySelectorAll('input').forEach(cb => { cb.checked = !fame.length || fame.includes(cb.value); cb.disabled = !canSet; });
   const ex = r.settings.excludeGenres || [];
-  $('genreExList').querySelectorAll('input').forEach(cb => { cb.checked = ex.includes(cb.value); cb.disabled = r.state === 'playing' && !r.paused; });
+  $('genreExList').querySelectorAll('input').forEach(cb => { cb.checked = !ex.includes(cb.value); cb.disabled = r.state === 'playing' && !r.paused; });
   const exLabels = ex.map(k => TOPIC_DATA.genres.find(g => g.key === k)?.label || k);
-  $('genreExInfo').textContent = exLabels.length ? `（${exLabels.join('・')}）` : '（なし）';
+  $('genreExInfo').textContent = exLabels.length ? `（${exLabels.join('・')} を出さない）` : '（全部出す）';
   $('poolInfo').textContent = `${topicLabel(r.settings)}${r.settings.topic === 'all' && exLabels.length ? `（${exLabels.join('・')}を除く）` : ''}・${r.settings.yearFrom}〜${r.settings.yearTo}年：出題できる曲 ${r.poolSize} 曲` +
     (r.poolSize < r.settings.questions ? `（${r.settings.questions}問に足りないので ${r.poolSize} 問で出題します）` : '');
   $('startBtn').disabled = r.poolSize === 0;

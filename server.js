@@ -1444,6 +1444,8 @@ function randomStart(song) {
 const STATS_PATH = path.join(__dirname, 'data', 'play-stats.json');
 const todayStr = () => new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10); // 日本時間の日付
 let PSTATS = readJson(STATS_PATH, null) || { since: todayStr(), songs: {}, days: {}, byPlay: {} };
+const fixStats = s => ({ since: s.since || todayStr(), ...s, songs: s.songs || {}, days: s.days || {}, byPlay: s.byPlay || {} }); // 足りない欄があっても落ちないように
+PSTATS = fixStats(PSTATS);
 const statsOn = !!process.env.RENDER || process.env.COUNT_STATS === '1';
 let statsTimer = null;
 function statsTouch() {
@@ -5707,7 +5709,7 @@ const restored = Promise.race([
   if (d.reports) REPORTS = d.reports;
   if (d.songGenres) { SONG_GENRES = d.songGenres; buildSeries(); }
   if (d.couplingReports) CW_REPORTS = d.couplingReports;
-  if (d.playStats) PSTATS = d.playStats;
+  if (d.playStats) PSTATS = fixStats(d.playStats);
   if (d.songFame) { SONG_FAME = d.songFame; Object.assign(SONG_FAME_RESETS, d.fameResets || {}); applyFame(); }
   console.log('記録から戻しました（リクエスト・投票・修正など）');
 });

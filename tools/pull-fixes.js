@@ -15,7 +15,7 @@ const SONGS_PATH = path.join(ROOT, 'data', 'songs.json');
 const FIXES_PATH = path.join(ROOT, 'data', 'fixes.json');
 const REPORTS_PATH = path.join(ROOT, 'data', 'reports.json');
 const HISTORY_PATH = path.join(ROOT, 'data', 'fix-history.json');
-const SITE = 'https://anison-intro-vs.onrender.com';
+const SITE = 'https://intro-don-jpop.onrender.com';
 const DRY = process.argv.includes('--dry-run');
 const readJson = (p, d) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch (e) { return d; } };
 const writeJson = (p, v) => { fs.writeFileSync(p + '.tmp', JSON.stringify(v, null, 1) + '\n'); fs.renameSync(p + '.tmp', p); };

@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const SITE = process.env.LIVE_SITE || 'https://anison-intro-vs.onrender.com';
+const SITE = process.env.LIVE_SITE || 'https://intro-don-jpop.onrender.com';
 const DIR = process.env.LYRICS || 'D:/AI/anison-drive/data/lyrics-id';
 const readJson = (p, d) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch (e) { return d; } };
 const key = fs.readFileSync(path.join(ROOT, '.live-key'), 'utf8').trim();

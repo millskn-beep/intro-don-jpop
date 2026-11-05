@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PATH = path.join(__dirname, '..', 'data', 'requests.json');
-const SITE = 'https://anison-intro-vs.onrender.com';
+const SITE = 'https://intro-don-jpop.onrender.com';
 const CAND_PATH = path.join(__dirname, '..', 'data', 'candidates.json');
 const CAND_CSV = path.join(__dirname, '..', 'data', 'catalog', 'additions-candidates.csv');
 const readCand = () => { try { return JSON.parse(fs.readFileSync(CAND_PATH, 'utf8')); } catch (e) { return []; } };

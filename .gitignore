@@ -38,3 +38,5 @@ data/ids.tmp
 .yt-client.json
 .yt-token.json
 data/yt-playlists.json
+
+tools/__pycache__/

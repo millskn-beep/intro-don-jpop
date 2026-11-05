@@ -6,7 +6,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const SONGS_PATH = path.join(ROOT, 'data', 'songs.json');
 const LOCAL_PATH = path.join(ROOT, 'data', 'promotes.json');
-const SITE = 'https://anison-intro-vs.onrender.com';
+const SITE = 'https://intro-don-jpop.onrender.com';
 const DRY = process.argv.includes('--dry-run');
 const readJson = (p, d) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch (e) { return d; } };
 

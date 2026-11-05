@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const SITE = process.env.LIVE_SITE || 'https://anison-intro-vs.onrender.com';
+const SITE = process.env.LIVE_SITE || 'https://intro-don-jpop.onrender.com';
 const DIR = process.env.SUBS || 'D:/AI/anison-drive/data/yt-subs';
 const key = fs.readFileSync(path.join(ROOT, '.live-key'), 'utf8').trim();
 const check = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'lyric-check.json'), 'utf8')); } catch (e) { return {}; } })(); // tools/check-subs-lyrics.js の結果

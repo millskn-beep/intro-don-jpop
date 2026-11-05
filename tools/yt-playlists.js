@@ -14,7 +14,7 @@ const http = require('http');
 const { exec } = require('child_process');
 
 const ROOT = process.env.YT_DIR || path.join(__dirname, '..');  // 鍵と進み具合を置くフォルダ（worktree から動かすときは本体を指す）
-const SITE = process.env.LIVE_SITE || 'https://anison-intro-vs.onrender.com';
+const SITE = process.env.LIVE_SITE || 'https://intro-don-jpop.onrender.com';
 const CLIENT = path.join(ROOT, '.yt-client.json');
 const TOKEN = path.join(ROOT, '.yt-token.json');
 const STATE = path.join(ROOT, 'data', 'yt-playlists.json');

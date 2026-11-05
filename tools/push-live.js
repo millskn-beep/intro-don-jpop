@@ -11,7 +11,7 @@ const path = require('path');
 const crypto = require('crypto');
 
 const ROOT = path.join(__dirname, '..');
-const SITE = process.env.LIVE_SITE || 'https://anison-intro-vs.onrender.com'; // 試すときは LIVE_SITE=http://localhost:3001
+const SITE = process.env.LIVE_SITE || 'https://intro-don-jpop.onrender.com'; // 試すときは LIVE_SITE=http://localhost:3001
 const KEY_PATH = path.join(ROOT, '.live-key'), HASH_PATH = path.join(ROOT, 'data', 'live-key.sha256');
 const readJson = (p, d) => { try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch (e) { return d; } };
 const args = process.argv.slice(2), DRY = args.includes('--dry-run');

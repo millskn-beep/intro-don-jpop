@@ -3,14 +3,14 @@
 //
 // 使い方: node tools/fetch-views.js [--all]   （--all：取得済みの曲も取り直す）
 // 必要なもの: python -m yt_dlp
-// 保存: 手元のサーバー（http://localhost:3000）が動いていればその API で、止まっていれば songs.json に直接書く
+// 保存: 手元のサーバー（http://localhost:3002）が動いていればその API で、止まっていれば songs.json に直接書く
 
 const fs = require('fs');
 const path = require('path');
 const { execFile } = require('child_process');
 
 const SONGS_PATH = path.join(__dirname, '..', 'data', 'songs.json');
-const SERVER = 'http://localhost:3000';
+const SERVER = 'http://localhost:3002';
 const BATCH = 25;          // 1回の yt-dlp で調べる曲数（起動の時間を減らすため）
 const WAIT_MS = 2000;      // まとまりごとの間
 const YTDLP_OPTS = ['--compat-options', 'no-certifi', '--js-runtimes', 'node'];

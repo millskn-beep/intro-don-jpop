@@ -4,14 +4,14 @@
 //
 // 使い方: node tools/estimate-chorus.js [--limit 10] [--dry-run]
 // 必要なもの: python -m yt_dlp（pip install yt-dlp）
-// 保存: 手元のサーバー（http://localhost:3000）が動いていればその API で、止まっていれば songs.json に直接書く
+// 保存: 手元のサーバー（http://localhost:3002）が動いていればその API で、止まっていれば songs.json に直接書く
 
 const fs = require('fs');
 const path = require('path');
 const { execFile } = require('child_process');
 
 const SONGS_PATH = path.join(__dirname, '..', 'data', 'songs.json');
-const SERVER = 'http://localhost:3000';
+const SERVER = 'http://localhost:3002';
 const WAIT_MS = 1200;   // 1曲ごとの間（YouTube に止められないよう）
 // yt-dlp の共通オプション：Windows の証明書を使う／YouTube の確認処理に Node.js を使う
 const YTDLP_OPTS = ['--compat-options', 'no-certifi', '--js-runtimes', 'node'];

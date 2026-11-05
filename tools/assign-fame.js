@@ -1,130 +1,42 @@
-// 全曲に知名度（超有名・有名・普通・マイナー・オタク）を割り振る。
-// 目安は2つ：
-//   ・YouTube の再生回数（tools/fetch-views.js で取得。動画の種類ごとに比べる。Topic やファン投稿は少なく出るため）
-//   ・アニソン人気投票の順位（data/ranking-anison.json。「アニメ好きには知られている」の目安）
-// 「オタク」＝アニメ好きには知られているが、世間的な再生回数は多くない曲（＋キャラソン・ギャルゲー曲など）
+// J-POP 版：全曲に知名度（超有名・有名・普通・マイナー・オタク）を割り振る。
+// 公式MVの再生回数はアニソンより桁が多いので、決まった回数ではなく、J-POP の曲の中での順位（割合）で分ける。
+//   上位 15% 超有名／次の 25% 有名／次の 30% 普通／次の 20% マイナー／残り 10% オタク（とても古い・動画が少ない曲）
+// 動画の種類（公式MV・Topic の音源）ごとに比べる（Topic は少なく出るため）。
+// 曲集めのときの見立て（fameHint：1 だれでも知っている／2 広く知られている）があれば、それより下にはしない。
 // 手で変えた曲（fameManual: true）は触らない。
 //
 // 使い方: node tools/assign-fame.js [--dry-run]
-// 保存: 手元のサーバー（http://localhost:3000）が動いていればその API で、止まっていれば songs.json に直接書く
 
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.join(__dirname, '..');
-const SONGS_PATH = path.join(ROOT, 'data', 'songs.json');
-const SERVER = 'http://localhost:3000';
+const SONGS_PATH = path.join(__dirname, '..', 'data', 'songs.json');
 const DRY = process.argv.includes('--dry-run');
-
 const songs = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
-const ranks = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'ranking-anison.json'), 'utf8'));
-const GENRES = require(path.join(ROOT, 'data', 'genres.json'));
-const keywordHit = (g, work, w) => g.wordOnly?.includes(w) ? new RegExp(`(?<![A-Za-z])${w}(?![A-Za-z])`).test(work) : work.includes(w); // wordOnly：語の一部には一致させない（FAIRY TAIL の AIR など）
-const inGenre = (s, k) => GENRES[k].keywords.some(w => keywordHit(GENRES[k], String(s.work), w));
 
-const norm = s => String(s).normalize('NFKC').toLowerCase().replace(/[\s!！・〜~～()（）\-♪【】.。,、\/'"「」『』?？&＆*＊☆★♡:：…･]/g, '');
-const rankOf = new Map();
-const rankRow = new Map();
-for (const r of ranks) { const k = norm(r.title); if (!rankOf.has(k)) { rankOf.set(k, r.rank); rankRow.set(k, r); } }
-// 同じ曲名の別の曲に順位を付けない：同名の曲があるときは、歌手が投票の歌手と合う曲だけ（合う曲がなければ全部）
-const sameArtist = (a, b) => { // 連名は1人でも合えば同じ歌手
-  const x = norm(a).replace(/cv.*$/, ''), y = norm(b).replace(/cv.*$/, ''), parts = String(b).split(/[、,×]/).map(norm).filter(p => p.length >= 2);
-  return !!x && !!y && (x.includes(y) || y.includes(x) || parts.some(p => x.includes(p)));
-};
-const rankOfSong = s => {
-  const k = norm(s.title), row = rankRow.get(k); if (!row) return undefined;
-  const same = songs.filter(o => norm(o.title) === k && !o.retired);
-  if (same.length < 2 || !same.some(o => sameArtist(o.artist, row.artist))) return row.rank;
-  const series = o => norm(o.work).replace(/^(劇場版|映画)/, '').slice(0, 3); // 同じ作品の別の動画（TVサイズ・別名義など）も同じ曲として扱う
-  return same.some(o => sameArtist(o.artist, row.artist) && series(o) === series(s)) ? row.rank : undefined;
-};
+const LEVELS = ['top', 'famous', 'normal', 'minor', 'otaku'];
+const CUTS = [0.85, 0.60, 0.30, 0.10]; // 順位（0〜1、1がいちばん多い）がこれ以上なら、その段階
+const classOf = s => (/- Topic$/i.test(s.channel || '') || s.source === 'Topic' ? 'topic' : 'video');
 
-// 動画の種類。再生回数はこの中で比べる
-const classOf = s => /- Topic$/i.test(s.channel || '') || s.source === 'Topic' ? 'topic'
-  : /非公式|ファン/.test(`${s.source || ''}${s.note || ''}`) ? 'fan'
-  : /TVサイズ|ショート|short/i.test(s.source || '') ? 'short' : 'video';
-// アニソン以外のまとまり（その中の再生回数だけで分ける）
-const bucketOf = s => inGenre(s, 'vocaloid') ? 'vocaloid' : inGenre(s, 'jpop') ? 'jpop' : inGenre(s, 'lol') ? 'lol' : 'anime';
-
-// まとまりの中での再生回数の順位（0〜1。1がいちばん多い）
-function percentiles(list, keyFn) {
-  const groups = new Map();
-  for (const s of list) { const k = keyFn(s); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(s); }
-  const out = new Map();
-  for (const g of groups.values()) {
-    const withViews = g.filter(s => s.views > 0).sort((a, b) => a.views - b.views);
-    withViews.forEach((s, i) => out.set(s.id, withViews.length > 1 ? i / (withViews.length - 1) : 0.5));
-  }
-  return out;
-}
-const anime = songs.filter(s => bucketOf(s) === 'anime');
-const pubAnime = percentiles(anime, classOf);
-const pubOther = percentiles(songs.filter(s => bucketOf(s) !== 'anime'), s => bucketOf(s) + ':' + classOf(s));
-
-// 数字だけでは外れる曲を、曲名で直す（一覧を見て決めたもの）
-const OVERRIDES = {
-  'メルト': 'top', '君をのせて': 'top', 'いつも何度でも': 'top', 'ドラえもんのうた': 'top', '愛をとりもどせ!!': 'top',
-  '風の谷のナウシカ': 'famous', '水の星へ愛をこめて': 'famous', 'ふわふわ時間': 'famous', '桜流し': 'famous', '一輪の花': 'famous',
-  'Share The World': 'normal', 'from the edge': 'normal', 'ニルスのふしぎな旅': 'normal', '太陽の真ん中へ': 'normal',
-  '私の彼はパイロット': 'otaku', '旅の途中': 'otaku', 'Crow Song': 'otaku', 'わが臈たし悪の華': 'otaku',
-};
-
-// キャラソン・ギャルゲー曲など、もともと「オタク向け」の曲
-const isOtakuKind = s => inGenre(s, 'galge') || /キャラクターソング|イメージソング|BGM/.test(s.type || '') || /（パチスロ）|^その他（/.test(s.work)
-  || (/挿入歌|劇中歌/.test(s.type || '') && /[(（]CV|[(（][^)）]*[)）]|starring/.test(s.artist || ''));
-
-function fameOf(s) {
-  if (OVERRIDES[s.title]) return OVERRIDES[s.title];
-  const bucket = bucketOf(s);
-  if (bucket !== 'anime') {
-    const p = pubOther.get(s.id);
-    if (p === undefined) return 'normal';
-    // ボカロ・J-POP は年代ごとの有名曲だけを入れているので、いちばん下でも「普通」
-    if (bucket !== 'lol') return p >= 0.75 ? 'top' : p >= 0.35 ? 'famous' : 'normal';
-    return p >= 0.8 ? 'top' : p >= 0.45 ? 'famous' : p >= 0.15 ? 'normal' : 'minor';
-  }
-  const p = pubAnime.get(s.id), rk = rankOfSong(s);
-  const pub = p === undefined ? 0.5 : p; // 再生回数が分からない曲は真ん中として扱う
-  if (rk && rk <= 60) return 'top';
-  if ((rk && rk <= 160 && pub >= 0.55) || pub >= 0.96) return 'top';
-  if (rk && rk <= 320) return 'famous';     // 投票の上位は、動画の再生回数が少なくても（古い曲・ファン投稿など）よく知られている
-  // 子ども向け・ジブリは「オタク向け」ではないので、知られていなければマイナー寄りにする
-  const family = inGenre(s, 'kids') || inGenre(s, 'ghibli');
-  const otaku = () => (family ? (rk && rk <= 700 ? 'normal' : 'minor') : 'otaku');
-  if (pub >= 0.72) return isOtakuKind(s) && pub < 0.9 ? otaku() : 'famous';
-  if (isOtakuKind(s)) return otaku();
-  if (rk && pub < 0.5) return otaku();      // 投票には入っているが、再生回数は少ない＝アニメ好きには知られている
-  if (!rk && pub < 0.2) return 'minor';
-  return 'normal';
+const groups = new Map();
+for (const s of songs) if (!s.retired && s.views > 0) { const k = classOf(s); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(s); }
+const pct = new Map();
+for (const g of groups.values()) {
+  g.sort((a, b) => a.views - b.views);
+  g.forEach((s, i) => pct.set(s.id, g.length > 1 ? i / (g.length - 1) : 0.5));
 }
 
-const LABEL = { top: '超有名', famous: '有名', normal: '普通', minor: 'マイナー', otaku: 'オタク' };
-const result = songs.map(s => ({ s, fame: s.fameManual && s.fame ? s.fame : fameOf(s) }));
-const count = {};
-for (const r of result) count[r.fame] = (count[r.fame] || 0) + 1;
-console.log(Object.entries(LABEL).map(([k, l]) => `${l} ${count[k] || 0}`).join(' / '), `（全 ${songs.length} 曲、再生回数あり ${songs.filter(s => s.views > 0).length} 曲）`);
-
-if (DRY) {
-  const show = k => result.filter(r => r.fame === k).map(r => `${r.s.title}〔${r.s.work.slice(0, 14)}〕`).join(' / ');
-  if (process.argv.includes('--list')) for (const k of ['top', 'otaku', 'minor']) console.log(`\n■ ${LABEL[k]}\n${show(k)}`);
-  process.exit(0);
-}
-
-(async () => {
-  const changed = result.filter(r => r.s.fame !== r.fame).map(r => ({ ...r.s, fame: r.fame }));
-  console.log(`変更 ${changed.length} 曲を保存します`);
-  try {
-    for (let i = 0; i < changed.length; i += 200) {
-      const res = await fetch(`${SERVER}/api/songs`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ songs: changed.slice(i, i + 200) }) });
-      if (!res.ok) throw new Error((await res.json()).error);
-    }
-    console.log('保存しました（サーバー経由）');
-  } catch (e) {
-    const all = JSON.parse(fs.readFileSync(SONGS_PATH, 'utf8'));
-    const byId = new Map(changed.map(s => [s.id, s.fame]));
-    for (const s of all) if (byId.has(s.id)) s.fame = byId.get(s.id);
-    fs.writeFileSync(SONGS_PATH + '.tmp', JSON.stringify(all, null, 2) + '\n');
-    fs.renameSync(SONGS_PATH + '.tmp', SONGS_PATH);
-    console.log('保存しました（ファイルに直接）');
+let changed = 0;
+const count = Object.fromEntries(LEVELS.map(l => [l, 0]));
+for (const s of songs) {
+  if (s.retired) continue;
+  if (!s.fameManual) {
+    const p = pct.get(s.id);
+    let i = p == null ? 2 : CUTS.findIndex(c => p >= c); if (i < 0) i = 4;
+    if (s.fameHint === 1) i = Math.min(i, 1); else if (s.fameHint === 2) i = Math.min(i, 2);
+    if (s.fame !== LEVELS[i]) { s.fame = LEVELS[i]; changed++; }
   }
-})();
+  count[s.fame || 'normal']++;
+}
+console.log(LEVELS.map(l => `${l} ${count[l]}`).join(' / '), `（変更 ${changed} 曲）`);
+if (!DRY) fs.writeFileSync(SONGS_PATH, JSON.stringify(songs, null, 2) + '\n');

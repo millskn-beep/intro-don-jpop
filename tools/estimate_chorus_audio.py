@@ -8,7 +8,7 @@
 #
 # 使い方: python tools/estimate_chorus_audio.py [--limit 10] [--dry-run]
 #         python tools/estimate_chorus_audio.py --test 20   （正解がわかっている曲で当たり具合を確かめる。保存しない）
-# 保存: 手元のサーバー（http://localhost:3000）が動いていればその API で、止まっていれば songs.json に直接書く
+# 保存: 手元のサーバー（http://localhost:3002）が動いていればその API で、止まっていれば songs.json に直接書く
 import json
 import os
 import random
@@ -24,7 +24,7 @@ import librosa
 
 ROOT = Path(__file__).resolve().parent.parent
 SONGS_PATH = ROOT / 'data' / 'songs.json'
-SERVER = 'http://localhost:3000'
+SERVER = 'http://localhost:3002'
 YTDLP_OPTS = ['--compat-options', 'no-certifi', '--js-runtimes', 'node']
 SR = 22050
 HOP = 4096          # 約0.19秒ごとに見る

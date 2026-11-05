@@ -1,6 +1,6 @@
 {
  "base": "381c9e8795dbb79a80a5850247c8ebb30bbe9796",
- "savedAt": "2026-11-05T08:07:59.600Z",
+ "savedAt": "2026-11-05T08:09:04.026Z",
  "data": {
   "requests": [],
   "candidates": [],
@@ -46,20 +46,40 @@
     ],
     "tmKmDeksMaM": [
      1,
-     0,
-     0
+     1,
+     1
+    ],
+    "TYhWV4H83sU": [
+     1,
+     1,
+     1
+    ],
+    "gPcPseeICjs": [
+     1,
+     1,
+     1
+    ],
+    "YZ6wH-MqZvM": [
+     1,
+     1,
+     1
+    ],
+    "-9DxpPiE458": [
+     1,
+     1,
+     1
     ]
    },
    "days": {
     "2026-11-05": {
      "games": 2,
-     "plays": 7
+     "plays": 11
     }
    },
    "byPlay": {
     "normal": {
      "games": 2,
-     "plays": 7
+     "plays": 11
     }
    }
   },

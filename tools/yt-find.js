@@ -38,12 +38,16 @@ async function find(c) {
   const todo = cand.map((c, i) => i).filter(i => !(i in res));
   let p = 0, done = 0;
   const save = () => fs.writeFileSync(OUT, JSON.stringify(res, null, 1));
-  await Promise.all(Array.from({ length: 2 }, async () => {
+  await Promise.all(Array.from({ length: 1 }, async () => {
     while (p < todo.length) {
       const i = todo[p++];
-      try { res[i] = { ...cand[i], hit: await find(cand[i]).catch(() => find(cand[i])) }; } catch (e) { console.log('失敗', cand[i].title, e.message); continue; } // 失敗したら1回だけやり直す
-      if (++done % 20 === 0) { save(); console.log(`${done}/${todo.length}`); }
-      await new Promise(r => setTimeout(r, 800));
+      let ok = false;
+      for (let k = 0; k < 4 && !ok; k++) { // 断られたら（続けて検索すると YouTube が切る）、少し待ってやり直す
+        try { res[i] = { ...cand[i], hit: await find(cand[i]) }; ok = true; } catch (e) { console.log('待つ', cand[i].title, e.message); await new Promise(r => setTimeout(r, 20000 * (k + 1))); }
+      }
+      if (!ok) continue;
+      if (++done % 10 === 0) { save(); console.log(`${done}/${todo.length}`); }
+      await new Promise(r => setTimeout(r, 1500));
     }
   }));
   save();

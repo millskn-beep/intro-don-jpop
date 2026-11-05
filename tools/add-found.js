@@ -12,7 +12,7 @@ const ids = new Set(songs.map(s => s.id)), keys = new Set(songs.map(s => norm(s.
 // アニメ・声優に縁のある歌手（data/work-genres.json の anime）の曲は入れない（ほぼアニソンになるため。ユーザーの希望 2026-11-05）
 const ANIME = new Set(JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'anime-artists.json'), 'utf8')).artists); // 国民的アニメの曲（tags に anime_national）は入れる
 const animeArtist = a => ANIME.has(a);
-const SRC = { official: '公式MV', topic: '公式音源（Topic）', label: 'レーベル公式', fan: '非公式（再生回数の多い動画）' };
+const SRC = { official: '公式MV', topic: '公式音源（Topic）', label: 'レーベル公式', fan: '非公式（再生回数の多い動画）', site: '年代流行に貼ってある動画' };
 const added = [], skipped = { none: 0, dup: 0, live: 0 };
 for (const f of process.argv.slice(2)) {
   for (const r of Object.values(JSON.parse(fs.readFileSync(f, 'utf8')))) {

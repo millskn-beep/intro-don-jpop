@@ -1,0 +1,16 @@
+{
+ "_説明": "歌手名の書き方のゆれ・打ち間違い → 正しい書き方（tools/fix-artists.js が使う）",
+ "プリンセス・プリンセス": "プリンセス プリンセス",
+ "B’z": "B'z",
+ "菅田 将暉": "菅田将暉",
+ "King＆Prince": "King & Prince",
+ "Kuwata Band": "KUWATA BAND",
+ "Hey！Say！JUMP": "Hey! Say! JUMP",
+ "Hey!Say!JUMP": "Hey! Say! JUMP",
+ "Che’Nelle": "Che'Nelle",
+ "Mr.Childen": "Mr.Children",
+ "BUMP OF CHIKEN": "BUMP OF CHICKEN",
+ "RADWINPS": "RADWIMPS",
+ "GRAY": "GLAY",
+ "きゃりーばみゅぱみゅ": "きゃりーぱみゅぱみゅ"
+}

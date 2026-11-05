@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>アニソンイントロ対戦</title>
+<title>イントロドン！J-POP</title>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
@@ -37,7 +37,7 @@
   <header class="top">
     <div class="brand">
       <img class="emblem" id="emblem" src="assets/glass/logo.webp" alt="">
-      <h1 class="logo"><small>ANISONG INTRO BATTLE</small>アニソン<em>イントロ</em>対戦</h1>
+      <h1 class="logo"><small>INTRO DON! J-POP</small>イントロ<em>ドン！</em>J-POP</h1>
     </div>
     <a class="me-link" id="bgmLink" title="アニソンBGM" href="/bgm.html" target="_blank" rel="noopener">🎧<span class="me-lbl"> BGM</span></a>
     <button class="me-link me-link2 set-open" id="setTop" type="button" title="ルーム設定を開く" hidden>⚙<span class="me-lbl"> 設定</span></button>
@@ -202,9 +202,9 @@
       <section class="set-group" data-sec="range">
       <p class="set-desc">どの曲から出題するかを決めます。</p>
       <div class="settings">
-        <label>お題<select data-key="topic"><option value="all">全部</option><option value="series">作品を選ぶ</option><option value="multi">自由に選ぶ（ジャンル・作品を何個でも）</option></select></label>
+        <label>お題<select data-key="topic"><option value="all">全部</option><option value="series">歌手を選ぶ</option><option value="multi">自由に選ぶ（ジャンル・歌手を何個でも）</option></select></label>
         <button class="btn-sub" id="multiOpen" type="button" hidden>お題を選ぶ</button>
-        <label id="seriesLabel" hidden>作品<select data-key="series"></select></label>
+        <label id="seriesLabel" hidden>歌手<select data-key="series"></select></label>
         <label>年代（から）<select data-key="yearFrom"></select></label>
         <label>年代（まで）<select data-key="yearTo"></select></label>
       </div>
@@ -259,7 +259,7 @@
           <option value="karuta">アニソンかるた（並んだ札から早取り）</option>
           <option value="panel">アニソン陣取り（正解したらパネルを取る・アタック25風）</option>
         </select></label>
-        <label>答えるもの<select data-key="target"><option value="song">曲名</option><option value="work">作品</option><option value="artist">歌手</option><option value="year">年（近いほど高得点）</option></select></label>
+        <label>答えるもの<select data-key="target"><option value="song">曲名</option><option value="artist">歌手</option><option value="year">年（近いほど高得点）</option></select></label>
         <label id="questionsLabel">問題数<select data-key="questions"></select></label>
         <label id="livesLabel" hidden>ライフ<select data-key="lives"><option value="1">1（1回で脱落）</option><option value="2">2</option><option value="3">3</option></select></label>
         <label id="rushRateLabel" hidden>当たりやすさ<select data-key="rushRate"><option value="normal">ふつう</option><option value="high">出やすい（×1.5）</option><option value="low">出にくい（×0.6）</option></select></label>
@@ -280,7 +280,7 @@
         <label id="wwHintLabel" hidden>アニソンベット：出すもの<select data-key="wwHint"><option value="title">曲名</option><option value="intro">イントロだけ</option><option value="titleartist">曲名と歌手</option></select></label>
         <label id="gzSetLabel" hidden>ジャンル制覇：集めるジャンル<select data-key="gzSet"><option value="fixed">固定（今の6つ）</option><option value="random">ランダム（ゲームごとに決める）</option><option value="choose">選択（自分たちで選ぶ）</option></select></label>
         <label id="gzCountLabel" hidden>ジャンル制覇EX：ランダムの数<select data-key="gzCount"><option value="6">6種類</option><option value="7">7種類</option><option value="8">8種類</option><option value="10">10種類</option><option value="12">12種類</option><option value="15">15種類</option><option value="20">20種類</option><option value="25">25種類</option></select></label>
-        <label id="mpByLabel" hidden>モノポリー：国の分け方<select data-key="mpBy"><option value="genre">ジャンル</option><option value="work">作品</option><option value="artist">歌手</option><option value="mix">まぜる</option><option value="choose">自分で選ぶ</option></select></label>
+        <label id="mpByLabel" hidden>モノポリー：国の分け方<select data-key="mpBy"><option value="genre">ジャンル</option><option value="artist">歌手</option><option value="mix">まぜる</option><option value="choose">自分で選ぶ</option></select></label>
         <label id="mpLandLabel" hidden>モノポリー：最後の土地の評価<select data-key="mpLand"><option value="full">買値の全額</option><option value="half">買値の半額</option></select></label>
         <button class="btn-sub" id="gzPickOpen" type="button" hidden>集める種類を選ぶ</button>
         <label id="gzPickLabel" hidden>ジャンル制覇：次のジャンル<select data-key="gzPick"><option value="choose">選択制（最速の正解者が選ぶ）</option><option value="random">ランダム制（毎問ランダム）</option></select></label>
@@ -478,21 +478,9 @@
   <div class="hold-bar" id="holdBar" hidden><span id="holdText"></span><button class="btn-main" id="holdNext" type="button" hidden>次へ進む</button></div>
   <div class="pk-modal wf-modal" id="fixPop" hidden></div>
   <div class="pk-modal wf-modal" id="patchPop" hidden><div class="wf-field pn-field">
-    <div class="wf-head"><b>📝 パッチノート</b><span>10/4〜11/5 のアップデート（新しい順）</span><button class="btn-sub fix-x" id="patchClose" type="button">✕ 閉じる</button></div>
+    <div class="wf-head"><b>📝 パッチノート</b><span>J-POP 版のアップデート（新しい順）</span><button class="btn-sub fix-x" id="patchClose" type="button">✕ 閉じる</button></div>
     <div class="pn-body">
-      <h3>11/3〜11/5</h3><h4>新しい遊び方</h4><ul><li><b>MVフラッシュ：</b>サビのまわりの場面が1秒ずつ8場面映り、早押しで曲名を当てます。音のあり・なし、出す動画（アニメの動画だけなど）、入力候補は設定で選べます。</li><li><b>アニソン指パチンコ：</b>画面の上に並ぶ選択肢の的を、指で弾いて撃ち抜きます。途中のブロックに当たると跳ね返ります。弾の数・的の動き・的の数は設定で選べます。</li><li><b>たくさん埋めバトル：</b>3つ埋めバトルに、発表年・使われ方・ジャンル・同じアニメの別の曲・同じ歌手の別の曲・再生回数から選んだ枠を足して埋めます。</li><li><b>アニソンインサイダー：</b>出題者に「はい・いいえ」で質問して曲を当て、最初から答えを知っていたインサイダーを投票で見つけます。</li></ul>
-      <h4>便利になったところ</h4><ul><li><b>回線が遅い人への対策：</b>イントロもサビも、全員が読み込めてから一斉に流れます。待っている間は画面の中央に「〇〇さん ロード中…」と出ます。</li><li><b>軽量：</b>出題中は背景の映像を低画質で読み込みます（音声はほぼ変わりません）。画面上の「軽量」で切り替えられます。</li><li><b>ping の表示：</b>プレイヤー一覧に回線の速さと、読み込み中の印が出ます。</li><li><b>キック：</b>ホストはプレイヤー一覧の名前を押すと、その人を部屋から外せます（曲の途中でも使えます。外された人は招待リンクからすぐ戻れます）。</li><li><b>時間切れでも出せる：</b>大喜利・アニソンベット・ディクシット・人狼・コードネームで、選んだ・書きかけの答えは「出す」を押さなくても時間切れで出ます。</li><li><b>パス：</b>早押し・3つ埋め・たくさん埋めで、ほかの人が答えている間もパスできます。</li><li><b>お手つきの設定：</b>早押し・MVフラッシュはお手つきなし、3つ埋め・たくさん埋めは減点なしを選べます。</li></ul>
-      <h4>不具合の修正</h4><ul><li><b>曲の出だしが途切れる：</b>始まってすぐ音がプツプツ切れることを減らしました。</li><li><b>MVフラッシュ：</b>画質「低」のとき左上にチャンネル名が見えていたのを隠しました。</li><li><b>共演の名義：</b>「A×B」と「B×A」を同じ歌手として扱います（選択肢に並ばず、どちらの順で書いても正解）。</li><li><b>使われ方：</b>主題歌と映画主題歌を区別しないようにしました。</li><li><b>サビの読み込み待ち：</b>読み込み中（⏳）の人がいても待たずにサビが流れていたのを直しました。</li><li><b>曲の情報：</b>「100万年の幸せ!!」の作品をちびまる子ちゃん（ED）に直しました。</li></ul>
-      <h4>曲の追加</h4><ul><li><b>リクエストなど：</b>ラブひな、あたしンち、うえきの法則、ボーボボ、男子高校生の日常、SKET DANCE、賭ケグルイ、おそ松さん、七つの大罪、ぬ〜べ〜、ミリオンゴッド、ポケットビスケッツ、HUNTER×HUNTER、ペルソナ、ドラゴンボールGT、バクマン。、アイシールド21、荒川アンダー ザ ブリッジ など</li></ul>
-      <h3>11/1〜11/2</h3><h4>新しい遊び方</h4><ul><li><b>アニソンモノポリー：</b>盤面40マスで、土地やカード、家賃、取引所があります。全15問で、チーム戦もできます。</li><li><b>アニソンベットに大喜利：</b>自由に回答して、本物を当てると得点です。「いいね」でも点が入ります。通常のベットと大喜利は設定で選べます。</li><li><b>年代ベットとアニソンベットを分離：</b>別々の遊び方になりました。</li></ul>
-      <h4>便利になったところ</h4><ul><li><b>入力候補：</b>3つ埋めバトルで候補が出て、押すと確定できます。短い名前でも正解になります。</li><li><b>回答の判定：</b>曲名や作品名の前後についた補足を外した形でも正解になります。</li><li><b>ベットの設定：</b>賭け金の上乗せをなしにできます。</li><li><b>アニソンベットの表示：</b>人ごとに色分けされ、歌手名からも検索できます。</li><li><b>ルームの設定ボタン：</b>BGMの横と左下に追加しました。</li></ul>
-      <h4>出題の調整</h4><ul><li><b>お気に入り曲：</b>ふつうの曲と同じ扱いにして、除外の対象にも入れました。</li><li><b>同じ曲の連続：</b>部屋をまたいでも、同じ曲が出にくくなりました。</li><li><b>ジャンルと有名度：</b>77曲の有名度と33作品のジャンルを見直しました。</li><li><b>ジャンルの誤判定：</b>「その他」になっていた曲を分類し、FAIRY TAIL が AIR 扱いになる問題も直しました。</li><li><b>順位の取り違え：</b>同じ曲名の別の曲に人気投票の順位が付く問題を直しました。</li><li><b>重複の整理：</b>フル版と重複するTVサイズ14曲を出題から外しました。</li></ul>
-      <h4>曲の追加</h4><ul><li><b>人気投票の上位：</b>未収録だった19曲を追加しました。</li><li><b>リクエストなど：</b>ベン・トー、焼きたて!!ジャぱん、FAIRY TAIL、食戟のソーマ、生徒会にも穴はある！、1000%SPARKING!、パンティ&amp;ストッキング、ダ・カーポ、迷い猫オーバーラン！、ワールドトリガー</li></ul>
-      <h4>不具合の修正</h4><ul><li><b>修正ボタンで進行が止まる問題：</b>修正の窓を開いたまま放置しても、60秒で進行が再開します。窓を開いたまま部屋を抜けても止まりません。修正中はお知らせの帯が出て、ホストは「次へ進む」で先へ進めます。</li><li><b>ベットの結果画面：</b>自動で次へがオフでも、ホストが先へ進めるようになりました。</li><li><b>設定ボタンが押せない問題：</b>表に出る窓やモノポリーの盤面の上でも押せます。ホストが押すと一時停止して、設定画面が開きます。</li><li><b>一時停止後の残り時間：</b>窓の残り秒数が、止まっていた時間のぶん減らないようにしました。</li><li><b>個人レイアウト：</b>設定がスクロールできない問題を直しました。</li></ul>
-      <h3>10/26〜10/31</h3><h4>遊び方</h4><ul><li><b>アニソン短縮鉄道を追加：</b>略称から元の名前を当てます。4択・手打ち・VCで遊べる脱落制で、略称は873個あります。</li><li><b>アニソンベット：</b>年当てベットから改名し、お題に「ウソの作品名」を追加しました。正解の年にいちばん近い予想が当たりになります。</li><li><b>年当て：</b>答え合わせに年のスロット演出を追加しました。ぴったりがいなければ、いちばん近い人が正解です。</li><li><b>チーム戦：</b>ジャンル制覇とEXでも遊べます。</li><li><b>アニソン陣取り：</b>斜めでも挟めるようになりました。</li></ul><h4>アニソンBGM（新機能）</h4><ul><li><b>BGMプレイヤーを追加：</b>ジャンル・年代・種類・知名度・アニメ名で選曲できます。お気に入りとプレイリストはマイページと共通です。</li><li><b>再生画面：</b>PCでは動画をウィンドウいっぱいに広げ、スマホは音楽アプリのような画面です。シャッフル、1曲リピート、サビへ移動、データ節約、キーボード操作があります。</li><li><b>続きから再生：</b>開き直しても、曲の並びと再生位置が戻ります。</li><li><b>YouTubeで開く：</b>今の条件やプレイリストを、50曲ずつYouTubeのプレイリストで開けます。</li></ul><h4>出題と不具合</h4><ul><li><b>曲の偏りを修正：</b>同じ作品（シリーズ含む）は1ゲーム1曲までにしました（ポーカーは除く）。</li><li><b>流れた回数：</b>流れた回数が少ない曲を優先する設定を追加しました。</li><li><b>ジャンル制覇：</b>除外した曲とジャンルが出ないようにしました。</li><li><b>入力が消える問題：</b>ベットで、ほかの人が出しても入力中の内容が消えないようにしました。</li><li><b>曲の追加：</b>リクエスト曲を中心に追加しました（犬夜叉、xxxHOLiC、ぬらりひょんの孫、STAR DRIVER、赤髪の白雪姫など）。</li></ul>
-      <h3>10/17〜10/23</h3><h4>遊び方</h4><ul><li><b>アニソン伝達クイズを追加：</b>伝える人だけが曲を聴き、文字のヒントで伝えます。答える人は選択肢を試聴できます。</li><li><b>3つ埋めバトル：</b>イントロ中に押して流し続けた曲も、サビの時間にサビへ移ります。ボーカルなしの枠は最初から埋まります。</li><li><b>手打ちの答え：</b>複数ボーカルやプロセカの原曲、作者名でも正解になります。</li></ul><h4>便利になったところ</h4><ul><li><b>🛠 修正：</b>どの遊び方でも左下から、部屋で出た曲の修正を依頼できます。位置・アニメ名・歌手・作者・曲名などをひとつの画面にまとめました。</li><li><b>カップリング曲：</b>除外する設定を追加しました。</li><li><b>収録曲一覧：</b>「追加順」で並べ替えられます。</li></ul><h4>出題と不具合</h4><ul><li><b>選択肢の種類：</b>別の種類（アニメ・ボカロ・J-POP・パチスロ）が混ざって浮くのを直しました。ジャンル制覇は、いまのジャンルの曲から選択肢を作ります。</li><li><b>コードネーム：</b>スパイマスターに色が見えない不具合を直しました。</li><li><b>アズール：</b>4人のとき工房がはみ出すのを直しました。</li><li><b>曲の追加：</b>Mega Mix+・プロセカ、うたの☆プリンスさまっ♪24曲、サイバーパンク エッジランナーズ、ポケットモンスター ワンダーボヤージュ、リクエスト曲など。</li></ul>
-      <h3>10/10〜10/15</h3><h4>新しい遊び方</h4><ul><li><b>ボードゲーム系：</b>ディクシット、ババ抜き、コードネーム、大富豪、年当てベット、すごろく、ジャンル制覇、デッキ構築、帰れま10、アズールを追加しました。</li><li><b>ジャンル制覇EX：</b>ジャンル・年代・曲の種類・知名度から6つ以上を集めます。</li><li><b>陣取り・かるた・年表・人狼：</b>4つの遊び方を追加しました。陣取りとかるたはチーム戦もできます。</li><li><b>アニソン・ポーカー：</b>トランプ式で、10問ごとの賭けとショーダウンがあります。</li><li><b>アニソン激アツRUSH：</b>専用画面、予兆、5モード、キャラ4人の演出があります。</li></ul><h4>便利になったところ</h4><ul><li><b>マイページ：</b>お気に入りや成績に加えて、設定を保存して部屋を作るときに使えます。</li><li><b>遊び方の一覧：</b>一覧から選べるようにし、問題数1問・3問も追加しました。</li><li><b>設定：</b>部屋の全員が編集できるようにしました。</li><li><b>称号：</b>約30種類追加しました。</li><li><b>高速化：</b>設定画面のジャンル一覧が約11秒から瞬時に開くようになり、読み込みも軽くしました。</li></ul><h4>出題と不具合</h4><ul><li><b>プレイリスト曲：</b>514曲を通常の曲として追加し、パチスロ曲も約120曲追加しました。</li><li><b>ジャンルの付け直し：</b>全作品のジャンルを中身で付け直し、ロボットとSFを分けました。</li><li><b>選択肢：</b>正解と同じ種類・ジャンル・年代にそろえます。ジャンルや作品のお題では、選択肢もそのお題の曲だけになります。</li><li><b>出題しないジャンル：</b>お気に入りでも外します。</li><li><b>時刻合わせ：</b>再生と早押しの時刻を合わせ、回線の補正を入れました。</li><li><b>総点検：</b>作品名・動画・年を見直し、カバー曲を外しました。</li></ul>
-      <h3>10/4〜10/8</h3><h4>最初の版と遊び方</h4><ul><li><b>アニソンイントロ対戦を公開：</b>イントロを聴いて答える対戦、部屋一覧、部屋名とパスワード付きの部屋ができました。</li><li><b>遊び方を追加：</b>早押し、サバイバル、チーム戦、出題者、協力、ビンゴ、3つ埋めバトルを追加しました。</li><li><b>出題の種類：</b>曲名・作品・年・歌手当て、どこから？、アウトロ、再生速度、サビ前クイズがあります。</li></ul><h4>便利になったところ</h4><ul><li><b>答えの判定：</b>ひらがな・カタカナ・略称、続編の番号なし、シリーズ名だけでも正解になります。</li><li><b>曲リクエスト：</b>だれでも送れて一覧を見られます。追加を検討中の曲に票も入れられます。</li><li><b>収録曲一覧：</b>並べ替え、絞り込み、イントロ・サビ位置の修正の受け付けができます。</li><li><b>除外：</b>出た曲の除外、ジャンルの除外、部屋ごとの解除、前回のログからの除外ができます。</li><li><b>答え合わせ：</b>サビを聞く、もっと聞く、曲をコピー、この曲は除外しない、を追加しました。</li><li><b>レイアウト編集：</b>PCで自分の画面の配置を変えられます。</li><li><b>スマホ版：</b>スマホ向けの画面とホーム画面用アイコンを追加しました。</li></ul><h4>演出とキャラ</h4><ul><li><b>キャラ：</b>双子、うさぎ、ねこから選べます。セリフ、カットイン、優勝のお祝いがあります。</li><li><b>演出：</b>すりガラスのデザイン、場面ごとのエフェクト、称号を追加しました。</li><li><b>知名度：</b>5段階に分けました。除外中でも超有名・有名の曲はときどき出ます。</li></ul><h4>不具合の修正</h4><ul><li><b>ゲーム開始でサーバーが落ちる不具合</b>を直しました。</li><li><b>レイアウト：</b>自分の配置で選択肢がずれる問題や、配置が跳ぶ問題を直しました。</li><li><b>3つ埋めバトル：</b>順番待ちから飛ばされた人が押せなくなる不具合を直しました。</li><li><b>動画：</b>ライブ版・再録版の動画を元の録音に差し替えました。</li></ul>
+      <h3>最初の版</h3><h4>遊び方</h4><ul><li><b>イントロドン！J-POP を公開：</b>J-POP のイントロを聴いて、曲名・歌手・年を当てる対戦です。スマホの縦向き専用の画面です。</li><li><b>遊び方：</b>ふつう、早押し、3つ埋め（曲名・歌手・発表年）、サバイバル、協力。</li><li><b>お題：</b>年代、ジャンル（アイドル・バンド・ダンスグループ・シンガーソングライターなど）、歌手で曲の範囲を選べます。</li></ul>
     </div>
   </div></div>
   <button class="set-fab set-open" id="setFab" type="button" title="ルーム設定を開く" hidden>⚙ 設定</button>

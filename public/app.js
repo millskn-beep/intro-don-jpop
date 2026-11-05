@@ -488,7 +488,7 @@ const PLAY_INFO = {
   survival: ['💀', 'サバイバル', '間違えると脱落。最後まで残った人の勝ち', '1人〜', 'quiz'],
   picker: ['🎤', '出題者', '順番に1人が曲を選んで出題。半分くらいが正解すると出題者も高得点', '2人〜', 'quiz'],
   coop: ['🤝', '協力', '全員の正解数を合わせて目標をめざす', '1人〜', 'quiz'],
-  fill: ['🧩', '3つ埋めバトル', '曲名・アニメ・アーティストの枠を早押しで埋める', '1人〜', 'quiz'],
+  fill: ['🧩', '3つ埋めバトル', '曲名・歌手・発表年の枠を早押しで埋める', '1人〜', 'quiz'],
   fillmany: ['🧩', 'たくさん埋めバトル', '発表年・使われ方・ジャンルなど、選んだ枠も足して早押しで埋める', '1人〜', 'quiz'],
   rush: ['🎰', '激アツRUSH', 'パチンコ風。保留・リーチ・大当たり・確変で点が跳ねる', '1人〜', 'quiz'],
   karuta: ['🎴', 'かるた', '並んだ札から、流れた曲の札を早取り', '1人〜', 'quiz'],
@@ -516,6 +516,7 @@ const PLAY_INFO = {
   codenames: ['🕵️', 'コードネーム', '2チームで、作品名の盤面から味方の作品を当てる', '4人〜', 'board'],
   azul: ['🧱', 'アズール', '曲カードを色ごとに取り合い、年代別の棚に並べる', '2〜4人', 'board'],
 };
+const JPOP_PLAYS = ['normal', 'buzzer', 'fill', 'survival', 'coop']; // J-POP 版で遊べる遊び方
 const PLAY_GROUPS = [['quiz', '🎧 イントロクイズで遊ぶ（毎問、曲を聴いて答える）'], ['board', '🎲 ボードゲーム風（手札・投票・話し合いなど）']];
 function renderPlayPick(play) {
   const p = PLAY_INFO[play] || ['🎵', play, '', '', ''];
@@ -524,7 +525,7 @@ function renderPlayPick(play) {
 $('playPick').onclick = () => {
   const cur = room?.settings?.play;
   $('playPop').innerHTML = `<div class="wf-field pl-field"><div class="wf-head"><b>🎮 遊び方を選ぶ</b><span>カードを押すと、その遊び方になります</span><button class="btn-sub pl-close" id="plClose" type="button">閉じる</button></div>
-    <div class="pl-body">${PLAY_GROUPS.map(([g, label]) => `<h4>${label}</h4><div class="pl-grid">${Object.entries(PLAY_INFO).filter(([k, v]) => v[4] === g && (!['lyrics', 'lyrics2'].includes(k) || room?.lyricsOk)).map(([k, v]) => `<button type="button" class="pl-card${k === cur ? ' on' : ''}" data-play="${k}" title="${esc(PLAY_DESC[k] || '')}"><span class="pl-icon">${v[0]}</span><b>${esc(v[1])}</b><small>${esc(v[2])}</small><i>${esc(v[3])}</i></button>`).join('')}</div>`).join('')}</div></div>`;
+    <div class="pl-body">${PLAY_GROUPS.map(([g, label]) => `<h4>${label}</h4><div class="pl-grid">${Object.entries(PLAY_INFO).filter(([k, v]) => v[4] === g && JPOP_PLAYS.includes(k) && (!['lyrics', 'lyrics2'].includes(k) || room?.lyricsOk)).map(([k, v]) => `<button type="button" class="pl-card${k === cur ? ' on' : ''}" data-play="${k}" title="${esc(PLAY_DESC[k] || '')}"><span class="pl-icon">${v[0]}</span><b>${esc(v[1])}</b><small>${esc(v[2])}</small><i>${esc(v[3])}</i></button>`).join('')}</div>`).join('')}</div></div>`;
   $('playPop').hidden = false;
   $('plClose').onclick = () => { $('playPop').hidden = true; };
   $('playPop').onclick = e => { if (e.target === $('playPop')) $('playPop').hidden = true; };
@@ -566,7 +567,7 @@ const PLAY_DESC = {
   bingo: '一人ひとりに4×4のカードを配ります（答えるものに合わせて、曲名・作品・歌手・年のマス）。正解するとそのマスが開き、縦・横・斜めのどれかがそろったら BINGO！で +3000点（そのあと列が増えるたびに +1000点）。「ビンゴの終わり」で決めた人数・ビンゴ数に届いたらゲーム終了（問題数までも選べます）。イントロの点数とボーナスの合計で競います（20問以上がおすすめ）',
   rush: '全員が同じ問題に答えます。問題の前に「保留ランプ」の色（青・緑・赤・金・虹）で、その問題の当たりやすさが分かります。当たりの問題はサビで「リーチ！」。パチスロの曲に正解すると「大当たり！」で +2000点、そのあと RUSH（確変）に入り、連続で正解するほど点数が ×2〜×4 に。間違えるか答えないとRUSH終了。得点の合計で競います（20問くらいがおすすめ）',
   fillmany: '3つ埋めバトルに枠を足した遊び方です。曲名・アニメ名・アーティストの3つに、「足す枠」で選んだもの（発表年・使われ方（OP・EDなど）・ジャンル・同じアニメの別の曲・同じ歌手の別の曲・再生回数）が加わります（初めは発表年・使われ方・ジャンルの6枠。その曲で作れない枠は出ません）。足した枠は選択式だけで、点数は半分です。間違えると −200点で、しばらく押せません。全部埋まるか、全員がパスしたら次の曲へ。',
-  fill: '1曲ごとに「曲名・アニメ名・アーティスト」の3つの枠を早押しで埋めます（ボカロは「曲名・作者・VOCALOID」）。押した人が空いている枠を選んで答え、書けば早いほど高得点・10択なら半分。間違えると −200点で、しばらく押せません（秒数は「お手つき後に押せない秒数」で変えられます。初めは15秒）。全部埋まるか、全員がパスしたら次の曲へ。LoL の曲は出ません。',
+  fill: '1曲ごとに「曲名・歌手・発表年」の3つの枠を早押しで埋めます（発表年は選択式）。押した人が空いている枠を選んで答え、書けば早いほど高得点・10択なら半分。間違えると −200点で、しばらく押せません（秒数は「お手つき後に押せない秒数」で変えられます。初めは15秒）。全部埋まるか、全員がパスしたら次の曲へ。LoL の曲は出ません。',
 };
 // ロビーの一番上：これから遊ぶ曲を除外に追加しない（ホストが切り替え）
 $('noRecordBtn').onclick = () => { if (room) sendSettings({ noRecord: !room.settings.noRecord }); };

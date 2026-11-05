@@ -164,10 +164,11 @@ const inTopic = (song, S, ctx = {}) => {
 
 // 作品名からシリーズ名を作る（「進撃の巨人 The Final Season」→「進撃の巨人」、「ONE PIECE FILM RED」→「ONE PIECE」）。
 // さらに、名前が別のシリーズ名で始まるものはまとめる（「ラブライブ!サンシャイン!!」→「ラブライブ!」）
-const MIN_SERIES_SONGS = 5;
+const MIN_SERIES_SONGS = 3;
 let SERIES_OF = new Map(), SERIES_LIST = [];
 const seriesKey = s => String(s).normalize('NFKC').toLowerCase().replace(/[\s\p{P}\p{S}ー〜～]/gu, '').replace(/(第?\d+期|ii+|iii|iv|\d)$/, '');
 function seriesName(work) {
+  return String(work).normalize('NFKC').trim(); // J-POP 版：作品＝歌手名なので、名前はそのまま（「Official髭男dism」を切らない）
   let w = String(work).normalize('NFKC').replace(/^(劇場版|新劇場版|映画|劇場総集編|TVアニメ|SPECIAL EDITED VERSION)\s*/, '').trim();
   if (/^[\x00-\x7f]/.test(w)) {
     const m = w.match(/^(.+?)(?=\s+(FILM|STAMPEDE|HEROINES|Season|season|The\s|THE\s|\d+(st|nd|rd|th)|第|[^\x00-\x7f]))/);
@@ -937,8 +938,8 @@ const OPTIONS = {
   // 遊び方：ふつう／早押し（押した人だけ答える）／サバイバル（ライフがなくなったら脱落）／出題者（順番に1人が曲を選ぶ）／協力（全員の正解数で目標）／ビンゴ
   slAmmo: ['free', '3', '1', 'inf'], slMove: ['slow', 'still', 'fast'], slTargets: [8, 6, 4], // 指パチンコ：弾の数・的の動き・的の数
   buzzMiss: ['on', 'off'], mvSound: ['on', 'off'], mvScope: ['anime', 'all', 'official'], mvSuggest: ['on', 'off'],
-  play: ['normal', 'buzzer', 'mvflash', 'sling', 'survival', 'picker', 'coop', 'bingo', 'fill', 'fillmany', 'rush', 'poker', 'panel', 'karuta', 'nenpyo', 'wolf', 'insider', 'dixit', 'baba', 'codenames', 'daifugo', 'wits', 'bluff', 'monopoly', 'sugoroku', 'genre', 'deck', 'kaerema', 'azul', 'genreex', 'dentatsu', 'lyrics2', 'tanshuku', 'lyrics'], // lyrics：歌詞クイズ（歌詞の合言葉で作った非公開の部屋だけ） // dentatsu：アニソン伝達クイズ（伝える人だけが曲を聴いて、文字のヒントで伝える。ほかの人は選択肢から当てる） // genreex：アニソン・ジャンル制覇EX（集める種類を6つ以上・年代や曲の種類・知名度も選べる） // azul：アニソン・アズール（曲カードを取り合い、年代別の棚に並べる） // kaerema：アニソン帰れま10（お題の曲の再生回数トップ10を全部当てる） // deck：アニソン・デッキ構築（正解でコイン、3問ごとのショップでカードを買う） // genre：アニソン・ジャンル制覇（6ジャンルのピースを集める。正解した人が次のジャンルを選ぶ） // sugoroku：アニソンすごろく（正解の速さでコマを進める） // wits：アニソン年当てベット（発売年を予想して、いちばん近い予想に賭ける） // daifugo：アニソン大富豪（発売年が新しい曲ほど強い。年は見えない） // codenames：アニソン・コードネーム（2チームで作品名の盤面から味方の作品を当てる） // baba：アニソン・ババ抜き（同じ作品の曲2枚がペア） // dixit：アニソン・ディクシット（語り手のヒントから、手札の曲を出して語り手の曲を当てる） // wolf：アニソン人狼（1人だけ別の曲。ヒントと話し合いで当てる） nenpyo：アニソン年表（曲を年表の正しい位置に置く） karuta：アニソンかるた（並んだ札から早取り） panel：アニソン陣取り（正解したらパネルを取る） // poker：アニソン・ポーカー（正解した曲のカードで役を作る） // fill：3つ埋めバトル（曲名・アニメ名・アーティストを早押しで埋める）
-  target: ['song', 'work', 'year', 'artist'], // 答えるもの：曲名／作品／年／歌手
+  play: ['normal', 'buzzer', 'fill', 'survival', 'coop'], // J-POP 版の遊び方：ふつう・早押し・3つ埋め・サバイバル・協力
+  target: ['song', 'artist', 'year'], // 答えるもの：曲名／歌手／年（J-POP 版は作品＝歌手名なので「作品」はない）
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
   lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
@@ -3728,9 +3729,9 @@ function buildFill3(song, pool) {
     }
     return slots;
   }
+  const year = fillExtras(song, pool).find(f => f.key === 'year'); // 発表年は選択式（10択、年の順）
   return [slot('title', '曲名', 'title', title),
-    slot('work', 'アニメ名', 'work', buildWorkChoices(song, FILL_CHOICES, pool)),
-    slot('artist', 'アーティスト', 'artist', buildArtistChoices(song, FILL_CHOICES, pool))];
+    slot('artist', '歌手', 'artist', buildArtistChoices(song, FILL_CHOICES, pool)), ...(year ? [year] : [])];
 }
 // 画面に出す枠（正解の番号は出さない）
 function fillPublic(room, q) {
@@ -3921,8 +3922,8 @@ function clueList(song, target = 'song') {
   return [
     { level: 1, label: '年', text: `${song.year}年の曲` },
     { level: 2, label: '歌手', text: song.artist },
-    { level: 3, label: '作品', text: `「${[...work][0]}」から始まる作品` },
-  ].filter(c => !(target === 'year' && c.label === '年') && !(target === 'work' && c.label === '作品') && !(target === 'artist' && c.label === '歌手'));
+    target === 'artist' ? { level: 3, label: '頭文字', text: `「${[...song.artist][0]}」から始まる歌手` } : { level: 3, label: '頭文字', text: `「${[...song.title][0]}」から始まる曲` },
+  ].filter(c => !(target === 'year' && c.label === '年') && !(target === 'artist' && c.label === '歌手'));
 }
 
 // 出題中に再接続した人へ、いまの問題と進み具合を送り直す

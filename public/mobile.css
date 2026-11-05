@@ -160,3 +160,7 @@ main { max-width: 480px; margin-inline: auto; }
 .room-side { width: auto !important; }
 /* J-POP 版で使わないもの：アニソンBGM・歌詞クイズの合言葉 */
 #bgmLink, .ly-pass { display: none !important; }
+/* 早押しボタン：親指で押しやすいように横いっぱい・大きく（画面の下側） */
+#buzzRow { width: 100%; }
+#buzzRow .buzz-btn { flex: 1 1 100%; width: 100%; padding: 18px 10px; font-size: 26px; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.choice, .btn-main, .btn-sub { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }

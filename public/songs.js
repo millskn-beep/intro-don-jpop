@@ -202,7 +202,7 @@ $('edGenreAuto').onclick = () => sendGenres({ reset: true }, false);
 let repKind = null;
 const REP = {
   wrong: { title: '🔁 曲が違う（探し直す）', ph: '任意：正しい曲名や、動画の URL など' },
-  delete: { title: '🗑 削除を依頼', ph: '任意：理由（アニソンではない・重複している など）' },
+  delete: { title: '🗑 削除を依頼', ph: '任意：理由（J-POP ではない・重複している など）' },
 };
 function showReportInfo() {
   const r = selected?.report;

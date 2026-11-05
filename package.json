@@ -1,8 +1,8 @@
 {
-  "name": "anison-intro-vs",
+  "name": "intro-don-jpop",
   "version": "0.1.0",
   "private": true,
-  "description": "アニソンイントロクイズ対戦（オリジナル実装）",
+  "description": "イントロドン！J-POP（スマホ用 J-POP イントロクイズ）",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#05060f">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="イントロ対戦">
+<meta name="apple-mobile-web-app-title" content="イントロドン">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +21,8 @@
 <link rel="stylesheet" href="layout.css">
 <link rel="stylesheet" href="charfx.css">
 <link rel="stylesheet" href="themes.css">
-<link rel="stylesheet" href="monopoly.css">
-<link rel="stylesheet" href="sling.css">
+
+
 </head>
 <body>
 <div class="backdrop" aria-hidden="true"></div>
@@ -90,10 +90,10 @@
     <p class="note">出してほしい曲を送ってください。次にサイトを更新するときに探して追加します。</p>
     <form class="req-form" id="reqForm" autocomplete="off">
       <input id="reqTitle" maxlength="60" placeholder="曲名（必須）" required>
-      <input id="reqWork" maxlength="60" placeholder="アニメ・作品名">
-      <input id="reqArtist" maxlength="40" placeholder="歌手">
+      <input id="reqWork" maxlength="60" placeholder="作品名" hidden><!-- J-POP 版は歌手で探すので使わない -->
+      <input id="reqArtist" maxlength="40" placeholder="歌手（必須）" required>
       <select id="reqGenre"><option value="">ジャンル（わかれば）</option></select>
-      <input id="reqNote" maxlength="80" placeholder="ひとこと（OPの2期の方、など）">
+      <input id="reqNote" maxlength="80" placeholder="ひとこと（ドラマの主題歌の方、など）">
       <button class="btn-main" id="reqSend" type="submit">リクエストを送る</button>
     </form>
     <div class="req-cols">

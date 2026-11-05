@@ -1639,9 +1639,12 @@ let buzzOpen = false, buzzHolder = null, buzzTick = null, buzzPausedAt = 0;
 function tryBuzz() {
   if (!buzzOpen || myAnswer !== null || practice || fillLocked()) return;
   buzzOpen = false; $('buzzBtn').disabled = true;
+  buzzVibe(40); // スマホ：押したら短く震える
   socket.emit('buzz', clockOffset == null ? null : clientNow() + clockOffset); // 押した時刻（サーバーの時計に直したもの）
 }
+const buzzVibe = ms => { try { navigator.vibrate?.(ms); } catch (e) { /* 震えない端末もある */ } };
 $('buzzBtn').onclick = tryBuzz;
+$('buzzBtn').addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') { e.preventDefault(); tryBuzz(); } }); // スマホは指が触れた瞬間に押す（離すのを待たない）
 addEventListener('keydown', e => {
   if (e.code !== 'Space' || !['buzzer', 'mvflash', 'fill', 'fillmany'].includes(question?.play) || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return;
   e.preventDefault(); tryBuzz();
@@ -3071,6 +3074,7 @@ socket.on('reveal', r => {
     </tr>`).join('');
   // 自分の結果を大きく表示
   const mine = r.results.find(x => x.id === me);
+  if (mine) buzzVibe(mine.correct ? [30, 60, 30] : 120); // スマホ：正解は2回、不正解は長めに1回震える
   const showMine = () => { if (!mine) return;
     if (mine.correct) { flash('ok', mine.diff ? `いちばん近い！（${mine.diff}年ずれ）` : '正解！', `+${mine.points}`); confetti(40); }
     else if ((r.eliminated || []).includes(mine.name)) flash('ng', '脱落…');
@@ -3270,3 +3274,10 @@ function toast(msg) {
   $('toast').textContent = msg; $('toast').hidden = false;
   clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').hidden = true, 3500);
 }
+
+// スマホ：入力欄を押してキーボードが出たら、入力欄が隠れないように画面の真ん中まで動かす
+addEventListener('focusin', e => {
+  const el = e.target;
+  if (!(el instanceof HTMLInputElement) || el.type === 'checkbox' || el.type === 'range') return;
+  setTimeout(() => el.scrollIntoView({ block: 'center', behavior: 'smooth' }), 300); // キーボードが出きってから
+});

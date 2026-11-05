@@ -1,11 +1,12 @@
 {
-  "name": "アニソンイントロ対戦",
-  "short_name": "イントロ対戦",
-  "description": "イントロが流れたら、誰よりも早く答えよう。アニソンのイントロクイズ対戦",
+  "name": "イントロドン！J-POP",
+  "short_name": "イントロドン",
+  "description": "J-POPのイントロを聴いて、曲名・歌手・年を当てる対戦。スマホで遊ぶイントロクイズ",
   "lang": "ja",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#05060f",
   "theme_color": "#05060f",
   "icons": [

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>収録曲一覧｜アニソンイントロ対戦</title>
+<title>収録曲一覧｜イントロドン！J-POP</title>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
@@ -26,7 +26,7 @@
   <header class="top">
     <a class="brand" href="/">
       <img class="emblem" src="assets/glass/logo.webp" alt="">
-      <h1 class="logo"><small>ANISONG INTRO BATTLE</small>アニソン<em>イントロ</em>対戦</h1>
+      <h1 class="logo"><small>INTRO DON! J-POP</small>イントロ<em>ドン！</em>J-POP</h1>
     </a>
     <a class="btn-sub" href="stats.html" title="流れた曲の回数・正解率のランキングなど">📊 流れた曲の統計</a><a class="btn-sub back-home" href="/">← トップへ</a>
   </header>
@@ -34,17 +34,17 @@
   <section class="panel">
     <h2 class="songs-title">収録曲一覧 <span id="count"></span></h2>
     <div class="songs-tools">
-      <input id="q" type="search" placeholder="曲名・作品名・歌手で探す" autocomplete="off">
+      <input id="q" type="search" placeholder="曲名・歌手で探す" autocomplete="off">
       <select id="genre"><option value="">ジャンル：すべて</option></select>
       <select id="fame"><option value="">知名度：すべて</option></select>
       <select id="decade"><option value="">年代：すべて</option></select>
       <select id="sort">
-        <option value="title">曲名順</option><option value="work">作品名順</option><option value="year">年順</option>
+        <option value="title">曲名順</option><option value="work">歌手名順</option><option value="year">年順</option>
         <option value="genre">ジャンル順</option><option value="fame">知名度順</option><option value="artist">歌手順</option>
         <option value="added">追加順（新しい曲から）</option><option value="plays">流れた回数順</option><option value="rate">正解率順</option>
       </select>
       <button class="btn-sub" id="order" type="button" title="昇順・降順を切り替え">↑ 昇順</button>
-      <select id="view"><option value="list">一覧で表示</option><option value="work">作品ごとに表示</option><option value="genre">ジャンルごとに表示</option></select>
+      <select id="view"><option value="list">一覧で表示</option><option value="work">歌手ごとに表示</option><option value="genre">ジャンルごとに表示</option></select>
       <label class="fix-only"><input type="checkbox" id="fixOnly"> 修正待ちだけ</label>
       <label class="fix-only" title="音の自動チェックで、サビの位置がずれている・原曲でない（ライブ版など）かもしれない曲"><input type="checkbox" id="warnOnly"> 自動チェックで要確認だけ</label>
       <label class="fix-only" title="自動の解析で、イントロの頭（セリフ・歓声・効果音）を飛ばした曲・サビを推定し直した曲。違っていたら、曲を開いて直して送ってください"><input type="checkbox" id="autoOnly"> 自動で直した曲だけ</label>

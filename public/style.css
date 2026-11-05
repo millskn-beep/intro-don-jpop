@@ -175,7 +175,7 @@ button:disabled { cursor: default; }
 .req-near { flex: none; padding: 4px 10px; font-size: 12px; border-radius: 99px; white-space: nowrap; }
 .req-near.on { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
 .cand-vote { flex: none; padding: 4px 10px; font-size: 12px; border-radius: 99px; white-space: nowrap; }
-@media (min-width: 0px) /* J-POP 版はスマホ専用：いつも使う（元は max-width 899px） */ { .req-cols { grid-template-columns: 1fr; } }
+@media (max-width: 899px) { .req-cols { grid-template-columns: 1fr; } }
 .room-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
 .room-list .empty { grid-column: 1 / -1; text-align: center; color: var(--sub); font-size: 14px; padding: 18px 0; }
 .room-card { background: var(--glass-strong); border: 1px solid var(--line); border-radius: 16px; padding: 13px; display: flex; flex-direction: column; gap: 6px; }
@@ -356,7 +356,7 @@ body.mascot-off .mascot, body.mascot-off .mascot-pop, body.in-lobby .mascot, bod
 .room-side h3 { margin-bottom: 12px; }
 .room-side .players { grid-template-columns: minmax(0, 1fr); gap: 10px; padding-top: 6px; }
 .players li { min-width: 0; }
-@media (min-width: 99999px) /* J-POP 版はスマホ専用：広い画面向けは使わない（元は 900px） */ {
+@media (min-width: 900px) {
   main:has(#room:not([hidden])) { max-width: 1280px; height: 100vh; display: flex; flex-direction: column; padding: 12px 16px; }
   main:has(#room:not([hidden])) .top { margin-bottom: 10px; }
   main:has(#room:not([hidden])) .emblem { width: 42px; height: 42px; }
@@ -489,11 +489,11 @@ details.more .settings { margin-top: 6px; }
 .titles li small { color: var(--sub); font-size: 11px; }
 
 /* スマホ：描画が重くならないよう、ぼかしを軽くしてガラスを少し濃くする */
-@media (min-width: 0px) /* J-POP 版はスマホ専用：いつも使う（元は max-width 899px） */ {
+@media (max-width: 899px) {
   :root { --blur: blur(6px); --glass: rgba(12, 12, 30, .58); --glass-strong: rgba(10, 10, 26, .7); }
   body.playing .video-bg iframe { filter: blur(44px) saturate(1.2) brightness(.5) contrast(.5); }
 }
-@media (min-width: 0px) /* J-POP 版はスマホ専用：いつも使う（元は max-width 899px） */ {
+@media (max-width: 899px) {
   /* スマホ・タブレットではプレイヤーを横に並べて縦を詰める */
   .room-side .players { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
   .players li { padding: 6px 10px 6px 6px; gap: 8px; }
@@ -503,7 +503,7 @@ details.more .settings { margin-top: 6px; }
 /* スマホ（幅600px以下）の見た目は mobile.css にまとめている */
 /* ── 答え合わせ：画面が広いPC（1200px〜）だけ、結果を右側の縦パネルに移して真ん中は映像を見せる。
       それより狭いPCでは中央が潰れるので、結果はステージのすぐ下に置く ── */
-@media (min-width: 99999px) /* J-POP 版はスマホ専用：広い画面向けは使わない（元は 1200px） */ {
+@media (min-width: 1200px) {
   body.revealing #room:not([hidden]) { position: relative; grid-template-columns: 240px 1fr 340px; }
   /* 答え合わせ：曲名・ボタン・次へは中央（ステージの下）のまま、全員の結果の表だけを右側に縦に並べる */
   body.revealing #results { position: absolute; top: 0; right: 0; width: 340px; max-height: 100%; overflow-y: auto; display: block;
@@ -513,7 +513,7 @@ details.more .settings { margin-top: 6px; }
 /* 答え合わせの欄は縦を詰める（狭いPCでも、下の選択肢までスクロールせずに見えるように） */
 .next-count:empty, .highlights:empty { display: none; }
 body.revealing #quiz .lifelines, body.revealing #quiz .note { display: none; }
-@media (min-width: 99999px) /* J-POP 版はスマホ専用：広い画面向けは使わない（元は 900px） */ {
+@media (min-width: 900px) {
   body.revealing #quiz .clues { display: none; }
   #result { text-align: center; }
   #result .answer { margin-bottom: 4px; }
@@ -688,7 +688,7 @@ body.rush-machine[data-rush-mode="rush"] .rush-bg { background-image: url(assets
 body.rush-machine.rush-reach .rush-bg { background-image: url(assets/rush/bg-chance.webp); }
 body.rush-machine[data-rush-mode="super"] .rush-bg { background-image: url(assets/rush/bg-super.webp); }
 body.rush-machine[data-rush-mode="heaven"] .rush-bg { background-image: url(assets/rush/bg-heaven.webp); }
-@media (min-width: 0px) /* J-POP 版はスマホ専用：いつも使う（元は max-width 700px） */ {
+@media (max-width: 700px) {
   body.rush-machine .rush-bg { background-image: url(assets/rush/bg-normal-s.webp); }
   body.rush-machine[data-rush-mode="rush"] .rush-bg { background-image: url(assets/rush/bg-rush-s.webp); }
   body.rush-machine.rush-reach .rush-bg { background-image: url(assets/rush/bg-chance-s.webp); }
@@ -754,7 +754,7 @@ body.rush-machine[data-rush-mode="super"] .rush-marquee b { color: #fff; font-si
 body.rush-machine[data-rush-mode="heaven"] #quiz { box-shadow: 0 0 0 2px rgba(255, 183, 213, .6), 0 0 34px rgba(255, 255, 255, .6), inset 0 0 44px rgba(255, 183, 213, .22); }
 body.rush-machine[data-rush-mode="heaven"] .rush-marquee b { color: #fff; text-shadow: 0 0 10px #ffb7d5, 0 0 24px #fff; }
 @keyframes rush-flash-box { 50% { filter: brightness(1.25); } }
-@media (min-width: 0px) /* J-POP 版はスマホ専用：いつも使う（元は max-width 700px） */ {
+@media (max-width: 700px) {
   body.rush-machine[data-rush-mode="chance"] .rush-bg { background-image: url(assets/rush/bg-chance-s.webp); }
 }
 
@@ -774,7 +774,7 @@ body.rush-machine:not(.revealing) .rush-next i { width: clamp(16px, 2.8vh, 26px)
 body.rush-machine:not(.revealing) #quiz #choices, body.rush-machine:not(.revealing) #quiz .choices { flex: 1 1 0; min-height: 0; grid-template-columns: repeat(2, 1fr); grid-auto-rows: minmax(0, 1fr); gap: 6px; }
 body.rush-machine:not(.revealing) #quiz .choice { min-height: 0; padding: 4px 10px 4px 44px; font-size: clamp(11px, 2.1vh, 16px); line-height: 1.25; overflow: hidden; }
 body.rush-machine:not(.revealing) #quiz .choice small { font-size: clamp(9px, 1.5vh, 12px); margin-top: 0; }
-@media (min-width: 99999px) /* J-POP 版はスマホ専用：広い画面向けは使わない（元は 900px） */ { body.rush-machine:not(.revealing) #quiz .choices { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 900px) { body.rush-machine:not(.revealing) #quiz .choices { grid-template-columns: repeat(4, 1fr); } }
 /* RUSH：上の操作欄は1行に縮める（選択肢に高さを回す） */
 body.rush-machine:not(.revealing) .stage { flex-wrap: nowrap; align-items: center; }
 body.rush-machine:not(.revealing) .stage .status { flex: 0 1 260px; min-width: 150px; }
@@ -798,7 +798,7 @@ body.rush-machine .rush-chara:not([hidden]) { display: block; }
   font-weight: 800; font-size: 13px; line-height: 1.3; box-shadow: 0 2px 10px rgba(0, 0, 0, .5); animation: omen-pop .35s ease-out; }
 .rush-say::after { content: ''; position: absolute; left: 50%; bottom: -7px; transform: translateX(-50%); border: 7px solid transparent; border-top-color: rgba(255, 255, 255, .95); border-bottom: 0; }
 body.rush-machine[data-rush-mode="super"] .rush-chara img { box-shadow: 0 0 26px #c05bff, 0 0 40px rgba(255, 224, 138, .8); }
-@media (min-width: 0px) /* J-POP 版はスマホ専用：いつも使う（元は max-width 899px） */ { body.rush-machine .rush-chara:not([hidden]) { display: none; } }
+@media (max-width: 899px) { body.rush-machine .rush-chara:not([hidden]) { display: none; } }
 @media (max-height: 640px) { .rush-chara img { max-width: 120px; } }
 body.rush-machine .char-dock { display: none !important; } /* RUSH は専用キャラを使う */
 /* 衣装が変わる（モードが進んだとき）：光って入れ替わる */
@@ -985,7 +985,7 @@ body.rush-machine .stage-tools { overflow: visible; }
   box-shadow: 1px 2px 0 #cfc29a, 2px 4px 0 #bdae82, 4px 7px 10px rgba(0, 0, 0, .5); transform: rotate(var(--rot)); backdrop-filter: none; -webkit-backdrop-filter: none; transition: transform .15s, box-shadow .15s; }
 .choices.karuta .choice { font-size: 16px; line-height: 1.3; } .choices.karuta .choice.len1 { font-size: 15px; } .choices.karuta .choice.len2 { font-size: 13px; letter-spacing: 0; } .choices.karuta .choice.len3 { font-size: 11px; letter-spacing: 0; line-height: 1.25; }
 /* PC：盤の16枚が1画面に収まるように、札の高さを画面の高さに合わせる（上のステージ・下の「わからない」のぶんを引く） */
-@media (min-width: 99999px) /* J-POP 版はスマホ専用：広い画面向けは使わない（元は 900px） */ {
+@media (min-width: 900px) {
   .choices.karuta { --kh: clamp(78px, calc((100vh - 345px) / 4), 165px); padding: 10px 12px; gap: 8px 8px; }
   .choices.karuta .choice { font-size: clamp(12px, 1.25vw, 22px); padding: 6px 10px; }
   .choices.karuta .choice.len1 { font-size: clamp(11.5px, 1.1vw, 19px); }
@@ -1003,7 +1003,7 @@ body.rush-machine .stage-tools { overflow: visible; }
 .choices.karuta .choice.correct { background: linear-gradient(170deg, #fff3b0, #ffd36b); box-shadow: 0 0 0 3px #b3261e, 0 0 22px rgba(255, 211, 107, .95); animation: karuta-take .6s ease-out; }
 .choices.karuta .choice.wrong { filter: grayscale(.6) brightness(.85); }
 @keyframes karuta-take { 0% { transform: rotate(var(--rot)) scale(1); } 40% { transform: rotate(-6deg) translateY(-14px) scale(1.12); } 100% { transform: rotate(var(--rot)) scale(1); } }
-@media (min-width: 0px) /* J-POP 版はスマホ専用（元は max-width 600px） */ { .choices.karuta { padding: 10px 8px; gap: 8px 5px; border-width: 4px; } .choices.karuta .choice { height: 76px; padding: 4px 5px; font-size: 11px; letter-spacing: 0; line-height: 1.2; } .choices.karuta .choice.len1 { font-size: 10px; } .choices.karuta .choice.len2 { font-size: 9px; } .choices.karuta .choice.len3 { font-size: 8px; } .choices.karuta .choice::after { width: 5px; height: 5px; right: 4px; top: 4px; } }
+@media (max-width: 600px) { .choices.karuta { padding: 10px 8px; gap: 8px 5px; border-width: 4px; } .choices.karuta .choice { height: 76px; padding: 4px 5px; font-size: 11px; letter-spacing: 0; line-height: 1.2; } .choices.karuta .choice.len1 { font-size: 10px; } .choices.karuta .choice.len2 { font-size: 9px; } .choices.karuta .choice.len3 { font-size: 8px; } .choices.karuta .choice::after { width: 5px; height: 5px; right: 4px; top: 4px; } }
 /* アニソン年表 */
 .nenpyo { margin-top: 8px; display: grid; gap: 6px; }
 .ny-head { font-size: 13px; font-weight: 700; }
@@ -1061,7 +1061,7 @@ body.rush-machine .stage-tools { overflow: visible; }
 .wf-cand b { grid-row: span 2; display: grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: rgba(179, 107, 255, .35); font-size: 11px; }
 .wf-cand small { grid-column: 2; color: var(--sub); font-size: 10.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .wf-cand.mine { border-color: #8dffc8; background: rgba(141, 255, 200, .12); }
-@media (min-width: 0px) /* J-POP 版はスマホ専用（元は max-width 600px） */ { .wf-cands > div { grid-template-columns: 1fr; } .wf-cand { padding: 4px 8px; } }
+@media (max-width: 600px) { .wf-cands > div { grid-template-columns: 1fr; } .wf-cand { padding: 4px 8px; } }
 .wf-tallybox { display: grid; gap: 6px; }
 .wf-tallybox div { display: grid; grid-template-columns: 90px 1fr 48px; align-items: center; gap: 8px; }
 .wf-tallybox span { font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -1072,7 +1072,7 @@ body.rush-machine .stage-tools { overflow: visible; }
 @keyframes pn-attack { to { box-shadow: 0 0 46px rgba(255, 79, 79, .85); } }
 .pn-field.attack h3 { color: #ffb3b3; }
 /* かるた（PC）：ステージを小さくして、盤を1画面に収める */
-@media (min-width: 99999px) /* J-POP 版はスマホ専用：広い画面向けは使わない（元は 900px） */ {
+@media (min-width: 900px) {
   body.karuta-play .room-main > .stage { padding: 8px 14px; gap: 6px 12px; }
   body.karuta-play .room-main > .stage .cover, body.karuta-play .room-main > .stage .mascot { display: none; }
   body.karuta-play .room-main > .stage .status { flex: 1; }
@@ -1241,7 +1241,7 @@ body.rush-machine .stage-tools { overflow: visible; }
 .km-cand[aria-disabled="true"] { cursor: default; }
 .km-cand[data-can]:hover { border-color: #ffd36b; }
 .km-foot { display: grid; gap: 2px; }
-@media (min-width: 0px) /* J-POP 版はスマホ専用：いつも使う（元は max-width 700px） */ { .km-main { grid-template-columns: 1fr 2fr; } .km-cands { grid-template-columns: repeat(2, minmax(0, 1fr)); } .km-cand { height: clamp(28px, 6.5dvh, 50px); } }
+@media (max-width: 700px) { .km-main { grid-template-columns: 1fr 2fr; } .km-cands { grid-template-columns: repeat(2, minmax(0, 1fr)); } .km-cand { height: clamp(28px, 6.5dvh, 50px); } }
 
 /* アニソン・アズール：1画面 */
 #azPop .az-field { width: min(1150px, 100%); max-height: 98dvh; overflow: hidden; gap: clamp(3px, .8dvh, 8px); padding: clamp(6px, 1.3dvh, 14px); }
@@ -1289,7 +1289,7 @@ body.rush-machine .stage-tools { overflow: visible; }
 .pl-icon { grid-row: span 2; font-size: 26px; line-height: 1.1; }
 .pl-card b { font-size: 14px; } .pl-card small { font-size: 11px; color: var(--sub); line-height: 1.35; }
 .pl-card i { position: absolute; top: 6px; right: 8px; font-style: normal; font-size: 10px; color: #c9a7ff; }
-@media (min-width: 0px) /* J-POP 版はスマホ専用（元は max-width 600px） */ { .pl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pl-card small { display: none; } .pl-card { min-height: 0; } }
+@media (max-width: 600px) { .pl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .pl-card small { display: none; } .pl-card { min-height: 0; } }
 .play-label { grid-column: 1 / -1; } .play-pick { white-space: nowrap; }
 .km-prev { position: absolute; right: 5px; bottom: 3px; font-style: normal; font-size: 11px; padding: 1px 7px; border-radius: 99px; background: rgba(255, 255, 255, .12); cursor: pointer; pointer-events: auto; } .km-prev:hover { background: rgba(255, 211, 107, .35); }
 
@@ -1299,10 +1299,10 @@ body.rush-machine .stage-tools { overflow: visible; }
 .dk-card { padding: clamp(5px, 1.1dvh, 10px); gap: 2px; }
 .dk-card b { font-size: clamp(12px, 2dvh, 15px); } .dk-card small { font-size: clamp(9.5px, 1.5dvh, 11px); }
 .dk-prog { text-align: center; color: var(--text); } .dk-prog b { color: #ffd36b; font-size: 14px; }
-@media (min-width: 0px) /* J-POP 版はスマホ専用：いつも使う（元は max-width 700px） */ { .dk-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px) { .dk-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* すごろく・ジャンル制覇：進んだ分・埋めた分のハイライト（左下の小さな欄の中だけ。数秒で消える。PCのみ） */
-@media (min-width: 99999px) /* J-POP 版はスマホ専用：広い画面向けは使わない（元は 900px） */ {
+@media (min-width: 900px) {
   .sg-cell.trail { animation: sgTrail 1.4s ease-in-out 3; z-index: 1; }
   @keyframes sgTrail { 0%, 100% { box-shadow: none; background: rgba(255, 211, 107, .08); } 50% { box-shadow: 0 0 8px 2px #ffd36b; background: rgba(255, 211, 107, .5); } }
   .sg-legend span.hl, .gz-row.hl { position: relative; animation: hlFlash 1.4s ease-in-out 3; border-radius: 6px; color: #fff; }
@@ -1312,7 +1312,7 @@ body.rush-machine .stage-tools { overflow: visible; }
   .gz-row i.gain { animation: gzGain 1.2s ease-in-out 3; background: rgba(255, 211, 107, .6); outline: 2px solid #ffd36b; }
   @keyframes gzGain { 50% { transform: scale(1.5); } }
 }
-@media (min-width: 0px) /* J-POP 版はスマホ専用：いつも使う（元は max-width 899px） */ { .sg-cell.trail, .sg-legend span.hl, .gz-row.hl, .gz-row i.gain { animation: none; } }
+@media (max-width: 899px) { .sg-cell.trail, .sg-legend span.hl, .gz-row.hl, .gz-row i.gain { animation: none; } }
 
 /* ジャンル制覇EX：種類が増えても収まる */
 .gz-row { flex-wrap: wrap; } .gz-row > div { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 1px; max-width: 100%; }
@@ -1337,7 +1337,7 @@ body.rush-machine .stage-tools { overflow: visible; }
 .gz-legend { display: flex; flex-wrap: wrap; gap: 2px 8px; font-size: 10.5px; color: var(--sub); } .gz-legend span { position: relative; display: inline-flex; align-items: center; gap: 3px; } .gz-legend span.me { color: #8dffc8; } .gz-legend em { font-style: normal; color: #ffd36b; }
 .gz-legend u { width: 13px; height: 13px; font-size: 8px; }
 .gz-cat .gz-own { justify-content: center; margin-top: 2px; } .gz-cat .gz-own u { width: 14px; height: 14px; font-size: 9px; }
-@media (min-width: 99999px) /* J-POP 版はスマホ専用：広い画面向けは使わない（元は 900px） */ {
+@media (min-width: 900px) {
   .gz-card.gain { animation: gzGain 1.2s ease-in-out 3; background: rgba(255, 211, 107, .5); }
   .gz-legend span.hl { animation: hlFlash 1.4s ease-in-out 3; border-radius: 6px; }
   .gz-legend span.hl::after { content: attr(data-hl); position: absolute; right: 0; top: -15px; padding: 0 6px; border-radius: 99px; background: #ffd36b; color: #221; font-size: 10.5px; font-weight: 800; white-space: nowrap; animation: hlPop .5s ease-out; }

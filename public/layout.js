@@ -37,7 +37,7 @@ const SAMPLE_CHOICES = ['イントロの曲', 'となりの曲', 'あの名曲',
   .map((t, i) => ({ title: `${t}（見本）`, work: `作品 ${String.fromCharCode(65 + i)}` }));
 
 export function initLayout({ socket, player, $, store, toast, getRoom, getMe, setPractice }) {
-  const wide = { matches: false, addEventListener() {}, removeEventListener() {} }; // J-POP 版はスマホ専用（広い画面の配置は使わない）
+  const wide = matchMedia('(min-width: 900px)');
   const load = () => { try { return JSON.parse(store.get(KEY) || 'null') || {}; } catch (e) { return {}; } };
   // 「自分の配置を使う」は最初からオン。ただし配置を一度も編集していなければ、ふつうの画面のまま（edited で判断）
   let cfg = { on: true, preset: '1280x720', rects: {}, ...load() };

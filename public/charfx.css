@@ -56,7 +56,7 @@ body.char-split.char-split main:has(#room:not([hidden])) { max-width: min(1280px
 body.mascot-off .char-dock, body.mascot-off .cutin-art { display: none !important; }
 
 /* スマホ：常駐はなし（ステージの小さいキャラとぴょこっと出る演出だけ）。カットインは小さめに */
-@media (min-width: 0px) /* J-POP 版はスマホ専用（元は max-width 600px） */ {
+@media (max-width: 600px) {
   .char-dock { display: none !important; }
   .cutin-band { height: 130px; margin-top: -65px; }
   .cutin-art { height: 200px; margin-top: -130px; left: -2%; }

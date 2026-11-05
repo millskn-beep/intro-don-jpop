@@ -1,0 +1,28 @@
+/* イントロドン！J-POP で足した見た目（スマホでも PC でも読み込む。スマホだけの並べ方は mobile.css） */
+/* J-POP 版で使わないもの：アニソンBGM・歌詞クイズの合言葉 */
+#bgmLink, .ly-pass { display: none !important; }
+.choice, .btn-main, .btn-sub { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+
+/* ひとりで遊ぶ（ワンタップ開始・今日の10問） */
+.quick { display: grid; gap: 8px; margin: 6px 0 4px; }
+.quick-h { margin: 10px 0 2px; font-size: 14px; color: var(--sub); }
+.quick-daily { display: grid; gap: 2px; padding: 14px; font-size: 18px; }
+.quick-daily small { font-size: 11px; font-weight: 600; opacity: .8; }
+.quick-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.quick-grid .btn-sub { margin: 0; padding: 10px 4px; font-size: 13px; }
+.daily-top { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; font-size: 12px; }
+.daily-top:empty { display: none; }
+.daily-top li { display: flex; gap: 8px; align-items: center; padding: 3px 8px; border-radius: 8px; background: rgba(255, 255, 255, .05); }
+.daily-top b { color: var(--warn); width: 1.2em; } .daily-top span { margin-left: auto; color: var(--sub); }
+
+/* 結果のシェア・招待のボタン */
+.share-btn { margin-top: 8px; }
+.invite-btns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 6px; }
+.invite-btns .btn-sub { margin: 0; padding: 8px 4px; font-size: 13px; text-align: center; text-decoration: none; }
+.line-btn { background: #06c755 !important; border-color: #06c755 !important; color: #fff !important; }
+.qr-box { display: grid; justify-items: center; gap: 4px; margin-top: 6px; }
+.qr-box img { width: 180px; height: 180px; background: #fff; padding: 8px; border-radius: 10px; }
+.qr-box small { font-size: 11px; color: var(--sub); }
+
+/* PC（広い画面）：ひとりで遊ぶボタンは横に6つ並べる */
+@media (min-width: 900px) { .quick-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }

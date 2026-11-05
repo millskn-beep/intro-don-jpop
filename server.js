@@ -951,6 +951,7 @@ const OPTIONS = {
   lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
   fillMiss: ['on', 'off'],
   daily: [false, true], // 今日の10問（日本時間の日付で決めた10曲。全員同じ）
+  don: ['off', 'top', 'famous', 'maybe', 'seishun'], // 〇〇ドン：超有名曲・有名曲・たぶん知ってる・青春（入っている人の13〜24歳の曲を順番に）
   insHear: ['master', 'intro'], insTarget: ['song', 'work'], // インサイダー：曲を聴ける人（出題者とインサイダーだけ／全員イントロ）・当てるもの                // 3つ埋め・たくさん埋め：お手つきの減点（off：減点なし。押せない秒数はそのまま）
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
   buzzStop: [true, false],
@@ -1043,7 +1044,9 @@ function sanitizeSettings(input, base) {
 // ctx：部屋にいる人のマイページ（userCtx）。「もう聞きたくない」曲はいつも外す。お気に入り・苦手のお題は、年代・知名度の設定に関係なく全部
 function poolFor(settings, ctx = {}) {
   // 知名度はお題に関係なく、チェックした段階の曲だけにする（難しさの調整）
-  const fame = Array.isArray(settings.fame) && settings.fame.length ? settings.fame : FAME_KEYS;
+  const DON_FAME = { top: ['top'], famous: ['top', 'famous'], maybe: ['top', 'famous', 'normal'], seishun: ['top', 'famous', 'normal'] };
+  const fame = DON_FAME[settings.don] || (Array.isArray(settings.fame) && settings.fame.length ? settings.fame : FAME_KEYS);
+  if (settings.don === 'seishun') settings = { ...settings, yearFrom: 1960, yearTo: 2100 }; // 青春ドンの年は人ごと（startGame で選ぶ）
   const mine = ['favorites', 'weak'].includes(settings.topic);
   const out = (settings.topic === 'playlist' ? STAGED : SONGS).filter(s => (mine || (s.year >= settings.yearFrom && s.year <= settings.yearTo && fame.includes(fameOf(s)))) && inTopic(s, settings, ctx) && !(settings.noCoupling && s.coupling)
     && !ctx.block?.has(s.id)
@@ -1632,6 +1635,16 @@ function startGame(room) {
   // アニソン激アツRUSH：全問の色と当たりをここで決める（当たりの問題には、パチスロで有名な曲を入れる）
   const rushPlan = S.play === 'rush' ? buildRushPlan(order, fresh.length ? fresh : candidates, S) : null;
   if (!S.noRecord && !isGz(S.play) && S.play !== 'monopoly') order.forEach(s => recordPlayed(room, s)); // ジャンル制覇は、曲を出すときに記録する（並べた曲は gzPrepare で入れ替える）
+  if (S.don === 'seishun') { // 青春ドン：生まれ年を入れた人の 13〜24 歳の年の曲を、1問ずつ順番に（その年代の曲がなければ、ふつうに選んだ曲のまま）
+    const people = shuffle(connectedPlayers(room).filter(p => p.birth)), used = new Set(), byWho = [];
+    if (people.length) for (let i = 0; i < order.length; i++) {
+      const p = people[i % people.length], from = p.birth + 13, to = p.birth + 24;
+      const list = shuffle(pool.filter(s => s.year >= from && s.year <= to && !used.has(s.id) && !order.slice(i + 1).includes(s)));
+      if (list.length) { order[i] = list[0]; byWho[i] = p.id; }
+      used.add(order[i].id);
+    }
+    room.seishunFor = byWho; // 何問目がだれの青春か（答え合わせで出す）
+  } else room.seishunFor = null;
   if (S.daily) { const byId = new Map(SONGS.map(s => [s.id, s])), list = dailyDay().ids.map(id => byId.get(id)).filter(Boolean); if (list.length) order.splice(0, order.length, ...list); } // 今日の10問：全員同じ10曲（同じ順）
   room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
   statsGame(room);
@@ -4694,7 +4707,11 @@ function reveal(room) {
   trackReveal(room, q, results, picker);
   userReveal(room, q, results);
   const pokerInfo = S.play === 'poker' ? pokerReveal(room, q, results, s) : null;
+  const eras = [...room.players.values()].filter(p => p.birth && p.connected && !p.kicked).map(p => ({ id: p.id, name: p.name, age: q.song.year - p.birth }))
+    .sort((a, b) => Math.abs(a.age - 18.5) - Math.abs(b.age - 18.5)); // 当時の年齢。18.5歳（13〜24歳のまん中）に近い順
+  const eraFor = room.seishunFor?.[room.game.qi] || null; // 青春ドン：この問題はだれの青春の年代から選んだか
   io.to(room.code).emit('reveal', {
+    eras, eraFor, // 答え合わせ：「〜さんの青春の曲！（当時17歳）」
     rush, poker: pokerInfo,
     eliminated, picker, bingo, bingoBonus, coop: room.game.coop || null, reach: (q.reach || []).filter(n => !bingo.includes(n)),
     correctIndex: q.correctIndex,
@@ -5104,7 +5121,7 @@ io.on('connection', socket => {
   socket.emit('version', APP_VERSION);
   let room = null, player = null;
 
-  function enter(r, token, name) {
+  function enter(r, token, name, birth) {
     let p = r.players.get(token);
     if (!p) {
       if (r.players.size >= r.settings.maxPlayers) return { ok: false, error: 'この部屋は満員です' };
@@ -5114,7 +5131,8 @@ io.on('connection', socket => {
       if (r.state === 'playing' && r.settings.play === 'survival') { p.out = true; p.lives = 0; }
       if (r.state === 'playing' && r.settings.play === 'bingo' && r.game) { p.card = bingoCard(r.game.order, r.game.pool, r.game.bingoTarget); p.bingoAt = 0; p.reachN = 0; p.bingoLinesN = 0; }
     }
-    p.name = name; p.connected = true; p.socketId = socket.id; p.kicked = false; // キックされた人も、入り直せば同じ席に戻る
+    p.name = name; p.connected = true; p.socketId = socket.id; p.kicked = false;
+    { const b = Math.floor(+birth); p.birth = b >= 1930 && b <= new Date().getFullYear() - 5 ? b : null; } // 生まれ年（青春ドン・答え合わせの「当時〇歳」） // キックされた人も、入り直せば同じ席に戻る
     r.emptySince = null;
     room = r; player = p;
     // 全員いなくなって止まっていたゲームを、戻ってきた人で再開する
@@ -5137,7 +5155,7 @@ io.on('connection', socket => {
 
   // マイページの名前（登録済みのときだけ）を席に結びつける
   const linkUser = (r, token, user) => { const p = r?.players.get(token); if (p) p.user = USERS[userKey(user)] ? userKey(user) : null; };
-  socket.on('create', ({ token, name, roomName, password, user, lyricsPass, solo } = {}, ack) => {
+  socket.on('create', ({ token, name, roomName, password, user, lyricsPass, solo, birth } = {}, ack) => {
     if (typeof ack !== 'function' || typeof token !== 'string' || token.length < 8) return;
     // 歌詞の合言葉：合っていて、パスワードを付けた部屋だけ（非公開・10人まで）
     const wantLy = typeof lyricsPass === 'string' && lyricsPass.trim() !== '';
@@ -5149,13 +5167,13 @@ io.on('connection', socket => {
     if (wantLy) { r.settings.maxPlayers = LY_MAX; r.settings.play = 'lyrics'; }
     const pf = USERS[userKey(user)]?.prefs; // マイページに保存した設定があれば、部屋を作るときに自動で使う
     if (pf?.settings) { r.settings = sanitizeSettings(pf.settings, r.settings); r.settings.excludeGenres = (pf.excludeGenres || []).filter(k => GENRES[k]); }
-    const res = enter(r, token, cleanName(name));
+    const res = enter(r, token, cleanName(name), birth);
     linkUser(r, token, user); ack(res);
     socket.emit('fixSongs', r.fixRecent || []);
   });
   socket.on('login', user => { if (room && player) { linkUser(room, player.token, user); broadcastRoom(room); } });
 
-  socket.on('join', ({ code, token, name, password, user } = {}, ack) => {
+  socket.on('join', ({ code, token, name, password, user, birth } = {}, ack) => {
     if (typeof ack !== 'function' || typeof token !== 'string' || token.length < 8) return;
     const r = rooms.get(String(code || '').toUpperCase().trim());
     if (!r) return ack({ ok: false, error: '部屋が見つかりません' });
@@ -5166,14 +5184,14 @@ io.on('connection', socket => {
       if (hashPassword(r.salt, pw) !== r.passwordHash) return ack({ ok: false, needPassword: true, wrongPassword: true, error: 'パスワードが違います' });
     }
     socket.leave('home');
-    const res = enter(r, token, cleanName(name));
+    const res = enter(r, token, cleanName(name), birth);
     linkUser(r, token, user); ack(res);
     socket.emit('fixSongs', r.fixRecent || []); // このゲームで出た曲（「🛠 修正」用）
   });
 
   // 歌詞クイズの部屋（非公開・一覧に出ない）：部屋の番号を知らなくても、その部屋のパスワードだけで入れる
   let pwTries = [];
-  socket.on('joinByPassword', ({ token, name, password, user } = {}, ack) => {
+  socket.on('joinByPassword', ({ token, name, password, user, birth } = {}, ack) => {
     if (typeof ack !== 'function' || typeof token !== 'string' || token.length < 8) return;
     const now = Date.now(); pwTries = pwTries.filter(x => now - x < 60 * 1000);
     if (pwTries.length >= 6) return ack({ ok: false, error: '少し時間をおいてから入れてください（1分に6回まで）' }); // 当てずっぽうを防ぐ
@@ -5184,7 +5202,7 @@ io.on('connection', socket => {
       .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0))[0];
     if (!r) return ack({ ok: false, error: 'このパスワードの部屋は見つかりません' });
     socket.leave('home');
-    const res = enter(r, token, cleanName(name));
+    const res = enter(r, token, cleanName(name), birth);
     linkUser(r, token, user); ack(res);
     socket.emit('fixSongs', r.fixRecent || []);
   });

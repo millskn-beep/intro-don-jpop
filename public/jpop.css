@@ -30,3 +30,10 @@
 /* iPhone のホーム画面から開いたとき：音を出すボタン（画面の真ん中・上） */
 .sound-btn { position: fixed; left: 50%; top: 22%; transform: translateX(-50%); z-index: 70; padding: 14px 26px; border-radius: 99px; border: 2px solid #fff; background: #ff3d8b; color: #fff; font: inherit; font-size: 18px; font-weight: 900; box-shadow: 0 6px 24px rgba(255, 61, 139, .5); animation: load-wait-blink 1.2s ease-in-out infinite; }
 .sound-btn[hidden] { display: none; }
+
+/* 生まれ年・答え合わせの「〜さんの青春の曲！（当時17歳）」 */
+.birth-pick select { margin-top: 4px; }
+.era-line { display: grid; gap: 2px; margin: 6px 0; padding: 6px 12px; border-radius: 12px; background: rgba(255, 211, 107, .12); border: 1px solid rgba(255, 211, 107, .5); text-align: center; }
+.era-line b { color: #ffd36b; font-size: 15px; }
+.era-line small { color: var(--sub); font-size: 11px; }
+.era-line[hidden] { display: none; }

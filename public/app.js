@@ -104,7 +104,7 @@ function createRoom() {
   player.prime(WARMUP_VIDEO); // タップの中で一度再生して、スマホの音声制限を解除する
   const lyricsPass = $('lyricsPassInput').value.trim(); // 歌詞の合言葉：この端末（ブラウザ）に覚えておき、次から入力しなくてよい（消すと覚えたものも消える）
   store.set('aq-lyrics-pass', lyricsPass);
-  socket.emit('create', { token, name, roomName, password, user: meUser(), lyricsPass }, res => {
+  socket.emit('create', { token, name, roomName, password, user: meUser(), lyricsPass, birth: myBirth() }, res => {
     if (!res.ok) { $('homeError').textContent = res.error; return; }
     savePassword({ code: res.code, name: res.room.name }, password);
     joined(res);
@@ -118,7 +118,7 @@ function joinRoom(info, password, errEl, onNeedPassword) {
   const name = myName(errEl); if (!name) return;
   player.prime(WARMUP_VIDEO);
   const pw = password ?? savedPassword(info);
-  socket.emit('join', { code: info.code, token, name, password: pw, user: meUser() }, res => {
+  socket.emit('join', { code: info.code, token, name, password: pw, user: meUser(), birth: myBirth() }, res => {
     if (res.ok) { savePassword({ code: res.code, name: res.room.name }, pw); joined(res); return; }
     if (res.needPassword) {
       if (res.wrongPassword && password == null) forgetPassword(info); // 保存していたものが古かった
@@ -128,6 +128,10 @@ function joinRoom(info, password, errEl, onNeedPassword) {
   });
 }
 $('createBtn').onclick = createRoom;
+// 生まれ年（任意）：この端末に覚えておく。青春ドンと、答え合わせの「当時〇歳」に使う
+const myBirth = () => +$('birthInput').value || null;
+try { $('birthInput').value = store.get('aq-birth') || ''; } catch (e) { /* 覚えていなければ空 */ }
+$('birthInput').onchange = () => store.set('aq-birth', $('birthInput').value);
 // ── ひとりで遊ぶ：部屋（一覧に出さない）を作って、範囲を決めてすぐ始める ──
 const QUICK_SET = {
   daily: { daily: true, topic: 'all', yearFrom: 1960, yearTo: 2100 },
@@ -140,7 +144,7 @@ function quickPlay(kind) {
   const name = myName(); if (!name) return;
   player.prime(WARMUP_VIDEO); // タップの中で一度再生して、スマホの音声制限を解除する
   const over = { play: 'normal', questions: 10, daily: false, autoNext: 8, ...(QUICK_SET[kind] || { topic: kind, yearFrom: 1960, yearTo: 2100 }) };
-  socket.emit('create', { token, name, roomName: '', password: '', user: meUser(), solo: true }, res => {
+  socket.emit('create', { token, name, roomName: '', password: '', user: meUser(), solo: true, birth: myBirth() }, res => {
     if (!res.ok) { $('homeError').textContent = res.error; return; }
     joined(res); quickKind = kind;
     socket.emit('settings', { ...res.room.settings, ...over });
@@ -175,7 +179,7 @@ $('pwJoinBtn').onclick = () => {
   const password = $('pwJoinInput').value;
   if (!password) { $('homeError').textContent = 'パスワードを入力してください'; return; }
   player.prime(WARMUP_VIDEO);
-  socket.emit('joinByPassword', { token, name, password, user: meUser() }, res => {
+  socket.emit('joinByPassword', { token, name, password, user: meUser(), birth: myBirth() }, res => {
     if (!res.ok) { $('homeError').textContent = res.error; return; }
     savePassword({ code: res.code, name: res.room.name }, password);
     joined(res);
@@ -258,7 +262,7 @@ socket.on('connect', () => {
   // 部屋にいる途中の再接続、またはページを読み込み直した（URL の部屋が前回入っていた部屋と同じ）ときは、自動で同じ席に戻る
   const urlRoom = (params.get('room') || '').toUpperCase();
   const code = me ? store.get('aq-room') : (urlRoom && urlRoom === store.get('aq-room') ? urlRoom : null);
-  if (code) socket.emit('join', { code, token, name: store.get('aq-name'), password: store.get(passKey.code(code)) || '', user: meUser() },
+  if (code) socket.emit('join', { code, token, name: store.get('aq-name'), password: store.get(passKey.code(code)) || '', user: meUser(), birth: myBirth() },
     res => res.ok ? joined(res) : leaveToHome(res.error));
   else socket.emit('watchRooms');
 });
@@ -316,7 +320,7 @@ for (const [key, opts] of Object.entries(SETTING_OPTIONS)) {
   const sel = document.querySelector(`[data-key="${key}"]`);
   opts.forEach(([v, label]) => sel.add(new Option(label, v)));
 }
-const STRING_KEYS = ['insHear', 'insTarget', 'fillMiss', 'slAmmo', 'slMove', 'buzzMiss', 'mvSound', 'mvScope', 'mvSuggest', 'mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'wwRaise', 'wwStyle', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
+const STRING_KEYS = ['don', 'insHear', 'insTarget', 'fillMiss', 'slAmmo', 'slMove', 'buzzMiss', 'mvSound', 'mvScope', 'mvSuggest', 'mode', 'answerMode', 'quizType', 'topic', 'series', 'play', 'target', 'speed', 'bingoEnd', 'rushRate', 'karutaFace', 'wolfWork', 'wolfTitle', 'gzPick', 'gzSet', 'mpBy', 'mpLand', 'wwHint', 'wwRaise', 'wwStyle', 'lyFocus', 'lyKind', 'tsKind', 'tsAns'], BOOL_KEYS = ['clues', 'lifelines', 'bonus', 'noExclude', 'teams', 'noRepeat', 'buzzStop', 'noCoupling'];
 function sendSettings(extra = {}) {
   const s = {};
   document.querySelectorAll('#settings select[data-key]').forEach(x => {
@@ -1294,7 +1298,7 @@ function openFixPop(sel = 0) {
   socket.emit('fixHold', true);
   const close = () => { pop.hidden = true; pop.innerHTML = ''; socket.emit('fixHold', false); };
   pop.innerHTML = `<div class="wf-field fix-pop"><div class="wf-head"><b>🛠 曲の修正を依頼</b><span>この部屋で出た曲（新しい順）</span><button class="btn-sub fix-x" type="button" data-close>✕ 閉じる</button></div>
-    <div class="fix-songs">${fixRecent.map((x, i) => `<button type="button" class="btn-sub${i === sel ? ' on' : ''}" data-song="${i}"><b>${esc(x.title)}</b><small>${esc(x.work)}／${esc(x.artist)}</small></button>`).join('')}</div>
+    <div class="fix-songs">${fixRecent.map((x, i) => `<button type="button" class="btn-sub${i === sel ? ' on' : ''}" data-song="${i}"><b>${esc(x.title)}</b><small>${x.work === x.artist ? '' : esc(x.work) + '／'}${esc(x.artist)}</small></button>`).join('')}</div>
     <div class="fix-panel" data-fixbox></div></div>`;
   pop.querySelector('[data-close]').onclick = close;
   pop.onclick = e => { if (e.target === pop) close(); };
@@ -3032,6 +3036,13 @@ socket.on('promoted', p => toast(`${p.by}さんが「${p.title}」をゲーム�
 
 let karaTick = null, revealSeq = 0;
 socket.on('reveal', r => {
+  { // 答え合わせ：「〜さんの青春の曲！（当時17歳）」。生まれ年を入れた人がいるときだけ
+    const el = $('eraLine'), eras = r.eras || [];
+    const ageTxt = x => x.age < 0 ? 'まだ生まれていない' : x.age === 0 ? '0歳（生まれた年）' : `当時${x.age}歳`;
+    const top = eras.find(x => x.id === r.eraFor) || eras[0];
+    el.hidden = !eras.length;
+    if (eras.length) el.innerHTML = `<b>🎯 ${esc(top.name)}さん${top.age >= 13 && top.age <= 24 ? 'の青春の曲！' : 'がいちばん近い！'}（${ageTxt(top)}）</b>${eras.length > 1 ? `<small>${eras.filter(x => x !== top).map(x => `${esc(x.name)}さん ${ageTxt(x)}`).join('・')}</small>` : ''}`;
+  }
   $('loadWait').hidden = true;
   slingStop();
   stopFlash(); flashCover(false); $('mvSugg').innerHTML = ''; // 答え合わせは動画をそのまま見せる
@@ -3092,7 +3103,7 @@ socket.on('reveal', r => {
     $('fillSlots').innerHTML = r.fill.map(f => `<div class="fill-slot ${f.by != null ? 'done' : 'missed'}"><small>${esc(f.label)}</small><b>${esc(f.answer)}</b><em>${f.by != null ? esc(f.by) : '誰も埋められず'}</em></div>`).join('');
   }
   const s = r.song;
-  $('answer').innerHTML =`${esc(s.title)}<small>${s.work === 'ボカロ（プロセカ）' ? `プロセカ書き下ろし ボカロ／作曲：${esc(s.artist)}` : `${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}`}（${yearMode ? '<span id="yrAns">？</span>' : s.year}）</small>`
+  $('answer').innerHTML =`${esc(s.title)}<small>${s.work === 'ボカロ（プロセカ）' ? `プロセカ書き下ろし ボカロ／作曲：${esc(s.artist)}` : (s.work === s.artist ? esc(s.artist) : `${esc(s.work)} ${esc(s.type || '')}／${esc(s.artist)}`)}（${yearMode ? '<span id="yrAns">？</span>' : s.year}）</small>`
     + (s.staged ? '<button class="btn-main promote-btn" id="promoteBtn" type="button">✅ これはゲームデータに入れる</button><small class="promote-note">お試し中の曲です。押すと、ふだんの出題に入れる候補になります</small>' : '')
     + (s.id ? `<div class="song-tools"><button class="btn-sub" id="copySongBtn">📋 この曲をコピー</button>`
       + `<button class="btn-sub" id="keepSongBtn">${keptIds().has(s.id) ? '✓ 除外しない曲' : '🔁 この曲は除外しない'}</button>`

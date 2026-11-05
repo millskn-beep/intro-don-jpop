@@ -1,0 +1,2507 @@
+{
+ "movie": [
+  {
+   "title": "前前前世",
+   "artist": "RADWIMPS",
+   "year": 2016
+  },
+  {
+   "title": "なんでもないや",
+   "artist": "RADWIMPS",
+   "year": 2016
+  },
+  {
+   "title": "スパークル",
+   "artist": "RADWIMPS",
+   "year": 2016
+  },
+  {
+   "title": "愛にできることはまだあるかい",
+   "artist": "RADWIMPS",
+   "year": 2019
+  },
+  {
+   "title": "グランドエスケープ",
+   "artist": "RADWIMPS feat.三浦透子",
+   "year": 2019
+  },
+  {
+   "title": "すずめ",
+   "artist": "RADWIMPS feat.十明",
+   "year": 2022
+  },
+  {
+   "title": "うるうびと",
+   "artist": "RADWIMPS",
+   "year": 2022
+  },
+  {
+   "title": "糸",
+   "artist": "中島みゆき",
+   "year": 1992
+  },
+  {
+   "title": "366日",
+   "artist": "HY",
+   "year": 2008
+  },
+  {
+   "title": "瞳をとじて",
+   "artist": "平井堅",
+   "year": 2004
+  },
+  {
+   "title": "涙そうそう",
+   "artist": "夏川りみ",
+   "year": 2001
+  },
+  {
+   "title": "ハナミズキ",
+   "artist": "一青窈",
+   "year": 2004
+  },
+  {
+   "title": "himawari",
+   "artist": "Mr.Children",
+   "year": 2017
+  },
+  {
+   "title": "祈り 〜涙の軌道",
+   "artist": "Mr.Children",
+   "year": 2012
+  },
+  {
+   "title": "旅立ちの唄",
+   "artist": "Mr.Children",
+   "year": 2007
+  },
+  {
+   "title": "Starting Over",
+   "artist": "Mr.Children",
+   "year": 2015
+  },
+  {
+   "title": "Birthday",
+   "artist": "Mr.Children",
+   "year": 2020
+  },
+  {
+   "title": "ひまわりの約束",
+   "artist": "秦基博",
+   "year": 2014
+  },
+  {
+   "title": "Rain",
+   "artist": "秦基博",
+   "year": 2013
+  },
+  {
+   "title": "虹",
+   "artist": "菅田将暉",
+   "year": 2020
+  },
+  {
+   "title": "ドラえもん",
+   "artist": "星野源",
+   "year": 2018
+  },
+  {
+   "title": "ボクノート",
+   "artist": "スキマスイッチ",
+   "year": 2006
+  },
+  {
+   "title": "YUME日和",
+   "artist": "島谷ひとみ",
+   "year": 2004
+  },
+  {
+   "title": "THE GIFT",
+   "artist": "平井堅",
+   "year": 2019
+  },
+  {
+   "title": "スケッチ",
+   "artist": "あいみょん",
+   "year": 2024
+  },
+  {
+   "title": "ハルノヒ",
+   "artist": "あいみょん",
+   "year": 2019
+  },
+  {
+   "title": "Universe",
+   "artist": "Official髭男dism",
+   "year": 2021
+  },
+  {
+   "title": "Pretender",
+   "artist": "Official髭男dism",
+   "year": 2019
+  },
+  {
+   "title": "Laughter",
+   "artist": "Official髭男dism",
+   "year": 2020
+  },
+  {
+   "title": "いつも何度でも",
+   "artist": "木村弓",
+   "year": 2001
+  },
+  {
+   "title": "もののけ姫",
+   "artist": "米良美一",
+   "year": 1997
+  },
+  {
+   "title": "となりのトトロ",
+   "artist": "井上あずみ",
+   "year": 1988
+  },
+  {
+   "title": "君をのせて",
+   "artist": "井上あずみ",
+   "year": 1986
+  },
+  {
+   "title": "崖の上のポニョ",
+   "artist": "藤岡藤巻と大橋のぞみ",
+   "year": 2007
+  },
+  {
+   "title": "風の谷のナウシカ",
+   "artist": "安田成美",
+   "year": 1984
+  },
+  {
+   "title": "テルーの唄",
+   "artist": "手嶌葵",
+   "year": 2006
+  },
+  {
+   "title": "さよならの夏〜コクリコ坂から〜",
+   "artist": "手嶌葵",
+   "year": 2011
+  },
+  {
+   "title": "世界の約束",
+   "artist": "倍賞千恵子",
+   "year": 2004
+  },
+  {
+   "title": "時には昔の話を",
+   "artist": "加藤登紀子",
+   "year": 1987
+  },
+  {
+   "title": "カントリー・ロード",
+   "artist": "本名陽子",
+   "year": 1995
+  },
+  {
+   "title": "地球儀",
+   "artist": "米津玄師",
+   "year": 2023
+  },
+  {
+   "title": "M八七",
+   "artist": "米津玄師",
+   "year": 2022
+  },
+  {
+   "title": "打上花火",
+   "artist": "DAOKO×米津玄師",
+   "year": 2017
+  },
+  {
+   "title": "真夏の果実",
+   "artist": "サザンオールスターズ",
+   "year": 1990
+  },
+  {
+   "title": "希望の轍",
+   "artist": "サザンオールスターズ",
+   "year": 1990
+  },
+  {
+   "title": "セーラー服と機関銃",
+   "artist": "薬師丸ひろ子",
+   "year": 1981
+  },
+  {
+   "title": "探偵物語",
+   "artist": "薬師丸ひろ子",
+   "year": 1983
+  },
+  {
+   "title": "メイン・テーマ",
+   "artist": "薬師丸ひろ子",
+   "year": 1984
+  },
+  {
+   "title": "Woman \"Wの悲劇\"より",
+   "artist": "薬師丸ひろ子",
+   "year": 1984
+  },
+  {
+   "title": "時をかける少女",
+   "artist": "原田知世",
+   "year": 1983
+  },
+  {
+   "title": "天国にいちばん近い島",
+   "artist": "原田知世",
+   "year": 1984
+  },
+  {
+   "title": "守ってあげたい",
+   "artist": "松任谷由実",
+   "year": 1981
+  },
+  {
+   "title": "スローなブギにしてくれ (I want you)",
+   "artist": "南佳孝",
+   "year": 1981
+  },
+  {
+   "title": "天国のキッス",
+   "artist": "松田聖子",
+   "year": 1983
+  },
+  {
+   "title": "少年時代",
+   "artist": "井上陽水",
+   "year": 1990
+  },
+  {
+   "title": "どんなときも。",
+   "artist": "槇原敬之",
+   "year": 1991
+  },
+  {
+   "title": "恋しさと せつなさと 心強さと",
+   "artist": "篠原涼子 with t.komuro",
+   "year": 1994
+  },
+  {
+   "title": "FOREVER LOVE",
+   "artist": "X JAPAN",
+   "year": 1996
+  },
+  {
+   "title": "Swallowtail Butterfly 〜あいのうた〜",
+   "artist": "YEN TOWN BAND",
+   "year": 1996
+  },
+  {
+   "title": "ハッピーエンド",
+   "artist": "back number",
+   "year": 2016
+  },
+  {
+   "title": "瞬き",
+   "artist": "back number",
+   "year": 2017
+  },
+  {
+   "title": "Beautiful World",
+   "artist": "宇多田ヒカル",
+   "year": 2007
+  },
+  {
+   "title": "One Last Kiss",
+   "artist": "宇多田ヒカル",
+   "year": 2021
+  },
+  {
+   "title": "最愛",
+   "artist": "KOH+",
+   "year": 2008
+  },
+  {
+   "title": "零 -ZERO-",
+   "artist": "福山雅治",
+   "year": 2018
+  },
+  {
+   "title": "花",
+   "artist": "ORANGE RANGE",
+   "year": 2004
+  },
+  {
+   "title": "RPG",
+   "artist": "SEKAI NO OWARI",
+   "year": 2013
+  },
+  {
+   "title": "花の名",
+   "artist": "BUMP OF CHICKEN",
+   "year": 2007
+  },
+  {
+   "title": "青と夏",
+   "artist": "Mrs. GREEN APPLE",
+   "year": 2018
+  },
+  {
+   "title": "Soranji",
+   "artist": "Mrs. GREEN APPLE",
+   "year": 2022
+  },
+  {
+   "title": "花に亡霊",
+   "artist": "ヨルシカ",
+   "year": 2020
+  },
+  {
+   "title": "新宝島",
+   "artist": "サカナクション",
+   "year": 2015
+  },
+  {
+   "title": "新時代",
+   "artist": "Ado",
+   "year": 2022
+  },
+  {
+   "title": "私は最強",
+   "artist": "Ado",
+   "year": 2022
+  },
+  {
+   "title": "遥か",
+   "artist": "GReeeeN",
+   "year": 2009
+  },
+  {
+   "title": "月のしずく",
+   "artist": "RUI",
+   "year": 2003
+  },
+  {
+   "title": "GLAMOROUS SKY",
+   "artist": "NANA starring MIKA NAKASHIMA",
+   "year": 2005
+  },
+  {
+   "title": "ENDLESS STORY",
+   "artist": "REIRA starring YUNA ITO",
+   "year": 2005
+  },
+  {
+   "title": "Good-bye days",
+   "artist": "YUI for 雨音薫",
+   "year": 2006
+  },
+  {
+   "title": "Precious",
+   "artist": "伊藤由奈",
+   "year": 2006
+  },
+  {
+   "title": "明日がくるなら",
+   "artist": "JUJU with JAY'ED",
+   "year": 2009
+  },
+  {
+   "title": "The Beginning",
+   "artist": "ONE OK ROCK",
+   "year": 2012
+  },
+  {
+   "title": "Mighty Long Fall",
+   "artist": "ONE OK ROCK",
+   "year": 2014
+  },
+  {
+   "title": "Let It Go〜ありのままで〜",
+   "artist": "松たか子",
+   "year": 2014
+  },
+  {
+   "title": "FLASH",
+   "artist": "Perfume",
+   "year": 2016
+  },
+  {
+   "title": "僕らの夏の夢",
+   "artist": "山下達郎",
+   "year": 2009
+  },
+  {
+   "title": "ガーネット",
+   "artist": "奥華子",
+   "year": 2006
+  },
+  {
+   "title": "U",
+   "artist": "millennium parade × Belle",
+   "year": 2021
+  },
+  {
+   "title": "満ちてゆく",
+   "artist": "藤井風",
+   "year": 2024
+  },
+  {
+   "title": "相思相愛",
+   "artist": "aiko",
+   "year": 2024
+  },
+  {
+   "title": "ハルウタ",
+   "artist": "いきものがかり",
+   "year": 2014
+  },
+  {
+   "title": "ワンモアタイム",
+   "artist": "斉藤和義",
+   "year": 2013
+  },
+  {
+   "title": "風といっしょに",
+   "artist": "小林幸子",
+   "year": 1998
+  },
+  {
+   "title": "第ゼロ感",
+   "artist": "10-FEET",
+   "year": 2022
+  },
+  {
+   "title": "炎",
+   "artist": "LiSA",
+   "year": 2020
+  },
+  {
+   "title": "一途",
+   "artist": "King Gnu",
+   "year": 2021
+  }
+ ],
+ "drama": [
+  {
+   "title": "ラブ・ストーリーは突然に",
+   "artist": "小田和正",
+   "year": 1991
+  },
+  {
+   "title": "SAY YES",
+   "artist": "CHAGE&ASKA",
+   "year": 1991
+  },
+  {
+   "title": "YAH YAH YAH",
+   "artist": "CHAGE&ASKA",
+   "year": 1993
+  },
+  {
+   "title": "Tomorrow never knows",
+   "artist": "Mr.Children",
+   "year": 1994
+  },
+  {
+   "title": "名もなき詩",
+   "artist": "Mr.Children",
+   "year": 1996
+  },
+  {
+   "title": "Sign",
+   "artist": "Mr.Children",
+   "year": 2004
+  },
+  {
+   "title": "しるし",
+   "artist": "Mr.Children",
+   "year": 2006
+  },
+  {
+   "title": "HANABI",
+   "artist": "Mr.Children",
+   "year": 2008
+  },
+  {
+   "title": "ヒカリノアトリエ",
+   "artist": "Mr.Children",
+   "year": 2017
+  },
+  {
+   "title": "LOVE LOVE LOVE",
+   "artist": "DREAMS COME TRUE",
+   "year": 1995
+  },
+  {
+   "title": "晴れたらいいね",
+   "artist": "DREAMS COME TRUE",
+   "year": 1992
+  },
+  {
+   "title": "やさしいキスをして",
+   "artist": "DREAMS COME TRUE",
+   "year": 2004
+  },
+  {
+   "title": "何度でも",
+   "artist": "DREAMS COME TRUE",
+   "year": 2005
+  },
+  {
+   "title": "あなたとトゥラッタッタ♪",
+   "artist": "DREAMS COME TRUE",
+   "year": 2018
+  },
+  {
+   "title": "Everything",
+   "artist": "MISIA",
+   "year": 2000
+  },
+  {
+   "title": "逢いたくていま",
+   "artist": "MISIA",
+   "year": 2009
+  },
+  {
+   "title": "アイノカタチ",
+   "artist": "MISIA",
+   "year": 2018
+  },
+  {
+   "title": "Lemon",
+   "artist": "米津玄師",
+   "year": 2018
+  },
+  {
+   "title": "馬と鹿",
+   "artist": "米津玄師",
+   "year": 2019
+  },
+  {
+   "title": "感電",
+   "artist": "米津玄師",
+   "year": 2020
+  },
+  {
+   "title": "Pale Blue",
+   "artist": "米津玄師",
+   "year": 2021
+  },
+  {
+   "title": "さよーならまたいつか！",
+   "artist": "米津玄師",
+   "year": 2024
+  },
+  {
+   "title": "白日",
+   "artist": "King Gnu",
+   "year": 2019
+  },
+  {
+   "title": "三文小説",
+   "artist": "King Gnu",
+   "year": 2020
+  },
+  {
+   "title": "カメレオン",
+   "artist": "King Gnu",
+   "year": 2022
+  },
+  {
+   "title": "SUN",
+   "artist": "星野源",
+   "year": 2015
+  },
+  {
+   "title": "恋",
+   "artist": "星野源",
+   "year": 2016
+  },
+  {
+   "title": "アイデア",
+   "artist": "星野源",
+   "year": 2018
+  },
+  {
+   "title": "不思議",
+   "artist": "星野源",
+   "year": 2021
+  },
+  {
+   "title": "ノーダウト",
+   "artist": "Official髭男dism",
+   "year": 2018
+  },
+  {
+   "title": "I LOVE...",
+   "artist": "Official髭男dism",
+   "year": 2020
+  },
+  {
+   "title": "Subtitle",
+   "artist": "Official髭男dism",
+   "year": 2022
+  },
+  {
+   "title": "愛をこめて花束を",
+   "artist": "Superfly",
+   "year": 2008
+  },
+  {
+   "title": "フレア",
+   "artist": "Superfly",
+   "year": 2019
+  },
+  {
+   "title": "世界に一つだけの花",
+   "artist": "SMAP",
+   "year": 2003
+  },
+  {
+   "title": "夜空ノムコウ",
+   "artist": "SMAP",
+   "year": 1998
+  },
+  {
+   "title": "らいおんハート",
+   "artist": "SMAP",
+   "year": 2000
+  },
+  {
+   "title": "さかさまの空",
+   "artist": "SMAP",
+   "year": 2012
+  },
+  {
+   "title": "WISH",
+   "artist": "嵐",
+   "year": 2005
+  },
+  {
+   "title": "Love so sweet",
+   "artist": "嵐",
+   "year": 2007
+  },
+  {
+   "title": "Happiness",
+   "artist": "嵐",
+   "year": 2007
+  },
+  {
+   "title": "truth",
+   "artist": "嵐",
+   "year": 2008
+  },
+  {
+   "title": "マイガール",
+   "artist": "嵐",
+   "year": 2009
+  },
+  {
+   "title": "Monster",
+   "artist": "嵐",
+   "year": 2010
+  },
+  {
+   "title": "迷宮ラブソング",
+   "artist": "嵐",
+   "year": 2011
+  },
+  {
+   "title": "Calling",
+   "artist": "嵐",
+   "year": 2013
+  },
+  {
+   "title": "Find The Answer",
+   "artist": "嵐",
+   "year": 2018
+  },
+  {
+   "title": "青春アミーゴ",
+   "artist": "修二と彰",
+   "year": 2005
+  },
+  {
+   "title": "宙船",
+   "artist": "TOKIO",
+   "year": 2006
+  },
+  {
+   "title": "愛されるより愛したい",
+   "artist": "KinKi Kids",
+   "year": 1997
+  },
+  {
+   "title": "ボクの背中には羽根がある",
+   "artist": "KinKi Kids",
+   "year": 2001
+  },
+  {
+   "title": "Feel your breeze",
+   "artist": "V6",
+   "year": 2002
+  },
+  {
+   "title": "キセキ",
+   "artist": "GReeeeN",
+   "year": 2008
+  },
+  {
+   "title": "星影のエール",
+   "artist": "GReeeeN",
+   "year": 2020
+  },
+  {
+   "title": "粉雪",
+   "artist": "レミオロメン",
+   "year": 2005
+  },
+  {
+   "title": "3月9日",
+   "artist": "レミオロメン",
+   "year": 2004
+  },
+  {
+   "title": "かたちあるもの",
+   "artist": "柴咲コウ",
+   "year": 2004
+  },
+  {
+   "title": "ここにしか咲かない花",
+   "artist": "コブクロ",
+   "year": 2005
+  },
+  {
+   "title": "蕾",
+   "artist": "コブクロ",
+   "year": 2007
+  },
+  {
+   "title": "流星",
+   "artist": "コブクロ",
+   "year": 2010
+  },
+  {
+   "title": "First Love",
+   "artist": "宇多田ヒカル",
+   "year": 1999
+  },
+  {
+   "title": "Can You Keep A Secret?",
+   "artist": "宇多田ヒカル",
+   "year": 2001
+  },
+  {
+   "title": "SAKURAドロップス",
+   "artist": "宇多田ヒカル",
+   "year": 2002
+  },
+  {
+   "title": "Flavor Of Life",
+   "artist": "宇多田ヒカル",
+   "year": 2007
+  },
+  {
+   "title": "Prisoner Of Love",
+   "artist": "宇多田ヒカル",
+   "year": 2008
+  },
+  {
+   "title": "花束を君に",
+   "artist": "宇多田ヒカル",
+   "year": 2016
+  },
+  {
+   "title": "初恋",
+   "artist": "宇多田ヒカル",
+   "year": 2018
+  },
+  {
+   "title": "君に夢中",
+   "artist": "宇多田ヒカル",
+   "year": 2021
+  },
+  {
+   "title": "Time goes by",
+   "artist": "Every Little Thing",
+   "year": 1998
+  },
+  {
+   "title": "スイミー",
+   "artist": "Every Little Thing",
+   "year": 2006
+  },
+  {
+   "title": "世界はそれを愛と呼ぶんだぜ",
+   "artist": "サンボマスター",
+   "year": 2005
+  },
+  {
+   "title": "空と君のあいだに",
+   "artist": "中島みゆき",
+   "year": 1994
+  },
+  {
+   "title": "銀の龍の背に乗って",
+   "artist": "中島みゆき",
+   "year": 2003
+  },
+  {
+   "title": "麦の唄",
+   "artist": "中島みゆき",
+   "year": 2014
+  },
+  {
+   "title": "Best Friend",
+   "artist": "Kiroro",
+   "year": 2001
+  },
+  {
+   "title": "イケナイ太陽",
+   "artist": "ORANGE RANGE",
+   "year": 2007
+  },
+  {
+   "title": "SEASONS",
+   "artist": "浜崎あゆみ",
+   "year": 2000
+  },
+  {
+   "title": "CAN YOU CELEBRATE?",
+   "artist": "安室奈美恵",
+   "year": 1997
+  },
+  {
+   "title": "Baby Don't Cry",
+   "artist": "安室奈美恵",
+   "year": 2007
+  },
+  {
+   "title": "Love Story",
+   "artist": "安室奈美恵",
+   "year": 2011
+  },
+  {
+   "title": "KISSして",
+   "artist": "KOH+",
+   "year": 2007
+  },
+  {
+   "title": "虹",
+   "artist": "福山雅治",
+   "year": 2003
+  },
+  {
+   "title": "I believe",
+   "artist": "絢香",
+   "year": 2006
+  },
+  {
+   "title": "にじいろ",
+   "artist": "絢香",
+   "year": 2014
+  },
+  {
+   "title": "月光",
+   "artist": "鬼束ちひろ",
+   "year": 2000
+  },
+  {
+   "title": "恋におちたら",
+   "artist": "Crystal Kay",
+   "year": 2005
+  },
+  {
+   "title": "涙のキッス",
+   "artist": "サザンオールスターズ",
+   "year": 1992
+  },
+  {
+   "title": "エロティカ・セブン",
+   "artist": "サザンオールスターズ",
+   "year": 1993
+  },
+  {
+   "title": "愛と欲望の日々",
+   "artist": "サザンオールスターズ",
+   "year": 1997
+  },
+  {
+   "title": "POP STAR",
+   "artist": "平井堅",
+   "year": 2005
+  },
+  {
+   "title": "愛が呼ぶほうへ",
+   "artist": "ポルノグラフィティ",
+   "year": 2003
+  },
+  {
+   "title": "STARS",
+   "artist": "中島美嘉",
+   "year": 2001
+  },
+  {
+   "title": "ORION",
+   "artist": "中島美嘉",
+   "year": 2008
+  },
+  {
+   "title": "Only Human",
+   "artist": "K",
+   "year": 2005
+  },
+  {
+   "title": "NO MORE CRY",
+   "artist": "D-51",
+   "year": 2005
+  },
+  {
+   "title": "Around The World",
+   "artist": "MONKEY MAJIK",
+   "year": 2006
+  },
+  {
+   "title": "明日晴れるかな",
+   "artist": "桑田佳祐",
+   "year": 2007
+  },
+  {
+   "title": "若い広場",
+   "artist": "桑田佳祐",
+   "year": 2017
+  },
+  {
+   "title": "ずっと一緒さ",
+   "artist": "山下達郎",
+   "year": 2008
+  },
+  {
+   "title": "RIDE ON TIME",
+   "artist": "山下達郎",
+   "year": 1980
+  },
+  {
+   "title": "イチブトゼンブ",
+   "artist": "B'z",
+   "year": 2009
+  },
+  {
+   "title": "ALONE",
+   "artist": "B'z",
+   "year": 1991
+  },
+  {
+   "title": "今夜月の見える丘に",
+   "artist": "B'z",
+   "year": 2000
+  },
+  {
+   "title": "イルミネーション",
+   "artist": "B'z",
+   "year": 2024
+  },
+  {
+   "title": "Love Somebody",
+   "artist": "織田裕二",
+   "year": 1997
+  },
+  {
+   "title": "TRUE LOVE",
+   "artist": "藤井フミヤ",
+   "year": 1993
+  },
+  {
+   "title": "君がいるだけで",
+   "artist": "米米CLUB",
+   "year": 1992
+  },
+  {
+   "title": "Hello, my friend",
+   "artist": "松任谷由実",
+   "year": 1994
+  },
+  {
+   "title": "春よ、来い",
+   "artist": "松任谷由実",
+   "year": 1994
+  },
+  {
+   "title": "真夏の夜の夢",
+   "artist": "松任谷由実",
+   "year": 1993
+  },
+  {
+   "title": "とんぼ",
+   "artist": "長渕剛",
+   "year": 1988
+  },
+  {
+   "title": "TRAIN-TRAIN",
+   "artist": "THE BLUE HEARTS",
+   "year": 1988
+  },
+  {
+   "title": "ひだまりの詩",
+   "artist": "Le Couple",
+   "year": 1997
+  },
+  {
+   "title": "碧いうさぎ",
+   "artist": "酒井法子",
+   "year": 1995
+  },
+  {
+   "title": "LA・LA・LA LOVE SONG",
+   "artist": "久保田利伸 with NAOMI CAMPBELL",
+   "year": 1996
+  },
+  {
+   "title": "負けないで",
+   "artist": "ZARD",
+   "year": 1993
+  },
+  {
+   "title": "Tomorrow",
+   "artist": "岡本真夜",
+   "year": 1995
+  },
+  {
+   "title": "世界中の誰よりきっと",
+   "artist": "中山美穂&WANDS",
+   "year": 1992
+  },
+  {
+   "title": "ただ泣きたくなるの",
+   "artist": "中山美穂",
+   "year": 1994
+  },
+  {
+   "title": "空も飛べるはず",
+   "artist": "スピッツ",
+   "year": 1994
+  },
+  {
+   "title": "優しいあの子",
+   "artist": "スピッツ",
+   "year": 2019
+  },
+  {
+   "title": "ありがとう",
+   "artist": "いきものがかり",
+   "year": 2010
+  },
+  {
+   "title": "カムフラージュ",
+   "artist": "竹内まりや",
+   "year": 1998
+  },
+  {
+   "title": "シングル・アゲイン",
+   "artist": "竹内まりや",
+   "year": 1989
+  },
+  {
+   "title": "告白",
+   "artist": "竹内まりや",
+   "year": 1990
+  },
+  {
+   "title": "聖母たちのララバイ",
+   "artist": "岩崎宏美",
+   "year": 1982
+  },
+  {
+   "title": "愛が止まらない 〜Turn It Into Love〜",
+   "artist": "Wink",
+   "year": 1988
+  },
+  {
+   "title": "My Revolution",
+   "artist": "渡辺美里",
+   "year": 1986
+  },
+  {
+   "title": "ヒーロー HOLDING OUT FOR A HERO",
+   "artist": "麻倉未稀",
+   "year": 1984
+  },
+  {
+   "title": "What a feeling 〜フラッシュダンス",
+   "artist": "麻倉未稀",
+   "year": 1983
+  },
+  {
+   "title": "今夜はANGEL",
+   "artist": "椎名恵",
+   "year": 1985
+  },
+  {
+   "title": "白い炎",
+   "artist": "斉藤由貴",
+   "year": 1985
+  },
+  {
+   "title": "冷たい太陽",
+   "artist": "舘ひろし",
+   "year": 1986
+  },
+  {
+   "title": "CHA-CHA-CHA",
+   "artist": "石井明美",
+   "year": 1986
+  },
+  {
+   "title": "SHOW ME",
+   "artist": "森川由加里",
+   "year": 1987
+  },
+  {
+   "title": "抱きしめてTONIGHT",
+   "artist": "田原俊彦",
+   "year": 1988
+  },
+  {
+   "title": "悲しみは雪のように",
+   "artist": "浜田省吾",
+   "year": 1992
+  },
+  {
+   "title": "PIECE OF MY WISH",
+   "artist": "今井美樹",
+   "year": 1991
+  },
+  {
+   "title": "ポケベルが鳴らなくて",
+   "artist": "国武万里",
+   "year": 1993
+  },
+  {
+   "title": "クリスマスキャロルの頃には",
+   "artist": "稲垣潤一",
+   "year": 1992
+  },
+  {
+   "title": "I for You",
+   "artist": "LUNA SEA",
+   "year": 1998
+  },
+  {
+   "title": "POISON 〜言いたい事も言えないこんな世の中は〜",
+   "artist": "反町隆史",
+   "year": 1998
+  },
+  {
+   "title": "幸せな結末",
+   "artist": "大滝詠一",
+   "year": 1997
+  },
+  {
+   "title": "マル・マル・モリ・モリ!",
+   "artist": "薫と友樹、たまにムック。",
+   "year": 2011
+  },
+  {
+   "title": "やさしくなりたい",
+   "artist": "斉藤和義",
+   "year": 2011
+  },
+  {
+   "title": "潮騒のメモリー",
+   "artist": "天野春子(小泉今日子)",
+   "year": 2013
+  },
+  {
+   "title": "365日の紙飛行機",
+   "artist": "AKB48",
+   "year": 2015
+  },
+  {
+   "title": "クリスマスソング",
+   "artist": "back number",
+   "year": 2015
+  },
+  {
+   "title": "ヒカリへ",
+   "artist": "miwa",
+   "year": 2012
+  },
+  {
+   "title": "キラキラ",
+   "artist": "aiko",
+   "year": 2005
+  },
+  {
+   "title": "まちがいさがし",
+   "artist": "菅田将暉",
+   "year": 2019
+  },
+  {
+   "title": "さよならエレジー",
+   "artist": "菅田将暉",
+   "year": 2018
+  },
+  {
+   "title": "ベテルギウス",
+   "artist": "優里",
+   "year": 2021
+  },
+  {
+   "title": "ケセラセラ",
+   "artist": "Mrs. GREEN APPLE",
+   "year": 2023
+  },
+  {
+   "title": "サマータイムシンデレラ",
+   "artist": "緑黄色社会",
+   "year": 2023
+  },
+  {
+   "title": "花",
+   "artist": "藤井風",
+   "year": 2023
+  },
+  {
+   "title": "旅路",
+   "artist": "藤井風",
+   "year": 2021
+  },
+  {
+   "title": "愛の花",
+   "artist": "あいみょん",
+   "year": 2023
+  },
+  {
+   "title": "裸の心",
+   "artist": "あいみょん",
+   "year": 2020
+  },
+  {
+   "title": "賜物",
+   "artist": "RADWIMPS",
+   "year": 2025
+  },
+  {
+   "title": "アルデバラン",
+   "artist": "AI",
+   "year": 2021
+  },
+  {
+   "title": "なないろ",
+   "artist": "BUMP OF CHICKEN",
+   "year": 2021
+  },
+  {
+   "title": "雨のち晴レルヤ",
+   "artist": "ゆず",
+   "year": 2013
+  },
+  {
+   "title": "カーネーション",
+   "artist": "椎名林檎",
+   "year": 2011
+  },
+  {
+   "title": "明日はどこから",
+   "artist": "松たか子",
+   "year": 2017
+  },
+  {
+   "title": "おとなの掟",
+   "artist": "Doughnuts Hole",
+   "year": 2017
+  }
+ ],
+ "cm": [
+  {
+   "title": "RIDE ON TIME",
+   "artist": "山下達郎",
+   "year": 1980
+  },
+  {
+   "title": "クリスマス・イブ",
+   "artist": "山下達郎",
+   "year": 1983
+  },
+  {
+   "title": "君に、胸キュン。",
+   "artist": "YELLOW MAGIC ORCHESTRA",
+   "year": 1983
+  },
+  {
+   "title": "い・け・な・いルージュマジック",
+   "artist": "忌野清志郎+坂本龍一",
+   "year": 1982
+  },
+  {
+   "title": "裸足の季節",
+   "artist": "松田聖子",
+   "year": 1980
+  },
+  {
+   "title": "SWEET MEMORIES",
+   "artist": "松田聖子",
+   "year": 1983
+  },
+  {
+   "title": "Rock'n Rouge",
+   "artist": "松田聖子",
+   "year": 1984
+  },
+  {
+   "title": "春咲小紅",
+   "artist": "矢野顕子",
+   "year": 1981
+  },
+  {
+   "title": "唇よ、熱く君を語れ",
+   "artist": "渡辺真知子",
+   "year": 1980
+  },
+  {
+   "title": "ふたりの愛ランド",
+   "artist": "石川優子とチャゲ",
+   "year": 1984
+  },
+  {
+   "title": "愛燦燦",
+   "artist": "美空ひばり",
+   "year": 1986
+  },
+  {
+   "title": "Diamonds",
+   "artist": "PRINCESS PRINCESS",
+   "year": 1989
+  },
+  {
+   "title": "浪漫飛行",
+   "artist": "米米CLUB",
+   "year": 1990
+  },
+  {
+   "title": "Choo Choo TRAIN",
+   "artist": "ZOO",
+   "year": 1991
+  },
+  {
+   "title": "ロマンスの神様",
+   "artist": "広瀬香美",
+   "year": 1993
+  },
+  {
+   "title": "ゲレンデがとけるほど恋したい",
+   "artist": "広瀬香美",
+   "year": 1995
+  },
+  {
+   "title": "promise",
+   "artist": "広瀬香美",
+   "year": 1995
+  },
+  {
+   "title": "揺れる想い",
+   "artist": "ZARD",
+   "year": 1993
+  },
+  {
+   "title": "innocent world",
+   "artist": "Mr.Children",
+   "year": 1994
+  },
+  {
+   "title": "すてきなホリデイ",
+   "artist": "竹内まりや",
+   "year": 1993
+  },
+  {
+   "title": "DEPARTURES",
+   "artist": "globe",
+   "year": 1996
+  },
+  {
+   "title": "愛のうた",
+   "artist": "ストロベリー・フラワー",
+   "year": 2001
+  },
+  {
+   "title": "白い恋人達",
+   "artist": "桑田佳祐",
+   "year": 2001
+  },
+  {
+   "title": "波乗りジョニー",
+   "artist": "桑田佳祐",
+   "year": 2001
+  },
+  {
+   "title": "明日があるさ",
+   "artist": "ウルフルズ",
+   "year": 2001
+  },
+  {
+   "title": "SAKURA",
+   "artist": "いきものがかり",
+   "year": 2006
+  },
+  {
+   "title": "じょいふる",
+   "artist": "いきものがかり",
+   "year": 2010
+  },
+  {
+   "title": "CHE.R.RY",
+   "artist": "YUI",
+   "year": 2007
+  },
+  {
+   "title": "Butterfly",
+   "artist": "木村カエラ",
+   "year": 2009
+  },
+  {
+   "title": "家族になろうよ",
+   "artist": "福山雅治",
+   "year": 2011
+  },
+  {
+   "title": "ハピネス",
+   "artist": "AI",
+   "year": 2011
+  },
+  {
+   "title": "海の声",
+   "artist": "浦島太郎(桐谷健太)",
+   "year": 2015
+  },
+  {
+   "title": "ヒロイン",
+   "artist": "back number",
+   "year": 2015
+  },
+  {
+   "title": "STAY TUNE",
+   "artist": "Suchmos",
+   "year": 2016
+  },
+  {
+   "title": "群青",
+   "artist": "YOASOBI",
+   "year": 2020
+  },
+  {
+   "title": "Magic",
+   "artist": "Mrs. GREEN APPLE",
+   "year": 2024
+  }
+ ],
+ "kouhaku": [
+  {
+   "title": "ルビーの指環",
+   "artist": "寺尾聰",
+   "year": 1981
+  },
+  {
+   "title": "ギンギラギンにさりげなく",
+   "artist": "近藤真彦",
+   "year": 1981
+  },
+  {
+   "title": "青い珊瑚礁",
+   "artist": "松田聖子",
+   "year": 1980
+  },
+  {
+   "title": "涙のリクエスト",
+   "artist": "チェッカーズ",
+   "year": 1984
+  },
+  {
+   "title": "ワインレッドの心",
+   "artist": "安全地帯",
+   "year": 1983
+  },
+  {
+   "title": "なんてったってアイドル",
+   "artist": "小泉今日子",
+   "year": 1985
+  },
+  {
+   "title": "仮面舞踏会",
+   "artist": "少年隊",
+   "year": 1985
+  },
+  {
+   "title": "パラダイス銀河",
+   "artist": "光GENJI",
+   "year": 1988
+  },
+  {
+   "title": "淋しい熱帯魚",
+   "artist": "Wink",
+   "year": 1989
+  },
+  {
+   "title": "乾杯",
+   "artist": "長渕剛",
+   "year": 1980
+  },
+  {
+   "title": "おどるポンポコリン",
+   "artist": "B.B.クィーンズ",
+   "year": 1990
+  },
+  {
+   "title": "愛は勝つ",
+   "artist": "KAN",
+   "year": 1990
+  },
+  {
+   "title": "それが大事",
+   "artist": "大事MANブラザーズバンド",
+   "year": 1991
+  },
+  {
+   "title": "どんなときも。",
+   "artist": "槇原敬之",
+   "year": 1991
+  },
+  {
+   "title": "SAY YES",
+   "artist": "CHAGE&ASKA",
+   "year": 1991
+  },
+  {
+   "title": "君がいるだけで",
+   "artist": "米米CLUB",
+   "year": 1992
+  },
+  {
+   "title": "紅",
+   "artist": "X JAPAN",
+   "year": 1989
+  },
+  {
+   "title": "survival dAnce 〜no no cry more〜",
+   "artist": "TRF",
+   "year": 1994
+  },
+  {
+   "title": "恋しさと せつなさと 心強さと",
+   "artist": "篠原涼子 with t.komuro",
+   "year": 1994
+  },
+  {
+   "title": "WOW WAR TONIGHT 〜時には起こせよムーヴメント",
+   "artist": "H Jungle with t",
+   "year": 1995
+  },
+  {
+   "title": "LOVE LOVE LOVE",
+   "artist": "DREAMS COME TRUE",
+   "year": 1995
+  },
+  {
+   "title": "ズルい女",
+   "artist": "シャ乱Q",
+   "year": 1995
+  },
+  {
+   "title": "DEPARTURES",
+   "artist": "globe",
+   "year": 1996
+  },
+  {
+   "title": "アジアの純真",
+   "artist": "PUFFY",
+   "year": 1996
+  },
+  {
+   "title": "ガッツだぜ!!",
+   "artist": "ウルフルズ",
+   "year": 1995
+  },
+  {
+   "title": "I'm proud",
+   "artist": "華原朋美",
+   "year": 1996
+  },
+  {
+   "title": "CAN YOU CELEBRATE?",
+   "artist": "安室奈美恵",
+   "year": 1997
+  },
+  {
+   "title": "White Love",
+   "artist": "SPEED",
+   "year": 1997
+  },
+  {
+   "title": "ひだまりの詩",
+   "artist": "Le Couple",
+   "year": 1997
+  },
+  {
+   "title": "Time goes by",
+   "artist": "Every Little Thing",
+   "year": 1998
+  },
+  {
+   "title": "夜空ノムコウ",
+   "artist": "SMAP",
+   "year": 1998
+  },
+  {
+   "title": "LOVEマシーン",
+   "artist": "モーニング娘。",
+   "year": 1999
+  },
+  {
+   "title": "桜坂",
+   "artist": "福山雅治",
+   "year": 2000
+  },
+  {
+   "title": "アゲハ蝶",
+   "artist": "ポルノグラフィティ",
+   "year": 2001
+  },
+  {
+   "title": "Best Friend",
+   "artist": "Kiroro",
+   "year": 2001
+  },
+  {
+   "title": "地上の星",
+   "artist": "中島みゆき",
+   "year": 2000
+  },
+  {
+   "title": "ワダツミの木",
+   "artist": "元ちとせ",
+   "year": 2002
+  },
+  {
+   "title": "亜麻色の髪の乙女",
+   "artist": "島谷ひとみ",
+   "year": 2002
+  },
+  {
+   "title": "涙そうそう",
+   "artist": "夏川りみ",
+   "year": 2001
+  },
+  {
+   "title": "大きな古時計",
+   "artist": "平井堅",
+   "year": 2002
+  },
+  {
+   "title": "世界に一つだけの花",
+   "artist": "SMAP",
+   "year": 2003
+  },
+  {
+   "title": "さくら(独唱)",
+   "artist": "森山直太朗",
+   "year": 2003
+  },
+  {
+   "title": "雪の華",
+   "artist": "中島美嘉",
+   "year": 2003
+  },
+  {
+   "title": "瞳をとじて",
+   "artist": "平井堅",
+   "year": 2004
+  },
+  {
+   "title": "ハナミズキ",
+   "artist": "一青窈",
+   "year": 2004
+  },
+  {
+   "title": "栄光の架橋",
+   "artist": "ゆず",
+   "year": 2004
+  },
+  {
+   "title": "花",
+   "artist": "ORANGE RANGE",
+   "year": 2004
+  },
+  {
+   "title": "さくらんぼ",
+   "artist": "大塚愛",
+   "year": 2003
+  },
+  {
+   "title": "Jupiter",
+   "artist": "平原綾香",
+   "year": 2003
+  },
+  {
+   "title": "One Night Carnival",
+   "artist": "氣志團",
+   "year": 2001
+  },
+  {
+   "title": "何度でも",
+   "artist": "DREAMS COME TRUE",
+   "year": 2005
+  },
+  {
+   "title": "Story",
+   "artist": "AI",
+   "year": 2005
+  },
+  {
+   "title": "Butterfly",
+   "artist": "倖田來未",
+   "year": 2005
+  },
+  {
+   "title": "宙船",
+   "artist": "TOKIO",
+   "year": 2006
+  },
+  {
+   "title": "粉雪",
+   "artist": "レミオロメン",
+   "year": 2005
+  },
+  {
+   "title": "三日月",
+   "artist": "絢香",
+   "year": 2006
+  },
+  {
+   "title": "千の風になって",
+   "artist": "秋川雅史",
+   "year": 2006
+  },
+  {
+   "title": "蕾",
+   "artist": "コブクロ",
+   "year": 2007
+  },
+  {
+   "title": "愛をこめて花束を",
+   "artist": "Superfly",
+   "year": 2008
+  },
+  {
+   "title": "ポリリズム",
+   "artist": "Perfume",
+   "year": 2007
+  },
+  {
+   "title": "Ti Amo",
+   "artist": "EXILE",
+   "year": 2008
+  },
+  {
+   "title": "GIFT",
+   "artist": "Mr.Children",
+   "year": 2008
+  },
+  {
+   "title": "YELL",
+   "artist": "いきものがかり",
+   "year": 2009
+  },
+  {
+   "title": "Butterfly",
+   "artist": "木村カエラ",
+   "year": 2009
+  },
+  {
+   "title": "ありがとう",
+   "artist": "いきものがかり",
+   "year": 2010
+  },
+  {
+   "title": "ヘビーローテーション",
+   "artist": "AKB48",
+   "year": 2010
+  },
+  {
+   "title": "会いたくて 会いたくて",
+   "artist": "西野カナ",
+   "year": 2010
+  },
+  {
+   "title": "トイレの神様",
+   "artist": "植村花菜",
+   "year": 2010
+  },
+  {
+   "title": "逢いたくていま",
+   "artist": "MISIA",
+   "year": 2009
+  },
+  {
+   "title": "家族になろうよ",
+   "artist": "福山雅治",
+   "year": 2011
+  },
+  {
+   "title": "マル・マル・モリ・モリ!",
+   "artist": "薫と友樹、たまにムック。",
+   "year": 2011
+  },
+  {
+   "title": "女々しくて",
+   "artist": "ゴールデンボンバー",
+   "year": 2009
+  },
+  {
+   "title": "行くぜっ!怪盗少女",
+   "artist": "ももいろクローバーZ",
+   "year": 2010
+  },
+  {
+   "title": "恋するフォーチュンクッキー",
+   "artist": "AKB48",
+   "year": 2013
+  },
+  {
+   "title": "潮騒のメモリー",
+   "artist": "天野春子(小泉今日子)",
+   "year": 2013
+  },
+  {
+   "title": "Let It Go〜ありのままで〜",
+   "artist": "May J.",
+   "year": 2014
+  },
+  {
+   "title": "Let It Go〜ありのままで〜",
+   "artist": "松たか子",
+   "year": 2014
+  },
+  {
+   "title": "Dragon Night",
+   "artist": "SEKAI NO OWARI",
+   "year": 2014
+  },
+  {
+   "title": "365日の紙飛行機",
+   "artist": "AKB48",
+   "year": 2015
+  },
+  {
+   "title": "クリスマスソング",
+   "artist": "back number",
+   "year": 2015
+  },
+  {
+   "title": "恋",
+   "artist": "星野源",
+   "year": 2016
+  },
+  {
+   "title": "前前前世",
+   "artist": "RADWIMPS",
+   "year": 2016
+  },
+  {
+   "title": "海の声",
+   "artist": "浦島太郎(桐谷健太)",
+   "year": 2015
+  },
+  {
+   "title": "PPAP(ペンパイナッポーアッポーペン)",
+   "artist": "ピコ太郎",
+   "year": 2016
+  },
+  {
+   "title": "サイレントマジョリティー",
+   "artist": "欅坂46",
+   "year": 2016
+  },
+  {
+   "title": "花束を君に",
+   "artist": "宇多田ヒカル",
+   "year": 2016
+  },
+  {
+   "title": "JAM",
+   "artist": "THE YELLOW MONKEY",
+   "year": 1996
+  },
+  {
+   "title": "Hero",
+   "artist": "安室奈美恵",
+   "year": 2016
+  },
+  {
+   "title": "インフルエンサー",
+   "artist": "乃木坂46",
+   "year": 2017
+  },
+  {
+   "title": "Lemon",
+   "artist": "米津玄師",
+   "year": 2018
+  },
+  {
+   "title": "U.S.A.",
+   "artist": "DA PUMP",
+   "year": 2018
+  },
+  {
+   "title": "パプリカ",
+   "artist": "Foorin",
+   "year": 2018
+  },
+  {
+   "title": "マリーゴールド",
+   "artist": "あいみょん",
+   "year": 2018
+  },
+  {
+   "title": "アイデア",
+   "artist": "星野源",
+   "year": 2018
+  },
+  {
+   "title": "アイノカタチ",
+   "artist": "MISIA",
+   "year": 2018
+  },
+  {
+   "title": "希望の轍",
+   "artist": "サザンオールスターズ",
+   "year": 1990
+  },
+  {
+   "title": "Pretender",
+   "artist": "Official髭男dism",
+   "year": 2019
+  },
+  {
+   "title": "白日",
+   "artist": "King Gnu",
+   "year": 2019
+  },
+  {
+   "title": "紅蓮華",
+   "artist": "LiSA",
+   "year": 2019
+  },
+  {
+   "title": "まちがいさがし",
+   "artist": "菅田将暉",
+   "year": 2019
+  },
+  {
+   "title": "君はロックを聴かない",
+   "artist": "あいみょん",
+   "year": 2017
+  },
+  {
+   "title": "炎",
+   "artist": "LiSA",
+   "year": 2020
+  },
+  {
+   "title": "香水",
+   "artist": "瑛人",
+   "year": 2019
+  },
+  {
+   "title": "夜に駆ける",
+   "artist": "YOASOBI",
+   "year": 2019
+  },
+  {
+   "title": "I LOVE...",
+   "artist": "Official髭男dism",
+   "year": 2020
+  },
+  {
+   "title": "Make you happy",
+   "artist": "NiziU",
+   "year": 2020
+  },
+  {
+   "title": "裸の心",
+   "artist": "あいみょん",
+   "year": 2020
+  },
+  {
+   "title": "ドライフラワー",
+   "artist": "優里",
+   "year": 2020
+  },
+  {
+   "title": "きらり",
+   "artist": "藤井風",
+   "year": 2021
+  },
+  {
+   "title": "死ぬのがいいわ",
+   "artist": "藤井風",
+   "year": 2020
+  },
+  {
+   "title": "新時代",
+   "artist": "Ado",
+   "year": 2022
+  },
+  {
+   "title": "Subtitle",
+   "artist": "Official髭男dism",
+   "year": 2022
+  },
+  {
+   "title": "怪獣の花唄",
+   "artist": "Vaundy",
+   "year": 2020
+  },
+  {
+   "title": "アイドル",
+   "artist": "YOASOBI",
+   "year": 2023
+  },
+  {
+   "title": "ケセラセラ",
+   "artist": "Mrs. GREEN APPLE",
+   "year": 2023
+  },
+  {
+   "title": "SPECIALZ",
+   "artist": "King Gnu",
+   "year": 2023
+  },
+  {
+   "title": "ライラック",
+   "artist": "Mrs. GREEN APPLE",
+   "year": 2024
+  },
+  {
+   "title": "Bling-Bang-Bang-Born",
+   "artist": "Creepy Nuts",
+   "year": 2024
+  },
+  {
+   "title": "さよーならまたいつか！",
+   "artist": "米津玄師",
+   "year": 2024
+  },
+  {
+   "title": "はいよろこんで",
+   "artist": "こっちのけんと",
+   "year": 2024
+  },
+  {
+   "title": "ultra soul",
+   "artist": "B'z",
+   "year": 2001
+  },
+  {
+   "title": "LOVE PHANTOM",
+   "artist": "B'z",
+   "year": 1995
+  }
+ ],
+ "anime_national": [
+  {
+   "title": "紅蓮華",
+   "artist": "LiSA",
+   "year": 2019
+  },
+  {
+   "title": "炎",
+   "artist": "LiSA",
+   "year": 2020
+  },
+  {
+   "title": "明け星",
+   "artist": "LiSA",
+   "year": 2021
+  },
+  {
+   "title": "白銀",
+   "artist": "LiSA",
+   "year": 2021
+  },
+  {
+   "title": "残響散歌",
+   "artist": "Aimer",
+   "year": 2022
+  },
+  {
+   "title": "絆ノ奇跡",
+   "artist": "MAN WITH A MISSION×milet",
+   "year": 2023
+  },
+  {
+   "title": "竈門炭治郎のうた",
+   "artist": "椎名豪 featuring 中川奈美",
+   "year": 2019
+  },
+  {
+   "title": "残酷な天使のテーゼ",
+   "artist": "高橋洋子",
+   "year": 1995
+  },
+  {
+   "title": "魂のルフラン",
+   "artist": "高橋洋子",
+   "year": 1997
+  },
+  {
+   "title": "One Last Kiss",
+   "artist": "宇多田ヒカル",
+   "year": 2021
+  },
+  {
+   "title": "胸がドキドキ",
+   "artist": "THE HIGH-LOWS",
+   "year": 1996
+  },
+  {
+   "title": "謎",
+   "artist": "小松未歩",
+   "year": 1997
+  },
+  {
+   "title": "運命のルーレット廻して",
+   "artist": "ZARD",
+   "year": 1998
+  },
+  {
+   "title": "Secret of my heart",
+   "artist": "倉木麻衣",
+   "year": 2000
+  },
+  {
+   "title": "夢をかなえてドラえもん",
+   "artist": "mao",
+   "year": 2007
+  },
+  {
+   "title": "ドラえもん",
+   "artist": "星野源",
+   "year": 2018
+  },
+  {
+   "title": "ひまわりの約束",
+   "artist": "秦基博",
+   "year": 2014
+  },
+  {
+   "title": "おどるポンポコリン",
+   "artist": "B.B.クィーンズ",
+   "year": 1990
+  },
+  {
+   "title": "走れ正直者",
+   "artist": "西城秀樹",
+   "year": 1991
+  },
+  {
+   "title": "はじめてのチュウ",
+   "artist": "あんしんパパ",
+   "year": 1989
+  },
+  {
+   "title": "オラはにんきもの",
+   "artist": "のはらしんのすけ",
+   "year": 1992
+  },
+  {
+   "title": "アンパンマンのマーチ",
+   "artist": "ドリーミング",
+   "year": 1988
+  },
+  {
+   "title": "めざせポケモンマスター",
+   "artist": "松本梨香",
+   "year": 1997
+  },
+  {
+   "title": "ウィーアー!",
+   "artist": "きただにひろし",
+   "year": 1999
+  },
+  {
+   "title": "新時代",
+   "artist": "Ado",
+   "year": 2022
+  },
+  {
+   "title": "CHA-LA HEAD-CHA-LA",
+   "artist": "影山ヒロノブ",
+   "year": 1989
+  },
+  {
+   "title": "摩訶不思議アドベンチャー!",
+   "artist": "高橋洋樹",
+   "year": 1986
+  },
+  {
+   "title": "ロマンティックあげるよ",
+   "artist": "橋本潮",
+   "year": 1986
+  },
+  {
+   "title": "DAN DAN 心魅かれてく",
+   "artist": "FIELD OF VIEW",
+   "year": 1996
+  },
+  {
+   "title": "君が好きだと叫びたい",
+   "artist": "BAAD",
+   "year": 1993
+  },
+  {
+   "title": "世界が終るまでは…",
+   "artist": "WANDS",
+   "year": 1994
+  },
+  {
+   "title": "あなただけ見つめてる",
+   "artist": "大黒摩季",
+   "year": 1993
+  },
+  {
+   "title": "微笑みの爆弾",
+   "artist": "馬渡松子",
+   "year": 1992
+  },
+  {
+   "title": "ムーンライト伝説",
+   "artist": "DALI",
+   "year": 1992
+  },
+  {
+   "title": "ゆずれない願い",
+   "artist": "田村直美",
+   "year": 1994
+  },
+  {
+   "title": "Get Wild",
+   "artist": "TM NETWORK",
+   "year": 1987
+  },
+  {
+   "title": "タッチ",
+   "artist": "岩崎良美",
+   "year": 1985
+  },
+  {
+   "title": "CAT'S EYE",
+   "artist": "杏里",
+   "year": 1983
+  },
+  {
+   "title": "愛をとりもどせ!!",
+   "artist": "クリスタルキング",
+   "year": 1984
+  },
+  {
+   "title": "ペガサス幻想",
+   "artist": "MAKE-UP",
+   "year": 1986
+  },
+  {
+   "title": "キン肉マン Go Fight!",
+   "artist": "串田アキラ",
+   "year": 1983
+  },
+  {
+   "title": "ラムのラブソング",
+   "artist": "松谷祐子",
+   "year": 1981
+  },
+  {
+   "title": "悲しみよこんにちは",
+   "artist": "斉藤由貴",
+   "year": 1986
+  },
+  {
+   "title": "そばかす",
+   "artist": "JUDY AND MARY",
+   "year": 1996
+  },
+  {
+   "title": "1/3の純情な感情",
+   "artist": "SIAM SHADE",
+   "year": 1997
+  },
+  {
+   "title": "Butter-Fly",
+   "artist": "和田光司",
+   "year": 1999
+  },
+  {
+   "title": "GO!!!",
+   "artist": "FLOW",
+   "year": 2004
+  },
+  {
+   "title": "ブルーバード",
+   "artist": "いきものがかり",
+   "year": 2008
+  },
+  {
+   "title": "メリッサ",
+   "artist": "ポルノグラフィティ",
+   "year": 2003
+  },
+  {
+   "title": "READY STEADY GO",
+   "artist": "L'Arc~en~Ciel",
+   "year": 2004
+  },
+  {
+   "title": "again",
+   "artist": "YUI",
+   "year": 2009
+  },
+  {
+   "title": "創聖のアクエリオン",
+   "artist": "AKINO",
+   "year": 2005
+  },
+  {
+   "title": "紅蓮の弓矢",
+   "artist": "Linked Horizon",
+   "year": 2013
+  },
+  {
+   "title": "unravel",
+   "artist": "TK from 凛として時雨",
+   "year": 2014
+  },
+  {
+   "title": "シュガーソングとビターステップ",
+   "artist": "UNISON SQUARE GARDEN",
+   "year": 2015
+  },
+  {
+   "title": "光るなら",
+   "artist": "Goose house",
+   "year": 2014
+  },
+  {
+   "title": "ピースサイン",
+   "artist": "米津玄師",
+   "year": 2017
+  },
+  {
+   "title": "KICK BACK",
+   "artist": "米津玄師",
+   "year": 2022
+  },
+  {
+   "title": "廻廻奇譚",
+   "artist": "Eve",
+   "year": 2020
+  },
+  {
+   "title": "一途",
+   "artist": "King Gnu",
+   "year": 2021
+  },
+  {
+   "title": "SPECIALZ",
+   "artist": "King Gnu",
+   "year": 2023
+  },
+  {
+   "title": "青のすみか",
+   "artist": "キタニタツヤ",
+   "year": 2023
+  },
+  {
+   "title": "Cry Baby",
+   "artist": "Official髭男dism",
+   "year": 2021
+  },
+  {
+   "title": "ミックスナッツ",
+   "artist": "Official髭男dism",
+   "year": 2022
+  },
+  {
+   "title": "怪物",
+   "artist": "YOASOBI",
+   "year": 2021
+  },
+  {
+   "title": "アイドル",
+   "artist": "YOASOBI",
+   "year": 2023
+  },
+  {
+   "title": "勇者",
+   "artist": "YOASOBI",
+   "year": 2023
+  },
+  {
+   "title": "Bling-Bang-Bang-Born",
+   "artist": "Creepy Nuts",
+   "year": 2024
+  },
+  {
+   "title": "オトノケ",
+   "artist": "Creepy Nuts",
+   "year": 2024
+  },
+  {
+   "title": "インフェルノ",
+   "artist": "Mrs. GREEN APPLE",
+   "year": 2019
+  },
+  {
+   "title": "ライラック",
+   "artist": "Mrs. GREEN APPLE",
+   "year": 2024
+  },
+  {
+   "title": "クスシキ",
+   "artist": "Mrs. GREEN APPLE",
+   "year": 2025
+  },
+  {
+   "title": "前前前世",
+   "artist": "RADWIMPS",
+   "year": 2016
+  },
+  {
+   "title": "愛にできることはまだあるかい",
+   "artist": "RADWIMPS",
+   "year": 2019
+  },
+  {
+   "title": "いつも何度でも",
+   "artist": "木村弓",
+   "year": 2001
+  },
+  {
+   "title": "となりのトトロ",
+   "artist": "井上あずみ",
+   "year": 1988
+  },
+  {
+   "title": "さんぽ",
+   "artist": "井上あずみ",
+   "year": 1988
+  },
+  {
+   "title": "君をのせて",
+   "artist": "井上あずみ",
+   "year": 1986
+  },
+  {
+   "title": "崖の上のポニョ",
+   "artist": "藤岡藤巻と大橋のぞみ",
+   "year": 2007
+  }
+ ]
+}

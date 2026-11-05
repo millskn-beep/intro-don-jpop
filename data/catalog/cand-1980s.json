@@ -1,0 +1,1460 @@
+[
+ {
+  "title": "裸足の季節",
+  "artist": "松田聖子",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "風は秋色",
+  "artist": "松田聖子",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "チェリーブラッサム",
+  "artist": "松田聖子",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "夏の扉",
+  "artist": "松田聖子",
+  "year": 1981,
+  "fame": 1
+ },
+ {
+  "title": "白いパラソル",
+  "artist": "松田聖子",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "風立ちぬ",
+  "artist": "松田聖子",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "渚のバルコニー",
+  "artist": "松田聖子",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "小麦色のマーメイド",
+  "artist": "松田聖子",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "野ばらのエチュード",
+  "artist": "松田聖子",
+  "year": 1982,
+  "fame": 3
+ },
+ {
+  "title": "秘密の花園",
+  "artist": "松田聖子",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "天国のキッス",
+  "artist": "松田聖子",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "ガラスの林檎",
+  "artist": "松田聖子",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "SWEET MEMORIES",
+  "artist": "松田聖子",
+  "year": 1983,
+  "fame": 1
+ },
+ {
+  "title": "瞳はダイアモンド",
+  "artist": "松田聖子",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "Rock'n Rouge",
+  "artist": "松田聖子",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "時間の国のアリス",
+  "artist": "松田聖子",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "ピンクのモーツァルト",
+  "artist": "松田聖子",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "ハートのイアリング",
+  "artist": "松田聖子",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "天使のウィンク",
+  "artist": "松田聖子",
+  "year": 1985,
+  "fame": 2
+ },
+ {
+  "title": "Strawberry Time",
+  "artist": "松田聖子",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "Pearl-White Eve",
+  "artist": "松田聖子",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "スローモーション",
+  "artist": "中森明菜",
+  "year": 1982,
+  "fame": 3
+ },
+ {
+  "title": "セカンド・ラブ",
+  "artist": "中森明菜",
+  "year": 1982,
+  "fame": 1
+ },
+ {
+  "title": "1/2の神話",
+  "artist": "中森明菜",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "トワイライト -夕暮れ便り-",
+  "artist": "中森明菜",
+  "year": 1983,
+  "fame": 3
+ },
+ {
+  "title": "禁区",
+  "artist": "中森明菜",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "北ウイング",
+  "artist": "中森明菜",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "サザン・ウインド",
+  "artist": "中森明菜",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "十戒 (1984)",
+  "artist": "中森明菜",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "ミ・アモーレ〔Meu amor é・・・〕",
+  "artist": "中森明菜",
+  "year": 1985,
+  "fame": 2
+ },
+ {
+  "title": "SAND BEIGE -砂漠へ-",
+  "artist": "中森明菜",
+  "year": 1985,
+  "fame": 3
+ },
+ {
+  "title": "ジプシー・クイーン",
+  "artist": "中森明菜",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "TANGO NOIR",
+  "artist": "中森明菜",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "難破船",
+  "artist": "中森明菜",
+  "year": 1987,
+  "fame": 2
+ },
+ {
+  "title": "私の16才",
+  "artist": "小泉今日子",
+  "year": 1982,
+  "fame": 3
+ },
+ {
+  "title": "まっ赤な女の子",
+  "artist": "小泉今日子",
+  "year": 1983,
+  "fame": 3
+ },
+ {
+  "title": "渚のはいから人魚",
+  "artist": "小泉今日子",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "迷宮のアンドローラ",
+  "artist": "小泉今日子",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "ヤマトナデシコ七変化",
+  "artist": "小泉今日子",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "なんてったってアイドル",
+  "artist": "小泉今日子",
+  "year": 1985,
+  "fame": 1
+ },
+ {
+  "title": "木枯しに抱かれて",
+  "artist": "小泉今日子",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "学園天国",
+  "artist": "小泉今日子",
+  "year": 1989,
+  "fame": 2
+ },
+ {
+  "title": "Fade Out",
+  "artist": "小泉今日子",
+  "year": 1989,
+  "fame": 3
+ },
+ {
+  "title": "スマイル・フォー・ミー",
+  "artist": "河合奈保子",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "けんかをやめて",
+  "artist": "河合奈保子",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "エスカレーション",
+  "artist": "河合奈保子",
+  "year": 1983,
+  "fame": 3
+ },
+ {
+  "title": "ハロー・グッバイ",
+  "artist": "柏原芳恵",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "春なのに",
+  "artist": "柏原芳恵",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "夏色のナンシー",
+  "artist": "早見優",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "センチメンタル・ジャーニー",
+  "artist": "松本伊代",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "少女人形",
+  "artist": "伊藤つかさ",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "セクシー・ナイト",
+  "artist": "三原順子",
+  "year": 1980,
+  "fame": 3
+ },
+ {
+  "title": "NAI・NAI 16",
+  "artist": "シブがき隊",
+  "year": 1982,
+  "fame": 3
+ },
+ {
+  "title": "スシ食いねェ!",
+  "artist": "シブがき隊",
+  "year": 1986,
+  "fame": 2
+ },
+ {
+  "title": "スニーカーぶる〜す",
+  "artist": "近藤真彦",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "ヨコハマ・チーク",
+  "artist": "近藤真彦",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "ブルージーンズメモリー",
+  "artist": "近藤真彦",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "ギンギラギンにさりげなく",
+  "artist": "近藤真彦",
+  "year": 1981,
+  "fame": 1
+ },
+ {
+  "title": "ハイティーン・ブギ",
+  "artist": "近藤真彦",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "愚か者",
+  "artist": "近藤真彦",
+  "year": 1987,
+  "fame": 2
+ },
+ {
+  "title": "哀愁でいと",
+  "artist": "田原俊彦",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "ハッとして!Good",
+  "artist": "田原俊彦",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "抱きしめてTONIGHT",
+  "artist": "田原俊彦",
+  "year": 1988,
+  "fame": 2
+ },
+ {
+  "title": "デカメロン伝説",
+  "artist": "少年隊",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "君だけに",
+  "artist": "少年隊",
+  "year": 1987,
+  "fame": 2
+ },
+ {
+  "title": "ABC",
+  "artist": "少年隊",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "STAR LIGHT",
+  "artist": "光GENJI",
+  "year": 1987,
+  "fame": 2
+ },
+ {
+  "title": "パラダイス銀河",
+  "artist": "光GENJI",
+  "year": 1988,
+  "fame": 1
+ },
+ {
+  "title": "太陽がいっぱい",
+  "artist": "光GENJI",
+  "year": 1989,
+  "fame": 3
+ },
+ {
+  "title": "DAYBREAK",
+  "artist": "男闘呼組",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "卒業 -GRADUATION-",
+  "artist": "菊池桃子",
+  "year": 1985,
+  "fame": 3
+ },
+ {
+  "title": "卒業",
+  "artist": "斉藤由貴",
+  "year": 1985,
+  "fame": 2
+ },
+ {
+  "title": "悲しみよこんにちは",
+  "artist": "斉藤由貴",
+  "year": 1986,
+  "fame": 2
+ },
+ {
+  "title": "夢の中へ",
+  "artist": "斉藤由貴",
+  "year": 1989,
+  "fame": 3
+ },
+ {
+  "title": "セーラー服を脱がさないで",
+  "artist": "おニャン子クラブ",
+  "year": 1985,
+  "fame": 2
+ },
+ {
+  "title": "じゃあね",
+  "artist": "おニャン子クラブ",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "バレンタイン・キッス",
+  "artist": "国生さゆり with おニャン子クラブ",
+  "year": 1986,
+  "fame": 1
+ },
+ {
+  "title": "冬のオペラグラス",
+  "artist": "新田恵利",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "くちびるNetwork",
+  "artist": "岡田有希子",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "禁断のテレパシー",
+  "artist": "工藤静香",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "MUGO・ん…色っぽい",
+  "artist": "工藤静香",
+  "year": 1988,
+  "fame": 2
+ },
+ {
+  "title": "恋一夜",
+  "artist": "工藤静香",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "嵐の素顔",
+  "artist": "工藤静香",
+  "year": 1989,
+  "fame": 3
+ },
+ {
+  "title": "黄砂に吹かれて",
+  "artist": "工藤静香",
+  "year": 1989,
+  "fame": 2
+ },
+ {
+  "title": "ツイてるねノッてるね",
+  "artist": "中山美穂",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "WAKU WAKUさせて",
+  "artist": "中山美穂",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "CATCH ME",
+  "artist": "中山美穂",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "You're My Only Shinin' Star",
+  "artist": "中山美穂",
+  "year": 1988,
+  "fame": 2
+ },
+ {
+  "title": "話しかけたかった",
+  "artist": "南野陽子",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "吐息でネット。",
+  "artist": "南野陽子",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "C-Girl",
+  "artist": "浅香唯",
+  "year": 1988,
+  "fame": 2
+ },
+ {
+  "title": "セシル",
+  "artist": "浅香唯",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "1986年のマリリン",
+  "artist": "本田美奈子",
+  "year": 1986,
+  "fame": 2
+ },
+ {
+  "title": "Oneway Generation",
+  "artist": "本田美奈子",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "六本木純情派",
+  "artist": "荻野目洋子",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "ヴィーナス",
+  "artist": "長山洋子",
+  "year": 1986,
+  "fame": 2
+ },
+ {
+  "title": "淋しい熱帯魚",
+  "artist": "Wink",
+  "year": 1989,
+  "fame": 1
+ },
+ {
+  "title": "涙をみせないで 〜Boys Don't Cry〜",
+  "artist": "Wink",
+  "year": 1989,
+  "fame": 3
+ },
+ {
+  "title": "17才",
+  "artist": "森高千里",
+  "year": 1989,
+  "fame": 2
+ },
+ {
+  "title": "CHA-CHA-CHA",
+  "artist": "石井明美",
+  "year": 1986,
+  "fame": 2
+ },
+ {
+  "title": "Give Me Up",
+  "artist": "BaBe",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "My Revolution",
+  "artist": "渡辺美里",
+  "year": 1986,
+  "fame": 1
+ },
+ {
+  "title": "フレンズ",
+  "artist": "REBECCA",
+  "year": 1985,
+  "fame": 1
+ },
+ {
+  "title": "RASPBERRY DREAM",
+  "artist": "REBECCA",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "MOON",
+  "artist": "REBECCA",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "わがままジュリエット",
+  "artist": "BOØWY",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "B・BLUE",
+  "artist": "BOØWY",
+  "year": 1986,
+  "fame": 2
+ },
+ {
+  "title": "MARIONETTE",
+  "artist": "BOØWY",
+  "year": 1987,
+  "fame": 2
+ },
+ {
+  "title": "ONLY YOU",
+  "artist": "BOØWY",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "BE MY BABY",
+  "artist": "COMPLEX",
+  "year": 1989,
+  "fame": 2
+ },
+ {
+  "title": "Shake Hip!",
+  "artist": "米米CLUB",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "チャコの海岸物語",
+  "artist": "サザンオールスターズ",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "Ya Ya (あの時代を忘れない)",
+  "artist": "サザンオールスターズ",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "ミス・ブランニュー・デイ (MISS BRAND-NEW DAY)",
+  "artist": "サザンオールスターズ",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "Bye Bye My Love (U are the one)",
+  "artist": "サザンオールスターズ",
+  "year": 1985,
+  "fame": 3
+ },
+ {
+  "title": "みんなのうた",
+  "artist": "サザンオールスターズ",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "BAN BAN BAN",
+  "artist": "KUWATA BAND",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "悲しい気持ち (JUST A MAN IN LOVE)",
+  "artist": "桑田佳祐",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "いつか何処かで (I FEEL THE ECHO)",
+  "artist": "桑田佳祐",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "不思議なピーチパイ",
+  "artist": "竹内まりや",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "シングル・アゲイン",
+  "artist": "竹内まりや",
+  "year": 1989,
+  "fame": 2
+ },
+ {
+  "title": "RIDE ON TIME",
+  "artist": "山下達郎",
+  "year": 1980,
+  "fame": 1
+ },
+ {
+  "title": "高気圧ガール",
+  "artist": "山下達郎",
+  "year": 1983,
+  "fame": 3
+ },
+ {
+  "title": "クリスマス・イブ",
+  "artist": "山下達郎",
+  "year": 1983,
+  "fame": 1
+ },
+ {
+  "title": "GET BACK IN LOVE",
+  "artist": "山下達郎",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "君は天然色",
+  "artist": "大滝詠一",
+  "year": 1981,
+  "fame": 1
+ },
+ {
+  "title": "恋するカレン",
+  "artist": "大滝詠一",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "さらばシベリア鉄道",
+  "artist": "大滝詠一",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "SUMMER SUSPICION",
+  "artist": "杉山清貴&オメガトライブ",
+  "year": 1983,
+  "fame": 3
+ },
+ {
+  "title": "ふたりの夏物語 NEVER ENDING SUMMER",
+  "artist": "杉山清貴&オメガトライブ",
+  "year": 1985,
+  "fame": 2
+ },
+ {
+  "title": "さよならのオーシャン",
+  "artist": "杉山清貴",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "君は1000%",
+  "artist": "1986 OMEGA TRIBE",
+  "year": 1986,
+  "fame": 2
+ },
+ {
+  "title": "ドラマティック・レイン",
+  "artist": "稲垣潤一",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "夏のクラクション",
+  "artist": "稲垣潤一",
+  "year": 1983,
+  "fame": 3
+ },
+ {
+  "title": "スローなブギにしてくれ (I want you)",
+  "artist": "南佳孝",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "Yes-No",
+  "artist": "オフコース",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "言葉にできない",
+  "artist": "オフコース",
+  "year": 1982,
+  "fame": 1
+ },
+ {
+  "title": "ワインレッドの心",
+  "artist": "安全地帯",
+  "year": 1983,
+  "fame": 1
+ },
+ {
+  "title": "恋の予感",
+  "artist": "安全地帯",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "悲しみにさよなら",
+  "artist": "安全地帯",
+  "year": 1985,
+  "fame": 2
+ },
+ {
+  "title": "熱視線",
+  "artist": "安全地帯",
+  "year": 1985,
+  "fame": 3
+ },
+ {
+  "title": "碧い瞳のエリス",
+  "artist": "安全地帯",
+  "year": 1985,
+  "fame": 3
+ },
+ {
+  "title": "じれったい",
+  "artist": "安全地帯",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "星屑のステージ",
+  "artist": "チェッカーズ",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "哀しくてジェラシー",
+  "artist": "チェッカーズ",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "ジュリアに傷心",
+  "artist": "チェッカーズ",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "あの娘とスキャンダル",
+  "artist": "チェッカーズ",
+  "year": 1985,
+  "fame": 3
+ },
+ {
+  "title": "NANA",
+  "artist": "チェッカーズ",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "Song for U.S.A.",
+  "artist": "チェッカーズ",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "モニカ",
+  "artist": "吉川晃司",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "LA VIE EN ROSE",
+  "artist": "吉川晃司",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "にくまれそうなNEWフェイス",
+  "artist": "吉川晃司",
+  "year": 1985,
+  "fame": 3
+ },
+ {
+  "title": "順子",
+  "artist": "長渕剛",
+  "year": 1980,
+  "fame": 3
+ },
+ {
+  "title": "GOOD-BYE 青春",
+  "artist": "長渕剛",
+  "year": 1983,
+  "fame": 3
+ },
+ {
+  "title": "ろくなもんじゃねえ",
+  "artist": "長渕剛",
+  "year": 1987,
+  "fame": 2
+ },
+ {
+  "title": "乾杯",
+  "artist": "長渕剛",
+  "year": 1988,
+  "fame": 1
+ },
+ {
+  "title": "とんぼ",
+  "artist": "長渕剛",
+  "year": 1988,
+  "fame": 1
+ },
+ {
+  "title": "15の夜",
+  "artist": "尾崎豊",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "SOMEDAY",
+  "artist": "佐野元春",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "Young Bloods",
+  "artist": "佐野元春",
+  "year": 1985,
+  "fame": 3
+ },
+ {
+  "title": "ff (フォルティシモ)",
+  "artist": "HOUND DOG",
+  "year": 1985,
+  "fame": 2
+ },
+ {
+  "title": "メリーアン",
+  "artist": "THE ALFEE",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "星空のディスタンス",
+  "artist": "THE ALFEE",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "ひとり上手",
+  "artist": "中島みゆき",
+  "year": 1980,
+  "fame": 3
+ },
+ {
+  "title": "悪女",
+  "artist": "中島みゆき",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "夢の途中",
+  "artist": "来生たかお",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "探偵物語",
+  "artist": "薬師丸ひろ子",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "メイン・テーマ",
+  "artist": "薬師丸ひろ子",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "Woman \"Wの悲劇\"より",
+  "artist": "薬師丸ひろ子",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "時をかける少女",
+  "artist": "原田知世",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "天国にいちばん近い島",
+  "artist": "原田知世",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "雨音はショパンの調べ",
+  "artist": "小林麻美",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "ダンシング・オールナイト",
+  "artist": "もんた&ブラザーズ",
+  "year": 1980,
+  "fame": 1
+ },
+ {
+  "title": "恋人よ",
+  "artist": "五輪真弓",
+  "year": 1980,
+  "fame": 1
+ },
+ {
+  "title": "聖母たちのララバイ",
+  "artist": "岩崎宏美",
+  "year": 1982,
+  "fame": 1
+ },
+ {
+  "title": "まちぶせ",
+  "artist": "石川ひとみ",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "ハイスクールララバイ",
+  "artist": "イモ欽トリオ",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "ランナウェイ",
+  "artist": "シャネルズ",
+  "year": 1980,
+  "fame": 1
+ },
+ {
+  "title": "め組のひと",
+  "artist": "ラッツ&スター",
+  "year": 1983,
+  "fame": 1
+ },
+ {
+  "title": "Tシャツに口紅",
+  "artist": "ラッツ&スター",
+  "year": 1983,
+  "fame": 3
+ },
+ {
+  "title": "ガラス越しに消えた夏",
+  "artist": "鈴木雅之",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "悲しい色やね",
+  "artist": "上田正樹",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "君たちキウイ・パパイア・マンゴーだね。",
+  "artist": "中原めいこ",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "シルエット・ロマンス",
+  "artist": "大橋純子",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "for you…",
+  "artist": "高橋真梨子",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "桃色吐息",
+  "artist": "高橋真梨子",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "大迷惑",
+  "artist": "ユニコーン",
+  "year": 1989,
+  "fame": 2
+ },
+ {
+  "title": "人にやさしく",
+  "artist": "THE BLUE HEARTS",
+  "year": 1987,
+  "fame": 2
+ },
+ {
+  "title": "キスしてほしい",
+  "artist": "THE BLUE HEARTS",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "紅",
+  "artist": "X",
+  "year": 1989,
+  "fame": 1
+ },
+ {
+  "title": "ENDLESS RAIN",
+  "artist": "X",
+  "year": 1989,
+  "fame": 2
+ },
+ {
+  "title": "JUST ONE MORE KISS",
+  "artist": "BUCK-TICK",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "GLORIA",
+  "artist": "ZIGGY",
+  "year": 1989,
+  "fame": 2
+ },
+ {
+  "title": "目を閉じておいでよ",
+  "artist": "BARBEE BOYS",
+  "year": 1989,
+  "fame": 3
+ },
+ {
+  "title": "限界LOVERS",
+  "artist": "SHOW-YA",
+  "year": 1989,
+  "fame": 3
+ },
+ {
+  "title": "蝋人形の館",
+  "artist": "聖飢魔II",
+  "year": 1986,
+  "fame": 2
+ },
+ {
+  "title": "19 GROWING UP -ode to my buddy-",
+  "artist": "プリンセス プリンセス",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "輝きながら…",
+  "artist": "徳永英明",
+  "year": 1987,
+  "fame": 2
+ },
+ {
+  "title": "レイニー ブルース",
+  "artist": "徳永英明",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "You were mine",
+  "artist": "久保田利伸",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "十人十色",
+  "artist": "大江千里",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "万里の河",
+  "artist": "チャゲ&飛鳥",
+  "year": 1980,
+  "fame": 3
+ },
+ {
+  "title": "モーニングムーン",
+  "artist": "チャゲ&飛鳥",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "ふたりの愛ランド",
+  "artist": "石川優子とチャゲ",
+  "year": 1984,
+  "fame": 2
+ },
+ {
+  "title": "シーズン・イン・ザ・サン",
+  "artist": "TUBE",
+  "year": 1986,
+  "fame": 1
+ },
+ {
+  "title": "SUMMER DREAM",
+  "artist": "TUBE",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "雨の西麻布",
+  "artist": "とんねるず",
+  "year": 1985,
+  "fame": 3
+ },
+ {
+  "title": "Romanticが止まらない",
+  "artist": "C-C-B",
+  "year": 1985,
+  "fame": 1
+ },
+ {
+  "title": "あゝ無情",
+  "artist": "アン・ルイス",
+  "year": 1986,
+  "fame": 3
+ },
+ {
+  "title": "ラ・セゾン",
+  "artist": "アン・ルイス",
+  "year": 1982,
+  "fame": 3
+ },
+ {
+  "title": "翼の折れたエンジェル",
+  "artist": "中村あゆみ",
+  "year": 1985,
+  "fame": 1
+ },
+ {
+  "title": "川の流れのように",
+  "artist": "美空ひばり",
+  "year": 1989,
+  "fame": 1
+ },
+ {
+  "title": "愛はかげろう",
+  "artist": "雅夢",
+  "year": 1980,
+  "fame": 3
+ },
+ {
+  "title": "ジェニーはご機嫌ななめ",
+  "artist": "ジューシィ・フルーツ",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "ライディーン",
+  "artist": "YELLOW MAGIC ORCHESTRA",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "君に、胸キュン。",
+  "artist": "YELLOW MAGIC ORCHESTRA",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "雨あがりの夜空に",
+  "artist": "RCサクセション",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "い・け・な・いルージュマジック",
+  "artist": "忌野清志郎+坂本龍一",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "長い夜",
+  "artist": "松山千春",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "TOKIO",
+  "artist": "沢田研二",
+  "year": 1980,
+  "fame": 1
+ },
+ {
+  "title": "ス・ト・リ・ッ・パ・ー",
+  "artist": "沢田研二",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "おまえにチェックイン",
+  "artist": "沢田研二",
+  "year": 1982,
+  "fame": 3
+ },
+ {
+  "title": "2億4千万の瞳 -エキゾチック・ジャパン-",
+  "artist": "郷ひろみ",
+  "year": 1984,
+  "fame": 1
+ },
+ {
+  "title": "哀愁のカサブランカ",
+  "artist": "郷ひろみ",
+  "year": 1982,
+  "fame": 3
+ },
+ {
+  "title": "ギャランドゥ",
+  "artist": "西城秀樹",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "抱きしめてジルバ",
+  "artist": "西城秀樹",
+  "year": 1984,
+  "fame": 3
+ },
+ {
+  "title": "Hold On Me",
+  "artist": "小比類巻かほる",
+  "year": 1987,
+  "fame": 3
+ },
+ {
+  "title": "SUMMER CANDLES",
+  "artist": "杏里",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "彼女とTIP ON DUO",
+  "artist": "今井美樹",
+  "year": 1988,
+  "fame": 3
+ },
+ {
+  "title": "Return to Myself 〜しない、しない、ナツ。",
+  "artist": "浜田麻里",
+  "year": 1989,
+  "fame": 3
+ },
+ {
+  "title": "フライディ・チャイナタウン",
+  "artist": "泰葉",
+  "year": 1981,
+  "fame": 2
+ },
+ {
+  "title": "パープルタウン",
+  "artist": "八神純子",
+  "year": 1980,
+  "fame": 3
+ },
+ {
+  "title": "ボヘミアン",
+  "artist": "葛城ユキ",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "夏をあきらめて",
+  "artist": "研ナオコ",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "すみれ September Love",
+  "artist": "一風堂",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "約束",
+  "artist": "渡辺徹",
+  "year": 1982,
+  "fame": 3
+ },
+ {
+  "title": "恋のぼんちシート",
+  "artist": "ザ・ぼんち",
+  "year": 1981,
+  "fame": 3
+ },
+ {
+  "title": "男の勲章",
+  "artist": "嶋大輔",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "さよならの向う側",
+  "artist": "山口百恵",
+  "year": 1980,
+  "fame": 2
+ },
+ {
+  "title": "ロックンロール・ウィドウ",
+  "artist": "山口百恵",
+  "year": 1980,
+  "fame": 3
+ },
+ {
+  "title": "めだかの兄妹",
+  "artist": "わらべ",
+  "year": 1982,
+  "fame": 2
+ },
+ {
+  "title": "もしも明日が…。",
+  "artist": "わらべ",
+  "year": 1983,
+  "fame": 2
+ },
+ {
+  "title": "熱き心に",
+  "artist": "小林旭",
+  "year": 1985,
+  "fame": 2
+ }
+]

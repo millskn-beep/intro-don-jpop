@@ -1,0 +1,7750 @@
+{
+ "0": {
+  "title": "IRIS OUT",
+  "artist": "米津玄師",
+  "year": 2025,
+  "fame": 1,
+  "video": "LmZD-TU96q4",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "LmZD-TU96q4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "1": {
+  "title": "Bling-Bang-Bang-Born",
+  "artist": "Creepy Nuts",
+  "year": 2024,
+  "fame": 1,
+  "video": "mLW35YMzELE",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "mLW35YMzELE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "2": {
+  "title": "KICK BACK",
+  "artist": "米津玄師",
+  "year": 2022,
+  "fame": 1,
+  "video": "M2cckDmNLMI",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "M2cckDmNLMI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "3": {
+  "title": "Dynamite",
+  "artist": "BTS",
+  "year": 2020,
+  "fame": 1,
+  "video": "gdZLi9oWNZg",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "gdZLi9oWNZg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "4": {
+  "title": "Butter",
+  "artist": "BTS",
+  "year": 2021,
+  "fame": 1,
+  "video": "WMweEpGlu_U",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "WMweEpGlu_U",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "5": {
+  "title": "虹",
+  "artist": "菅田 将暉",
+  "year": 2020,
+  "fame": 1,
+  "video": "hkBbUf4oGfA",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "hkBbUf4oGfA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "6": {
+  "title": "Stand by me, Stand by you.",
+  "artist": "平井 大",
+  "year": 2020,
+  "fame": 2,
+  "video": "Zy_KuTFwot4",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "Zy_KuTFwot4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "7": {
+  "title": "炎",
+  "artist": "LiSA",
+  "year": 2020,
+  "fame": 1,
+  "video": "4DxL6IKmXx4",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "4DxL6IKmXx4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "8": {
+  "title": "Fanfare",
+  "artist": "TWICE",
+  "year": 2020,
+  "fame": 2,
+  "video": "kRT174IdxuM",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "kRT174IdxuM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "9": {
+  "title": "舞い落ちる花びら（Fallin' Flower）",
+  "artist": "SEVENTEEN",
+  "year": 2020,
+  "fame": 2,
+  "video": "u4iDL3c0T1c",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "u4iDL3c0T1c",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "10": {
+  "title": "Breakthrough",
+  "artist": "TWICE",
+  "year": 2019,
+  "fame": 2,
+  "video": "ZdKYi5ekshM",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "ZdKYi5ekshM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "11": {
+  "title": "BRAVE",
+  "artist": "嵐",
+  "year": 2019,
+  "fame": 2,
+  "video": "SU5OdCVXdNo",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "SU5OdCVXdNo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "12": {
+  "title": "HAPPY HAPPY",
+  "artist": "TWICE",
+  "year": 2019,
+  "fame": 2,
+  "video": "3n9rDwpa6QA",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "3n9rDwpa6QA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "13": {
+  "title": "ジワるDAYS",
+  "artist": "AKB48",
+  "year": 2019,
+  "fame": 1,
+  "video": "ZvNViwHjSa8",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "ZvNViwHjSa8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "14": {
+  "title": "こんなに好きになっちゃっていいの？",
+  "artist": "日向坂46",
+  "year": 2019,
+  "fame": 2,
+  "video": "EZBeo_k1k-A",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "EZBeo_k1k-A",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "15": {
+  "title": "NO WAY MAN",
+  "artist": "AKB48",
+  "year": 2018,
+  "fame": 2,
+  "video": "yMb0BLDlOwo",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "yMb0BLDlOwo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "16": {
+  "title": "FRUSTRATION",
+  "artist": "SKE48",
+  "year": 2019,
+  "fame": 2,
+  "video": "TsDe0694BqI",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "TsDe0694BqI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "17": {
+  "title": "Stand by you",
+  "artist": "SKE48",
+  "year": 2018,
+  "fame": 2,
+  "video": "zYYzf81pCks",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "zYYzf81pCks",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "18": {
+  "title": "好きと言わせたい",
+  "artist": "IZ*ONE",
+  "year": 2019,
+  "fame": 2,
+  "video": "dLymsYC7Kmo",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "dLymsYC7Kmo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "19": {
+  "title": "床の間正座娘",
+  "artist": "NMB48",
+  "year": 2019,
+  "fame": 2,
+  "video": "q4FwKFk658c",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "q4FwKFk658c",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "20": {
+  "title": "意志",
+  "artist": "HKT48",
+  "year": 2019,
+  "fame": 2,
+  "video": "I8UgKZQadS4",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "I8UgKZQadS4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "21": {
+  "title": "Buenos Aires",
+  "artist": "IZ*ONE",
+  "year": 2019,
+  "fame": 2,
+  "video": "M46FRJsB0Qw",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "M46FRJsB0Qw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "22": {
+  "title": "風を待つ",
+  "artist": "STU48",
+  "year": 2019,
+  "fame": 2,
+  "video": "asLJiYOf_No",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "asLJiYOf_No",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "23": {
+  "title": "Dearest",
+  "artist": "浜崎あゆみ",
+  "year": 2001,
+  "fame": 2,
+  "video": "VFSeESRAPKU",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "VFSeESRAPKU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "24": {
+  "title": "君をさがしてた～The Wedding Song～",
+  "artist": "CHEMISTRY",
+  "year": 2001,
+  "fame": 2,
+  "video": "bUFPHCr5mt0",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "bUFPHCr5mt0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "25": {
+  "title": "愛のうた",
+  "artist": "ストロベリー・フラワー",
+  "year": 2013,
+  "fame": 2,
+  "video": "k-scKkglR6M",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "k-scKkglR6M",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "26": {
+  "title": "あなただけ見つめてる",
+  "artist": "大黒摩季",
+  "year": 1994,
+  "fame": 1,
+  "video": "BmjjgJZwP3Y",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "BmjjgJZwP3Y",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "27": {
+  "title": "OH MY LITTLE GIRL",
+  "artist": "尾崎豊",
+  "year": 1983,
+  "fame": 1,
+  "video": "5GxpyQvxllA",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "5GxpyQvxllA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "28": {
+  "title": "奇跡の地球",
+  "artist": "桑田 佳祐 ＆ Mr.Children",
+  "year": 2002,
+  "fame": 1,
+  "video": "15MNHdubf3w",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "15MNHdubf3w",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "29": {
+  "title": "僕たちは戦わない",
+  "artist": "AKB48",
+  "year": 2015,
+  "fame": 1,
+  "video": "BWXyDAXRY9o",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "BWXyDAXRY9o",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "30": {
+  "title": "Green Flash",
+  "artist": "AKB48",
+  "year": 2015,
+  "fame": 1,
+  "video": "8r7SGQ4c4fQ",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "8r7SGQ4c4fQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "31": {
+  "title": "唇にBe My Baby",
+  "artist": "AKB48",
+  "year": 2015,
+  "fame": 1,
+  "video": "cXZceyjsQh0",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "cXZceyjsQh0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "32": {
+  "title": "コケティッシュ渋滞中",
+  "artist": "SKE48",
+  "year": 2015,
+  "fame": 1,
+  "video": "vaZOhiJjJww",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "vaZOhiJjJww",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "33": {
+  "title": "今、話したい誰かがいる",
+  "artist": "乃木坂46",
+  "year": 2015,
+  "fame": 1,
+  "video": "trXbum9cz9g",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "trXbum9cz9g",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "34": {
+  "title": "太陽ノック",
+  "artist": "乃木坂46",
+  "year": 2015,
+  "fame": 1,
+  "video": "mduCFW2Ny-8",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "mduCFW2Ny-8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "35": {
+  "title": "Don't look back！",
+  "artist": "NMB48",
+  "year": 2015,
+  "fame": 1,
+  "video": "W3lanzlJ8MU",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "W3lanzlJ8MU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "36": {
+  "title": "前のめり",
+  "artist": "SKE48",
+  "year": 2015,
+  "fame": 1,
+  "video": "m9e1oHhZhRY",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "m9e1oHhZhRY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "37": {
+  "title": "12月のカンガルー",
+  "artist": "SKE48",
+  "year": 2014,
+  "fame": 1,
+  "video": "_ZM8R4TPSZI",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "_ZM8R4TPSZI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "38": {
+  "title": "ドリアン少年",
+  "artist": "NMB48",
+  "year": 2015,
+  "fame": 1,
+  "video": "S8L3D9rXKyk",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "S8L3D9rXKyk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "39": {
+  "title": "Must be now",
+  "artist": "NMB48",
+  "year": 2015,
+  "fame": 1,
+  "video": "4Uum-O3LbsY",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "4Uum-O3LbsY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "40": {
+  "title": "12秒",
+  "artist": "HKT48",
+  "year": 2015,
+  "fame": 1,
+  "video": "aI20JvHedIs",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "aI20JvHedIs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "41": {
+  "title": "コップの中の木漏れ日",
+  "artist": "ラブ・クレッシェンド",
+  "year": 2015,
+  "fame": 1,
+  "video": "m4ehf-ymfgo",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "m4ehf-ymfgo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "42": {
+  "title": "翼はいらない",
+  "artist": "AKB48",
+  "year": 2016,
+  "fame": 1,
+  "video": "4Y29etPlxPY",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "4Y29etPlxPY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "43": {
+  "title": "ハイテンション",
+  "artist": "AKB48",
+  "year": 2016,
+  "fame": 1,
+  "video": "fj6iDHciEmA",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "fj6iDHciEmA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "44": {
+  "title": "チキンLINE",
+  "artist": "SKE48",
+  "year": 2016,
+  "fame": 2,
+  "video": "vWGZUFqYxj0",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "vWGZUFqYxj0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "45": {
+  "title": "僕はいない",
+  "artist": "NMB48",
+  "year": 2016,
+  "fame": 2,
+  "video": "ZL4SiM3zfLo",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "ZL4SiM3zfLo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "46": {
+  "title": "最高かよ",
+  "artist": "HKT48",
+  "year": 2016,
+  "fame": 2,
+  "video": "CGXwRIcnrJo",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "CGXwRIcnrJo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "47": {
+  "title": "金の愛、銀の愛",
+  "artist": "SKE48",
+  "year": 2016,
+  "fame": 2,
+  "video": "beVadlapkxU",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "beVadlapkxU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "48": {
+  "title": "74億分の1の君へ",
+  "artist": "HKT48",
+  "year": 2016,
+  "fame": 2,
+  "video": "tSlJDGQKAMA",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "tSlJDGQKAMA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "49": {
+  "title": "願いごとの持ち腐れ",
+  "artist": "AKB48",
+  "year": 2017,
+  "fame": 1,
+  "video": "_pjovDamGHI",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "_pjovDamGHI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "50": {
+  "title": "#好きなんだ",
+  "artist": "AKB48",
+  "year": 2017,
+  "fame": 1,
+  "video": "zK_e8mCa5H0",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "zK_e8mCa5H0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "51": {
+  "title": "11月のアンクレット",
+  "artist": "AKB48",
+  "year": 2017,
+  "fame": 1,
+  "video": "ahW-oiMOoD0",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "ahW-oiMOoD0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "52": {
+  "title": "シュートサイン",
+  "artist": "AKB48",
+  "year": 2017,
+  "fame": 2,
+  "video": "sIgawh0g-PI",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "sIgawh0g-PI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "53": {
+  "title": "いつかできるから今日できる",
+  "artist": "乃木坂46",
+  "year": 2017,
+  "fame": 1,
+  "video": "kVxljIgOKXo",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "kVxljIgOKXo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "54": {
+  "title": "意外にマンゴー",
+  "artist": "SKE48",
+  "year": 2018,
+  "fame": 2,
+  "video": "nV5eehoSWC0",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "nV5eehoSWC0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "55": {
+  "title": "僕以外の誰か",
+  "artist": "NMB48",
+  "year": 2016,
+  "fame": 2,
+  "video": "2LCoB-jdBPQ",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "2LCoB-jdBPQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "56": {
+  "title": "センチメンタルトレイン",
+  "artist": "AKB48",
+  "year": 2018,
+  "fame": 1,
+  "video": "ADh4z1VPdVI",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "ADh4z1VPdVI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "57": {
+  "title": "ジャーバージャ",
+  "artist": "AKB48",
+  "year": 2018,
+  "fame": 2,
+  "video": "IjFaR-qPr0M",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "IjFaR-qPr0M",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "58": {
+  "title": "いきなりパンチライン",
+  "artist": "SKE48",
+  "year": 2018,
+  "fame": 2,
+  "video": "Onbgr-dNG-o",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "Onbgr-dNG-o",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "59": {
+  "title": "無意識の色",
+  "artist": "SKE48",
+  "year": 2018,
+  "fame": 2,
+  "video": "so2ELIW3p48",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "so2ELIW3p48",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "60": {
+  "title": "大好きな人",
+  "artist": "STU48",
+  "year": 2019,
+  "fame": 2,
+  "video": "_TBwbngUBwI",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "_TBwbngUBwI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "61": {
+  "title": "母校へ帰れ！",
+  "artist": "NMB48",
+  "year": 2019,
+  "fame": 2,
+  "video": "c5nENMmonok",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "c5nENMmonok",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "62": {
+  "title": "桜の栞",
+  "artist": "AKB48",
+  "year": 2010,
+  "fame": 1,
+  "video": "lhEK1mxOm-I",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "lhEK1mxOm-I",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "63": {
+  "title": "また君に恋してる",
+  "artist": "坂本冬美",
+  "year": 2009,
+  "fame": 1,
+  "video": "bVYu3f4qfsU",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "bVYu3f4qfsU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "64": {
+  "title": "オキドキ",
+  "artist": "SKE48",
+  "year": 2011,
+  "fame": 1,
+  "video": "SfMz_TmpRKU",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "SfMz_TmpRKU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "65": {
+  "title": "オーマイガー！",
+  "artist": "NMB48",
+  "year": 2011,
+  "fame": 1,
+  "video": "WWoe2SE3Ohk",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "WWoe2SE3Ohk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "66": {
+  "title": "絶滅黒髪少女",
+  "artist": "NMB48",
+  "year": 2013,
+  "fame": 1,
+  "video": "o9x23NlSo7c",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "o9x23NlSo7c",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "67": {
+  "title": "Dear J",
+  "artist": "板野友美",
+  "year": 2011,
+  "fame": 1,
+  "video": "WuVNanzKk9k",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "WuVNanzKk9k",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "68": {
+  "title": "キスだって左利き",
+  "artist": "SKE48",
+  "year": 2012,
+  "fame": 2,
+  "video": "WsNXEEV8V8c",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "WsNXEEV8V8c",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "69": {
+  "title": "アイシテラブル!",
+  "artist": "SKE48",
+  "year": 2012,
+  "fame": 2,
+  "video": "U2_hMuuVGnY",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "U2_hMuuVGnY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "70": {
+  "title": "ナギイチ",
+  "artist": "NMB48",
+  "year": 2012,
+  "fame": 2,
+  "video": "s5582aTtlks",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "s5582aTtlks",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "71": {
+  "title": "ヴァージニティー",
+  "artist": "NMB48",
+  "year": 2012,
+  "fame": 2,
+  "video": "84JBbiDwyKc",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "84JBbiDwyKc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "72": {
+  "title": "純情U-19",
+  "artist": "NMB48",
+  "year": 2012,
+  "fame": 2,
+  "video": "oqpMAVtsB8k",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "oqpMAVtsB8k",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "73": {
+  "title": "北川謙二",
+  "artist": "NMB48",
+  "year": 2012,
+  "fame": 2,
+  "video": "91J0C2K9nVQ",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "91J0C2K9nVQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "74": {
+  "title": "走れ！Bicycle",
+  "artist": "乃木坂46",
+  "year": 2012,
+  "fame": 2,
+  "video": "AK_Nv64IVm8",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "AK_Nv64IVm8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "75": {
+  "title": "チョコの奴隷",
+  "artist": "SKE48",
+  "year": 2013,
+  "fame": 2,
+  "video": "Cu_jVA3B82Y",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "Cu_jVA3B82Y",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "76": {
+  "title": "美しい稲妻",
+  "artist": "SKE48",
+  "year": 2013,
+  "fame": 2,
+  "video": "cBqbmT0YFeY",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "cBqbmT0YFeY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "77": {
+  "title": "僕らのユリイカ",
+  "artist": "NMB48",
+  "year": 2013,
+  "fame": 2,
+  "video": "_0vRVFudOg4",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "_0vRVFudOg4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "78": {
+  "title": "賛成カワイイ!",
+  "artist": "SKE48",
+  "year": 2013,
+  "fame": 2,
+  "video": "GHvijEJi8Pc",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "GHvijEJi8Pc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "79": {
+  "title": "カモネギックス",
+  "artist": "NMB48",
+  "year": 2013,
+  "fame": 2,
+  "video": "jRvUkCqQdCg",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "jRvUkCqQdCg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "80": {
+  "title": "バレッタ",
+  "artist": "乃木坂46",
+  "year": 2013,
+  "fame": 2,
+  "video": "5DLrnKOiVlA",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "5DLrnKOiVlA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "81": {
+  "title": "スキ！スキ！スキップ！",
+  "artist": "HKT48",
+  "year": 2013,
+  "fame": 2,
+  "video": "SUjvUN0vztY",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "SUjvUN0vztY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "82": {
+  "title": "夏のFree&Easy",
+  "artist": "乃木坂46",
+  "year": 2014,
+  "fame": 2,
+  "video": "-USHcV55s8A",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "-USHcV55s8A",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "83": {
+  "title": "未来とは?",
+  "artist": "SKE48",
+  "year": 2014,
+  "fame": 2,
+  "video": "6kfZE8ok3PU",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "6kfZE8ok3PU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "84": {
+  "title": "不器用太陽",
+  "artist": "SKE48",
+  "year": 2014,
+  "fame": 2,
+  "video": "3RtEFgYzMPE",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "3RtEFgYzMPE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "85": {
+  "title": "高嶺の林檎",
+  "artist": "NMB48",
+  "year": 2014,
+  "fame": 2,
+  "video": "QXuY2RgGuCQ",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "QXuY2RgGuCQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "86": {
+  "title": "らしくない",
+  "artist": "NMB48",
+  "year": 2014,
+  "fame": 2,
+  "video": "eiBfJSyHevI",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "eiBfJSyHevI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "87": {
+  "title": "桜、みんなで食べた",
+  "artist": "HKT48",
+  "year": 2014,
+  "fame": 2,
+  "video": "4-gTfa2hO0o",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "4-gTfa2hO0o",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "88": {
+  "title": "控えめI love you !",
+  "artist": "HKT48",
+  "year": 2014,
+  "fame": 2,
+  "video": "k4erhSoOpHg",
+  "from": [
+   "spotify",
+   "nendai"
+  ],
+  "hit": {
+   "id": "k4erhSoOpHg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "89": {
+  "title": "GLAMOROUS SKY",
+  "artist": "Nana starring Mika Nakashima",
+  "year": 2006,
+  "fame": 1,
+  "video": "1mzLzI3dU6U",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "1mzLzI3dU6U",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "90": {
+  "title": "タイヨウのうた",
+  "artist": "Kaoru Amane",
+  "year": 2006,
+  "fame": 1,
+  "video": "MBn-m_W-XQ0",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "MBn-m_W-XQ0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "91": {
+  "title": "愛のままで…",
+  "artist": "秋元順子",
+  "year": 2008,
+  "fame": 1,
+  "video": "SXcaeRyUzEA",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "SXcaeRyUzEA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "92": {
+  "title": "Dear Friend - 30th anniversary mix",
+  "artist": "中森明菜",
+  "year": 2012,
+  "fame": 1,
+  "video": "JmYhxypmRvw",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "JmYhxypmRvw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "93": {
+  "title": "くちびるから媚薬",
+  "artist": "工藤静香",
+  "year": 2001,
+  "fame": 1,
+  "video": "RKa7DXH8atk",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "RKa7DXH8atk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "94": {
+  "title": "ミ・アモーレ[Meu amor e...] - 30th anniversary mix",
+  "artist": "中森明菜",
+  "year": 2012,
+  "fame": 1,
+  "video": "jiYUOS4JxFM",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "jiYUOS4JxFM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "95": {
+  "title": "タッチ",
+  "artist": "岩崎良美",
+  "year": 1985,
+  "fame": 1,
+  "video": "WW6OgFqTNfg",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "WW6OgFqTNfg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "96": {
+  "title": "BLONDE - 30th anniversary mix",
+  "artist": "中森明菜",
+  "year": 2012,
+  "fame": 1,
+  "video": "turadmaU6hY",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "turadmaU6hY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "97": {
+  "title": "SHOW ME (アルバム「Cuarto」vers)",
+  "artist": "森川由加里",
+  "year": 2012,
+  "fame": 2,
+  "video": "tPLBxLHM_MA",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "tPLBxLHM_MA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "98": {
+  "title": "時の流れに身をまかせ",
+  "artist": "テレサ・テン",
+  "year": 1980,
+  "fame": 2,
+  "video": "kYFqI9h7MTw",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "kYFqI9h7MTw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "99": {
+  "title": "人魚姫(mermaid)",
+  "artist": "中山美穂",
+  "year": 2015,
+  "fame": 1,
+  "video": "WZkYnYmrF7E",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "WZkYnYmrF7E",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "100": {
+  "title": "雨の慕情",
+  "artist": "八代亜紀",
+  "year": 2005,
+  "fame": 1,
+  "video": "ddWrMeYJuJs",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "ddWrMeYJuJs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "101": {
+  "title": "大阪しぐれ",
+  "artist": "都はるみ",
+  "year": 2013,
+  "fame": 1,
+  "video": "wo5n7Y5YRGE",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "wo5n7Y5YRGE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "102": {
+  "title": "つぐない",
+  "artist": "テレサ・テン",
+  "year": 1980,
+  "fame": 1,
+  "video": "NMX2KB9GQjg",
+  "from": [
+   "spotify",
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "NMX2KB9GQjg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "103": {
+  "title": "奥飛騨慕情",
+  "artist": "竜鉄也",
+  "year": 1980,
+  "fame": 1,
+  "video": "c_qKXOFVOI0",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "c_qKXOFVOI0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "104": {
+  "title": "街角トワイライト",
+  "artist": "シャネルズ",
+  "year": 1981,
+  "fame": 1,
+  "video": "O94OBUyQngc",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "O94OBUyQngc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "105": {
+  "title": "心の色",
+  "artist": "中村雅俊",
+  "year": 1981,
+  "fame": 1,
+  "video": "gaXlqJfGi3A",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "gaXlqJfGi3A",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "106": {
+  "title": "北酒場",
+  "artist": "細川たかし",
+  "year": 1982,
+  "fame": 1,
+  "video": "V7E3kn1Y64A",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "V7E3kn1Y64A",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "107": {
+  "title": "情熱・熱風・せれなーで",
+  "artist": "近藤真彦",
+  "year": 1982,
+  "fame": 2,
+  "video": "zGuyTSta8p4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "zGuyTSta8p4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "108": {
+  "title": "ふられてBANZAI",
+  "artist": "近藤真彦",
+  "year": 1982,
+  "fame": 1,
+  "video": "Gk-yyuf4TMQ",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "Gk-yyuf4TMQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "109": {
+  "title": "さざんかの宿",
+  "artist": "大川栄策",
+  "year": 1982,
+  "fame": 1,
+  "video": "kJOi-_EnZug",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "kJOi-_EnZug",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "110": {
+  "title": "矢切の渡し",
+  "artist": "細川たかし",
+  "year": 1983,
+  "fame": 1,
+  "video": "cfHYDqadvlQ",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "cfHYDqadvlQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "111": {
+  "title": "探偵物語／すこしだけやさしく",
+  "artist": "薬師丸ひろ子",
+  "year": 1983,
+  "fame": 2,
+  "video": "e-dsvxgKY50",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "e-dsvxgKY50",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "112": {
+  "title": "キャッツ・アイ",
+  "artist": "杏里",
+  "year": 1983,
+  "fame": 2,
+  "video": "xOihMx9qeTw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "xOihMx9qeTw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "113": {
+  "title": "ガラスの林檎／SWEET MEMORIES",
+  "artist": "松田聖子",
+  "year": 1983,
+  "fame": 2,
+  "video": "ZB0qwcGFYIM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "ZB0qwcGFYIM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "114": {
+  "title": "フラッシュダンス",
+  "artist": "アイリーン・キャラ",
+  "year": 1983,
+  "fame": 2,
+  "video": "Ht1YznzzlsI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Ht1YznzzlsI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "115": {
+  "title": "娘よ",
+  "artist": "芦屋雁之助",
+  "year": 1984,
+  "fame": 1,
+  "video": "KiqrOEXqsMc",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "KiqrOEXqsMc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "116": {
+  "title": "俺たちのロカビリーナイト",
+  "artist": "チェッカーズ",
+  "year": 1985,
+  "fame": 1,
+  "video": "18r4239DZj4",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "18r4239DZj4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "117": {
+  "title": "スキップ・ビート",
+  "artist": "Kuwata Band",
+  "year": 1986,
+  "fame": 1,
+  "video": "eKDEjywmS2A",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "eKDEjywmS2A",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "118": {
+  "title": "OH！！ POPSTAR",
+  "artist": "チェッカーズ",
+  "year": 1986,
+  "fame": 1,
+  "video": "43_ejpOCYWI",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "43_ejpOCYWI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "119": {
+  "title": "青いスタシオン",
+  "artist": "河合その子",
+  "year": 1986,
+  "fame": 2,
+  "video": "Qkt8a6NNfrY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Qkt8a6NNfrY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "120": {
+  "title": "命くれない",
+  "artist": "瀬川瑛子",
+  "year": 1986,
+  "fame": 1,
+  "video": "9eo74quyZTo",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "9eo74quyZTo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "121": {
+  "title": "雪國",
+  "artist": "吉幾三",
+  "year": 1986,
+  "fame": 1,
+  "video": "KIDdrPs9vJE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "KIDdrPs9vJE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "122": {
+  "title": "無錫旅情",
+  "artist": "尾形大作",
+  "year": 1986,
+  "fame": 2,
+  "video": "xq26-TYEQSk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "xq26-TYEQSk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "123": {
+  "title": "追憶",
+  "artist": "五木ひろし",
+  "year": 1987,
+  "fame": 1,
+  "video": "EfdrG7lGp08",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "EfdrG7lGp08",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "124": {
+  "title": "Diamondハリケーン",
+  "artist": "光GENJI",
+  "year": 1988,
+  "fame": 1,
+  "video": "iX8GT8vbxvQ",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "iX8GT8vbxvQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "125": {
+  "title": "剣の舞",
+  "artist": "光GENJI",
+  "year": 1988,
+  "fame": 1,
+  "video": "3aWF0bxIaqU",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "3aWF0bxIaqU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "126": {
+  "title": "ANGEL",
+  "artist": "氷室京介",
+  "year": 1988,
+  "fame": 1,
+  "video": "SiO8JvVB52E",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "SiO8JvVB52E",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "127": {
+  "title": "世界でいちばん熱い夏",
+  "artist": "プリンセス・プリンセス",
+  "year": 1989,
+  "fame": 1,
+  "video": "x-_yZKI7EhE",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "x-_yZKI7EhE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "128": {
+  "title": "おどるポンポコリン",
+  "artist": "B.B.クィーンズ",
+  "year": 1990,
+  "fame": 1,
+  "video": "-r4DIbDe0DM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "-r4DIbDe0DM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "129": {
+  "title": "OH YEAH！",
+  "artist": "プリンセス・プリンセス",
+  "year": 1990,
+  "fame": 2,
+  "video": "bHvU_UZl-x0",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "bHvU_UZl-x0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "130": {
+  "title": "イフ・ウイ・ホールド・オン・トゥゲザー",
+  "artist": "ダイアナ・ロス",
+  "year": 1988,
+  "fame": 2,
+  "video": "NTJ9PFZ7YZw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "NTJ9PFZ7YZw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "131": {
+  "title": "Eyes to me／彼は友達",
+  "artist": "DREAMS COME TRUE",
+  "year": 1991,
+  "fame": 2,
+  "video": "_07CnkM8ioA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "_07CnkM8ioA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "132": {
+  "title": "if",
+  "artist": "CHAGE&ASKA",
+  "year": 1992,
+  "fame": 2,
+  "video": "3maSj8YVnEI",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "3maSj8YVnEI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "133": {
+  "title": "PIECE MY WISH",
+  "artist": "今井美樹",
+  "year": 1991,
+  "fame": 2,
+  "video": "758x9CTvp80",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "758x9CTvp80",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "134": {
+  "title": "エロティカ・セブン",
+  "artist": "サザンオールスターズ",
+  "year": 1993,
+  "fame": 1,
+  "video": "S15qbnUbsXc",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "S15qbnUbsXc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "135": {
+  "title": "世界が終るまでは･･･",
+  "artist": "WANDS",
+  "year": 1994,
+  "fame": 2,
+  "video": "LFCb3RfPfXo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "LFCb3RfPfXo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "136": {
+  "title": "LA・LA・LA LOVE SONG",
+  "artist": "久保田利伸with NAOMI CAMPBELL",
+  "year": 1996,
+  "fame": 1,
+  "video": "prfepwJ5wZE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "prfepwJ5wZE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "137": {
+  "title": "YOU ARE THE ONE",
+  "artist": "TK PRESENTS こねっと",
+  "year": 1997,
+  "fame": 2,
+  "video": "TF8sMYBD6IU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "TF8sMYBD6IU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "138": {
+  "title": "タイミング",
+  "artist": "BLACK BISCUITS",
+  "year": 1998,
+  "fame": 1,
+  "video": "25YqR5OHXiY",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "25YqR5OHXiY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "139": {
+  "title": "全部だきしめて／青の時代",
+  "artist": "KinKi Kids",
+  "year": 1998,
+  "fame": 2,
+  "video": "MPIu-H18Tyw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "MPIu-H18Tyw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "140": {
+  "title": "だんご３兄弟",
+  "artist": "速水けんたろう、茂森あゆみ",
+  "year": 1999,
+  "fame": 1,
+  "video": "vb4bBwFX_Ts",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "vb4bBwFX_Ts",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "141": {
+  "title": "A",
+  "artist": "浜崎あゆみ",
+  "year": 1999,
+  "fame": 1,
+  "video": "cFZcdUXRzW4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "cFZcdUXRzW4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "142": {
+  "title": "energy flow",
+  "artist": "坂本龍一",
+  "year": 1999,
+  "fame": 1,
+  "video": "btyhpyJTyXg",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "btyhpyJTyXg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "143": {
+  "title": "ちょこっとLOVE",
+  "artist": "プッチモニ",
+  "year": 1999,
+  "fame": 2,
+  "video": "TiSVoe9xeNg",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "TiSVoe9xeNg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "144": {
+  "title": "NEO UNIVERSE／finale",
+  "artist": "L'Arc～en～Ciel",
+  "year": 2000,
+  "fame": 2,
+  "video": "l_1-ZF6adRk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "l_1-ZF6adRk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "145": {
+  "title": "H",
+  "artist": "浜崎あゆみ",
+  "year": 2002,
+  "fame": 1,
+  "video": "IUQGkybKIBw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "IUQGkybKIBw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "146": {
+  "title": "虹／ひまわり／それがすべてさ",
+  "artist": "福山雅治",
+  "year": 2003,
+  "fame": 1,
+  "video": "SXyqhjhaQQA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "SXyqhjhaQQA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "147": {
+  "title": "＆",
+  "artist": "浜崎あゆみ",
+  "year": 2003,
+  "fame": 2,
+  "video": "BSSzN17JxBo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "BSSzN17JxBo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "148": {
+  "title": "大切なもの",
+  "artist": "ロードオブメジャー",
+  "year": 2002,
+  "fame": 1,
+  "video": "o3whOgZwjkI",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "o3whOgZwjkI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "149": {
+  "title": "掌／くるみ",
+  "artist": "Mr.Children",
+  "year": 2003,
+  "fame": 2,
+  "video": "42JXfCgYfiU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "42JXfCgYfiU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "150": {
+  "title": "君こそスターだ／夢に消えたジュリア",
+  "artist": "サザンオールスターズ",
+  "year": 2004,
+  "fame": 2,
+  "video": "LLlRC1n83EE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "LLlRC1n83EE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "151": {
+  "title": "Mickey",
+  "artist": "Gorie with Jasmine＆Joann",
+  "year": 2004,
+  "fame": 1,
+  "video": "UPvPEpnqOaE",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "UPvPEpnqOaE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "152": {
+  "title": "四次元 Four Dimensions",
+  "artist": "Mr.Children",
+  "year": 2005,
+  "fame": 1,
+  "video": "YoDq9uPGVoc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "YoDq9uPGVoc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "153": {
+  "title": "＊ ～アスタリスク～",
+  "artist": "ORANGE RANGE",
+  "year": 2005,
+  "fame": 2,
+  "video": "-3kwKeKRM90",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "-3kwKeKRM90",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "154": {
+  "title": "SCREAM",
+  "artist": "GLAY×EXILE",
+  "year": 2005,
+  "fame": 2,
+  "video": "TkfgRJJaqYI",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "TkfgRJJaqYI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "155": {
+  "title": "ファンタスティポ",
+  "artist": "トラジ・ハイジ",
+  "year": 2005,
+  "fame": 1,
+  "video": "ZQQH9Fi8Il4",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "ZQQH9Fi8Il4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "156": {
+  "title": "supernova／カルマ",
+  "artist": "BUMP OF CHICKEN",
+  "year": 2005,
+  "fame": 2,
+  "video": "0EpQ40X_r0Q",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "0EpQ40X_r0Q",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "157": {
+  "title": "喜びの歌",
+  "artist": "KAT-TUN",
+  "year": 2007,
+  "fame": 2,
+  "video": "5lNeM1NpXsM",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "5lNeM1NpXsM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "158": {
+  "title": "関風ファイティング",
+  "artist": "関ジャニ∞",
+  "year": 2006,
+  "fame": 2,
+  "video": "Bjz5Mueq_Og",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Bjz5Mueq_Og",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "159": {
+  "title": "truth／風の向こうへ",
+  "artist": "嵐",
+  "year": 2008,
+  "fame": 1,
+  "video": "8etBhO7i7bM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "8etBhO7i7bM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "160": {
+  "title": "DON'T U EVER STOP",
+  "artist": "KAT-TUN",
+  "year": 2008,
+  "fame": 2,
+  "video": "43l3xCIkA90",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "43l3xCIkA90",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "161": {
+  "title": "LIPS",
+  "artist": "KAT-TUN",
+  "year": 2008,
+  "fame": 2,
+  "video": "Fc3ryDzUZeU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Fc3ryDzUZeU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "162": {
+  "title": "Believe／曇りのち、快晴",
+  "artist": "嵐／矢野健太 starring Satoshi Ohno",
+  "year": 2009,
+  "fame": 1,
+  "video": "sWsRujMZB_k",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "sWsRujMZB_k",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "163": {
+  "title": "明日の記憶／Crazy Moon～キミ・ハ・ムテキ～",
+  "artist": "嵐",
+  "year": 2009,
+  "fame": 1,
+  "video": "4Gag6z7c2Qw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "4Gag6z7c2Qw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "164": {
+  "title": "マイガール",
+  "artist": "嵐",
+  "year": 2009,
+  "fame": 1,
+  "video": "wkcLbBSJF24",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "wkcLbBSJF24",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "165": {
+  "title": "Everything",
+  "artist": "嵐",
+  "year": 2009,
+  "fame": 2,
+  "video": "naoaeWKnYZc",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "naoaeWKnYZc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "166": {
+  "title": "イチブトゼンブ／DIVE",
+  "artist": "B'z",
+  "year": 2009,
+  "fame": 2,
+  "video": "DNgjoJVnTvs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "DNgjoJVnTvs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "167": {
+  "title": "RESCUE",
+  "artist": "KAT-TUN",
+  "year": 2009,
+  "fame": 2,
+  "video": "-3CkQLrBIC0",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "-3CkQLrBIC0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "168": {
+  "title": "ONE DROP",
+  "artist": "KAT-TUN",
+  "year": 2009,
+  "fame": 2,
+  "video": "raR8HmMPkmE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "raR8HmMPkmE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "169": {
+  "title": "急☆上☆Show!!",
+  "artist": "関ジャニ∞",
+  "year": 2009,
+  "fame": 2,
+  "video": "x979x0LPOcY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "x979x0LPOcY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "170": {
+  "title": "Lφve Rainbow",
+  "artist": "嵐",
+  "year": 2010,
+  "fame": 2,
+  "video": "geOAylDYnhQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "geOAylDYnhQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "171": {
+  "title": "Dear Snow",
+  "artist": "嵐",
+  "year": 2010,
+  "fame": 2,
+  "video": "UXt1-yAbO7c",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "UXt1-yAbO7c",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "172": {
+  "title": "to be free",
+  "artist": "嵐",
+  "year": 2010,
+  "fame": 2,
+  "video": "-Y2P6LUcn88",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "-Y2P6LUcn88",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "173": {
+  "title": "Love yourself ～君が嫌いな君が好き～",
+  "artist": "KAT-TUN",
+  "year": 2010,
+  "fame": 2,
+  "video": "I9h738Oz50M",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "I9h738Oz50M",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "174": {
+  "title": "BREAK OUT！",
+  "artist": "東方神起",
+  "year": 2010,
+  "fame": 2,
+  "video": "tAkM_slxans",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "tAkM_slxans",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "175": {
+  "title": "Going！",
+  "artist": "KAT-TUN",
+  "year": 2010,
+  "fame": 2,
+  "video": "bQmXAXLAJXo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "bQmXAXLAJXo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "176": {
+  "title": "Wonderful World！！",
+  "artist": "関ジャニ∞",
+  "year": 2010,
+  "fame": 2,
+  "video": "-t--J2gZLBk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "-t--J2gZLBk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "177": {
+  "title": "はつ恋",
+  "artist": "福山雅治",
+  "year": 2009,
+  "fame": 1,
+  "video": "WLwgd5sCq_M",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "WLwgd5sCq_M",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "178": {
+  "title": "CHANGE UR WORLD",
+  "artist": "KAT-TUN",
+  "year": 2010,
+  "fame": 2,
+  "video": "Y9EmaqhGxX8",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Y9EmaqhGxX8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "179": {
+  "title": "瞳のスクリーン",
+  "artist": "Hey！Say！JUMP",
+  "year": 2010,
+  "fame": 2,
+  "video": "yowDIQhgnAM",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "yowDIQhgnAM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "180": {
+  "title": "蛍／少年",
+  "artist": "福山雅治",
+  "year": 2010,
+  "fame": 2,
+  "video": "lQQxViMcafQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "lQQxViMcafQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "181": {
+  "title": "I Wish For You",
+  "artist": "EXILE",
+  "year": 2010,
+  "fame": 2,
+  "video": "zyZqXkYRd7w",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "zyZqXkYRd7w",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "182": {
+  "title": "三味線旅がらす",
+  "artist": "氷川きよし",
+  "year": 2010,
+  "fame": 1,
+  "video": "zpDJJy-Go9c",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "zpDJJy-Go9c",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "183": {
+  "title": "さくらガール",
+  "artist": "NEWS",
+  "year": 2010,
+  "fame": 2,
+  "video": "yXdmVLoQqsM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "yXdmVLoQqsM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "184": {
+  "title": "時ヲ止メテ",
+  "artist": "東方神起",
+  "year": 2010,
+  "fame": 2,
+  "video": "qMRW3cdLYsk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "qMRW3cdLYsk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "185": {
+  "title": "もっと強く",
+  "artist": "EXILE",
+  "year": 2010,
+  "fame": 1,
+  "video": "J0TSrlig76c",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "J0TSrlig76c",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "186": {
+  "title": "XIAH",
+  "artist": "XIAH junsu",
+  "year": 2010,
+  "fame": 2,
+  "video": "ln-6lQiPjuI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "ln-6lQiPjuI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "187": {
+  "title": "One in a million",
+  "artist": "山下智久",
+  "year": 2010,
+  "fame": 2,
+  "video": "4KsHUfWZ55Y",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "4KsHUfWZ55Y",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "188": {
+  "title": "ユカイツーカイ怪物くん",
+  "artist": "怪物くん（怪物太郎）",
+  "year": 2010,
+  "fame": 2,
+  "video": "LkrlrY0rTWw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "LkrlrY0rTWw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "189": {
+  "title": "Gee",
+  "artist": "少女時代",
+  "year": 2009,
+  "fame": 1,
+  "video": "mpoKx48WmEM",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "mpoKx48WmEM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "190": {
+  "title": "Let’s try again",
+  "artist": "チーム・アミューズ!!",
+  "year": 2011,
+  "fame": 2,
+  "video": "N-TzXFg1VbY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "N-TzXFg1VbY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "191": {
+  "title": "Rising Sun／いつかきっと…",
+  "artist": "EXILE／EXILE ATSUSHI",
+  "year": 2011,
+  "fame": 2,
+  "video": "0rDGmAqv81U",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "0rDGmAqv81U",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "192": {
+  "title": "OVER",
+  "artist": "Hey! Say! JUMP",
+  "year": 2011,
+  "fame": 2,
+  "video": "9fk8OvG3TW4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "9fk8OvG3TW4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "193": {
+  "title": "Why？（Keep Your Head Down）",
+  "artist": "東方神起",
+  "year": 2011,
+  "fame": 2,
+  "video": "CMp5-W5TdrA",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "CMp5-W5TdrA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "194": {
+  "title": "バンザイVenus",
+  "artist": "SKE48",
+  "year": 2011,
+  "fame": 2,
+  "video": "dNbUGW1EWoQ",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "dNbUGW1EWoQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "195": {
+  "title": "T.W.L／イエローパンジーストリート",
+  "artist": "関ジャニ∞",
+  "year": 2011,
+  "fame": 2,
+  "video": "mD_fHcyC04w",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "mD_fHcyC04w",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "196": {
+  "title": "家族になろうよ／fighting pose",
+  "artist": "福山雅治",
+  "year": 2011,
+  "fame": 2,
+  "video": "vrkbf9CVkn4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "vrkbf9CVkn4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "197": {
+  "title": "Magic Power",
+  "artist": "Hey！Say！JUMP",
+  "year": 2011,
+  "fame": 2,
+  "video": "5jLeVHw1_C8",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "5jLeVHw1_C8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "198": {
+  "title": "週末Not yet",
+  "artist": "Not yet",
+  "year": 2011,
+  "fame": 2,
+  "video": "KgUn9AQz8Ug",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "KgUn9AQz8Ug",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "199": {
+  "title": "Eternal",
+  "artist": "赤西仁",
+  "year": 2011,
+  "fame": 2,
+  "video": "CMgA4GO8pzI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "CMgA4GO8pzI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "200": {
+  "title": "GO GO サマー！",
+  "artist": "KARA",
+  "year": 2011,
+  "fame": 1,
+  "video": "ogVMxZTcoCI",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "ogVMxZTcoCI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "201": {
+  "title": "ジェットコースターラブ",
+  "artist": "KARA",
+  "year": 2011,
+  "fame": 1,
+  "video": "cWDzVr3vPsg",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "cWDzVr3vPsg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "202": {
+  "title": "Don’t Wanna Lie",
+  "artist": "B’z",
+  "year": 2011,
+  "fame": 2,
+  "video": "TmTNLZU-FDI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "TmTNLZU-FDI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "203": {
+  "title": "Let me cry",
+  "artist": "チャン・グンソク",
+  "year": 2011,
+  "fame": 2,
+  "video": "itOzgk1cV7A",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "itOzgk1cV7A",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "204": {
+  "title": "Your Eyes",
+  "artist": "嵐",
+  "year": 2012,
+  "fame": 2,
+  "video": "BEtxciehBTs",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "BEtxciehBTs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "205": {
+  "title": "ER",
+  "artist": "エイトレンジャー",
+  "year": 2012,
+  "fame": 2,
+  "video": "ZT3qTqMNIw4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "ZT3qTqMNIw4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "206": {
+  "title": "WANNA BEEEE!!!/Shake It Up",
+  "artist": "Kis-My-Ft2",
+  "year": 2012,
+  "fame": 2,
+  "video": "N_cciOpYWBM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "N_cciOpYWBM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "207": {
+  "title": "We never give up!",
+  "artist": "Kis-My-Ft2",
+  "year": 2011,
+  "fame": 2,
+  "video": "fVrTV9_MI3o",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "fVrTV9_MI3o",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "208": {
+  "title": "愛でした。",
+  "artist": "関ジャニ∞",
+  "year": 2012,
+  "fame": 2,
+  "video": "G-FWo2aNx18",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "G-FWo2aNx18",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "209": {
+  "title": "アイノビート",
+  "artist": "Kis-My-Ft2",
+  "year": 2012,
+  "fame": 2,
+  "video": "v-5lGLcnsio",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "v-5lGLcnsio",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "210": {
+  "title": "SUPER DELICATE",
+  "artist": "Hey!Say!JUMP",
+  "year": 2012,
+  "fame": 2,
+  "video": "eFlBHRcnHrc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "eFlBHRcnHrc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "211": {
+  "title": "ALL NIGHT LONG",
+  "artist": "EXILE",
+  "year": 2012,
+  "fame": 2,
+  "video": "DpEM0zS0vgo",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "DpEM0zS0vgo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "212": {
+  "title": "SHE!HER!HER!",
+  "artist": "Kis-My-Ft2",
+  "year": 2012,
+  "fame": 2,
+  "video": "rCkUH6sqkAE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "rCkUH6sqkAE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "213": {
+  "title": "あおっぱな",
+  "artist": "関ジャニ∞",
+  "year": 2012,
+  "fame": 2,
+  "video": "uCHr3vaJxd8",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "uCHr3vaJxd8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "214": {
+  "title": "24karats TRIBE OF GOLD",
+  "artist": "EXILE TRIBE",
+  "year": 2012,
+  "fame": 1,
+  "video": "rOAEAlEcXEU",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "rOAEAlEcXEU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "215": {
+  "title": "EXILE PRIDE～こんな世界を愛するため～",
+  "artist": "EXILE",
+  "year": 2013,
+  "fame": 1,
+  "video": "dVvFTKa62Ts",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "dVvFTKa62Ts",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "216": {
+  "title": "Calling×Breathless",
+  "artist": "嵐",
+  "year": 2013,
+  "fame": 2,
+  "video": "nIufDQHcNto",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "nIufDQHcNto",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "217": {
+  "title": "Endless Game",
+  "artist": "嵐",
+  "year": 2013,
+  "fame": 2,
+  "video": "zQPuz5QR0Hg",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "zQPuz5QR0Hg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "218": {
+  "title": "My Resistance －タシカナモノ－／運命Girl",
+  "artist": "Kis-My-Ft2",
+  "year": 2013,
+  "fame": 2,
+  "video": "knPBjhIsKKk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "knPBjhIsKKk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "219": {
+  "title": "へそ曲がり／ここにしかない景色",
+  "artist": "関ジャニ∞（エイト）",
+  "year": 2013,
+  "fame": 2,
+  "video": "CPPdU6AbE30",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "CPPdU6AbE30",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "220": {
+  "title": "キミとのキセキ",
+  "artist": "Kis-My-Ft2",
+  "year": 2013,
+  "fame": 2,
+  "video": "l7WMpcQrf1w",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "l7WMpcQrf1w",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "221": {
+  "title": "SNOW DOMEの約束／Luv Sick",
+  "artist": "Kis-My-Ft2",
+  "year": 2013,
+  "fame": 2,
+  "video": "5EhrW5sd_mk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "5EhrW5sd_mk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "222": {
+  "title": "BURNING UP",
+  "artist": "EXILE TRIBE (三代目 J Soul Brothers VS GENERATIONS)",
+  "year": 2013,
+  "fame": 2,
+  "video": "uQq1x9Z8bhc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "uQq1x9Z8bhc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "223": {
+  "title": "涙の答え",
+  "artist": "関ジャニ∞（エイト）",
+  "year": 2013,
+  "fame": 2,
+  "video": "5w_4uWVcguc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "5w_4uWVcguc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "224": {
+  "title": "キ・ス・ウ・マ・イ 〜KISS YOUR MIND〜/S.O.S (Smile On Smile)",
+  "artist": "Kis-My-Ft2",
+  "year": 2013,
+  "fame": 2,
+  "video": "rch8_whBLd4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "rch8_whBLd4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "225": {
+  "title": "Come On A My House",
+  "artist": "Hey!Say!JUMP",
+  "year": 2013,
+  "fame": 2,
+  "video": "MO1wA0-wLOA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "MO1wA0-wLOA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "226": {
+  "title": "Mistake!/Battery",
+  "artist": "SMAP",
+  "year": 2013,
+  "fame": 2,
+  "video": "srysSYdwx34",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "srysSYdwx34",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "227": {
+  "title": "自由への進撃",
+  "artist": "Linked Horizon",
+  "year": 2013,
+  "fame": 2,
+  "video": "rtCTFdhEdYg",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "rtCTFdhEdYg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "228": {
+  "title": "鈴懸の木の道で「君の微笑みを夢に見る」と言ってしまったら僕たちの関係はどう変わってしまうのか、僕なりに何日か考えた上でのやや気恥ずかしい結論のようなもの",
+  "artist": "AKB48",
+  "year": 2013,
+  "fame": 2,
+  "video": "JLeFZZaUeaQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "JLeFZZaUeaQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "229": {
+  "title": "THE REVOLUTION",
+  "artist": "EXILE TRIBE",
+  "year": 2014,
+  "fame": 2,
+  "video": "WbRL4tMoi5A",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "WbRL4tMoi5A",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "230": {
+  "title": "誰も知らない",
+  "artist": "嵐",
+  "year": 2014,
+  "fame": 2,
+  "video": "4hjrJvt7nrQ",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "4hjrJvt7nrQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "231": {
+  "title": "キング オブ 男！",
+  "artist": "関ジャニ∞",
+  "year": 2014,
+  "fame": 2,
+  "video": "YmDZTnv9ab0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "YmDZTnv9ab0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "232": {
+  "title": "君にHITOMEBORE",
+  "artist": "Sexy Zone",
+  "year": 2014,
+  "fame": 2,
+  "video": "sgRgxLLhehQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "sgRgxLLhehQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "233": {
+  "title": "言ったじゃないか／CloveR",
+  "artist": "関ジャニ∞",
+  "year": 2014,
+  "fame": 2,
+  "video": "suT8JBf6q7w",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "suT8JBf6q7w",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "234": {
+  "title": "Another Future",
+  "artist": "Kis-My-Ft2",
+  "year": 2014,
+  "fame": 2,
+  "video": "icVdH4waSvY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "icVdH4waSvY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "235": {
+  "title": "ひびき",
+  "artist": "関ジャニ∞",
+  "year": 2014,
+  "fame": 2,
+  "video": "3XZBrBdUATY",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "3XZBrBdUATY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "236": {
+  "title": "シャレオツ／ハロー",
+  "artist": "SMAP",
+  "year": 2013,
+  "fame": 2,
+  "video": "--7N81HXp7o",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "--7N81HXp7o",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "237": {
+  "title": "光のシグナル",
+  "artist": "Kis-My-Ft2",
+  "year": 2014,
+  "fame": 2,
+  "video": "U7bJsdSWloU",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "U7bJsdSWloU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "238": {
+  "title": "ER2",
+  "artist": "エイトレンジャー",
+  "year": 2014,
+  "fame": 2,
+  "video": "uT9FK8xOFag",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "uT9FK8xOFag",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "239": {
+  "title": "AinoArika／愛すればもっとハッピーライフ",
+  "artist": "Hey！Say！JUMP",
+  "year": 2014,
+  "fame": 2,
+  "video": "umY-6L7xv24",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "umY-6L7xv24",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "240": {
+  "title": "ウィークエンダー／明日へのYELL",
+  "artist": "Hey！Say！JUMP",
+  "year": 2014,
+  "fame": 2,
+  "video": "GphGp8MkNVM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "GphGp8MkNVM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "241": {
+  "title": "青空の下、キミのとなり",
+  "artist": "嵐",
+  "year": 2015,
+  "fame": 2,
+  "video": "mZJiDoTjVeY",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "mZJiDoTjVeY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "242": {
+  "title": "Sakura",
+  "artist": "嵐",
+  "year": 2015,
+  "fame": 2,
+  "video": "F0qgYM_gLl0",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "F0qgYM_gLl0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "243": {
+  "title": "愛を叫べ",
+  "artist": "嵐",
+  "year": 2015,
+  "fame": 2,
+  "video": "mCfnPFHNd4E",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "mCfnPFHNd4E",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "244": {
+  "title": "Thank youじゃん！",
+  "artist": "Kis-My-Ft2",
+  "year": 2014,
+  "fame": 2,
+  "video": "O76CFZj_2iY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "O76CFZj_2iY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "245": {
+  "title": "starting over",
+  "artist": "三代目 J Soul Brothers from EXILE TRIBE",
+  "year": 2015,
+  "fame": 2,
+  "video": "WFte1BEgr6o",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "WFte1BEgr6o",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "246": {
+  "title": "Kiss魂",
+  "artist": "Kis-My-Ft2",
+  "year": 2015,
+  "fame": 2,
+  "video": "N_BGfPnaG8E",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "N_BGfPnaG8E",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "247": {
+  "title": "前向きスクリーム！",
+  "artist": "関ジャニ∞",
+  "year": 2015,
+  "fame": 2,
+  "video": "LWPbXcGp3g8",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "LWPbXcGp3g8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "248": {
+  "title": "しぇからしか！",
+  "artist": "HKT48 feat.氣志團",
+  "year": 2015,
+  "fame": 2,
+  "video": "sjL-I11qSWM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "sjL-I11qSWM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "249": {
+  "title": "Summer Madness",
+  "artist": "三代目 J Soul Brothers from EXILE TRIBE",
+  "year": 2015,
+  "fame": 1,
+  "video": "tF_fvr4TmpM",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "tF_fvr4TmpM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "250": {
+  "title": "キミアトラクション",
+  "artist": "Hey！Say！JUMP",
+  "year": 2015,
+  "fame": 2,
+  "video": "Y62BoC1k_Rs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Y62BoC1k_Rs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "251": {
+  "title": "AAO",
+  "artist": "Kis-My-Ft2",
+  "year": 2015,
+  "fame": 2,
+  "video": "6bYG4RFvcLs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "6bYG4RFvcLs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "252": {
+  "title": "Hello, world！／コロニー",
+  "artist": "BUMP OF CHICKEN",
+  "year": 2015,
+  "fame": 2,
+  "video": "rOU4YiuaxAM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "rOU4YiuaxAM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "253": {
+  "title": "最後もやっぱり君",
+  "artist": "Kis-My-Ft2",
+  "year": 2015,
+  "fame": 2,
+  "video": "4ml7gYaVZyA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "4ml7gYaVZyA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "254": {
+  "title": "Dead or Alive",
+  "artist": "KAT-TUN",
+  "year": 2015,
+  "fame": 2,
+  "video": "w6OzRSZIhXE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "w6OzRSZIhXE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "255": {
+  "title": "LOVE TRIP/しあわせを分けなさい",
+  "artist": "AKB48",
+  "year": 2016,
+  "fame": 1,
+  "video": "RpggNE6agKo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "RpggNE6agKo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "256": {
+  "title": "I seek/Daylight",
+  "artist": "嵐",
+  "year": 2016,
+  "fame": 2,
+  "video": "t6VmUL2tcG4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "t6VmUL2tcG4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "257": {
+  "title": "Power of the Paradise",
+  "artist": "嵐",
+  "year": 2016,
+  "fame": 2,
+  "video": "wKAYbl-s7RU",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "wKAYbl-s7RU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "258": {
+  "title": "真剣SUNSHINE",
+  "artist": "Hey!Say!JUMP",
+  "year": 2016,
+  "fame": 2,
+  "video": "sywP3aVNUpY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "sywP3aVNUpY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "259": {
+  "title": "罪と夏",
+  "artist": "関ジャニ∞",
+  "year": 2016,
+  "fame": 2,
+  "video": "Ra-aDUua9Bo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Ra-aDUua9Bo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "260": {
+  "title": "I'll be there",
+  "artist": "嵐",
+  "year": 2017,
+  "fame": 2,
+  "video": "kE8vwWM0Y-w",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "kE8vwWM0Y-w",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "261": {
+  "title": "つなぐ",
+  "artist": "嵐",
+  "year": 2017,
+  "fame": 2,
+  "video": "NceylqK_RIw",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "NceylqK_RIw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "262": {
+  "title": "MIC Drop／DNA／Crystal Snow",
+  "artist": "BTS(防弾少年団)",
+  "year": 2017,
+  "fame": 2,
+  "video": "8mBHDHIb-kM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "8mBHDHIb-kM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "263": {
+  "title": "なぐりガキBEAT",
+  "artist": "関ジャニ∞",
+  "year": 2017,
+  "fame": 2,
+  "video": "vkjjnyC5-nE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "vkjjnyC5-nE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "264": {
+  "title": "OVER THE TOP",
+  "artist": "Hey！Say！JUMP",
+  "year": 2017,
+  "fame": 2,
+  "video": "sMM0HRUoDMU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "sMM0HRUoDMU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "265": {
+  "title": "Precious Girl／Are You There？",
+  "artist": "Hey！Say！JUMP／A.Y.T.",
+  "year": 2017,
+  "fame": 2,
+  "video": "DlU2XcSk2KI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "DlU2XcSk2KI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "266": {
+  "title": "Give Me Love",
+  "artist": "Hey！Say！JUMP",
+  "year": 2016,
+  "fame": 2,
+  "video": "1yC9J8dXEX0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "1yC9J8dXEX0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "267": {
+  "title": "奇跡の人",
+  "artist": "関ジャニ∞",
+  "year": 2017,
+  "fame": 2,
+  "video": "O138SBVpRx8",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "O138SBVpRx8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "268": {
+  "title": "FAKE LOVE／Airplane pt.2",
+  "artist": "BTS(防弾少年団)",
+  "year": 2018,
+  "fame": 2,
+  "video": "t_FB2KTPWFk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "t_FB2KTPWFk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "269": {
+  "title": "Memorial",
+  "artist": "King＆Prince",
+  "year": 2018,
+  "fame": 2,
+  "video": "0s-SJwJiCmY",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "0s-SJwJiCmY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "270": {
+  "title": "Find The Answer",
+  "artist": "嵐",
+  "year": 2018,
+  "fame": 2,
+  "video": "8BvkFjqz98Y",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "8BvkFjqz98Y",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "271": {
+  "title": "君のうた",
+  "artist": "嵐",
+  "year": 2018,
+  "fame": 2,
+  "video": "Rsarhr_W-F0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Rsarhr_W-F0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "272": {
+  "title": "Wake Me Up",
+  "artist": "TWICE",
+  "year": 2018,
+  "fame": 2,
+  "video": "DdLYSziSXII",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "DdLYSziSXII",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "273": {
+  "title": "Candy Pop",
+  "artist": "TWICE",
+  "year": 2018,
+  "fame": 1,
+  "video": "wQ_POfToaVY",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "wQ_POfToaVY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "274": {
+  "title": "Lights／Boy With Luv",
+  "artist": "BTS",
+  "year": 2019,
+  "fame": 2,
+  "video": "eaUpme4jalE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "eaUpme4jalE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "275": {
+  "title": "koi-wazurai",
+  "artist": "King＆Prince",
+  "year": 2019,
+  "fame": 2,
+  "video": "0HL7QlHyceI",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "0HL7QlHyceI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "276": {
+  "title": "君を待ってる",
+  "artist": "King＆Prince",
+  "year": 2019,
+  "fame": 2,
+  "video": "7gU6AK1sTMI",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "7gU6AK1sTMI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "277": {
+  "title": "君を大好きだ",
+  "artist": "Kis-My-Ft2",
+  "year": 2019,
+  "fame": 2,
+  "video": "fs9zJapMn1g",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "fs9zJapMn1g",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "278": {
+  "title": "友よ",
+  "artist": "関ジャニ∞",
+  "year": 2019,
+  "fame": 2,
+  "video": "y9VQxjAYAGg",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "y9VQxjAYAGg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "279": {
+  "title": "Happy Ending",
+  "artist": "SEVENTEEN",
+  "year": 2019,
+  "fame": 2,
+  "video": "cA1b99JSQq0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "cA1b99JSQq0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "280": {
+  "title": "ファンファーレ！",
+  "artist": "Hey! Say! JUMP",
+  "year": 2019,
+  "fame": 2,
+  "video": "_5bV1thNr1A",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "_5bV1thNr1A",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "281": {
+  "title": "crystal",
+  "artist": "関ジャニ∞",
+  "year": 2019,
+  "fame": 2,
+  "video": "5ILpLs58e2M",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "5ILpLs58e2M",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "282": {
+  "title": "Lucky-Unlucky／Oh！ my darling",
+  "artist": "Hey! Say! JUMP／山田涼介",
+  "year": 2019,
+  "fame": 2,
+  "video": "fPTK5po-5mA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "fPTK5po-5mA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "283": {
+  "title": "Imitation Rain/D.D.",
+  "artist": "SixTONES vs Snow Man",
+  "year": 2020,
+  "fame": 1,
+  "video": "pTh-ncw31ZA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "pTh-ncw31ZA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "284": {
+  "title": "KISSIN’ MY LIPS/Stories",
+  "artist": "Snow Man",
+  "year": 2020,
+  "fame": 2,
+  "video": "gsR-bbdGn_I",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "gsR-bbdGn_I",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "285": {
+  "title": "NAVIGATOR",
+  "artist": "SixTONES",
+  "year": 2020,
+  "fame": 2,
+  "video": "VUrSsrAnq8M",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "VUrSsrAnq8M",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "286": {
+  "title": "NEW ERA",
+  "artist": "SixTONES",
+  "year": 2020,
+  "fame": 2,
+  "video": "UoHzt2sJ0MQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "UoHzt2sJ0MQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "287": {
+  "title": "Nobody’s fault",
+  "artist": "櫻坂46",
+  "year": 2020,
+  "fame": 2,
+  "video": "fagRTasDcKo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "fagRTasDcKo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "288": {
+  "title": "PROTOSTAR(無限大)",
+  "artist": "JO1",
+  "year": 2020,
+  "fame": 2,
+  "video": "U-n1BR5JCDI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "U-n1BR5JCDI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "289": {
+  "title": "Re:LIVE",
+  "artist": "関ジャニ∞",
+  "year": 2020,
+  "fame": 2,
+  "video": "5IZEBOfn6tA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "5IZEBOfn6tA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "290": {
+  "title": "ソーユートコあるよね?",
+  "artist": "SKE48",
+  "year": 2020,
+  "fame": 2,
+  "video": "nAJrs6Or_bI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "nAJrs6Or_bI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "291": {
+  "title": "STARGAZER(OH-EH-OH)",
+  "artist": "JO1",
+  "year": 2020,
+  "fame": 2,
+  "video": "jp2aivJn9gg",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "jp2aivJn9gg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "292": {
+  "title": "無謀な夢は覚めることがない",
+  "artist": "STU48",
+  "year": 2020,
+  "fame": 2,
+  "video": "QDgEQ7PVpSs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "QDgEQ7PVpSs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "293": {
+  "title": "NOT FOUND",
+  "artist": "Sexy Zone",
+  "year": 2020,
+  "fame": 2,
+  "video": "r7gJrvvCyWo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "r7gJrvvCyWo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "294": {
+  "title": "証拠",
+  "artist": "ジャニーズWEST",
+  "year": 2020,
+  "fame": 2,
+  "video": "AzgQe4SfH9E",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "AzgQe4SfH9E",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "295": {
+  "title": "I am/Muah Muah",
+  "artist": "Hey!Say!JUMP",
+  "year": 2020,
+  "fame": 2,
+  "video": "dXx9KW5oJnk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "dXx9KW5oJnk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "296": {
+  "title": "Your Song",
+  "artist": "Hey!Say!JUMP",
+  "year": 2020,
+  "fame": 2,
+  "video": "vPikHHjRTOo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "vPikHHjRTOo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "297": {
+  "title": "Last Mermaid...",
+  "artist": "Hey!Say!JUMP",
+  "year": 2020,
+  "fame": 2,
+  "video": "ycUa1-IbQ0I",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "ycUa1-IbQ0I",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "298": {
+  "title": "だってだってだって",
+  "artist": "NMB48",
+  "year": 2020,
+  "fame": 2,
+  "video": "LwtcrX5AyiE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "LwtcrX5AyiE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "299": {
+  "title": "KANZAI BOYA",
+  "artist": "KinKi Kids",
+  "year": 2020,
+  "fame": 2,
+  "video": "69XXvqoxHIA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "69XXvqoxHIA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "300": {
+  "title": "3-2",
+  "artist": "HKT48",
+  "year": 2020,
+  "fame": 2,
+  "video": "gj6UO-UTqgQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "gj6UO-UTqgQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "301": {
+  "title": "Grandeur",
+  "artist": "Snow Man",
+  "year": 2021,
+  "fame": 1,
+  "video": "7RyewjSWnFo",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "7RyewjSWnFo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "302": {
+  "title": "Secret Touch",
+  "artist": "Snow Man",
+  "year": 2021,
+  "fame": 2,
+  "video": "SAwEraiyf7U",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "SAwEraiyf7U",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "303": {
+  "title": "君に叱られた",
+  "artist": "乃木坂46",
+  "year": 2021,
+  "fame": 2,
+  "video": "1_oWkusqP4Q",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "1_oWkusqP4Q",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "304": {
+  "title": "A(Rocketeer/Brighter)",
+  "artist": "INI",
+  "year": 2021,
+  "fame": 2,
+  "video": "xgWFK4REfgk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "xgWFK4REfgk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "305": {
+  "title": "Magic Touch / Beating Hearts",
+  "artist": "King & Prince",
+  "year": 2021,
+  "fame": 2,
+  "video": "DUVpqZPgieI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "DUVpqZPgieI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "306": {
+  "title": "恋降る月夜に君想ふ",
+  "artist": "King & Prince",
+  "year": 2021,
+  "fame": 2,
+  "video": "ey2qJjkGTOc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "ey2qJjkGTOc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "307": {
+  "title": "ってか",
+  "artist": "日向坂46",
+  "year": 2021,
+  "fame": 2,
+  "video": "pZDqElqNW34",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "pZDqElqNW34",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "308": {
+  "title": "ひとりじゃない",
+  "artist": "SEVENTEEN",
+  "year": 2021,
+  "fame": 2,
+  "video": "0n8su37VyZQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "0n8su37VyZQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "309": {
+  "title": "流れ弾",
+  "artist": "櫻坂46",
+  "year": 2021,
+  "fame": 2,
+  "video": "drCopBcrxRM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "drCopBcrxRM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "310": {
+  "title": "根も葉もRumor",
+  "artist": "AKB48",
+  "year": 2021,
+  "fame": 2,
+  "video": "e9N_Au80T8w",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "e9N_Au80T8w",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "311": {
+  "title": "Take a picture/Poppin’ Shakin’",
+  "artist": "NiziU",
+  "year": 2021,
+  "fame": 2,
+  "video": "OlHb1qH-zS4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "OlHb1qH-zS4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "312": {
+  "title": "STRANGER(REAL)",
+  "artist": "JO1",
+  "year": 2021,
+  "fame": 2,
+  "video": "BMG_ZlqwOZM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "BMG_ZlqwOZM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "313": {
+  "title": "CHALLENGER(Born To Be Wild)",
+  "artist": "JO1",
+  "year": 2021,
+  "fame": 2,
+  "video": "-_P_cD0yimw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "-_P_cD0yimw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "314": {
+  "title": "夏のハイドレンジア",
+  "artist": "Sexy Zone",
+  "year": 2021,
+  "fame": 2,
+  "video": "_a6SXtlEQB0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "_a6SXtlEQB0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "315": {
+  "title": "Roar",
+  "artist": "KAT-TUN",
+  "year": 2021,
+  "fame": 2,
+  "video": "edw12b52O_o",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "edw12b52O_o",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "316": {
+  "title": "恋落ちフラグ",
+  "artist": "SKE48",
+  "year": 2021,
+  "fame": 2,
+  "video": "SY0gdrzM328",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "SY0gdrzM328",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "317": {
+  "title": "あの頃の君を見つけた",
+  "artist": "SKE48",
+  "year": 2021,
+  "fame": 2,
+  "video": "anUVytIaU0w",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "anUVytIaU0w",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "318": {
+  "title": "BORDER:儚い",
+  "artist": "ENHYPEN",
+  "year": 2021,
+  "fame": 2,
+  "video": "qD59wF-8rEI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "qD59wF-8rEI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "319": {
+  "title": "Luv Bias",
+  "artist": "Kis-My-Ft2",
+  "year": 2021,
+  "fame": 2,
+  "video": "i9oXrgxngYk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "i9oXrgxngYk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "320": {
+  "title": "群青ランナウェイ",
+  "artist": "Hey!Say!JUMP",
+  "year": 2021,
+  "fame": 2,
+  "video": "dE9nBf5qb9Y",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "dE9nBf5qb9Y",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "321": {
+  "title": "週刊うまくいく曜日",
+  "artist": "ジャニーズWEST",
+  "year": 2021,
+  "fame": 2,
+  "video": "dQUDQ2mQ_60",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "dQUDQ2mQ_60",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "322": {
+  "title": "ツキヨミ / 彩り",
+  "artist": "King & Prince",
+  "year": 2022,
+  "fame": 1,
+  "video": "Rp0Z9YVOnKQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Rp0Z9YVOnKQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "323": {
+  "title": "オレンジkiss",
+  "artist": "Snow Man",
+  "year": 2022,
+  "fame": 1,
+  "video": "mBB5RYgax5c",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "mBB5RYgax5c",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "324": {
+  "title": "好きというのはロックだぜ!",
+  "artist": "乃木坂46",
+  "year": 2022,
+  "fame": 2,
+  "video": "CSLYbwe9JEo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "CSLYbwe9JEo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "325": {
+  "title": "ここにはないもの",
+  "artist": "乃木坂46",
+  "year": 2022,
+  "fame": 2,
+  "video": "3LNH6NT0T7E",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "3LNH6NT0T7E",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "326": {
+  "title": "I(CALL 119/We Are)",
+  "artist": "INI",
+  "year": 2022,
+  "fame": 2,
+  "video": "RJJAJwJttiY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "RJJAJwJttiY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "327": {
+  "title": "The Answer/サチアレ",
+  "artist": "なにわ男子",
+  "year": 2022,
+  "fame": 2,
+  "video": "8wCrYHNw0dI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "8wCrYHNw0dI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "328": {
+  "title": "Actually...",
+  "artist": "乃木坂46",
+  "year": 2022,
+  "fame": 2,
+  "video": "dPoPxRSifwc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "dPoPxRSifwc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "329": {
+  "title": "TraceTrace",
+  "artist": "King & Prince",
+  "year": 2022,
+  "fame": 2,
+  "video": "-gnLaE9iClw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "-gnLaE9iClw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "330": {
+  "title": "ハッピーサプライズ",
+  "artist": "なにわ男子",
+  "year": 2022,
+  "fame": 2,
+  "video": "90FhT0I0g7w",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "90FhT0I0g7w",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "331": {
+  "title": "MIDNIGHT SUN(SuperCali)",
+  "artist": "JO1",
+  "year": 2022,
+  "fame": 2,
+  "video": "5nE7budaeO4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "5nE7budaeO4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "332": {
+  "title": "M(Password)",
+  "artist": "INI",
+  "year": 2022,
+  "fame": 2,
+  "video": "ZU58-PZnXOM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "ZU58-PZnXOM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "333": {
+  "title": "わたし",
+  "artist": "SixTONES",
+  "year": 2022,
+  "fame": 2,
+  "video": "ha1sXlzixrQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "ha1sXlzixrQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "334": {
+  "title": "Lovin’ you/踊るように人生を。",
+  "artist": "King & Prince",
+  "year": 2022,
+  "fame": 2,
+  "video": "LVy5JF1t3jg",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "LVy5JF1t3jg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "335": {
+  "title": "僕なんか",
+  "artist": "日向坂46",
+  "year": 2022,
+  "fame": 2,
+  "video": "15Hsw9QSeoc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "15Hsw9QSeoc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "336": {
+  "title": "月と星が踊るMidnight",
+  "artist": "日向坂46",
+  "year": 2022,
+  "fame": 2,
+  "video": "vgEVzGcr89w",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "vgEVzGcr89w",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "337": {
+  "title": "WANDERING(僕らの季節/Prologue)",
+  "artist": "JO1",
+  "year": 2021,
+  "fame": 2,
+  "video": "Zxnc3aMHt0E",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Zxnc3aMHt0E",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "338": {
+  "title": "共鳴",
+  "artist": "SixTONES",
+  "year": 2022,
+  "fame": 2,
+  "video": "juoM5rB0h44",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "juoM5rB0h44",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "339": {
+  "title": "五月雨よ",
+  "artist": "櫻坂46",
+  "year": 2022,
+  "fame": 2,
+  "video": "3boaeE3dwMs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "3boaeE3dwMs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "340": {
+  "title": "Good Luck!/ふたり",
+  "artist": "SixTONES",
+  "year": 2022,
+  "fame": 2,
+  "video": "bq2vctuvBGY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "bq2vctuvBGY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "341": {
+  "title": "元カレです",
+  "artist": "AKB48",
+  "year": 2022,
+  "fame": 2,
+  "video": "bUyOujXrvWc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "bUyOujXrvWc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "342": {
+  "title": "GOOD BOY GONE BAD",
+  "artist": "TOMORROW X TOGETHER",
+  "year": 2022,
+  "fame": 2,
+  "video": "bdl7gxbDhqg",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "bdl7gxbDhqg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "343": {
+  "title": "久しぶりのリップグロス",
+  "artist": "AKB48",
+  "year": 2022,
+  "fame": 2,
+  "video": "30t64K0ZYNc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "30t64K0ZYNc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "344": {
+  "title": "DIMENSION:閃光",
+  "artist": "ENHYPEN",
+  "year": 2022,
+  "fame": 2,
+  "video": "jy2xc67vKfo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "jy2xc67vKfo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "345": {
+  "title": "Life goes on/We are young",
+  "artist": "King & Prince",
+  "year": 2023,
+  "fame": 1,
+  "video": "kEzazr9jGF0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "kEzazr9jGF0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "346": {
+  "title": "タペストリー / W",
+  "artist": "Snow Man",
+  "year": 2023,
+  "fame": 1,
+  "video": "5qqAjaOAX90",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "5qqAjaOAX90",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "347": {
+  "title": "Dangerholic",
+  "artist": "Snow Man",
+  "year": 2023,
+  "fame": 1,
+  "video": "i-PnC1tYnGM",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "i-PnC1tYnGM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "348": {
+  "title": "人は夢を二度見る",
+  "artist": "乃木坂46",
+  "year": 2023,
+  "fame": 2,
+  "video": "DHea-Qcy9g0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "DHea-Qcy9g0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "349": {
+  "title": "なにもの",
+  "artist": "King & Prince",
+  "year": 2023,
+  "fame": 2,
+  "video": "jnVlcB74A_k",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "jnVlcB74A_k",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "350": {
+  "title": "Special Kiss",
+  "artist": "なにわ男子",
+  "year": 2023,
+  "fame": 2,
+  "video": "X6qwcqtvPXk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "X6qwcqtvPXk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "351": {
+  "title": "Monopoly",
+  "artist": "乃木坂46",
+  "year": 2023,
+  "fame": 2,
+  "video": "qK9k2J-ZkGU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "qK9k2J-ZkGU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "352": {
+  "title": "CREAK",
+  "artist": "SixTONES",
+  "year": 2023,
+  "fame": 2,
+  "video": "yvHfl1JEPc0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "yvHfl1JEPc0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "353": {
+  "title": "One choice",
+  "artist": "日向坂46",
+  "year": 2023,
+  "fame": 2,
+  "video": "0b1UKU8wPvw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "0b1UKU8wPvw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "354": {
+  "title": "承認欲求",
+  "artist": "櫻坂46",
+  "year": 2023,
+  "fame": 2,
+  "video": "x_BjvhMW9TE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "x_BjvhMW9TE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "355": {
+  "title": "どうしても君が好きだ",
+  "artist": "AKB48",
+  "year": 2023,
+  "fame": 2,
+  "video": "l7mFdh37SLc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "l7mFdh37SLc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "356": {
+  "title": "Am I ready?",
+  "artist": "日向坂46",
+  "year": 2023,
+  "fame": 2,
+  "video": "vYKRIwJGRKk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "vYKRIwJGRKk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "357": {
+  "title": "ABARERO",
+  "artist": "SixTONES",
+  "year": 2023,
+  "fame": 2,
+  "video": "jEHYWTcIpmg",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "jEHYWTcIpmg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "358": {
+  "title": "Start over!",
+  "artist": "櫻坂46",
+  "year": 2023,
+  "fame": 2,
+  "video": "YJRFD1AdaUE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "YJRFD1AdaUE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "359": {
+  "title": "アイドルなんかじゃなかったら",
+  "artist": "AKB48",
+  "year": 2023,
+  "fame": 2,
+  "video": "tBFJFAP3GKU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "tBFJFAP3GKU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "360": {
+  "title": "Make Up Day/Missing",
+  "artist": "なにわ男子",
+  "year": 2023,
+  "fame": 2,
+  "video": "0UfJLVmrChw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "0UfJLVmrChw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "361": {
+  "title": "結 -YOU-",
+  "artist": "ENHYPEN",
+  "year": 2023,
+  "fame": 2,
+  "video": "vREnTx5zq5Y",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "vREnTx5zq5Y",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "362": {
+  "title": "好きになっちゃった",
+  "artist": "SKE48",
+  "year": 2023,
+  "fame": 2,
+  "video": "pqA3FsWDiZs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "pqA3FsWDiZs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "363": {
+  "title": "I Wish",
+  "artist": "なにわ男子",
+  "year": 2023,
+  "fame": 2,
+  "video": "78aFPj1CAxg",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "78aFPj1CAxg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "364": {
+  "title": "桜月",
+  "artist": "櫻坂46",
+  "year": 2023,
+  "fame": 2,
+  "video": "zKLgrxHDgls",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "zKLgrxHDgls",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "365": {
+  "title": "DROP That",
+  "artist": "INI",
+  "year": 2023,
+  "fame": 2,
+  "video": "K3JGhIkExzo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "K3JGhIkExzo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "366": {
+  "title": "愛し生きること/MAGIC WORD",
+  "artist": "King & Prince",
+  "year": 2023,
+  "fame": 2,
+  "video": "74tJ05V8vb0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "74tJ05V8vb0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "367": {
+  "title": "TAG ME",
+  "artist": "INI",
+  "year": 2023,
+  "fame": 2,
+  "video": "gX-kRZi2PXc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "gX-kRZi2PXc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "368": {
+  "title": "LOVE TRIGGER/We’ll go together",
+  "artist": "Snow Man",
+  "year": 2024,
+  "fame": 1,
+  "video": "eybKo4WgvgU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "eybKo4WgvgU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "369": {
+  "title": "BREAKOUT/君は僕のもの",
+  "artist": "Snow Man",
+  "year": 2024,
+  "fame": 1,
+  "video": "H0S28p3eoWs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "H0S28p3eoWs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "370": {
+  "title": "THE FRAME(LOUD)",
+  "artist": "INI",
+  "year": 2024,
+  "fame": 1,
+  "video": "ShmbjdP4eoI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "ShmbjdP4eoI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "371": {
+  "title": "《A》BEGINNING",
+  "artist": "Aぇ! group",
+  "year": 2024,
+  "fame": 2,
+  "video": "aIXcSB9fSyo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "aIXcSB9fSyo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "372": {
+  "title": "自業自得",
+  "artist": "櫻坂46",
+  "year": 2024,
+  "fame": 2,
+  "video": "Rs-Y9MtHsoo",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Rs-Y9MtHsoo",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "373": {
+  "title": "THE VIEW(WMDA(Where My Drums At))",
+  "artist": "INI",
+  "year": 2024,
+  "fame": 2,
+  "video": "Xptp59SzcL0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Xptp59SzcL0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "374": {
+  "title": "チャンスは平等",
+  "artist": "乃木坂46",
+  "year": 2024,
+  "fame": 2,
+  "video": "iH8wsNO29L0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "iH8wsNO29L0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "375": {
+  "title": "WHERE DO WE GO",
+  "artist": "JO1",
+  "year": 2024,
+  "fame": 2,
+  "video": "q-RrB2OBf6s",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "q-RrB2OBf6s",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "376": {
+  "title": "チートデイ",
+  "artist": "乃木坂46",
+  "year": 2024,
+  "fame": 2,
+  "video": "JhEEV5MvwCA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "JhEEV5MvwCA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "377": {
+  "title": "音色",
+  "artist": "SixTONES",
+  "year": 2024,
+  "fame": 2,
+  "video": "pXtP_U1NHhc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "pXtP_U1NHhc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "378": {
+  "title": "HITCHHIKER(Love seeker)",
+  "artist": "JO1",
+  "year": 2024,
+  "fame": 2,
+  "video": "jjr6yrzUAqI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "jjr6yrzUAqI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "379": {
+  "title": "誓い(CHIKAI)(ひとつの誓い(We’ll Never Change))",
+  "artist": "TOMORROW X TOGETHER",
+  "year": 2024,
+  "fame": 2,
+  "video": "5BVC6VggY3A",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "5BVC6VggY3A",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "380": {
+  "title": "I want tomorrow to come",
+  "artist": "櫻坂46",
+  "year": 2024,
+  "fame": 2,
+  "video": "07JLD3d1-W0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "07JLD3d1-W0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "381": {
+  "title": "絶対的第六感",
+  "artist": "日向坂46",
+  "year": 2024,
+  "fame": 2,
+  "video": "qUZagu-NL_s",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "qUZagu-NL_s",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "382": {
+  "title": "君はハニーデュー",
+  "artist": "日向坂46",
+  "year": 2024,
+  "fame": 2,
+  "video": "wRzPuptA6yw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "wRzPuptA6yw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "383": {
+  "title": "何歳の頃に戻りたいのか?",
+  "artist": "櫻坂46",
+  "year": 2024,
+  "fame": 2,
+  "video": "7xx66mR_HeE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "7xx66mR_HeE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "384": {
+  "title": "消費期限",
+  "artist": "SEVENTEEN",
+  "year": 2024,
+  "fame": 2,
+  "video": "z8NMUz-dfdA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "z8NMUz-dfdA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "385": {
+  "title": "GONG/ここに帰ってきて",
+  "artist": "SixTONES",
+  "year": 2024,
+  "fame": 2,
+  "video": "Zaij5ULZf9E",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Zaij5ULZf9E",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "386": {
+  "title": "恋 詰んじゃった",
+  "artist": "AKB48",
+  "year": 2024,
+  "fame": 2,
+  "video": "bWklb0mZYMw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "bWklb0mZYMw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "387": {
+  "title": "カラコンウインク",
+  "artist": "AKB48",
+  "year": 2024,
+  "fame": 2,
+  "video": "TUvcf6wd0ok",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "TUvcf6wd0ok",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "388": {
+  "title": "愛のホログラム",
+  "artist": "SKE48",
+  "year": 2024,
+  "fame": 2,
+  "video": "knk_nGwljMU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "knk_nGwljMU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "389": {
+  "title": "コイスルヒカリ",
+  "artist": "なにわ男子",
+  "year": 2024,
+  "fame": 2,
+  "video": "Za9xAlR6-W8",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Za9xAlR6-W8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "390": {
+  "title": "Gotta Be",
+  "artist": "Aぇ! group",
+  "year": 2024,
+  "fame": 2,
+  "video": "jizhd_1iTBI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "jizhd_1iTBI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "391": {
+  "title": "ゆらゆら -運命の花-",
+  "artist": "ZEROBASEONE",
+  "year": 2024,
+  "fame": 2,
+  "video": "xx8qT6H8bkM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "xx8qT6H8bkM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "392": {
+  "title": "青嵐(Aoarashi)",
+  "artist": "&TEAM",
+  "year": 2024,
+  "fame": 2,
+  "video": "WklwroX2yOU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "WklwroX2yOU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "393": {
+  "title": "SERIOUS",
+  "artist": "Snow Man",
+  "year": 2025,
+  "fame": 1,
+  "video": "H0MuwWjM4ok",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "H0MuwWjM4ok",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "394": {
+  "title": "THE WINTER MAGIC (Present)",
+  "artist": "INI",
+  "year": 2025,
+  "fame": 1,
+  "video": "idlKynwc5zc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "idlKynwc5zc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "395": {
+  "title": "Same numbers",
+  "artist": "乃木坂46",
+  "year": 2025,
+  "fame": 1,
+  "video": "g70yImobLm4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "g70yImobLm4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "396": {
+  "title": "Handz In My Pocket",
+  "artist": "JO1",
+  "year": 2025,
+  "fame": 2,
+  "video": "wniN-2kFKRc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "wniN-2kFKRc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "397": {
+  "title": "ビリヤニ",
+  "artist": "乃木坂46",
+  "year": 2025,
+  "fame": 2,
+  "video": "NReeTQ3YTAU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "NReeTQ3YTAU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "398": {
+  "title": "Unhappy birthday構文",
+  "artist": "櫻坂46",
+  "year": 2025,
+  "fame": 2,
+  "video": "hBfDlIN0WtI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "hBfDlIN0WtI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "399": {
+  "title": "ネーブルオレンジ",
+  "artist": "乃木坂46",
+  "year": 2025,
+  "fame": 2,
+  "video": "06E14_7t710",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "06E14_7t710",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "400": {
+  "title": "宵 -YOI- (Shine On Me)",
+  "artist": "ENHYPEN",
+  "year": 2025,
+  "fame": 2,
+  "video": "HmAtJr0Mhh4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "HmAtJr0Mhh4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "401": {
+  "title": "Go in Blind (月狼)",
+  "artist": "&TEAM",
+  "year": 2025,
+  "fame": 2,
+  "video": "RjJTiajpyrA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "RjJTiajpyrA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "402": {
+  "title": "Steal The Show / レシピ",
+  "artist": "timelesz",
+  "year": 2025,
+  "fame": 2,
+  "video": "YipTcFcOhb4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "YipTcFcOhb4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "403": {
+  "title": "歩道橋",
+  "artist": "乃木坂46",
+  "year": 2024,
+  "fame": 2,
+  "video": "nRPmGxSqYpw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "nRPmGxSqYpw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "404": {
+  "title": "UDAGAWA GENERATION",
+  "artist": "櫻坂46",
+  "year": 2025,
+  "fame": 2,
+  "video": "qP52sh7PzYA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "qP52sh7PzYA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "405": {
+  "title": "Make or Break",
+  "artist": "櫻坂46",
+  "year": 2025,
+  "fame": 2,
+  "video": "nTxTTZ0QLrI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "nTxTTZ0QLrI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "406": {
+  "title": "Chameleon",
+  "artist": "Aぇ! group",
+  "year": 2025,
+  "fame": 2,
+  "video": "QZGZ749jcGA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "QZGZ749jcGA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "407": {
+  "title": "お願いバッハ!",
+  "artist": "日向坂46",
+  "year": 2025,
+  "fame": 2,
+  "video": "XYTjRxWe9Jc",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "XYTjRxWe9Jc",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "408": {
+  "title": "卒業写真だけが知ってる",
+  "artist": "日向坂46",
+  "year": 2025,
+  "fame": 2,
+  "video": "I1qSilZNvFs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "I1qSilZNvFs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "409": {
+  "title": "Love yourself!",
+  "artist": "日向坂46",
+  "year": 2025,
+  "fame": 2,
+  "video": "52cSFrjnImQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "52cSFrjnImQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "410": {
+  "title": "まさかのConfession",
+  "artist": "AKB48",
+  "year": 2025,
+  "fame": 2,
+  "video": "uhPLp8zO5HM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "uhPLp8zO5HM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "411": {
+  "title": "キューにストップできません! / ちきゅーめいくあっぷ計画",
+  "artist": "CUTIE STREET",
+  "year": 2025,
+  "fame": 2,
+  "video": "_gfwU-heIkA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "_gfwU-heIkA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "412": {
+  "title": "Oh my pumpkin!",
+  "artist": "AKB48",
+  "year": 2025,
+  "fame": 2,
+  "video": "QpkQ7pTgswM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "QpkQ7pTgswM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "413": {
+  "title": "バリア",
+  "artist": "SixTONES",
+  "year": 2025,
+  "fame": 2,
+  "video": "5g6E_UY5G88",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "5g6E_UY5G88",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "414": {
+  "title": "BOYZ",
+  "artist": "SixTONES",
+  "year": 2025,
+  "fame": 2,
+  "video": "jUUmJCXtFl0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "jUUmJCXtFl0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "415": {
+  "title": "BOYLIFE (Count To Love)",
+  "artist": "BOYNEXTDOOR",
+  "year": 2025,
+  "fame": 2,
+  "video": "Dbxfo8YBkYE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Dbxfo8YBkYE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "416": {
+  "title": "ラブソングに襲われる",
+  "artist": "=LOVE",
+  "year": 2025,
+  "fame": 2,
+  "video": "_cf4UTe1qrY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "_cf4UTe1qrY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "417": {
+  "title": "アシンメトリー / Black Nightmare",
+  "artist": "なにわ男子",
+  "year": 2025,
+  "fame": 2,
+  "video": "5YI0KW4k6U8",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "5YI0KW4k6U8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "418": {
+  "title": "だんご３兄弟",
+  "artist": "速水けんたろう、茂森あゆみ、 ひまわりキッズ、だんご合唱団",
+  "year": 1999,
+  "fame": 1,
+  "video": "vb4bBwFX_Ts",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "vb4bBwFX_Ts",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "419": {
+  "title": "おどるポンポコリン",
+  "artist": "B.B.クイーンズ",
+  "year": 1990,
+  "fame": 1,
+  "video": "-r4DIbDe0DM",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "-r4DIbDe0DM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "420": {
+  "title": "タイミング",
+  "artist": "ブラックビスケッツ",
+  "year": 1998,
+  "fame": 2,
+  "video": "25YqR5OHXiY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "25YqR5OHXiY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "421": {
+  "title": "会いたい",
+  "artist": "沢田知可子",
+  "year": 1990,
+  "fame": 1,
+  "video": "bWhE1iTKKhY",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "bWhE1iTKKhY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "422": {
+  "title": "I LOVE YOU",
+  "artist": "尾崎豊",
+  "year": 1991,
+  "fame": 2,
+  "video": "gbUgMo5QVWk",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "gbUgMo5QVWk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "423": {
+  "title": "SAY YES",
+  "artist": "CHAGE and ASKA",
+  "year": 1991,
+  "fame": 2,
+  "video": "Q9qAyt0G-jM",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Q9qAyt0G-jM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "424": {
+  "title": "いつかのメリークリスマス",
+  "artist": "B'z",
+  "year": 1992,
+  "fame": 2,
+  "video": "QZFEnfBmfqg",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "QZFEnfBmfqg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "425": {
+  "title": "YAH YAH YAH",
+  "artist": "CHAGE and ASKA",
+  "year": 1993,
+  "fame": 2,
+  "video": "yfZIaTZJo0o",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "yfZIaTZJo0o",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "426": {
+  "title": "残酷な天使のテーゼ",
+  "artist": "高橋洋子",
+  "year": 1995,
+  "fame": 2,
+  "video": "o6wtDPVkKqI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "o6wtDPVkKqI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "427": {
+  "title": "Forever Love",
+  "artist": "X JAPAN",
+  "year": 1996,
+  "fame": 2,
+  "video": "TeiSqTVhebE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "TeiSqTVhebE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "428": {
+  "title": "君を忘れない",
+  "artist": "松山千春",
+  "year": 1996,
+  "fame": 2,
+  "video": "twIRE-iQmOs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "twIRE-iQmOs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "429": {
+  "title": "Happiness",
+  "artist": "AI",
+  "year": 2011,
+  "fame": 2,
+  "video": "uKgmu8g-kXE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "uKgmu8g-kXE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "430": {
+  "title": "輝く月のように",
+  "artist": "Superfly",
+  "year": 2012,
+  "fame": 2,
+  "video": "gG7evVU0OdA",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "gG7evVU0OdA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "431": {
+  "title": "Believe",
+  "artist": "Che'Nelle",
+  "year": 2012,
+  "fame": 2,
+  "video": "SAciTm11j1Y",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "SAciTm11j1Y",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "432": {
+  "title": "Let It Go〜ありのままで〜",
+  "artist": "松たか子",
+  "year": 2013,
+  "fame": 2,
+  "video": "84jjnI6M2UI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "84jjnI6M2UI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "433": {
+  "title": "昴-すばる-",
+  "artist": "谷村新司",
+  "year": 1980,
+  "fame": 1,
+  "video": "drsQXkKmNbI",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "drsQXkKmNbI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "434": {
+  "title": "想い出がいっぱい",
+  "artist": "H2O",
+  "year": 1983,
+  "fame": 2,
+  "video": "EaYoe-uyyl8",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "EaYoe-uyyl8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "435": {
+  "title": "僕が僕であるために",
+  "artist": "尾崎豊",
+  "year": 1983,
+  "fame": 2,
+  "video": "1m8KITldcG0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "1m8KITldcG0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "436": {
+  "title": "FREIENDS",
+  "artist": "REBECCA",
+  "year": 1985,
+  "fame": 2,
+  "video": "WzNEwUIHVFA",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "WzNEwUIHVFA",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "437": {
+  "title": "天城越え",
+  "artist": "石川さゆり",
+  "year": 1986,
+  "fame": 2,
+  "video": "cwL09UKDqdI",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "cwL09UKDqdI",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "438": {
+  "title": "Missing",
+  "artist": "久保田利伸",
+  "year": 1988,
+  "fame": 2,
+  "video": "oKXU7nFs8e4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "oKXU7nFs8e4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "439": {
+  "title": "Rainy Blue",
+  "artist": "徳永英明",
+  "year": 1986,
+  "fame": 2,
+  "video": "6kVRn74ormE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "6kVRn74ormE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "440": {
+  "title": "愛燦燦",
+  "artist": "美空ひばり",
+  "year": 1986,
+  "fame": 2,
+  "video": "dTa3WS6wmz8",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "dTa3WS6wmz8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "441": {
+  "title": "人生いろいろ",
+  "artist": "島倉千代子",
+  "year": 1987,
+  "fame": 2,
+  "video": "bFm3uoHqhII",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "bFm3uoHqhII",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "442": {
+  "title": "TORA TORA TORA",
+  "artist": "MAX",
+  "year": 1996,
+  "fame": 2,
+  "video": "UF2O3o_1YGY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "UF2O3o_1YGY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "443": {
+  "title": "GOLDFINGER'99",
+  "artist": "郷ひろみ",
+  "year": 1999,
+  "fame": 2,
+  "video": "1I_Oi36QhbU",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "1I_Oi36QhbU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "444": {
+  "title": "アゲ♂アゲ♂EVERY☆騎士",
+  "artist": "DJ OZMA",
+  "year": 2006,
+  "fame": 1,
+  "video": "heXpmgakzEM",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "heXpmgakzEM",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "445": {
+  "title": "ミスター",
+  "artist": "KARA",
+  "year": 2010,
+  "fame": 1,
+  "video": "pHtDaScwNjU",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "pHtDaScwNjU",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "446": {
+  "title": "R.Y.U.S.E.I",
+  "artist": "三代目 J Soul Brothers",
+  "year": 2014,
+  "fame": 2,
+  "video": "4-Gw0TAM6-Q",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "4-Gw0TAM6-Q",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "447": {
+  "title": "ようかい体操第一",
+  "artist": "Dream5",
+  "year": 2014,
+  "fame": 2,
+  "video": "szGb41hHUHs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "szGb41hHUHs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "448": {
+  "title": "TT-Japanese ver.-",
+  "artist": "TWICE",
+  "year": 2016,
+  "fame": 2,
+  "video": "t35H2BVq490",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "t35H2BVq490",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "449": {
+  "title": "ペンパイナッポーアッポーペン",
+  "artist": "ピコ太郎",
+  "year": 2016,
+  "fame": 2,
+  "video": "HFlgNoUsr4k",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "HFlgNoUsr4k",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "450": {
+  "title": "プロポーズ",
+  "artist": "なとり",
+  "year": 2025,
+  "fame": 2,
+  "video": "VDdLF1YubI0",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "VDdLF1YubI0",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "451": {
+  "title": "明日の私に幸あれ",
+  "artist": "ナナヲアカリ",
+  "year": 2025,
+  "fame": 2,
+  "video": "Z2icQoPrX9M",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "Z2icQoPrX9M",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "452": {
+  "title": "うれしい！たのしい！大好き",
+  "artist": "DREAMS COME TRUE",
+  "year": 1989,
+  "fame": 1,
+  "video": "KldDloNBSyE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "KldDloNBSyE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "453": {
+  "title": "しあわせになろうよ",
+  "artist": "長渕剛",
+  "year": 2003,
+  "fame": 2,
+  "video": "jBoqyc5Mtiw",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "jBoqyc5Mtiw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "454": {
+  "title": "幸せをありがとう",
+  "artist": "ケツメイシ",
+  "year": 2003,
+  "fame": 2,
+  "video": "DPhi2oxvRNk",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "DPhi2oxvRNk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "455": {
+  "title": "Million Films",
+  "artist": "コブクロ",
+  "year": 2004,
+  "fame": 2,
+  "video": "28U7_6sZQT4",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "28U7_6sZQT4",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "456": {
+  "title": "ずっと一緒さ",
+  "artist": "山下達郎",
+  "year": 2008,
+  "fame": 2,
+  "video": "Qr2Y6LwTzzk",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "Qr2Y6LwTzzk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "457": {
+  "title": "365日",
+  "artist": "Mr.Children",
+  "year": 2010,
+  "fame": 2,
+  "video": "43D_nBGfuGY",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "43D_nBGfuGY",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "458": {
+  "title": "ベイビー・アイラブユー",
+  "artist": "TEE",
+  "year": 2010,
+  "fame": 2,
+  "video": "l7z0QXvE1gs",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "l7z0QXvE1gs",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "459": {
+  "title": "君って",
+  "artist": "西野カナ",
+  "year": 2010,
+  "fame": 1,
+  "video": "C_c52zHbHm8",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "C_c52zHbHm8",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "460": {
+  "title": "君とつくる未来",
+  "artist": "ケツメイシ",
+  "year": 2011,
+  "fame": 2,
+  "video": "_uGr_txlbRE",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "_uGr_txlbRE",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "461": {
+  "title": "365日のラブストーリー。",
+  "artist": "Sonar Pocket",
+  "year": 2012,
+  "fame": 2,
+  "video": "EtKOaFkvr90",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "EtKOaFkvr90",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "462": {
+  "title": "Believe",
+  "artist": "Che’Nelle",
+  "year": 2012,
+  "fame": 2,
+  "video": "SAciTm11j1Y",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "SAciTm11j1Y",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "463": {
+  "title": "幸せをフォーエバー",
+  "artist": "MISIA",
+  "year": 2013,
+  "fame": 2,
+  "video": "pkUsU5h2vag",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "pkUsU5h2vag",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "464": {
+  "title": "Happiness",
+  "artist": "Che’Nelle",
+  "year": 2014,
+  "fame": 2,
+  "video": "nkKDLiaMSXw",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "nkKDLiaMSXw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "465": {
+  "title": "Precious Love",
+  "artist": "EXILE ATSUSHI",
+  "year": 2014,
+  "fame": 2,
+  "video": "PmlELBZeEzQ",
+  "from": [
+   "nendai"
+  ],
+  "hit": {
+   "id": "PmlELBZeEzQ",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "466": {
+  "title": "I’m proud",
+  "artist": "華原朋美",
+  "year": 1996,
+  "fame": 1,
+  "video": "0CNe8wf2vMw",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "0CNe8wf2vMw",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "467": {
+  "title": "Don’t wanna cry",
+  "artist": "安室奈美恵",
+  "year": 1996,
+  "fame": 1,
+  "video": "GpifAewMVTg",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "GpifAewMVTg",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ },
+ "468": {
+  "title": "You’re my sunshine",
+  "artist": "安室奈美恵",
+  "year": 1996,
+  "fame": 2,
+  "video": "42mjlGqESCk",
+  "from": [
+   "nendai",
+   "chart"
+  ],
+  "hit": {
+   "id": "42mjlGqESCk",
+   "kind": "site",
+   "owner": "",
+   "live": false
+  }
+ }
+}

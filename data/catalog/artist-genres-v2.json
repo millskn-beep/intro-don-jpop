@@ -1,0 +1,6985 @@
+{
+ "19": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中山美穂&WANDS": {
+  "genres": [
+   "female_idol",
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KinKi Kids": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ポケットビスケッツ": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "ブラックビスケッツ": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "モーニング娘。": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Perfume": {
+  "genres": [
+   "dance",
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "薬師丸ひろ子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "光GENJI": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "DISH//": {
+  "genres": [
+   "band",
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "荻野目洋子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SPEED": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "AKB48": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "松田聖子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中森明菜": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Wink": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SMAP": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "欅坂46": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "少年隊": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "嵐": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "School Food Punishment": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "DREAMS COME TRUE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Mrs. GREEN APPLE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "THE BLUE HEARTS": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BUMP OF CHICKEN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Galileo Galilei": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SEKAI NO OWARI": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "岸田教団&THE明星ロケッツ": {
+  "genres": [
+   "band"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "go!go!vanillas": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Official髭男dism": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "JITTERIN'JINN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大事MANブラザーズバンド": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "JUDY AND MARY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "L'Arc〜en〜Ciel": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ORANGE RANGE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "プリンセス プリンセス": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Mr.Children": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "back number": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "サザンオールスターズ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ポルノグラフィティ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MONGOL800": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ゴールデンボンバー": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Saucy Dog": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "THE BOOM": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ゲスの極み乙女。": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "マカロニえんぴつ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "King Gnu": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "いきものがかり": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "サカナクション": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "チェッカーズ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "爆風スランプ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "米米CLUB": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "レミオロメン": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "WANIMA": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "DUSTZ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "緑黄色社会": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ZARD": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "スピッツ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "GLAY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "キリンジ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "B'z": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "シド": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "篠原涼子 with t.komuro": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Every Little Thing": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "H Jungle with t": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "CHEMISTRY": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "DA PUMP": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Foorin": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "Da-iCE": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "globe": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "CHAGE&ASKA": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Tani Yuuki": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "アンジェラ・アキ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "スキマスイッチ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "宇多田ヒカル": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Vaundy": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "松任谷由実": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大沢誉志幸": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "竹内まりや": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中島みゆき": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "森山直太朗": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "あいみょん": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "imase": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "tuki.": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小林明子": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "岡村孝子": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "槇原敬之": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小田和正": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "広瀬香美": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "椎名林檎": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "福山雅治": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "コブクロ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "YUKI": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "米津玄師": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "miwa": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "寺尾聰": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "尾崎豊": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大塚愛": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "一青窈": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "星野源": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "なとり": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "杏里": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "絢香": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "瑛人": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "優里": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "青山テルマ feat.SoulJa": {
+  "genres": [
+   "female_solo",
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Superfly": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ChouCho": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "アン・ルイス": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Kiroro": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ClariS": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "YURiKA": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "安室奈美恵": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MISIA": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "浜崎あゆみ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "藍井エイル": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "夏川りみ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "平原綾香": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中島美嘉": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "堀江由衣": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "水樹奈々": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "茅原実里": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "藤原鞠菜": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中川翔子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "LiSA": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "あみん": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "音莉飴": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "AI": {
+  "genres": [
+   "female_solo",
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "99RadioService": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "浦島太郎(桐谷健太)": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "久保田利伸": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "平井堅": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HOME MADE 家族": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "GReeeeN": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "YA-KYIM": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HoneyWorks feat.かぴ": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Night Tempo": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "YOASOBI": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ヨルシカ": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "yama": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Ado": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "175R": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "1986 OMEGA TRIBE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "=LOVE": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "AAA": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "AKASAKI": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ASIAN KUNG-FU GENERATION": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ASKA": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Aimer": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Aqua Timez": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Awesome City Club": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BABYMETAL": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BARBEE BOYS": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BE:FIRST": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BEGIN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BOØWY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BUCK-TICK": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BaBe": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BiSH": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BoA": {
+  "genres": [
+   "kpop",
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "C-C-B": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "CANDY TUNE": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "COMPLEX": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "CUTIE STREET": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Chara": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Cocco": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Creepy Nuts": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Crystal Kay": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "D-51": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "DAOKO × 米津玄師": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "DEEN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Def Tech": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Doughnuts Hole": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Dragon Ash": {
+  "genres": [
+   "band",
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "E-girls": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EAST END×YURI": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EXILE": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "FRUITS ZIPPER": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "FUNKY MONKEY BABYS": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "GAO": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Gackt": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HANA": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HKT48": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HOUND DOG": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Hey! Say! JUMP": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Hilcrhyme": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Hysteric Blue": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "I WiSH": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "INI": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "JO1": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "JUJU": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "JUJU with JAY'ED": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KAN": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KANA-BOON": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KAT-TUN": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KEYTALK": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KICK THE CAN CREW": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KOH+": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KUWATA BAND": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "King & Prince": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Kis-My-Ft2": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "LINDBERG": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "LUNA SEA": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Le Couple": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Little Glee Monster": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MAX": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "May J.": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "My Little Lover": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NEWS": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NiziU": {
+  "genres": [
+   "female_idol",
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Novelbright": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Number_i": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ONE OK ROCK": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ORIGINAL LOVE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Omoinotake": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "PUFFY": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Pabo": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "RADIO FISH": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "RADWIMPS": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "RCサクセション": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "REBECCA": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "RIP SLYME": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "RUI": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SEAMO": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SHAZNA": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SHISHAMO": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SHOW-YA": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SKE48": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SOUL'd OUT": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SUPER BEAVER": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Sexy Zone": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SixTONES": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Snow Man": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SoulJa feat. 青山テルマ": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Spontania feat. JUJU": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Suchmos": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "T-BOLAN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "THE ALFEE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "THE YELLOW MONKEY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "THE 虎舞竜": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "TOKIO": {
+  "genres": [
+   "male_idol",
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "TUBE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Travis Japan": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Twenty★Twenty": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "UA": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Uru": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "V6": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "WANDS": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "WaT": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "WurtS": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "X": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "X JAPAN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "YELLOW MAGIC ORCHESTRA": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "YEN TOWN BAND": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "YUI": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ZIGGY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ZONE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ZOO": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "[Alexandros]": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "aiko": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "class": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "flumpool": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "hitomi": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "m-flo": {
+  "genres": [
+   "dance",
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "m.c.A・T": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "mihimaru GT": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "moumoon": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "nobodyknows+": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "the brilliant green": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "timelesz": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "trf": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "wacci": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "おニャン子クラブ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "きゃりーぱみゅぱみゅ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "くるり": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "こっちのけんと": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ずっと真夜中でいいのに。": {
+  "genres": [
+   "net",
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "たま": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ちゃんみな": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "とんねるず": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "なにわ男子": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ひらめ": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ももいろクローバー": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ももいろクローバーZ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "もんた&ブラザーズ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ゆず": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "わらべ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "イモ欽トリオ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "ウルフルズ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "エレファントカシマシ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "オフコース": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "キマグレン": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "クマムシ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "クリープハイプ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ケツメイシ": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ゴスペラーズ": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "サスケ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "サンボマスター": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ザ・ぼんち": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "シブがき隊": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "シャネルズ": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "シャ乱Q": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ジャニーズWEST": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ジューシィ・フルーツ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "チャゲ&飛鳥": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "チャットモンチー": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ピコ太郎": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "フジファブリック": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "フレデリック": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ポルカドットスティングレイ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ミニモニ。": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "ヤバイTシャツ屋さん": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ユニコーン": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ラッツ&スター": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "一風堂": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "三代目 J Soul Brothers from EXILE TRIBE": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "三原順子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "三木道三": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "三浦大知": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "三浦春馬": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "上田正樹": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中原めいこ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中孝介": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中山美穂": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中村あゆみ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中村中": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中田ヤスタカ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中西保志": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "乃木坂46": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "五輪真弓": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "井上陽水": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "今井美樹": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "伊藤つかさ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "佐野元春": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "修二と彰": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "倉木麻衣": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "倖田來未": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "元ちとせ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "八神純子": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "前田敦子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "加藤ミリヤ×清水翔太": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "南佳孝": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "南野陽子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "原田知世": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "友成空": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "反町隆史": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "吉川晃司": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "和ぬか": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "国生さゆり with おニャン子クラブ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大橋純子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大江千里": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大滝詠一": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大黒摩季": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "天野春子(小泉今日子)": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "奥田民生": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "安全地帯": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "安室奈美恵 with SUPER MONKEY'S": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "家入レオ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小林旭": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小林麻美": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小柳ゆき": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小比類巻かほる": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小沢健二": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小泉今日子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "山下智久": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "山下達郎": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "山口百恵": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "山崎まさよし": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "山根康広": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "岡崎体育": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "岡本真夜": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "岡田有希子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "岩崎宏美": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "島谷ひとみ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "嶋大輔": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "川本真琴": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "工藤静香": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "布袋寅泰": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "平松愛理": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "後藤真希": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "徳永英明": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "忌野清志郎+坂本龍一": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "慎吾ママ": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "斉藤和義": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "斉藤由貴": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "新しい学校のリーダーズ": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "新田恵利": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "日向坂46": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "早見優": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "木村カエラ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "本田美奈子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "杉山清貴": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "杉山清貴&オメガトライブ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "来生たかお": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "東京事変": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "東方神起": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "松たか子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "松山千春": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "松平健": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "松本伊代": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "松浦亜弥": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "柏原芳恵": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "柴咲コウ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "桑田佳祐": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "森高千里": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "植村花菜": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "椎名林檎と宮本浩次": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "楠瀬誠志郎": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "櫻坂46": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "氣志團": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "水曜日のカンパネラ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "氷室京介": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "永井真理子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "沢田研二": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "河口恭吾": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "河合奈保子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "河村隆一": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "泰葉": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "浅香唯": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "浜田省吾": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "浜田麻里": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "清水翔太": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "渡辺徹": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "渡辺美里": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "湘南乃風": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "猿岩石": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "玉置浩二": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "田原俊彦": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "男闘呼組": {
+  "genres": [
+   "male_idol",
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "相川七瀬": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "真心ブラザーズ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "矢井田瞳": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "知念里奈": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "石井明美": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "石川ひとみ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "石川優子とチャゲ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "研ナオコ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "秋川雅史": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "秦基博": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "稲垣潤一": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "紫今": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "絢香×コブクロ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "織田裕二": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "美空ひばり": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "羞恥心": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "聖飢魔II": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "菅田将暉": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "菊池桃子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "華原朋美": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "葛城ユキ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "薫と友樹、たまにムック。": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "藤井フミヤ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "藤井隆": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "藤井風": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "藤谷美和子・大内義昭": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "西城秀樹": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "西野カナ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "超ときめき♡宣伝部": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "辛島美登里": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "近藤真彦": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "遊助": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "郷ひろみ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "酒井法子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "鈴木あみ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "鈴木雅之": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "鈴木雅之&菊池桃子": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "長山洋子": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "長渕剛": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "関ジャニ∞": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "雅夢": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "電気グルーヴ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "高橋優": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "高橋真梨子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "鬼束ちひろ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "黒夢": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ROSÉ": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "aespa": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "アイナ・ジ・エンド": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "幾田りら": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BABYMONSTER": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Jimin": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ILLIT": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HUNTR/X": {
+  "genres": [
+   "kpop",
+   "western"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "XG": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MY FIRST STORY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "キタニタツヤ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SPYAIR": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "シャイトープ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "LE SSERAFIM": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Jung Kook": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "10-FEET": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "星街すいせい": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "GEMN": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NewJeans": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "羊文学": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MAN WITH A MISSION": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "マルシィ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "百足": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MAISONdes": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Kanaria": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "女王蜂": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "由薫": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ヤングスキニー": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ano": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Stray Kids": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BTS": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HoneyWorks": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "IVE": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "川崎 鷹也": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "TWICE": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "変態紳士クラブ": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Kep1er": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "The Kid LAROI": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Eve": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "星野 源": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "菅田 将暉": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "平井 大": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "きゃない": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NAYEON": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大橋ちっぽけ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "夜のひと笑い": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "milet": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BLOOM VASE": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Rin音": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ꉈꀧ꒒꒒ꁄꍈꍈꀧ꒦ꉈ ꉣꅔꎡꅔꁕꁄ": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Reol": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Chinozo": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ビリー・アイリッシュ": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "エド・シーラン": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "空音": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BLACKPINK": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Daoko": {
+  "genres": [
+   "ssw",
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SEVENTEEN": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MAMAMOO": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ITZY": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "オレンジスパイニクラブ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Fitz and The Tantrums": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "レディー・ガガ": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "クイーン": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "IZ*ONE": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NMB48": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "三代目 J SOUL BROTHERS from EXILE TRIBE": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Ed Sheeran & Justin Bieber": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "STU48": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "L'Arc-en-Ciel": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Whiteberry": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ECHOES": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "蓮井 朱夏": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MISIA+DCT": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "木村弓": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "ストロベリー・フラワー": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "篠原涼子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "藤谷美和子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "CHAGE and ASKA": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NOKKO": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "To Be Continued": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ICE BOX": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "吉岡秀隆": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "桑田 佳祐 ＆ Mr.Children": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "L⇔R": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EAST END + YURI": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "田村直美": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "マライア・キャリー": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "FUNK THE PEANUTS": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "ラブ・クレッシェンド": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "μ's": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "NGT48": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ラストアイドル": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "坂本冬美": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "放課後ティータイム": {
+  "genres": [
+   "band"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "板野友美": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "フレンチ・キス": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "渡辺麻友": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "T.M.Revolution×水樹奈々": {
+  "genres": [
+   "male_solo",
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "キング・クリームソーダ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "Nana starring Mika Nakashima": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BENNIE K": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "REIRA starring Yuna Ito": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HIGH and MIGHTY COLOR": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Kaoru Amane": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "伊藤由奈": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "青山テルマ": {
+  "genres": [
+   "female_solo",
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "秋元順子": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "平沢唯(CV:豊崎愛生)": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "柴矢裕美": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "MINMI": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "玉置成実": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "day after tomorrow": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "坂本龍一 featuring Sister M": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "高橋洋子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "広末涼子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ブラック・ビスケッツ": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "松本梨香": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "鈴木亜美": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "hiro": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Sugar Soul": {
+  "genres": [
+   "female_solo",
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "上原多香子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "PRINCESS PRINCESS": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "PINK SAPPHIRE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "GO-BANG'S": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ジッタリン・ジン": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "澤田知可子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "児島未散": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "香西かおり": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "川村カオリ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "森口博子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "伍代夏子": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "やまだかつてないWINK": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "mikiimai": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KIX・S": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "都はるみ": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "岩崎良美": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "うしろゆびさされ組": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "吉沢秋絵": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "国生さゆり": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "レベッカ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "高井麻巳子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "渡辺美奈代": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "森川由加里": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "渡辺満里奈": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "日野美歌": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "テレサ・テン": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小林幸子": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "浅香 唯": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ロス・インディオス/シルヴィア": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "渡辺真知子": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "八代亜紀": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "高田みづえ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中村晃子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "松村和子": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "杉村 尚美": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ザ・ヴィーナス": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "石川優子": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Sugar": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "山下久美子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "高樹澪": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "増田惠子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EPO": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "歐陽菲菲": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小柳ルミ子": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "未唯mie": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "飯島真理": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "竜鉄也": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中村雅俊": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "細川たかし": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大川栄策": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "アイリーン・キャラ": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "芦屋雁之助": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Kuwata Band": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "河合その子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "瀬川瑛子": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "吉幾三": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "尾形大作": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "五木ひろし": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "プリンセス・プリンセス": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "B.B.クィーンズ": {
+  "genres": [
+   "band"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "ダイアナ・ロス": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "久保田利伸with NAOMI CAMPBELL": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "TK PRESENTS こねっと": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BLACK BISCUITS": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "速水けんたろう、茂森あゆみ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "坂本龍一": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "プッチモニ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "L'Arc～en～Ciel": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ロードオブメジャー": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Gorie with Jasmine＆Joann": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "GLAY×EXILE": {
+  "genres": [
+   "band",
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "トラジ・ハイジ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "嵐／矢野健太 starring Satoshi Ohno": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Hey！Say！JUMP": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "氷川きよし": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "XIAH junsu": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "怪物くん（怪物太郎）": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "はんにゃ，フルーツポンチ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "Lia／多田葵": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "稲葉浩志": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "チームドラゴン from AKB48": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "少女時代": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "チーム・アミューズ!!": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EXILE／EXILE ATSUSHI": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Not yet": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "赤西仁": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KARA": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "B’z": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "チャン・グンソク": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "マキシマム ザ ホルモン": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NYC": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "エイトレンジャー": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Hey!Say!JUMP": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EXILE TRIBE": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "キム・ヒョンジュン": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SUPER JUNIOR": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "The MONSTER": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "2PM": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "関ジャニ∞（エイト）": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EXILE TRIBE (三代目 J Soul Brothers VS GENERATIONS)": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Linked Horizon": {
+  "genres": [
+   "band"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "山田涼介": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "舞祭組": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "モーニング娘。’14": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HKT48 feat.氣志團": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EXO": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "GENERATIONS from EXILE TRIBE": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "JYJ": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "モーニング娘。’15": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "仮面女子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Hi-STANDARD": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BOYS AND MEN": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "モーニング娘。'15": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "防弾少年団": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BTS(防弾少年団)": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Hey！Say！JUMP／A.Y.T.": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "亀と山P": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "QUARTET NIGHT": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "モーニング娘。'17": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "King＆Prince": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ハロプロ･オールスターズ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Hey! Say! JUMP／山田涼介": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "亀梨和也": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "モーニング娘。'19": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MONSTA X": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SixTONES vs Snow Man": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "モーニング娘。’20": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "TOMORROW X TOGETHER": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "刀剣男士 formation of 葵咲": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "つばきファクトリー": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ENHYPEN": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Jin": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "THE RAMPAGE from EXILE TRIBE": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "≠ME": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "TREASURE": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NCT DREAM": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Aぇ! group": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ZEROBASEONE": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "&TEAM": {
+  "genres": [
+   "kpop",
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BOYNEXTDOOR": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "速水けんたろう、茂森あゆみ、 ひまわりキッズ、だんご合唱団": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "B.B.クイーンズ": {
+  "genres": [
+   "band"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "沢田知可子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Che'Nelle": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "谷村新司": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "H2O": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "石川さゆり": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "島倉千代子": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "DJ OZMA": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "三代目 J Soul Brothers": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Dream5": {
+  "genres": [
+   "dance"
+  ],
+  "anime": true,
+  "kids": true
+ },
+ "ナナヲアカリ": {
+  "genres": [
+   "net"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "M!LK": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "TEE": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Sonar Pocket": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Che’Nelle": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EXILE ATSUSHI": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "坂井泉水": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "川嶋あい": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "德永英明": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "宮本浩次": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "桜井和寿": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "スガシカオ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ナオト・インティライミ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "HUNTR/X (EJAE, Audrey Nuna, and REI AMI)": {
+  "genres": [
+   "kpop",
+   "western"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "米津玄師、宇多田ヒカル": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Mrs.GREEN APPLE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "GEMN(中島健人・キタニタツヤ)": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MY FIRST STORY × HYDE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MISAMO": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ME:I": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MAN WITH A MISSION × milet": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "百足 & 韻マン": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "millennium parade × Belle": {
+  "genres": [
+   "band"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "海蔵亮太": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "三代目 J SOUL BROTHERS from EXILE": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "桑田佳祐 & The Pin Boys": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "平井大": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "シェネル": {
+  "genres": [
+   "western"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NOBU": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "林部智史": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "RADWINPS": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Beverly": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "半崎美子": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "UVERworld": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "藤原さくら": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "手嶌葵": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Flower": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EXILE ATSUSHI + AI": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "水森かおり": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "三山ひろし": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "UNION SQUARE GARDEN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Chay": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "西内まりや": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大月みやこ": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "花岡なつみ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "きゃりーばみゅぱみゅ": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "LoVendoR": {
+  "genres": [
+   "band",
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Rihwa": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "福田こうへい": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "山崎ていじ": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "千昌夫": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "山本譲二": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "剛力彩芽": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "EXILE TAKAHIRO": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "T.M.Rovolution×水樹奈々": {
+  "genres": [
+   "male_solo",
+   "female_solo"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "新里宏太": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Ms.OOJA": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "岩佐美咲": {
+  "genres": [
+   "enka",
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ふくい舞": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Rake": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "マキシマムザホルモン": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "チーム・アミューズ!": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "田川寿美": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "JAMOSA": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ラルクアンシエル": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "DOES": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ヒルクライム": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "FUNKEY MONKEY BABYS": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "はんにゃ,フルーツポンチ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "中山優馬 w/B.I.Shadow": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "DREAMS COME TRUE feat.FUZZY CONTROL": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ROCK'A'TRENCH": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "矢島美容室": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "藤岡藤巻と大橋のぞみ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": true,
+  "kids": true
+ },
+ "ジェロ": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "すぎもとまさと": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "木山裕策": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "童子-T": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "アラジン": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "SoulJa": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "おしりかじり虫": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "オレンジレンジ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "アンジェラアキ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "FUNKEY MONKEY BABY'S": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BUMP OF CHIKEN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "RSP": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Dreams Come True": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "トリオ☆ザ☆シャキーン": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "タッキー&翼": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Sunset Swish": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "monkey majik": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "YUI for 雨音薫": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Bank Band with Salyu": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BONNIE PINK": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "GYM": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "キグルミ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "EXILE×倖田來未": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "アンダーグラフ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "トンガリキッズ": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "ジャンヌダルク": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Crystal kay × CHEMISTRY": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "K": {
+  "genres": [
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SINGER SONGER": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "くず": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "&G": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "浜田雅功と槙原敬之": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "光永亮太": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "FLOW": {
+  "genres": [
+   "band"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "はなわ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "TAK MATSUMOTO featuring ZARD": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "リップスライム": {
+  "genres": [
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Do As Infinity": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "桜庭裕一郎": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "麻波25": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "キンモクセイ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "YeLLOW Generation": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "堂本剛": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "川中美幸": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "浜崎あゆみ&KEIKO": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "T.M.Revolution": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "kinki kids": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "N.M.L": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Re:Japan": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "プッチモニ。": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大泉逸郎": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "花*花": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Dragon Ash feat.ラッパ蛾リヤ": {
+  "genres": [
+   "band",
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "黄色5": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "あか組4": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "Suger Soul feat.Kenji": {
+  "genres": [
+   "female_solo",
+   "hiphop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Something ELse": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "槙原敬之": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "センチメンタル・バス": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "松本英子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "山口由子": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NiNa": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MY LITTLE LOVER": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "PENICILLIN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "T.M Revolution": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "hide with Spread Beaver": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SIAM SHADE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "JUDY&MARY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "T.M REVOLUTION": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MOON CHILD": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "T.K PRESENTS こねっと": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "反町隆史with Richie Sambora": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "GRAY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "オリジナルラヴ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "FIELD OF VIEW": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Mr.Childen": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "To Be Coutinued": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "久宝留理子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "橘いずみ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "NOA": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "高山厳": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "森田童子": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "財津和夫": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "国武万里": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ZYYG REV ZARD&WANDS": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "THE WAVES": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "藤あや子": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ZYYG": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Voice": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Z団": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "J-WALK": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "織田哲郎": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "大事MANプラザーズバンド": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小野正利": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ハウンドドッグ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中西圭三": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "THE ALFFEE": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BAKUFU-SLUMP": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "V2": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "バブルガムブラザーズ": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "チューブ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ドリームズカムトゥルー": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "TMN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Mi-Ke": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "嘉門達夫": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "障子久美": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "プリンセスプリンセス": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "B・Bクイーンズ": {
+  "genres": [
+   "band"
+  ],
+  "anime": true,
+  "kids": false
+ },
+ "矢沢永吉": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "プリンセスフリンセス": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "川村かおり": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "KATSUMI": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "堀内孝雄": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "GO-BANG’S": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "JITTERIN’JINN": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "牛若丸三郎太": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "高野寛": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "オヨネーズ": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": true
+ },
+ "TM NETWORK": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "宮沢りえ": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "斎藤由貴": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "バービーボーイズ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ハウンドドック": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "チョーヨンピル": {
+  "genres": [
+   "enka",
+   "kpop"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "BOOWY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "石原裕次郎": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "アルフィー": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Babe": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "渡哲也いしだあゆみ": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "日野美歌葵司郎": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "椎名恵": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "池田聡": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "TOM CAT": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "菊地桃子": {
+  "genres": [
+   "female_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "トシ&ナオコ": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "松任谷由実小田和正財津和夫": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "風見慎吾": {
+  "genres": [
+   "male_idol"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "LOOK": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "テレサテン": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "木村友衛": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "MIE": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "一世風靡セピア": {
+  "genres": [
+   "dance"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "舘ひろし": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "SALLY": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "小林幸子美樹克彦": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "中原めい子": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "梅沢富美男": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "村下孝蔵": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "都はるみ岡千秋": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "Y.M.O": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "森進一": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "野口五郎": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ヒロシ&キーボー": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "シュガー": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ザタイガース": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "忌野清志郎坂本龍一": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "増田恵子": {
+  "genres": [
+   "female_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "堀江淳": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "横浜銀蠅": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "伊藤敏博": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "西田敏行": {
+  "genres": [
+   "male_solo"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "クリエーション": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "五十嵐浩晃": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "矢野顕子": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "アリス": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "クリスタルキング": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "さだまさし": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "堀内孝雄滝ともはる": {
+  "genres": [
+   "enka"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ジューシーフルーツ": {
+  "genres": [
+   "band"
+  ],
+  "anime": false,
+  "kids": false
+ },
+ "ばんばひろふみ": {
+  "genres": [
+   "ssw"
+  ],
+  "anime": false,
+  "kids": false
+ }
+}

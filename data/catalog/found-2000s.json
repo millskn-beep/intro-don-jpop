@@ -1,0 +1,4484 @@
+{
+ "0": {
+  "title": "らいおんハート",
+  "artist": "SMAP",
+  "year": 2000,
+  "fame": 1,
+  "hit": {
+   "id": "MdRCoN-4ZBE",
+   "title": "らいおんハート - SMAP",
+   "owner": "high_note Music Lounge",
+   "views": 11635381,
+   "len": 249,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "1": {
+  "title": "恋愛レボリューション21",
+  "artist": "モーニング娘。",
+  "year": 2000,
+  "fame": 1,
+  "hit": {
+   "id": "D_xkQAxyf-o",
+   "title": "モーニング娘。 『恋愛レボリューション21』  (MV)",
+   "owner": "モーニング娘。",
+   "views": 56889549,
+   "len": 294,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "2": {
+  "title": "サウダージ",
+  "artist": "ポルノグラフィティ",
+  "year": 2000,
+  "fame": 1,
+  "hit": {
+   "id": "lzsB4eKPdJI",
+   "title": "ポルノグラフィティ『サウダージ』MUSIC VIDEO",
+   "owner": "ポルノグラフィティ Official YouTube Channel",
+   "views": 41324103,
+   "len": 269,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "3": {
+  "title": "慎吾ママのおはロック",
+  "artist": "慎吾ママ",
+  "year": 2000,
+  "fame": 1,
+  "hit": null
+ },
+ "4": {
+  "title": "地上の星",
+  "artist": "中島みゆき",
+  "year": 2000,
+  "fame": 1,
+  "hit": {
+   "id": "v2SlpjCz7uE",
+   "title": "地上の星 / 中島みゆき [公式]",
+   "owner": "中島みゆき公式チャンネル",
+   "views": 116482674,
+   "len": 332,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "5": {
+  "title": "ボーイフレンド",
+  "artist": "aiko",
+  "year": 2000,
+  "fame": 1,
+  "hit": {
+   "id": "9Jh-FBYGaU4",
+   "title": "aiko- 『ボーイフレンド』music video",
+   "owner": "aikoOfficial",
+   "views": 29939708,
+   "len": 317,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "6": {
+  "title": "月光",
+  "artist": "鬼束ちひろ",
+  "year": 2000,
+  "fame": 1,
+  "hit": {
+   "id": "iyw6-KVmgow",
+   "title": "鬼束ちひろ - 月光",
+   "owner": "鬼束ちひろ",
+   "views": 113954701,
+   "len": 309,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "7": {
+  "title": "M",
+  "artist": "浜崎あゆみ",
+  "year": 2000,
+  "fame": 1,
+  "hit": {
+   "id": "03y-KyezDS4",
+   "title": "浜崎あゆみ / M",
+   "owner": "ayumi hamasaki",
+   "views": 40362970,
+   "len": 269,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "8": {
+  "title": "ハッピーサマーウェディング",
+  "artist": "モーニング娘。",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "Dh695gSiwo8",
+   "title": "モーニング娘。 『ハッピーサマーウェディング』 (MV)",
+   "owner": "モーニング娘。",
+   "views": 25140686,
+   "len": 290,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "9": {
+  "title": "恋のダンスサイト",
+  "artist": "モーニング娘。",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "cO2lsKENxV4",
+   "title": "モーニング娘。 『恋のダンスサイト』 (MV)",
+   "owner": "モーニング娘。",
+   "views": 11155580,
+   "len": 292,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "10": {
+  "title": "Wait & See 〜リスク〜",
+  "artist": "宇多田ヒカル",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "zIEf-xJ8VE4",
+   "title": "宇多田ヒカル - Wait & See ～リスク～",
+   "owner": "Hikaru Utada",
+   "views": 17658069,
+   "len": 299,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "11": {
+  "title": "ミュージック・アワー",
+  "artist": "ポルノグラフィティ",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "8ClfuCqHgvs",
+   "title": "ポルノグラフィティ『ミュージック・アワー』MUSIC VIDEO",
+   "owner": "ポルノグラフィティ Official YouTube Channel",
+   "views": 13276517,
+   "len": 276,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "12": {
+  "title": "桜の時",
+  "artist": "aiko",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "fUJzm7ESF0M",
+   "title": "aiko- 『桜の時』music video",
+   "owner": "aikoOfficial",
+   "views": 4753962,
+   "len": 300,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "13": {
+  "title": "LOVE 2000",
+  "artist": "hitomi",
+  "year": 2000,
+  "fame": 2,
+  "hit": null
+ },
+ "14": {
+  "title": "My Sweet Darlin'",
+  "artist": "矢井田瞳",
+  "year": 2000,
+  "fame": 2,
+  "hit": null
+ },
+ "15": {
+  "title": "ナンダカンダ",
+  "artist": "藤井隆",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "dLLszCUIYME",
+   "title": "ナンダカンダ",
+   "owner": "藤井隆 - Topic",
+   "views": 948317,
+   "len": 209,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "16": {
+  "title": "STAY AWAY",
+  "artist": "L'Arc〜en〜Ciel",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "Dwj8qNrv1kI",
+   "title": "L'Arc-en-Ciel「STAY AWAY」-Music Clip-",
+   "owner": "L'Arc-en-Ciel",
+   "views": 18028739,
+   "len": 256,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "17": {
+  "title": "楽園",
+  "artist": "平井堅",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "TM6CjY_HtOc",
+   "title": "平井 堅 『楽園』MUSIC VIDEO",
+   "owner": "平井 堅 YouTube Official Channel",
+   "views": 4293878,
+   "len": 342,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "18": {
+  "title": "今夜月の見える丘に",
+  "artist": "B'z",
+  "year": 2000,
+  "fame": 2,
+  "hit": null
+ },
+ "19": {
+  "title": "HOTEL PACIFIC",
+  "artist": "サザンオールスターズ",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "TjmoaDFXCOo",
+   "title": "HOTEL PACIFIC",
+   "owner": "サザンオールスターズ",
+   "views": 10210316,
+   "len": 287,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "20": {
+  "title": "口笛",
+  "artist": "Mr.Children",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "3mwg3uRxMng",
+   "title": "Mr.Children 「口笛」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 6462614,
+   "len": 361,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "21": {
+  "title": "罪と罰",
+  "artist": "椎名林檎",
+  "year": 2000,
+  "fame": 2,
+  "hit": {
+   "id": "dSXvVmwJxh4",
+   "title": "椎名林檎 - 罪と罰",
+   "owner": "椎名林檎",
+   "views": 25029006,
+   "len": 316,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "22": {
+  "title": "NEVER END",
+  "artist": "安室奈美恵",
+  "year": 2000,
+  "fame": 2,
+  "hit": null
+ },
+ "23": {
+  "title": "I WISH",
+  "artist": "モーニング娘。",
+  "year": 2000,
+  "fame": 3,
+  "hit": {
+   "id": "BmtxkfPjREk",
+   "title": "モーニング娘。 『I WISH』 (MV)",
+   "owner": "モーニング娘。",
+   "views": 5679546,
+   "len": 475,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "24": {
+  "title": "眩暈",
+  "artist": "鬼束ちひろ",
+  "year": 2000,
+  "fame": 3,
+  "hit": {
+   "id": "inu2N03AqTI",
+   "title": "鬼束ちひろ - 眩暈",
+   "owner": "鬼束ちひろ",
+   "views": 24287556,
+   "len": 308,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "25": {
+  "title": "NEO UNIVERSE",
+  "artist": "L'Arc〜en〜Ciel",
+  "year": 2000,
+  "fame": 3,
+  "hit": {
+   "id": "l_1-ZF6adRk",
+   "title": "L'Arc-en-Ciel「NEO UNIVERSE」-Music Clip-",
+   "owner": "L'Arc-en-Ciel",
+   "views": 5290827,
+   "len": 263,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "26": {
+  "title": "juice",
+  "artist": "B'z",
+  "year": 2000,
+  "fame": 3,
+  "hit": {
+   "id": "ZBOWfen-ZYw",
+   "title": "B'z / juice -LIVE-GYM digest-",
+   "owner": "Bz",
+   "views": 2540206,
+   "len": 242,
+   "kind": "official",
+   "live": true,
+   "sc": 18
+  }
+ },
+ "27": {
+  "title": "NOT FOUND",
+  "artist": "Mr.Children",
+  "year": 2000,
+  "fame": 3,
+  "hit": {
+   "id": "kCNpOe5S1B4",
+   "title": "Mr.Children 「NOT FOUND」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 8091065,
+   "len": 309,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "28": {
+  "title": "感謝カンゲキ雨嵐",
+  "artist": "嵐",
+  "year": 2000,
+  "fame": 3,
+  "hit": {
+   "id": "vgSaZvZgpqs",
+   "title": "ARASHI「感謝カンゲキ雨嵐」- Special Music Video -",
+   "owner": "嵐大好きな人",
+   "views": 36213,
+   "len": 189,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "29": {
+  "title": "even if",
+  "artist": "平井堅",
+  "year": 2000,
+  "fame": 3,
+  "hit": {
+   "id": "6UZ9WZXLSC8",
+   "title": "平井 堅 『even if』MUSIC VIDEO",
+   "owner": "平井 堅 YouTube Official Channel",
+   "views": 3595927,
+   "len": 360,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "30": {
+  "title": "AUDIENCE",
+  "artist": "浜崎あゆみ",
+  "year": 2000,
+  "fame": 3,
+  "hit": {
+   "id": "4A5f5dsyiXk",
+   "title": "AUDIENCE",
+   "owner": "ayumi hamasaki",
+   "views": 1197383,
+   "len": 246,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "31": {
+  "title": "Stay by my side",
+  "artist": "倉木麻衣",
+  "year": 2000,
+  "fame": 3,
+  "hit": {
+   "id": "zBAa0wfr03g",
+   "title": "倉木麻衣 「Stay by my side」",
+   "owner": "MaiKuraki",
+   "views": 3264920,
+   "len": 96,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "32": {
+  "title": "if...",
+  "artist": "DA PUMP",
+  "year": 2000,
+  "fame": 3,
+  "hit": {
+   "id": "QjtCniSkYE4",
+   "title": "if...",
+   "owner": "DA PUMP",
+   "views": 193456,
+   "len": 219,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "33": {
+  "title": "Can You Keep A Secret?",
+  "artist": "宇多田ヒカル",
+  "year": 2001,
+  "fame": 1,
+  "hit": {
+   "id": "MRhQ7vuCWP4",
+   "title": "【High Quality 4K60fps】宇多田ヒカル「Can You Keep A Secret?」Hikaru U",
+   "owner": "Maloney MUSIC",
+   "views": 29209,
+   "len": 451,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "34": {
+  "title": "fragile",
+  "artist": "Every Little Thing",
+  "year": 2001,
+  "fame": 1,
+  "hit": {
+   "id": "sxLN3E3jigg",
+   "title": "「fragile」MUSIC VIDEO / Every Little Thing",
+   "owner": "ELTV",
+   "views": 3456742,
+   "len": 338,
+   "kind": "fan",
+   "live": false,
+   "sc": 3
+  }
+ },
+ "35": {
+  "title": "波乗りジョニー",
+  "artist": "桑田佳祐",
+  "year": 2001,
+  "fame": 1,
+  "hit": {
+   "id": "K0-Dm4wMJpQ",
+   "title": "桑田佳祐 – 波乗りジョニー（Full ver.）",
+   "owner": "桑田佳祐",
+   "views": 14937686,
+   "len": 368,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "36": {
+  "title": "secret base 〜君がくれたもの〜",
+  "artist": "ZONE",
+  "year": 2001,
+  "fame": 1,
+  "hit": {
+   "id": "fRQtDjiRtI8",
+   "title": "ZONE「secret base ～君がくれたもの～」Official Music Video",
+   "owner": "MUSIC Liverary",
+   "views": 53932909,
+   "len": 298,
+   "kind": "label",
+   "live": false,
+   "sc": 18
+  }
+ },
+ "37": {
+  "title": "One Night Carnival",
+  "artist": "氣志團",
+  "year": 2001,
+  "fame": 1,
+  "hit": {
+   "id": "SJsx3FVudys",
+   "title": "氣志團 - One Night Carnival",
+   "owner": "氣志團TV",
+   "views": 37766770,
+   "len": 302,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "38": {
+  "title": "Best Friend",
+  "artist": "Kiroro",
+  "year": 2001,
+  "fame": 1,
+  "hit": {
+   "id": "OGACI56J34A",
+   "title": "Kiroro ｢Best Friend｣  Official Music Video",
+   "owner": "Kiroro official channel",
+   "views": 8879206,
+   "len": 292,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "39": {
+  "title": "evolution",
+  "artist": "浜崎あゆみ",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "i_G5DN4DcjY",
+   "title": "浜崎あゆみ×マクドナルド / evolution [リリックビデオ]",
+   "owner": "マクドナルド公式（McDonald’s）",
+   "views": 9428,
+   "len": 96,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "40": {
+  "title": "白い恋人達",
+  "artist": "桑田佳祐",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "pvqvBAA-0AE",
+   "title": "桑田佳祐 – 白い恋人達（Full ver.）",
+   "owner": "桑田佳祐",
+   "views": 69468866,
+   "len": 288,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "41": {
+  "title": "ひとり",
+  "artist": "ゴスペラーズ",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "BFACO7Yef1c",
+   "title": "ゴスペラーズ 『ひとり』Music Video",
+   "owner": "The Gospellers Official YouTube Channel",
+   "views": 1686092,
+   "len": 243,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "42": {
+  "title": "youthful days",
+  "artist": "Mr.Children",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "l0n0hRasLw0",
+   "title": "Mr.Children 「youthful days」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 17516476,
+   "len": 327,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "43": {
+  "title": "come again",
+  "artist": "m-flo",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "RNBiaZbFGII",
+   "title": "m-flo / come again",
+   "owner": "m-flo",
+   "views": 60858125,
+   "len": 331,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "44": {
+  "title": "ザ☆ピ〜ス!",
+  "artist": "モーニング娘。",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "-3RyqCAJkRU",
+   "title": "モーニング娘。 『ザ☆ピ〜ス！』 (MV)",
+   "owner": "モーニング娘。",
+   "views": 20119430,
+   "len": 334,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "45": {
+  "title": "ミニモニ。じゃんけんぴょん!",
+  "artist": "ミニモニ。",
+  "year": 2001,
+  "fame": 2,
+  "hit": null
+ },
+ "46": {
+  "title": "Point of No Return",
+  "artist": "CHEMISTRY",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "bUFPHCr5mt0",
+   "title": "CHEMISTRY \"Point of No Return\" Official Video",
+   "owner": "CHEMISTRY Official YouTube Channel",
+   "views": 2706510,
+   "len": 337,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "47": {
+  "title": "ボクの背中には羽根がある",
+  "artist": "KinKi Kids",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "SIxbyvy8594",
+   "title": "KinKi Kids「ボクの背中には羽根がある」Music Video",
+   "owner": "KinKi Kids",
+   "views": 13325041,
+   "len": 276,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "48": {
+  "title": "STARS",
+  "artist": "中島美嘉",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "hJBHMUGI7Nc",
+   "title": "中島美嘉 『STARS』 MUSIC VIDEO",
+   "owner": "中島美嘉 Official YouTube Channel",
+   "views": 6120066,
+   "len": 245,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "49": {
+  "title": "Lifetime Respect",
+  "artist": "三木道三",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "5ilsTS8lxpM",
+   "title": "MOMOA / Lifetime Respect -ギャル編-【Official Music Video】",
+   "owner": "MOMOA.OFFICIAL、egg Channel",
+   "views": 423140,
+   "len": 315,
+   "kind": "label",
+   "live": false,
+   "sc": 18
+  }
+ },
+ "50": {
+  "title": "明日があるさ",
+  "artist": "ウルフルズ",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "Yw5dk4V_URo",
+   "title": "明日があるさ ([LIVE] OSAKAウルフルカーニバル ウルフルズがやって来る！...",
+   "owner": "ウルフルズ",
+   "views": 10077,
+   "len": 255,
+   "kind": "official",
+   "live": true,
+   "sc": 18
+  }
+ },
+ "51": {
+  "title": "あなたに",
+  "artist": "MONGOL800",
+  "year": 2001,
+  "fame": 2,
+  "hit": {
+   "id": "lWbJFp_OSSg",
+   "title": "あなたに",
+   "owner": "MONGOL800",
+   "views": 16394198,
+   "len": 196,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "52": {
+  "title": "NEVER EVER",
+  "artist": "浜崎あゆみ",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "-TpURv-gYKg",
+   "title": "NEVER EVER",
+   "owner": "ayumi hamasaki",
+   "views": 1010608,
+   "len": 282,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "53": {
+  "title": "優しい歌",
+  "artist": "Mr.Children",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "96P0YFo3pIk",
+   "title": "Mr.Children 「優しい歌」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 2595564,
+   "len": 223,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "54": {
+  "title": "Mr.Moonlight 〜愛のビッグバンド〜",
+  "artist": "モーニング娘。",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "JcsHjnLnNyQ",
+   "title": "モーニング娘。 『Mr.Moonlight ～愛のビッグバンド～ 』 (MV)",
+   "owner": "モーニング娘。",
+   "views": 5720485,
+   "len": 255,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "55": {
+  "title": "LOVE涙色",
+  "artist": "松浦亜弥",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "B85xamk1FEM",
+   "title": "松浦亜弥「LOVE涙色」Music Video",
+   "owner": "アップフロントチャンネル",
+   "views": 3124916,
+   "len": 258,
+   "kind": "fan",
+   "live": false,
+   "sc": 3
+  }
+ },
+ "56": {
+  "title": "愛のバカやろう",
+  "artist": "後藤真希",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "CWUaQcick44",
+   "title": "後藤真希「愛のバカやろう」Music Video",
+   "owner": "アップフロントチャンネル",
+   "views": 1141006,
+   "len": 294,
+   "kind": "fan",
+   "live": false,
+   "sc": 3
+  }
+ },
+ "57": {
+  "title": "GOLD",
+  "artist": "B'z",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "CxWLqPdh7L4",
+   "title": "B'z / GOLD",
+   "owner": "Bz",
+   "views": 2278160,
+   "len": 121,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "58": {
+  "title": "ハルジオン",
+  "artist": "BUMP OF CHICKEN",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "3uXlNdPxqwY",
+   "title": "BUMP OF CHICKEN「ハルジオン」",
+   "owner": "BUMP OF CHICKEN",
+   "views": 3820281,
+   "len": 278,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "59": {
+  "title": "ばらの花",
+  "artist": "くるり",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "baNgL0jFkAs",
+   "title": "くるり - ばらの花",
+   "owner": "くるり ",
+   "views": 6287839,
+   "len": 301,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "60": {
+  "title": "遥か",
+  "artist": "スピッツ",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "QLJxdkl5wJI",
+   "title": "スピッツ / 遥か",
+   "owner": "spitzclips",
+   "views": 16240402,
+   "len": 275,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "61": {
+  "title": "12月のLove song",
+  "artist": "Gackt",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "XLJRbIVQDiM",
+   "title": "12月のLove song (2004)",
+   "owner": "GACKTちゃんねる がくちゃん",
+   "views": 258498,
+   "len": 323,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "62": {
+  "title": "One",
+  "artist": "RIP SLYME",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "6LbPC4ZWFok",
+   "title": "RIP SLYME - One",
+   "owner": "RIP SLYME",
+   "views": 19040253,
+   "len": 321,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "63": {
+  "title": "FINAL DISTANCE",
+  "artist": "宇多田ヒカル",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "pKbPKxlh3Yo",
+   "title": "宇多田ヒカル - FINAL DISTANCE",
+   "owner": "Hikaru Utada",
+   "views": 10793511,
+   "len": 345,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "64": {
+  "title": "Say the word",
+  "artist": "安室奈美恵",
+  "year": 2001,
+  "fame": 3,
+  "hit": null
+ },
+ "65": {
+  "title": "永遠に",
+  "artist": "ゴスペラーズ",
+  "year": 2001,
+  "fame": 3,
+  "hit": {
+   "id": "zusLEbEiCXs",
+   "title": "ゴスペラーズ 『永遠に』Music Video",
+   "owner": "The Gospellers Official YouTube Channel",
+   "views": 2053882,
+   "len": 343,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "66": {
+  "title": "Voyage",
+  "artist": "浜崎あゆみ",
+  "year": 2002,
+  "fame": 1,
+  "hit": {
+   "id": "R6VCCQnMH6o",
+   "title": "浜崎あゆみ / Voyage (Short Ver.)",
+   "owner": "ayumi hamasaki",
+   "views": 8478468,
+   "len": 157,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "67": {
+  "title": "大きな古時計",
+  "artist": "平井堅",
+  "year": 2002,
+  "fame": 1,
+  "hit": {
+   "id": "E3hvxbM_ubw",
+   "title": "平井 堅 『大きな古時計』MUSIC VIDEO",
+   "owner": "平井 堅 YouTube Official Channel",
+   "views": 4457356,
+   "len": 321,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "68": {
+  "title": "もらい泣き",
+  "artist": "一青窈",
+  "year": 2002,
+  "fame": 1,
+  "hit": {
+   "id": "gmxw6nAz6vY",
+   "title": "一青窈 / もらい泣き",
+   "owner": "一青窈",
+   "views": 9388008,
+   "len": 311,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "69": {
+  "title": "亜麻色の髪の乙女",
+  "artist": "島谷ひとみ",
+  "year": 2002,
+  "fame": 1,
+  "hit": {
+   "id": "1nOIWI4OzD0",
+   "title": "島谷ひとみ / 「亜麻色の髪の乙女」【OFFICIAL  MV FULL SIZE】",
+   "owner": "avex",
+   "views": 18413458,
+   "len": 256,
+   "kind": "fan",
+   "live": false,
+   "sc": 3
+  }
+ },
+ "70": {
+  "title": "光",
+  "artist": "宇多田ヒカル",
+  "year": 2002,
+  "fame": 2,
+  "hit": {
+   "id": "AlMdDpUWFFI",
+   "title": "宇多田ヒカル - 光",
+   "owner": "Hikaru Utada",
+   "views": 23519755,
+   "len": 263,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "71": {
+  "title": "SAKURAドロップス",
+  "artist": "宇多田ヒカル",
+  "year": 2002,
+  "fame": 2,
+  "hit": {
+   "id": "jYDM0sYfqnM",
+   "title": "宇多田ヒカル - SAKURAドロップス",
+   "owner": "Hikaru Utada",
+   "views": 21452497,
+   "len": 308,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "72": {
+  "title": "君が好き",
+  "artist": "Mr.Children",
+  "year": 2002,
+  "fame": 2,
+  "hit": {
+   "id": "8KRYmKWchCo",
+   "title": "Mr.Children 「君が好き」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 11296488,
+   "len": 333,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "73": {
+  "title": "Life goes on",
+  "artist": "Dragon Ash",
+  "year": 2002,
+  "fame": 2,
+  "hit": {
+   "id": "KxMvJEbEyqk",
+   "title": "Dragon Ash｢Life goes on｣",
+   "owner": "Dragon Ash",
+   "views": 12330788,
+   "len": 349,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "74": {
+  "title": "楽園ベイベー",
+  "artist": "RIP SLYME",
+  "year": 2002,
+  "fame": 2,
+  "hit": {
+   "id": "mq9dl6hw_yk",
+   "title": "RIP SLYME - 楽園ベイベー",
+   "owner": "RIP SLYME",
+   "views": 32290409,
+   "len": 323,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "75": {
+  "title": "マルシェ",
+  "artist": "KICK THE CAN CREW",
+  "year": 2002,
+  "fame": 2,
+  "hit": {
+   "id": "mdBhWckWHek",
+   "title": "マルシェ | KICK THE CAN CREW",
+   "owner": "KICK THE REVEW",
+   "views": 1000,
+   "len": 233,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "76": {
+  "title": "LISTEN TO MY HEART",
+  "artist": "BoA",
+  "year": 2002,
+  "fame": 2,
+  "hit": {
+   "id": "eN_0aF3JiPc",
+   "title": "LISTEN TO MY HEART",
+   "owner": "BoA",
+   "views": 2497706,
+   "len": 236,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "77": {
+  "title": "VALENTI",
+  "artist": "BoA",
+  "year": 2002,
+  "fame": 2,
+  "hit": {
+   "id": "jXkHICv_qCY",
+   "title": "VALENTI",
+   "owner": "BoA",
+   "views": 19784081,
+   "len": 259,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "78": {
+  "title": "ワダツミの木",
+  "artist": "元ちとせ",
+  "year": 2002,
+  "fame": 2,
+  "hit": {
+   "id": "RFfrBkmpzVY",
+   "title": "ワダツミの木",
+   "owner": "元ちとせ",
+   "views": 568257,
+   "len": 356,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "79": {
+  "title": "桃色片想い",
+  "artist": "松浦亜弥",
+  "year": 2002,
+  "fame": 2,
+  "hit": null
+ },
+ "80": {
+  "title": "Yeah! めっちゃホリディ",
+  "artist": "松浦亜弥",
+  "year": 2002,
+  "fame": 2,
+  "hit": {
+   "id": "BxEf3vGTeWQ",
+   "title": "松浦亜弥「Yeah！めっちゃホリディ」Music Video",
+   "owner": "アップフロントチャンネル",
+   "views": 6094537,
+   "len": 231,
+   "kind": "fan",
+   "live": false,
+   "sc": 3
+  }
+ },
+ "81": {
+  "title": "Free & Easy",
+  "artist": "浜崎あゆみ",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "kSSBreBqFlg",
+   "title": "浜崎あゆみ / Free & Easy",
+   "owner": "ayumi hamasaki",
+   "views": 2729164,
+   "len": 321,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "82": {
+  "title": "Any",
+  "artist": "Mr.Children",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "l1AlDdC95l4",
+   "title": "Mr.Children 「Any」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 9886111,
+   "len": 317,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "83": {
+  "title": "Mugen",
+  "artist": "ポルノグラフィティ",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "vMEeSuCGYDk",
+   "title": "ポルノグラフィティ『Mugen』MUSIC VIDEO",
+   "owner": "ポルノグラフィティ Official YouTube Channel",
+   "views": 2913785,
+   "len": 269,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "84": {
+  "title": "幸せについて本気出して考えてみた",
+  "artist": "ポルノグラフィティ",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "GvBimihUggE",
+   "title": "ポルノグラフィティ『幸せについて本気出して考えてみた』MUSIC VIDEO",
+   "owner": "ポルノグラフィティ Official YouTube Channel",
+   "views": 724620,
+   "len": 292,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "85": {
+  "title": "そうだ! We're ALIVE",
+  "artist": "モーニング娘。",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "I_zmewdR-b8",
+   "title": "モーニング娘。 『そうだ！We're ALIVE』 (MV)",
+   "owner": "モーニング娘。",
+   "views": 8392271,
+   "len": 300,
+   "kind": "official",
+   "live": true,
+   "sc": 21
+  }
+ },
+ "86": {
+  "title": "島人ぬ宝",
+  "artist": "BEGIN",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "E2LLhc7JJsY",
+   "title": "BEGIN / 「島人ぬ宝」20周年MV",
+   "owner": "BEGIN、TEICHIKU RECORDS",
+   "views": 13724564,
+   "len": 317,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "87": {
+  "title": "トモダチ",
+  "artist": "ケツメイシ",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "BqN0DbhqAYM",
+   "title": "ケツメイシ「トモダチ」",
+   "owner": "ケツメイシ",
+   "views": 21471381,
+   "len": 364,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "88": {
+  "title": "freebird",
+  "artist": "SMAP",
+  "year": 2002,
+  "fame": 3,
+  "hit": null
+ },
+ "89": {
+  "title": "キラキラ",
+  "artist": "小田和正",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "-mHUvj9oQNs",
+   "title": "キラキラ",
+   "owner": "小田和正 YouTube Official Channel",
+   "views": 5971247,
+   "len": 286,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "90": {
+  "title": "流星群",
+  "artist": "鬼束ちひろ",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "l9hF63Fe3_Q",
+   "title": "鬼束ちひろ - 「流星群」ミュージックビデオ",
+   "owner": "鬼束ちひろ",
+   "views": 203419,
+   "len": 322,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "91": {
+  "title": "WILL",
+  "artist": "中島美嘉",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "qyMV32ag4Lc",
+   "title": "中島美嘉 『WILL』 MUSIC VIDEO",
+   "owner": "中島美嘉 Official YouTube Channel",
+   "views": 5142788,
+   "len": 241,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "92": {
+  "title": "You Go Your Way",
+  "artist": "CHEMISTRY",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "7Z7tev5G5_E",
+   "title": "CHEMISTRY \"You Go Your Way\" Official Video",
+   "owner": "CHEMISTRY Official YouTube Channel",
+   "views": 2379305,
+   "len": 304,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "93": {
+  "title": "Way of Difference",
+  "artist": "GLAY",
+  "year": 2002,
+  "fame": 3,
+  "hit": {
+   "id": "LM7xWeIRrc4",
+   "title": "GLAY / Way of Difference",
+   "owner": "GLAY",
+   "views": 13603074,
+   "len": 313,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "94": {
+  "title": "上海ハニー",
+  "artist": "ORANGE RANGE",
+  "year": 2003,
+  "fame": 1,
+  "hit": {
+   "id": "aK-Ry-SAx_I",
+   "title": "ORANGE RANGE『上海ハニー』MV",
+   "owner": "ORANGE RANGE",
+   "views": 8452314,
+   "len": 187,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "95": {
+  "title": "Choo Choo TRAIN",
+  "artist": "EXILE",
+  "year": 2003,
+  "fame": 1,
+  "hit": {
+   "id": "zyB80N-NyPY",
+   "title": "EXILE / Choo Choo TRAIN",
+   "owner": "EXILE",
+   "views": 7521548,
+   "len": 303,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "96": {
+  "title": "COLORS",
+  "artist": "宇多田ヒカル",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "nv7OzIbdm4Y",
+   "title": "宇多田ヒカル - COLORS",
+   "owner": "Hikaru Utada",
+   "views": 16499296,
+   "len": 238,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "97": {
+  "title": "No way to say",
+  "artist": "浜崎あゆみ",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "RPW6OFI6PEM",
+   "title": "浜崎あゆみ / No way to say",
+   "owner": "ayumi hamasaki",
+   "views": 11341735,
+   "len": 304,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "98": {
+  "title": "夏の思い出",
+  "artist": "ケツメイシ",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "o8mHcn-ugu4",
+   "title": "ケツメイシ「夏の思い出」",
+   "owner": "ケツメイシ",
+   "views": 8687226,
+   "len": 452,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "99": {
+  "title": "君という花",
+  "artist": "ASIAN KUNG-FU GENERATION",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "MIY3lM-jGkI",
+   "title": "ASIAN KUNG-FU GENERATION　『君という花』",
+   "owner": "ASIAN KUNG-FU GENERATION Official YouTube Channel",
+   "views": 9472930,
+   "len": 377,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "100": {
+  "title": "月のしずく",
+  "artist": "RUI",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "GHko2keycrw",
+   "title": "月のしずく - RUI フル 柴咲コウ 黄泉がえり",
+   "owner": "high_note Music Lounge",
+   "views": 2120745,
+   "len": 283,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "101": {
+  "title": "AMBITIOUS JAPAN!",
+  "artist": "TOKIO",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "4Ag24GBUFg0",
+   "title": "AMBITIOUS JAPAN! - TOKIO",
+   "owner": "high_note Music Lounge",
+   "views": 1393112,
+   "len": 240,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "102": {
+  "title": "虹",
+  "artist": "福山雅治",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "SXyqhjhaQQA",
+   "title": "福山雅治 - 虹 (Full ver.)",
+   "owner": "福山雅治 Official",
+   "views": 7584573,
+   "len": 266,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "103": {
+  "title": "桜",
+  "artist": "河口恭吾",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "7kZNdnv_haM",
+   "title": "河口恭吾 - 桜",
+   "owner": "河口恭吾",
+   "views": 17471089,
+   "len": 287,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "104": {
+  "title": "夏の終わり",
+  "artist": "森山直太朗",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "VIud7Dkz1G4",
+   "title": "森山直太朗-夏の終わり from YouTube Music Night with J-WAVE BAR",
+   "owner": "森山直太朗",
+   "views": 5660015,
+   "len": 376,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "105": {
+  "title": "明日への扉",
+  "artist": "I WiSH",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "JDTlq91oits",
+   "title": "明日への扉",
+   "owner": "I Wish - Topic",
+   "views": 2951768,
+   "len": 294,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "106": {
+  "title": "AM11:00",
+  "artist": "HY",
+  "year": 2003,
+  "fame": 2,
+  "hit": {
+   "id": "uRFRkyDyHmQ",
+   "title": "AM11:00 feat. チョコレートプラネット",
+   "owner": "HYのクレームは一切受け付けません!!",
+   "views": 2294065,
+   "len": 482,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "107": {
+  "title": "IT'S SHOWTIME!!",
+  "artist": "B'z",
+  "year": 2003,
+  "fame": 3,
+  "hit": null
+ },
+ "108": {
+  "title": "涙の海で抱かれたい 〜SEA OF LOVE〜",
+  "artist": "サザンオールスターズ",
+  "year": 2003,
+  "fame": 3,
+  "hit": {
+   "id": "w-j7Yk5HStA",
+   "title": "サザンオールスターズ - 涙の海で抱かれたい〜SEA OF LOVE〜 [Official Music Video]",
+   "owner": "サザンオールスターズ",
+   "views": 14697763,
+   "len": 297,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "109": {
+  "title": "空に唄えば",
+  "artist": "175R",
+  "year": 2003,
+  "fame": 3,
+  "hit": {
+   "id": "dHUJAHPhPJk",
+   "title": "175R「空に唄えば」OFFICIAL MUSIC VIDEO",
+   "owner": "175R OFFICIAL YouTube CHANNEL",
+   "views": 4967727,
+   "len": 259,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "110": {
+  "title": "LIFE is...",
+  "artist": "平井堅",
+  "year": 2003,
+  "fame": 3,
+  "hit": {
+   "id": "-nIV5ZPTldQ",
+   "title": "平井 堅 『LIFE is... ～another story～』MUSIC VIDEO",
+   "owner": "平井 堅 YouTube Official Channel",
+   "views": 2841443,
+   "len": 260,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "111": {
+  "title": "えりあし",
+  "artist": "aiko",
+  "year": 2003,
+  "fame": 3,
+  "hit": {
+   "id": "dJV3Z5n4MKU",
+   "title": "aiko- 『えりあし』music video",
+   "owner": "aikoOfficial",
+   "views": 2554431,
+   "len": 261,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "112": {
+  "title": "Perseus -ペルセウス-",
+  "artist": "島谷ひとみ",
+  "year": 2003,
+  "fame": 3,
+  "hit": {
+   "id": "Ps7AtRoqiDs",
+   "title": "20230717 島谷ひとみ「Perseus -ペルセウス-」",
+   "owner": "skybluemusic001",
+   "views": 58546,
+   "len": 297,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "113": {
+  "title": "愛が呼ぶほうへ",
+  "artist": "ポルノグラフィティ",
+  "year": 2003,
+  "fame": 3,
+  "hit": {
+   "id": "0U7PvH4bZiQ",
+   "title": "ポルノグラフィティ『愛が呼ぶほうへ』MUSIC VIDEO",
+   "owner": "ポルノグラフィティ Official YouTube Channel",
+   "views": 3541455,
+   "len": 266,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "114": {
+  "title": "アンバランス",
+  "artist": "KICK THE CAN CREW",
+  "year": 2003,
+  "fame": 3,
+  "hit": {
+   "id": "4H4T2GgYrZ0",
+   "title": "アンバランス-KICK THE CAN CREW",
+   "owner": "Lastresort",
+   "views": 3913996,
+   "len": 473,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "115": {
+  "title": "ウェカピポ",
+  "artist": "SOUL'd OUT",
+  "year": 2003,
+  "fame": 3,
+  "hit": {
+   "id": "2IZbzRj3CJk",
+   "title": "SOUL'd OUT『ウェカピポ』(HD)",
+   "owner": "SOUL'd OUT オフィシャルYouTubeチャンネル",
+   "views": 38185834,
+   "len": 269,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "116": {
+  "title": "Sign",
+  "artist": "Mr.Children",
+  "year": 2004,
+  "fame": 1,
+  "hit": {
+   "id": "4wuWJ7GAc2s",
+   "title": "Mr.Children 「Sign」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 58312081,
+   "len": 328,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "117": {
+  "title": "ロコローション",
+  "artist": "ORANGE RANGE",
+  "year": 2004,
+  "fame": 1,
+  "hit": {
+   "id": "3-kV0xU5aNc",
+   "title": "ORANGE RANGE『ロコローション』MV",
+   "owner": "ORANGE RANGE",
+   "views": 6379689,
+   "len": 199,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "118": {
+  "title": "栄光の架橋",
+  "artist": "ゆず",
+  "year": 2004,
+  "fame": 1,
+  "hit": {
+   "id": "lVSDUiwKVqQ",
+   "title": "ゆず「栄光の架橋」ゆずイロハ",
+   "owner": "ゆずゆぅ",
+   "views": 1040047,
+   "len": 441,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "119": {
+  "title": "3月9日",
+  "artist": "レミオロメン",
+  "year": 2004,
+  "fame": 1,
+  "hit": {
+   "id": "UNRJyBHziX4",
+   "title": "レミオロメン - 3月9日",
+   "owner": "レミオロメン",
+   "views": 61333943,
+   "len": 283,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "120": {
+  "title": "マツケンサンバII",
+  "artist": "松平健",
+  "year": 2004,
+  "fame": 1,
+  "hit": {
+   "id": "GFkwEPivRLE",
+   "title": "【松平健】サンリオピューロランドに初登場　ハローキティたちと『マツケンサンバⅡ』を披露",
+   "owner": "日テレNEWSカルチャー【公式】",
+   "views": 67154,
+   "len": 155,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "121": {
+  "title": "以心電信",
+  "artist": "ORANGE RANGE",
+  "year": 2004,
+  "fame": 2,
+  "hit": {
+   "id": "cVnDeVVoU8k",
+   "title": "ORANGE RANGE × MONGOL800 - 以心電信",
+   "owner": "ORANGE RANGE",
+   "views": 2561568,
+   "len": 256,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "122": {
+  "title": "Dear WOMAN",
+  "artist": "SMAP",
+  "year": 2004,
+  "fame": 2,
+  "hit": {
+   "id": "BAaYiPYQ9NY",
+   "title": "【SMAP】 Dear WOMAN",
+   "owner": "めに",
+   "views": 8537228,
+   "len": 288,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "123": {
+  "title": "金魚花火",
+  "artist": "大塚愛",
+  "year": 2004,
+  "fame": 2,
+  "hit": {
+   "id": "sZqdWPSJbeY",
+   "title": "金魚花火",
+   "owner": "大塚 愛",
+   "views": 116942,
+   "len": 275,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "124": {
+  "title": "群青日和",
+  "artist": "東京事変",
+  "year": 2004,
+  "fame": 2,
+  "hit": {
+   "id": "gD2mhJ3ByGQ",
+   "title": "東京事変 - 群青日和",
+   "owner": "東京事変",
+   "views": 48615710,
+   "len": 223,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "125": {
+  "title": "車輪の唄",
+  "artist": "BUMP OF CHICKEN",
+  "year": 2004,
+  "fame": 2,
+  "hit": {
+   "id": "x9S9oygUEW0",
+   "title": "BUMP OF CHICKEN『車輪の唄』",
+   "owner": "BUMP OF CHICKEN",
+   "views": 31327290,
+   "len": 276,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "126": {
+  "title": "やさしいキスをして",
+  "artist": "DREAMS COME TRUE",
+  "year": 2004,
+  "fame": 2,
+  "hit": {
+   "id": "yxvSUaeXm1c",
+   "title": "DREAMS COME TRUE - 「やさしいキスをして」",
+   "owner": "DREAMS COME TRUE",
+   "views": 8883253,
+   "len": 249,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "127": {
+  "title": "メリクリ",
+  "artist": "BoA",
+  "year": 2004,
+  "fame": 2,
+  "hit": {
+   "id": "xSRIq6I2T_4",
+   "title": "メリクリ - BoA（フル）",
+   "owner": "high_note Music Lounge",
+   "views": 2418494,
+   "len": 331,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "128": {
+  "title": "青いベンチ",
+  "artist": "サスケ",
+  "year": 2004,
+  "fame": 2,
+  "hit": {
+   "id": "WFEwoFo8IZc",
+   "title": "【生演奏】青いベンチ/サスケ",
+   "owner": "サスケTV",
+   "views": 209461,
+   "len": 274,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "129": {
+  "title": "誰かの願いが叶うころ",
+  "artist": "宇多田ヒカル",
+  "year": 2004,
+  "fame": 2,
+  "hit": {
+   "id": "mYE_YmXSFu0",
+   "title": "宇多田ヒカル - 誰かの願いが叶うころ",
+   "owner": "Hikaru Utada",
+   "views": 14576881,
+   "len": 289,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "130": {
+  "title": "ココロオドル",
+  "artist": "nobodyknows+",
+  "year": 2004,
+  "fame": 2,
+  "hit": {
+   "id": "JBjQ8uAKQtg",
+   "title": "ココロオドル -original version-",
+   "owner": "nobodyknows+ - Topic",
+   "views": 14505913,
+   "len": 254,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "131": {
+  "title": "黒毛和牛上塩タン焼680円",
+  "artist": "大塚愛",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "s-0e_eFzVbg",
+   "title": "黒毛和牛上塩タン焼680円",
+   "owner": "大塚 愛",
+   "views": 265801,
+   "len": 234,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "132": {
+  "title": "Moments",
+  "artist": "浜崎あゆみ",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "AvJuhgj09ng",
+   "title": "浜崎あゆみ / Moments",
+   "owner": "ayumi hamasaki",
+   "views": 14487878,
+   "len": 339,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "133": {
+  "title": "BANZAI",
+  "artist": "B'z",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "mtAvr98mMmM",
+   "title": "B'z - LIVE-GYM 2003 BANZAI IN NORTH AMERICA [1/4]",
+   "owner": "Music Japanese",
+   "views": 1620,
+   "len": 601,
+   "kind": "label",
+   "live": true,
+   "sc": 3
+  }
+ },
+ "134": {
+  "title": "希望〜Yell〜",
+  "artist": "NEWS",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "cO3kaLvuLXY",
+   "title": "NEWS – 希望～Yell～ [Official Music Video]",
+   "owner": "にゅうちゅうぶ | NEWS official",
+   "views": 2128289,
+   "len": 284,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "135": {
+  "title": "思いがかさなるその前に…",
+  "artist": "平井堅",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "n2zqrJMuJvM",
+   "title": "平井 堅 『思いがかさなるその前に・・・』MUSIC VIDEO",
+   "owner": "平井 堅 YouTube Official Channel",
+   "views": 4404112,
+   "len": 355,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "136": {
+  "title": "正夢",
+  "artist": "スピッツ",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "algaC2jhu8s",
+   "title": "スピッツ / 正夢",
+   "owner": "spitzclips",
+   "views": 22823490,
+   "len": 316,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "137": {
+  "title": "スターゲイザー",
+  "artist": "スピッツ",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "SC6fWmtzGf0",
+   "title": "スピッツ / スターゲイザー",
+   "owner": "spitzclips",
+   "views": 14366958,
+   "len": 258,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "138": {
+  "title": "君にBUMP",
+  "artist": "ケツメイシ",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "7ZcRWIZW17c",
+   "title": "君にBUMP",
+   "owner": "ケツメイシ",
+   "views": 1325687,
+   "len": 376,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "139": {
+  "title": "かたちあるもの",
+  "artist": "柴咲コウ",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "kXRoe4QcGNQ",
+   "title": "柴咲コウ - かたち　あるもの",
+   "owner": "柴咲コウ レトロワch.",
+   "views": 32687982,
+   "len": 257,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "140": {
+  "title": "生きとし生ける物へ",
+  "artist": "森山直太朗",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "wJb0KeepfGo",
+   "title": "森山直太朗 - 生きとし生ける物へ",
+   "owner": "森山直太朗",
+   "views": 6379026,
+   "len": 412,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "141": {
+  "title": "Anniversary",
+  "artist": "KinKi Kids",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "nzbhNACzeOg",
+   "title": "KinKi Kids「Anniversary」Music Video",
+   "owner": "KinKi Kids",
+   "views": 6998251,
+   "len": 316,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "142": {
+  "title": "永遠にともに",
+  "artist": "コブクロ",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "4FK3W_E8YGo",
+   "title": "コブクロ「永遠にともに」",
+   "owner": "コブクロ 公式チャンネル",
+   "views": 3215440,
+   "len": 328,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "143": {
+  "title": "僕が一番欲しかったもの",
+  "artist": "槇原敬之",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "GLaG5bZ_uAE",
+   "title": "僕が一番欲しかったもの (Live)",
+   "owner": "槇原敬之 Official Channel",
+   "views": 27269,
+   "len": 350,
+   "kind": "official",
+   "live": true,
+   "sc": 18
+  }
+ },
+ "144": {
+  "title": "ループ&ループ",
+  "artist": "ASIAN KUNG-FU GENERATION",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "Aq6gMHBobcA",
+   "title": "ASIAN KUNG-FU GENERATION　『ループ＆ループ』",
+   "owner": "ASIAN KUNG-FU GENERATION Official YouTube Channel",
+   "views": 6969785,
+   "len": 255,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "145": {
+  "title": "チャンピオーネ",
+  "artist": "ORANGE RANGE",
+  "year": 2004,
+  "fame": 3,
+  "hit": {
+   "id": "ocvKNTMy_ls",
+   "title": "ORANGE RANGE『チャンピオーネ』MV",
+   "owner": "ORANGE RANGE",
+   "views": 2038660,
+   "len": 296,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "146": {
+  "title": "青春アミーゴ",
+  "artist": "修二と彰",
+  "year": 2005,
+  "fame": 1,
+  "hit": {
+   "id": "dAW8QaZV_LY",
+   "title": "青春アミーゴ - 修二と彰",
+   "owner": "high_note Music Lounge",
+   "views": 5572806,
+   "len": 274,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "147": {
+  "title": "さくら",
+  "artist": "ケツメイシ",
+  "year": 2005,
+  "fame": 1,
+  "hit": {
+   "id": "yegBF2yoTDo",
+   "title": "ケツメイシ「さくら」",
+   "owner": "ケツメイシ",
+   "views": 38323976,
+   "len": 419,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "148": {
+  "title": "桜",
+  "artist": "コブクロ",
+  "year": 2005,
+  "fame": 1,
+  "hit": {
+   "id": "Dsdxxrnz1AQ",
+   "title": "コブクロ「桜」",
+   "owner": "コブクロ 公式チャンネル",
+   "views": 44289414,
+   "len": 389,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "149": {
+  "title": "ここにしか咲かない花",
+  "artist": "コブクロ",
+  "year": 2005,
+  "fame": 1,
+  "hit": {
+   "id": "GCx-zSwQNb4",
+   "title": "コブクロ「ここにしか咲かない花」",
+   "owner": "コブクロ 公式チャンネル",
+   "views": 14348410,
+   "len": 409,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "150": {
+  "title": "全力少年",
+  "artist": "スキマスイッチ",
+  "year": 2005,
+  "fame": 1,
+  "hit": {
+   "id": "IvDTkTKi5pA",
+   "title": "スキマスイッチ - 「全力少年」Music Video : SUKIMASWITCH / ZENRYOKU SHOUNE",
+   "owner": "スキマスイッチ / SUKIMASWITCH",
+   "views": 106984770,
+   "len": 282,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "151": {
+  "title": "POP STAR",
+  "artist": "平井堅",
+  "year": 2005,
+  "fame": 1,
+  "hit": {
+   "id": "WzfteHcskYo",
+   "title": "平井 堅 『POP STAR』MUSIC VIDEO",
+   "owner": "平井 堅 YouTube Official Channel",
+   "views": 40734764,
+   "len": 297,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "152": {
+  "title": "何度でも",
+  "artist": "DREAMS COME TRUE",
+  "year": 2005,
+  "fame": 1,
+  "hit": {
+   "id": "zgLAWm68XVg",
+   "title": "DREAMS COME TRUE - 「何度でも」",
+   "owner": "DREAMS COME TRUE",
+   "views": 11646087,
+   "len": 240,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "153": {
+  "title": "Butterfly",
+  "artist": "倖田來未",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "e9LALmLqGQo",
+   "title": "倖田來未-KODA KUMI-『Butterfly』～ 20th Year Special Full Ver. ～",
+   "owner": "倖田來未",
+   "views": 5473723,
+   "len": 285,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "154": {
+  "title": "ハネウマライダー",
+  "artist": "ポルノグラフィティ",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "8NBOiDkjyOg",
+   "title": "ポルノグラフィティ『ハネウマライダー』MUSIC VIDEO",
+   "owner": "ポルノグラフィティ Official YouTube Channel",
+   "views": 5707988,
+   "len": 314,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "155": {
+  "title": "ジョバイロ",
+  "artist": "ポルノグラフィティ",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "QY4CdhMgFn0",
+   "title": "ポルノグラフィティ『ジョバイロ』MUSIC VIDEO",
+   "owner": "ポルノグラフィティ Official YouTube Channel",
+   "views": 3191034,
+   "len": 290,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "156": {
+  "title": "世界はそれを愛と呼ぶんだぜ",
+  "artist": "サンボマスター",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "izlKehxIEcA",
+   "title": "サンボマスター / 世界はそれを愛と呼ぶんだぜ MUSIC VIDEO",
+   "owner": "サンボマスター",
+   "views": 14860967,
+   "len": 340,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "157": {
+  "title": "恋におちたら",
+  "artist": "Crystal Kay",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "aBIcjNh4xOw",
+   "title": "Crystal Kay 恋におちたら (PV)",
+   "owner": "OfficialCrystalKay",
+   "views": 17485868,
+   "len": 268,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "158": {
+  "title": "My Way",
+  "artist": "Def Tech",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "AbHzv3QeEC0",
+   "title": "Def Tech - My Way【Official Music Video】",
+   "owner": "Def Tech",
+   "views": 6877738,
+   "len": 321,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "159": {
+  "title": "リルラ リルハ",
+  "artist": "木村カエラ",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "Y0FiEZNZLRg",
+   "title": "木村カエラ「リルラ リルハ」（Official Music Video）",
+   "owner": "木村カエラ",
+   "views": 1760736,
+   "len": 235,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "160": {
+  "title": "JOY",
+  "artist": "YUKI",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "Lnj1SLrcIJA",
+   "title": "YUKI 『JOY』",
+   "owner": "YUKI YouTube Official Channel",
+   "views": 6483989,
+   "len": 265,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "161": {
+  "title": "プラネタリウム",
+  "artist": "大塚愛",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "kPFG14NWavI",
+   "title": "大塚 愛 - プラネタリウム / THE FIRST TAKE",
+   "owner": "THE FIRST TAKE、大塚 愛",
+   "views": 11690188,
+   "len": 430,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "162": {
+  "title": "BANG! BANG! バカンス!",
+  "artist": "SMAP",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "EiQXYSpjlHE",
+   "title": "SMAP - BANG! BANG! バカンス! (MV)",
+   "owner": "SMAP Fan Croydon",
+   "views": 2851558,
+   "len": 267,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "163": {
+  "title": "桜色舞うころ",
+  "artist": "中島美嘉",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "_LvGDnGP6pk",
+   "title": "中島美嘉 『桜色舞うころ』 MUSIC VIDEO",
+   "owner": "中島美嘉 Official YouTube Channel",
+   "views": 5442086,
+   "len": 301,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "164": {
+  "title": "ただ…逢いたくて",
+  "artist": "EXILE",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "jfPOToGkNh4",
+   "title": "ただ･･･逢いたくて",
+   "owner": "EXILE",
+   "views": 5350146,
+   "len": 333,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "165": {
+  "title": "OCEAN",
+  "artist": "B'z",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "7GkOtwds3P0",
+   "title": "B'z / OCEAN",
+   "owner": "Bz",
+   "views": 16401628,
+   "len": 124,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "166": {
+  "title": "愛のバクダン",
+  "artist": "B'z",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "9DbrwffF2AM",
+   "title": "B'z / 愛のバクダン",
+   "owner": "Bz",
+   "views": 2973283,
+   "len": 103,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "167": {
+  "title": "キラキラ",
+  "artist": "aiko",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "S0bXDRY1DGM",
+   "title": "aiko- 『キラキラ』music video",
+   "owner": "aikoOfficial",
+   "views": 10123936,
+   "len": 315,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "168": {
+  "title": "たしかなこと",
+  "artist": "小田和正",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "Nn_OTqn1blw",
+   "title": "たしかなこと",
+   "owner": "小田和正 YouTube Official Channel",
+   "views": 16084415,
+   "len": 302,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "169": {
+  "title": "ラヴ・パレード",
+  "artist": "ORANGE RANGE",
+  "year": 2005,
+  "fame": 2,
+  "hit": {
+   "id": "O3LSAY2cNP8",
+   "title": "ORANGE RANGE『ラヴ・パレード』MV",
+   "owner": "ORANGE RANGE",
+   "views": 6853830,
+   "len": 363,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "170": {
+  "title": "you",
+  "artist": "倖田來未",
+  "year": 2005,
+  "fame": 3,
+  "hit": {
+   "id": "lEe9XPFi69U",
+   "title": "倖田來未-KODA KUMI-『you』",
+   "owner": "倖田來未",
+   "views": 4063913,
+   "len": 398,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "171": {
+  "title": "fairyland",
+  "artist": "浜崎あゆみ",
+  "year": 2005,
+  "fame": 3,
+  "hit": {
+   "id": "YIZrPKSnK0M",
+   "title": "浜崎あゆみ / fairyland (Short Ver.)",
+   "owner": "ayumi hamasaki",
+   "views": 2614615,
+   "len": 122,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "172": {
+  "title": "supernova",
+  "artist": "BUMP OF CHICKEN",
+  "year": 2005,
+  "fame": 3,
+  "hit": {
+   "id": "0EpQ40X_r0Q",
+   "title": "BUMP OF CHICKEN「supernova」",
+   "owner": "BUMP OF CHICKEN",
+   "views": 4046873,
+   "len": 398,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "173": {
+  "title": "僕のキモチ",
+  "artist": "WaT",
+  "year": 2005,
+  "fame": 3,
+  "hit": {
+   "id": "EzJmHYkSPXU",
+   "title": "WaT - 「僕のキモチ」",
+   "owner": "WaT Official チャンネル",
+   "views": 1727966,
+   "len": 366,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "174": {
+  "title": "feel my soul",
+  "artist": "YUI",
+  "year": 2005,
+  "fame": 3,
+  "hit": null
+ },
+ "175": {
+  "title": "叙情詩",
+  "artist": "L'Arc〜en〜Ciel",
+  "year": 2005,
+  "fame": 3,
+  "hit": {
+   "id": "fTzVMr1_oIA",
+   "title": "L'Arc-en-Ciel「叙情詩」-Music Clip-",
+   "owner": "L'Arc-en-Ciel",
+   "views": 1700770,
+   "len": 310,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "176": {
+  "title": "サクラ咲ケ",
+  "artist": "嵐",
+  "year": 2005,
+  "fame": 3,
+  "hit": {
+   "id": "_WPTWbNkWrs",
+   "title": "ARASHI - サクラ咲ケ [Official Music Video]",
+   "owner": "ARASHI",
+   "views": 9167464,
+   "len": 266,
+   "kind": "fan",
+   "live": false,
+   "sc": 3
+  }
+ },
+ "177": {
+  "title": "NO MORE CRY",
+  "artist": "D-51",
+  "year": 2005,
+  "fame": 3,
+  "hit": {
+   "id": "ivbHRFjySXs",
+   "title": "NO MORE CRY/D-51",
+   "owner": "D-51",
+   "views": 10270205,
+   "len": 298,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "178": {
+  "title": "Triangle",
+  "artist": "SMAP",
+  "year": 2005,
+  "fame": 3,
+  "hit": null
+ },
+ "179": {
+  "title": "DO THE MOTION",
+  "artist": "BoA",
+  "year": 2005,
+  "fame": 3,
+  "hit": {
+   "id": "BlRbeRgG9nw",
+   "title": "DO THE MOTION",
+   "owner": "BoA",
+   "views": 329823,
+   "len": 254,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "180": {
+  "title": "Real Face",
+  "artist": "KAT-TUN",
+  "year": 2006,
+  "fame": 1,
+  "hit": {
+   "id": "5sTLLN6ELvI",
+   "title": "Real Face",
+   "owner": "KAT-TUN - Topic",
+   "views": 6165618,
+   "len": 311,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "181": {
+  "title": "SAKURA",
+  "artist": "いきものがかり",
+  "year": 2006,
+  "fame": 1,
+  "hit": {
+   "id": "61z-cqg28R8",
+   "title": "いきものがかり 『SAKURA』Music Video",
+   "owner": "いきものがかり Official YouTube Channel",
+   "views": 25170445,
+   "len": 360,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "182": {
+  "title": "宙船",
+  "artist": "TOKIO",
+  "year": 2006,
+  "fame": 1,
+  "hit": {
+   "id": "Y9TL7VyS5NY",
+   "title": "宙船（そらふね） - TOKIO（フル）",
+   "owner": "high_note Music Lounge",
+   "views": 16482792,
+   "len": 237,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "183": {
+  "title": "気分上々↑↑",
+  "artist": "mihimaru GT",
+  "year": 2006,
+  "fame": 1,
+  "hit": {
+   "id": "g0Pb5CDhndk",
+   "title": "mihimaru GT - 気分上々↑↑",
+   "owner": "MihimaruGtVEVO",
+   "views": 34619655,
+   "len": 240,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "184": {
+  "title": "純恋歌",
+  "artist": "湘南乃風",
+  "year": 2006,
+  "fame": 1,
+  "hit": {
+   "id": "YQSS7SgGia8",
+   "title": "湘南乃風 「純恋歌」MUSIC VIDEO（オリジナルver.)",
+   "owner": "湘南乃風",
+   "views": 70282954,
+   "len": 442,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "185": {
+  "title": "しるし",
+  "artist": "Mr.Children",
+  "year": 2006,
+  "fame": 1,
+  "hit": {
+   "id": "xXA5StMti8c",
+   "title": "Mr.Children 「しるし」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 99631593,
+   "len": 438,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "186": {
+  "title": "千の風になって",
+  "artist": "秋川雅史",
+  "year": 2006,
+  "fame": 1,
+  "hit": {
+   "id": "zkL1RaA9ISk",
+   "title": "秋川親子3代テノール 共演（千の風になって）3 Generational Tenor（A Thousand Winds）",
+   "owner": "秋川雅史 クラシック",
+   "views": 3058120,
+   "len": 303,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "187": {
+  "title": "抱いてセニョリータ",
+  "artist": "山下智久",
+  "year": 2006,
+  "fame": 2,
+  "hit": {
+   "id": "BAKfeKfo_ro",
+   "title": "抱いてセニョリータ - 山下智久",
+   "owner": "high_note Music Lounge",
+   "views": 709843,
+   "len": 214,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "188": {
+  "title": "箒星",
+  "artist": "Mr.Children",
+  "year": 2006,
+  "fame": 2,
+  "hit": {
+   "id": "sRJxHz__EH0",
+   "title": "Mr.Children 「箒星」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 4394986,
+   "len": 383,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "189": {
+  "title": "WISH",
+  "artist": "嵐",
+  "year": 2006,
+  "fame": 2,
+  "hit": {
+   "id": "hcwRqDu0Ph8",
+   "title": "嵐 『WISH』",
+   "owner": "MusicCollection",
+   "views": 259438,
+   "len": 273,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "190": {
+  "title": "Good-bye days",
+  "artist": "YUI",
+  "year": 2006,
+  "fame": 2,
+  "hit": {
+   "id": "S8cnuIuw5SY",
+   "title": "YUI　『Good-bye days ～2012 ver.～』",
+   "owner": "YUI OFFICIAL YouTube CHANNEL",
+   "views": 8822128,
+   "len": 336,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "191": {
+  "title": "シャングリラ",
+  "artist": "チャットモンチー",
+  "year": 2006,
+  "fame": 2,
+  "hit": {
+   "id": "NEb9MTNk3y4",
+   "title": "チャットモンチー『シャングリラ』Music Video",
+   "owner": "チャットモンチー Official YouTube Channel",
+   "views": 14604118,
+   "len": 195,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "192": {
+  "title": "I believe",
+  "artist": "絢香",
+  "year": 2006,
+  "fame": 2,
+  "hit": {
+   "id": "sJItuaykRRk",
+   "title": "絢香 - I believe",
+   "owner": "Warner Music Japan",
+   "views": 21207138,
+   "len": 296,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "193": {
+  "title": "マタアイマショウ",
+  "artist": "SEAMO",
+  "year": 2006,
+  "fame": 2,
+  "hit": {
+   "id": "Iq1PZVvDZrI",
+   "title": "SEAMO「マタアイマショウ」Official Music Video (full ver.)",
+   "owner": "SEAMOチャンネル",
+   "views": 84030,
+   "len": 257,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "194": {
+  "title": "恋のつぼみ",
+  "artist": "倖田來未",
+  "year": 2006,
+  "fame": 2,
+  "hit": {
+   "id": "FPFsaQRUsyc",
+   "title": "倖田來未-KODA KUMI-『恋のつぼみ』",
+   "owner": "倖田來未",
+   "views": 2919589,
+   "len": 264,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "195": {
+  "title": "虹",
+  "artist": "Aqua Timez",
+  "year": 2006,
+  "fame": 2,
+  "hit": {
+   "id": "KVs_U-FA0rc",
+   "title": "Aqua Timez『虹』Music Video（ドラマ「ごくせん」第3シリーズ主題歌）",
+   "owner": "Aqua Timez Official",
+   "views": 40859025,
+   "len": 353,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "196": {
+  "title": "会いたかった",
+  "artist": "AKB48",
+  "year": 2006,
+  "fame": 2,
+  "hit": {
+   "id": "sufdy32WTYs",
+   "title": "【MV full】会いたかった 2026 / AKB48【公式】",
+   "owner": "AKB48",
+   "views": 1197497,
+   "len": 228,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "197": {
+  "title": "SIGNAL",
+  "artist": "KAT-TUN",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "xesfiqJkxbE",
+   "title": "SIGNAL",
+   "owner": "KAT-TUN - Topic",
+   "views": 132241,
+   "len": 220,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "198": {
+  "title": "花は桜 君は美し",
+  "artist": "いきものがかり",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "0yhAUYGwHGg",
+   "title": "いきものがかり 『花は桜 君は美し』Music Video",
+   "owner": "いきものがかり Official YouTube Channel",
+   "views": 4261540,
+   "len": 299,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "199": {
+  "title": "Keep Tryin'",
+  "artist": "宇多田ヒカル",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "cjio2Yrim4w",
+   "title": "宇多田ヒカル - Keep Tryin'",
+   "owner": "Hikaru Utada",
+   "views": 5732281,
+   "len": 296,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "200": {
+  "title": "有心論",
+  "artist": "RADWIMPS",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "c2y8Ba3WwPY",
+   "title": "RADWIMPS - 有心論  [Official Music Video]",
+   "owner": "RADWIMPS",
+   "views": 50446019,
+   "len": 261,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "201": {
+  "title": "修羅場",
+  "artist": "東京事変",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "TlgDgNDSZYE",
+   "title": "東京事変 - 修羅場",
+   "owner": "東京事変",
+   "views": 18797720,
+   "len": 262,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "202": {
+  "title": "蒼く 優しく",
+  "artist": "コブクロ",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "95uFWS2ayvA",
+   "title": "コブクロ - 蒼く 優しく",
+   "owner": "コブクロ 公式チャンネル",
+   "views": 7073776,
+   "len": 332,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "203": {
+  "title": "魔法のコトバ",
+  "artist": "スピッツ",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "gPTFyx2R46w",
+   "title": "スピッツ / 魔法のコトバ",
+   "owner": "spitzclips",
+   "views": 33527008,
+   "len": 261,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "204": {
+  "title": "恋愛写真",
+  "artist": "大塚愛",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "sR94DEMrY1w",
+   "title": "恋愛写真",
+   "owner": "大塚 愛",
+   "views": 243620,
+   "len": 298,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "205": {
+  "title": "友達の詩",
+  "artist": "中村中",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "jFZrkYqzc6c",
+   "title": "中村 中 - 友達の詩〈LIVE2021僕らは半人前・改〉より",
+   "owner": "中村 中",
+   "views": 627605,
+   "len": 412,
+   "kind": "official",
+   "live": true,
+   "sc": 18
+  }
+ },
+ "206": {
+  "title": "桜の花びらたち",
+  "artist": "AKB48",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "m2aOuziF0AQ",
+   "title": "AKB48   桜の花びらたち   20th Year Live Tour 2025",
+   "owner": "akb48tv",
+   "views": 25008,
+   "len": 316,
+   "kind": "official",
+   "live": true,
+   "sc": 18
+  }
+ },
+ "207": {
+  "title": "花",
+  "artist": "中孝介",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "onPP2wIB0DA",
+   "title": "中 孝介 『花』Music Video 2016ver.",
+   "owner": "中孝介 Official Channel",
+   "views": 17224739,
+   "len": 285,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "208": {
+  "title": "ありがとう",
+  "artist": "SMAP",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "iCDrseEV9sA",
+   "title": "【SMAP】 ありがとう",
+   "owner": "めに",
+   "views": 4240824,
+   "len": 194,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "209": {
+  "title": "ふたりごと",
+  "artist": "RADWIMPS",
+  "year": 2006,
+  "fame": 3,
+  "hit": {
+   "id": "gmLXEmCExIE",
+   "title": "RADWIMPS - ふたりごと  [Official Music Video]",
+   "owner": "RADWIMPS",
+   "views": 62141520,
+   "len": 265,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "210": {
+  "title": "Happiness",
+  "artist": "嵐",
+  "year": 2007,
+  "fame": 1,
+  "hit": {
+   "id": "ObTRp1eVay4",
+   "title": "Happiness - 嵐（フル）",
+   "owner": "high_note Music Lounge",
+   "views": 1649692,
+   "len": 255,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "211": {
+  "title": "愛唄",
+  "artist": "GReeeeN",
+  "year": 2007,
+  "fame": 1,
+  "hit": {
+   "id": "yDn-kWG4_NI",
+   "title": "GReeeeN（GRe4N BOYZ）/「愛唄」",
+   "owner": "UNIVERSAL MUSIC JAPAN",
+   "views": 2742472,
+   "len": 238,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "212": {
+  "title": "CHE.R.RY",
+  "artist": "YUI",
+  "year": 2007,
+  "fame": 1,
+  "hit": {
+   "id": "T1OodwX_gu0",
+   "title": "CHE.R.RY",
+   "owner": "YUI OFFICIAL YouTube CHANNEL",
+   "views": 5873862,
+   "len": 216,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "213": {
+  "title": "イケナイ太陽",
+  "artist": "ORANGE RANGE",
+  "year": 2007,
+  "fame": 1,
+  "hit": {
+   "id": "fdYFKOMQGUU",
+   "title": "ORANGE RANGE – イケナイ太陽 (令和ver. Music Video)",
+   "owner": "ORANGE RANGE",
+   "views": 39041725,
+   "len": 285,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "214": {
+  "title": "チョコレイト・ディスコ",
+  "artist": "Perfume",
+  "year": 2007,
+  "fame": 1,
+  "hit": {
+   "id": "1WTy2yqKI4w",
+   "title": "[Official Music Video] Perfume「チョコレイト・ディスコ」",
+   "owner": "Perfume",
+   "views": 20115435,
+   "len": 230,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "215": {
+  "title": "Lovers Again",
+  "artist": "EXILE",
+  "year": 2007,
+  "fame": 2,
+  "hit": {
+   "id": "PUdrCJSly_A",
+   "title": "EXILE / Lovers Again",
+   "owner": "EXILE",
+   "views": 38675989,
+   "len": 289,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "216": {
+  "title": "道",
+  "artist": "EXILE",
+  "year": 2007,
+  "fame": 2,
+  "hit": {
+   "id": "VOPmfA-N4Rw",
+   "title": "EXILE / 道",
+   "owner": "EXILE、avex",
+   "views": 19916326,
+   "len": 298,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "217": {
+  "title": "WINDING ROAD",
+  "artist": "絢香×コブクロ",
+  "year": 2007,
+  "fame": 2,
+  "hit": {
+   "id": "mE_jH0J0ClA",
+   "title": "コブクロ - WINDING ROAD（絢香×コブクロ）",
+   "owner": "コブクロ 公式チャンネル",
+   "views": 21308948,
+   "len": 309,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "218": {
+  "title": "睡蓮花",
+  "artist": "湘南乃風",
+  "year": 2007,
+  "fame": 2,
+  "hit": {
+   "id": "PjGbnPYwt1g",
+   "title": "湘南乃風「睡蓮花」MUSIC VIDEO",
+   "owner": "湘南乃風",
+   "views": 72608806,
+   "len": 443,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "219": {
+  "title": "Baby Don't Cry",
+  "artist": "安室奈美恵",
+  "year": 2007,
+  "fame": 2,
+  "hit": {
+   "id": "JI8d9gbLs-I",
+   "title": "Baby Don't Cry - 安室奈美恵（フル）",
+   "owner": "high_note Music Lounge",
+   "views": 1272972,
+   "len": 321,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "220": {
+  "title": "愛のうた",
+  "artist": "倖田來未",
+  "year": 2007,
+  "fame": 2,
+  "hit": {
+   "id": "JiWEZbm6lhI",
+   "title": "倖田來未-KODA KUMI-『愛のうた（album version）』",
+   "owner": "倖田來未",
+   "views": 15325263,
+   "len": 285,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "221": {
+  "title": "ここにいるよ",
+  "artist": "SoulJa feat. 青山テルマ",
+  "year": 2007,
+  "fame": 2,
+  "hit": {
+   "id": "5ndRYEIQG9o",
+   "title": "SoulJa / ここにいるよ feat. 青山テルマ",
+   "owner": "UNIVERSAL MUSIC JAPAN",
+   "views": 3945966,
+   "len": 329,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "222": {
+  "title": "旅立ちの唄",
+  "artist": "Mr.Children",
+  "year": 2007,
+  "fame": 2,
+  "hit": {
+   "id": "sPyWyBjM-3E",
+   "title": "Mr.Children 「旅立ちの唄」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 4419975,
+   "len": 396,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "223": {
+  "title": "若者のすべて",
+  "artist": "フジファブリック",
+  "year": 2007,
+  "fame": 2,
+  "hit": {
+   "id": "IPBXepn5jTA",
+   "title": "フジファブリック (Fujifabric) - 若者のすべて(Wakamono No Subete)",
+   "owner": "フジファブリック Official Channel",
+   "views": 76810405,
+   "len": 296,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "224": {
+  "title": "LOVE & TRUTH",
+  "artist": "YUI",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "qZx__lr4o24",
+   "title": "LOVE & TRUTH",
+   "owner": "YUI OFFICIAL YouTube CHANNEL",
+   "views": 153923,
+   "len": 262,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "225": {
+  "title": "哀歌(エレジー)",
+  "artist": "平井堅",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "-alcQP0UPaI",
+   "title": "平井 堅 『哀歌（エレジー）』MUSIC VIDEO",
+   "owner": "平井 堅 YouTube Official Channel",
+   "views": 5087185,
+   "len": 326,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "226": {
+  "title": "明日晴れるかな",
+  "artist": "桑田佳祐",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "vjj16qog4vQ",
+   "title": "桑田佳祐 – 明日晴れるかな（Full ver.）",
+   "owner": "桑田佳祐",
+   "views": 64711702,
+   "len": 316,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "227": {
+  "title": "花の名",
+  "artist": "BUMP OF CHICKEN",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "GOPcjlY-gwE",
+   "title": "BUMP OF CHICKEN「花の名」",
+   "owner": "BUMP OF CHICKEN",
+   "views": 5710625,
+   "len": 374,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "228": {
+  "title": "Ultra Music Power",
+  "artist": "Hey! Say! JUMP",
+  "year": 2007,
+  "fame": 3,
+  "hit": null
+ },
+ "229": {
+  "title": "鱗(うろこ)",
+  "artist": "秦基博",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "V0xSlwow9rQ",
+   "title": "秦 基博 - 「鱗（うろこ）」 Music Video",
+   "owner": "秦 基博",
+   "views": 39778577,
+   "len": 331,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "230": {
+  "title": "weeeek",
+  "artist": "NEWS",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "bYAvL803fAE",
+   "title": "NEWS – weeeek [Official Music Video]",
+   "owner": "にゅうちゅうぶ | NEWS official",
+   "views": 8295288,
+   "len": 239,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "231": {
+  "title": "ア・イ・シ・テ・ルのサイン 〜わたしたちの未来予想図〜",
+  "artist": "DREAMS COME TRUE",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "-2lzWQrRtKk",
+   "title": "DREAMS COME TRUE - 「ア・イ・シ・テ・ルのサイン　～わたしたちの未来予想図～」",
+   "owner": "DREAMS COME TRUE",
+   "views": 879699,
+   "len": 519,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "232": {
+  "title": "茜色の約束",
+  "artist": "いきものがかり",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "qeXIMgYYg8s",
+   "title": "いきものがかり 『茜色の約束』Music Video",
+   "owner": "いきものがかり Official YouTube Channel",
+   "views": 4603514,
+   "len": 293,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "233": {
+  "title": "Snowdome",
+  "artist": "木村カエラ",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "sgoyF0pnlhk",
+   "title": "木村カエラ「Snowdome」（Official Music Video）",
+   "owner": "木村カエラ",
+   "views": 486641,
+   "len": 295,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "234": {
+  "title": "MY HEART DRAWS A DREAM",
+  "artist": "L'Arc〜en〜Ciel",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "Clok-EGLfMA",
+   "title": "L'Arc-en-Ciel「MY HEART DRAWS A DREAM」-Music Clip-",
+   "owner": "L'Arc-en-Ciel",
+   "views": 1664543,
+   "len": 257,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "235": {
+  "title": "フェイク",
+  "artist": "Mr.Children",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "n7H4p0ArZUU",
+   "title": "Mr.Children 「フェイク」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 11702170,
+   "len": 298,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "236": {
+  "title": "SUPER LOVE SONG",
+  "artist": "B'z",
+  "year": 2007,
+  "fame": 3,
+  "hit": null
+ },
+ "237": {
+  "title": "Hello Hello",
+  "artist": "Superfly",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "pvW4WacKjZQ",
+   "title": "HELLO HELLO (2013 Remastered Version)",
+   "owner": "Superfly",
+   "views": 168253,
+   "len": 233,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "238": {
+  "title": "Keep the faith",
+  "artist": "KAT-TUN",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "kXENicrDJc8",
+   "title": "Keep the faith",
+   "owner": "KAT-TUN - Topic",
+   "views": 1407930,
+   "len": 227,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "239": {
+  "title": "ズッコケ男道",
+  "artist": "関ジャニ∞",
+  "year": 2007,
+  "fame": 3,
+  "hit": {
+   "id": "j9LQat01_Uo",
+   "title": "関ジャニ∞ - ズッコケ男道 from ROCK IN JAPAN FESTIVAL 2023 (50th Single",
+   "owner": "Storm Labels Official",
+   "views": 4472128,
+   "len": 251,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "240": {
+  "title": "One Love",
+  "artist": "嵐",
+  "year": 2008,
+  "fame": 1,
+  "hit": {
+   "id": "EDu47zD-DgI",
+   "title": "One Love - 嵐",
+   "owner": "high_note Music Lounge",
+   "views": 17732734,
+   "len": 285,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "241": {
+  "title": "羞恥心",
+  "artist": "羞恥心",
+  "year": 2008,
+  "fame": 1,
+  "hit": {
+   "id": "pn4ItJM2Uzc",
+   "title": "羞恥心「羞恥心」MUSIC VIDEO",
+   "owner": "Dasmusician",
+   "views": 17083,
+   "len": 195,
+   "kind": "label",
+   "live": false,
+   "sc": 18
+  }
+ },
+ "242": {
+  "title": "HANABI",
+  "artist": "Mr.Children",
+  "year": 2008,
+  "fame": 1,
+  "hit": {
+   "id": "EXxaBXKjl6Q",
+   "title": "Mr.Children 「HANABI」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 128666914,
+   "len": 358,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "243": {
+  "title": "366日",
+  "artist": "HY",
+  "year": 2008,
+  "fame": 1,
+  "hit": {
+   "id": "fVvjv3xpSMA",
+   "title": "HY -「恋をして」(映画『366日』主題歌)  Music Video",
+   "owner": "HY Official",
+   "views": 17000854,
+   "len": 407,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "244": {
+  "title": "大声ダイヤモンド",
+  "artist": "AKB48",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "F32epua9VQs",
+   "title": "【MV full】 大声ダイヤモンド / AKB48 [公式]",
+   "owner": "AKB48",
+   "views": 48489848,
+   "len": 336,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "245": {
+  "title": "Ti Amo",
+  "artist": "EXILE",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "rFmDSaLfpUE",
+   "title": "Ti Amo (EXILE BALLAD BEST)",
+   "owner": "EXILE",
+   "views": 2105916,
+   "len": 346,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "246": {
+  "title": "GIFT",
+  "artist": "Mr.Children",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "wZlgIGsT-Ns",
+   "title": "Mr.Children 「GIFT」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 42605011,
+   "len": 353,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "247": {
+  "title": "Prisoner Of Love",
+  "artist": "宇多田ヒカル",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "6bDyqwwH4Xs",
+   "title": "宇多田ヒカル - Prisoner Of Love",
+   "owner": "Hikaru Utada",
+   "views": 40631773,
+   "len": 286,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "248": {
+  "title": "love the world",
+  "artist": "Perfume",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "75hg0XFVByw",
+   "title": "[Official Music Video] Perfume「love the world」",
+   "owner": "Perfume",
+   "views": 6450488,
+   "len": 278,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "249": {
+  "title": "最愛",
+  "artist": "KOH+",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "YfcPVGt_v9E",
+   "title": "福山雅治 - 最愛 (Full ver.)",
+   "owner": "福山雅治 Official",
+   "views": 8805766,
+   "len": 354,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "250": {
+  "title": "どうして君を好きになってしまったんだろう?",
+  "artist": "東方神起",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "XcAr48e2x68",
+   "title": "東方神起 / どうして君を好きになってしまったんだろう？",
+   "owner": "avex",
+   "views": 36106509,
+   "len": 289,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "251": {
+  "title": "気まぐれロマンティック",
+  "artist": "いきものがかり",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "5XCSt_0lwOE",
+   "title": "いきものがかり 『気まぐれロマンティック』Music Video",
+   "owner": "いきものがかり Official YouTube Channel",
+   "views": 31286148,
+   "len": 270,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "252": {
+  "title": "帰りたくなったよ",
+  "artist": "いきものがかり",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "NzIcRQBkMY8",
+   "title": "いきものがかり 『帰りたくなったよ』Music Video",
+   "owner": "いきものがかり Official YouTube Channel",
+   "views": 9307466,
+   "len": 373,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "253": {
+  "title": "LIFE",
+  "artist": "キマグレン",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "W_SMjot9kvI",
+   "title": "キマグレン / LIFE （Short Ver. 歌詞付)",
+   "owner": "UNIVERSAL MUSIC JAPAN",
+   "views": 2079219,
+   "len": 275,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "254": {
+  "title": "SUMMER SONG",
+  "artist": "YUI",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "2vH0BXmgnlo",
+   "title": "『SUMMER SONG』 - YUI",
+   "owner": "YUI OFFICIAL YouTube CHANNEL",
+   "views": 19499631,
+   "len": 257,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "255": {
+  "title": "花になれ",
+  "artist": "flumpool",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "4zyF9MwqZOE",
+   "title": "flumpool　花になれ　MUSIC VIDEO",
+   "owner": "flumpool",
+   "views": 23804312,
+   "len": 386,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "256": {
+  "title": "ORION",
+  "artist": "中島美嘉",
+  "year": 2008,
+  "fame": 2,
+  "hit": {
+   "id": "q7GFtKuEQik",
+   "title": "中島美嘉 「ORION」Music Video",
+   "owner": "中島美嘉 Official YouTube Channel",
+   "views": 31653595,
+   "len": 348,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "257": {
+  "title": "Beautiful days",
+  "artist": "嵐",
+  "year": 2008,
+  "fame": 3,
+  "hit": {
+   "id": "l8TvjwbbSTk",
+   "title": "ARASHI - Beautiful days [Official Music Video]",
+   "owner": "ARASHI",
+   "views": 4015810,
+   "len": 311,
+   "kind": "fan",
+   "live": false,
+   "sc": 3
+  }
+ },
+ "258": {
+  "title": "恋のヘキサゴン",
+  "artist": "Pabo",
+  "year": 2008,
+  "fame": 3,
+  "hit": {
+   "id": "X05198SqN-U",
+   "title": "Pabo - 恋のヘキサゴン 〜 羞恥心 - 羞恥心",
+   "owner": "Dasmusician",
+   "views": 10085,
+   "len": 257,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "259": {
+  "title": "花の匂い",
+  "artist": "Mr.Children",
+  "year": 2008,
+  "fame": 3,
+  "hit": {
+   "id": "6BsZ1d9UE5I",
+   "title": "Mr.Children 「花の匂い」 MUSIC VIDEO",
+   "owner": "Mr.Children Official Channel",
+   "views": 6490521,
+   "len": 314,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "260": {
+  "title": "Dream Fighter",
+  "artist": "Perfume",
+  "year": 2008,
+  "fame": 3,
+  "hit": {
+   "id": "rBX5YGPNDbs",
+   "title": "[Official Music Video]  Perfume「Dream Fighter」",
+   "owner": "Perfume",
+   "views": 16490116,
+   "len": 304,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "261": {
+  "title": "HOME",
+  "artist": "清水翔太",
+  "year": 2008,
+  "fame": 3,
+  "hit": {
+   "id": "J2Ya8mWfulU",
+   "title": "清水翔太『HOME』MV",
+   "owner": "清水翔太 / Shota Shimizu",
+   "views": 33210640,
+   "len": 369,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "262": {
+  "title": "風吹けば恋",
+  "artist": "チャットモンチー",
+  "year": 2008,
+  "fame": 3,
+  "hit": {
+   "id": "KYOvPZH8tpo",
+   "title": "チャットモンチー『風吹けば恋』Music Video",
+   "owner": "チャットモンチー Official YouTube Channel",
+   "views": 5308853,
+   "len": 228,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "263": {
+  "title": "I AM YOUR SINGER",
+  "artist": "サザンオールスターズ",
+  "year": 2008,
+  "fame": 3,
+  "hit": {
+   "id": "Sa-xyPkeD-0",
+   "title": "サザンオールスターズ - I AM YOUR SINGER [Official Music Video] Short v",
+   "owner": "サザンオールスターズ",
+   "views": 4424982,
+   "len": 116,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "264": {
+  "title": "歩み",
+  "artist": "GReeeeN",
+  "year": 2008,
+  "fame": 3,
+  "hit": {
+   "id": "2C6Nh0J39jc",
+   "title": "歩み(ayumi) - GReeeeN Lyrics Video",
+   "owner": "Uta Entertainment",
+   "views": 1052,
+   "len": 256,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "265": {
+  "title": "Butterfly",
+  "artist": "木村カエラ",
+  "year": 2009,
+  "fame": 1,
+  "hit": {
+   "id": "h5b-tBZfsT8",
+   "title": "木村カエラ「Butterfly」（Official Music Video）",
+   "owner": "木村カエラ",
+   "views": 13856042,
+   "len": 258,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "266": {
+  "title": "YELL",
+  "artist": "いきものがかり",
+  "year": 2009,
+  "fame": 1,
+  "hit": {
+   "id": "lz8frtP6_kk",
+   "title": "いきものがかり 『YELL』Music Video",
+   "owner": "いきものがかり Official YouTube Channel",
+   "views": 52009936,
+   "len": 373,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "267": {
+  "title": "イチブトゼンブ",
+  "artist": "B'z",
+  "year": 2009,
+  "fame": 1,
+  "hit": {
+   "id": "DNgjoJVnTvs",
+   "title": "B'z / イチブトゼンブ",
+   "owner": "Bz",
+   "views": 12997979,
+   "len": 97,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "268": {
+  "title": "じょいふる",
+  "artist": "いきものがかり",
+  "year": 2009,
+  "fame": 2,
+  "hit": {
+   "id": "viQPExRmxdk",
+   "title": "いきものがかり 『じょいふる』Music Video",
+   "owner": "いきものがかり Official YouTube Channel",
+   "views": 15274794,
+   "len": 211,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "269": {
+  "title": "遥か",
+  "artist": "GReeeeN",
+  "year": 2009,
+  "fame": 2,
+  "hit": {
+   "id": "HJhYU0TbHKI",
+   "title": "遥か",
+   "owner": "Aimer Official YouTube Channel",
+   "views": 3173646,
+   "len": 192,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "270": {
+  "title": "ひまわり",
+  "artist": "遊助",
+  "year": 2009,
+  "fame": 2,
+  "hit": {
+   "id": "q_8bLygFaxs",
+   "title": "遊助　『ひまわり』",
+   "owner": "遊助 公式 YouTube チャンネル",
+   "views": 18708148,
+   "len": 311,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "271": {
+  "title": "ふたつの唇",
+  "artist": "EXILE",
+  "year": 2009,
+  "fame": 2,
+  "hit": {
+   "id": "pTj8ISBjB6Q",
+   "title": "EXILE ふたつの唇 FNS歌謡祭 2009",
+   "owner": "EXILE BEYOND",
+   "views": 350140,
+   "len": 215,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "272": {
+  "title": "Love Forever",
+  "artist": "加藤ミリヤ×清水翔太",
+  "year": 2009,
+  "fame": 2,
+  "hit": {
+   "id": "HkIhnJ9Y-2A",
+   "title": "加藤ミリヤ×清水翔太　『Love Forever』",
+   "owner": "加藤ミリヤ Official YouTube Channel",
+   "views": 39983726,
+   "len": 315,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "273": {
+  "title": "やさしさで溢れるように",
+  "artist": "JUJU",
+  "year": 2009,
+  "fame": 2,
+  "hit": {
+   "id": "jIl8_jMMULs",
+   "title": "JUJU　『やさしさで溢れるように』",
+   "owner": "JUJU Official YouTube Channel",
+   "views": 60555725,
+   "len": 248,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "274": {
+  "title": "春夏秋冬",
+  "artist": "Hilcrhyme",
+  "year": 2009,
+  "fame": 2,
+  "hit": {
+   "id": "PMHeOPGlmZ4",
+   "title": "Hilcrhyme - 「春夏秋冬」Music Video",
+   "owner": "Hilcrhyme",
+   "views": 22624272,
+   "len": 319,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "275": {
+  "title": "言い訳Maybe",
+  "artist": "AKB48",
+  "year": 2009,
+  "fame": 2,
+  "hit": {
+   "id": "qJ-Drv9tVjI",
+   "title": "【MV full】 言い訳Maybe / AKB48 [公式]",
+   "owner": "AKB48",
+   "views": 38685855,
+   "len": 376,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "276": {
+  "title": "RIVER",
+  "artist": "AKB48",
+  "year": 2009,
+  "fame": 2,
+  "hit": {
+   "id": "bQqLKCg-UgA",
+   "title": "【MV full】 RIVER / AKB48 [公式]",
+   "owner": "AKB48",
+   "views": 38870825,
+   "len": 292,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "277": {
+  "title": "ワンルーム・ディスコ",
+  "artist": "Perfume",
+  "year": 2009,
+  "fame": 2,
+  "hit": {
+   "id": "cMsGcW-xaYU",
+   "title": "[Official Music Video] Perfume「ワンルーム・ディスコ」",
+   "owner": "Perfume",
+   "views": 18123000,
+   "len": 304,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "278": {
+  "title": "君に会いたくなるから",
+  "artist": "西野カナ",
+  "year": 2009,
+  "fame": 3,
+  "hit": {
+   "id": "sHRAk2L9S3I",
+   "title": "西野カナ　『君に会いたくなるから (short ver.)』",
+   "owner": "西野カナ Official YouTube Channel",
+   "views": 4097572,
+   "len": 95,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "279": {
+  "title": "涙サプライズ!",
+  "artist": "AKB48",
+  "year": 2009,
+  "fame": 3,
+  "hit": {
+   "id": "pKQlKygAMrg",
+   "title": "【MV full】 涙サプライズ / AKB48 [公式]",
+   "owner": "AKB48",
+   "views": 44470628,
+   "len": 359,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ },
+ "280": {
+  "title": "虹",
+  "artist": "ゆず",
+  "year": 2009,
+  "fame": 3,
+  "hit": {
+   "id": "WkuCwLauTlk",
+   "title": "ゆず「虹」ゆずイロハ",
+   "owner": "ゆずゆぅ",
+   "views": 107592,
+   "len": 375,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "281": {
+  "title": "君は太陽",
+  "artist": "スピッツ",
+  "year": 2009,
+  "fame": 3,
+  "hit": {
+   "id": "BXuR4yTV2mc",
+   "title": "スピッツ / 君は太陽",
+   "owner": "spitzclips",
+   "views": 6711827,
+   "len": 319,
+   "kind": "fan",
+   "live": false,
+   "sc": 0
+  }
+ },
+ "282": {
+  "title": "MY LONELY TOWN",
+  "artist": "B'z",
+  "year": 2009,
+  "fame": 3,
+  "hit": {
+   "id": "AFma39X_SCI",
+   "title": "B'z / MY LONELY TOWN",
+   "owner": "Bz",
+   "views": 2106425,
+   "len": 91,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "283": {
+  "title": "能動的三分間",
+  "artist": "東京事変",
+  "year": 2009,
+  "fame": 3,
+  "hit": {
+   "id": "NTKwzRAdY7w",
+   "title": "東京事変 - 能動的三分間",
+   "owner": "東京事変",
+   "views": 27374647,
+   "len": 202,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "284": {
+  "title": "ありあまる富",
+  "artist": "椎名林檎",
+  "year": 2009,
+  "fame": 3,
+  "hit": {
+   "id": "GvHmMv2JHDk",
+   "title": "椎名林檎 - ありあまる富",
+   "owner": "椎名林檎",
+   "views": 14496284,
+   "len": 360,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "285": {
+  "title": "君のすべてに",
+  "artist": "Spontania feat. JUJU",
+  "year": 2009,
+  "fame": 3,
+  "hit": {
+   "id": "hdDI1TAydqc",
+   "title": "Spontania feat.JUJU / 君のすべてに",
+   "owner": "UNIVERSAL MUSIC JAPAN",
+   "views": 14167086,
+   "len": 334,
+   "kind": "label",
+   "live": false,
+   "sc": 15
+  }
+ },
+ "286": {
+  "title": "明日がくるなら",
+  "artist": "JUJU with JAY'ED",
+  "year": 2009,
+  "fame": 3,
+  "hit": {
+   "id": "H7Qi_-aKJzA",
+   "title": "JUJU with JAY'ED　『明日がくるなら』",
+   "owner": "JUJU Official YouTube Channel",
+   "views": 22457309,
+   "len": 205,
+   "kind": "official",
+   "live": false,
+   "sc": 30
+  }
+ },
+ "287": {
+  "title": "もっと…",
+  "artist": "西野カナ",
+  "year": 2009,
+  "fame": 3,
+  "hit": {
+   "id": "KQZ75gaTktU",
+   "title": "西野カナ『もっと…』MV Full",
+   "owner": "西野カナ Official YouTube Channel",
+   "views": 18961252,
+   "len": 335,
+   "kind": "official",
+   "live": false,
+   "sc": 33
+  }
+ }
+}

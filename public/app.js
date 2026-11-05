@@ -1017,7 +1017,7 @@ function show(id) { ['lobby', 'quiz', 'result', 'over'].forEach(x => $(x).hidden
 // 選択肢の大きさ（PC）：出題中は大きく、答え合わせでは小さく（body.compact）。
 // 切り替えは、いったん消して（フェードアウト）から大きさを変えて出す（フェードイン）
 let swapTimer = null;
-const isWide = () => matchMedia('(min-width: 900px)').matches;
+const isWide = () => false; // J-POP 版はスマホ専用
 function setCompact(on) {
   clearTimeout(swapTimer);
   if (document.body.classList.contains('compact') === on) return;
@@ -2442,7 +2442,7 @@ function renderGenreZone(r) {
 const SG_ICON = { fwd: '⏩', back: '⏪', bonus: '💰', rest: '💤', dbl: '✖2', swap: '🔀', hit: '💥' };
 // 答え合わせのとき、進んだ分・埋めた分を、プレイヤー一覧の下の小さな欄の中だけでハイライトする（PCのみ。画面の邪魔をしないよう、数秒で消える）
 let sgSeen = -2, gzSeen = -2;
-const hlOn = () => matchMedia('(min-width: 900px)').matches;
+const hlOn = () => false; // J-POP 版はスマホ専用
 const pColor = id => `hsl(${[...String(id)].reduce((a, c) => a + c.charCodeAt(0) * 37, 0) % 360} 80% 62%)`; // 人ごとの色（すごろくのコマ・ジャンル制覇のカードで共通）
 function renderSugoroku(r) {
   const sg = r.sugoroku; $('sgBox').hidden = !sg;

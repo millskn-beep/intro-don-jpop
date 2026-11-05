@@ -50,7 +50,7 @@ body[data-char="cat"] .cutin-band { background: linear-gradient(90deg, rgba(143,
 
 /* レイアウト編集中（部品が箱になる）やスマホでは、はみ出す飾りは控えめに */
 body.layout-on .stage::before, body.layout-on .stage::after { display: none; }
-@media (max-width: 600px) {
+@media (min-width: 0px) /* J-POP 版はスマホ専用（元は max-width 600px） */ {
   body[data-char] .stage::before { width: 52px; height: 40px; top: -32px; left: 12px; }
   body[data-char] #home::before { width: 56px; height: 44px; top: -34px; }
 }

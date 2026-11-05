@@ -152,3 +152,11 @@ body.in-lobby[data-ltab="members"] .room-side .players { flex-wrap: wrap; overfl
 body[data-ltab="members"] #lobby .invite { margin-top: 8px; }
 .top .me-link { padding: 6px 9px; margin-right: 4px; font-size: 15px; }
 .top .me-lbl { display: none; }
+
+/* ── J-POP 版：スマホ専用。パソコンで開いても、スマホの幅（最大 480px）で真ん中に出す ── */
+body { background-color: #05050d; }
+main { max-width: 480px; margin-inline: auto; }
+.room, #room { grid-template-columns: 1fr !important; }
+.room-side { width: auto !important; }
+/* J-POP 版で使わないもの：アニソンBGM・歌詞クイズの合言葉 */
+#bgmLink, .ly-pass { display: none !important; }

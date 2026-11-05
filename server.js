@@ -860,6 +860,12 @@ function userReveal(room, q, results) {
     if (!u) continue;
     changed = true;
     if (r.answered && !r.pass) u.stats.answered++;
+    { // 年代別・歌手別（マイページの「自分の記録」）。歌手は多すぎたら回数の少ないものから消す
+      const dec = Math.floor((q.song.year || 0) / 10) * 10, by = (u.stats.byDecade ||= {}), ba = (u.stats.byArtist ||= {});
+      const add = (o, k) => { const x = o[k] || (o[k] = { a: 0, c: 0 }); x.a++; if (r.correct) x.c++; };
+      if (dec) add(by, dec); add(ba, q.song.artist);
+      const ks = Object.keys(ba); if (ks.length > 300) delete ba[ks.sort((a, b) => ba[a].a - ba[b].a)[0]];
+    }
     if (r.correct) { u.stats.correct++; delete u.weak[id]; u.again = u.again.filter(x => x !== id); continue; }
     if (room.settings.play === 'karuta' && !r.answered) continue; // かるたは札に触らなかった曲を苦手にしない（取られただけ）
     u.weak[id] = (u.weak[id] || 0) + 1;
@@ -944,6 +950,7 @@ const OPTIONS = {
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
   lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
   fillMiss: ['on', 'off'],
+  daily: [false, true], // 今日の10問（日本時間の日付で決めた10曲。全員同じ）
   insHear: ['master', 'intro'], insTarget: ['song', 'work'], // インサイダー：曲を聴ける人（出題者とインサイダーだけ／全員イントロ）・当てるもの                // 3つ埋め・たくさん埋め：お手つきの減点（off：減点なし。押せない秒数はそのまま）
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
   buzzStop: [true, false],
@@ -1095,7 +1102,7 @@ function createRoom({ roomName, password, lyrics = false } = {}) {
 // ── 部屋一覧（ホーム画面用）。誰もいない部屋は出さない ──
 function roomList() {
   return [...rooms.values()]
-    .filter(r => connectedPlayers(r).length > 0 && !r.lyricsOk) // 歌詞クイズの部屋（非公開）は一覧に出さない
+    .filter(r => connectedPlayers(r).length > 0 && !r.lyricsOk && !r.solo) // 歌詞クイズの部屋（非公開）・ひとりで遊ぶ部屋は一覧に出さない
     .map(r => {
       const host = [...r.players.values()].find(p => p.id === r.hostId);
       return {
@@ -1504,6 +1511,46 @@ function recordPlayed(room, s) {
 }
 function unrecordPlayed(room, s) { room.played.delete(s.id); room.playedHere?.delete(s.id); }
 
+// ── 今日の10問：日本時間の日付で決める（その日の最初に選んだ10曲を記録に残し、曲を足しても変えない）──
+const DAILY_N = 10, DAILY_KEEP_DAYS = 30, DAILY_TOP = 50;
+let DAILY = { days: {} }; // { days: { 'YYYY-MM-DD': { ids: [...], scores: [{ name, score, correct, at }] } } }
+const jstDate = (t = Date.now()) => new Date(t + 9 * 3600e3).toISOString().slice(0, 10);
+function dailyDay(date = jstDate()) {
+  let d = DAILY.days[date];
+  if (d && d.ids?.length) return d;
+  // 日付から決まる並べ替え（同じ日なら同じ順）。超有名・有名の曲から、同じ歌手は1曲まで
+  let seed = [...date].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
+  const rnd = () => ((seed = (seed * 1103515245 + 12345) >>> 0) / 4294967296);
+  const list = SONGS.filter(s => ['top', 'famous'].includes(fameOf(s)) && s.embeddable !== false).sort((a, b) => a.id.localeCompare(b.id));
+  for (let i = list.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [list[i], list[j]] = [list[j], list[i]]; }
+  const ids = [], artists = new Set();
+  for (const s of list) { if (ids.length >= DAILY_N) break; if (artists.has(s.artist)) continue; artists.add(s.artist); ids.push(s.id); }
+  d = DAILY.days[date] = { ids, scores: [] };
+  for (const k of Object.keys(DAILY.days).sort().slice(0, -DAILY_KEEP_DAYS)) delete DAILY.days[k]; // 古い日は消す
+  datalog.touch();
+  return d;
+}
+// ランキングに入れる（1人1回目の点数だけ。名前で見分ける）
+function dailyRecord(ranking) {
+  const d = dailyDay();
+  for (const r of ranking) {
+    const name = String(r.name || '').trim().slice(0, 20); if (!name || d.scores.some(x => x.name === name)) continue;
+    d.scores.push({ name, score: r.score, correct: r.correct, at: Date.now() });
+  }
+  d.scores.sort((a, b) => b.score - a.score || a.at - b.at); d.scores = d.scores.slice(0, DAILY_TOP);
+  datalog.touch();
+}
+// 招待の QR コード（この部屋のリンクだけ。長すぎる・http でない文字は作らない）
+app.get('/api/qr', (req, res) => {
+  const text = String(req.query.text || '');
+  if (!/^https?:\/\//.test(text) || text.length > 300) return res.status(400).end();
+  require('qrcode').toBuffer(text, { width: 360, margin: 1 }).then(b => res.type('png').set('Cache-Control', 'public, max-age=86400').send(b)).catch(() => res.status(500).end());
+});
+app.get('/api/daily', (req, res) => {
+  const d = dailyDay();
+  res.json({ date: jstDate(), count: d.scores.length, top: d.scores.slice(0, 20).map(({ name, score, correct }) => ({ name, score, correct })) });
+});
+
 function startGame(room) {
   const S = room.settings;
   const ctx = userCtx(room);
@@ -1585,6 +1632,7 @@ function startGame(room) {
   // アニソン激アツRUSH：全問の色と当たりをここで決める（当たりの問題には、パチスロで有名な曲を入れる）
   const rushPlan = S.play === 'rush' ? buildRushPlan(order, fresh.length ? fresh : candidates, S) : null;
   if (!S.noRecord && !isGz(S.play) && S.play !== 'monopoly') order.forEach(s => recordPlayed(room, s)); // ジャンル制覇は、曲を出すときに記録する（並べた曲は gzPrepare で入れ替える）
+  if (S.daily) { const byId = new Map(SONGS.map(s => [s.id, s])), list = dailyDay().ids.map(id => byId.get(id)).filter(Boolean); if (list.length) order.splice(0, order.length, ...list); } // 今日の10問：全員同じ10曲（同じ順）
   room.gameNo = (room.gameNo || 0) + 1; // この部屋で何ゲーム目か（曲ログ用）
   statsGame(room);
   room.game = { order, pool, qi: -1, q: null, timers: [], stats: new Map(), // stats: token -> 称号用の成績
@@ -4971,6 +5019,7 @@ function saveHistory(room) {
 
 function endGame(room) {
   saveHistory(room);
+  const dailyGame = !!room.settings.daily && room.game && room.game.qi + 1 >= room.game.order.length; // 最後まで遊んだ今日の10問だけ、ランキングに入れる
   clearTimers(room);
   room.state = 'over';
   room.game.q = null;
@@ -4998,6 +5047,7 @@ function endGame(room) {
     // サバイバルは長く残った順（最後まで残った人が上）、ビンゴはそろえた人が上、同じなら得点の順
     .sort((a, b) => (survival ? (b.out === a.out ? b.survived - a.survived : a.out - b.out) : 0)
       || b.score - a.score); // ビンゴも得点で競う（BINGO はボーナス点として入っている）
+  if (dailyGame) dailyRecord(ranking); // 今日の10問：ランキングに入れる
   if (showdown) for (const r of ranking) r.pokerHand = showdown.find(x => x.id === r.id)?.handName;
   if (room.settings.play === 'nenpyo') { // 年表：枚数の多い順（同じなら得点）
     for (const r of ranking) r.nenpyo = ([...room.players.values()].find(p => p.id === r.id)?.timeline || []).length;
@@ -5087,7 +5137,7 @@ io.on('connection', socket => {
 
   // マイページの名前（登録済みのときだけ）を席に結びつける
   const linkUser = (r, token, user) => { const p = r?.players.get(token); if (p) p.user = USERS[userKey(user)] ? userKey(user) : null; };
-  socket.on('create', ({ token, name, roomName, password, user, lyricsPass } = {}, ack) => {
+  socket.on('create', ({ token, name, roomName, password, user, lyricsPass, solo } = {}, ack) => {
     if (typeof ack !== 'function' || typeof token !== 'string' || token.length < 8) return;
     // 歌詞の合言葉：合っていて、パスワードを付けた部屋だけ（非公開・10人まで）
     const wantLy = typeof lyricsPass === 'string' && lyricsPass.trim() !== '';
@@ -5095,6 +5145,7 @@ io.on('connection', socket => {
     if (wantLy && !cleanPassword(password)) return ack({ ok: false, error: '歌詞クイズの部屋には、パスワードを付けてください（知っている人だけが入れるように）' });
     socket.leave('home');
     const r = createRoom({ roomName, password, lyrics: wantLy });
+    if (solo === true) { r.solo = true; pushRoomList(); } // ひとりで遊ぶ：公開中の部屋の一覧に出さない
     if (wantLy) { r.settings.maxPlayers = LY_MAX; r.settings.play = 'lyrics'; }
     const pf = USERS[userKey(user)]?.prefs; // マイページに保存した設定があれば、部屋を作るときに自動で使う
     if (pf?.settings) { r.settings = sanitizeSettings(pf.settings, r.settings); r.settings.excludeGenres = (pf.excludeGenres || []).filter(k => GENRES[k]); }
@@ -5695,9 +5746,10 @@ setInterval(() => {
 }, 60 * 1000);
 
 const restored = Promise.race([
-  datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES, songFame: SONG_FAME, fameResets: SONG_FAME_RESETS, couplingReports: CW_REPORTS, playStats: PSTATS, infoFixes: INFO_FIXES, liveSongs: LIVE_SONGS }), () => USERS),
+  datalog.restore(() => ({ requests: REQUESTS, candidates: CANDIDATES, promotes: PROMOTES, fixes: FIXES, reports: REPORTS, songGenres: SONG_GENRES, songFame: SONG_FAME, fameResets: SONG_FAME_RESETS, couplingReports: CW_REPORTS, playStats: PSTATS, infoFixes: INFO_FIXES, liveSongs: LIVE_SONGS }), () => USERS, () => ({ daily: DAILY })),
   new Promise(res => setTimeout(() => res({}), 8000)), // GitHub が遅いときは待ちすぎない
-]).then(({ data: d, users } = {}) => {
+]).then(({ data: d, users, keep } = {}) => {
+  if (keep?.daily?.days) { DAILY = { days: { ...keep.daily.days, ...DAILY.days } }; console.log(`今日の10問を記録から戻しました（${Object.keys(keep.daily.days).length}日分）`); }
   if (users && typeof users === 'object') { USERS = { ...USERS, ...users }; console.log(`マイページを記録から戻しました（${Object.keys(users).length}人）`); }
   if (!d) return;
   if (Array.isArray(d.requests)) REQUESTS = d.requests;

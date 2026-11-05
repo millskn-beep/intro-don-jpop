@@ -25,3 +25,10 @@
 
 .me-prefs { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 8px; }
 .me-prefs span { display: grid; padding: 4px 10px; border-radius: 10px; background: rgba(255, 255, 255, .06); border: 1px solid var(--line); } .me-prefs small { color: var(--sub); font-size: 10.5px; } .me-prefs b { font-size: 13px; }
+/* 自分の記録：年代別・歌手別の正解率 */
+.me-sub { margin: 14px 0 6px; font-size: 14px; color: var(--sub, #aab); }
+.me-rate { display: grid; gap: 4px; }
+.me-rate > div { display: grid; grid-template-columns: 7.5em 1fr 3em 3.5em; align-items: center; gap: 6px; font-size: 12px; }
+.me-rate span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.me-rate i { height: 8px; border-radius: 99px; background: linear-gradient(90deg, #ff6bb5 var(--p), rgba(255, 255, 255, .1) var(--p)); }
+.me-rate small { color: var(--sub, #aab); }

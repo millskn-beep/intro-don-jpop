@@ -29,6 +29,10 @@ function show(u) {
   const rate = st.answered ? Math.round(st.correct / st.answered * 100) : 0;
   $('meStats').innerHTML = [['遊んだ回数', st.games || 0], ['1位（2人以上）', st.wins || 0], ['正解', st.correct || 0], ['正解率', st.answered ? `${rate}%` : '—']]
     .map(([k, v]) => `<div><small>${k}</small><b>${v}</b></div>`).join('');
+  // 自分の記録：年代別・歌手別の正解率（バーで）
+  const rateRow = ([k, v]) => `<div><span>${esc(k)}</span><i style="--p:${Math.round(v.c / v.a * 100)}%"></i><b>${Math.round(v.c / v.a * 100)}%</b><small>${v.c}/${v.a}</small></div>`;
+  $('meByDecade').innerHTML = Object.entries(st.byDecade || {}).sort((a, b) => a[0] - b[0]).map(([k, v]) => rateRow([`${k}年代`, v])).join('') || '<span class="note">まだ記録がありません</span>';
+  $('meByArtist').innerHTML = Object.entries(st.byArtist || {}).filter(([, v]) => v.a >= 2).sort((a, b) => b[1].a - a[1].a).slice(0, 12).map(rateRow).join('') || '<span class="note">同じ歌手の曲に2回以上答えると出ます</span>';
   $('meByPlay').innerHTML = Object.entries(st.byPlay || {}).map(([k, v]) => `<span>${esc(PLAY_NAME[k] || k)}：${v.games}回${v.wins ? `（1位 ${v.wins}回）` : ''}</span>`).join('') || '<span class="note">まだ遊んだ記録がありません</span>';
   showPrefs(u);
   const titles = Object.entries(u.titles || {}).sort((a, b) => b[1] - a[1]);

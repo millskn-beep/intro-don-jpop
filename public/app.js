@@ -128,6 +128,35 @@ function joinRoom(info, password, errEl, onNeedPassword) {
   });
 }
 $('createBtn').onclick = createRoom;
+// ── ひとりで遊ぶ：部屋（一覧に出さない）を作って、範囲を決めてすぐ始める ──
+const QUICK_SET = {
+  daily: { daily: true, topic: 'all', yearFrom: 1960, yearTo: 2100 },
+  all: { topic: 'all', yearFrom: 1960, yearTo: 2100 },
+  80: { topic: 'all', yearFrom: 1980, yearTo: 1989 }, 90: { topic: 'all', yearFrom: 1990, yearTo: 1999 }, '00': { topic: 'all', yearFrom: 2000, yearTo: 2009 },
+  10: { topic: 'all', yearFrom: 2010, yearTo: 2019 }, 20: { topic: 'all', yearFrom: 2020, yearTo: 2029 },
+};
+let quickKind = null; // いま遊んでいるのが「今日の10問」か（結果のシェアの文に使う）
+function quickPlay(kind) {
+  const name = myName(); if (!name) return;
+  player.prime(WARMUP_VIDEO); // タップの中で一度再生して、スマホの音声制限を解除する
+  const over = { play: 'normal', questions: 10, daily: false, autoNext: 8, ...(QUICK_SET[kind] || { topic: kind, yearFrom: 1960, yearTo: 2100 }) };
+  socket.emit('create', { token, name, roomName: '', password: '', user: meUser(), solo: true }, res => {
+    if (!res.ok) { $('homeError').textContent = res.error; return; }
+    joined(res); quickKind = kind;
+    socket.emit('settings', { ...res.room.settings, ...over });
+    setTimeout(() => socket.emit('start'), 400); // 設定が届いてから始める
+  });
+}
+$('dailyBtn').onclick = () => quickPlay('daily');
+document.querySelectorAll('[data-quick]').forEach(b => b.onclick = () => quickPlay(b.dataset.quick));
+// 今日の10問のランキング（上位5人）
+function loadDaily() {
+  fetch('/api/daily').then(r => r.json()).then(d => {
+    $('dailyInfo').textContent = `${d.date.slice(5).replace('-', '/')}・${d.count}人が挑戦`;
+    $('dailyTop').innerHTML = d.top.slice(0, 5).map((x, i) => `<li><b>${i + 1}</b>${esc(x.name)}<span>${x.score}点（${x.correct}問正解）</span></li>`).join('');
+  }).catch(() => {});
+}
+loadDaily();
 $('patchOpen').onclick = () => { $('patchPop').hidden = false; };
 $('patchClose').onclick = () => { $('patchPop').hidden = true; };
 $('patchPop').onclick = e => { if (e.target === $('patchPop')) $('patchPop').hidden = true; };
@@ -203,6 +232,7 @@ function joined(res) {
   $('home').hidden = true; $('roomListPanel').hidden = true; $('requestPanel').hidden = true; $('room').hidden = false; showSetButtons(true);
   $('roomCode').hidden = false; $('roomCode').textContent = res.code;
   $('inviteUrl').value = location.origin + location.pathname + '?room=' + res.code;
+  $('lineInvite').href = 'https://line.me/R/share?text=' + encodeURIComponent(`イントロドン！J-POP で一緒に遊ぼう！\n${$('inviteUrl').value}`); $('qrBox').hidden = true;
   renderRoom(res.room);
 }
 
@@ -3161,7 +3191,28 @@ socket.on('react', ({ id, name, kind }) => {
   setTimeout(() => el.remove(), 2600);
 });
 
+// 結果のシェア：スマホの共有メニュー（LINE・X など）。ない端末は文をコピーする
+let shareText = '';
+async function shareOut(text, url) {
+  try { if (navigator.share) { await navigator.share({ text, url }); return; } } catch (e) { if (e?.name === 'AbortError') return; }
+  try { await navigator.clipboard.writeText(text + '\n' + url); toast('コピーしました。LINE や X に貼り付けてください'); } catch (e) { toast('コピーできませんでした'); }
+}
+$('shareBtn').onclick = () => shareOut(shareText, location.origin + '/');
+// 招待：LINE で送る・共有メニュー・QR コード
+const inviteText = () => `イントロドン！J-POP で一緒に遊ぼう！部屋の合言葉は ${room?.code || ''}`;
+$('shareInvite').onclick = () => shareOut(inviteText(), $('inviteUrl').value);
+$('qrInvite').onclick = () => {
+  const box = $('qrBox'); box.hidden = !box.hidden;
+  if (!box.hidden) box.innerHTML = `<img alt="招待のQRコード" src="/api/qr?text=${encodeURIComponent($('inviteUrl').value)}"><small>スマホのカメラで読み取ると、この部屋に入れます</small>`;
+};
 socket.on('gameover', ({ ranking, titles = [], log, roomLog: rl, total, teams, survival, coop, bingo, showdown }) => {
+  { // シェアする文：自分の順位・正解数・点数（今日の10問なら、そう書く）
+    const i = ranking.findIndex(r => r.id === me), mine = ranking[i];
+    const head = room?.settings?.daily ? `📅 今日の10問（${new Date(Date.now() + 9 * 3600e3).toISOString().slice(5, 10).replace('-', '/')}）` : '🎵 イントロドン！J-POP';
+    shareText = mine ? `${head}\n${total || ''}問中 ${mine.correct}問正解・${mine.score}点${ranking.length > 1 ? `（${ranking.length}人中${i + 1}位）` : ''}${mine.avg != null ? `・平均 ${mine.avg}秒` : ''}\n#イントロドン` : head;
+    $('shareBtn').hidden = !mine;
+    if (room?.settings?.daily) loadDaily(); // 今日のランキングを読み直す
+  }
   hidePokerBet(); hideWolf(); hideIns(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz(); renderShowdown(showdown);
   pokerHandData = { hand: [], over: false, usedIds: [], kept: [] }; pokerDrop.clear();
   $('pickPanel').hidden = true; clearInterval(pickTick); $('coopBar').hidden = true; $('bingoBox').hidden = true;

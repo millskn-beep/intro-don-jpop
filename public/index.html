@@ -58,6 +58,13 @@
     <p class="tagline">イントロが流れたら、誰よりも早く答えよう。</p>
     <label>名前<input id="nameInput" maxlength="12" placeholder="ニックネーム"></label>
     <label class="char-pick">いっしょに遊ぶキャラ（自分の画面の見た目も変わります）<select class="char-sel" id="charSelHome"><option value="twins">双子</option><option value="rabbit">うさぎ</option><option value="cat">ねこ</option></select></label>
+    <div class="quick" id="quickPanel">
+      <h3 class="quick-h">ひとりで遊ぶ（10問）</h3>
+      <button class="btn-main quick-daily" id="dailyBtn" type="button">📅 今日の10問<small id="dailyInfo">全員同じ10曲・日本時間0時に入れかわり</small></button>
+      <ol class="daily-top" id="dailyTop"></ol>
+      <div class="quick-grid"><button class="btn-sub" type="button" data-quick="all">🎵 全部</button><button class="btn-sub" type="button" data-quick="80">80年代</button><button class="btn-sub" type="button" data-quick="90">90年代</button><button class="btn-sub" type="button" data-quick="00">2000年代</button><button class="btn-sub" type="button" data-quick="10">2010年代</button><button class="btn-sub" type="button" data-quick="20">2020年代</button><button class="btn-sub" type="button" data-quick="idol">🎤 アイドル</button><button class="btn-sub" type="button" data-quick="band">🎸 バンド</button><button class="btn-sub" type="button" data-quick="dance">💃 ダンス</button><button class="btn-sub" type="button" data-quick="ssw">✍️ シンガーソングライター</button><button class="btn-sub" type="button" data-quick="net">💻 ネット発</button></div>
+    </div>
+    <h3 class="quick-h">みんなで遊ぶ</h3>
     <div class="create-row">
       <label>部屋名（任意）<input id="roomNameInput" maxlength="20" placeholder="〇〇の部屋"></label>
       <label class="ly-pass" title="知っている人だけ：合言葉を入れると、歌詞クイズが遊べる非公開の部屋になります（パスワードも必要）">歌詞の合言葉（任意）<input id="lyricsPassInput" maxlength="40" placeholder="知っている人だけ" autocomplete="off"></label>
@@ -195,6 +202,8 @@
         <input id="inviteUrl" readonly>
         <button class="btn-sub" id="copyBtn">コピー</button>
       </div>
+      <div class="invite-btns"><a class="btn-sub line-btn" id="lineInvite" target="_blank" rel="noopener">LINEで送る</a><button class="btn-sub" id="shareInvite" type="button">共有</button><button class="btn-sub" id="qrInvite" type="button">QRコード</button></div>
+      <div class="qr-box" id="qrBox" hidden></div>
       <div id="settings">
       <!-- 設定はタブで分ける（項目が多いので、1つずつ見られるように） -->
       <div class="set-tabs" id="setTabs">
@@ -462,6 +471,7 @@
       </div>
       <div class="showdown" id="showdown" hidden></div>
       <ol class="ranking" id="ranking"></ol>
+      <button class="btn-main share-btn" id="shareBtn" type="button">📣 結果をシェア</button>
       <button class="btn-sub copy-log" id="roomLogBtn">📋 この部屋で出題した曲を全部コピー</button>
       <button class="btn-main" id="againBtn" hidden>もう一回（同じ設定で）</button>
       <button class="btn-sub back-lobby" id="lobbyBtn" hidden>部屋に戻って設定を変える</button>

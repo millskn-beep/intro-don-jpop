@@ -1434,6 +1434,11 @@ function cue(text, fx) {
 const isInput = () => question?.answerMode === 'input';
 
 let lyRevealTick = null; // 歌詞クイズ：歌詞が1文字ずつ出る問題のタイマー
+// iPhone のホーム画面から開いたとき（全画面）：音が出ないことがあるので、最初の問題で「タップして音を出す」を出す（1回押せば消える）
+const iosStandalone = /iPhone|iPad|iPod/.test(navigator.userAgent) && (navigator.standalone === true || matchMedia('(display-mode: standalone)').matches);
+let soundUnlocked = false;
+$('soundBtn').onclick = () => { player.unlockSound(); soundUnlocked = true; $('soundBtn').hidden = true; toast('音が出ないときは、iPhone の消音スイッチ（マナーモード）と音量を確かめてください'); };
+socket.on('question', () => { if (iosStandalone && !soundUnlocked && !practice) $('soundBtn').hidden = false; });
 socket.on('question', q => {
   hidePokerBet(); hideWolf(); hideIns(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz();
   if (q.attack) setTimeout(() => charFx.cutin('アタックチャンス！', '白いマスを、この問題の正解者がどこからでも取れます', 'cutin'), 400);

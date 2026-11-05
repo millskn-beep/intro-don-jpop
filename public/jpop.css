@@ -26,3 +26,7 @@
 
 /* PC（広い画面）：ひとりで遊ぶボタンは横に6つ並べる */
 @media (min-width: 900px) { .quick-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+
+/* iPhone のホーム画面から開いたとき：音を出すボタン（画面の真ん中・上） */
+.sound-btn { position: fixed; left: 50%; top: 22%; transform: translateX(-50%); z-index: 70; padding: 14px 26px; border-radius: 99px; border: 2px solid #fff; background: #ff3d8b; color: #fff; font: inherit; font-size: 18px; font-weight: 900; box-shadow: 0 6px 24px rgba(255, 61, 139, .5); animation: load-wait-blink 1.2s ease-in-out infinite; }
+.sound-btn[hidden] { display: none; }

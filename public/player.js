@@ -173,6 +173,12 @@ export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {
     setRate(r) { run(() => { if (yt.setPlaybackRate) yt.setPlaybackRate(r || 1); }); },
     // スマホ（特にiPhone）は、タップの処理の中で一度再生しておかないと、後から音が出ないことがある。
     // ボタンのクリック処理から同期的に呼ぶこと。
+    // タップの中で音ありにする（iPhone のホーム画面から開いたとき用。音なしの準備だけでは、あとで音を出させてもらえないことがある）
+    unlockSound() {
+      if (!apiReady) return;
+      yt.unMute(); yt.setVolume(volume);
+      if (yt.getPlayerState() !== YT.PlayerState.PLAYING && yt.getPlayerState() !== YT.PlayerState.BUFFERING) { yt.playVideo(); setTimeout(() => { try { if (yt.getPlayerState() === YT.PlayerState.PLAYING && !this.wanted) yt.pauseVideo(); } catch (e) { /* なにもしない */ } }, 400); }
+    },
     prime(videoId) {
       if (!apiReady) return; // API がまだなら、出題時のタップ（回答ボタン）で鳴ることに期待する
       clear();

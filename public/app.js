@@ -550,7 +550,7 @@ const PLAY_INFO = {
   codenames: ['🕵️', 'コードネーム', '2チームで、作品名の盤面から味方の作品を当てる', '4人〜', 'board'],
   azul: ['🧱', 'アズール', '曲カードを色ごとに取り合い、年代別の棚に並べる', '2〜4人', 'board'],
 };
-const JPOP_PLAYS = ['normal', 'buzzer', 'fill', 'survival', 'coop']; // J-POP 版で遊べる遊び方
+const JPOP_PLAYS = ['normal', 'buzzer', 'fill', 'survival']; // J-POP 版で遊べる遊び方（基本＋サブモード）
 const PLAY_GROUPS = [['quiz', '🎧 イントロクイズで遊ぶ（毎問、曲を聴いて答える）'], ['board', '🎲 ボードゲーム風（手札・投票・話し合いなど）']];
 function renderPlayPick(play) {
   const p = PLAY_INFO[play] || ['🎵', play, '', '', ''];

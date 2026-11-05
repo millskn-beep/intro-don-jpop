@@ -948,14 +948,14 @@ const OPTIONS = {
   // 遊び方：ふつう／早押し（押した人だけ答える）／サバイバル（ライフがなくなったら脱落）／出題者（順番に1人が曲を選ぶ）／協力（全員の正解数で目標）／ビンゴ
   slAmmo: ['free', '3', '1', 'inf'], slMove: ['slow', 'still', 'fast'], slTargets: [8, 6, 4], // 指パチンコ：弾の数・的の動き・的の数
   buzzMiss: ['on', 'off'], mvSound: ['on', 'off'], mvScope: ['anime', 'all', 'official'], mvSuggest: ['on', 'off'],
-  play: ['normal', 'buzzer', 'fill', 'survival', 'coop'], // J-POP 版の遊び方：ふつう・早押し・3つ埋め・サバイバル・協力
+  play: ['normal', 'buzzer', 'fill', 'survival'], // J-POP 版の遊び方：基本（イントロ→サビ対戦）＋サブモード（早押し・3つ埋め・サバイバル）
   target: ['song', 'artist', 'year'], // 答えるもの：曲名／歌手／年（J-POP 版は作品＝歌手名なので「作品」はない）
   speed: ['1', '1.5', '2', '0.75', '0.5', 'random'], // 再生速度（問題の間ずっと。答え合わせでふつうに戻す）
   coopGoal: [50, 70, 90],                 // 協力：問題数×人数の何%正解で達成
   lockSec: [15, 3, 5, 10, 20, 30],        // 3つ埋めバトル：間違えた人が押せない秒数
   fillMiss: ['on', 'off'],
   daily: [false, true], // 今日の10問（日本時間の日付で決めた10曲。全員同じ）
-  don: ['off', 'top', 'famous', 'maybe', 'seishun'], // 〇〇ドン：超有名曲・有名曲・たぶん知ってる・青春（入っている人の13〜24歳の曲を順番に）
+  don: ['off', 'top', 'famous', 'maybe', 'seishun', 'karaoke', 'tiktok', 'buzz', 'youtube', 'firsttake', 'drama', 'movie', 'cm', 'kouhaku', 'anime_national', 'spring', 'summer', 'winter', 'christmas', 'graduation', 'cheer', 'wedding', 'heartbreak'], // 遊び方2（どんな曲で遊ぶか）：知名度（超有名・有名・たぶん知ってる）・青春・曲のサブジャンル（カラオケ定番・TikTok など）
   insHear: ['master', 'intro'], insTarget: ['song', 'work'], // インサイダー：曲を聴ける人（出題者とインサイダーだけ／全員イントロ）・当てるもの                // 3つ埋め・たくさん埋め：お手つきの減点（off：減点なし。押せない秒数はそのまま）
   noRepeat: [false, true],                // 3つ埋めバトル：間違えた人は、ほかの人が押すまで押せない（連続解答なし）
   buzzStop: [true, false],
@@ -1051,8 +1051,9 @@ function poolFor(settings, ctx = {}) {
   const DON_FAME = { top: ['top'], famous: ['top', 'famous'], maybe: ['top', 'famous', 'normal'], seishun: ['top', 'famous', 'normal'] };
   const fame = DON_FAME[settings.don] || (Array.isArray(settings.fame) && settings.fame.length ? settings.fame : FAME_KEYS);
   if (settings.don === 'seishun') settings = { ...settings, yearFrom: 1960, yearTo: 2100 }; // 青春ドンの年は人ごと（startGame で選ぶ）
+  const donTag = settings.don && !DON_FAME[settings.don] && settings.don !== 'off' && GENRES[settings.don] ? settings.don : null; // 遊び方2のサブジャンル（カラオケ定番 など）
   const mine = ['favorites', 'weak'].includes(settings.topic);
-  const out = (settings.topic === 'playlist' ? STAGED : SONGS).filter(s => (mine || (s.year >= settings.yearFrom && s.year <= settings.yearTo && fame.includes(fameOf(s)))) && inTopic(s, settings, ctx) && !(settings.noCoupling && s.coupling)
+  const out = (settings.topic === 'playlist' ? STAGED : SONGS).filter(s => (!donTag || genresOf(s).includes(donTag)) && (mine || (s.year >= settings.yearFrom && s.year <= settings.yearTo && fame.includes(fameOf(s)))) && inTopic(s, settings, ctx) && !(settings.noCoupling && s.coupling)
     && !ctx.block?.has(s.id)
     && !(isFillPlay(settings.play) && genresOf(s).includes('lol'))); // 3つ埋めバトルに LoL の曲は出さない
   out.noCoupling = !!settings.noCoupling;

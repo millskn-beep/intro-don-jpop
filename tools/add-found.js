@@ -10,8 +10,8 @@ const norm = s => String(s).normalize('NFKC').toLowerCase().replace(/[\s!！・�
 const songs = JSON.parse(fs.readFileSync(SONGS, 'utf8'));
 const ids = new Set(songs.map(s => s.id)), keys = new Set(songs.map(s => norm(s.title) + '|' + norm(s.artist)));
 // アニメ・声優に縁のある歌手（data/work-genres.json の anime）の曲は入れない（ほぼアニソンになるため。ユーザーの希望 2026-11-05）
-const WG = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'work-genres.json'), 'utf8'));
-const animeArtist = a => (WG[a] || []).includes('anime');
+const ANIME = new Set(JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'anime-artists.json'), 'utf8')).artists); // 国民的アニメの曲（tags に anime_national）は入れる
+const animeArtist = a => ANIME.has(a);
 const SRC = { official: '公式MV', topic: '公式音源（Topic）', label: 'レーベル公式', fan: '非公式（再生回数の多い動画）' };
 const added = [], skipped = { none: 0, dup: 0, live: 0 };
 for (const f of process.argv.slice(2)) {
@@ -19,7 +19,7 @@ for (const f of process.argv.slice(2)) {
     const h = r.hit;
     if (!h) { skipped.none++; continue; }
     if (h.live) { skipped.live++; continue; }
-    if (animeArtist(r.artist)) { skipped.anime = (skipped.anime || 0) + 1; continue; }
+    if (animeArtist(r.artist) && !(r.tags || []).includes('anime_national')) { skipped.anime = (skipped.anime || 0) + 1; continue; }
     const k = norm(r.title) + '|' + norm(r.artist);
     if (ids.has(h.id) || keys.has(k)) { skipped.dup++; continue; }
     ids.add(h.id); keys.add(k);

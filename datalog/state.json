@@ -1,6 +1,6 @@
 {
- "base": "381c9e8795dbb79a80a5850247c8ebb30bbe9796",
- "savedAt": "2026-11-05T08:15:51.490Z",
+ "base": "f434a63f400bbafa742a9d273446450cfc08723a",
+ "savedAt": "2026-11-06T12:29:32.562Z",
  "data": {
   "requests": [],
   "candidates": [],
@@ -13,113 +13,33 @@
   "couplingReports": [],
   "playStats": {
    "since": "2026-11-04",
-   "songs": {
-    "kigjdtc0aWQ": [
-     1,
-     0,
-     0
-    ],
-    "n2t4yn8Uwzk": [
-     1,
-     1,
-     1
-    ],
-    "EAgACSowE5k": [
-     1,
-     1,
-     1
-    ],
-    "Mi9uNu35Gmk": [
-     1,
-     1,
-     1
-    ],
-    "K4xLi8IF1FM": [
-     1,
-     1,
-     1
-    ],
-    "mF5Qq2YheTg": [
-     1,
-     1,
-     1
-    ],
-    "tmKmDeksMaM": [
-     1,
-     1,
-     1
-    ],
-    "TYhWV4H83sU": [
-     1,
-     1,
-     1
-    ],
-    "gPcPseeICjs": [
-     1,
-     1,
-     1
-    ],
-    "YZ6wH-MqZvM": [
-     1,
-     1,
-     1
-    ],
-    "-9DxpPiE458": [
-     1,
-     1,
-     1
-    ],
-    "1wxTksLZ1Mw": [
-     1,
-     1,
-     1
-    ],
-    "WpSkxM6vj08": [
-     1,
-     1,
-     1
-    ],
-    "KWZf8MrUm2U": [
-     1,
-     1,
-     1
-    ],
-    "ofYTAoS4LzE": [
-     1,
-     1,
-     1
-    ],
-    "kQ9gbYURKy4": [
-     1,
-     0,
-     0
-    ],
-    "pRT5cfA2obE": [
-     1,
-     1,
-     0
-    ],
-    "mPauNZw0tqs": [
-     1,
-     0,
-     0
-    ]
-   },
-   "days": {
-    "2026-11-05": {
-     "games": 4,
-     "plays": 18
-    }
-   },
-   "byPlay": {
-    "normal": {
-     "games": 4,
-     "plays": 18
-    }
-   }
+   "songs": {},
+   "days": {},
+   "byPlay": {}
   },
   "infoFixes": {},
   "liveSongs": {}
  },
- "users": {}
+ "users": {},
+ "keep": {
+  "daily": {
+   "days": {
+    "2026-11-06": {
+     "ids": [
+      "VZBU8LvZ91Q",
+      "B2fPYlGKdXM",
+      "Re8l4a48R70",
+      "7HgJIAUtICU",
+      "xGccMCNqTik",
+      "weERytKD1Sc",
+      "WmM-KTcG3QY",
+      "dFf4AgBNR1E",
+      "NxDu0M_8jd0",
+      "xdnDrHWmiic"
+     ],
+     "scores": []
+    }
+   }
+  }
+ }
 }

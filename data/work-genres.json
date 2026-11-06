@@ -1,3018 +1,3334 @@
 {
- "19": [
-  "band"
- ],
- "_説明": "歌手のジャンル（鍵は歌手名＝曲データの work）。2026-11-05 に J-POP 向けに作り直した",
- "中山美穂&WANDS": [
-  "female_idol",
-  "band"
- ],
- "KinKi Kids": [
-  "male_idol"
- ],
- "ポケットビスケッツ": [
-  "dance"
- ],
- "ブラックビスケッツ": [
-  "dance"
- ],
- "モーニング娘。": [
-  "female_idol"
- ],
- "Perfume": [
-  "dance",
-  "female_idol"
- ],
- "薬師丸ひろ子": [
-  "female_idol"
- ],
- "光GENJI": [
-  "male_idol"
- ],
- "DISH//": [
-  "band",
-  "male_idol"
- ],
- "荻野目洋子": [
-  "female_idol"
- ],
- "SPEED": [
-  "dance"
- ],
- "AKB48": [
-  "female_idol"
- ],
- "松田聖子": [
-  "female_idol"
- ],
- "中森明菜": [
-  "female_idol"
- ],
- "Wink": [
-  "female_idol"
- ],
- "SMAP": [
-  "male_idol"
- ],
- "欅坂46": [
-  "female_idol"
- ],
- "少年隊": [
-  "male_idol"
- ],
- "嵐": [
-  "male_idol"
- ],
- "School Food Punishment": [
-  "band"
- ],
- "DREAMS COME TRUE": [
-  "band"
- ],
- "Mrs. GREEN APPLE": [
-  "band"
- ],
- "THE BLUE HEARTS": [
-  "band"
- ],
- "BUMP OF CHICKEN": [
-  "band"
- ],
- "Galileo Galilei": [
-  "band"
- ],
- "SEKAI NO OWARI": [
-  "band"
- ],
- "岸田教団&THE明星ロケッツ": [
-  "band"
- ],
- "go!go!vanillas": [
-  "band"
- ],
- "Official髭男dism": [
-  "band"
- ],
- "JITTERIN'JINN": [
-  "band"
- ],
- "大事MANブラザーズバンド": [
-  "band"
- ],
- "JUDY AND MARY": [
-  "band"
- ],
- "L'Arc〜en〜Ciel": [
-  "band"
- ],
- "ORANGE RANGE": [
-  "band"
- ],
- "プリンセス プリンセス": [
-  "band"
- ],
- "Mr.Children": [
-  "band"
- ],
- "back number": [
-  "band"
- ],
- "サザンオールスターズ": [
-  "band"
- ],
- "ポルノグラフィティ": [
-  "band"
- ],
- "MONGOL800": [
-  "band"
- ],
- "ゴールデンボンバー": [
-  "band"
- ],
- "Saucy Dog": [
-  "band"
- ],
- "THE BOOM": [
-  "band"
- ],
- "ゲスの極み乙女。": [
-  "band"
- ],
- "マカロニえんぴつ": [
-  "band"
- ],
- "King Gnu": [
-  "band"
- ],
- "いきものがかり": [
-  "band"
- ],
- "サカナクション": [
-  "band"
- ],
- "チェッカーズ": [
-  "band"
- ],
- "爆風スランプ": [
-  "band"
- ],
- "米米CLUB": [
-  "band"
- ],
- "レミオロメン": [
-  "band"
- ],
- "WANIMA": [
-  "band"
- ],
- "DUSTZ": [
-  "band"
- ],
- "緑黄色社会": [
-  "band"
- ],
- "ZARD": [
-  "band"
- ],
- "スピッツ": [
-  "band"
- ],
- "GLAY": [
-  "band"
- ],
- "キリンジ": [
-  "band"
- ],
- "B'z": [
-  "band"
- ],
- "シド": [
-  "band"
- ],
- "篠原涼子 with t.komuro": [
-  "female_solo"
- ],
- "Every Little Thing": [
-  "dance"
- ],
- "H Jungle with t": [
-  "dance"
- ],
- "CHEMISTRY": [
-  "dance"
- ],
- "DA PUMP": [
-  "dance"
- ],
- "Foorin": [
-  "dance"
- ],
- "Da-iCE": [
-  "dance"
- ],
- "globe": [
-  "dance"
- ],
- "CHAGE&ASKA": [
-  "band"
- ],
- "Tani Yuuki": [
-  "ssw"
- ],
- "アンジェラ・アキ": [
-  "ssw"
- ],
- "スキマスイッチ": [
-  "band"
- ],
- "宇多田ヒカル": [
-  "ssw"
- ],
- "Vaundy": [
-  "ssw"
- ],
- "松任谷由実": [
-  "ssw"
- ],
- "大沢誉志幸": [
-  "ssw"
- ],
- "竹内まりや": [
-  "ssw"
- ],
- "中島みゆき": [
-  "ssw"
- ],
- "森山直太朗": [
-  "ssw"
- ],
- "あいみょん": [
-  "ssw"
- ],
- "imase": [
-  "ssw",
-  "net"
- ],
- "tuki.": [
-  "ssw",
-  "net"
- ],
- "小林明子": [
-  "ssw"
- ],
- "岡村孝子": [
-  "ssw"
- ],
- "槇原敬之": [
-  "ssw"
- ],
- "小田和正": [
-  "ssw"
- ],
- "広瀬香美": [
-  "ssw"
- ],
- "椎名林檎": [
-  "ssw"
- ],
- "福山雅治": [
-  "ssw"
- ],
- "コブクロ": [
-  "band"
- ],
- "YUKI": [
-  "ssw"
- ],
- "米津玄師": [
-  "ssw",
-  "net"
- ],
- "miwa": [
-  "ssw"
- ],
- "寺尾聰": [
-  "ssw"
- ],
- "尾崎豊": [
-  "ssw"
- ],
- "大塚愛": [
-  "ssw"
- ],
- "一青窈": [
-  "female_solo"
- ],
- "星野源": [
-  "ssw"
- ],
- "なとり": [
-  "ssw",
-  "net"
- ],
- "杏里": [
-  "female_solo"
- ],
- "絢香": [
-  "ssw"
- ],
- "瑛人": [
-  "ssw"
- ],
- "優里": [
-  "ssw"
- ],
- "青山テルマ feat.SoulJa": [
-  "female_solo",
-  "hiphop"
- ],
- "Superfly": [
-  "ssw"
- ],
- "ChouCho": [
-  "female_solo"
- ],
- "アン・ルイス": [
-  "female_solo"
- ],
- "Kiroro": [
-  "ssw"
- ],
- "ClariS": [
-  "female_solo"
- ],
- "YURiKA": [
-  "female_solo"
- ],
- "安室奈美恵": [
-  "female_solo"
- ],
- "MISIA": [
-  "female_solo"
- ],
- "浜崎あゆみ": [
-  "female_solo"
- ],
- "藍井エイル": [
-  "female_solo"
- ],
- "夏川りみ": [
-  "female_solo"
- ],
- "平原綾香": [
-  "female_solo"
- ],
- "中島美嘉": [
-  "female_solo"
- ],
- "堀江由衣": [
-  "female_solo"
- ],
- "水樹奈々": [
-  "female_solo"
- ],
- "茅原実里": [
-  "female_solo"
- ],
- "藤原鞠菜": [
-  "female_solo"
- ],
- "中川翔子": [
-  "female_solo"
- ],
- "LiSA": [
-  "female_solo"
- ],
- "あみん": [
-  "ssw"
- ],
- "音莉飴": [
-  "female_solo"
- ],
- "AI": [
-  "female_solo",
-  "hiphop"
- ],
- "99RadioService": [
-  "band"
- ],
- "浦島太郎(桐谷健太)": [
-  "male_solo"
- ],
- "久保田利伸": [
-  "ssw"
- ],
- "平井堅": [
-  "ssw"
- ],
- "HOME MADE 家族": [
-  "hiphop"
- ],
- "GReeeeN": [
-  "dance"
- ],
- "YA-KYIM": [
-  "dance"
- ],
- "HoneyWorks feat.かぴ": [
-  "net"
- ],
- "Night Tempo": [
-  "kpop"
- ],
- "YOASOBI": [
-  "net"
- ],
- "ヨルシカ": [
-  "net"
- ],
- "yama": [
-  "net"
- ],
- "Ado": [
-  "net"
- ],
- "175R": [
-  "band"
- ],
- "1986 OMEGA TRIBE": [
-  "band"
- ],
- "=LOVE": [
-  "female_idol"
- ],
- "AAA": [
-  "dance"
- ],
- "AKASAKI": [
-  "ssw",
-  "net"
- ],
- "ASIAN KUNG-FU GENERATION": [
-  "band"
- ],
- "ASKA": [
-  "ssw"
- ],
- "Aimer": [
-  "female_solo"
- ],
- "Aqua Timez": [
-  "band"
- ],
- "Awesome City Club": [
-  "band"
- ],
- "BABYMETAL": [
-  "female_idol"
- ],
- "BARBEE BOYS": [
-  "band"
- ],
- "BE:FIRST": [
-  "dance"
- ],
- "BEGIN": [
-  "band"
- ],
- "BOØWY": [
-  "band"
- ],
- "BUCK-TICK": [
-  "band"
- ],
- "BaBe": [
-  "female_idol"
- ],
- "BiSH": [
-  "female_idol"
- ],
- "BoA": [
-  "kpop",
-  "female_solo"
- ],
- "C-C-B": [
-  "band"
- ],
- "CANDY TUNE": [
-  "female_idol"
- ],
- "COMPLEX": [
-  "band"
- ],
- "CUTIE STREET": [
-  "female_idol"
- ],
- "Chara": [
-  "ssw"
- ],
- "Cocco": [
-  "ssw"
- ],
- "Creepy Nuts": [
-  "hiphop"
- ],
- "Crystal Kay": [
-  "female_solo"
- ],
- "D-51": [
-  "dance"
- ],
- "DAOKO × 米津玄師": [
-  "ssw",
-  "net"
- ],
- "DEEN": [
-  "band"
- ],
- "Def Tech": [
-  "hiphop"
- ],
- "Doughnuts Hole": [
-  "band"
- ],
- "Dragon Ash": [
-  "band",
-  "hiphop"
- ],
- "E-girls": [
-  "dance"
- ],
- "EAST END×YURI": [
-  "hiphop"
- ],
- "EXILE": [
-  "dance"
- ],
- "FRUITS ZIPPER": [
-  "female_idol"
- ],
- "FUNKY MONKEY BABYS": [
-  "hiphop"
- ],
- "GAO": [
-  "ssw"
- ],
- "Gackt": [
-  "ssw"
- ],
- "HANA": [
-  "dance"
- ],
- "HKT48": [
-  "female_idol"
- ],
- "HOUND DOG": [
-  "band"
- ],
- "HY": [
-  "band"
- ],
- "Hey! Say! JUMP": [
-  "male_idol"
- ],
- "Hilcrhyme": [
-  "hiphop"
- ],
- "Hysteric Blue": [
-  "band"
- ],
- "I WiSH": [
-  "band"
- ],
- "INI": [
-  "male_idol"
- ],
- "JO1": [
-  "male_idol"
- ],
- "JUJU": [
-  "female_solo"
- ],
- "JUJU with JAY'ED": [
-  "female_solo"
- ],
- "KAN": [
-  "ssw"
- ],
- "KANA-BOON": [
-  "band"
- ],
- "KAT-TUN": [
-  "male_idol"
- ],
- "KEYTALK": [
-  "band"
- ],
- "KICK THE CAN CREW": [
-  "hiphop"
- ],
- "KOH+": [
-  "female_solo"
- ],
- "KUWATA BAND": [
-  "band"
- ],
- "King & Prince": [
-  "male_idol"
- ],
- "Kis-My-Ft2": [
-  "male_idol"
- ],
- "LINDBERG": [
-  "band"
- ],
- "LUNA SEA": [
-  "band"
- ],
- "Le Couple": [
-  "band"
- ],
- "Little Glee Monster": [
-  "dance"
- ],
- "MAX": [
-  "dance"
- ],
- "May J.": [
-  "female_solo"
- ],
- "My Little Lover": [
-  "band"
- ],
- "NEWS": [
-  "male_idol"
- ],
- "NiziU": [
-  "female_idol",
-  "kpop"
- ],
- "Novelbright": [
-  "band"
- ],
- "Number_i": [
-  "male_idol"
- ],
- "ONE OK ROCK": [
-  "band"
- ],
- "ORIGINAL LOVE": [
-  "band"
- ],
- "Omoinotake": [
-  "band"
- ],
- "PUFFY": [
-  "female_solo"
- ],
- "Pabo": [
-  "female_idol"
- ],
- "RADIO FISH": [
-  "dance"
- ],
- "RADWIMPS": [
-  "band"
- ],
- "RCサクセション": [
-  "band"
- ],
- "REBECCA": [
-  "band"
- ],
- "RIP SLYME": [
-  "hiphop"
- ],
- "RUI": [
-  "female_solo"
- ],
- "SEAMO": [
-  "hiphop"
- ],
- "SHAZNA": [
-  "band"
- ],
- "SHISHAMO": [
-  "band"
- ],
- "SHOW-YA": [
-  "band"
- ],
- "SKE48": [
-  "female_idol"
- ],
- "SOUL'd OUT": [
-  "hiphop"
- ],
- "SUPER BEAVER": [
-  "band"
- ],
- "Sexy Zone": [
-  "male_idol"
- ],
- "SixTONES": [
-  "male_idol"
- ],
- "Snow Man": [
-  "male_idol"
- ],
- "SoulJa feat. 青山テルマ": [
-  "hiphop"
- ],
- "Spontania feat. JUJU": [
-  "hiphop"
- ],
- "Suchmos": [
-  "band"
- ],
- "T-BOLAN": [
-  "band"
- ],
- "THE ALFEE": [
-  "band"
- ],
- "THE YELLOW MONKEY": [
-  "band"
- ],
- "THE 虎舞竜": [
-  "band"
- ],
- "TOKIO": [
-  "male_idol",
-  "band"
- ],
- "TUBE": [
-  "band"
- ],
- "Travis Japan": [
-  "male_idol"
- ],
- "Twenty★Twenty": [
-  "male_idol"
- ],
- "UA": [
-  "female_solo"
- ],
- "Uru": [
-  "ssw"
- ],
- "V6": [
-  "male_idol"
- ],
- "WANDS": [
-  "band"
- ],
- "WaT": [
-  "band"
- ],
- "WurtS": [
-  "ssw",
-  "net"
- ],
- "X": [
-  "band"
- ],
- "X JAPAN": [
-  "band"
- ],
- "YELLOW MAGIC ORCHESTRA": [
-  "band"
- ],
- "YEN TOWN BAND": [
-  "band"
- ],
- "YUI": [
-  "ssw"
- ],
- "ZIGGY": [
-  "band"
- ],
- "ZONE": [
-  "band"
- ],
- "ZOO": [
-  "dance"
- ],
- "[Alexandros]": [
-  "band"
- ],
- "aiko": [
-  "ssw"
- ],
- "class": [
-  "band"
- ],
- "flumpool": [
-  "band"
- ],
- "hitomi": [
-  "female_solo"
- ],
- "m-flo": [
-  "dance",
-  "hiphop"
- ],
- "m.c.A・T": [
-  "hiphop"
- ],
- "mihimaru GT": [
-  "dance"
- ],
- "moumoon": [
-  "band"
- ],
- "nobodyknows+": [
-  "hiphop"
- ],
- "the brilliant green": [
-  "band"
- ],
- "timelesz": [
-  "male_idol"
- ],
- "trf": [
-  "dance"
- ],
- "wacci": [
-  "band"
- ],
- "おニャン子クラブ": [
-  "female_idol"
- ],
- "きゃりーぱみゅぱみゅ": [
-  "female_solo"
- ],
- "くるり": [
-  "band"
- ],
- "こっちのけんと": [
-  "ssw",
-  "net"
- ],
- "ずっと真夜中でいいのに。": [
-  "net",
-  "band"
- ],
- "たま": [
-  "band"
- ],
- "ちゃんみな": [
-  "hiphop"
- ],
- "とんねるず": [
-  "male_solo"
- ],
- "なにわ男子": [
-  "male_idol"
- ],
- "ひらめ": [
-  "ssw",
-  "net"
- ],
- "ももいろクローバー": [
-  "female_idol"
- ],
- "ももいろクローバーZ": [
-  "female_idol"
- ],
- "もんた&ブラザーズ": [
-  "band"
- ],
- "ゆず": [
-  "band"
- ],
- "わらべ": [
-  "female_idol"
- ],
- "イモ欽トリオ": [
-  "male_solo"
- ],
- "ウルフルズ": [
-  "band"
- ],
- "エレファントカシマシ": [
-  "band"
- ],
- "オフコース": [
-  "band"
- ],
- "キマグレン": [
-  "band"
- ],
- "クマムシ": [
-  "male_solo"
- ],
- "クリープハイプ": [
-  "band"
- ],
- "ケツメイシ": [
-  "hiphop"
- ],
- "ゴスペラーズ": [
-  "dance"
- ],
- "サスケ": [
-  "band"
- ],
- "サンボマスター": [
-  "band"
- ],
- "ザ・ぼんち": [
-  "male_solo"
- ],
- "シブがき隊": [
-  "male_idol"
- ],
- "シャネルズ": [
-  "dance"
- ],
- "シャ乱Q": [
-  "band"
- ],
- "ジャニーズWEST": [
-  "male_idol"
- ],
- "ジューシィ・フルーツ": [
-  "band"
- ],
- "チャゲ&飛鳥": [
-  "band"
- ],
- "チャットモンチー": [
-  "band"
- ],
- "ピコ太郎": [
-  "male_solo"
- ],
- "フジファブリック": [
-  "band"
- ],
- "フレデリック": [
-  "band"
- ],
- "ポルカドットスティングレイ": [
-  "band"
- ],
- "ミニモニ。": [
-  "female_idol"
- ],
- "ヤバイTシャツ屋さん": [
-  "band"
- ],
- "ユニコーン": [
-  "band"
- ],
- "ラッツ&スター": [
-  "dance"
- ],
- "一風堂": [
-  "band"
- ],
- "三代目 J Soul Brothers from EXILE TRIBE": [
-  "dance"
- ],
- "三原順子": [
-  "female_idol"
- ],
- "三木道三": [
-  "hiphop"
- ],
- "三浦大知": [
-  "male_solo"
- ],
- "三浦春馬": [
-  "male_solo"
- ],
- "上田正樹": [
-  "ssw"
- ],
- "中原めいこ": [
-  "ssw"
- ],
- "中孝介": [
-  "male_solo"
- ],
- "中山美穂": [
-  "female_idol"
- ],
- "中村あゆみ": [
-  "female_solo"
- ],
- "中村中": [
-  "ssw"
- ],
- "中田ヤスタカ": [
-  "ssw"
- ],
- "中西保志": [
-  "male_solo"
- ],
- "乃木坂46": [
-  "female_idol"
- ],
- "五輪真弓": [
-  "ssw"
- ],
- "井上陽水": [
-  "ssw"
- ],
- "今井美樹": [
-  "female_solo"
- ],
- "伊藤つかさ": [
-  "female_idol"
- ],
- "佐野元春": [
-  "ssw"
- ],
- "修二と彰": [
-  "male_idol"
- ],
- "倉木麻衣": [
-  "female_solo"
- ],
- "倖田來未": [
-  "female_solo"
- ],
- "元ちとせ": [
-  "female_solo"
- ],
- "八神純子": [
-  "ssw"
- ],
- "前田敦子": [
-  "female_idol"
- ],
- "加藤ミリヤ×清水翔太": [
-  "ssw"
- ],
- "南佳孝": [
-  "ssw"
- ],
- "南野陽子": [
-  "female_idol"
- ],
- "原田知世": [
-  "female_idol"
- ],
- "友成空": [
-  "ssw",
-  "net"
- ],
- "反町隆史": [
-  "male_solo"
- ],
- "吉川晃司": [
-  "ssw"
- ],
- "和ぬか": [
-  "ssw",
-  "net"
- ],
- "国生さゆり with おニャン子クラブ": [
-  "female_idol"
- ],
- "大橋純子": [
-  "female_solo"
- ],
- "大江千里": [
-  "ssw"
- ],
- "大滝詠一": [
-  "ssw"
- ],
- "大黒摩季": [
-  "ssw"
- ],
- "天野春子(小泉今日子)": [
-  "female_idol"
- ],
- "奥田民生": [
-  "ssw"
- ],
- "安全地帯": [
-  "band"
- ],
- "安室奈美恵 with SUPER MONKEY'S": [
-  "dance"
- ],
- "家入レオ": [
-  "ssw"
- ],
- "小林旭": [
-  "enka"
- ],
- "小林麻美": [
-  "female_solo"
- ],
- "小柳ゆき": [
-  "female_solo"
- ],
- "小比類巻かほる": [
-  "female_solo"
- ],
- "小沢健二": [
-  "ssw"
- ],
- "小泉今日子": [
-  "female_idol"
- ],
- "山下智久": [
-  "male_idol"
- ],
- "山下達郎": [
-  "ssw"
- ],
- "山口百恵": [
-  "female_idol"
- ],
- "山崎まさよし": [
-  "ssw"
- ],
- "山根康広": [
-  "ssw"
- ],
- "岡崎体育": [
-  "ssw"
- ],
- "岡本真夜": [
-  "ssw"
- ],
- "岡田有希子": [
-  "female_idol"
- ],
- "岩崎宏美": [
-  "female_solo"
- ],
- "島谷ひとみ": [
-  "female_solo"
- ],
- "嶋大輔": [
-  "male_solo"
- ],
- "川本真琴": [
-  "ssw"
- ],
- "工藤静香": [
-  "female_idol"
- ],
- "布袋寅泰": [
-  "ssw"
- ],
- "平松愛理": [
-  "ssw"
- ],
- "後藤真希": [
-  "female_idol"
- ],
- "徳永英明": [
-  "ssw"
- ],
- "忌野清志郎+坂本龍一": [
-  "ssw"
- ],
- "慎吾ママ": [
-  "male_idol"
- ],
- "斉藤和義": [
-  "ssw"
- ],
- "斉藤由貴": [
-  "female_idol"
- ],
- "新しい学校のリーダーズ": [
-  "dance"
- ],
- "新田恵利": [
-  "female_idol"
- ],
- "日向坂46": [
-  "female_idol"
- ],
- "早見優": [
-  "female_idol"
- ],
- "木村カエラ": [
-  "female_solo"
- ],
- "本田美奈子": [
-  "female_idol"
- ],
- "杉山清貴": [
-  "ssw"
- ],
- "杉山清貴&オメガトライブ": [
-  "band"
- ],
- "来生たかお": [
-  "ssw"
- ],
- "東京事変": [
-  "band"
- ],
- "東方神起": [
-  "kpop"
- ],
- "松たか子": [
-  "female_solo"
- ],
- "松山千春": [
-  "ssw"
- ],
- "松平健": [
-  "enka"
- ],
- "松本伊代": [
-  "female_idol"
- ],
- "松浦亜弥": [
-  "female_idol"
- ],
- "柏原芳恵": [
-  "female_idol"
- ],
- "柴咲コウ": [
-  "female_solo"
- ],
- "桑田佳祐": [
-  "ssw"
- ],
- "森高千里": [
-  "female_idol"
- ],
- "植村花菜": [
-  "ssw"
- ],
- "椎名林檎と宮本浩次": [
-  "ssw"
- ],
- "楠瀬誠志郎": [
-  "ssw"
- ],
- "櫻坂46": [
-  "female_idol"
- ],
- "氣志團": [
-  "band"
- ],
- "水曜日のカンパネラ": [
-  "female_solo"
- ],
- "氷室京介": [
-  "ssw"
- ],
- "永井真理子": [
-  "female_solo"
- ],
- "沢田研二": [
-  "male_solo"
- ],
- "河口恭吾": [
-  "ssw"
- ],
- "河合奈保子": [
-  "female_idol"
- ],
- "河村隆一": [
-  "ssw"
- ],
- "泰葉": [
-  "ssw"
- ],
- "浅香唯": [
-  "female_idol"
- ],
- "浜田省吾": [
-  "ssw"
- ],
- "浜田麻里": [
-  "female_solo"
- ],
- "清水翔太": [
-  "ssw"
- ],
- "渡辺徹": [
-  "male_solo"
- ],
- "渡辺美里": [
-  "female_solo"
- ],
- "湘南乃風": [
-  "hiphop"
- ],
- "猿岩石": [
-  "male_solo"
- ],
- "玉置浩二": [
-  "ssw"
- ],
- "田原俊彦": [
-  "male_idol"
- ],
- "男闘呼組": [
-  "male_idol",
-  "band"
- ],
- "相川七瀬": [
-  "female_solo"
- ],
- "真心ブラザーズ": [
-  "band"
- ],
- "矢井田瞳": [
-  "ssw"
- ],
- "知念里奈": [
-  "female_solo"
- ],
- "石井明美": [
-  "female_solo"
- ],
- "石川ひとみ": [
-  "female_idol"
- ],
- "石川優子とチャゲ": [
-  "ssw"
- ],
- "研ナオコ": [
-  "female_solo"
- ],
- "秋川雅史": [
-  "male_solo"
- ],
- "秦基博": [
-  "ssw"
- ],
- "稲垣潤一": [
-  "male_solo"
- ],
- "紫今": [
-  "ssw",
-  "net"
- ],
- "絢香×コブクロ": [
-  "ssw"
- ],
- "織田裕二": [
-  "male_solo"
- ],
- "美空ひばり": [
-  "enka"
- ],
- "羞恥心": [
-  "male_idol"
- ],
- "聖飢魔II": [
-  "band"
- ],
- "菅田将暉": [
-  "male_solo"
- ],
- "菊池桃子": [
-  "female_idol"
- ],
- "華原朋美": [
-  "female_solo"
- ],
- "葛城ユキ": [
-  "female_solo"
- ],
- "薫と友樹、たまにムック。": [
-  "dance"
- ],
- "藤井フミヤ": [
-  "ssw"
- ],
- "藤井隆": [
-  "male_solo"
- ],
- "藤井風": [
-  "ssw"
- ],
- "藤谷美和子・大内義昭": [
-  "female_solo"
- ],
- "西城秀樹": [
-  "male_solo"
- ],
- "西野カナ": [
-  "ssw"
- ],
- "超ときめき♡宣伝部": [
-  "female_idol"
- ],
- "辛島美登里": [
-  "ssw"
- ],
- "近藤真彦": [
-  "male_idol"
- ],
- "遊助": [
-  "male_solo"
- ],
- "郷ひろみ": [
-  "male_solo"
- ],
- "酒井法子": [
-  "female_idol"
- ],
- "鈴木あみ": [
-  "female_solo"
- ],
- "鈴木雅之": [
-  "male_solo"
- ],
- "鈴木雅之&菊池桃子": [
-  "male_solo"
- ],
- "長山洋子": [
-  "enka"
- ],
- "長渕剛": [
-  "ssw"
- ],
- "関ジャニ∞": [
-  "male_idol"
- ],
- "雅夢": [
-  "band"
- ],
- "電気グルーヴ": [
-  "band"
- ],
- "高橋優": [
-  "ssw"
- ],
- "高橋真梨子": [
-  "female_solo"
- ],
- "鬼束ちひろ": [
-  "ssw"
- ],
- "黒夢": [
-  "band"
- ],
- "ROSÉ": [
-  "kpop"
- ],
- "aespa": [
-  "kpop"
- ],
- "アイナ・ジ・エンド": [
-  "ssw"
- ],
- "幾田りら": [
-  "ssw"
- ],
- "BABYMONSTER": [
-  "kpop"
- ],
- "Jimin": [
-  "kpop"
- ],
- "ILLIT": [
-  "kpop"
- ],
- "HUNTR/X": [
-  "kpop",
-  "western"
- ],
- "XG": [
-  "kpop"
- ],
- "MY FIRST STORY": [
-  "band"
- ],
- "キタニタツヤ": [
-  "ssw"
- ],
- "SPYAIR": [
-  "band"
- ],
- "シャイトープ": [
-  "band"
- ],
- "LE SSERAFIM": [
-  "kpop"
- ],
- "Jung Kook": [
-  "kpop"
- ],
- "10-FEET": [
-  "band"
- ],
- "星街すいせい": [
-  "net"
- ],
- "GEMN": [
-  "male_solo"
- ],
- "NewJeans": [
-  "kpop"
- ],
- "羊文学": [
-  "band"
- ],
- "MAN WITH A MISSION": [
-  "band"
- ],
- "マルシィ": [
-  "band"
- ],
- "百足": [
-  "hiphop"
- ],
- "MAISONdes": [
-  "net"
- ],
- "Kanaria": [
-  "net"
- ],
- "女王蜂": [
-  "band"
- ],
- "由薫": [
-  "ssw"
- ],
- "ヤングスキニー": [
-  "band"
- ],
- "ano": [
-  "female_solo"
- ],
- "Stray Kids": [
-  "kpop"
- ],
- "BTS": [
-  "kpop"
- ],
- "HoneyWorks": [
-  "net"
- ],
- "IVE": [
-  "kpop"
- ],
- "川崎 鷹也": [
-  "ssw"
- ],
- "TWICE": [
-  "kpop"
- ],
- "変態紳士クラブ": [
-  "hiphop"
- ],
- "Kep1er": [
-  "kpop"
- ],
- "The Kid LAROI": [
-  "western"
- ],
- "Eve": [
-  "net"
- ],
- "星野 源": [
-  "ssw"
- ],
- "菅田 将暉": [
-  "male_solo"
- ],
- "平井 大": [
-  "ssw"
- ],
- "きゃない": [
-  "ssw"
- ],
- "NAYEON": [
-  "kpop"
- ],
- "大橋ちっぽけ": [
-  "ssw"
- ],
- "夜のひと笑い": [
-  "ssw",
-  "net"
- ],
- "milet": [
-  "ssw"
- ],
- "BLOOM VASE": [
-  "hiphop"
- ],
- "Rin音": [
-  "hiphop"
- ],
- "ꉈꀧ꒒꒒ꁄꍈꍈꀧ꒦ꉈ ꉣꅔꎡꅔꁕꁄ": [
-  "net"
- ],
- "Reol": [
-  "net"
- ],
- "Chinozo": [
-  "net"
- ],
- "ビリー・アイリッシュ": [
-  "western"
- ],
- "エド・シーラン": [
-  "western"
- ],
- "空音": [
-  "hiphop"
- ],
- "BLACKPINK": [
-  "kpop"
- ],
- "Daoko": [
-  "ssw",
-  "net"
- ],
- "SEVENTEEN": [
-  "kpop"
- ],
- "MAMAMOO": [
-  "kpop"
- ],
- "ITZY": [
-  "kpop"
- ],
- "オレンジスパイニクラブ": [
-  "band"
- ],
- "Fitz and The Tantrums": [
-  "western"
- ],
- "レディー・ガガ": [
-  "western"
- ],
- "クイーン": [
-  "western"
- ],
- "IZ*ONE": [
-  "kpop"
- ],
- "NMB48": [
-  "female_idol"
- ],
- "三代目 J SOUL BROTHERS from EXILE TRIBE": [
-  "dance"
- ],
- "Ed Sheeran & Justin Bieber": [
-  "western"
- ],
- "STU48": [
-  "female_idol"
- ],
- "L'Arc-en-Ciel": [
-  "band"
- ],
- "Whiteberry": [
-  "band"
- ],
- "ECHOES": [
-  "band"
- ],
- "蓮井 朱夏": [
-  "female_solo"
- ],
- "MISIA+DCT": [
-  "female_solo"
- ],
- "木村弓": [
-  "ssw"
- ],
- "ストロベリー・フラワー": [
-  "band"
- ],
- "篠原涼子": [
-  "female_solo"
- ],
- "藤谷美和子": [
-  "female_solo"
- ],
- "CHAGE and ASKA": [
-  "band"
- ],
- "NOKKO": [
-  "ssw"
- ],
- "To Be Continued": [
-  "band"
- ],
- "ICE BOX": [
-  "band"
- ],
- "吉岡秀隆": [
-  "male_solo"
- ],
- "桑田 佳祐 ＆ Mr.Children": [
-  "band"
- ],
- "L⇔R": [
-  "band"
- ],
- "EAST END + YURI": [
-  "hiphop"
- ],
- "田村直美": [
-  "female_solo"
- ],
- "マライア・キャリー": [
-  "western"
- ],
- "FUNK THE PEANUTS": [
-  "female_idol"
- ],
- "ラブ・クレッシェンド": [
-  "female_solo"
- ],
- "μ's": [
-  "female_idol"
- ],
- "NGT48": [
-  "female_idol"
- ],
- "ラストアイドル": [
-  "female_idol"
- ],
- "坂本冬美": [
-  "enka"
- ],
- "放課後ティータイム": [
-  "band"
- ],
- "板野友美": [
-  "female_idol"
- ],
- "フレンチ・キス": [
-  "female_idol"
- ],
- "渡辺麻友": [
-  "female_idol"
- ],
- "T.M.Revolution×水樹奈々": [
-  "male_solo",
-  "female_solo"
- ],
- "キング・クリームソーダ": [
-  "male_solo"
- ],
- "Nana starring Mika Nakashima": [
-  "female_solo"
- ],
- "BENNIE K": [
-  "hiphop"
- ],
- "REIRA starring Yuna Ito": [
-  "female_solo"
- ],
- "HIGH and MIGHTY COLOR": [
-  "band"
- ],
- "Kaoru Amane": [
-  "ssw"
- ],
- "伊藤由奈": [
-  "female_solo"
- ],
- "青山テルマ": [
-  "female_solo",
-  "hiphop"
- ],
- "秋元順子": [
-  "enka"
- ],
- "平沢唯(CV:豊崎愛生)": [
-  "female_solo"
- ],
- "柴矢裕美": [
-  "female_solo"
- ],
- "MINMI": [
-  "hiphop"
- ],
- "玉置成実": [
-  "female_solo"
- ],
- "day after tomorrow": [
-  "band"
- ],
- "坂本龍一 featuring Sister M": [
-  "ssw"
- ],
- "高橋洋子": [
-  "female_solo"
- ],
- "広末涼子": [
-  "female_idol"
- ],
- "ブラック・ビスケッツ": [
-  "dance"
- ],
- "松本梨香": [
-  "female_solo"
- ],
- "鈴木亜美": [
-  "female_solo"
- ],
- "hiro": [
-  "female_solo"
- ],
- "Sugar Soul": [
-  "female_solo",
-  "hiphop"
- ],
- "上原多香子": [
-  "female_solo"
- ],
- "PRINCESS PRINCESS": [
-  "band"
- ],
- "PINK SAPPHIRE": [
-  "band"
- ],
- "GO-BANG'S": [
-  "band"
- ],
- "ジッタリン・ジン": [
-  "band"
- ],
- "澤田知可子": [
-  "female_solo"
- ],
- "児島未散": [
-  "female_solo"
- ],
- "香西かおり": [
-  "enka"
- ],
- "川村カオリ": [
-  "ssw"
- ],
- "森口博子": [
-  "female_idol"
- ],
- "伍代夏子": [
-  "enka"
- ],
- "やまだかつてないWINK": [
-  "female_idol"
- ],
- "mikiimai": [
-  "female_solo"
- ],
- "KIX・S": [
-  "band"
- ],
- "都はるみ": [
-  "enka"
- ],
- "岩崎良美": [
-  "female_idol"
- ],
- "うしろゆびさされ組": [
-  "female_idol"
- ],
- "吉沢秋絵": [
-  "female_idol"
- ],
- "国生さゆり": [
-  "female_idol"
- ],
- "レベッカ": [
-  "band"
- ],
- "高井麻巳子": [
-  "female_idol"
- ],
- "渡辺美奈代": [
-  "female_idol"
- ],
- "森川由加里": [
-  "female_solo"
- ],
- "渡辺満里奈": [
-  "female_idol"
- ],
- "日野美歌": [
-  "enka"
- ],
- "テレサ・テン": [
-  "enka"
- ],
- "小林幸子": [
-  "enka"
- ],
- "浅香 唯": [
-  "female_idol"
- ],
- "ロス・インディオス/シルヴィア": [
-  "enka"
- ],
- "渡辺真知子": [
-  "ssw"
- ],
- "八代亜紀": [
-  "enka"
- ],
- "高田みづえ": [
-  "female_idol"
- ],
- "中村晃子": [
-  "female_solo"
- ],
- "松村和子": [
-  "enka"
- ],
- "杉村 尚美": [
-  "female_solo"
- ],
- "ザ・ヴィーナス": [
-  "band"
- ],
- "石川優子": [
-  "ssw"
- ],
- "Sugar": [
-  "band"
- ],
- "山下久美子": [
-  "female_solo"
- ],
- "高樹澪": [
-  "female_solo"
- ],
- "増田惠子": [
-  "female_solo"
- ],
- "EPO": [
-  "ssw"
- ],
- "歐陽菲菲": [
-  "female_solo"
- ],
- "小柳ルミ子": [
-  "enka"
- ],
- "未唯mie": [
-  "female_solo"
- ],
- "飯島真理": [
-  "ssw"
- ],
- "竜鉄也": [
-  "enka"
- ],
- "中村雅俊": [
-  "male_solo"
- ],
- "細川たかし": [
-  "enka"
- ],
- "大川栄策": [
-  "enka"
- ],
- "アイリーン・キャラ": [
-  "western"
- ],
- "芦屋雁之助": [
-  "enka"
- ],
- "Kuwata Band": [
-  "band"
- ],
- "河合その子": [
-  "female_idol"
- ],
- "瀬川瑛子": [
-  "enka"
- ],
- "吉幾三": [
-  "enka"
- ],
- "尾形大作": [
-  "enka"
- ],
- "五木ひろし": [
-  "enka"
- ],
- "プリンセス・プリンセス": [
-  "band"
- ],
- "B.B.クィーンズ": [
-  "band"
- ],
- "ダイアナ・ロス": [
-  "western"
- ],
- "久保田利伸with NAOMI CAMPBELL": [
-  "ssw"
- ],
- "TK PRESENTS こねっと": [
-  "dance"
- ],
- "BLACK BISCUITS": [
-  "dance"
- ],
- "速水けんたろう、茂森あゆみ": [
-  "male_solo"
- ],
- "坂本龍一": [
-  "ssw"
- ],
- "プッチモニ": [
-  "female_idol"
- ],
- "L'Arc～en～Ciel": [
-  "band"
- ],
- "ロードオブメジャー": [
-  "band"
- ],
- "Gorie with Jasmine＆Joann": [
-  "dance"
- ],
- "GLAY×EXILE": [
-  "band",
-  "dance"
- ],
- "トラジ・ハイジ": [
-  "male_solo"
- ],
- "嵐／矢野健太 starring Satoshi Ohno": [
-  "male_idol"
- ],
- "Hey！Say！JUMP": [
-  "male_idol"
- ],
- "氷川きよし": [
-  "enka"
- ],
- "XIAH junsu": [
-  "kpop"
- ],
- "怪物くん（怪物太郎）": [
-  "male_idol"
- ],
- "はんにゃ，フルーツポンチ": [
-  "male_solo"
- ],
- "Lia／多田葵": [
-  "female_solo"
- ],
- "稲葉浩志": [
-  "ssw"
- ],
- "チームドラゴン from AKB48": [
-  "female_idol"
- ],
- "少女時代": [
-  "kpop"
- ],
- "チーム・アミューズ!!": [
-  "dance"
- ],
- "EXILE／EXILE ATSUSHI": [
-  "dance"
- ],
- "Not yet": [
-  "female_idol"
- ],
- "赤西仁": [
-  "male_idol"
- ],
- "KARA": [
-  "kpop"
- ],
- "B’z": [
-  "band"
- ],
- "チャン・グンソク": [
-  "kpop"
- ],
- "マキシマム ザ ホルモン": [
-  "band"
- ],
- "NYC": [
-  "male_idol"
- ],
- "エイトレンジャー": [
-  "male_idol"
- ],
- "Hey!Say!JUMP": [
-  "male_idol"
- ],
- "EXILE TRIBE": [
-  "dance"
- ],
- "キム・ヒョンジュン": [
-  "kpop"
- ],
- "SUPER JUNIOR": [
-  "kpop"
- ],
- "The MONSTER": [
-  "male_idol"
- ],
- "2PM": [
-  "kpop"
- ],
- "関ジャニ∞（エイト）": [
-  "male_idol"
- ],
- "EXILE TRIBE (三代目 J Soul Brothers VS GENERATIONS)": [
-  "dance"
- ],
- "Linked Horizon": [
-  "band"
- ],
- "山田涼介": [
-  "male_idol"
- ],
- "舞祭組": [
-  "male_idol"
- ],
- "モーニング娘。’14": [
-  "female_idol"
- ],
- "HKT48 feat.氣志團": [
-  "female_idol"
- ],
- "EXO": [
-  "kpop"
- ],
- "GENERATIONS from EXILE TRIBE": [
-  "dance"
- ],
- "JYJ": [
-  "kpop"
- ],
- "モーニング娘。’15": [
-  "female_idol"
- ],
- "仮面女子": [
-  "female_idol"
- ],
- "Hi-STANDARD": [
-  "band"
- ],
- "BOYS AND MEN": [
-  "male_idol"
- ],
- "モーニング娘。'15": [
-  "female_idol"
- ],
- "防弾少年団": [
-  "kpop"
- ],
- "BTS(防弾少年団)": [
-  "kpop"
- ],
- "Hey！Say！JUMP／A.Y.T.": [
-  "male_idol"
- ],
- "亀と山P": [
-  "male_idol"
- ],
- "QUARTET NIGHT": [
-  "male_idol"
- ],
- "モーニング娘。'17": [
-  "female_idol"
- ],
- "King＆Prince": [
-  "male_idol"
- ],
- "ハロプロ･オールスターズ": [
-  "female_idol"
- ],
- "Hey! Say! JUMP／山田涼介": [
-  "male_idol"
- ],
- "亀梨和也": [
-  "male_idol"
- ],
- "モーニング娘。'19": [
-  "female_idol"
- ],
- "MONSTA X": [
-  "kpop"
- ],
- "SixTONES vs Snow Man": [
-  "male_idol"
- ],
- "モーニング娘。’20": [
-  "female_idol"
- ],
- "TOMORROW X TOGETHER": [
-  "kpop"
- ],
- "刀剣男士 formation of 葵咲": [
-  "male_idol"
- ],
- "つばきファクトリー": [
-  "female_idol"
- ],
- "ENHYPEN": [
-  "kpop"
- ],
- "Jin": [
-  "kpop"
- ],
- "THE RAMPAGE from EXILE TRIBE": [
-  "dance"
- ],
- "≠ME": [
-  "female_idol"
- ],
- "TREASURE": [
-  "kpop"
- ],
- "NCT DREAM": [
-  "kpop"
- ],
- "Aぇ! group": [
-  "male_idol"
- ],
- "ZEROBASEONE": [
-  "kpop"
- ],
- "&TEAM": [
-  "kpop",
-  "male_idol"
- ],
- "BOYNEXTDOOR": [
-  "kpop"
- ],
- "速水けんたろう、茂森あゆみ、 ひまわりキッズ、だんご合唱団": [
-  "male_solo"
- ],
- "B.B.クイーンズ": [
-  "band"
- ],
- "沢田知可子": [
-  "female_solo"
- ],
- "Che'Nelle": [
-  "western"
- ],
- "谷村新司": [
-  "ssw"
- ],
- "H2O": [
-  "band"
- ],
- "石川さゆり": [
-  "enka"
- ],
- "島倉千代子": [
-  "enka"
- ],
- "DJ OZMA": [
-  "dance"
- ],
- "三代目 J Soul Brothers": [
-  "dance"
- ],
- "Dream5": [
-  "dance"
- ],
- "ナナヲアカリ": [
-  "net"
- ],
- "M!LK": [
-  "male_idol"
- ],
- "TEE": [
-  "hiphop"
- ],
- "Sonar Pocket": [
-  "dance"
- ],
- "Che’Nelle": [
-  "western"
- ],
- "EXILE ATSUSHI": [
-  "male_solo"
- ],
- "坂井泉水": [
-  "female_solo"
- ],
- "川嶋あい": [
-  "ssw"
- ],
- "德永英明": [
-  "ssw"
- ],
- "宮本浩次": [
-  "ssw"
- ],
- "桜井和寿": [
-  "ssw"
- ],
- "スガシカオ": [
-  "ssw"
- ],
- "ナオト・インティライミ": [
-  "ssw"
- ],
- "HUNTR/X (EJAE, Audrey Nuna, and REI AMI)": [
-  "kpop",
-  "western"
- ],
- "米津玄師、宇多田ヒカル": [
-  "ssw"
- ],
- "Mrs.GREEN APPLE": [
-  "band"
- ],
- "GEMN(中島健人・キタニタツヤ)": [
-  "male_solo"
- ],
- "MY FIRST STORY × HYDE": [
-  "band"
- ],
- "MISAMO": [
-  "kpop"
- ],
- "ME:I": [
-  "female_idol"
- ],
- "MAN WITH A MISSION × milet": [
-  "band"
- ],
- "百足 & 韻マン": [
-  "hiphop"
- ],
- "millennium parade × Belle": [
-  "band"
- ],
- "海蔵亮太": [
-  "male_solo"
- ],
- "三代目 J SOUL BROTHERS from EXILE": [
-  "dance"
- ],
- "桑田佳祐 & The Pin Boys": [
-  "ssw"
- ],
- "平井大": [
-  "ssw"
- ],
- "シェネル": [
-  "western"
- ],
- "NOBU": [
-  "male_solo"
- ],
- "林部智史": [
-  "male_solo"
- ],
- "RADWINPS": [
-  "band"
- ],
- "Beverly": [
-  "female_solo"
- ],
- "半崎美子": [
-  "ssw"
- ],
- "UVERworld": [
-  "band"
- ],
- "藤原さくら": [
-  "ssw"
- ],
- "手嶌葵": [
-  "female_solo"
- ],
- "Flower": [
-  "dance"
- ],
- "EXILE ATSUSHI + AI": [
-  "male_solo"
- ],
- "水森かおり": [
-  "enka"
- ],
- "三山ひろし": [
-  "enka"
- ],
- "UNION SQUARE GARDEN": [
-  "band"
- ],
- "Chay": [
-  "ssw"
- ],
- "西内まりや": [
-  "female_solo"
- ],
- "大月みやこ": [
-  "enka"
- ],
- "花岡なつみ": [
-  "female_solo"
- ],
- "きゃりーばみゅぱみゅ": [
-  "female_solo"
- ],
- "LoVendoR": [
-  "band",
-  "female_idol"
- ],
- "Rihwa": [
-  "ssw"
- ],
- "福田こうへい": [
-  "enka"
- ],
- "山崎ていじ": [
-  "enka"
- ],
- "千昌夫": [
-  "enka"
- ],
- "山本譲二": [
-  "enka"
- ],
- "剛力彩芽": [
-  "female_solo"
- ],
- "EXILE TAKAHIRO": [
-  "male_solo"
- ],
- "T.M.Rovolution×水樹奈々": [
-  "male_solo",
-  "female_solo"
- ],
- "新里宏太": [
-  "male_solo"
- ],
- "Ms.OOJA": [
-  "female_solo"
- ],
- "岩佐美咲": [
-  "enka",
-  "female_idol"
- ],
- "ふくい舞": [
-  "female_solo"
- ],
- "Rake": [
-  "ssw"
- ],
- "マキシマムザホルモン": [
-  "band"
- ],
- "チーム・アミューズ!": [
-  "dance"
- ],
- "田川寿美": [
-  "enka"
- ],
- "JAMOSA": [
-  "female_solo"
- ],
- "ラルクアンシエル": [
-  "band"
- ],
- "DOES": [
-  "band"
- ],
- "ヒルクライム": [
-  "hiphop"
- ],
- "FUNKEY MONKEY BABYS": [
-  "hiphop"
- ],
- "はんにゃ,フルーツポンチ": [
-  "male_solo"
- ],
- "中山優馬 w/B.I.Shadow": [
-  "male_idol"
- ],
- "DREAMS COME TRUE feat.FUZZY CONTROL": [
-  "band"
- ],
- "ROCK'A'TRENCH": [
-  "band"
- ],
- "矢島美容室": [
-  "dance"
- ],
- "藤岡藤巻と大橋のぞみ": [
-  "male_solo"
- ],
- "ジェロ": [
-  "enka"
- ],
- "すぎもとまさと": [
-  "enka"
- ],
- "木山裕策": [
-  "male_solo"
- ],
- "童子-T": [
-  "hiphop"
- ],
- "アラジン": [
-  "band"
- ],
- "SoulJa": [
-  "hiphop"
- ],
- "おしりかじり虫": [
-  "male_solo"
- ],
- "オレンジレンジ": [
-  "band"
- ],
- "アンジェラアキ": [
-  "ssw"
- ],
- "FUNKEY MONKEY BABY'S": [
-  "hiphop"
- ],
- "BUMP OF CHIKEN": [
-  "band"
- ],
- "RSP": [
-  "dance"
- ],
- "Dreams Come True": [
-  "band"
- ],
- "トリオ☆ザ☆シャキーン": [
-  "male_solo"
- ],
- "タッキー&翼": [
-  "male_idol"
- ],
- "Sunset Swish": [
-  "band"
- ],
- "monkey majik": [
-  "band"
- ],
- "YUI for 雨音薫": [
-  "ssw"
- ],
- "Bank Band with Salyu": [
-  "band"
- ],
- "BONNIE PINK": [
-  "ssw"
- ],
- "GYM": [
-  "male_idol"
- ],
- "キグルミ": [
-  "female_idol"
- ],
- "EXILE×倖田來未": [
-  "dance"
- ],
- "アンダーグラフ": [
-  "band"
- ],
- "トンガリキッズ": [
-  "hiphop"
- ],
- "ジャンヌダルク": [
-  "band"
- ],
- "Crystal kay × CHEMISTRY": [
-  "female_solo"
- ],
- "K": [
-  "kpop"
- ],
- "SINGER SONGER": [
-  "band"
- ],
- "くず": [
-  "male_solo"
- ],
- "&G": [
-  "male_solo"
- ],
- "浜田雅功と槙原敬之": [
-  "ssw"
- ],
- "光永亮太": [
-  "ssw"
- ],
- "FLOW": [
-  "band"
- ],
- "はなわ": [
-  "male_solo"
- ],
- "TAK MATSUMOTO featuring ZARD": [
-  "band"
- ],
- "リップスライム": [
-  "hiphop"
- ],
- "Do As Infinity": [
-  "band"
- ],
- "桜庭裕一郎": [
-  "male_solo"
- ],
- "麻波25": [
-  "band"
- ],
- "キンモクセイ": [
-  "band"
- ],
- "YeLLOW Generation": [
-  "female_idol"
- ],
- "堂本剛": [
-  "male_idol"
- ],
- "川中美幸": [
-  "enka"
- ],
- "浜崎あゆみ&KEIKO": [
-  "female_solo"
- ],
- "T.M.Revolution": [
-  "male_solo"
- ],
- "kinki kids": [
-  "male_idol"
- ],
- "N.M.L": [
-  "dance"
- ],
- "Re:Japan": [
-  "male_solo"
- ],
- "プッチモニ。": [
-  "female_idol"
- ],
- "大泉逸郎": [
-  "enka"
- ],
- "花*花": [
-  "ssw"
- ],
- "Dragon Ash feat.ラッパ蛾リヤ": [
-  "band",
-  "hiphop"
- ],
- "黄色5": [
-  "female_idol"
- ],
- "あか組4": [
-  "female_idol"
- ],
- "Suger Soul feat.Kenji": [
-  "female_solo",
-  "hiphop"
- ],
- "Something ELse": [
-  "band"
- ],
- "槙原敬之": [
-  "ssw"
- ],
- "センチメンタル・バス": [
-  "band"
- ],
- "松本英子": [
-  "female_solo"
- ],
- "山口由子": [
-  "ssw"
- ],
- "NiNa": [
-  "band"
- ],
- "MY LITTLE LOVER": [
-  "band"
- ],
- "PENICILLIN": [
-  "band"
- ],
- "T.M Revolution": [
-  "male_solo"
- ],
- "hide with Spread Beaver": [
-  "band"
- ],
- "SIAM SHADE": [
-  "band"
- ],
- "JUDY&MARY": [
-  "band"
- ],
- "T.M REVOLUTION": [
-  "male_solo"
- ],
- "MOON CHILD": [
-  "band"
- ],
- "T.K PRESENTS こねっと": [
-  "dance"
- ],
- "反町隆史with Richie Sambora": [
-  "male_solo"
- ],
- "GRAY": [
-  "band"
- ],
- "オリジナルラヴ": [
-  "band"
- ],
- "FIELD OF VIEW": [
-  "band"
- ],
- "Mr.Childen": [
-  "band"
- ],
- "To Be Coutinued": [
-  "band"
- ],
- "久宝留理子": [
-  "female_solo"
- ],
- "橘いずみ": [
-  "ssw"
- ],
- "NOA": [
-  "female_solo"
- ],
- "高山厳": [
-  "enka"
- ],
- "森田童子": [
-  "ssw"
- ],
- "財津和夫": [
-  "ssw"
- ],
- "国武万里": [
-  "female_solo"
- ],
- "ZYYG REV ZARD&WANDS": [
-  "band"
- ],
- "THE WAVES": [
-  "band"
- ],
- "藤あや子": [
-  "enka"
- ],
- "ZYYG": [
-  "band"
- ],
- "Voice": [
-  "band"
- ],
- "Z団": [
-  "band"
- ],
- "J-WALK": [
-  "band"
- ],
- "織田哲郎": [
-  "ssw"
- ],
- "大事MANプラザーズバンド": [
-  "band"
- ],
- "小野正利": [
-  "male_solo"
- ],
- "ハウンドドッグ": [
-  "band"
- ],
- "中西圭三": [
-  "ssw"
- ],
- "THE ALFFEE": [
-  "band"
- ],
- "BAKUFU-SLUMP": [
-  "band"
- ],
- "V2": [
-  "band"
- ],
- "バブルガムブラザーズ": [
-  "dance"
- ],
- "チューブ": [
-  "band"
- ],
- "ドリームズカムトゥルー": [
-  "band"
- ],
- "TMN": [
-  "band"
- ],
- "Mi-Ke": [
-  "female_idol"
- ],
- "嘉門達夫": [
-  "ssw"
- ],
- "障子久美": [
-  "ssw"
- ],
- "プリンセスプリンセス": [
-  "band"
- ],
- "B・Bクイーンズ": [
-  "band"
- ],
- "矢沢永吉": [
-  "ssw"
- ],
- "プリンセスフリンセス": [
-  "band"
- ],
- "川村かおり": [
-  "ssw"
- ],
- "KATSUMI": [
-  "ssw"
- ],
- "堀内孝雄": [
-  "enka"
- ],
- "GO-BANG’S": [
-  "band"
- ],
- "JITTERIN’JINN": [
-  "band"
- ],
- "牛若丸三郎太": [
-  "male_solo"
- ],
- "高野寛": [
-  "ssw"
- ],
- "オヨネーズ": [
-  "enka"
- ],
- "TM NETWORK": [
-  "band"
- ],
- "宮沢りえ": [
-  "female_idol"
- ],
- "斎藤由貴": [
-  "female_idol"
- ],
- "バービーボーイズ": [
-  "band"
- ],
- "ハウンドドック": [
-  "band"
- ],
- "チョーヨンピル": [
-  "enka",
-  "kpop"
- ],
- "BOOWY": [
-  "band"
- ],
- "石原裕次郎": [
-  "enka"
- ],
- "アルフィー": [
-  "band"
- ],
- "Babe": [
-  "female_idol"
- ],
- "渡哲也いしだあゆみ": [
-  "enka"
- ],
- "日野美歌葵司郎": [
-  "enka"
- ],
- "椎名恵": [
-  "female_solo"
- ],
- "池田聡": [
-  "ssw"
- ],
- "TOM CAT": [
-  "band"
- ],
- "菊地桃子": [
-  "female_idol"
- ],
- "トシ&ナオコ": [
-  "male_solo"
- ],
- "松任谷由実小田和正財津和夫": [
-  "ssw"
- ],
- "風見慎吾": [
-  "male_idol"
- ],
- "LOOK": [
-  "band"
- ],
- "テレサテン": [
-  "enka"
- ],
- "木村友衛": [
-  "enka"
- ],
- "MIE": [
-  "female_solo"
- ],
- "一世風靡セピア": [
-  "dance"
- ],
- "舘ひろし": [
-  "male_solo"
- ],
- "SALLY": [
-  "band"
- ],
- "小林幸子美樹克彦": [
-  "enka"
- ],
- "中原めい子": [
-  "ssw"
- ],
- "梅沢富美男": [
-  "enka"
- ],
- "村下孝蔵": [
-  "ssw"
- ],
- "都はるみ岡千秋": [
-  "enka"
- ],
- "Y.M.O": [
-  "band"
- ],
- "森進一": [
-  "enka"
- ],
- "野口五郎": [
-  "male_solo"
- ],
- "ヒロシ&キーボー": [
-  "enka"
- ],
- "シュガー": [
-  "band"
- ],
- "ザタイガース": [
-  "band"
- ],
- "忌野清志郎坂本龍一": [
-  "ssw"
- ],
- "増田恵子": [
-  "female_solo"
- ],
- "堀江淳": [
-  "ssw"
- ],
- "横浜銀蠅": [
-  "band"
- ],
- "伊藤敏博": [
-  "ssw"
- ],
- "西田敏行": [
-  "male_solo"
- ],
- "クリエーション": [
-  "band"
- ],
- "五十嵐浩晃": [
-  "ssw"
- ],
- "矢野顕子": [
-  "ssw"
- ],
- "アリス": [
-  "band"
- ],
- "クリスタルキング": [
-  "band"
- ],
- "さだまさし": [
-  "ssw"
- ],
- "堀内孝雄滝ともはる": [
-  "enka"
- ],
- "ジューシーフルーツ": [
-  "band"
- ],
- "ばんばひろふみ": [
-  "ssw"
- ]
+  "19": [
+    "band"
+  ],
+  "_説明": "歌手のジャンル（鍵は歌手名＝曲データの work）。2026-11-05 に J-POP 向けに作り直した",
+  "中山美穂&WANDS": [
+    "female_idol",
+    "band"
+  ],
+  "KinKi Kids": [
+    "male_idol"
+  ],
+  "ポケットビスケッツ": [
+    "dance"
+  ],
+  "ブラックビスケッツ": [
+    "dance"
+  ],
+  "モーニング娘。": [
+    "female_idol"
+  ],
+  "Perfume": [
+    "dance",
+    "female_idol"
+  ],
+  "薬師丸ひろ子": [
+    "female_idol"
+  ],
+  "光GENJI": [
+    "male_idol"
+  ],
+  "DISH//": [
+    "band",
+    "male_idol"
+  ],
+  "荻野目洋子": [
+    "female_idol"
+  ],
+  "SPEED": [
+    "dance"
+  ],
+  "AKB48": [
+    "female_idol"
+  ],
+  "松田聖子": [
+    "female_idol"
+  ],
+  "中森明菜": [
+    "female_idol"
+  ],
+  "Wink": [
+    "female_idol"
+  ],
+  "SMAP": [
+    "male_idol"
+  ],
+  "欅坂46": [
+    "female_idol"
+  ],
+  "少年隊": [
+    "male_idol"
+  ],
+  "嵐": [
+    "male_idol"
+  ],
+  "School Food Punishment": [
+    "band"
+  ],
+  "DREAMS COME TRUE": [
+    "band"
+  ],
+  "Mrs. GREEN APPLE": [
+    "band"
+  ],
+  "THE BLUE HEARTS": [
+    "band"
+  ],
+  "BUMP OF CHICKEN": [
+    "band"
+  ],
+  "Galileo Galilei": [
+    "band"
+  ],
+  "SEKAI NO OWARI": [
+    "band"
+  ],
+  "岸田教団&THE明星ロケッツ": [
+    "band"
+  ],
+  "go!go!vanillas": [
+    "band"
+  ],
+  "Official髭男dism": [
+    "band"
+  ],
+  "JITTERIN'JINN": [
+    "band"
+  ],
+  "大事MANブラザーズバンド": [
+    "band"
+  ],
+  "JUDY AND MARY": [
+    "band"
+  ],
+  "L'Arc〜en〜Ciel": [
+    "band"
+  ],
+  "ORANGE RANGE": [
+    "band"
+  ],
+  "プリンセス プリンセス": [
+    "band"
+  ],
+  "Mr.Children": [
+    "band"
+  ],
+  "back number": [
+    "band"
+  ],
+  "サザンオールスターズ": [
+    "band"
+  ],
+  "ポルノグラフィティ": [
+    "band"
+  ],
+  "MONGOL800": [
+    "band"
+  ],
+  "ゴールデンボンバー": [
+    "band"
+  ],
+  "Saucy Dog": [
+    "band"
+  ],
+  "THE BOOM": [
+    "band"
+  ],
+  "ゲスの極み乙女。": [
+    "band"
+  ],
+  "マカロニえんぴつ": [
+    "band"
+  ],
+  "King Gnu": [
+    "band"
+  ],
+  "いきものがかり": [
+    "band"
+  ],
+  "サカナクション": [
+    "band"
+  ],
+  "チェッカーズ": [
+    "band"
+  ],
+  "爆風スランプ": [
+    "band"
+  ],
+  "米米CLUB": [
+    "band"
+  ],
+  "レミオロメン": [
+    "band"
+  ],
+  "WANIMA": [
+    "band"
+  ],
+  "DUSTZ": [
+    "band"
+  ],
+  "緑黄色社会": [
+    "band"
+  ],
+  "ZARD": [
+    "band"
+  ],
+  "スピッツ": [
+    "band"
+  ],
+  "GLAY": [
+    "band"
+  ],
+  "キリンジ": [
+    "band"
+  ],
+  "B'z": [
+    "band"
+  ],
+  "シド": [
+    "band"
+  ],
+  "篠原涼子 with t.komuro": [
+    "female_solo"
+  ],
+  "Every Little Thing": [
+    "dance"
+  ],
+  "H Jungle with t": [
+    "dance"
+  ],
+  "CHEMISTRY": [
+    "dance"
+  ],
+  "DA PUMP": [
+    "dance"
+  ],
+  "Foorin": [
+    "dance"
+  ],
+  "Da-iCE": [
+    "dance"
+  ],
+  "globe": [
+    "dance"
+  ],
+  "CHAGE&ASKA": [
+    "band"
+  ],
+  "Tani Yuuki": [
+    "ssw"
+  ],
+  "アンジェラ・アキ": [
+    "ssw"
+  ],
+  "スキマスイッチ": [
+    "band"
+  ],
+  "宇多田ヒカル": [
+    "ssw"
+  ],
+  "Vaundy": [
+    "ssw"
+  ],
+  "松任谷由実": [
+    "ssw"
+  ],
+  "大沢誉志幸": [
+    "ssw"
+  ],
+  "竹内まりや": [
+    "ssw"
+  ],
+  "中島みゆき": [
+    "ssw"
+  ],
+  "森山直太朗": [
+    "ssw"
+  ],
+  "あいみょん": [
+    "ssw"
+  ],
+  "imase": [
+    "ssw",
+    "net"
+  ],
+  "tuki.": [
+    "ssw",
+    "net"
+  ],
+  "小林明子": [
+    "ssw"
+  ],
+  "岡村孝子": [
+    "ssw"
+  ],
+  "槇原敬之": [
+    "ssw"
+  ],
+  "小田和正": [
+    "ssw"
+  ],
+  "広瀬香美": [
+    "ssw"
+  ],
+  "椎名林檎": [
+    "ssw"
+  ],
+  "福山雅治": [
+    "ssw"
+  ],
+  "コブクロ": [
+    "band"
+  ],
+  "YUKI": [
+    "ssw"
+  ],
+  "米津玄師": [
+    "ssw",
+    "net"
+  ],
+  "miwa": [
+    "ssw"
+  ],
+  "寺尾聰": [
+    "ssw"
+  ],
+  "尾崎豊": [
+    "ssw"
+  ],
+  "大塚愛": [
+    "ssw"
+  ],
+  "一青窈": [
+    "female_solo"
+  ],
+  "星野源": [
+    "ssw"
+  ],
+  "なとり": [
+    "ssw",
+    "net"
+  ],
+  "杏里": [
+    "female_solo"
+  ],
+  "絢香": [
+    "ssw"
+  ],
+  "瑛人": [
+    "ssw"
+  ],
+  "優里": [
+    "ssw"
+  ],
+  "青山テルマ feat.SoulJa": [
+    "female_solo",
+    "hiphop"
+  ],
+  "Superfly": [
+    "ssw"
+  ],
+  "ChouCho": [
+    "female_solo"
+  ],
+  "アン・ルイス": [
+    "female_solo"
+  ],
+  "Kiroro": [
+    "ssw"
+  ],
+  "ClariS": [
+    "female_solo"
+  ],
+  "YURiKA": [
+    "female_solo"
+  ],
+  "安室奈美恵": [
+    "female_solo"
+  ],
+  "MISIA": [
+    "female_solo"
+  ],
+  "浜崎あゆみ": [
+    "female_solo"
+  ],
+  "藍井エイル": [
+    "female_solo"
+  ],
+  "夏川りみ": [
+    "female_solo"
+  ],
+  "平原綾香": [
+    "female_solo"
+  ],
+  "中島美嘉": [
+    "female_solo"
+  ],
+  "堀江由衣": [
+    "female_solo"
+  ],
+  "水樹奈々": [
+    "female_solo"
+  ],
+  "茅原実里": [
+    "female_solo"
+  ],
+  "藤原鞠菜": [
+    "female_solo"
+  ],
+  "中川翔子": [
+    "female_solo"
+  ],
+  "LiSA": [
+    "female_solo"
+  ],
+  "あみん": [
+    "ssw"
+  ],
+  "音莉飴": [
+    "female_solo"
+  ],
+  "AI": [
+    "female_solo",
+    "hiphop"
+  ],
+  "99RadioService": [
+    "band"
+  ],
+  "浦島太郎(桐谷健太)": [
+    "male_solo"
+  ],
+  "久保田利伸": [
+    "ssw"
+  ],
+  "平井堅": [
+    "ssw"
+  ],
+  "HOME MADE 家族": [
+    "hiphop"
+  ],
+  "GReeeeN": [
+    "dance"
+  ],
+  "YA-KYIM": [
+    "dance"
+  ],
+  "HoneyWorks feat.かぴ": [
+    "net"
+  ],
+  "Night Tempo": [
+    "kpop"
+  ],
+  "YOASOBI": [
+    "net"
+  ],
+  "ヨルシカ": [
+    "net"
+  ],
+  "yama": [
+    "net"
+  ],
+  "Ado": [
+    "net"
+  ],
+  "175R": [
+    "band"
+  ],
+  "1986 OMEGA TRIBE": [
+    "band"
+  ],
+  "=LOVE": [
+    "female_idol"
+  ],
+  "AAA": [
+    "dance"
+  ],
+  "AKASAKI": [
+    "ssw",
+    "net"
+  ],
+  "ASIAN KUNG-FU GENERATION": [
+    "band"
+  ],
+  "ASKA": [
+    "ssw"
+  ],
+  "Aimer": [
+    "female_solo"
+  ],
+  "Aqua Timez": [
+    "band"
+  ],
+  "Awesome City Club": [
+    "band"
+  ],
+  "BABYMETAL": [
+    "female_idol"
+  ],
+  "BARBEE BOYS": [
+    "band"
+  ],
+  "BE:FIRST": [
+    "dance"
+  ],
+  "BEGIN": [
+    "band"
+  ],
+  "BOØWY": [
+    "band"
+  ],
+  "BUCK-TICK": [
+    "band"
+  ],
+  "BaBe": [
+    "female_idol"
+  ],
+  "BiSH": [
+    "female_idol"
+  ],
+  "BoA": [
+    "kpop",
+    "female_solo"
+  ],
+  "C-C-B": [
+    "band"
+  ],
+  "CANDY TUNE": [
+    "female_idol"
+  ],
+  "COMPLEX": [
+    "band"
+  ],
+  "CUTIE STREET": [
+    "female_idol"
+  ],
+  "Chara": [
+    "ssw"
+  ],
+  "Cocco": [
+    "ssw"
+  ],
+  "Creepy Nuts": [
+    "hiphop"
+  ],
+  "Crystal Kay": [
+    "female_solo"
+  ],
+  "D-51": [
+    "dance"
+  ],
+  "DAOKO × 米津玄師": [
+    "ssw",
+    "net"
+  ],
+  "DEEN": [
+    "band"
+  ],
+  "Def Tech": [
+    "hiphop"
+  ],
+  "Doughnuts Hole": [
+    "band"
+  ],
+  "Dragon Ash": [
+    "band",
+    "hiphop"
+  ],
+  "E-girls": [
+    "dance"
+  ],
+  "EAST END×YURI": [
+    "hiphop"
+  ],
+  "EXILE": [
+    "dance"
+  ],
+  "FRUITS ZIPPER": [
+    "female_idol"
+  ],
+  "FUNKY MONKEY BABYS": [
+    "hiphop"
+  ],
+  "GAO": [
+    "ssw"
+  ],
+  "Gackt": [
+    "ssw"
+  ],
+  "HANA": [
+    "dance"
+  ],
+  "HKT48": [
+    "female_idol"
+  ],
+  "HOUND DOG": [
+    "band"
+  ],
+  "HY": [
+    "band"
+  ],
+  "Hey! Say! JUMP": [
+    "male_idol"
+  ],
+  "Hilcrhyme": [
+    "hiphop"
+  ],
+  "Hysteric Blue": [
+    "band"
+  ],
+  "I WiSH": [
+    "band"
+  ],
+  "INI": [
+    "male_idol"
+  ],
+  "JO1": [
+    "male_idol"
+  ],
+  "JUJU": [
+    "female_solo"
+  ],
+  "JUJU with JAY'ED": [
+    "female_solo"
+  ],
+  "KAN": [
+    "ssw"
+  ],
+  "KANA-BOON": [
+    "band"
+  ],
+  "KAT-TUN": [
+    "male_idol"
+  ],
+  "KEYTALK": [
+    "band"
+  ],
+  "KICK THE CAN CREW": [
+    "hiphop"
+  ],
+  "KOH+": [
+    "female_solo"
+  ],
+  "KUWATA BAND": [
+    "band"
+  ],
+  "King & Prince": [
+    "male_idol"
+  ],
+  "Kis-My-Ft2": [
+    "male_idol"
+  ],
+  "LINDBERG": [
+    "band"
+  ],
+  "LUNA SEA": [
+    "band"
+  ],
+  "Le Couple": [
+    "band"
+  ],
+  "Little Glee Monster": [
+    "dance"
+  ],
+  "MAX": [
+    "dance"
+  ],
+  "May J.": [
+    "female_solo"
+  ],
+  "My Little Lover": [
+    "band"
+  ],
+  "NEWS": [
+    "male_idol"
+  ],
+  "NiziU": [
+    "female_idol",
+    "kpop"
+  ],
+  "Novelbright": [
+    "band"
+  ],
+  "Number_i": [
+    "male_idol"
+  ],
+  "ONE OK ROCK": [
+    "band"
+  ],
+  "ORIGINAL LOVE": [
+    "band"
+  ],
+  "Omoinotake": [
+    "band"
+  ],
+  "PUFFY": [
+    "female_solo"
+  ],
+  "Pabo": [
+    "female_idol"
+  ],
+  "RADIO FISH": [
+    "dance"
+  ],
+  "RADWIMPS": [
+    "band"
+  ],
+  "RCサクセション": [
+    "band"
+  ],
+  "REBECCA": [
+    "band"
+  ],
+  "RIP SLYME": [
+    "hiphop"
+  ],
+  "RUI": [
+    "female_solo"
+  ],
+  "SEAMO": [
+    "hiphop"
+  ],
+  "SHAZNA": [
+    "band"
+  ],
+  "SHISHAMO": [
+    "band"
+  ],
+  "SHOW-YA": [
+    "band"
+  ],
+  "SKE48": [
+    "female_idol"
+  ],
+  "SOUL'd OUT": [
+    "hiphop"
+  ],
+  "SUPER BEAVER": [
+    "band"
+  ],
+  "Sexy Zone": [
+    "male_idol"
+  ],
+  "SixTONES": [
+    "male_idol"
+  ],
+  "Snow Man": [
+    "male_idol"
+  ],
+  "SoulJa feat. 青山テルマ": [
+    "hiphop"
+  ],
+  "Spontania feat. JUJU": [
+    "hiphop"
+  ],
+  "Suchmos": [
+    "band"
+  ],
+  "T-BOLAN": [
+    "band"
+  ],
+  "THE ALFEE": [
+    "band"
+  ],
+  "THE YELLOW MONKEY": [
+    "band"
+  ],
+  "THE 虎舞竜": [
+    "band"
+  ],
+  "TOKIO": [
+    "male_idol",
+    "band"
+  ],
+  "TUBE": [
+    "band"
+  ],
+  "Travis Japan": [
+    "male_idol"
+  ],
+  "Twenty★Twenty": [
+    "male_idol"
+  ],
+  "UA": [
+    "female_solo"
+  ],
+  "Uru": [
+    "ssw"
+  ],
+  "V6": [
+    "male_idol"
+  ],
+  "WANDS": [
+    "band"
+  ],
+  "WaT": [
+    "band"
+  ],
+  "WurtS": [
+    "ssw",
+    "net"
+  ],
+  "X": [
+    "band"
+  ],
+  "X JAPAN": [
+    "band"
+  ],
+  "YELLOW MAGIC ORCHESTRA": [
+    "band"
+  ],
+  "YEN TOWN BAND": [
+    "band"
+  ],
+  "YUI": [
+    "ssw"
+  ],
+  "ZIGGY": [
+    "band"
+  ],
+  "ZONE": [
+    "band"
+  ],
+  "ZOO": [
+    "dance"
+  ],
+  "[Alexandros]": [
+    "band"
+  ],
+  "aiko": [
+    "ssw"
+  ],
+  "class": [
+    "band"
+  ],
+  "flumpool": [
+    "band"
+  ],
+  "hitomi": [
+    "female_solo"
+  ],
+  "m-flo": [
+    "dance",
+    "hiphop"
+  ],
+  "m.c.A・T": [
+    "hiphop"
+  ],
+  "mihimaru GT": [
+    "dance"
+  ],
+  "moumoon": [
+    "band"
+  ],
+  "nobodyknows+": [
+    "hiphop"
+  ],
+  "the brilliant green": [
+    "band"
+  ],
+  "timelesz": [
+    "male_idol"
+  ],
+  "trf": [
+    "dance"
+  ],
+  "wacci": [
+    "band"
+  ],
+  "おニャン子クラブ": [
+    "female_idol"
+  ],
+  "きゃりーぱみゅぱみゅ": [
+    "female_solo"
+  ],
+  "くるり": [
+    "band"
+  ],
+  "こっちのけんと": [
+    "ssw",
+    "net"
+  ],
+  "ずっと真夜中でいいのに。": [
+    "net",
+    "band"
+  ],
+  "たま": [
+    "band"
+  ],
+  "ちゃんみな": [
+    "hiphop"
+  ],
+  "とんねるず": [
+    "male_solo"
+  ],
+  "なにわ男子": [
+    "male_idol"
+  ],
+  "ひらめ": [
+    "ssw",
+    "net"
+  ],
+  "ももいろクローバー": [
+    "female_idol"
+  ],
+  "ももいろクローバーZ": [
+    "female_idol"
+  ],
+  "もんた&ブラザーズ": [
+    "band"
+  ],
+  "ゆず": [
+    "band"
+  ],
+  "わらべ": [
+    "female_idol"
+  ],
+  "イモ欽トリオ": [
+    "male_solo"
+  ],
+  "ウルフルズ": [
+    "band"
+  ],
+  "エレファントカシマシ": [
+    "band"
+  ],
+  "オフコース": [
+    "band"
+  ],
+  "キマグレン": [
+    "band"
+  ],
+  "クマムシ": [
+    "male_solo"
+  ],
+  "クリープハイプ": [
+    "band"
+  ],
+  "ケツメイシ": [
+    "hiphop"
+  ],
+  "ゴスペラーズ": [
+    "dance"
+  ],
+  "サスケ": [
+    "band"
+  ],
+  "サンボマスター": [
+    "band"
+  ],
+  "ザ・ぼんち": [
+    "male_solo"
+  ],
+  "シブがき隊": [
+    "male_idol"
+  ],
+  "シャネルズ": [
+    "dance"
+  ],
+  "シャ乱Q": [
+    "band"
+  ],
+  "ジャニーズWEST": [
+    "male_idol"
+  ],
+  "ジューシィ・フルーツ": [
+    "band"
+  ],
+  "チャゲ&飛鳥": [
+    "band"
+  ],
+  "チャットモンチー": [
+    "band"
+  ],
+  "ピコ太郎": [
+    "male_solo"
+  ],
+  "フジファブリック": [
+    "band"
+  ],
+  "フレデリック": [
+    "band"
+  ],
+  "ポルカドットスティングレイ": [
+    "band"
+  ],
+  "ミニモニ。": [
+    "female_idol"
+  ],
+  "ヤバイTシャツ屋さん": [
+    "band"
+  ],
+  "ユニコーン": [
+    "band"
+  ],
+  "ラッツ&スター": [
+    "dance"
+  ],
+  "一風堂": [
+    "band"
+  ],
+  "三代目 J Soul Brothers from EXILE TRIBE": [
+    "dance"
+  ],
+  "三原順子": [
+    "female_idol"
+  ],
+  "三木道三": [
+    "hiphop"
+  ],
+  "三浦大知": [
+    "male_solo"
+  ],
+  "三浦春馬": [
+    "male_solo"
+  ],
+  "上田正樹": [
+    "ssw"
+  ],
+  "中原めいこ": [
+    "ssw"
+  ],
+  "中孝介": [
+    "male_solo"
+  ],
+  "中山美穂": [
+    "female_idol"
+  ],
+  "中村あゆみ": [
+    "female_solo"
+  ],
+  "中村中": [
+    "ssw"
+  ],
+  "中田ヤスタカ": [
+    "ssw"
+  ],
+  "中西保志": [
+    "male_solo"
+  ],
+  "乃木坂46": [
+    "female_idol"
+  ],
+  "五輪真弓": [
+    "ssw"
+  ],
+  "井上陽水": [
+    "ssw"
+  ],
+  "今井美樹": [
+    "female_solo"
+  ],
+  "伊藤つかさ": [
+    "female_idol"
+  ],
+  "佐野元春": [
+    "ssw"
+  ],
+  "修二と彰": [
+    "male_idol"
+  ],
+  "倉木麻衣": [
+    "female_solo"
+  ],
+  "倖田來未": [
+    "female_solo"
+  ],
+  "元ちとせ": [
+    "female_solo"
+  ],
+  "八神純子": [
+    "ssw"
+  ],
+  "前田敦子": [
+    "female_idol"
+  ],
+  "加藤ミリヤ×清水翔太": [
+    "ssw"
+  ],
+  "南佳孝": [
+    "ssw"
+  ],
+  "南野陽子": [
+    "female_idol"
+  ],
+  "原田知世": [
+    "female_idol"
+  ],
+  "友成空": [
+    "ssw",
+    "net"
+  ],
+  "反町隆史": [
+    "male_solo"
+  ],
+  "吉川晃司": [
+    "ssw"
+  ],
+  "和ぬか": [
+    "ssw",
+    "net"
+  ],
+  "国生さゆり with おニャン子クラブ": [
+    "female_idol"
+  ],
+  "大橋純子": [
+    "female_solo"
+  ],
+  "大江千里": [
+    "ssw"
+  ],
+  "大滝詠一": [
+    "ssw"
+  ],
+  "大黒摩季": [
+    "ssw"
+  ],
+  "天野春子(小泉今日子)": [
+    "female_idol"
+  ],
+  "奥田民生": [
+    "ssw"
+  ],
+  "安全地帯": [
+    "band"
+  ],
+  "安室奈美恵 with SUPER MONKEY'S": [
+    "dance"
+  ],
+  "家入レオ": [
+    "ssw"
+  ],
+  "小林旭": [
+    "enka"
+  ],
+  "小林麻美": [
+    "female_solo"
+  ],
+  "小柳ゆき": [
+    "female_solo"
+  ],
+  "小比類巻かほる": [
+    "female_solo"
+  ],
+  "小沢健二": [
+    "ssw"
+  ],
+  "小泉今日子": [
+    "female_idol"
+  ],
+  "山下智久": [
+    "male_idol"
+  ],
+  "山下達郎": [
+    "ssw"
+  ],
+  "山口百恵": [
+    "female_idol"
+  ],
+  "山崎まさよし": [
+    "ssw"
+  ],
+  "山根康広": [
+    "ssw"
+  ],
+  "岡崎体育": [
+    "ssw"
+  ],
+  "岡本真夜": [
+    "ssw"
+  ],
+  "岡田有希子": [
+    "female_idol"
+  ],
+  "岩崎宏美": [
+    "female_solo"
+  ],
+  "島谷ひとみ": [
+    "female_solo"
+  ],
+  "嶋大輔": [
+    "male_solo"
+  ],
+  "川本真琴": [
+    "ssw"
+  ],
+  "工藤静香": [
+    "female_idol"
+  ],
+  "布袋寅泰": [
+    "ssw"
+  ],
+  "平松愛理": [
+    "ssw"
+  ],
+  "後藤真希": [
+    "female_idol"
+  ],
+  "徳永英明": [
+    "ssw"
+  ],
+  "忌野清志郎+坂本龍一": [
+    "ssw"
+  ],
+  "慎吾ママ": [
+    "male_idol"
+  ],
+  "斉藤和義": [
+    "ssw"
+  ],
+  "斉藤由貴": [
+    "female_idol"
+  ],
+  "新しい学校のリーダーズ": [
+    "dance"
+  ],
+  "新田恵利": [
+    "female_idol"
+  ],
+  "日向坂46": [
+    "female_idol"
+  ],
+  "早見優": [
+    "female_idol"
+  ],
+  "木村カエラ": [
+    "female_solo"
+  ],
+  "本田美奈子": [
+    "female_idol"
+  ],
+  "杉山清貴": [
+    "ssw"
+  ],
+  "杉山清貴&オメガトライブ": [
+    "band"
+  ],
+  "来生たかお": [
+    "ssw"
+  ],
+  "東京事変": [
+    "band"
+  ],
+  "東方神起": [
+    "kpop"
+  ],
+  "松たか子": [
+    "female_solo"
+  ],
+  "松山千春": [
+    "ssw"
+  ],
+  "松平健": [
+    "enka"
+  ],
+  "松本伊代": [
+    "female_idol"
+  ],
+  "松浦亜弥": [
+    "female_idol"
+  ],
+  "柏原芳恵": [
+    "female_idol"
+  ],
+  "柴咲コウ": [
+    "female_solo"
+  ],
+  "桑田佳祐": [
+    "ssw"
+  ],
+  "森高千里": [
+    "female_idol"
+  ],
+  "植村花菜": [
+    "ssw"
+  ],
+  "椎名林檎と宮本浩次": [
+    "ssw"
+  ],
+  "楠瀬誠志郎": [
+    "ssw"
+  ],
+  "櫻坂46": [
+    "female_idol"
+  ],
+  "氣志團": [
+    "band"
+  ],
+  "水曜日のカンパネラ": [
+    "female_solo"
+  ],
+  "氷室京介": [
+    "ssw"
+  ],
+  "永井真理子": [
+    "female_solo"
+  ],
+  "沢田研二": [
+    "male_solo"
+  ],
+  "河口恭吾": [
+    "ssw"
+  ],
+  "河合奈保子": [
+    "female_idol"
+  ],
+  "河村隆一": [
+    "ssw"
+  ],
+  "泰葉": [
+    "ssw"
+  ],
+  "浅香唯": [
+    "female_idol"
+  ],
+  "浜田省吾": [
+    "ssw"
+  ],
+  "浜田麻里": [
+    "female_solo"
+  ],
+  "清水翔太": [
+    "ssw"
+  ],
+  "渡辺徹": [
+    "male_solo"
+  ],
+  "渡辺美里": [
+    "female_solo"
+  ],
+  "湘南乃風": [
+    "hiphop"
+  ],
+  "猿岩石": [
+    "male_solo"
+  ],
+  "玉置浩二": [
+    "ssw"
+  ],
+  "田原俊彦": [
+    "male_idol"
+  ],
+  "男闘呼組": [
+    "male_idol",
+    "band"
+  ],
+  "相川七瀬": [
+    "female_solo"
+  ],
+  "真心ブラザーズ": [
+    "band"
+  ],
+  "矢井田瞳": [
+    "ssw"
+  ],
+  "知念里奈": [
+    "female_solo"
+  ],
+  "石井明美": [
+    "female_solo"
+  ],
+  "石川ひとみ": [
+    "female_idol"
+  ],
+  "石川優子とチャゲ": [
+    "ssw"
+  ],
+  "研ナオコ": [
+    "female_solo"
+  ],
+  "秋川雅史": [
+    "male_solo"
+  ],
+  "秦基博": [
+    "ssw"
+  ],
+  "稲垣潤一": [
+    "male_solo"
+  ],
+  "紫今": [
+    "ssw",
+    "net"
+  ],
+  "絢香×コブクロ": [
+    "ssw"
+  ],
+  "織田裕二": [
+    "male_solo"
+  ],
+  "美空ひばり": [
+    "enka"
+  ],
+  "羞恥心": [
+    "male_idol"
+  ],
+  "聖飢魔II": [
+    "band"
+  ],
+  "菅田将暉": [
+    "male_solo"
+  ],
+  "菊池桃子": [
+    "female_idol"
+  ],
+  "華原朋美": [
+    "female_solo"
+  ],
+  "葛城ユキ": [
+    "female_solo"
+  ],
+  "薫と友樹、たまにムック。": [
+    "dance"
+  ],
+  "藤井フミヤ": [
+    "ssw"
+  ],
+  "藤井隆": [
+    "male_solo"
+  ],
+  "藤井風": [
+    "ssw"
+  ],
+  "藤谷美和子・大内義昭": [
+    "female_solo"
+  ],
+  "西城秀樹": [
+    "male_solo"
+  ],
+  "西野カナ": [
+    "ssw"
+  ],
+  "超ときめき♡宣伝部": [
+    "female_idol"
+  ],
+  "辛島美登里": [
+    "ssw"
+  ],
+  "近藤真彦": [
+    "male_idol"
+  ],
+  "遊助": [
+    "male_solo"
+  ],
+  "郷ひろみ": [
+    "male_solo"
+  ],
+  "酒井法子": [
+    "female_idol"
+  ],
+  "鈴木あみ": [
+    "female_solo"
+  ],
+  "鈴木雅之": [
+    "male_solo"
+  ],
+  "鈴木雅之&菊池桃子": [
+    "male_solo"
+  ],
+  "長山洋子": [
+    "enka"
+  ],
+  "長渕剛": [
+    "ssw"
+  ],
+  "関ジャニ∞": [
+    "male_idol"
+  ],
+  "雅夢": [
+    "band"
+  ],
+  "電気グルーヴ": [
+    "band"
+  ],
+  "高橋優": [
+    "ssw"
+  ],
+  "高橋真梨子": [
+    "female_solo"
+  ],
+  "鬼束ちひろ": [
+    "ssw"
+  ],
+  "黒夢": [
+    "band"
+  ],
+  "ROSÉ": [
+    "kpop"
+  ],
+  "aespa": [
+    "kpop"
+  ],
+  "アイナ・ジ・エンド": [
+    "ssw"
+  ],
+  "幾田りら": [
+    "ssw"
+  ],
+  "BABYMONSTER": [
+    "kpop"
+  ],
+  "Jimin": [
+    "kpop"
+  ],
+  "ILLIT": [
+    "kpop"
+  ],
+  "HUNTR/X": [
+    "kpop",
+    "western"
+  ],
+  "XG": [
+    "kpop"
+  ],
+  "MY FIRST STORY": [
+    "band"
+  ],
+  "キタニタツヤ": [
+    "ssw"
+  ],
+  "SPYAIR": [
+    "band"
+  ],
+  "シャイトープ": [
+    "band"
+  ],
+  "LE SSERAFIM": [
+    "kpop"
+  ],
+  "Jung Kook": [
+    "kpop"
+  ],
+  "10-FEET": [
+    "band"
+  ],
+  "星街すいせい": [
+    "net"
+  ],
+  "GEMN": [
+    "male_solo"
+  ],
+  "NewJeans": [
+    "kpop"
+  ],
+  "羊文学": [
+    "band"
+  ],
+  "MAN WITH A MISSION": [
+    "band"
+  ],
+  "マルシィ": [
+    "band"
+  ],
+  "百足": [
+    "hiphop"
+  ],
+  "MAISONdes": [
+    "net"
+  ],
+  "Kanaria": [
+    "net"
+  ],
+  "女王蜂": [
+    "band"
+  ],
+  "由薫": [
+    "ssw"
+  ],
+  "ヤングスキニー": [
+    "band"
+  ],
+  "ano": [
+    "female_solo"
+  ],
+  "Stray Kids": [
+    "kpop"
+  ],
+  "BTS": [
+    "kpop"
+  ],
+  "HoneyWorks": [
+    "net"
+  ],
+  "IVE": [
+    "kpop"
+  ],
+  "川崎 鷹也": [
+    "ssw"
+  ],
+  "TWICE": [
+    "kpop"
+  ],
+  "変態紳士クラブ": [
+    "hiphop"
+  ],
+  "Kep1er": [
+    "kpop"
+  ],
+  "The Kid LAROI": [
+    "western"
+  ],
+  "Eve": [
+    "net"
+  ],
+  "星野 源": [
+    "ssw"
+  ],
+  "菅田 将暉": [
+    "male_solo"
+  ],
+  "平井 大": [
+    "ssw"
+  ],
+  "きゃない": [
+    "ssw"
+  ],
+  "NAYEON": [
+    "kpop"
+  ],
+  "大橋ちっぽけ": [
+    "ssw"
+  ],
+  "夜のひと笑い": [
+    "ssw",
+    "net"
+  ],
+  "milet": [
+    "ssw"
+  ],
+  "BLOOM VASE": [
+    "hiphop"
+  ],
+  "Rin音": [
+    "hiphop"
+  ],
+  "ꉈꀧ꒒꒒ꁄꍈꍈꀧ꒦ꉈ ꉣꅔꎡꅔꁕꁄ": [
+    "net"
+  ],
+  "Reol": [
+    "net"
+  ],
+  "Chinozo": [
+    "net"
+  ],
+  "ビリー・アイリッシュ": [
+    "western"
+  ],
+  "エド・シーラン": [
+    "western"
+  ],
+  "空音": [
+    "hiphop"
+  ],
+  "BLACKPINK": [
+    "kpop"
+  ],
+  "Daoko": [
+    "ssw",
+    "net"
+  ],
+  "SEVENTEEN": [
+    "kpop"
+  ],
+  "MAMAMOO": [
+    "kpop"
+  ],
+  "ITZY": [
+    "kpop"
+  ],
+  "オレンジスパイニクラブ": [
+    "band"
+  ],
+  "Fitz and The Tantrums": [
+    "western"
+  ],
+  "レディー・ガガ": [
+    "western"
+  ],
+  "クイーン": [
+    "western"
+  ],
+  "IZ*ONE": [
+    "kpop"
+  ],
+  "NMB48": [
+    "female_idol"
+  ],
+  "三代目 J SOUL BROTHERS from EXILE TRIBE": [
+    "dance"
+  ],
+  "Ed Sheeran & Justin Bieber": [
+    "western"
+  ],
+  "STU48": [
+    "female_idol"
+  ],
+  "L'Arc-en-Ciel": [
+    "band"
+  ],
+  "Whiteberry": [
+    "band"
+  ],
+  "ECHOES": [
+    "band"
+  ],
+  "蓮井 朱夏": [
+    "female_solo"
+  ],
+  "MISIA+DCT": [
+    "female_solo"
+  ],
+  "木村弓": [
+    "ssw"
+  ],
+  "ストロベリー・フラワー": [
+    "band"
+  ],
+  "篠原涼子": [
+    "female_solo"
+  ],
+  "藤谷美和子": [
+    "female_solo"
+  ],
+  "CHAGE and ASKA": [
+    "band"
+  ],
+  "NOKKO": [
+    "ssw"
+  ],
+  "To Be Continued": [
+    "band"
+  ],
+  "ICE BOX": [
+    "band"
+  ],
+  "吉岡秀隆": [
+    "male_solo"
+  ],
+  "桑田 佳祐 ＆ Mr.Children": [
+    "band"
+  ],
+  "L⇔R": [
+    "band"
+  ],
+  "EAST END + YURI": [
+    "hiphop"
+  ],
+  "田村直美": [
+    "female_solo"
+  ],
+  "マライア・キャリー": [
+    "western"
+  ],
+  "FUNK THE PEANUTS": [
+    "female_idol"
+  ],
+  "ラブ・クレッシェンド": [
+    "female_solo"
+  ],
+  "μ's": [
+    "female_idol"
+  ],
+  "NGT48": [
+    "female_idol"
+  ],
+  "ラストアイドル": [
+    "female_idol"
+  ],
+  "坂本冬美": [
+    "enka"
+  ],
+  "放課後ティータイム": [
+    "band"
+  ],
+  "板野友美": [
+    "female_idol"
+  ],
+  "フレンチ・キス": [
+    "female_idol"
+  ],
+  "渡辺麻友": [
+    "female_idol"
+  ],
+  "T.M.Revolution×水樹奈々": [
+    "male_solo",
+    "female_solo"
+  ],
+  "キング・クリームソーダ": [
+    "male_solo"
+  ],
+  "Nana starring Mika Nakashima": [
+    "female_solo"
+  ],
+  "BENNIE K": [
+    "hiphop"
+  ],
+  "REIRA starring Yuna Ito": [
+    "female_solo"
+  ],
+  "HIGH and MIGHTY COLOR": [
+    "band"
+  ],
+  "Kaoru Amane": [
+    "ssw"
+  ],
+  "伊藤由奈": [
+    "female_solo"
+  ],
+  "青山テルマ": [
+    "female_solo",
+    "hiphop"
+  ],
+  "秋元順子": [
+    "enka"
+  ],
+  "平沢唯(CV:豊崎愛生)": [
+    "female_solo"
+  ],
+  "柴矢裕美": [
+    "female_solo"
+  ],
+  "MINMI": [
+    "hiphop"
+  ],
+  "玉置成実": [
+    "female_solo"
+  ],
+  "day after tomorrow": [
+    "band"
+  ],
+  "坂本龍一 featuring Sister M": [
+    "ssw"
+  ],
+  "高橋洋子": [
+    "female_solo"
+  ],
+  "広末涼子": [
+    "female_idol"
+  ],
+  "ブラック・ビスケッツ": [
+    "dance"
+  ],
+  "松本梨香": [
+    "female_solo"
+  ],
+  "鈴木亜美": [
+    "female_solo"
+  ],
+  "hiro": [
+    "female_solo"
+  ],
+  "Sugar Soul": [
+    "female_solo",
+    "hiphop"
+  ],
+  "上原多香子": [
+    "female_solo"
+  ],
+  "PRINCESS PRINCESS": [
+    "band"
+  ],
+  "PINK SAPPHIRE": [
+    "band"
+  ],
+  "GO-BANG'S": [
+    "band"
+  ],
+  "ジッタリン・ジン": [
+    "band"
+  ],
+  "澤田知可子": [
+    "female_solo"
+  ],
+  "児島未散": [
+    "female_solo"
+  ],
+  "香西かおり": [
+    "enka"
+  ],
+  "川村カオリ": [
+    "ssw"
+  ],
+  "森口博子": [
+    "female_idol"
+  ],
+  "伍代夏子": [
+    "enka"
+  ],
+  "やまだかつてないWINK": [
+    "female_idol"
+  ],
+  "mikiimai": [
+    "female_solo"
+  ],
+  "KIX・S": [
+    "band"
+  ],
+  "都はるみ": [
+    "enka"
+  ],
+  "岩崎良美": [
+    "female_idol"
+  ],
+  "うしろゆびさされ組": [
+    "female_idol"
+  ],
+  "吉沢秋絵": [
+    "female_idol"
+  ],
+  "国生さゆり": [
+    "female_idol"
+  ],
+  "レベッカ": [
+    "band"
+  ],
+  "高井麻巳子": [
+    "female_idol"
+  ],
+  "渡辺美奈代": [
+    "female_idol"
+  ],
+  "森川由加里": [
+    "female_solo"
+  ],
+  "渡辺満里奈": [
+    "female_idol"
+  ],
+  "日野美歌": [
+    "enka"
+  ],
+  "テレサ・テン": [
+    "enka"
+  ],
+  "小林幸子": [
+    "enka"
+  ],
+  "浅香 唯": [
+    "female_idol"
+  ],
+  "ロス・インディオス/シルヴィア": [
+    "enka"
+  ],
+  "渡辺真知子": [
+    "ssw"
+  ],
+  "八代亜紀": [
+    "enka"
+  ],
+  "高田みづえ": [
+    "female_idol"
+  ],
+  "中村晃子": [
+    "female_solo"
+  ],
+  "松村和子": [
+    "enka"
+  ],
+  "杉村 尚美": [
+    "female_solo"
+  ],
+  "ザ・ヴィーナス": [
+    "band"
+  ],
+  "石川優子": [
+    "ssw"
+  ],
+  "Sugar": [
+    "band"
+  ],
+  "山下久美子": [
+    "female_solo"
+  ],
+  "高樹澪": [
+    "female_solo"
+  ],
+  "増田惠子": [
+    "female_solo"
+  ],
+  "EPO": [
+    "ssw"
+  ],
+  "歐陽菲菲": [
+    "female_solo"
+  ],
+  "小柳ルミ子": [
+    "enka"
+  ],
+  "未唯mie": [
+    "female_solo"
+  ],
+  "飯島真理": [
+    "ssw"
+  ],
+  "竜鉄也": [
+    "enka"
+  ],
+  "中村雅俊": [
+    "male_solo"
+  ],
+  "細川たかし": [
+    "enka"
+  ],
+  "大川栄策": [
+    "enka"
+  ],
+  "アイリーン・キャラ": [
+    "western"
+  ],
+  "芦屋雁之助": [
+    "enka"
+  ],
+  "Kuwata Band": [
+    "band"
+  ],
+  "河合その子": [
+    "female_idol"
+  ],
+  "瀬川瑛子": [
+    "enka"
+  ],
+  "吉幾三": [
+    "enka"
+  ],
+  "尾形大作": [
+    "enka"
+  ],
+  "五木ひろし": [
+    "enka"
+  ],
+  "プリンセス・プリンセス": [
+    "band"
+  ],
+  "B.B.クィーンズ": [
+    "band"
+  ],
+  "ダイアナ・ロス": [
+    "western"
+  ],
+  "久保田利伸with NAOMI CAMPBELL": [
+    "ssw"
+  ],
+  "TK PRESENTS こねっと": [
+    "dance"
+  ],
+  "BLACK BISCUITS": [
+    "dance"
+  ],
+  "速水けんたろう、茂森あゆみ": [
+    "male_solo"
+  ],
+  "坂本龍一": [
+    "ssw"
+  ],
+  "プッチモニ": [
+    "female_idol"
+  ],
+  "L'Arc～en～Ciel": [
+    "band"
+  ],
+  "ロードオブメジャー": [
+    "band"
+  ],
+  "Gorie with Jasmine＆Joann": [
+    "dance"
+  ],
+  "GLAY×EXILE": [
+    "band",
+    "dance"
+  ],
+  "トラジ・ハイジ": [
+    "male_solo"
+  ],
+  "嵐／矢野健太 starring Satoshi Ohno": [
+    "male_idol"
+  ],
+  "Hey！Say！JUMP": [
+    "male_idol"
+  ],
+  "氷川きよし": [
+    "enka"
+  ],
+  "XIAH junsu": [
+    "kpop"
+  ],
+  "怪物くん（怪物太郎）": [
+    "male_idol"
+  ],
+  "はんにゃ，フルーツポンチ": [
+    "male_solo"
+  ],
+  "Lia／多田葵": [
+    "female_solo"
+  ],
+  "稲葉浩志": [
+    "ssw"
+  ],
+  "チームドラゴン from AKB48": [
+    "female_idol"
+  ],
+  "少女時代": [
+    "kpop"
+  ],
+  "チーム・アミューズ!!": [
+    "dance"
+  ],
+  "EXILE／EXILE ATSUSHI": [
+    "dance"
+  ],
+  "Not yet": [
+    "female_idol"
+  ],
+  "赤西仁": [
+    "male_idol"
+  ],
+  "KARA": [
+    "kpop"
+  ],
+  "B’z": [
+    "band"
+  ],
+  "チャン・グンソク": [
+    "kpop"
+  ],
+  "マキシマム ザ ホルモン": [
+    "band"
+  ],
+  "NYC": [
+    "male_idol"
+  ],
+  "エイトレンジャー": [
+    "male_idol"
+  ],
+  "Hey!Say!JUMP": [
+    "male_idol"
+  ],
+  "EXILE TRIBE": [
+    "dance"
+  ],
+  "キム・ヒョンジュン": [
+    "kpop"
+  ],
+  "SUPER JUNIOR": [
+    "kpop"
+  ],
+  "The MONSTER": [
+    "male_idol"
+  ],
+  "2PM": [
+    "kpop"
+  ],
+  "関ジャニ∞（エイト）": [
+    "male_idol"
+  ],
+  "EXILE TRIBE (三代目 J Soul Brothers VS GENERATIONS)": [
+    "dance"
+  ],
+  "Linked Horizon": [
+    "band"
+  ],
+  "山田涼介": [
+    "male_idol"
+  ],
+  "舞祭組": [
+    "male_idol"
+  ],
+  "モーニング娘。’14": [
+    "female_idol"
+  ],
+  "HKT48 feat.氣志團": [
+    "female_idol"
+  ],
+  "EXO": [
+    "kpop"
+  ],
+  "GENERATIONS from EXILE TRIBE": [
+    "dance"
+  ],
+  "JYJ": [
+    "kpop"
+  ],
+  "モーニング娘。’15": [
+    "female_idol"
+  ],
+  "仮面女子": [
+    "female_idol"
+  ],
+  "Hi-STANDARD": [
+    "band"
+  ],
+  "BOYS AND MEN": [
+    "male_idol"
+  ],
+  "モーニング娘。'15": [
+    "female_idol"
+  ],
+  "防弾少年団": [
+    "kpop"
+  ],
+  "BTS(防弾少年団)": [
+    "kpop"
+  ],
+  "Hey！Say！JUMP／A.Y.T.": [
+    "male_idol"
+  ],
+  "亀と山P": [
+    "male_idol"
+  ],
+  "QUARTET NIGHT": [
+    "male_idol"
+  ],
+  "モーニング娘。'17": [
+    "female_idol"
+  ],
+  "King＆Prince": [
+    "male_idol"
+  ],
+  "ハロプロ･オールスターズ": [
+    "female_idol"
+  ],
+  "Hey! Say! JUMP／山田涼介": [
+    "male_idol"
+  ],
+  "亀梨和也": [
+    "male_idol"
+  ],
+  "モーニング娘。'19": [
+    "female_idol"
+  ],
+  "MONSTA X": [
+    "kpop"
+  ],
+  "SixTONES vs Snow Man": [
+    "male_idol"
+  ],
+  "モーニング娘。’20": [
+    "female_idol"
+  ],
+  "TOMORROW X TOGETHER": [
+    "kpop"
+  ],
+  "刀剣男士 formation of 葵咲": [
+    "male_idol"
+  ],
+  "つばきファクトリー": [
+    "female_idol"
+  ],
+  "ENHYPEN": [
+    "kpop"
+  ],
+  "Jin": [
+    "kpop"
+  ],
+  "THE RAMPAGE from EXILE TRIBE": [
+    "dance"
+  ],
+  "≠ME": [
+    "female_idol"
+  ],
+  "TREASURE": [
+    "kpop"
+  ],
+  "NCT DREAM": [
+    "kpop"
+  ],
+  "Aぇ! group": [
+    "male_idol"
+  ],
+  "ZEROBASEONE": [
+    "kpop"
+  ],
+  "&TEAM": [
+    "kpop",
+    "male_idol"
+  ],
+  "BOYNEXTDOOR": [
+    "kpop"
+  ],
+  "速水けんたろう、茂森あゆみ、 ひまわりキッズ、だんご合唱団": [
+    "male_solo"
+  ],
+  "B.B.クイーンズ": [
+    "band"
+  ],
+  "沢田知可子": [
+    "female_solo"
+  ],
+  "Che'Nelle": [
+    "western"
+  ],
+  "谷村新司": [
+    "ssw"
+  ],
+  "H2O": [
+    "band"
+  ],
+  "石川さゆり": [
+    "enka"
+  ],
+  "島倉千代子": [
+    "enka"
+  ],
+  "DJ OZMA": [
+    "dance"
+  ],
+  "三代目 J Soul Brothers": [
+    "dance"
+  ],
+  "Dream5": [
+    "dance"
+  ],
+  "ナナヲアカリ": [
+    "net"
+  ],
+  "M!LK": [
+    "male_idol"
+  ],
+  "TEE": [
+    "hiphop"
+  ],
+  "Sonar Pocket": [
+    "dance"
+  ],
+  "Che’Nelle": [
+    "western"
+  ],
+  "EXILE ATSUSHI": [
+    "male_solo"
+  ],
+  "坂井泉水": [
+    "female_solo"
+  ],
+  "川嶋あい": [
+    "ssw"
+  ],
+  "德永英明": [
+    "ssw"
+  ],
+  "宮本浩次": [
+    "ssw"
+  ],
+  "桜井和寿": [
+    "ssw"
+  ],
+  "スガシカオ": [
+    "ssw"
+  ],
+  "ナオト・インティライミ": [
+    "ssw"
+  ],
+  "HUNTR/X (EJAE, Audrey Nuna, and REI AMI)": [
+    "kpop",
+    "western"
+  ],
+  "米津玄師、宇多田ヒカル": [
+    "ssw"
+  ],
+  "Mrs.GREEN APPLE": [
+    "band"
+  ],
+  "GEMN(中島健人・キタニタツヤ)": [
+    "male_solo"
+  ],
+  "MY FIRST STORY × HYDE": [
+    "band"
+  ],
+  "MISAMO": [
+    "kpop"
+  ],
+  "ME:I": [
+    "female_idol"
+  ],
+  "MAN WITH A MISSION × milet": [
+    "band"
+  ],
+  "百足 & 韻マン": [
+    "hiphop"
+  ],
+  "millennium parade × Belle": [
+    "band"
+  ],
+  "海蔵亮太": [
+    "male_solo"
+  ],
+  "三代目 J SOUL BROTHERS from EXILE": [
+    "dance"
+  ],
+  "桑田佳祐 & The Pin Boys": [
+    "ssw"
+  ],
+  "平井大": [
+    "ssw"
+  ],
+  "シェネル": [
+    "western"
+  ],
+  "NOBU": [
+    "male_solo"
+  ],
+  "林部智史": [
+    "male_solo"
+  ],
+  "RADWINPS": [
+    "band"
+  ],
+  "Beverly": [
+    "female_solo"
+  ],
+  "半崎美子": [
+    "ssw"
+  ],
+  "UVERworld": [
+    "band"
+  ],
+  "藤原さくら": [
+    "ssw"
+  ],
+  "手嶌葵": [
+    "female_solo"
+  ],
+  "Flower": [
+    "dance"
+  ],
+  "EXILE ATSUSHI + AI": [
+    "male_solo"
+  ],
+  "水森かおり": [
+    "enka"
+  ],
+  "三山ひろし": [
+    "enka"
+  ],
+  "UNION SQUARE GARDEN": [
+    "band"
+  ],
+  "Chay": [
+    "ssw"
+  ],
+  "西内まりや": [
+    "female_solo"
+  ],
+  "大月みやこ": [
+    "enka"
+  ],
+  "花岡なつみ": [
+    "female_solo"
+  ],
+  "きゃりーばみゅぱみゅ": [
+    "female_solo"
+  ],
+  "LoVendoR": [
+    "band",
+    "female_idol"
+  ],
+  "Rihwa": [
+    "ssw"
+  ],
+  "福田こうへい": [
+    "enka"
+  ],
+  "山崎ていじ": [
+    "enka"
+  ],
+  "千昌夫": [
+    "enka"
+  ],
+  "山本譲二": [
+    "enka"
+  ],
+  "剛力彩芽": [
+    "female_solo"
+  ],
+  "EXILE TAKAHIRO": [
+    "male_solo"
+  ],
+  "T.M.Rovolution×水樹奈々": [
+    "male_solo",
+    "female_solo"
+  ],
+  "新里宏太": [
+    "male_solo"
+  ],
+  "Ms.OOJA": [
+    "female_solo"
+  ],
+  "岩佐美咲": [
+    "enka",
+    "female_idol"
+  ],
+  "ふくい舞": [
+    "female_solo"
+  ],
+  "Rake": [
+    "ssw"
+  ],
+  "マキシマムザホルモン": [
+    "band"
+  ],
+  "チーム・アミューズ!": [
+    "dance"
+  ],
+  "田川寿美": [
+    "enka"
+  ],
+  "JAMOSA": [
+    "female_solo"
+  ],
+  "ラルクアンシエル": [
+    "band"
+  ],
+  "DOES": [
+    "band"
+  ],
+  "ヒルクライム": [
+    "hiphop"
+  ],
+  "FUNKEY MONKEY BABYS": [
+    "hiphop"
+  ],
+  "はんにゃ,フルーツポンチ": [
+    "male_solo"
+  ],
+  "中山優馬 w/B.I.Shadow": [
+    "male_idol"
+  ],
+  "DREAMS COME TRUE feat.FUZZY CONTROL": [
+    "band"
+  ],
+  "ROCK'A'TRENCH": [
+    "band"
+  ],
+  "矢島美容室": [
+    "dance"
+  ],
+  "藤岡藤巻と大橋のぞみ": [
+    "male_solo"
+  ],
+  "ジェロ": [
+    "enka"
+  ],
+  "すぎもとまさと": [
+    "enka"
+  ],
+  "木山裕策": [
+    "male_solo"
+  ],
+  "童子-T": [
+    "hiphop"
+  ],
+  "アラジン": [
+    "band"
+  ],
+  "SoulJa": [
+    "hiphop"
+  ],
+  "おしりかじり虫": [
+    "male_solo"
+  ],
+  "オレンジレンジ": [
+    "band"
+  ],
+  "アンジェラアキ": [
+    "ssw"
+  ],
+  "FUNKEY MONKEY BABY'S": [
+    "hiphop"
+  ],
+  "BUMP OF CHIKEN": [
+    "band"
+  ],
+  "RSP": [
+    "dance"
+  ],
+  "Dreams Come True": [
+    "band"
+  ],
+  "トリオ☆ザ☆シャキーン": [
+    "male_solo"
+  ],
+  "タッキー&翼": [
+    "male_idol"
+  ],
+  "Sunset Swish": [
+    "band"
+  ],
+  "monkey majik": [
+    "band"
+  ],
+  "YUI for 雨音薫": [
+    "ssw"
+  ],
+  "Bank Band with Salyu": [
+    "band"
+  ],
+  "BONNIE PINK": [
+    "ssw"
+  ],
+  "GYM": [
+    "male_idol"
+  ],
+  "キグルミ": [
+    "female_idol"
+  ],
+  "EXILE×倖田來未": [
+    "dance"
+  ],
+  "アンダーグラフ": [
+    "band"
+  ],
+  "トンガリキッズ": [
+    "hiphop"
+  ],
+  "ジャンヌダルク": [
+    "band"
+  ],
+  "Crystal kay × CHEMISTRY": [
+    "female_solo"
+  ],
+  "K": [
+    "kpop"
+  ],
+  "SINGER SONGER": [
+    "band"
+  ],
+  "くず": [
+    "male_solo"
+  ],
+  "&G": [
+    "male_solo"
+  ],
+  "浜田雅功と槙原敬之": [
+    "ssw"
+  ],
+  "光永亮太": [
+    "ssw"
+  ],
+  "FLOW": [
+    "band"
+  ],
+  "はなわ": [
+    "male_solo"
+  ],
+  "TAK MATSUMOTO featuring ZARD": [
+    "band"
+  ],
+  "リップスライム": [
+    "hiphop"
+  ],
+  "Do As Infinity": [
+    "band"
+  ],
+  "桜庭裕一郎": [
+    "male_solo"
+  ],
+  "麻波25": [
+    "band"
+  ],
+  "キンモクセイ": [
+    "band"
+  ],
+  "YeLLOW Generation": [
+    "female_idol"
+  ],
+  "堂本剛": [
+    "male_idol"
+  ],
+  "川中美幸": [
+    "enka"
+  ],
+  "浜崎あゆみ&KEIKO": [
+    "female_solo"
+  ],
+  "T.M.Revolution": [
+    "male_solo"
+  ],
+  "kinki kids": [
+    "male_idol"
+  ],
+  "N.M.L": [
+    "dance"
+  ],
+  "Re:Japan": [
+    "male_solo"
+  ],
+  "プッチモニ。": [
+    "female_idol"
+  ],
+  "大泉逸郎": [
+    "enka"
+  ],
+  "花*花": [
+    "ssw"
+  ],
+  "Dragon Ash feat.ラッパ蛾リヤ": [
+    "band",
+    "hiphop"
+  ],
+  "黄色5": [
+    "female_idol"
+  ],
+  "あか組4": [
+    "female_idol"
+  ],
+  "Suger Soul feat.Kenji": [
+    "female_solo",
+    "hiphop"
+  ],
+  "Something ELse": [
+    "band"
+  ],
+  "槙原敬之": [
+    "ssw"
+  ],
+  "センチメンタル・バス": [
+    "band"
+  ],
+  "松本英子": [
+    "female_solo"
+  ],
+  "山口由子": [
+    "ssw"
+  ],
+  "NiNa": [
+    "band"
+  ],
+  "MY LITTLE LOVER": [
+    "band"
+  ],
+  "PENICILLIN": [
+    "band"
+  ],
+  "T.M Revolution": [
+    "male_solo"
+  ],
+  "hide with Spread Beaver": [
+    "band"
+  ],
+  "SIAM SHADE": [
+    "band"
+  ],
+  "JUDY&MARY": [
+    "band"
+  ],
+  "T.M REVOLUTION": [
+    "male_solo"
+  ],
+  "MOON CHILD": [
+    "band"
+  ],
+  "T.K PRESENTS こねっと": [
+    "dance"
+  ],
+  "反町隆史with Richie Sambora": [
+    "male_solo"
+  ],
+  "GRAY": [
+    "band"
+  ],
+  "オリジナルラヴ": [
+    "band"
+  ],
+  "FIELD OF VIEW": [
+    "band"
+  ],
+  "Mr.Childen": [
+    "band"
+  ],
+  "To Be Coutinued": [
+    "band"
+  ],
+  "久宝留理子": [
+    "female_solo"
+  ],
+  "橘いずみ": [
+    "ssw"
+  ],
+  "NOA": [
+    "female_solo"
+  ],
+  "高山厳": [
+    "enka"
+  ],
+  "森田童子": [
+    "ssw"
+  ],
+  "財津和夫": [
+    "ssw"
+  ],
+  "国武万里": [
+    "female_solo"
+  ],
+  "ZYYG REV ZARD&WANDS": [
+    "band"
+  ],
+  "THE WAVES": [
+    "band"
+  ],
+  "藤あや子": [
+    "enka"
+  ],
+  "ZYYG": [
+    "band"
+  ],
+  "Voice": [
+    "band"
+  ],
+  "Z団": [
+    "band"
+  ],
+  "J-WALK": [
+    "band"
+  ],
+  "織田哲郎": [
+    "ssw"
+  ],
+  "大事MANプラザーズバンド": [
+    "band"
+  ],
+  "小野正利": [
+    "male_solo"
+  ],
+  "ハウンドドッグ": [
+    "band"
+  ],
+  "中西圭三": [
+    "ssw"
+  ],
+  "THE ALFFEE": [
+    "band"
+  ],
+  "BAKUFU-SLUMP": [
+    "band"
+  ],
+  "V2": [
+    "band"
+  ],
+  "バブルガムブラザーズ": [
+    "dance"
+  ],
+  "チューブ": [
+    "band"
+  ],
+  "ドリームズカムトゥルー": [
+    "band"
+  ],
+  "TMN": [
+    "band"
+  ],
+  "Mi-Ke": [
+    "female_idol"
+  ],
+  "嘉門達夫": [
+    "ssw"
+  ],
+  "障子久美": [
+    "ssw"
+  ],
+  "プリンセスプリンセス": [
+    "band"
+  ],
+  "B・Bクイーンズ": [
+    "band"
+  ],
+  "矢沢永吉": [
+    "ssw"
+  ],
+  "プリンセスフリンセス": [
+    "band"
+  ],
+  "川村かおり": [
+    "ssw"
+  ],
+  "KATSUMI": [
+    "ssw"
+  ],
+  "堀内孝雄": [
+    "enka"
+  ],
+  "GO-BANG’S": [
+    "band"
+  ],
+  "JITTERIN’JINN": [
+    "band"
+  ],
+  "牛若丸三郎太": [
+    "male_solo"
+  ],
+  "高野寛": [
+    "ssw"
+  ],
+  "オヨネーズ": [
+    "enka"
+  ],
+  "TM NETWORK": [
+    "band"
+  ],
+  "宮沢りえ": [
+    "female_idol"
+  ],
+  "斎藤由貴": [
+    "female_idol"
+  ],
+  "バービーボーイズ": [
+    "band"
+  ],
+  "ハウンドドック": [
+    "band"
+  ],
+  "チョーヨンピル": [
+    "enka",
+    "kpop"
+  ],
+  "BOOWY": [
+    "band"
+  ],
+  "石原裕次郎": [
+    "enka"
+  ],
+  "アルフィー": [
+    "band"
+  ],
+  "Babe": [
+    "female_idol"
+  ],
+  "渡哲也いしだあゆみ": [
+    "enka"
+  ],
+  "日野美歌葵司郎": [
+    "enka"
+  ],
+  "椎名恵": [
+    "female_solo"
+  ],
+  "池田聡": [
+    "ssw"
+  ],
+  "TOM CAT": [
+    "band"
+  ],
+  "菊地桃子": [
+    "female_idol"
+  ],
+  "トシ&ナオコ": [
+    "male_solo"
+  ],
+  "松任谷由実小田和正財津和夫": [
+    "ssw"
+  ],
+  "風見慎吾": [
+    "male_idol"
+  ],
+  "LOOK": [
+    "band"
+  ],
+  "テレサテン": [
+    "enka"
+  ],
+  "木村友衛": [
+    "enka"
+  ],
+  "MIE": [
+    "female_solo"
+  ],
+  "一世風靡セピア": [
+    "dance"
+  ],
+  "舘ひろし": [
+    "male_solo"
+  ],
+  "SALLY": [
+    "band"
+  ],
+  "小林幸子美樹克彦": [
+    "enka"
+  ],
+  "中原めい子": [
+    "ssw"
+  ],
+  "梅沢富美男": [
+    "enka"
+  ],
+  "村下孝蔵": [
+    "ssw"
+  ],
+  "都はるみ岡千秋": [
+    "enka"
+  ],
+  "Y.M.O": [
+    "band"
+  ],
+  "森進一": [
+    "enka"
+  ],
+  "野口五郎": [
+    "male_solo"
+  ],
+  "ヒロシ&キーボー": [
+    "enka"
+  ],
+  "シュガー": [
+    "band"
+  ],
+  "ザタイガース": [
+    "band"
+  ],
+  "忌野清志郎坂本龍一": [
+    "ssw"
+  ],
+  "増田恵子": [
+    "female_solo"
+  ],
+  "堀江淳": [
+    "ssw"
+  ],
+  "横浜銀蠅": [
+    "band"
+  ],
+  "伊藤敏博": [
+    "ssw"
+  ],
+  "西田敏行": [
+    "male_solo"
+  ],
+  "クリエーション": [
+    "band"
+  ],
+  "五十嵐浩晃": [
+    "ssw"
+  ],
+  "矢野顕子": [
+    "ssw"
+  ],
+  "アリス": [
+    "band"
+  ],
+  "クリスタルキング": [
+    "band"
+  ],
+  "さだまさし": [
+    "ssw"
+  ],
+  "堀内孝雄滝ともはる": [
+    "enka"
+  ],
+  "ジューシーフルーツ": [
+    "band"
+  ],
+  "ばんばひろふみ": [
+    "ssw"
+  ],
+  "りりあ。": [
+    "female_solo",
+    "ssw"
+  ],
+  "神はサイコロを振らない": [
+    "band"
+  ],
+  "松原みき": [
+    "female_solo"
+  ],
+  "Mom": [
+    "ssw",
+    "hiphop"
+  ],
+  "P丸様。": [
+    "net"
+  ],
+  "たかやん": [
+    "net",
+    "female_solo"
+  ],
+  "THE SUPER FRUIT": [
+    "male_idol",
+    "dance"
+  ],
+  "しゃろう": [
+    "net"
+  ],
+  "femme fatale": [
+    "female_idol"
+  ],
+  "ぼっちぼろまる": [
+    "net"
+  ],
+  "さとうもか": [
+    "female_solo",
+    "ssw"
+  ],
+  "花譜": [
+    "net",
+    "female_solo"
+  ],
+  "nyamura": [
+    "net"
+  ],
+  "サツキ": [
+    "net"
+  ],
+  "原口沙輔": [
+    "net"
+  ],
+  "乃紫": [
+    "female_solo",
+    "ssw"
+  ],
+  "SILENT SIREN": [
+    "band"
+  ],
+  "シカ部": [
+    "net"
+  ],
+  "S.E.M": [
+    "hiphop"
+  ],
+  "千葉雄喜": [
+    "hiphop"
+  ],
+  "indigo la end": [
+    "band"
+  ],
+  "Mega Shinnosuke": [
+    "male_solo",
+    "ssw"
+  ],
+  "舟津真翔": [
+    "male_solo",
+    "ssw"
+  ],
+  "asmi": [
+    "female_solo",
+    "net"
+  ],
+  "片平里菜": [
+    "female_solo",
+    "ssw"
+  ],
+  "Ayumu Imazu": [
+    "male_solo",
+    "dance"
+  ],
+  "AiScReam": [
+    "female_idol"
+  ],
+  "iLiFE!": [
+    "female_idol"
+  ],
+  "汐れいら": [
+    "female_solo",
+    "ssw"
+  ],
+  "cinnamons × evening cinema": [
+    "band"
+  ],
+  "adieu": [
+    "female_solo"
+  ],
+  "TK from 凛として時雨": [
+    "male_solo",
+    "band"
+  ],
+  "SawanoHiroyuki[nZk]:mizuki": [
+    "other"
+  ],
+  "さユり": [
+    "female_solo",
+    "ssw"
+  ],
+  "CHiCO with HoneyWorks": [
+    "net"
+  ],
+  "ReoNa": [
+    "female_solo"
+  ],
+  "BLUE ENCOUNT": [
+    "band"
+  ],
+  "橋本愛": [
+    "female_solo"
+  ],
+  "UNISON SQUARE GARDEN": [
+    "band"
+  ],
+  "ヒグチアイ": [
+    "female_solo",
+    "ssw"
+  ],
+  "須田景凪": [
+    "net",
+    "male_solo"
+  ],
+  "きただにひろし": [
+    "male_solo"
+  ],
+  "結束バンド": [
+    "band"
+  ],
+  "AKINO from bless4": [
+    "female_solo"
+  ],
+  "CRYCHIC": [
+    "band"
+  ],
+  "バルーン": [
+    "net"
+  ],
+  "supercell": [
+    "net"
+  ],
+  "WhiteFlame feat.初音ミク": [
+    "net"
+  ],
+  "BIGBANG": [
+    "kpop"
+  ],
+  "May'n/中島愛": [
+    "female_solo"
+  ],
+  "fripSide": [
+    "other"
+  ],
+  "涼宮ハルヒ(C.V.平野綾)": [
+    "other"
+  ],
+  "AKINO": [
+    "female_solo"
+  ],
+  "minato(流星P) feat.初音ミク、巡音ルカ": [
+    "net"
+  ],
+  "あやまんJAPAN": [
+    "other"
+  ],
+  "五木ひろし・木の実ナナ": [
+    "enka"
+  ],
+  "石原裕次郎・牧村旬子": [
+    "enka"
+  ],
+  "高鈴": [
+    "band"
+  ],
+  "荒井由実": [
+    "female_solo",
+    "ssw"
+  ],
+  "kemu feat. IA": [
+    "net"
+  ],
+  "164 feat. GUMI": [
+    "net"
+  ],
+  "ハチ feat. 初音ミク・GUMI": [
+    "net"
+  ],
+  "じん feat. 初音ミク": [
+    "net"
+  ],
+  "doriko feat. 初音ミク": [
+    "net"
+  ],
+  "wowaka feat. 初音ミク": [
+    "net"
+  ],
+  "ハチ feat. 初音ミク": [
+    "net"
+  ],
+  "カンザキイオリ": [
+    "net"
+  ],
+  "DECO*27": [
+    "net"
+  ],
+  "米良美一": [
+    "male_solo"
+  ],
+  "井上あずみ": [
+    "female_solo"
+  ],
+  "安田成美": [
+    "female_solo"
+  ],
+  "倍賞千恵子": [
+    "female_solo"
+  ],
+  "加藤登紀子": [
+    "female_solo",
+    "ssw"
+  ],
+  "本名陽子": [
+    "female_solo"
+  ],
+  "奥華子": [
+    "female_solo",
+    "ssw"
+  ],
+  "麻倉未稀": [
+    "female_solo"
+  ],
+  "椎名豪 featuring 中川奈美": [
+    "other"
+  ],
+  "THE HIGH-LOWS": [
+    "band"
+  ],
+  "小松未歩": [
+    "female_solo",
+    "ssw"
+  ],
+  "mao": [
+    "female_solo"
+  ],
+  "あんしんパパ": [
+    "other"
+  ],
+  "のはらしんのすけ": [
+    "other"
+  ],
+  "ドリーミング": [
+    "other"
+  ],
+  "高橋洋樹": [
+    "male_solo"
+  ],
+  "橋本潮": [
+    "female_solo"
+  ],
+  "BAAD": [
+    "band"
+  ],
+  "馬渡松子": [
+    "female_solo"
+  ],
+  "DALI": [
+    "female_idol"
+  ],
+  "MAKE-UP": [
+    "band"
+  ],
+  "松谷祐子": [
+    "female_solo"
+  ],
+  "Goose house": [
+    "band"
+  ],
+  "井上陽水・安全地帯": [
+    "male_solo",
+    "band"
+  ],
+  "Acid Black Cherry": [
+    "band"
+  ],
+  "カズン": [
+    "other"
+  ],
+  "クレイジーケンバンド": [
+    "band"
+  ],
+  "sumika": [
+    "band"
+  ],
+  "GARNET CROW": [
+    "band"
+  ],
+  "STARDUST REVUE": [
+    "band"
+  ]
 }

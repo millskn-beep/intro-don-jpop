@@ -27,7 +27,7 @@ function loadSongs() {
   try { applyFixes(); } catch (e) { /* 起動直後（修正の一覧を読む前）は何もしない */ }
   try { applyFame(); } catch (e) { /* 同上 */ }
   try { applyInfoFixes(); if (typeof CATS !== 'undefined') CATS = null; } catch (e) { /* 同上（曲の情報の直し） */ }
-  const playable = ALL_SONGS.filter(s => s.id && s.embeddable !== false && !s.retired);
+  const playable = ALL_SONGS.filter(s => s.id && s.embeddable !== false && !s.retired && s.chorus > 0); // サビの位置がまだ測れていない曲（測定の途中）は出さない
   SONGS = playable.filter(s => !s.staged); // staged：プレイリストからの「お試し」の曲。ふだんの出題・選択肢には出さず、お題「プレイリスト」でだけ出す
   STAGED = playable.filter(s => s.staged); // retired：収録曲一覧の「削除を依頼」で出題から外した曲（データは残す）
   buildSeries();

@@ -1,6 +1,6 @@
 {
- "base": "f434a63f400bbafa742a9d273446450cfc08723a",
- "savedAt": "2026-11-06T12:29:32.562Z",
+ "base": "8ce43e04536f4699c4a40ae5913e6eaccbee480e",
+ "savedAt": "2026-11-06T22:05:03.489Z",
  "data": {
   "requests": [],
   "candidates": [],
@@ -36,6 +36,21 @@
       "dFf4AgBNR1E",
       "NxDu0M_8jd0",
       "xdnDrHWmiic"
+     ],
+     "scores": []
+    },
+    "2026-11-07": {
+     "ids": [
+      "VbAwWn8kMl0",
+      "c2AcM9iaPEw",
+      "L-hyY-1luHs",
+      "aHIR33pOUv0",
+      "QR6Gj0MKcew",
+      "w0Yg-sDKKPU",
+      "uK66PWyO0eI",
+      "67m9E6uDgxs",
+      "vB8sxY_PJ_w",
+      "mNpPQXMgtmw"
      ],
      "scores": []
     }

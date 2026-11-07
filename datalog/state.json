@@ -1,6 +1,6 @@
 {
  "base": "d4e45058ec2adaa6dd05937581a55a87191944d4",
- "savedAt": "2026-11-07T16:46:02.296Z",
+ "savedAt": "2026-11-07T16:46:41.147Z",
  "data": {
   "requests": [],
   "candidates": [],
@@ -186,6 +186,11 @@
     ],
     "qD59wF-8rEI": [
      1,
+     5,
+     1
+    ],
+    "r7gJrvvCyWo": [
+     1,
      0,
      0
     ]
@@ -197,13 +202,13 @@
     },
     "2026-11-08": {
      "games": 3,
-     "plays": 22
+     "plays": 23
     }
    },
    "byPlay": {
     "normal": {
      "games": 6,
-     "plays": 35
+     "plays": 36
     }
    }
   },

@@ -1,6 +1,6 @@
 {
  "base": "d4e45058ec2adaa6dd05937581a55a87191944d4",
- "savedAt": "2026-11-07T16:32:34.223Z",
+ "savedAt": "2026-11-07T16:34:59.556Z",
  "data": {
   "requests": [],
   "candidates": [],
@@ -83,6 +83,11 @@
      1,
      0,
      0
+    ],
+    "gX-kRZi2PXc": [
+     1,
+     0,
+     0
     ]
    },
    "days": {
@@ -91,14 +96,14 @@
      "plays": 13
     },
     "2026-11-08": {
-     "games": 1,
-     "plays": 1
+     "games": 2,
+     "plays": 2
     }
    },
    "byPlay": {
     "normal": {
-     "games": 4,
-     "plays": 14
+     "games": 5,
+     "plays": 15
     }
    }
   },

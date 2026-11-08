@@ -1445,7 +1445,21 @@ let lyRevealTick = null; // 歌詞クイズ：歌詞が1文字ずつ出る問題
 // iPhone のホーム画面から開いたとき（全画面）：音が出ないことがあるので、最初の問題で「タップして音を出す」を出す（1回押せば消える）
 const iosStandalone = /iPhone|iPad|iPod/.test(navigator.userAgent) && (navigator.standalone === true || matchMedia('(display-mode: standalone)').matches);
 let soundUnlocked = false;
-$('soundBtn').onclick = () => { player.unlockSound(); soundUnlocked = true; $('soundBtn').hidden = true; toast('音が出ないときは、iPhone の消音スイッチ（マナーモード）と音量を確かめてください'); };
+$('soundBtn').onclick = () => { player.unlockSound(); soundUnlocked = true; soundBad = 0; $('soundBtn').hidden = true; toast('まだ聞こえないときは、端末の音量・マナーモード・Bluetooth を確かめてください'); };
+// 音の見張り（どの端末でも）：曲が流れているはずなのに、止まっている・消音のままが2秒続いたら自動で鳴らし直し、4秒続いたら「タップして音を出す」を出す。
+// スマホは画面のタップなしでは音を出させてもらえないことがある（LINE の中のブラウザ、低電力モード、リンクから入り直した、画面を消して戻った など）
+let soundBad = 0;
+setInterval(() => {
+  if (!question || practice || pausedNow || question.play === 'mvflash' || question.lyric?.silent || document.hidden) { soundBad = 0; return; }
+  const s = player.soundState();
+  if (s === 'quiet') { player.fixQuiet(); return; }
+  soundBad = s === 'blocked' ? soundBad + 1 : 0;
+  if (soundBad === 4) player.kick(); // 2秒：まず自動で鳴らし直す（回線の遅れで止まった・取りこぼした）
+  if (soundBad >= 8) $('soundBtn').hidden = false; // 4秒：それでも鳴らない＝端末がタップを求めている
+  else if (s === 'ok') $('soundBtn').hidden = true;
+}, 500);
+// 画面を戻したとき：流れているはずなら鳴らし直す（止まっていたら、上の見張りがボタンを出す）
+document.addEventListener('visibilitychange', () => { if (!document.hidden && question && !pausedNow) player.resume(); });
 socket.on('question', () => { if (iosStandalone && !soundUnlocked && !practice) $('soundBtn').hidden = false; });
 socket.on('question', q => {
   hidePokerBet(); hideWolf(); hideIns(); hideDixit(); hideDt(); hideTs(); hideBaba(); hideCn(); hideDf(); hideWw(); hideKm(); hideAz();

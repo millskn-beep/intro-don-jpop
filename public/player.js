@@ -31,16 +31,17 @@ export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {
   };
 
   const run = fn => { if (apiReady) fn(); else pending.push(fn); };
-  const clear = () => { timers.forEach(clearTimeout); timers = []; clearInterval(fadeTimer); clearInterval(waitTimer); };
+  const clear = () => { timers.forEach(clearTimeout); timers = []; clearInterval(fadeTimer); fading = false; clearInterval(waitTimer); };
   const later = (fn, ms) => timers.push(setTimeout(fn, ms));
 
+  let fading = false; // フェード中（音量が小さくても、わざと）
   function fade(from, to, ms, done) {
-    clearInterval(fadeTimer);
+    clearInterval(fadeTimer); fading = true;
     const steps = Math.max(1, Math.round(ms / 50)); let i = 0;
     yt.setVolume(from);
     fadeTimer = setInterval(() => {
       i++; yt.setVolume(from + (to - from) * i / steps);
-      if (i >= steps) { clearInterval(fadeTimer); done && done(); }
+      if (i >= steps) { clearInterval(fadeTimer); fading = false; done && done(); }
     }, 50);
   }
 
@@ -98,7 +99,7 @@ export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {
       run(() => {
         const go = () => { wantPlay = true; yt.seekTo(Math.max(0, chorus - CHORUS_LEAD), true); yt.unMute(); yt.playVideo(); fade(0, volume, FADE_IN); };
         // イントロが鳴っていたら、フェードアウトして HINT_WAIT ミリ秒待ってからサビへ（いきなり切り替わらないように）
-        if (yt.getPlayerState() === YT.PlayerState.PLAYING) fade(volume, 0, FADE_OUT, () => later(go, HINT_WAIT)); else go();
+        if (yt.getPlayerState() === YT.PlayerState.PLAYING) fade(volume, 0, FADE_OUT, () => { wantPlay = false; later(go, HINT_WAIT); }); else go(); // 間の無音は「鳴っているはず」ではない
       });
     },
     // 答え合わせ：頭出しせず、流れている映像をそのまま流し続ける（ノンストップ）。
@@ -177,8 +178,8 @@ export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {
       run(() => { clearInterval(fadeTimer); wantPlay = true; yt.unMute(); if (yt.getPlayerState() !== YT.PlayerState.PLAYING) yt.playVideo(); fade(yt.getVolume(), volume, 400); });
     },
     // 答え合わせの終わりに、サビをフェードアウトする／延長されたら戻す
-    fadeOut(ms = 1500) { run(() => fade(yt.getVolume(), 0, ms)); },
-    fadeBack() { run(() => fade(yt.getVolume(), volume, 500)); },
+    fadeOut(ms = 1500) { run(() => fade(yt.getVolume(), 0, ms, () => { wantPlay = false; })); }, // 消えたあとは「鳴っているはず」ではない（音の見張りが戻さないように）
+    fadeBack() { run(() => { wantPlay = true; fade(yt.getVolume(), volume, 500); }); },
     duration() { return apiReady && yt.getDuration ? yt.getDuration() : 0; },
     // 答え合わせで位置を直すとき用：いまの再生位置／その位置から流す（自分の画面だけ）
     time() { return apiReady && yt.getCurrentTime ? yt.getCurrentTime() : 0; },
@@ -197,6 +198,19 @@ export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {
       yt.unMute(); yt.setVolume(volume);
       if (yt.getPlayerState() !== YT.PlayerState.PLAYING && yt.getPlayerState() !== YT.PlayerState.BUFFERING) { yt.playVideo(); setTimeout(() => { try { if (yt.getPlayerState() === YT.PlayerState.PLAYING && !wantPlay) yt.pauseVideo(); } catch (e) { /* なにもしない */ } }, 400); }
     },
+    // 音の見張り：流れているはずなのに鳴っていないか。'ok'／'blocked'（止まっている・消音＝タップが要る）／'quiet'（音量が0のまま＝タップなしで戻せる）／'idle'（流れる場面ではない）／'loading'
+    soundState() {
+      if (!apiReady || !wantPlay) return 'idle';
+      const st = yt.getPlayerState();
+      if (st === YT.PlayerState.BUFFERING) return 'loading';
+      if (st === YT.PlayerState.ENDED) return 'idle'; // 曲が最後まで終わった
+      if (st !== YT.PlayerState.PLAYING || yt.isMuted()) return 'blocked';
+      if (!fading && yt.getVolume() < 5) return 'quiet';
+      return 'ok';
+    },
+    // 止まったままの曲を鳴らし直す（タップなしで。回線の遅れで合図を取りこぼしたときなど）
+    kick() { run(() => { if (!wantPlay) return; clearInterval(fadeTimer); fading = false; yt.unMute(); yt.setVolume(volume); yt.playVideo(); }); },
+    fixQuiet() { run(() => { if (wantPlay && !fading) yt.setVolume(volume); }); },
     prime(videoId) {
       if (!apiReady) return; // API がまだなら、出題時のタップ（回答ボタン）で鳴ることに期待する
       clear();

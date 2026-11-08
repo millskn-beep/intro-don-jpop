@@ -66,7 +66,7 @@ window.addEventListener('online', () => { clockSamples = []; clockBurst(); }); /
 let me = null, room = null, question = null, myAnswer = null, timerStart = 0, tick = null;
 let myLifelines = null, answering = false; // answering: イントロ/サビ中で、まだ答えられる状態
 
-const player = createPlayer('player', {
+const player = createPlayer('player', { small: matchMedia('(max-width: 600px), (pointer: coarse) and (max-width: 1024px)').matches,
   onBuffer: on => { if (!practice && room?.state === 'playing') socket.emit('netBuf', on); },
   onReadyToPlay: () => practice ? layoutApi.onReady() : wolfPending ? wolfStartPlayback() : socket.emit('ready'), // テスト1問のときはサーバーに送らない
   onError: code => { toast(`この動画は再生できません（エラー ${code}）`); socket.emit('playerError', { code }); },
@@ -678,6 +678,9 @@ function applyMascot(on) {
 applyMascot(store.get('aq-mascot') !== '0');
 $('mascotChk').onchange = e => applyMascot(e.target.checked);
 // 軽量：出題中は背景の映像を低画質で読み込む（回線が遅くても音が止まりにくい。答え合わせで元に戻す）
+// スマホ（小さい画面・タッチ）：動画は一番低い画質で読み込み、背景は曲のサムネイル画像にする（jpop.css の body.phone）
+const isPhone = matchMedia('(max-width: 600px), (pointer: coarse) and (max-width: 1024px)').matches;
+document.body.classList.toggle('phone', isPhone);
 const lowQ = () => document.body.classList.contains('lowq');
 function applyLowQ(on) {
   document.body.classList.toggle('lowq', on);
@@ -1533,6 +1536,7 @@ socket.on('question', q => {
   $('lifelines').hidden = false;
   updateLifelineButtons();
   show('quiz');
+  if (isPhone) document.body.style.setProperty('--thumb', `url(https://i.ytimg.com/vi/${q.videoId}/hqdefault.jpg)`); // スマホの背景（動画の代わり）
   player.load(q.videoId, q.start ?? q.intro);
   if (q.play !== 'mvflash') player.lowQuality(lowQ()); // 軽量：出題中は低画質で読み込む
 });

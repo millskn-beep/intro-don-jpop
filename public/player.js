@@ -9,7 +9,7 @@ const CHORUS_PRELOAD = 4; // サビの先読み：サビの位置から何秒先
 const SYNC_MAX = 0.8; // 再生位置のずれがこの秒数より大きいときは飛ばし直す（小さいずれで飛ぶと出だしがプツプツ途切れる）
 const SYNC_MIN = 0.3, SYNC_RATE = 1.25, SYNC_OK = 0.08, SYNC_CATCH_MS = 6000; // 0.3〜0.8秒のずれは、少し速く（先に進んでいたら少し遅く）流して追いつく。0.08秒以内になったら元の速さへ
 
-export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {}) {
+export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer, small = false } = {}) { // small：スマホ（小さい枠＝低い画質で読み込む）
   let yt = null, apiReady = false, pending = [];
   let volume = VOL_DEFAULT, fadeTimer = null, timers = [], waitTimer = null;
   let rate = 1; // 部屋の再生速度（setRate）。追いつくために速さを変えたあとは、この速さへ戻す
@@ -20,7 +20,7 @@ export function createPlayer(elementId, { onReadyToPlay, onError, onBuffer } = {
   document.head.appendChild(tag);
   window.onYouTubeIframeAPIReady = () => {
     yt = new YT.Player(elementId, {
-      width: 320, height: 180,
+      width: small ? 200 : 320, height: small ? 200 : 180,
       playerVars: { controls: 0, disablekb: 1, rel: 0, playsinline: 1, fs: 0, modestbranding: 1, origin: location.origin },
       events: {
         onReady: () => { apiReady = true; const list = pending; pending = []; list.forEach(fn => fn()); },

@@ -41,3 +41,10 @@
 /* 遊び方2（複数選択） */
 .don-box .ly-kinds { display: flex; flex-wrap: wrap; gap: 4px 10px; }
 .don-box label { font-size: 13px; }
+
+/* スマホ：YouTube は小さい枠（＝一番低い画質）で読み込んで見せない。背景は曲のサムネイル画像（通信を軽くして、音が止まりにくくする） */
+body.phone:not(#_) .video-bg iframe { /* 軽量（lowq）や答え合わせの指定より強く。拡大もしない（YouTube は見えている大きさで画質を決める） */
+  width: 200px !important; height: 200px !important; min-width: 0 !important; min-height: 0 !important; opacity: 0 !important; transform: translate(-50%, -50%) !important; filter: none !important; }
+body.phone .video-bg::before { content: ''; position: absolute; inset: -12%; background: var(--thumb, none) center / cover no-repeat; }
+body.phone.playing .video-bg::before { filter: blur(40px) saturate(1.2) brightness(.5) contrast(.5); }
+body.phone.revealing .video-bg::before { filter: brightness(.55); inset: 0; }
